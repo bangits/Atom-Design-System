@@ -1,0 +1,66 @@
+@mixin generate-sign-in-styles {
+  .LoginPageWrapper {
+    // Need to remove after ui package update
+    .LoginPageTitle {
+      color: #3c54b2;
+    }
+
+    .LoginPageSubTitle {
+      color: #8ea6c1;
+    }
+
+    input {
+      display: block;
+      height: calculateRem(38px);
+      width: calculateRem(280px);
+    }
+
+    .LoginButton {
+      button {
+        justify-content: center;
+      }
+    }
+
+    .LoginPageTitle,
+    .LoginPageSubTitle {
+      margin: 0;
+    }
+    //
+
+    @include flex(flex-end);
+
+    width: 100%;
+    height: 100vh;
+
+    background-image: getSignInColors(gradient-bg);
+
+    .LoginPageBox {
+      @include center();
+      background-color: getSignInColors(login-box-bg);
+
+      width: getSignInSizes(login-box-width);
+      border-radius: getSignInSizes(login-box-radius);
+      padding-left: getSignInSizes(login-box-left-offset);
+
+      box-sizing: border-box;
+
+      .LoginPageTitle {
+        margin-bottom: getSignInSizes(title-margin);
+      }
+
+      .LoginPageSubTitle {
+        margin-bottom: getSignInSizes(subtitle-margin);
+      }
+
+      .FormWrapper {
+        margin-bottom: getSignInSizes(form-margin);
+      }
+
+      .LoginButton {
+        button {
+          width: 100%;
+        }
+      }
+    }
+  }
+}
