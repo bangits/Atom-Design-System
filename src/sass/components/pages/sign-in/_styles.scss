@@ -54,6 +54,10 @@
 
       .FormWrapper {
         margin-bottom: getSignInSizes(form-margin);
+        .EmailInput {
+          max-height: getSignInSizes(input-height);
+          margin-bottom: getSignInSizes(input-margin-bottom);
+        }
       }
 
       .LoginButton {
