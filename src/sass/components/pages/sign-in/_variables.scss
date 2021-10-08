@@ -9,7 +9,9 @@ $sign-in-sizes: (
   login-box-left-offset: calculateRem(117px),
   // Margins
   title-margin: calculateRem(4px),
-  subtitle-margin: calculateRem(20px),
+  subtitle-margin: calculateRem(7px),
+  input-margin-bottom: calculateRem(10px),
+  input-height: calculateRem(44px),
   form-margin: calculateRem(56px)
 );
 
