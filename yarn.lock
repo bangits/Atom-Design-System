@@ -1473,7 +1473,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/core@2.0.14":
+"@my-ui/core@^2.0.14":
   version "2.0.14"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.0.14.tgz#ee15f77ae22c59adf7b3e50f9a9b43d2d9b13000"
   integrity sha1-7hX3euIsWa33s+UPmptD0tmxMAA=

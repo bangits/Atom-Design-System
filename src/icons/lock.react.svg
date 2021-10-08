@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
+    <g data-name='Group 2403'>
+      <path data-name='Path 3521' d='M0 0h24v24H0z' style="fill: 'none'" />
+      <path data-name='Path 3522' d='M0 0h24v24H0z' style="opacity: '.87', fill: 'none'" />
+    </g>
+    <g data-name='Group 2404'>
+      <path
+        data-name='Path 3523'
+        d='M16.25 7h-.875V5.286a4.376 4.376 0 0 0-8.75 0V7H5.75A1.738 1.738 0 0 0 4 8.714v8.571A1.738 1.738 0 0 0 5.75 19h10.5A1.738 1.738 0 0 0 18 17.286V8.714A1.738 1.738 0 0 0 16.25 7zM8.375 5.286a2.626 2.626 0 0 1 5.25 0V7h-5.25zm7.875 3.428z'
+        transform='translate(1 2)'
+        style="fill: '#8ea6c1'"
+      />
+      <circle
+        data-name='Ellipse 218'
+        cx='2'
+        cy='2'
+        r='2'
+        transform='translate(10 13)'
+        style="fill: '#fff'"
+      />
+    </g>
+</svg>
