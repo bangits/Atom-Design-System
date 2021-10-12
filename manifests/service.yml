@@ -1,15 +1,15 @@
 apiVersion: v1
 kind: Service
 metadata:
-    name: "atomaks-2f74"
-    labels:
-        app: "atomaks-2f74"
+  name: 'atomaks-2f74'
+  labels:
+    app: 'atomaks-2f74'
 spec:
-    type: LoadBalancer
-    ports:
+  type: LoadBalancer
+  ports:
     - port: 6000
       targetPort: 6000
       protocol: TCP
       name: http
-    selector:
-        app: "atomaks-2f74"
+  selector:
+    app: 'atomaks-2f74'
