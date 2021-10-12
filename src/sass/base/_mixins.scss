@@ -3,3 +3,17 @@
 @mixin generateBorderWithBoxShadow($color-variable, $size: 0.1rem) {
   @include theme(box-shadow, $color-variable, 0px 0px 0px $size);
 }
+
+// This mixins used for generating flexbox
+
+@mixin flex($justify-content: null, $align-items: null, $direction: null, $flex-wrap: null) {
+  display: flex;
+  justify-content: $justify-content;
+  align-items: $align-items;
+  flex-direction: $direction;
+  flex-wrap: $flex-wrap;
+}
+
+@mixin center() {
+  @include flex(center, center);
+}
