@@ -1,4 +1,4 @@
-import { typedMemo } from '@/helpers/typedMemo';
+import { typedMemo } from '@/helpers';
 import { TextInput } from '@my-ui/core';
 import React, { useCallback, useState } from 'react';
 
