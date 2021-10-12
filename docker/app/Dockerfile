@@ -14,7 +14,7 @@ RUN yarn
 COPY . .
 
 # Exposing application in-browser module port
-EXPOSE 6000
+EXPOSE 6005
 
 # Start application
 CMD ["yarn", "start"]
