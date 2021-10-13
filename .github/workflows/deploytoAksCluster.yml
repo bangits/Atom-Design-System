@@ -1,4 +1,8 @@
-on: [push]
+on:
+  push:
+    branches:
+      - master
+      - develop
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -48,3 +52,7 @@ jobs:
             atomfrontcr.azurecr.io/atomaks:${{ github.sha }}
           imagepullsecrets: |
             atomaksdockerauth
+
+      - name: Update importmap
+        run: |
+          curl -d '{ "service":"@atom/design-system","url":"http://20.88.177.162:6005/atom-design-system.js?v=${{ github.sha }}" }' -X PATCH http://52.149.205.195:8000/services\?env=dev\&skip_url_check -H "Accept:application/json" -H "Content-Type:application/json"
