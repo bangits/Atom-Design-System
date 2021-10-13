@@ -57,20 +57,25 @@ export const Default = () => {
           }
         },
         {
-          type: 'input',
-          name: 'theme',
-          props: {
-            label: 'Theme'
-          }
+          type: 'radio',
+          name: 'gender',
+          props: [
+            {
+              value: 'male',
+              label: 'Male',
+              disabled: false
+            },
+            {
+              value: 'female',
+              label: 'Female'
+            }
+          ]
         }
       ])}
       applyLabel={text('applyLabel', 'Apply')}
       clearLabel={text('clearLabel', 'Clear')}
       onSubmit={(state) => console.log(state)}
-      onClear={(setState) => {
-        setState({});
-        console.log('Cleared');
-      }}
+      onClear={() => console.log('Cleared')}
     />
   );
 };
