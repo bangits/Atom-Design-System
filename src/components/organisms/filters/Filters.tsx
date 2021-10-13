@@ -37,6 +37,26 @@ const filterReducer = (type, props, name, value, state, setState) => {
 
 export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown';
 
+export type IObject =
+  | {
+      type: 'checked';
+      parameters: IParametersCheck;
+    }
+  | {
+      type: 'counter';
+      parameters: IParametersCounter;
+    };
+export type ObjectType = IObject['type']; //// in case you need this union
+export type ObjectParameters = IObject['parameters']; //// in case you need this union
+export interface IParametersCheck {
+  checked: boolean;
+}
+export interface IParametersCounter {
+  max: number;
+  min: number;
+  step: number;
+}
+
 export interface FiltersProps {
   filters?: {
     type?: FilterType;
@@ -53,7 +73,7 @@ export interface FiltersProps {
   resultLabel?: string;
   defaultOpened?: boolean;
   initialValues?: {};
-  onSubmit?: () => void;
+  onSubmit?: (state: any) => void;
   onClear?: () => void;
 }
 
@@ -71,7 +91,7 @@ const Filters: FC<FiltersProps> = ({
   const INITIAL_STATE = { ...initialValues };
 
   const [state, setState] = useState(INITIAL_STATE);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(defaultOpened);
 
   const handelOpenClick = useCallback(() => {
     setIsOpen(!isOpen);
@@ -80,10 +100,7 @@ const Filters: FC<FiltersProps> = ({
   console.log(state, isOpen);
 
   return (
-    <div
-      className={classNames(styles.FiltersBase, styles[`FiltersBase--${isOpen ? 'open' : 'closed'}`], {
-        [styles[`FiltersBase--open`]]: defaultOpened
-      })}>
+    <div className={classNames(styles.FiltersBase, styles[`FiltersBase--${isOpen ? 'open' : 'closed'}`])}>
       <div>
         {filters &&
           filters.map((filter, key) => {
@@ -107,8 +124,8 @@ const Filters: FC<FiltersProps> = ({
         <div>Icon Container</div>
         <div>
           <span onClick={handelOpenClick}>Open-Close Icon</span>
-          <span onClick={onClear}>{clearLabel}</span>
-          <Button onClick={onSubmit}>{applyLabel}</Button>
+          <span onClick={() => onClear(state)}>{clearLabel}</span>
+          <Button onClick={() => onSubmit(state)}>{applyLabel}</Button>
         </div>
       </div>
     </div>

@@ -66,8 +66,11 @@ export const Default = () => {
       ])}
       applyLabel={text('applyLabel', 'Apply')}
       clearLabel={text('clearLabel', 'Clear')}
-      onSubmit={() => console.log('Submitted')}
-      onClear={() => console.log('Cleared')}
+      onSubmit={(state) => console.log(state)}
+      onClear={(setState) => {
+        setState({});
+        console.log('Cleared');
+      }}
     />
   );
 };
