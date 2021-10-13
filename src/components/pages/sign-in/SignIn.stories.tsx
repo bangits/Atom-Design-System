@@ -21,6 +21,8 @@ export const Default = () => {
           </React.Fragment>
         );
       }}
+      passwordInputLabel='password'
+      usernameInputLabel='username'
     />
   );
 };

@@ -2,7 +2,7 @@ import { typedMemo } from '@/helpers/typedMemo';
 import { TextInput } from '@my-ui/core';
 import React, { useCallback, useState } from 'react';
 
-const PasswordInput: typeof TextInput = () => {
+const PasswordInput: typeof TextInput = (props) => {
   const [show, setShow] = useState(false);
 
   const iconClickHandler = useCallback(() => {
@@ -11,7 +11,7 @@ const PasswordInput: typeof TextInput = () => {
 
   return (
     <TextInput
-      label='Password'
+      {...props}
       type={show ? 'text' : 'password'}
       startIcon={
         <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
@@ -24,14 +24,14 @@ const PasswordInput: typeof TextInput = () => {
               data-name='Path 3523'
               d='M16.25 7h-.875V5.286a4.376 4.376 0 0 0-8.75 0V7H5.75A1.738 1.738 0 0 0 4 8.714v8.571A1.738 1.738 0 0 0 5.75 19h10.5A1.738 1.738 0 0 0 18 17.286V8.714A1.738 1.738 0 0 0 16.25 7zM8.375 5.286a2.626 2.626 0 0 1 5.25 0V7h-5.25zm7.875 3.428z'
               transform='translate(1 2)'
-              style={{ fill: '#8ea6c1' }}
+              style={{ fill: 'currentColor' }}
             />
             <circle data-name='Ellipse 218' cx='2' cy='2' r='2' transform='translate(10 13)' style={{ fill: '#fff' }} />
           </g>
         </svg>
       }
       endIcon={
-        show ? (
+        !show ? (
           <svg
             style={{ cursor: 'pointer' }}
             xmlns='http://www.w3.org/2000/svg'
@@ -53,7 +53,7 @@ const PasswordInput: typeof TextInput = () => {
             viewBox='0 0 24 24'
             onClick={iconClickHandler}>
             <path
-              style={{ fill: '#8ea6c1' }}
+              style={{ fill: 'currentColor' }}
               d='M12.015 7c4.751 0 8.063 3.012 9.504 4.636-1.401 1.837-4.713 5.364-9.504 5.364-4.42 0-7.93-3.536-9.478-5.407 1.493-1.647 4.817-4.593 9.478-4.593zm0-2c-7.569 0-12.015 6.551-12.015 6.551s4.835 7.449 12.015 7.449c7.733 0 11.985-7.449 11.985-7.449s-4.291-6.551-11.985-6.551zm-.015 5c1.103 0 2 .897 2 2s-.897 2-2 2-2-.897-2-2 .897-2 2-2zm0-2c-2.209 0-4 1.792-4 4 0 2.209 1.791 4 4 4s4-1.791 4-4c0-2.208-1.791-4-4-4z'
             />
           </svg>

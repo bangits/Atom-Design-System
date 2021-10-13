@@ -1,6 +1,6 @@
 {
-  "extends": "ts-config-single-spa",
   "compilerOptions": {
+    "moduleResolution": "Node",
     "declaration": true,
     "declarationDir": "dist",
     "rootDir": "src",
@@ -8,11 +8,15 @@
     "jsx": "react-jsx",
     "baseUrl": "src",
     "esModuleInterop": true,
+    "target": "ESNext",
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "types": [],
     "paths": {
       // This paths synchronized with webpack shared config
       "@/*": ["*"]
     }
   },
-  "include": ["src/**/*", "node_modules/@types"],
-  "exclude": ["src/**/*.test*"]
+  "files": ["./src/atom-design-system.tsx"],
+  "exclude": ["./node_modules"]
 }
