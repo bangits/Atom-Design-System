@@ -17,6 +17,5 @@
       "@/*": ["*"]
     }
   },
-  "files": ["./src/*/**"],
   "exclude": ["./node_modules"]
 }

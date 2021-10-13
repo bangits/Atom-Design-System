@@ -15,7 +15,7 @@
         .ProviderContainerWrapper {
           margin-top: getProviderInSizes(provider-container-wrapper);
           .ProviderFormGroup {
-            @include flex(null, center);
+            @include flex;
             flex-wrap: wrap;
             margin-bottom: getProviderInSizes(provider-form-groupMarginTop);
 

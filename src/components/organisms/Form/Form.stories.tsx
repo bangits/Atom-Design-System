@@ -33,8 +33,18 @@ export const Default = () => {
           type: 'select',
           name: 'input2',
           props: {
-            placeholder: 'asdasd',
-            options: [{ label: 'asdasdasdasd', value: 2 }]
+            inputLabel: 'asdasd',
+            options: [{ label: 'asdasdasdasd', value: 2 }],
+            isSearchable: true
+          }
+        },
+        {
+          type: 'select',
+          name: 'input2',
+          props: {
+            inputLabel: 'asdasd',
+            options: [{ label: 'asdasdasdasd', value: 2 }],
+            isSearchable: true
           }
         }
       ]}

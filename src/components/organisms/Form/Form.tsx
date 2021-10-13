@@ -1,8 +1,8 @@
-import { ButtonProps, TextInput, TextInputProps, Typography, Card, Button, Select, SelectProps } from '@my-ui/core';
-import React, { FC } from 'react';
 import { typedMemo } from '@/helpers';
-import styles from './Form.module.scss';
+import { Button, ButtonProps, Card, Select, SelectProps, TextInput, TextInputProps, Typography } from '@my-ui/core';
 import classNames from 'classnames';
+import React, { FC } from 'react';
+import styles from './Form.module.scss';
 
 export interface FormProps {
   title: string;
@@ -48,7 +48,12 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
                             containerClassName={classNames(styles.ProviderForm, field.props.containerClassName)}
                           />
                         ) : (
-                          <Select {...props} {...field.props} />
+                          <Select
+                            {...props}
+                            {...field.props}
+                            className={classNames(styles.ProviderForm, field.props.className)}
+                            fullWidth
+                          />
                         )}
                       </>
                     ),
