@@ -4,7 +4,7 @@
     "start": "webpack serve --env development",
     "start-with-storybook": "yarn start && yarn storybook",
     "start:standalone": "webpack serve --env standalone",
-    "build": "webpack --mode=production",
+    "build": "webpack --mode=production --env production",
     "lint": "eslint src --ext js,ts,tsx",
     "format": "yarn pretty-quick",
     "check-format": "prettier --check .",
@@ -78,7 +78,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@my-ui/core": "2.0.20",
+    "@my-ui/core": "2.1.0",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
