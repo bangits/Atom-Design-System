@@ -17,6 +17,6 @@
       "@/*": ["*"]
     }
   },
-  "files": ["./src/atom-design-system.tsx"],
+  "files": ["./src/*/**"],
   "exclude": ["./node_modules"]
 }
