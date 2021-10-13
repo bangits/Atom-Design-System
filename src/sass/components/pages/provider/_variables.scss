@@ -1,0 +1,11 @@
+$sign-in-colors: ();
+
+$sign-in-sizes: ();
+
+@function getSignInColors($key) {
+  @return map-get($sign-in-colors, $key);
+}
+
+@function getSignInSizes($key) {
+  @return map-get($sign-in-sizes, $key);
+}
