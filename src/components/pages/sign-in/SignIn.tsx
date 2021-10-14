@@ -24,7 +24,7 @@ const SignIn: FC<SignInProps> = ({
   const createEmailInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
       (props) =>
-        <TextInput {...inputProps} {...props} />,
+        <TextInput {...inputProps} {...props} className={styles.EmailInput} />,
     []
   );
   const createPasswordInputRenderer = useCallback(

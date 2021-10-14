@@ -10,9 +10,9 @@ $sign-in-sizes: (
   // Margins
   title-margin: calculateRem(4px),
   subtitle-margin: calculateRem(17px),
-  input-margin-bottom: calculateRem(10px),
+  input-margin-bottom: calculateRem(26px),
   input-height: calculateRem(44px),
-  form-margin: calculateRem(56px)
+  form-margin: calculateRem(50px)
 );
 
 @function getSignInColors($key) {
