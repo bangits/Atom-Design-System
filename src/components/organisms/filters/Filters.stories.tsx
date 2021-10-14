@@ -10,56 +10,101 @@ export default {
 export const Default = () => {
   return (
     <Filters
-      resultLabel='1006 users founded'
+      resultLabel='1062 users found'
       defaultOpened={boolean('defaultOpened', true)}
       initialValues={object('initialValues', {
-        gameId: '',
+        gameId: '1256789DS',
         externalId: '',
-        providerName: '',
         gameName: '',
         type: '',
-        theme: '',
         checkbox: {},
-        betRange: {}
+        betRange: {},
+        platform: [1],
+        providerName: [{ label: 'Provider 1', value: 1 }],
+        theme: [
+          { label: 'Theme 1', value: 1 },
+          { label: 'Theme 2', value: 2 }
+        ],
+        status: '2',
+        rtp: { from: '500', to: '5000000' }
       })}
       filters={object('filters', [
         {
-          name: 'multiSelect',
+          name: 'gameId',
+          type: 'input',
+          props: {
+            label: 'Game ID'
+          }
+        },
+        {
+          name: 'externalId',
+          type: 'input',
+          props: {
+            label: 'External ID'
+          }
+        },
+        {
+          name: 'providerName',
           type: 'select',
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Provider Name',
+            inputSelectedLabel: 'Selected providers are: ',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
+              { label: 'Provider 1', value: 1 },
+              { label: 'Provider 2', value: 2 },
+              { label: 'Provider 3', value: 3 }
             ],
             isSearchable: true,
             isMulti: true
           }
         },
         {
-          name: 'multiSelect',
+          name: 'gameName',
+          type: 'input',
+          props: {
+            label: 'Game Name'
+          }
+        },
+        {
+          name: 'theme',
           type: 'select',
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Theme',
+            inputSelectedLabel: 'Selected themes are: ',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
+              { label: 'Theme 1', value: 1 },
+              { label: 'Theme 2', value: 2 },
+              { label: 'Theme 3', value: 3 }
             ],
             isSearchable: true,
             isMulti: true
           }
         },
         {
-          name: 'multiSelect',
+          name: 'type',
           type: 'select',
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Type',
+            inputSelectedLabel: 'Selected types are: ',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
+              { label: 'Type 1', value: 1 },
+              { label: 'Type 2', value: 2 },
+              { label: 'Type 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          name: 'subtype',
+          type: 'select',
+          props: {
+            inputLabel: 'Subtype',
+            inputSelectedLabel: 'Selected subtypes are: ',
+            options: [
+              { label: 'Subtype 1', value: 1 },
+              { label: 'Subtype 2', value: 2 },
+              { label: 'Subtype 3', value: 3 }
             ],
             isSearchable: true,
             isMulti: true
@@ -67,135 +112,203 @@ export const Default = () => {
         },
         {
           type: 'from-to',
-          name: 'betRange',
+          name: 'rtp',
+          fromInputProps: {
+            label: 'RTP-From'
+          },
+          toInputProps: {
+            label: 'RTP-To'
+          }
+        },
+        {
+          name: 'date',
+          type: 'select',
+          props: {
+            inputLabel: 'Date',
+            options: [
+              { label: 'Date 1', value: 1 },
+              { label: 'Date 2', value: 2 },
+              { label: 'Date 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          name: 'feature',
+          type: 'select',
+          props: {
+            inputLabel: 'Feature',
+            inputSelectedLabel: 'Selected futures are: ',
+            options: [
+              { label: 'Feature 1', value: 1 },
+              { label: 'Feature 2', value: 2 },
+              { label: 'Feature 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          name: 'sort',
+          type: 'select',
+          props: {
+            inputLabel: 'Sort',
+            inputSelectedLabel: 'Selected sorts are: ',
+            options: [
+              { label: 'Sort 1', value: 1 },
+              { label: 'Sort 2', value: 2 },
+              { label: 'Sort 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          name: 'currency',
+          type: 'select',
+          props: {
+            inputLabel: 'Currency',
+            inputSelectedLabel: 'Selected currencies are: ',
+            options: [
+              { label: 'Currency 1', value: 1 },
+              { label: 'Currency 2', value: 2 },
+              { label: 'Currency 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          name: 'defaultCurrency',
+          type: 'select',
+          props: {
+            inputLabel: 'Default Currency',
+            inputSelectedLabel: 'Selected def. Curr. are: ',
+            options: [
+              { label: 'Default Currency 1', value: 1 },
+              { label: 'Default Currency 2', value: 2 },
+              { label: 'Default Currency 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          name: 'volatility',
+          type: 'select',
+          props: {
+            inputLabel: 'Volatility',
+            inputSelectedLabel: 'Selected volatilities are: ',
+            options: [
+              { label: 'Volatility 1', value: 1 },
+              { label: 'Volatility 2', value: 2 },
+              { label: 'Volatility 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          name: 'uiLanguages',
+          type: 'select',
+          props: {
+            inputLabel: 'UI Languages',
+            inputSelectedLabel: 'Selected languages are: ',
+            options: [
+              { label: 'UI Language 1', value: 1 },
+              { label: 'UI Language 2', value: 2 },
+              { label: 'UI Language 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          type: 'from-to',
+          name: 'min',
           fromInputProps: {
             label: 'Min bet-From'
           },
           toInputProps: {
-            label: 'Min bet - To'
+            label: 'Min bet-To'
           }
         },
         {
-          name: 'multiSelect',
+          type: 'from-to',
+          name: 'max',
+          fromInputProps: {
+            label: 'Max bet-From'
+          },
+          toInputProps: {
+            label: 'Max bet-To'
+          }
+        },
+        {
+          type: 'from-to',
+          name: 'win',
+          fromInputProps: {
+            label: 'Win-From'
+          },
+          toInputProps: {
+            label: 'Win-To'
+          }
+        },
+        {
+          name: 'operatingLanguages',
           type: 'select',
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Operating languages',
+            inputSelectedLabel: 'Selected op. langs are: ',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
+              { label: 'Operating language 1', value: 1 },
+              { label: 'Operating language 2', value: 2 },
+              { label: 'Operating language 3', value: 3 }
             ],
             isSearchable: true,
             isMulti: true
           }
         },
         {
-          name: 'multiSelect',
+          name: 'restrictedCountries',
           type: 'select',
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Restricted countries',
+            inputSelectedLabel: 'Selected rest. cn. are: ',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
+              { label: 'Restricted country 1', value: 1 },
+              { label: 'Restricted country 2', value: 2 },
+              { label: 'Restricted country 3', value: 3 }
             ],
             isSearchable: true,
             isMulti: true
           }
         },
         {
-          name: 'multiSelect',
+          name: 'supportedBrowsers',
           type: 'select',
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Supported browsers',
+            inputSelectedLabel: 'Selected browsers are: ',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
+              { label: 'Google Chrome', value: 1 },
+              { label: 'Mozilla FireFox', value: 2 },
+              { label: 'Opera', value: 3 }
             ],
             isSearchable: true,
             isMulti: true
           }
         },
         {
-          name: 'multiSelect',
+          name: 'creationDate',
           type: 'select',
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Creation Date',
+            inputSelectedLabel: 'Selected dates are: ',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
-          }
-        },
-        {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
-          }
-        },
-        {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
-          }
-        },
-        {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
-          }
-        },
-        {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
-          }
-        },
-        {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
+              { label: '19/09/19 12:00', value: 1 },
+              { label: '19/09/19 12:00', value: 2 },
+              { label: '19/09/19 12:00', value: 3 }
             ],
             isSearchable: true,
             isMulti: true
@@ -203,65 +316,76 @@ export const Default = () => {
         },
         {
           type: 'radio',
-          name: 'Status',
+          label: 'Status',
+          name: 'status',
           props: [
             {
-              value: 'male',
-              label: 'Male',
-              disabled: false
+              value: '1',
+              label: 'Active',
+              name: 'active'
             },
             {
-              value: 'female',
-              label: 'Female'
+              value: '2',
+              label: 'Inactive',
+              name: 'inactive'
             }
           ]
         }
       ])}
       checkboxFilters={object('checkboxFilters', [
         {
-          name: 'Platform',
+          name: 'platform',
           type: 'checkbox',
           label: 'Platform',
           checkboxProps: [
             {
               label: 'Desktop',
+              name: 'desktop',
               value: 1
             },
             {
               label: 'Tablet',
+              name: 'tablet',
               value: 2
             },
             {
               label: 'Mobile',
+              name: 'mobile',
               value: 3
             }
           ]
         },
         {
-          name: 'Mobile Screen Mode',
+          name: 'landscape',
+          label: 'Mobile Screen Mode',
           type: 'checkbox',
           checkboxProps: [
             {
               label: 'Landscape',
+              name: 'landscape',
               value: 1
             },
             {
               label: 'Portrait',
+              name: 'portrait',
               value: 2
             }
           ]
         },
         {
-          name: 'Tablet Screen Mode',
+          label: 'Tablet Screen Mode',
+          name: 'portrait',
           type: 'checkbox',
           checkboxProps: [
             {
               label: 'Landscape',
-              value: 1
+              value: 1,
+              name: 'secondLandscape'
             },
             {
               label: 'Portrait',
-              value: 2
+              value: 2,
+              name: 'secondPortrait'
             }
           ]
         }

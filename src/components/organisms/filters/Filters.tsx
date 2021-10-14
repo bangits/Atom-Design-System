@@ -1,18 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import {
-  Button,
-  Card,
-  Checkbox,
-  CheckboxProps,
-  RadioButton,
-  RadioGroup,
-  Select,
-  SelectProps,
-  TextInput,
-  Typography,
-  TextInputProps
-} from '@my-ui/core';
-import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
+import { Button, Card, Checkbox, RadioButton, RadioGroup, Select, TextInput, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useState } from 'react';
 import styles from './Filters.module.scss';
@@ -22,8 +9,8 @@ const filterReducer = (filter: Filter, state, setState) => {
   switch (filter.type) {
     case 'radio':
       return (
-        <div style={{ marginLeft: '17px' }}>
-          <span className={styles.FilterRadioName}>{filter.name}</span>
+        <div>
+          <span className={styles.FilterRadioName}>{filter.label}</span>
           <div className={styles.FilterRadioContainer} style={{ display: 'flex' }}>
             <RadioGroup
               value={state[filter.name]}
@@ -51,7 +38,16 @@ const filterReducer = (filter: Filter, state, setState) => {
         />
       );
     case 'select':
-      return <Select {...filter.props} />;
+      return (
+        <Select
+          // value={state?.[filter.name].filter(
+          //   (option) => option.label === 'type'
+          // )}
+          defaultValue={state?.[filter.name]}
+          onChange={(e) => setState({ ...state, [filter.name]: e.filter((option) => option.value !== '*') })}
+          {...filter.props}
+        />
+      );
     case 'from-to':
       return (
         <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -82,23 +78,29 @@ const checkboxReducer = (filter: Filter, state, setState) => {
       return (
         <div className={styles.FilterCheckbox}>
           <div className={styles.FilterNameChekbox}>
-            <span>{filter.name}</span>
+            <span>{filter.label}</span>
           </div>
           <div className={styles.FilterCheckboxContainer}>
             {filter.checkboxProps.map((prop) => {
               return (
-                <div className={styles.FilterCheckboxWrapper} key={prop.value}>
+                <div className={styles.FilterCheckboxWrapper} key={prop.name}>
                   <div className={styles.FilterCheckboxCheckContainer}>
                     <Checkbox
                       onChange={(e) =>
                         setState({
                           ...state,
-                          [filter.type]: { ...state?.[filter.type], [prop.label]: e.target.checked }
+                          [filter.name]: e.target.checked
+                            ? [...(state[filter.name] || []), prop.value]
+                            : state[filter.name].filter((id) => id !== prop.value)
                         })
                       }
+                      checked={(state[filter.name] || []).includes(prop.value)}
+                      id={prop.name}
                     />
                   </div>
-                  <label className={styles.FilterLabelChekcbox}>{prop.label}</label>
+                  <label htmlFor={prop.name} className={styles.FilterLabelChekcbox}>
+                    {prop.label}
+                  </label>
                 </div>
               );
             })}
@@ -197,7 +199,7 @@ function Filters<T>({
         </div>
         <div className={styles.ToggleContainer}>
           <Typography variant='p4' className={styles.UserFoundLabel}>
-            1062 users found
+            {resultLabel}
           </Typography>
           <div className={styles.ArrowIconContainer}>
             <span onClick={handelOpenClick}>
@@ -217,8 +219,8 @@ function Filters<T>({
               </svg>
             </span>
           </div>
-          <Typography variant='p1' className={styles.ClearLabel} onClick={onClear}>
-            {clearLabel}
+          <Typography variant='p1' className={!isOpen ? styles.ClearLabel : styles.ClearLabelActive}>
+            <span onClick={isOpen ? onClear : () => {}}>{clearLabel}</span>
           </Typography>
           <Button disabled={!isOpen} onClick={() => onSubmit(state)}>
             {applyLabel}

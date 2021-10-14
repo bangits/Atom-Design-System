@@ -25,10 +25,11 @@ export type Filter = {
   | {
       type: 'checkbox';
       label: string;
-      checkboxProps: CheckboxProps & { label: string; value: string | number }[];
+      checkboxProps: CheckboxProps & { label: string; value: string | number; name: string }[];
     }
   | {
       type: 'radio';
+      label: string;
       props: RadioButtonProps & { label: string; value: string | number }[];
     }
   | {

@@ -53,6 +53,10 @@
     .ToggleContainer {
       display: flex;
       align-items: center;
+      .ClearLabelActive {
+        color: #3c54b2;
+        margin-right: 3.2rem;
+      }
       .ClearLabel {
         color: #3c54b2;
         opacity: 0.5;
