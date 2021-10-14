@@ -21,6 +21,7 @@
 
             .ProviderForm {
               width: getProviderInSizes(provider-form);
+              height: getProviderInSizes(provider-form-height);
               margin-bottom: getProviderInSizes(provider-form-marginBottom);
 
               &:nth-child(odd) {
