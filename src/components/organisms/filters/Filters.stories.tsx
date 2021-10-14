@@ -69,7 +69,7 @@ export const Default = () => {
           type: 'from-to',
           name: 'betRange',
           fromInputProps: {
-            label: 'Min bet - From'
+            label: 'Min bet-From'
           },
           toInputProps: {
             label: 'Min bet - To'
