@@ -1,5 +1,6 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { Button, Checkbox, CheckboxProps, RadioGroup, TextInput, TextInputProps } from '@my-ui/core';
+import { LockIcon } from '@/icons/index';
+import { Button, Checkbox, CheckboxProps, RadioGroup, TextInput, TextInputProps, Card, Typography } from '@my-ui/core';
 import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
 import { StatusProps } from '@my-ui/core/dist/components/Status/Status';
 import classNames from 'classnames';
@@ -100,12 +101,14 @@ const Filters: FC<FiltersProps> = ({
   console.log(state, isOpen);
 
   return (
-    <div className={classNames(styles.FiltersBase, styles[`FiltersBase--${isOpen ? 'open' : 'closed'}`])}>
-      <div>
+    <Card
+      borderRadius='1.6'
+      className={classNames(styles.FiltersBase, styles[`FiltersBase--${isOpen ? 'open' : 'closed'}`])}>
+      <div className={styles.FiltersContainer}>
         {filters &&
           filters.map((filter, key) => {
             return (
-              <div key={key}>
+              <div className={styles.FilterContainer} key={key}>
                 {filterReducer(filter.type, filter.props, filter.name, filter.props.value, state, setState)}
               </div>
             );
@@ -120,15 +123,25 @@ const Filters: FC<FiltersProps> = ({
             );
           })}
       </div>
-      <div>
-        <div>Icon Container</div>
+      <div className={styles.ControlContainer}>
         <div>
+          {/* <LockIcon/>  */}
+          <Typography variant='p4' className={styles.FilterLabel}>
+            Filters
+          </Typography>
+        </div>
+        <div className={styles.ToggleContainer}>
+          <Typography variant='p4' className={styles.UserFoundLabel}>
+            1062 users found
+          </Typography>
           <span onClick={handelOpenClick}>Open-Close Icon</span>
-          <span onClick={() => onClear(state)}>{clearLabel}</span>
+          <Typography variant='p3' className={styles.ClearLabel} onClick={() => onClear(state)}>
+            {clearLabel}
+          </Typography>
           <Button onClick={() => onSubmit(state)}>{applyLabel}</Button>
         </div>
       </div>
-    </div>
+    </Card>
   );
 };
 

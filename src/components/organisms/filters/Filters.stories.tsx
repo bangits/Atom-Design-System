@@ -62,6 +62,69 @@ export const Default = () => {
           props: {
             label: 'Theme'
           }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
+        },
+        {
+          type: 'input',
+          name: 'theme',
+          props: {
+            label: 'Theme'
+          }
         }
       ])}
       applyLabel={text('applyLabel', 'Apply')}
