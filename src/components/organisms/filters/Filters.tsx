@@ -16,48 +16,7 @@ import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio
 import classNames from 'classnames';
 import React, { useCallback, useState } from 'react';
 import styles from './Filters.module.scss';
-
-export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown';
-export interface FilterReducerProps {
-  type?: FilterType;
-  props?: TextInputProps | RadioButtonProps;
-  name?: string;
-  value?: string;
-  state?: unknown;
-  setState?: (value: unknown) => void;
-}
-
-export type Filter = {
-  name: string;
-} & (
-  | {
-      type: 'input';
-      props: TextInputProps;
-    }
-  | {
-      type: 'select';
-      props: SelectProps[];
-    }
-  | {
-      type: 'checkbox';
-      checkboxProps: CheckboxProps[];
-    }
-  | {
-      type: 'radio';
-      props: RadioButtonProps[];
-    }
-);
-export interface FiltersProps<T> {
-  filters?: Filter[];
-  checkboxFilters?: Filter[];
-  clearLabel: string;
-  applyLabel: string;
-  resultLabel: string;
-  defaultOpened?: boolean;
-  initialValues?: T;
-  onSubmit: (state: T) => void;
-  onClear: () => void;
-}
+import { Filter, FiltersProps } from './FilterTypes';
 
 const filterReducer = (filter: Filter, state, setState) => {
   switch (filter.type) {

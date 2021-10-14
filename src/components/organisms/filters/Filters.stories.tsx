@@ -10,6 +10,7 @@ export default {
 export const Default = () => {
   return (
     <Filters
+      resultLabel='1006 users founded'
       defaultOpened={boolean('defaultOpened', true)}
       initialValues={object('initialValues', {
         gameId: '',
@@ -18,7 +19,8 @@ export const Default = () => {
         gameName: '',
         type: '',
         theme: '',
-        checkbox: {}
+        checkbox: {},
+        betRange: {}
       })}
       filters={object('filters', [
         {
@@ -64,17 +66,13 @@ export const Default = () => {
           }
         },
         {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
+          type: 'from-to',
+          name: 'betRange',
+          fromInputProps: {
+            label: 'Min bet - From'
+          },
+          toInputProps: {
+            label: 'Min bet - To'
           }
         },
         {
@@ -249,8 +247,9 @@ export const Default = () => {
       ])}
       checkboxFilters={object('checkboxFilters', [
         {
-          name: 'Platform',
+          name: 'platform',
           type: 'checkbox',
+          label: 'Platform',
           checkboxProps: [
             {
               label: 'Desktop',
