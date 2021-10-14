@@ -1,6 +1,6 @@
 import { PasswordInput } from '@/components/molecules';
 import { typedMemo } from '@/helpers';
-import { Button, TextInput, TextInputProps, Typography } from '@my-ui/core';
+import { Button, ButtonProps, TextInput, TextInputProps, Typography } from '@my-ui/core';
 import React, { FC, useCallback } from 'react';
 import styles from './SignIn.module.scss';
 
@@ -11,7 +11,7 @@ export interface SignInProps {
   buttonText?: string;
   usernameInputLabel: string;
   passwordInputLabel: string;
-  buttonProps: string;
+  buttonProps?: ButtonProps;
 }
 
 const SignIn: FC<SignInProps> = ({
@@ -21,7 +21,7 @@ const SignIn: FC<SignInProps> = ({
   renderInputs,
   usernameInputLabel,
   passwordInputLabel,
-  buttonProps
+  buttonProps = {}
 }) => {
   const createEmailInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>

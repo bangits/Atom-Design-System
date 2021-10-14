@@ -29,7 +29,7 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
   return (
     <>
       <div className={styles.ProviderWrapper}>
-        <Card borderRadius='1.6' className={styles.ProviderCard}>
+        <Card borderRadius={1.6} className={styles.ProviderCard}>
           <div className={styles.ProviderContainer}>
             <Typography variant='h2' color='primary' className={styles.ProviderTitle}>
               {title}

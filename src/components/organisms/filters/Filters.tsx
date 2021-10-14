@@ -15,8 +15,8 @@ const filterReducer = (filter: Filter, state, setState) => {
             value={state[filter.name]}
             onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}>
             {filter.props.map((prop) => (
-              <div>
-                <RadioButton key={prop.value} id={prop.label} {...prop} />
+              <div key={prop.value}>
+                <RadioButton id={prop.label} {...prop} />
 
                 <label htmlFor={prop.label}>{prop.label}</label>
               </div>
