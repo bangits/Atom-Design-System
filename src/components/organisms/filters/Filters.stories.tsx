@@ -19,7 +19,8 @@ export const Default = () => {
         gameName: '',
         type: '',
         theme: '',
-        checkbox: {}
+        checkbox: {},
+        betRange: {}
       })}
       filters={object('filters', [
         {
@@ -45,10 +46,13 @@ export const Default = () => {
           }
         },
         {
-          type: 'input',
-          name: 'gameName',
-          props: {
-            label: 'Game Name'
+          type: 'from-to',
+          name: 'betRange',
+          fromInputProps: {
+            label: 'Min bet - From'
+          },
+          toInputProps: {
+            label: 'Min bet - To'
           }
         },
         {

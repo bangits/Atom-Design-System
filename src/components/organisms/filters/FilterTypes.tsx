@@ -1,7 +1,7 @@
 import { CheckboxProps, SelectProps, TextInputProps } from '@my-ui/core';
 import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
 
-export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown';
+export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown' | 'from-to';
 export interface FilterReducerProps {
   type?: FilterType;
   props?: TextInputProps | RadioButtonProps;
@@ -30,6 +30,11 @@ export type Filter = {
   | {
       type: 'radio';
       props: RadioButtonProps & { label: string; value: string | number }[];
+    }
+  | {
+      type: 'from-to';
+      fromInputProps: TextInputProps;
+      toInputProps: TextInputProps;
     }
 );
 export interface FiltersProps<T> {
