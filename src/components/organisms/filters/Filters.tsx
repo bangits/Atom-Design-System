@@ -62,6 +62,7 @@ const filterReducer = (filter: Filter, state, setState) => {
     case 'radio':
       return (
         <div>
+          <span>{filter.name}</span>
           <RadioGroup
             value={state[filter.name]}
             onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}>

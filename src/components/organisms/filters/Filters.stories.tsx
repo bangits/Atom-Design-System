@@ -59,7 +59,7 @@ export const Default = () => {
         },
         {
           type: 'radio',
-          name: 'gender',
+          name: 'Gender',
           props: [
             {
               value: 'male',
