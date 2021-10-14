@@ -1,0 +1,45 @@
+@mixin generate-provider-styles {
+  .ProviderWrapper {
+    width: getProviderInSizes(provider-wrapper);
+
+    .ProviderCard {
+      padding: getProviderInSizes(provider-card-padding);
+      box-sizing: border-box;
+
+      .ProviderContainer {
+        .ProviderTitle {
+          font-weight: getProviderInSizes(provider-title-fontWeight);
+          text-align: getProviderInSizes(provider-title-align);
+        }
+
+        .ProviderContainerWrapper {
+          margin-top: getProviderInSizes(provider-container-wrapper);
+          .ProviderFormGroup {
+            @include flex;
+            flex-wrap: wrap;
+            margin-bottom: getProviderInSizes(provider-form-groupMarginTop);
+
+            .ProviderForm {
+              width: getProviderInSizes(provider-form);
+              height: getProviderInSizes(provider-form-height);
+              margin-bottom: getProviderInSizes(provider-form-marginBottom);
+
+              &:nth-child(odd) {
+                margin-right: getProviderInSizes(provider-form-groupMarginRigth);
+              }
+            }
+          }
+        }
+      }
+
+      .ProviderButtonGroup {
+        @include flex(center, center);
+        margin-top: getProviderInSizes(provider-button-marginTop);
+
+        .ProviderCloseButton {
+          margin-right: getProviderInSizes(provider-button-closeMargin);
+        }
+      }
+    }
+  }
+}
