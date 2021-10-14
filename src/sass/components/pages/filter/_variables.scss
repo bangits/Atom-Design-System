@@ -1,0 +1,45 @@
+$filter-in-sizes: (
+  filter-base-width: calculateRem(1246px),
+  filters-container-margin: 0 calculateRem(16px) 0 calculateRem(16px),
+  filter-container: calcalculateRem(230px),
+  filter-container-margin: calculateRem(24px) calculateRem(16px) 0 0,
+  filter-container-closed: calculateRem(70px),
+  control-container-padding: calculateRem(16px),
+  filter-label-fontWeight: 500,
+  filter-label-letterSpacing: calculateRem(1.14px),
+  filter-label-marginRight: calculateRem(8px),
+  clear-label: 0.5,
+  clear-label-marginRight: calculateRem(32px),
+  user-found-label-letterSpacing: calculateRem(1.14px),
+  user-found-label-marginRight: calculateRem(24px),
+  arrow-icon-container-width: calculateRem(24px),
+  arrow-icon-container-height: calculateRem(24px),
+  arrow-icon-container-marginRight: calculateRem(24px),
+  filter-radio-name: calculateRem(12px),
+  filter-radio-group-marginBottom: calculateRem(2px),
+  filter-radio-wdith: calculateRem(24px),
+  filter-radio-height: calculateRem(24px),
+  filter-radio-label-marginRight: calculateRem(8px),
+  filter-radio-label-size: calculateRem(14px),
+  filter-checkbox-margin: calculateRem(16px) calculateRem(40px) 0 calculateRem(29px),
+  filter-name-chekbox-size: calculateRem(12px),
+  filter-name-chekbox-marginBottom: calculateRem(3px),
+  filter-checkbox-check-container-width: calculateRem(24px),
+  filter-checkbox-check-container-height: calculateRem(24px),
+  filter-label-chekcbox-margin: 0 calculateRem(8px) 0 calculateRem(4px),
+  filter-label-chekcbox-size: calculateRem(14px)
+);
+
+$filter-in-colors: (
+  filter-base-background: (
+    white
+  )
+);
+
+@function getFilterInColors($key) {
+  @return map-get($sign-in-colors, $key);
+}
+
+@function getFilterInSizes($key) {
+  @return map-get($sign-in-sizes, $key);
+}

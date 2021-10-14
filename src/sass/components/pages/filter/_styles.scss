@@ -1,0 +1,114 @@
+@mixin generate-filter-in-styles {
+  .FiltersBase {
+    background-color: getFilterInColors(white);
+    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05);
+    width: getFilterInSizes(filter-base-width);
+    box-sizing: border-box;
+
+    .FiltersContainer {
+      @include flex(null, center);
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      width: 100%;
+      margin: getFilterInSizes(filters-container-margin);
+
+      .FilterContainer {
+        width: getFilterInSizes(filter-container);
+        margin: getFilterInSizes(filter-container-margin);
+      }
+    }
+
+    &--open {
+      height: 100%;
+    }
+    &--closed {
+      height: getFilterInSizes(filter-container-closed);
+
+      .FiltersContainer,
+      .Checkbox {
+        display: none;
+      }
+    }
+
+    .ControlContainer {
+      @include flex(space-between, center);
+      padding: getFilterInSizes(control-container-padding);
+      .FilterLabel {
+        font-weight: getFilterInSizes(filter-label-fontWeight);
+        letter-spacing: getFilterInSizes(filter-label-letterSpacing);
+        margin-right: getFilterInSizes(filter-label-marginRight);
+        color: #505d6e;
+      }
+      .ToggleContainer {
+        @include flex(null, center);
+        .ClearLabel {
+          color: #3c54b2;
+          opacity: getFilterInSizes(clear-label);
+          margin-right: getFilterInSizes(clear-label-marginRight);
+        }
+        .UserFoundLabel {
+          color: #505d6e;
+          letter-spacing: getFilterInSizes(user-found-label-letterSpacing);
+          margin-right: getFilterInSizes(user-found-label-marginRight);
+        }
+        .ArrowIconContainer {
+          width: getFilterInSizes(arrow-icon-container-width);
+          height: getFilterInSizes(arrow-icon-container-height);
+          margin-right: getFilterInSizes(arrow-icon-container-marginRight);
+        }
+      }
+    }
+  }
+
+  .Checkbox {
+    display: flex;
+  }
+
+  .FilterRadioName {
+    color: #8ea6c1;
+    font-size: getFilterInSizes(filter-radio-name);
+  }
+  .FilterRadioContainer {
+    display: flex;
+    .FilterRadioGroup {
+      @include flex(null, center);
+      margin-bottom: getFilterInSizes(filter-radio-group-marginBottom);
+      .FilterRadio {
+        @include flex(null, center);
+        width: getFilterInSizes(filter-radio-wdith);
+        height: getFilterInSizes(filter-radio-height);
+      }
+      .FilterRadioLabel {
+        margin-right: getFilterInSizes(filter-radio-label-marginRight);
+        color: #505d6e;
+        font-size: getFilterInSizes(filter-radio-label-size);
+      }
+    }
+  }
+
+  .FilterCheckbox {
+    width: 100%;
+    margin: getFilterInSizes(filter-checkbox-margin);
+    .FilterNameChekbox {
+      font-size: getFilterInSizes(filter-name-chekbox-size);
+      color: #8ea6c1;
+      margin-bottom: getFilterInSizes(filter-name-chekbox-marginBottom);
+    }
+    .FilterCheckboxContainer {
+      @include flex(null, center);
+      .FilterCheckboxWrapper {
+        @include flex(null, center);
+      }
+      .FilterCheckboxCheckContainer {
+        @include flex(null, center);
+        width: getFilterInSizes(filter-checkbox-check-container-width);
+        height: getFilterInSizes(filter-checkbox-check-container-height);
+      }
+      .FilterLabelChekcbox {
+        color: #505d6e;
+        margin: getFilterInSizes(filter-label-chekcbox-margin);
+        font-size: getFilterInSizes(filter-label-chekcbox-size);
+      }
+    }
+  }
+}
