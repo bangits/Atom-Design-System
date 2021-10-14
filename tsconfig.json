@@ -14,9 +14,9 @@
     "types": [],
     "paths": {
       // This paths synchronized with webpack shared config
-      "@/*": ["*"]
+      "@/*": ["./src"]
     }
   },
-  "files": ["./src/atom-design-system.tsx"],
+  "files": ["./src/**/*"],
   "exclude": ["./node_modules"]
 }
