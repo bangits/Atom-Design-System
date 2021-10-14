@@ -17,7 +17,8 @@ export const Default = () => {
         providerName: '',
         gameName: '',
         type: '',
-        theme: ''
+        theme: '',
+        checkbox: {}
       })}
       filters={object('filters', [
         {
@@ -68,6 +69,40 @@ export const Default = () => {
             {
               value: 'female',
               label: 'Female'
+            }
+          ]
+        },
+        {
+          name: 'multiSelect',
+          type: 'select',
+          props: {
+            inputLabel: 'Target market',
+            options: [
+              { label: 'market 1', value: 1 },
+              { label: 'market 2', value: 2 },
+              { label: 'market 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        }
+      ])}
+      checkboxFilters={object('checkboxFilters', [
+        {
+          name: 'Platform',
+          type: 'checkbox',
+          checkboxProps: [
+            {
+              label: 'Desktop',
+              value: 1
+            },
+            {
+              label: 'Tablet',
+              value: 2
+            },
+            {
+              label: 'Mobile',
+              value: 3
             }
           ]
         }

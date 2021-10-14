@@ -1,5 +1,15 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { Button, CheckboxProps, RadioButton, RadioGroup, TextInput, TextInputProps } from '@my-ui/core';
+import {
+  Button,
+  Checkbox,
+  CheckboxProps,
+  RadioButton,
+  RadioGroup,
+  Select,
+  SelectProps,
+  TextInput,
+  TextInputProps
+} from '@my-ui/core';
 import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
 import classNames from 'classnames';
 import React, { useCallback, useState } from 'react';
@@ -24,11 +34,11 @@ export type Filter = {
     }
   | {
       type: 'select';
-      props: { x: string };
+      props: SelectProps[];
     }
   | {
       type: 'checkbox';
-      props: CheckboxProps;
+      checkboxProps: CheckboxProps[];
     }
   | {
       type: 'radio';
@@ -37,10 +47,7 @@ export type Filter = {
 );
 export interface FiltersProps<T> {
   filters?: Filter[];
-  checkboxFilters?: {
-    name: string;
-    checkboxProps: CheckboxProps[];
-  }[];
+  checkboxFilters?: Filter[];
   clearLabel: string;
   applyLabel: string;
   resultLabel: string;
@@ -54,15 +61,18 @@ const filterReducer = (filter: Filter, state, setState) => {
   switch (filter.type) {
     case 'radio':
       return (
-        <>
+        <div>
           <RadioGroup
             value={state[filter.name]}
             onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}>
             {filter.props.map((prop) => (
-              <RadioButton key={prop.value} {...prop} />
+              <div>
+                <RadioButton key={prop.value} id={prop.value} {...prop} />
+                <label htmlFor={prop.value}>{prop.label}</label>
+              </div>
             ))}
           </RadioGroup>
-        </>
+        </div>
       );
     case 'input':
       return (
@@ -71,6 +81,30 @@ const filterReducer = (filter: Filter, state, setState) => {
           value={state[filter.name]}
           onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}
         />
+      );
+    case 'select':
+      return <Select {...filter.props} />;
+  }
+};
+const checkboxReducer = (filter: Filter, state, setState) => {
+  switch (filter.type) {
+    case 'checkbox':
+      return (
+        <div>
+          <h3>{filter.name}</h3>
+          {filter.checkboxProps.map((prop) => {
+            return (
+              <div key={prop.value}>
+                <Checkbox
+                  onChange={(e) =>
+                    setState({ ...state, [filter.type]: { ...state?.[filter.type], [prop.label]: e.target.checked } })
+                  }
+                />
+                <label>{prop.label}</label>
+              </div>
+            );
+          })}
+        </div>
       );
   }
 };
@@ -100,15 +134,12 @@ function Filters<T>({
           filters.map((filter, key) => {
             return <div key={key}>{filterReducer(filter, state, setState)}</div>;
           })}
+
         {/* Checkbox Filter Reducer */}
-        {/* {checkboxFilters &&
-              checkboxFilters.map((filter, key) => {
-                return (
-                  <div key={key}>
-                    {filterReducer(filter, state, setState)}
-                  </div>
-                );
-              })} */}
+        {checkboxFilters &&
+          checkboxFilters.map((filter, key) => {
+            return <div key={key}>{checkboxReducer(filter, state, setState)}</div>;
+          })}
       </div>
       <div>
         <div>Icon Container</div>
