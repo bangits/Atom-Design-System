@@ -1,61 +1,9 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import {
-  Button,
-  Checkbox,
-  CheckboxProps,
-  RadioButton,
-  RadioGroup,
-  Select,
-  SelectProps,
-  TextInput,
-  TextInputProps
-} from '@my-ui/core';
-import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
+import { Button, Checkbox, RadioButton, RadioGroup, Select, TextInput } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useState } from 'react';
 import styles from './Filters.module.scss';
-
-export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown';
-export interface FilterReducerProps {
-  type?: FilterType;
-  props?: TextInputProps | RadioButtonProps;
-  name?: string;
-  value?: string;
-  state?: unknown;
-  setState?: (value: unknown) => void;
-}
-
-export type Filter = {
-  name: string;
-} & (
-  | {
-      type: 'input';
-      props: TextInputProps;
-    }
-  | {
-      type: 'select';
-      props: SelectProps[];
-    }
-  | {
-      type: 'checkbox';
-      checkboxProps: CheckboxProps[];
-    }
-  | {
-      type: 'radio';
-      props: RadioButtonProps[];
-    }
-);
-export interface FiltersProps<T> {
-  filters?: Filter[];
-  checkboxFilters?: Filter[];
-  clearLabel: string;
-  applyLabel: string;
-  resultLabel: string;
-  defaultOpened?: boolean;
-  initialValues?: T;
-  onSubmit: (state: T) => void;
-  onClear: () => void;
-}
+import { Filter, FiltersProps } from './FilterTypes';
 
 const filterReducer = (filter: Filter, state, setState) => {
   switch (filter.type) {
@@ -68,8 +16,9 @@ const filterReducer = (filter: Filter, state, setState) => {
             onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}>
             {filter.props.map((prop) => (
               <div>
-                <RadioButton key={prop.value} id={prop.value} {...prop} />
-                <label htmlFor={prop.value}>{prop.label}</label>
+                <RadioButton key={prop.value} id={prop.label} {...prop} />
+
+                <label htmlFor={prop.label}>{prop.label}</label>
               </div>
             ))}
           </RadioGroup>
@@ -84,15 +33,23 @@ const filterReducer = (filter: Filter, state, setState) => {
         />
       );
     case 'select':
-      return <Select {...filter.props} />;
+      return (
+        <Select
+          onChange={(e: { label: string; value: string | number }[]) =>
+            setState({ ...state, [filter.name]: e?.filter((option) => option.value !== '*') })
+          }
+          {...filter.props}
+        />
+      );
   }
 };
+
 const checkboxReducer = (filter: Filter, state, setState) => {
   switch (filter.type) {
     case 'checkbox':
       return (
         <div>
-          <h3>{filter.name}</h3>
+          <h3>{filter.label}</h3>
           {filter.checkboxProps.map((prop) => {
             return (
               <div key={prop.value}>
@@ -100,8 +57,11 @@ const checkboxReducer = (filter: Filter, state, setState) => {
                   onChange={(e) =>
                     setState({ ...state, [filter.type]: { ...state?.[filter.type], [prop.label]: e.target.checked } })
                   }
+                  id={prop.label}
+                  name={filter.name}
+                  {...prop}
                 />
-                <label>{prop.label}</label>
+                <label htmlFor={prop.label}>{prop.label}</label>
               </div>
             );
           })}

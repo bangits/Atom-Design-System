@@ -10,6 +10,7 @@ export default {
 export const Default = () => {
   return (
     <Filters
+      resultLabel='1006 users founded'
       defaultOpened={boolean('defaultOpened', true)}
       initialValues={object('initialValues', {
         gameId: '',
@@ -63,8 +64,7 @@ export const Default = () => {
           props: [
             {
               value: 'male',
-              label: 'Male',
-              disabled: false
+              label: 'Male'
             },
             {
               value: 'female',
@@ -89,8 +89,9 @@ export const Default = () => {
       ])}
       checkboxFilters={object('checkboxFilters', [
         {
-          name: 'Platform',
+          name: 'platform',
           type: 'checkbox',
+          label: 'Platform',
           checkboxProps: [
             {
               label: 'Desktop',
