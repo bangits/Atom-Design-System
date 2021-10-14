@@ -24,26 +24,77 @@ export const Default = () => {
       fields={[
         {
           type: 'input',
-          name: 'input1',
+          name: 'name',
           props: {
-            label: 'Test1'
+            label: 'Provider Name'
           }
         },
         {
           type: 'select',
-          name: 'input2',
+          name: 'targetMarkets',
           props: {
-            inputLabel: 'asdasd',
-            options: [{ label: 'asdasdasdasd', value: 2 }],
-            isSearchable: true
+            inputLabel: 'Target market',
+            options: [
+              { label: 'market 1', value: 1 },
+              { label: 'market 2', value: 2 },
+              { label: 'market 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
           }
         },
         {
           type: 'select',
-          name: 'input2',
+          name: 'certifiedCountries',
           props: {
-            inputLabel: 'asdasd',
-            options: [{ label: 'asdasdasdasd', value: 2 }],
+            inputLabel: 'Certified countries',
+            options: [
+              { label: 'Certified country 1', value: 1 },
+              { label: 'Certified country 2', value: 2 },
+              { label: 'Certified country 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          type: 'select',
+          name: 'certifiedCountries',
+          props: {
+            inputLabel: 'Restricted countries',
+            options: [
+              { label: 'Restricted country 1', value: 1 },
+              { label: 'Restricted country 2', value: 2 },
+              { label: 'Restricted country 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          type: 'select',
+          name: 'providerCurrencies',
+          props: {
+            inputLabel: 'Currency',
+            options: [
+              { label: 'Currency 1', value: 1 },
+              { label: 'Currency 2', value: 2 },
+              { label: 'Currency 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          type: 'select',
+          name: 'defaultCurrency',
+          props: {
+            inputLabel: 'Default currency',
+            options: [
+              { label: 'Default currency 1', value: 1 },
+              { label: 'Default currency 2', value: 2 },
+              { label: 'Default currency 3', value: 3 }
+            ],
             isSearchable: true
           }
         }

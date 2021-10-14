@@ -8,7 +8,7 @@ export interface FormProps {
   title: string;
   firstButtonProps: ButtonProps;
   secondButtonProps: ButtonProps;
-  renderInputs: (InputComponent: typeof TextInput /*| typeof Select*/, name: string) => JSX.Element;
+  renderInputs: (InputComponent: typeof TextInput | typeof Select, name: string) => JSX.Element;
   fields: Array<
     {
       name: string;
