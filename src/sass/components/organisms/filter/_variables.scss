@@ -27,7 +27,8 @@ $filter-in-sizes: (
   filter-checkbox-check-container-width: calculateRem(24px),
   filter-checkbox-check-container-height: calculateRem(24px),
   filter-label-chekcbox-margin: 0 calculateRem(8px) 0 calculateRem(4px),
-  filter-label-chekcbox-size: calculateRem(14px)
+  filter-label-chekcbox-size: calculateRem(14px),
+  checkbox-container-marginTop: calculateRem(26px)
 );
 
 $filter-in-colors: (

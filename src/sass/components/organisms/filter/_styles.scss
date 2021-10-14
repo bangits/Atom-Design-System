@@ -1,4 +1,4 @@
-@mixin generate-filter-in-styles {
+@mixin generate-filter-styles {
   .FiltersBase {
     background-color: getFilterInColors(white);
     box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05);
@@ -62,6 +62,7 @@
 
   .Checkbox {
     display: flex;
+    margin-top: getFilterInSizes(checkbox-container-marginTop);
   }
 
   .FilterRadioName {

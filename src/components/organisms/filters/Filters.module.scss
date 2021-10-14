@@ -22,14 +22,20 @@
   &--open {
     height: 100%;
   }
+
   &--closed {
     height: 7rem;
 
     .FiltersContainer {
       display: none;
     }
+
     .Checkbox {
       display: none;
+    }
+
+    .ArrowIconContainer {
+      transform: rotate(180deg);
     }
   }
 
@@ -51,6 +57,7 @@
         color: #3c54b2;
         opacity: 0.5;
         margin-right: 3.2rem;
+        cursor: pointer;
       }
       .UserFoundLabel {
         color: #505d6e;
@@ -61,6 +68,8 @@
         width: 2.4rem;
         height: 2.4rem;
         margin-right: 2.4rem;
+        transition: transform 0.5s;
+        cursor: pointer;
       }
     }
   }
@@ -68,6 +77,7 @@
 
 .Checkbox {
   display: flex;
+  margin-top: 26px;
 }
 
 .FilterRadioName {

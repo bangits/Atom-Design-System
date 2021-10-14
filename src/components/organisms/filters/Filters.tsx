@@ -22,7 +22,7 @@ const filterReducer = (filter: Filter, state, setState) => {
   switch (filter.type) {
     case 'radio':
       return (
-        <div>
+        <div style={{ marginLeft: '17px' }}>
           <span className={styles.FilterRadioName}>{filter.name}</span>
           <div className={styles.FilterRadioContainer} style={{ display: 'flex' }}>
             <RadioGroup

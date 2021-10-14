@@ -202,36 +202,8 @@ export const Default = () => {
           }
         },
         {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
-          }
-        },
-        {
-          name: 'multiSelect',
-          type: 'select',
-          props: {
-            inputLabel: 'Target market',
-            options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
-          }
-        },
-        {
           type: 'radio',
-          name: 'Gender',
+          name: 'Status',
           props: [
             {
               value: 'male',
@@ -247,7 +219,7 @@ export const Default = () => {
       ])}
       checkboxFilters={object('checkboxFilters', [
         {
-          name: 'platform',
+          name: 'Platform',
           type: 'checkbox',
           label: 'Platform',
           checkboxProps: [
