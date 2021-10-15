@@ -11,6 +11,7 @@
     "target": "ESNext",
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
+    "emitDeclarationOnly": true,
     "types": [],
     "paths": {
       // This paths synchronized with webpack shared config
