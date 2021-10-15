@@ -1,21 +1,23 @@
 {
   "compilerOptions": {
-    "moduleResolution": "Node",
     "declaration": true,
+    "isolatedModules": false,
+    "noEmit": false,
+    "allowJs": false,
+    "emitDeclarationOnly": true,
     "declarationDir": "dist",
     "rootDir": "src",
     "outDir": "dist",
     "jsx": "react-jsx",
-    "baseUrl": "src",
-    "esModuleInterop": true,
     "target": "ESNext",
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "emitDeclarationOnly": true,
+    "baseUrl": "src",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
     "paths": {
-      // This paths synchronized with webpack shared config
-      "@/*": ["./src"]
-    }
+      "@/*": ["*"]
+    },
+    "skipLibCheck": true
   },
+  "include": ["src/**/*"],
   "exclude": ["node_modules"]
 }
