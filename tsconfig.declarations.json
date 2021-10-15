@@ -11,11 +11,11 @@
     "target": "ESNext",
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "types": [],
+    "emitDeclarationOnly": true,
     "paths": {
       // This paths synchronized with webpack shared config
-      "@/*": ["*"]
+      "@/*": ["./src"]
     }
   },
-  "exclude": ["./node_modules"]
+  "exclude": ["node_modules"]
 }

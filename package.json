@@ -20,7 +20,7 @@
     "kill-app": "docker-compose down",
     "pre-commit": "yarn format && git add .",
     "pre-push": "yarn format",
-    "build-declarations": "tsc"
+    "build-declarations": "tsc -p tsconfig.declarations.json"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
