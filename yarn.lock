@@ -1485,13 +1485,13 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/core@2.3.0":
-  version "2.3.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.3.0.tgz#afd76fdcbacc594f0d4173361355d7b9ab3eae96"
-  integrity sha1-r9dv3LrMWU8NQXM2E1XXuas+rpY=
+"@my-ui/core@^2.3.3":
+  version "2.3.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.3.3.tgz#73d879b0809b61e23f96d3bb2aed0609a115e9d4"
+  integrity sha1-c9h5sICbYeI/ltO7Ku0GCaEV6dQ=
   dependencies:
     "@my-ui/react-datepicker" "1.1.0"
-    "@my-ui/react-select" "1.1.0"
+    "@my-ui/react-select" "1.1.2"
     "@my-ui/react-table" "^1.0.0"
     classnames "^2.3.1"
     react-jss "^10.8.0"
@@ -1509,10 +1509,10 @@
     react-onclickoutside "^6.10.0"
     react-popper "^2.2.5"
 
-"@my-ui/react-select@1.1.0":
-  version "1.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.0.tgz#eedf27470d385e4659a491489b1eb9ebb3ea4099"
-  integrity sha1-7t8nRw04XkZZpJFImx6567PqQJk=
+"@my-ui/react-select@1.1.2":
+  version "1.1.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.2.tgz#eadbf12fa5bea620eb21dc31a1de1ee58df5ed07"
+  integrity sha1-6tvxL6W+piDrIdwxod4e5Y317Qc=
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"

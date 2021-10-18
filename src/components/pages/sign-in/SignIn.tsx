@@ -1,7 +1,7 @@
 import { PasswordInput } from '@/components/molecules';
 import { typedMemo } from '@/helpers';
 import { Button, TextInput, TextInputProps, Typography } from '@my-ui/core';
-import React, { FC, useCallback } from 'react';
+import React, { FC, useCallback, useMemo } from 'react';
 import styles from './SignIn.module.scss';
 
 export interface SignInProps {
@@ -9,6 +9,7 @@ export interface SignInProps {
   title?: string;
   subtitle?: string;
   buttonText?: string;
+  loginErrorMessage?: string;
   usernameInputLabel: string;
   passwordInputLabel: string;
   buttonProps: string;
@@ -21,7 +22,8 @@ const SignIn: FC<SignInProps> = ({
   renderInputs,
   usernameInputLabel,
   passwordInputLabel,
-  buttonProps
+  buttonProps,
+  loginErrorMessage
 }) => {
   const createEmailInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
@@ -29,11 +31,46 @@ const SignIn: FC<SignInProps> = ({
         <TextInput {...inputProps} {...props} />,
     []
   );
+
   const createPasswordInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
       (props) =>
         <PasswordInput {...inputProps} {...props} />,
     []
+  );
+
+  const emailInput = useMemo(
+    () =>
+      renderInputs(
+        createEmailInputRenderer({
+          label: 'Email or Username',
+          type: 'text',
+          startIcon: (
+            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
+              <path data-name='Path 3524' d='M0 0h24v24H0z' style={{ fill: 'none' }} />
+              <path
+                data-name='Path 3525'
+                d='M12 4a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'
+                style={{ fill: 'currentColor' }}
+              />
+            </svg>
+          )
+        }),
+        usernameInputLabel
+      ),
+    [renderInputs, usernameInputLabel]
+  );
+
+  const passwordInput = useMemo(
+    () =>
+      renderInputs(
+        createPasswordInputRenderer({
+          label: 'Password',
+          type: 'password'
+        }),
+        passwordInputLabel
+      ),
+    [renderInputs, passwordInputLabel]
   );
 
   return (
@@ -48,30 +85,14 @@ const SignIn: FC<SignInProps> = ({
           </Typography>
 
           <div className={styles.FormWrapper}>
-            {renderInputs(
-              createEmailInputRenderer({
-                label: 'Email or Username',
-                type: 'text',
-                startIcon: (
-                  <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
-                    <path data-name='Path 3524' d='M0 0h24v24H0z' style={{ fill: 'none' }} />
-                    <path
-                      data-name='Path 3525'
-                      d='M12 4a4 4 0 1 0 4 4 4 4 0 0 0-4-4zm0 10c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z'
-                      style={{ fill: 'currentColor' }}
-                    />
-                  </svg>
-                )
-              }),
-              usernameInputLabel
-            )}
+            {emailInput}
 
-            {renderInputs(
-              createPasswordInputRenderer({
-                label: 'Password',
-                type: 'password'
-              }),
-              passwordInputLabel
+            {passwordInput}
+
+            {loginErrorMessage && (
+              <Typography variant='p5' color='danger'>
+                {loginErrorMessage}
+              </Typography>
             )}
           </div>
 
