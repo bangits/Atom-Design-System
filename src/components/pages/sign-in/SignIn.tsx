@@ -1,6 +1,6 @@
 import { PasswordInput } from '@/components/molecules';
 import { typedMemo } from '@/helpers';
-import { Button, TextInput, TextInputProps, Typography } from '@my-ui/core';
+import { Button, ButtonProps, TextInput, TextInputProps, Typography } from '@my-ui/core';
 import React, { FC, useCallback, useMemo } from 'react';
 import styles from './SignIn.module.scss';
 
@@ -12,7 +12,7 @@ export interface SignInProps {
   loginErrorMessage?: string;
   usernameInputLabel: string;
   passwordInputLabel: string;
-  buttonProps: string;
+  buttonProps?: ButtonProps;
 }
 
 const SignIn: FC<SignInProps> = ({

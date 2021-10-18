@@ -59,9 +59,9 @@ const configureAssets = () => {
 };
 
 const configureWatchOptions = () => ({
-  aggregateTimeout: 500, // Delay before reloading
-  poll: 1000, // Enable polling since fsevents are not supported in docker
-  ignored: /node_modules/
+  // aggregateTimeout: 500, // Delay before reloading
+  // poll: 1000, // Enable polling since fsevents are not supported in docker
+  // ignored: /node_modules/
 });
 
 // Aliases used for simplification imports
@@ -73,7 +73,7 @@ const configureSharedWebpack = (isDevelopment) => ({
   module: {
     rules: [...configureAssets(), ...configureSass(isDevelopment)]
   },
-  watchOptions: configureWatchOptions(),
+  // watchOptions: configureWatchOptions(),
   resolve: {
     alias: configureAliases()
   }

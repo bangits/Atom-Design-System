@@ -1,7 +1,13 @@
 {
-  "name": "atom-design-system",
+  "name": "@atom/design-system",
+  "version": "1.1.0",
+  "files": [
+    "dist"
+  ],
+  "main": "",
+  "types": "./dist/atom-design-system.d.ts",
   "scripts": {
-    "start": "webpack serve --env development",
+    "start": "webpack serve --env production",
     "start-with-storybook": "yarn start && yarn storybook",
     "start:standalone": "webpack serve --env standalone",
     "build": "webpack --mode=production --env production",
@@ -13,7 +19,8 @@
     "start-app": "docker-compose up --build",
     "kill-app": "docker-compose down",
     "pre-commit": "yarn format && git add .",
-    "pre-push": "yarn format"
+    "pre-push": "yarn format",
+    "build-declarations": "tsc -p tsconfig.declarations.json && tscpaths -p tsconfig.declarations.json -s ./src -o ./dist"
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
@@ -67,6 +74,8 @@
     "ts-config-single-spa": "^3.0.0",
     "ts-loader": "^9.2.6",
     "ts-loader-decleration": "^0.10.4",
+    "tsconfig-paths": "^3.11.0",
+    "tscpaths": "^0.0.9",
     "typescript": "^4.3.4",
     "url-loader": "^4.1.1",
     "webpack": "^5.47.1",
