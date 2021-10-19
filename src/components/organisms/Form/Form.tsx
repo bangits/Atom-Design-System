@@ -30,10 +30,8 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
   return (
     <>
       <div className={styles.ProviderWrapper}>
-        {/* @ts-ignore */}
         <Card borderRadius={1.6} className={styles.ProviderCard}>
           <div className={styles.ProviderContainer}>
-            {/* @ts-ignore */}
             <Typography variant='h2' color='primary' className={styles.ProviderTitle}>
               {title}
             </Typography>
