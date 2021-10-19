@@ -2,6 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "Node",
     "declaration": true,
+    "module": "system",
     "declarationDir": "dist",
     "rootDir": "src",
     "outDir": "dist",

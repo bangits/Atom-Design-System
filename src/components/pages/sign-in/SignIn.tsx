@@ -77,9 +77,11 @@ const SignIn: FC<SignInProps> = ({
     <div className={styles.LoginPageWrapper}>
       <div className={styles.LoginPageBox}>
         <div>
+          {/* @ts-ignore */}
           <Typography variant='h1' component='h2' className={styles.LoginPageTitle}>
             {title}
           </Typography>
+          {/* @ts-ignore */}
           <Typography variant='p4' component='p' className={styles.LoginPageSubTitle}>
             {subtitle}
           </Typography>
