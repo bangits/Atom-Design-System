@@ -16,6 +16,9 @@
       width: 23rem;
       margin-right: 1.6rem;
       margin-top: 2.4rem;
+      &:empty {
+        display: none;
+      }
     }
   }
 
@@ -82,6 +85,9 @@
 .Checkbox {
   display: flex;
   margin-top: 26px;
+  &:empty {
+    display: none;
+  }
 }
 
 .FilterRadioName {
