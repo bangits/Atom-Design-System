@@ -315,7 +315,7 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@babel/parser@^7.1.0", "@babel/parser@^7.1.6", "@babel/parser@^7.12.11", "@babel/parser@^7.12.7", "@babel/parser@^7.15.4", "@babel/parser@^7.15.8", "@babel/parser@^7.7.0":
+"@babel/parser@^7.1.0", "@babel/parser@^7.1.6", "@babel/parser@^7.12.11", "@babel/parser@^7.12.7", "@babel/parser@^7.14.7", "@babel/parser@^7.15.4", "@babel/parser@^7.15.8", "@babel/parser@^7.7.0":
   version "7.15.8"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/parser/-/parser-7.15.8.tgz#7bacdcbe71bdc3ff936d510c15dcea7cf0b99016"
   integrity sha1-e6zcvnG9w/+TbVEMFdzqfPC5kBY=
@@ -1132,10 +1132,10 @@
     "@babel/helper-validator-identifier" "^7.14.9"
     to-fast-properties "^2.0.0"
 
-"@base2/pretty-print-object@1.0.0":
-  version "1.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
-  integrity sha1-hgznGLC3P0AJ4VNUH6/yy2uF0Ec=
+"@base2/pretty-print-object@1.0.1":
+  version "1.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@base2/pretty-print-object/-/pretty-print-object-1.0.1.tgz#371ba8be66d556812dc7fb169ebc3c08378f69d4"
+  integrity sha1-NxuovmbVVoEtx/sWnrw8CDePadQ=
 
 "@bcoe/v8-coverage@^0.2.3":
   version "0.2.3"
@@ -1165,16 +1165,16 @@
     "@emotion/utils" "0.11.3"
     "@emotion/weak-memoize" "0.2.5"
 
-"@emotion/cache@^11.4.0":
-  version "11.4.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/cache/-/cache-11.4.0.tgz#293fc9d9a7a38b9aad8e9337e5014366c3b09ac0"
-  integrity sha1-KT/J2aeji5qtjpM35QFDZsOwmsA=
+"@emotion/cache@^11.4.0", "@emotion/cache@^11.5.0":
+  version "11.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/cache/-/cache-11.5.0.tgz#a5eb78cbef8163939ee345e3ddf0af217b845e62"
+  integrity sha1-pet4y++BY5Oe40Xj3fCvIXuEXmI=
   dependencies:
     "@emotion/memoize" "^0.7.4"
-    "@emotion/sheet" "^1.0.0"
+    "@emotion/sheet" "^1.0.3"
     "@emotion/utils" "^1.0.0"
     "@emotion/weak-memoize" "^0.2.5"
-    stylis "^4.0.3"
+    stylis "^4.0.10"
 
 "@emotion/core@^10.0.9", "@emotion/core@^10.1.1":
   version "10.1.1"
@@ -1232,14 +1232,14 @@
   integrity sha1-LED4FEmk5VTp/GOWkQ7UhD7CvlA=
 
 "@emotion/react@^11.1.1":
-  version "11.4.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/react/-/react-11.4.1.tgz#a1b0b767b5bad57515ffb0cad9349614d27f4d57"
-  integrity sha1-obC3Z7W61XUV/7DK2TSWFNJ/TVc=
+  version "11.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/react/-/react-11.5.0.tgz#19b5771bbfbda5e8517e948a2d9064810f0022bd"
+  integrity sha1-GbV3G7+9pehRfpSKLZBkgQ8AIr0=
   dependencies:
     "@babel/runtime" "^7.13.10"
-    "@emotion/cache" "^11.4.0"
+    "@emotion/cache" "^11.5.0"
     "@emotion/serialize" "^1.0.2"
-    "@emotion/sheet" "^1.0.2"
+    "@emotion/sheet" "^1.0.3"
     "@emotion/utils" "^1.0.0"
     "@emotion/weak-memoize" "^0.2.5"
     hoist-non-react-statics "^3.3.1"
@@ -1271,10 +1271,10 @@
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/sheet/-/sheet-0.9.4.tgz#894374bea39ec30f489bbfc3438192b9774d32e5"
   integrity sha1-iUN0vqOeww9Im7/DQ4GSuXdNMuU=
 
-"@emotion/sheet@^1.0.0", "@emotion/sheet@^1.0.2":
-  version "1.0.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/sheet/-/sheet-1.0.2.tgz#1d9ffde531714ba28e62dac6a996a8b1089719d0"
-  integrity sha1-HZ/95TFxS6KOYtrGqZaosQiXGdA=
+"@emotion/sheet@^1.0.3":
+  version "1.0.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@emotion/sheet/-/sheet-1.0.3.tgz#00c326cd7985c5ccb8fe2c1b592886579dcfab8f"
+  integrity sha1-AMMmzXmFxcy4/iwbWSiGV53Pq48=
 
 "@emotion/styled-base@^10.0.27":
   version "10.0.31"
@@ -1390,21 +1390,21 @@
     source-map "^0.6.1"
     write-file-atomic "^3.0.0"
 
-"@jest/transform@^27.2.4":
-  version "27.2.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@jest/transform/-/transform-27.2.4.tgz#2fe5b6836895f7a1b8bdec442c51e83943c62733"
-  integrity sha1-L+W2g2iV96G4vexELFHoOUPGJzM=
+"@jest/transform@^27.3.1":
+  version "27.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@jest/transform/-/transform-27.3.1.tgz#ff80eafbeabe811e9025e4b6f452126718455220"
+  integrity sha1-/4Dq++q+gR6QJeS29FISZxhFUiA=
   dependencies:
     "@babel/core" "^7.1.0"
-    "@jest/types" "^27.2.4"
+    "@jest/types" "^27.2.5"
     babel-plugin-istanbul "^6.0.0"
     chalk "^4.0.0"
     convert-source-map "^1.4.0"
     fast-json-stable-stringify "^2.0.0"
     graceful-fs "^4.2.4"
-    jest-haste-map "^27.2.4"
+    jest-haste-map "^27.3.1"
     jest-regex-util "^27.0.6"
-    jest-util "^27.2.4"
+    jest-util "^27.3.1"
     micromatch "^4.0.4"
     pirates "^4.0.1"
     slash "^3.0.0"
@@ -1422,10 +1422,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@jest/types@^27.2.4":
-  version "27.2.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@jest/types/-/types-27.2.4.tgz#2430042a66e00dc5b140c3636f4474d464c21ee8"
-  integrity sha1-JDAEKmbgDcWxQMNjb0R01GTCHug=
+"@jest/types@^27.2.5":
+  version "27.2.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@jest/types/-/types-27.2.5.tgz#420765c052605e75686982d24b061b4cbba22132"
+  integrity sha1-QgdlwFJgXnVoaYLSSwYbTLuiITI=
   dependencies:
     "@types/istanbul-lib-coverage" "^2.0.0"
     "@types/istanbul-reports" "^3.0.0"
@@ -1485,24 +1485,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-"@my-ui/core@^2.4.3":
-  version "2.4.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.4.3.tgz#e0b19c437154ceee4e7ac5488eae55f921394e89"
-  integrity sha1-4LGcQ3FUzu5OesVIjq5V+SE5Tok=
-=======
-"@my-ui/core@^2.3.10":
-  version "2.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.3.10.tgz#a81fa603428a7ff8629e2fbbfe0b8ec758eeb4ec"
-  integrity sha1-qB+mA0KKf/hini+7/guOx1jutOw=
->>>>>>> 1c8dcd0de128267822795dd86746071c6125b2e1
-=======
-"@my-ui/core@^2.4.1":
-  version "2.4.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.4.1.tgz#c5c353f8bbe2883b828e3db0bad06571613c88bb"
-  integrity sha1-xcNT+LviiDuCjj2wutBlcWE8iLs=
->>>>>>> ff867c52976ba023850aff99b7ced2d96636e68d
+"@my-ui/core@2.4.4":
+  version "2.4.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.4.4.tgz#b9b9bcffe3a17b5ea8d20ea476a7c478aa767ed4"
+  integrity sha1-ubm8/+Ohe16o0g6kdqfEeKp2ftQ=
   dependencies:
     "@my-ui/react-datepicker" "^1.3.0"
     "@my-ui/react-select" "1.1.5"
@@ -1620,18 +1606,18 @@
   integrity sha1-n7OjzzEyMoFR81PeRjLgHlIQK+o=
 
 "@storybook/addon-a11y@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-a11y/-/addon-a11y-6.3.10.tgz#a23a1e837c4f750d0efd90aaf64599954fb30f25"
-  integrity sha1-ojoeg3xPdQ0O/ZCq9kWZlU+zDyU=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-a11y/-/addon-a11y-6.3.12.tgz#2f930fc84fc275a4ed43a716fc09cc12caf4e110"
+  integrity sha1-L5MPyE/CdaTtQ6cW/AnMEsr04RA=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/theming" "6.3.12"
     axe-core "^4.2.0"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -1641,17 +1627,17 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-actions@6.3.10", "@storybook/addon-actions@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-actions/-/addon-actions-6.3.10.tgz#e0013e541a0a732a801c2cebd55a592361066a36"
-  integrity sha1-4AE+VBoKcyqAHCzr1VpZI2EGajY=
+"@storybook/addon-actions@6.3.12", "@storybook/addon-actions@^6.3.9":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-actions/-/addon-actions-6.3.12.tgz#69eb5f8f780f1b00456051da6290d4b959ba24a0"
+  integrity sha1-aetfj3gPGwBFYFHaYpDUuVm6JKA=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/theming" "6.3.12"
     core-js "^3.8.2"
     fast-deep-equal "^3.1.3"
     global "^4.4.0"
@@ -1664,17 +1650,17 @@
     util-deprecate "^1.0.2"
     uuid-browser "^3.1.0"
 
-"@storybook/addon-backgrounds@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-backgrounds/-/addon-backgrounds-6.3.10.tgz#64db97ee88b6623f1d43adc06ddf3d290f824bf8"
-  integrity sha1-ZNuX7oi2Yj8dQ63Abd89KQ+CS/g=
+"@storybook/addon-backgrounds@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-backgrounds/-/addon-backgrounds-6.3.12.tgz#5feecd461f48178aa976ba2694418e9ea1d621b3"
+  integrity sha1-X+7NRh9IF4qpdromlEGOnqHWIbM=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/theming" "6.3.12"
     core-js "^3.8.2"
     global "^4.4.0"
     memoizerific "^1.11.3"
@@ -1682,24 +1668,24 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/addon-controls@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-controls/-/addon-controls-6.3.10.tgz#826263e5b4f407982c852c68837f13f14da98625"
-  integrity sha1-gmJj5bT0B5gshSxog38T8U2phiU=
+"@storybook/addon-controls@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-controls/-/addon-controls-6.3.12.tgz#dbb732c62cf06fb7ccaf87d6ab11c876d14456fc"
+  integrity sha1-27cyxizwb7fMr4fWqxHIdtFEVvw=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
+    "@storybook/theming" "6.3.12"
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
 
-"@storybook/addon-docs@6.3.10", "@storybook/addon-docs@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-docs/-/addon-docs-6.3.10.tgz#5aed33df5b6a6b719fb85b9b215372ce5fdd0a56"
-  integrity sha1-Wu0z31tqa3GfuFubIVNyzl/dClY=
+"@storybook/addon-docs@6.3.12", "@storybook/addon-docs@^6.3.9":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-docs/-/addon-docs-6.3.12.tgz#2ec73b4f231d9f190d5c89295bc47bea6a95c6d1"
+  integrity sha1-Lsc7TyMdnxkNXIkpW8R76mqVxtE=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/generator" "^7.12.11"
@@ -1710,20 +1696,20 @@
     "@mdx-js/loader" "^1.6.22"
     "@mdx-js/mdx" "^1.6.22"
     "@mdx-js/react" "^1.6.22"
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/builder-webpack4" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core" "6.3.10"
-    "@storybook/core-events" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/builder-webpack4" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core" "6.3.12"
+    "@storybook/core-events" "6.3.12"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
-    "@storybook/postinstall" "6.3.10"
-    "@storybook/source-loader" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/csf-tools" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
+    "@storybook/postinstall" "6.3.12"
+    "@storybook/source-loader" "6.3.12"
+    "@storybook/theming" "6.3.12"
     acorn "^7.4.1"
     acorn-jsx "^5.3.1"
     acorn-walk "^7.2.0"
@@ -1747,20 +1733,20 @@
     util-deprecate "^1.0.2"
 
 "@storybook/addon-essentials@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-essentials/-/addon-essentials-6.3.10.tgz#c8e515291ce119796cc19eb323cfdd347c612195"
-  integrity sha1-yOUVKRzhGXlswZ6zI8/dNHxhIZU=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-essentials/-/addon-essentials-6.3.12.tgz#445cc4bc2eb9168a9e5de1fdfb5ef3b92974e74b"
+  integrity sha1-RFzEvC65FoqeXeH9+17zuSl050s=
   dependencies:
-    "@storybook/addon-actions" "6.3.10"
-    "@storybook/addon-backgrounds" "6.3.10"
-    "@storybook/addon-controls" "6.3.10"
-    "@storybook/addon-docs" "6.3.10"
+    "@storybook/addon-actions" "6.3.12"
+    "@storybook/addon-backgrounds" "6.3.12"
+    "@storybook/addon-controls" "6.3.12"
+    "@storybook/addon-docs" "6.3.12"
     "@storybook/addon-measure" "^2.0.0"
-    "@storybook/addon-toolbars" "6.3.10"
-    "@storybook/addon-viewport" "6.3.10"
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
+    "@storybook/addon-toolbars" "6.3.12"
+    "@storybook/addon-viewport" "6.3.12"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
     core-js "^3.8.2"
     regenerator-runtime "^0.13.7"
     storybook-addon-outline "^1.4.1"
@@ -1784,15 +1770,15 @@
     react-select "^3.2.0"
 
 "@storybook/addon-links@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-links/-/addon-links-6.3.10.tgz#0c4c95def9655a299f3e29aa6e1fe6cde8326ecf"
-  integrity sha1-DEyV3vllWimfPimqbh/mzegybs8=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-links/-/addon-links-6.3.12.tgz#72a38069913b4e9a19d6f4159bb4846ad560c400"
+  integrity sha1-cqOAaZE7TpoZ1vQVm7SEatVgxAA=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/core-events" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/core-events" "6.3.12"
     "@storybook/csf" "0.0.1"
-    "@storybook/router" "6.3.10"
+    "@storybook/router" "6.3.12"
     "@types/qs" "^6.9.5"
     core-js "^3.8.2"
     global "^4.4.0"
@@ -1807,17 +1793,17 @@
   integrity sha1-xAu+kbrNP3lZY9we5v+Gvofe7ak=
 
 "@storybook/addon-storysource@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-storysource/-/addon-storysource-6.3.10.tgz#280369741db2fa528f8b411a4c1a6799e2c5e4a7"
-  integrity sha1-KANpdB2y+lKPi0EaTBpnmeLF5Kc=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-storysource/-/addon-storysource-6.3.12.tgz#b1318b4d47b276a1808e88a3734db62f4bed7474"
+  integrity sha1-sTGLTUeydqGAjoijc022L0vtdHQ=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/router" "6.3.10"
-    "@storybook/source-loader" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/router" "6.3.12"
+    "@storybook/source-loader" "6.3.12"
+    "@storybook/theming" "6.3.12"
     core-js "^3.8.2"
     estraverse "^5.2.0"
     loader-utils "^2.0.0"
@@ -1826,64 +1812,64 @@
     react-syntax-highlighter "^13.5.3"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addon-toolbars@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-toolbars/-/addon-toolbars-6.3.10.tgz#f3c71aa20d7c69d33eb078dc89ae91d7bacaefd4"
-  integrity sha1-88caog18adM+sHjcia6R17rK79Q=
+"@storybook/addon-toolbars@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-toolbars/-/addon-toolbars-6.3.12.tgz#bc0d420b3476c891c42f7b0ab3b457e9e5ef7ca5"
+  integrity sha1-vA1CCzR2yJHEL3sKs7RX6eXvfKU=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/theming" "6.3.12"
     core-js "^3.8.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addon-viewport@6.3.10", "@storybook/addon-viewport@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-viewport/-/addon-viewport-6.3.10.tgz#35fffca83087e8c89cf594afb4b9e8ccf240b376"
-  integrity sha1-Nf/8qDCH6Mic9ZSvtLnozPJAs3Y=
+"@storybook/addon-viewport@6.3.12", "@storybook/addon-viewport@^6.3.9":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addon-viewport/-/addon-viewport-6.3.12.tgz#2fd61e60644fb07185a662f75b3e9dad8ad14f01"
+  integrity sha1-L9YeYGRPsHGFpmL3Wz6drYrRTwE=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/theming" "6.3.12"
     core-js "^3.8.2"
     global "^4.4.0"
     memoizerific "^1.11.3"
     prop-types "^15.7.2"
     regenerator-runtime "^0.13.7"
 
-"@storybook/addons@6.3.10", "@storybook/addons@^6.0.0", "@storybook/addons@^6.3.0":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addons/-/addons-6.3.10.tgz#a9fab13e6b81279f1dcdc54220dc4becac4b7a21"
-  integrity sha1-qfqxPmuBJ58dzcVCINxL7KxLeiE=
+"@storybook/addons@6.3.12", "@storybook/addons@^6.0.0", "@storybook/addons@^6.3.0":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/addons/-/addons-6.3.12.tgz#8773dcc113c5086dfff722388b7b65580e43b65b"
+  integrity sha1-h3PcwRPFCG3/9yI4i3tlWA5Dtls=
   dependencies:
-    "@storybook/api" "6.3.10"
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/router" "6.3.10"
-    "@storybook/theming" "6.3.10"
+    "@storybook/api" "6.3.12"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/router" "6.3.12"
+    "@storybook/theming" "6.3.12"
     core-js "^3.8.2"
     global "^4.4.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/api@6.3.10", "@storybook/api@^6.0.0", "@storybook/api@^6.3.0":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/api/-/api-6.3.10.tgz#d6cd7d32841c9b6a9c2104016649b510190622ac"
-  integrity sha1-1s19MoQcm2qcIQQBZkm1EBkGIqw=
+"@storybook/api@6.3.12", "@storybook/api@^6.0.0", "@storybook/api@^6.3.0":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/api/-/api-6.3.12.tgz#2845c20464d5348d676d09665e8ab527825ed7b5"
+  integrity sha1-KEXCBGTVNI1nbQlmXoq1J4Je17U=
   dependencies:
     "@reach/router" "^1.3.4"
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/core-events" "6.3.10"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/core-events" "6.3.12"
     "@storybook/csf" "0.0.1"
-    "@storybook/router" "6.3.10"
+    "@storybook/router" "6.3.12"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.10"
+    "@storybook/theming" "6.3.12"
     "@types/reach__router" "^1.3.7"
     core-js "^3.8.2"
     fast-deep-equal "^3.1.3"
@@ -1897,10 +1883,10 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/builder-webpack4@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack4/-/builder-webpack4-6.3.10.tgz#38e5f8888994684bb3d70c18a3ea3c4cb1f149af"
-  integrity sha1-OOX4iImUaEuz1wwYo+o8TLHxSa8=
+"@storybook/builder-webpack4@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack4/-/builder-webpack4-6.3.12.tgz#288d541e2801892721c975259476022da695dbfe"
+  integrity sha1-KI1UHigBiSchyXUllHYCLaaV2/4=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -1923,20 +1909,20 @@
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/channel-postmessage" "6.3.10"
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-common" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
-    "@storybook/router" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/channel-postmessage" "6.3.12"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core-common" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
+    "@storybook/router" "6.3.12"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.10"
-    "@storybook/ui" "6.3.10"
+    "@storybook/theming" "6.3.12"
+    "@storybook/ui" "6.3.12"
     "@types/node" "^14.0.10"
     "@types/webpack" "^4.41.26"
     autoprefixer "^9.8.6"
@@ -1974,9 +1960,9 @@
     webpack-virtual-modules "^0.2.2"
 
 "@storybook/builder-webpack5@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack5/-/builder-webpack5-6.3.10.tgz#888f5f9bd2c801e444e3b477fd88eacfcd6ff0cc"
-  integrity sha1-iI9fm9LIAeRE47R3/Yjqz81v8Mw=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/builder-webpack5/-/builder-webpack5-6.3.12.tgz#a096d55f5ae56de718144fb457a5beb81d2ce31d"
+  integrity sha1-oJbVX1rlbecYFE+0V6W+uB0s4x0=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -1998,19 +1984,19 @@
     "@babel/preset-env" "^7.12.11"
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/channel-postmessage" "6.3.10"
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-common" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
-    "@storybook/router" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/channel-postmessage" "6.3.12"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core-common" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
+    "@storybook/router" "6.3.12"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.10"
+    "@storybook/theming" "6.3.12"
     "@types/node" "^14.0.10"
     babel-loader "^8.2.2"
     babel-plugin-macros "^3.0.1"
@@ -2035,37 +2021,37 @@
     webpack-hot-middleware "^2.25.0"
     webpack-virtual-modules "^0.4.1"
 
-"@storybook/channel-postmessage@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channel-postmessage/-/channel-postmessage-6.3.10.tgz#7a64e06b43c68f9ba83cf9c350dc9be6c28f5695"
-  integrity sha1-emTga0PGj5uoPPnDUNyb5sKPVpU=
+"@storybook/channel-postmessage@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channel-postmessage/-/channel-postmessage-6.3.12.tgz#3ff9412ac0f445e3b8b44dd414e783a5a47ff7c1"
+  integrity sha1-P/lBKsD0ReO4tE3UFOeDpaR/98E=
   dependencies:
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/core-events" "6.3.10"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/core-events" "6.3.12"
     core-js "^3.8.2"
     global "^4.4.0"
     qs "^6.10.0"
     telejson "^5.3.2"
 
-"@storybook/channels@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channels/-/channels-6.3.10.tgz#2b501e7e56bd1109a2c095a127fd78742a1f74da"
-  integrity sha1-K1Aefla9EQmiwJWhJ/14dCofdNo=
+"@storybook/channels@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/channels/-/channels-6.3.12.tgz#aa0d793895a8b211f0ad3459c61c1bcafd0093c7"
+  integrity sha1-qg15OJWoshHwrTRZxhwbyv0Ak8c=
   dependencies:
     core-js "^3.8.2"
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
 "@storybook/cli@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/cli/-/cli-6.3.10.tgz#5ad3438a0b73299870deda09728dba77717573bf"
-  integrity sha1-WtNDigtzKZhw3toJco26d3F1c78=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/cli/-/cli-6.3.12.tgz#cc8ea752b49e5d36ff700d9f3cfe7a4335916150"
+  integrity sha1-zI6nUrSeXTb/cA2fPP56QzWRYVA=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/preset-env" "^7.12.11"
-    "@storybook/codemod" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
+    "@storybook/codemod" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
     "@storybook/semver" "^7.3.2"
     boxen "^4.2.0"
     chalk "^4.1.0"
@@ -2089,16 +2075,16 @@
     ts-dedent "^2.0.0"
     update-notifier "^5.0.1"
 
-"@storybook/client-api@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-api/-/client-api-6.3.10.tgz#b213c1608398c17180cda7def3bfaccdcae62af5"
-  integrity sha1-shPBYIOYwXGAzafe87+szcrmKvU=
+"@storybook/client-api@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-api/-/client-api-6.3.12.tgz#a0c6d72a871d1cb02b4b98675472839061e39b5b"
+  integrity sha1-oMbXKocdHLArS5hnVHKDkGHjm1s=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/channel-postmessage" "6.3.10"
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/core-events" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/channel-postmessage" "6.3.12"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/core-events" "6.3.12"
     "@storybook/csf" "0.0.1"
     "@types/qs" "^6.9.5"
     "@types/webpack-env" "^1.16.0"
@@ -2113,24 +2099,24 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/client-logger@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-logger/-/client-logger-6.3.10.tgz#dd5156acb7623fa3e656229c36019000f043f4dc"
-  integrity sha1-3VFWrLdiP6PmViKcNgGQAPBD9Nw=
+"@storybook/client-logger@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/client-logger/-/client-logger-6.3.12.tgz#6585c98923b49fcb25dbceeeb96ef2a83e28e0f4"
+  integrity sha1-ZYXJiSO0n8sl287uuW7yqD4o4PQ=
   dependencies:
     core-js "^3.8.2"
     global "^4.4.0"
 
-"@storybook/codemod@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/codemod/-/codemod-6.3.10.tgz#aad0ee5ca8ef59b4d134ff45e213e198d64c9974"
-  integrity sha1-qtDuXKjvWbTRNP9F4hPhmNZMmXQ=
+"@storybook/codemod@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/codemod/-/codemod-6.3.12.tgz#1aadf1ad96929759539b5b22547f497f8e945a1b"
+  integrity sha1-Gq3xrZaSl1lTm1siVH9Jf46UWhs=
   dependencies:
     "@babel/types" "^7.12.11"
     "@mdx-js/mdx" "^1.6.22"
     "@storybook/csf" "0.0.1"
-    "@storybook/csf-tools" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
+    "@storybook/csf-tools" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
     core-js "^3.8.2"
     cross-spawn "^7.0.3"
     globby "^11.0.2"
@@ -2140,15 +2126,15 @@
     recast "^0.19.0"
     regenerator-runtime "^0.13.7"
 
-"@storybook/components@6.3.10", "@storybook/components@^6.0.0", "@storybook/components@^6.3.0":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/components/-/components-6.3.10.tgz#27a2bc98280e9fba148a52a405fe2ed27f036099"
-  integrity sha1-J6K8mCgOn7oUilKkBf4u0n8DYJk=
+"@storybook/components@6.3.12", "@storybook/components@^6.0.0", "@storybook/components@^6.3.0":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/components/-/components-6.3.12.tgz#0c7967c60354c84afa20dfab4753105e49b1927d"
+  integrity sha1-DHlnxgNUyEr6IN+rR1MQXkmxkn0=
   dependencies:
     "@popperjs/core" "^2.6.0"
-    "@storybook/client-logger" "6.3.10"
+    "@storybook/client-logger" "6.3.12"
     "@storybook/csf" "0.0.1"
-    "@storybook/theming" "6.3.10"
+    "@storybook/theming" "6.3.12"
     "@types/color-convert" "^2.0.0"
     "@types/overlayscrollbars" "^1.12.0"
     "@types/react-syntax-highlighter" "11.0.5"
@@ -2170,18 +2156,18 @@
     ts-dedent "^2.0.0"
     util-deprecate "^1.0.2"
 
-"@storybook/core-client@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-client/-/core-client-6.3.10.tgz#236cafad4c828d178efe122fe3bb15247fae69f0"
-  integrity sha1-I2yvrUyCjReO/hIv47sVJH+uafA=
+"@storybook/core-client@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-client/-/core-client-6.3.12.tgz#fd01bfbc69c331f4451973a4e7597624dc3737e5"
+  integrity sha1-/QG/vGnDMfRFGXOk51l2JNw3N+U=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/channel-postmessage" "6.3.10"
-    "@storybook/client-api" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/core-events" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/channel-postmessage" "6.3.12"
+    "@storybook/client-api" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/core-events" "6.3.12"
     "@storybook/csf" "0.0.1"
-    "@storybook/ui" "6.3.10"
+    "@storybook/ui" "6.3.12"
     airbnb-js-shims "^2.2.1"
     ansi-to-html "^0.6.11"
     core-js "^3.8.2"
@@ -2193,10 +2179,10 @@
     unfetch "^4.2.0"
     util-deprecate "^1.0.2"
 
-"@storybook/core-common@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-common/-/core-common-6.3.10.tgz#2bd958ad1d940749da1de9265f63d7cb198fce71"
-  integrity sha1-K9lYrR2UB0naHekmX2PXyxmPznE=
+"@storybook/core-common@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-common/-/core-common-6.3.12.tgz#95ce953d7efda44394b159322d6a2280c202f21c"
+  integrity sha1-lc6VPX79pEOUsVkyLWoigMIC8hw=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-proposal-class-properties" "^7.12.1"
@@ -2219,7 +2205,7 @@
     "@babel/preset-react" "^7.12.10"
     "@babel/preset-typescript" "^7.12.7"
     "@babel/register" "^7.12.1"
-    "@storybook/node-logger" "6.3.10"
+    "@storybook/node-logger" "6.3.12"
     "@storybook/semver" "^7.3.2"
     "@types/glob-base" "^0.3.0"
     "@types/micromatch" "^4.0.1"
@@ -2247,25 +2233,25 @@
     util-deprecate "^1.0.2"
     webpack "4"
 
-"@storybook/core-events@6.3.10", "@storybook/core-events@^6.0.0", "@storybook/core-events@^6.3.0":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-events/-/core-events-6.3.10.tgz#82b41291b8baf1fae8848c603f0b825b3c42e3b5"
-  integrity sha1-grQSkbi68frohIxgPwuCWzxC47U=
+"@storybook/core-events@6.3.12", "@storybook/core-events@^6.0.0", "@storybook/core-events@^6.3.0":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-events/-/core-events-6.3.12.tgz#73f6271d485ef2576234e578bb07705b92805290"
+  integrity sha1-c/YnHUhe8ldiNOV4uwdwW5KAUpA=
   dependencies:
     core-js "^3.8.2"
 
-"@storybook/core-server@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-server/-/core-server-6.3.10.tgz#a5cdfa0adddd1dfaa473d94affc60fdb0a32ac07"
-  integrity sha1-pc36Ct3dHfqkc9lK/8YP2woyrAc=
+"@storybook/core-server@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core-server/-/core-server-6.3.12.tgz#d906f823b263d78a4b087be98810b74191d263cd"
+  integrity sha1-2Qb4I7Jj14pLCHvpiBC3QZHSY80=
   dependencies:
     "@discoveryjs/json-ext" "^0.5.3"
-    "@storybook/builder-webpack4" "6.3.10"
-    "@storybook/core-client" "6.3.10"
-    "@storybook/core-common" "6.3.10"
-    "@storybook/csf-tools" "6.3.10"
-    "@storybook/manager-webpack4" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
+    "@storybook/builder-webpack4" "6.3.12"
+    "@storybook/core-client" "6.3.12"
+    "@storybook/core-common" "6.3.12"
+    "@storybook/csf-tools" "6.3.12"
+    "@storybook/manager-webpack4" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
     "@storybook/semver" "^7.3.2"
     "@types/node" "^14.0.10"
     "@types/node-fetch" "^2.5.7"
@@ -2294,18 +2280,18 @@
     util-deprecate "^1.0.2"
     webpack "4"
 
-"@storybook/core@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core/-/core-6.3.10.tgz#328be1c31b1d0cdbff6dc9ccd36ef141d1306d66"
-  integrity sha1-MovhwxsdDNv/bcnM027xQdEwbWY=
+"@storybook/core@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/core/-/core-6.3.12.tgz#eb945f7ed5c9039493318bcd2bb5a3a897b91cfd"
+  integrity sha1-65RfftXJA5STMYvNK7WjqJe5HP0=
   dependencies:
-    "@storybook/core-client" "6.3.10"
-    "@storybook/core-server" "6.3.10"
+    "@storybook/core-client" "6.3.12"
+    "@storybook/core-server" "6.3.12"
 
-"@storybook/csf-tools@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/csf-tools/-/csf-tools-6.3.10.tgz#f455106e872d62f81b1e1ba8b63cd109ab3b5695"
-  integrity sha1-9FUQboctYvgbHhuotjzRCas7VpU=
+"@storybook/csf-tools@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/csf-tools/-/csf-tools-6.3.12.tgz#d979c6a79d1e9d6c8b5a5e8834d07fcf5b793844"
+  integrity sha1-2XnGp50enWyLWl6INNB/z1t5OEQ=
   dependencies:
     "@babel/generator" "^7.12.11"
     "@babel/parser" "^7.12.11"
@@ -2329,20 +2315,20 @@
   dependencies:
     lodash "^4.17.15"
 
-"@storybook/manager-webpack4@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack4/-/manager-webpack4-6.3.10.tgz#98b59678b6fee110d64b99aaf504bdbf9844db04"
-  integrity sha1-mLWWeLb+4RDWS5mq9QS9v5hE2wQ=
+"@storybook/manager-webpack4@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack4/-/manager-webpack4-6.3.12.tgz#1c10a60b0acec3f9136dd8b7f22a25469d8b91e5"
+  integrity sha1-HBCmCwrOw/kTbdi38iolRp2LkeU=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-template-literals" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
-    "@storybook/addons" "6.3.10"
-    "@storybook/core-client" "6.3.10"
-    "@storybook/core-common" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
-    "@storybook/theming" "6.3.10"
-    "@storybook/ui" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/core-client" "6.3.12"
+    "@storybook/core-common" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
+    "@storybook/theming" "6.3.12"
+    "@storybook/ui" "6.3.12"
     "@types/node" "^14.0.10"
     "@types/webpack" "^4.41.26"
     babel-loader "^8.2.2"
@@ -2373,19 +2359,19 @@
     webpack-virtual-modules "^0.2.2"
 
 "@storybook/manager-webpack5@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack5/-/manager-webpack5-6.3.10.tgz#41748c3ebd350c25901a27f5ae001cd291b3aa0e"
-  integrity sha1-QXSMPr01DCWQGif1rgAc0pGzqg4=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/manager-webpack5/-/manager-webpack5-6.3.12.tgz#85dcef6dda66aff93c97b22e2e222e6f76e55103"
+  integrity sha1-hdzvbdpmr/k8l7IuLiIub3blUQM=
   dependencies:
     "@babel/core" "^7.12.10"
     "@babel/plugin-transform-template-literals" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
-    "@storybook/addons" "6.3.10"
-    "@storybook/core-client" "6.3.10"
-    "@storybook/core-common" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
-    "@storybook/theming" "6.3.10"
-    "@storybook/ui" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/core-client" "6.3.12"
+    "@storybook/core-common" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
+    "@storybook/theming" "6.3.12"
+    "@storybook/ui" "6.3.12"
     "@types/node" "^14.0.10"
     babel-loader "^8.2.2"
     case-sensitive-paths-webpack-plugin "^2.3.0"
@@ -2413,10 +2399,10 @@
     webpack-dev-middleware "^4.1.0"
     webpack-virtual-modules "^0.4.1"
 
-"@storybook/node-logger@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/node-logger/-/node-logger-6.3.10.tgz#468327f380603c3cfab6734d336fb193871bd2a4"
-  integrity sha1-RoMn84BgPDz6tnNNM2+xk4cb0qQ=
+"@storybook/node-logger@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/node-logger/-/node-logger-6.3.12.tgz#a67cfbe266d2692f317914ef583721627498df19"
+  integrity sha1-pnz74mbSaS8xeRTvWDchYnSY3xk=
   dependencies:
     "@types/npmlog" "^4.1.2"
     chalk "^4.1.0"
@@ -2424,10 +2410,10 @@
     npmlog "^4.1.2"
     pretty-hrtime "^1.0.3"
 
-"@storybook/postinstall@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/postinstall/-/postinstall-6.3.10.tgz#56c20cbf3ff895a17f1b72ed1c704d7bbba5a05c"
-  integrity sha1-VsIMvz/4laF/G3LtHHBNe7uloFw=
+"@storybook/postinstall@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/postinstall/-/postinstall-6.3.12.tgz#ed98caff76d8c1a1733ec630565ef4162b274614"
+  integrity sha1-7ZjK/3bYwaFzPsYwVl70FisnRhQ=
   dependencies:
     core-js "^3.8.2"
 
@@ -2450,17 +2436,17 @@
     tslib "^2.0.0"
 
 "@storybook/react@^6.3.9":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/react/-/react-6.3.10.tgz#af065ea32a051244065920df4e86029f65dba2c3"
-  integrity sha1-rwZeoyoFEkQGWSDfToYCn2XbosM=
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/react/-/react-6.3.12.tgz#2e172cbfc06f656d2890743dcf49741a10fa1629"
+  integrity sha1-Lhcsv8BvZW0okHQ9z0l0GhD6Fik=
   dependencies:
     "@babel/preset-flow" "^7.12.1"
     "@babel/preset-react" "^7.12.10"
     "@pmmmwh/react-refresh-webpack-plugin" "^0.4.3"
-    "@storybook/addons" "6.3.10"
-    "@storybook/core" "6.3.10"
-    "@storybook/core-common" "6.3.10"
-    "@storybook/node-logger" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/core" "6.3.12"
+    "@storybook/core-common" "6.3.12"
+    "@storybook/node-logger" "6.3.12"
     "@storybook/react-docgen-typescript-plugin" "1.0.2-canary.253f8c1.0"
     "@storybook/semver" "^7.3.2"
     "@types/webpack-env" "^1.16.0"
@@ -2478,13 +2464,13 @@
     ts-dedent "^2.0.0"
     webpack "4"
 
-"@storybook/router@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/router/-/router-6.3.10.tgz#b8efab6310d49cff0db6b8701be34c27536a1daf"
-  integrity sha1-uO+rYxDUnP8NtrhwG+NMJ1NqHa8=
+"@storybook/router@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/router/-/router-6.3.12.tgz#0d572ec795f588ca886f39cb9b27b94ff3683f84"
+  integrity sha1-DVcux5X1iMqIbznLmye5T/NoP4Q=
   dependencies:
     "@reach/router" "^1.3.4"
-    "@storybook/client-logger" "6.3.10"
+    "@storybook/client-logger" "6.3.12"
     "@types/reach__router" "^1.3.7"
     core-js "^3.8.2"
     fast-deep-equal "^3.1.3"
@@ -2502,13 +2488,13 @@
     core-js "^3.6.5"
     find-up "^4.1.0"
 
-"@storybook/source-loader@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/source-loader/-/source-loader-6.3.10.tgz#bb8a8356a8ebaea40358837d19d4269a673a26b1"
-  integrity sha1-u4qDVqjrrqQDWIN9GdQmmmc6JrE=
+"@storybook/source-loader@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/source-loader/-/source-loader-6.3.12.tgz#86e72824c04ad0eaa89b807857bd845db97e57bd"
+  integrity sha1-hucoJMBK0Oqom4B4V72EXbl+V70=
   dependencies:
-    "@storybook/addons" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
     "@storybook/csf" "0.0.1"
     core-js "^3.8.2"
     estraverse "^5.2.0"
@@ -2518,15 +2504,15 @@
     prettier "~2.2.1"
     regenerator-runtime "^0.13.7"
 
-"@storybook/theming@6.3.10", "@storybook/theming@^6.0.0":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/theming/-/theming-6.3.10.tgz#9a46bff3517fd6bfcc816376b426476811712f2e"
-  integrity sha1-mka/81F/1r/MgWN2tCZHaBFxLy4=
+"@storybook/theming@6.3.12", "@storybook/theming@^6.0.0":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/theming/-/theming-6.3.12.tgz#5bddf9bd90a60709b5ab238ecdb7d9055dd7862e"
+  integrity sha1-W935vZCmBwm1qyOOzbfZBV3Xhi4=
   dependencies:
     "@emotion/core" "^10.1.1"
     "@emotion/is-prop-valid" "^0.8.6"
     "@emotion/styled" "^10.0.27"
-    "@storybook/client-logger" "6.3.10"
+    "@storybook/client-logger" "6.3.12"
     core-js "^3.8.2"
     deep-object-diff "^1.1.0"
     emotion-theming "^10.0.27"
@@ -2536,21 +2522,21 @@
     resolve-from "^5.0.0"
     ts-dedent "^2.0.0"
 
-"@storybook/ui@6.3.10":
-  version "6.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/ui/-/ui-6.3.10.tgz#bb2bebac9ceb592fd44503ca2c65f0eb21bb7b93"
-  integrity sha1-uyvrrJzrWS/URQPKLGXw6yG7e5M=
+"@storybook/ui@6.3.12":
+  version "6.3.12"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@storybook/ui/-/ui-6.3.12.tgz#349e1a4c58c4fd18ea65b2ab56269a7c3a164ee7"
+  integrity sha1-NJ4aTFjE/RjqZbKrViaafDoWTuc=
   dependencies:
     "@emotion/core" "^10.1.1"
-    "@storybook/addons" "6.3.10"
-    "@storybook/api" "6.3.10"
-    "@storybook/channels" "6.3.10"
-    "@storybook/client-logger" "6.3.10"
-    "@storybook/components" "6.3.10"
-    "@storybook/core-events" "6.3.10"
-    "@storybook/router" "6.3.10"
+    "@storybook/addons" "6.3.12"
+    "@storybook/api" "6.3.12"
+    "@storybook/channels" "6.3.12"
+    "@storybook/client-logger" "6.3.12"
+    "@storybook/components" "6.3.12"
+    "@storybook/core-events" "6.3.12"
+    "@storybook/router" "6.3.12"
     "@storybook/semver" "^7.3.2"
-    "@storybook/theming" "6.3.10"
+    "@storybook/theming" "6.3.12"
     "@types/markdown-to-jsx" "^6.11.3"
     copy-to-clipboard "^3.3.1"
     core-js "^3.8.2"
@@ -2745,9 +2731,9 @@
     "@types/estree" "*"
 
 "@types/eslint@*":
-  version "7.28.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/eslint/-/eslint-7.28.0.tgz#7e41f2481d301c68e14f483fe10b017753ce8d5a"
-  integrity sha1-fkHySB0wHGjhT0g/4QsBd1POjVo=
+  version "7.28.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/eslint/-/eslint-7.28.1.tgz#50b07747f1f84c2ba8cd394cf0fe0ba07afce320"
+  integrity sha1-ULB3R/H4TCuozTlM8P4LoHr84yA=
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
@@ -2763,9 +2749,9 @@
   integrity sha1-pYHWiDR+EOUN18F9byiAoQNUMZ0=
 
 "@types/glob@*", "@types/glob@^7.1.1":
-  version "7.1.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/glob/-/glob-7.1.4.tgz#ea59e21d2ee5c517914cb4bc8e4153b99e566672"
-  integrity sha1-6lniHS7lxReRTLS8jkFTuZ5WZnI=
+  version "7.2.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/glob/-/glob-7.2.0.tgz#bc1b5bf3aa92f25bd5dd39f35c57361bdce5b2eb"
+  integrity sha1-vBtb86qS8lvV3TnzXFc2G9zlsus=
   dependencies:
     "@types/minimatch" "*"
     "@types/node" "*"
@@ -2796,6 +2782,11 @@
   version "5.1.2"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/html-minifier-terser/-/html-minifier-terser-5.1.2.tgz#693b316ad323ea97eed6b38ed1a3cc02b1672b57"
   integrity sha1-aTsxatMj6pfu1rOO0aPMArFnK1c=
+
+"@types/html-minifier-terser@^6.0.0":
+  version "6.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/html-minifier-terser/-/html-minifier-terser-6.0.0.tgz#563c1c6c132cd204e71512f9c0b394ff90d3fae7"
+  integrity sha1-VjwcbBMs0gTnFRL5wLOU/5DT+uc=
 
 "@types/http-proxy@^1.17.5":
   version "1.17.7"
@@ -2888,9 +2879,9 @@
     form-data "^3.0.0"
 
 "@types/node@*":
-  version "16.10.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-16.10.3.tgz#7a8f2838603ea314d1d22bb3171d899e15c57bd5"
-  integrity sha1-eo8oOGA+oxTR0iuzFx2JnhXFe9U=
+  version "16.11.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-16.11.2.tgz#31c249c136c3f9b35d4b60fb8e50e01a1f0cc9a5"
+  integrity sha1-McJJwTbD+bNdS2D7jlDgGh8MyaU=
 
 "@types/node@8.0.0":
   version "8.0.0"
@@ -2898,9 +2889,9 @@
   integrity sha1-rKqJJHr93Hln6ZAv0Rdh2t6hpVU=
 
 "@types/node@^14.0.10":
-  version "14.17.21"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-14.17.21.tgz#6359d8cf73481e312a43886fa50afc70ce5592c6"
-  integrity sha1-Y1nYz3NIHjEqQ4hvpQr8cM5VksY=
+  version "14.17.27"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-14.17.27.tgz#5054610d37bb5f6e21342d0e6d24c494231f3b85"
+  integrity sha1-UFRhDTe7X24hNC0ObSTElCMfO4U=
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -2955,9 +2946,9 @@
     "@types/react" "*"
 
 "@types/react-dom@^17.0.8":
-  version "17.0.9"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-dom/-/react-dom-17.0.9.tgz#441a981da9d7be117042e1a6fd3dac4b30f55add"
-  integrity sha1-RBqYHanXvhFwQuGm/T2sSzD1Wt0=
+  version "17.0.10"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-dom/-/react-dom-17.0.10.tgz#d6972ec018d23cf22b99597f1289343d99ea9d9d"
+  integrity sha1-1pcuwBjSPPIrmVl/Eok0PZnqnZ0=
   dependencies:
     "@types/react" "*"
 
@@ -2976,9 +2967,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^17.0.27":
-  version "17.0.27"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react/-/react-17.0.27.tgz#6498ed9b3ad117e818deb5525fa1946c09f2e0e6"
-  integrity sha1-ZJjtmzrRF+gY3rVSX6GUbAny4OY=
+  version "17.0.31"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react/-/react-17.0.31.tgz#fe05ebf91ff3ae35bb6b13f6c1b461db8089dff8"
+  integrity sha1-/gXr+R/zrjW7axP2wbRh24CJ3/g=
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -3022,9 +3013,9 @@
   integrity sha1-JQp7FsO5H2cqJFUuxkZ47rHToI0=
 
 "@types/webpack-env@^1.16.0":
-  version "1.16.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/webpack-env/-/webpack-env-1.16.2.tgz#8db514b059c1b2ae14ce9d7bb325296de6a9a0fa"
-  integrity sha1-jbUUsFnBsq4Uzp17syUpbeapoPo=
+  version "1.16.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/webpack-env/-/webpack-env-1.16.3.tgz#b776327a73e561b71e7881d0cd6d34a1424db86a"
+  integrity sha1-t3YyenPlYbceeIHQzW00oUJNuGo=
 
 "@types/webpack-sources@*":
   version "3.2.0"
@@ -3593,11 +3584,6 @@ ansi-regex@^2.0.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
   integrity sha1-w7M6te42DYbg5ijwRorn7yfWVN8=
 
-ansi-regex@^3.0.0:
-  version "3.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ansi-regex/-/ansi-regex-3.0.0.tgz#ed0317c322064f79466c02966bddb605ab37d998"
-  integrity sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=
-
 ansi-regex@^4.1.0:
   version "4.1.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ansi-regex/-/ansi-regex-4.1.0.tgz#8b9f8f08cf1acb843756a839ca8c7e3168c51997"
@@ -3940,12 +3926,12 @@ babel-eslint@^10.1.0:
     resolve "^1.12.0"
 
 babel-jest@^27.0.5:
-  version "27.2.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-jest/-/babel-jest-27.2.4.tgz#21ed6729d51bdd75470bbbf3c8b08d86209fb0dc"
-  integrity sha1-Ie1nKdUb3XVHC7vzyLCNhiCfsNw=
+  version "27.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-jest/-/babel-jest-27.3.1.tgz#0636a3404c68e07001e434ac4956d82da8a80022"
+  integrity sha1-BjajQExo4HAB5DSsSVbYLaioACI=
   dependencies:
-    "@jest/transform" "^27.2.4"
-    "@jest/types" "^27.2.4"
+    "@jest/transform" "^27.3.1"
+    "@jest/types" "^27.2.5"
     "@types/babel__core" "^7.1.14"
     babel-plugin-istanbul "^6.0.0"
     babel-preset-jest "^27.2.0"
@@ -3954,9 +3940,9 @@ babel-jest@^27.0.5:
     slash "^3.0.0"
 
 babel-loader@^8.2.2:
-  version "8.2.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-loader/-/babel-loader-8.2.2.tgz#9363ce84c10c9a40e6c753748e1441b60c8a0b81"
-  integrity sha1-k2POhMEMmkDmx1N0jhRBtgyKC4E=
+  version "8.2.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-loader/-/babel-loader-8.2.3.tgz#8986b40f1a64cacfcb4b8429320085ef68b1342d"
+  integrity sha1-iYa0Dxpkys/LS4QpMgCF72ixNC0=
   dependencies:
     find-cache-dir "^3.3.1"
     loader-utils "^1.4.0"
@@ -4007,14 +3993,14 @@ babel-plugin-extract-import-names@1.6.22:
     "@babel/helper-plugin-utils" "7.10.4"
 
 babel-plugin-istanbul@^6.0.0:
-  version "6.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-plugin-istanbul/-/babel-plugin-istanbul-6.0.0.tgz#e159ccdc9af95e0b570c75b4573b7c34d671d765"
-  integrity sha1-4VnM3Jr5XgtXDHW0Vzt8NNZx12U=
+  version "6.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/babel-plugin-istanbul/-/babel-plugin-istanbul-6.1.1.tgz#fa88ec59232fd9b4e36dbbc540a8ec9a9b47da73"
+  integrity sha1-+ojsWSMv2bTjbbvFQKjsmptH2nM=
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@istanbuljs/load-nyc-config" "^1.0.0"
     "@istanbuljs/schema" "^0.1.2"
-    istanbul-lib-instrument "^4.0.0"
+    istanbul-lib-instrument "^5.0.4"
     test-exclude "^6.0.0"
 
 babel-plugin-jest-hoist@^27.2.0:
@@ -4388,15 +4374,15 @@ browserslist@4.14.2:
     node-releases "^1.1.61"
 
 browserslist@^4.12.0, browserslist@^4.14.5, browserslist@^4.16.6, browserslist@^4.17.3:
-  version "4.17.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/browserslist/-/browserslist-4.17.3.tgz#2844cd6eebe14d12384b0122d217550160d2d624"
-  integrity sha1-KETNbuvhTRI4SwEi0hdVAWDS1iQ=
+  version "4.17.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/browserslist/-/browserslist-4.17.4.tgz#72e2508af2a403aec0a49847ef31bd823c57ead4"
+  integrity sha1-cuJQivKkA67ApJhH7zG9gjxX6tQ=
   dependencies:
-    caniuse-lite "^1.0.30001264"
-    electron-to-chromium "^1.3.857"
+    caniuse-lite "^1.0.30001265"
+    electron-to-chromium "^1.3.867"
     escalade "^3.1.1"
-    node-releases "^1.1.77"
-    picocolors "^0.2.1"
+    node-releases "^2.0.0"
+    picocolors "^1.0.0"
 
 bser@2.1.1:
   version "2.1.1"
@@ -4558,7 +4544,7 @@ callsites@^3.0.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/callsites/-/callsites-3.1.0.tgz#b3630abd8943432f54b3f0519238e33cd7df2f73"
   integrity sha1-s2MKvYlDQy9Us/BRkjjjPNffL3M=
 
-camel-case@^4.1.1:
+camel-case@^4.1.1, camel-case@^4.1.2:
   version "4.1.2"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/camel-case/-/camel-case-4.1.2.tgz#9728072a954f805228225a6deea6b38461e1bd5a"
   integrity sha1-lygHKpVPgFIoIlpt7qazhGHhvVo=
@@ -4590,10 +4576,10 @@ camelcase@^6.2.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/camelcase/-/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
   integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
 
-caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001264:
-  version "1.0.30001265"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/caniuse-lite/-/caniuse-lite-1.0.30001265.tgz#0613c9e6c922e422792e6fcefdf9a3afeee4f8c3"
-  integrity sha1-BhPJ5ski5CJ5Lm/O/fmjr+7k+MM=
+caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001265:
+  version "1.0.30001270"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/caniuse-lite/-/caniuse-lite-1.0.30001270.tgz#cc9c37a4ec5c1a8d616fc7bace902bb053b0cdea"
+  integrity sha1-zJw3pOxcGo1hb8e6zpArsFOwzeo=
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -4722,7 +4708,7 @@ ci-info@^2.0.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ci-info/-/ci-info-2.0.0.tgz#67a9e964be31a51e15e5010d58e6f12834002f46"
   integrity sha1-Z6npZL4xpR4V5QENWObxKDQAL0Y=
 
-ci-info@^3.1.1:
+ci-info@^3.2.0:
   version "3.2.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ci-info/-/ci-info-3.2.0.tgz#2876cb948a498797b5236f0095bc057d0dca38b6"
   integrity sha1-KHbLlIpJh5e1I28AlbwFfQ3KOLY=
@@ -4751,9 +4737,16 @@ classnames@^2.2.6, classnames@^2.3.1:
   integrity sha1-38+jiR4wbsHa0QXQ6I9EF7hTXo4=
 
 clean-css@^4.2.3:
-  version "4.2.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/clean-css/-/clean-css-4.2.3.tgz#507b5de7d97b48ee53d84adb0160ff6216380f78"
-  integrity sha1-UHtd59l7SO5T2ErbAWD/YhY4D3g=
+  version "4.2.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/clean-css/-/clean-css-4.2.4.tgz#733bf46eba4e607c6891ea57c24a989356831178"
+  integrity sha1-czv0brpOYHxokepXwkqYk1aDEXg=
+  dependencies:
+    source-map "~0.6.0"
+
+clean-css@^5.1.5:
+  version "5.2.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/clean-css/-/clean-css-5.2.2.tgz#d3a7c6ee2511011e051719838bdcf8314dc4548d"
+  integrity sha1-06fG7iURAR4FFxmDi9z4MU3EVI0=
   dependencies:
     source-map "~0.6.0"
 
@@ -4889,9 +4882,9 @@ colorette@^1.2.2:
   integrity sha1-UZD7uHJ2JZqGrXAL/yxtb6o/ykA=
 
 colorette@^2.0.10, colorette@^2.0.14:
-  version "2.0.14"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/colorette/-/colorette-2.0.14.tgz#1629bb27a13cd719ff37d66bc341234af564122e"
-  integrity sha1-Fim7J6E81xn/N9Zrw0EjSvVkEi4=
+  version "2.0.16"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/colorette/-/colorette-2.0.16.tgz#713b9af84fdb000139f04546bd4a93f62a5085da"
+  integrity sha1-cTua+E/bAAE58EVGvUqT9ipQhdo=
 
 colors@^1.1.2:
   version "1.4.0"
@@ -4920,15 +4913,20 @@ commander@^4.1.1:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/commander/-/commander-4.1.1.tgz#9fd602bd936294e9e9ef46a3f4d6964044b18068"
   integrity sha1-n9YCvZNilOnp70aj9NaWQESxgGg=
 
-commander@^6.2.0, commander@^6.2.1:
+commander@^6.2.1:
   version "6.2.1"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/commander/-/commander-6.2.1.tgz#0792eb682dfbc325999bb2b84fddddba110ac73c"
   integrity sha1-B5LraC37wyWZm7K4T93duhEKxzw=
 
-commander@^7.0.0:
+commander@^7.0.0, commander@^7.2.0:
   version "7.2.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/commander/-/commander-7.2.0.tgz#a36cb57d0b501ce108e4d20559a150a391d97ab7"
   integrity sha1-o2y1fQtQHOEI5NIFWaFQo5HZerc=
+
+commander@^8.1.0:
+  version "8.2.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/commander/-/commander-8.2.0.tgz#37fe2bde301d87d47a53adeff8b5915db1381ca8"
+  integrity sha1-N/4r3jAdh9R6U63v+LWRXbE4HKg=
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -5074,17 +5072,17 @@ copy-to-clipboard@^3.3.1:
     toggle-selection "^1.0.6"
 
 core-js-compat@^3.16.0, core-js-compat@^3.16.2, core-js-compat@^3.8.1:
-  version "3.18.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js-compat/-/core-js-compat-3.18.2.tgz#e40c266fbd613948dd8d2d2156345da8ac03c142"
-  integrity sha1-5Awmb71hOUjdjS0hVjRdqKwDwUI=
+  version "3.18.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js-compat/-/core-js-compat-3.18.3.tgz#e0e7e87abc55efb547e7fa19169e45fa9df27a67"
+  integrity sha1-4OfoerxV77VH5/oZFp5F+p3yemc=
   dependencies:
     browserslist "^4.17.3"
     semver "7.0.0"
 
 core-js-pure@^3.16.0, core-js-pure@^3.8.2:
-  version "3.18.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js-pure/-/core-js-pure-3.18.2.tgz#d8cc11d4885ea919f3de776d45e720e4c769d406"
-  integrity sha1-2MwR1IheqRnz3ndtRecg5Mdp1AY=
+  version "3.18.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js-pure/-/core-js-pure-3.18.3.tgz#7eed77dcce1445ab68fd68715856633e2fb3b90c"
+  integrity sha1-fu133M4URato/WhxWFZjPi+zuQw=
 
 core-js@^2.4.0:
   version "2.6.12"
@@ -5092,9 +5090,9 @@ core-js@^2.4.0:
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
 core-js@^3.0.4, core-js@^3.6.4, core-js@^3.6.5, core-js@^3.8.2:
-  version "3.18.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js/-/core-js-3.18.2.tgz#63a551e8a29f305cd4123754846e65896619ba5b"
-  integrity sha1-Y6VR6KKfMFzUEjdUhG5liWYZuls=
+  version "3.18.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/core-js/-/core-js-3.18.3.tgz#86a0bba2d8ec3df860fefcc07a8d119779f01509"
+  integrity sha1-hqC7otjsPfhg/vzAeo0Rl3nwFQk=
 
 core-util-is@1.0.2:
   version "1.0.2"
@@ -5234,14 +5232,14 @@ crypto-random-string@^2.0.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/crypto-random-string/-/crypto-random-string-2.0.0.tgz#ef2a7a966ec11083388369baa02ebead229b30d5"
   integrity sha1-7yp6lm7BEIM4g2m6oC6+rSKbMNU=
 
-css-jss@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-jss/-/css-jss-10.8.0.tgz#fedd08854163a31f26324f46d566116c216ee772"
-  integrity sha1-/t0IhUFjox8mMk9G1WYRbCFu53I=
+css-jss@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-jss/-/css-jss-10.8.1.tgz#6246a5de2bc8606e90aa4ce161f5739d30f5b8ad"
+  integrity sha1-Ykal3ivIYG6QqkzhYfVznTD1uK0=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
-    jss-preset-default "10.8.0"
+    jss "10.8.1"
+    jss-preset-default "10.8.1"
 
 css-loader@^3.6.0:
   version "3.6.0"
@@ -5279,9 +5277,9 @@ css-loader@^5.0.1, css-loader@^5.2.6, css-loader@^5.2.7:
     semver "^7.3.5"
 
 css-loader@^6.2.0:
-  version "6.3.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-loader/-/css-loader-6.3.0.tgz#334d3500ff0a0c14cfbd4b0670088dbb5b5c1530"
-  integrity sha1-M001AP8KDBTPvUsGcAiNu1tcFTA=
+  version "6.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-loader/-/css-loader-6.4.0.tgz#01c57ea776024e18ca193428dcad3ff6b42a0130"
+  integrity sha1-AcV+p3YCThjKGTQo3K0/9rQqATA=
   dependencies:
     icss-utils "^5.1.0"
     postcss "^8.2.15"
@@ -5348,9 +5346,9 @@ css-what@^3.2.1:
   integrity sha1-6nAm/LAXd+295SEk4h8yfnrpUOQ=
 
 css-what@^5.0.0:
-  version "5.0.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-what/-/css-what-5.0.1.tgz#3efa820131f4669a8ac2408f9c32e7c7de9f4cad"
-  integrity sha1-PvqCATH0ZpqKwkCPnDLnx96fTK0=
+  version "5.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/css-what/-/css-what-5.1.0.tgz#3f7b707aadf633baf62c2ceb8579b545bb40f7fe"
+  integrity sha1-P3tweq32M7r2LCzrhXm1RbtA9/4=
 
 cssesc@^3.0.0:
   version "3.0.0"
@@ -5868,10 +5866,10 @@ ee-first@1.1.1:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.857:
-  version "1.3.861"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.861.tgz#981e37a79af7a7b29bbaeed36376f4795527de13"
-  integrity sha1-mB43p5r3p7Kbuu7TY3b0eVUn3hM=
+electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.867:
+  version "1.3.876"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.876.tgz#fe6f65c9740406f4aa69f10faa8e1d79b81bdf34"
+  integrity sha1-/m9lyXQEBvSqafEPqo4debgb3zQ=
 
 element-resize-detector@^1.2.2:
   version "1.2.3"
@@ -6049,9 +6047,9 @@ es-get-iterator@^1.0.2:
     isarray "^2.0.5"
 
 es-module-lexer@^0.9.0:
-  version "0.9.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/es-module-lexer/-/es-module-lexer-0.9.2.tgz#d0a8c72c5d904014111fac7fab4c92b9ac545564"
-  integrity sha1-0KjHLF2QQBQRH6x/q0ySuaxUVWQ=
+  version "0.9.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/es-module-lexer/-/es-module-lexer-0.9.3.tgz#6f13db00cc38417137daf74366f535c8eb438f19"
+  integrity sha1-bxPbAMw4QXE32vdDZvU1yOtDjxk=
 
 es-to-primitive@^1.2.1:
   version "1.2.1"
@@ -6072,12 +6070,67 @@ es6-shim@^0.35.5:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/es6-shim/-/es6-shim-0.35.6.tgz#d10578301a83af2de58b9eadb7c2c9945f7388a0"
   integrity sha1-0QV4MBqDry3li56tt8LJlF9ziKA=
 
+esbuild-android-arm64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-android-arm64/-/esbuild-android-arm64-0.13.8.tgz#c20e875c3c98164b1ffba9b28637bdf96f5e9e7c"
+  integrity sha1-wg6HXDyYFksf+6myhje9+W9ennw=
+
+esbuild-darwin-64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-darwin-64/-/esbuild-darwin-64-0.13.8.tgz#f46e6b471ddbf62265234808a6a1aa91df18a417"
+  integrity sha1-9G5rRx3b9iJlI0gIpqGqkd8YpBc=
+
+esbuild-darwin-arm64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.13.8.tgz#a991157a6013facd4f2e14159b7da52626c90154"
+  integrity sha1-qZEVemAT+s1PLhQVm32lJibJAVQ=
+
+esbuild-freebsd-64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-freebsd-64/-/esbuild-freebsd-64-0.13.8.tgz#301601d2e443ad458960e359b402a17d9500be9d"
+  integrity sha1-MBYB0uRDrUWJYONZtAKhfZUAvp0=
+
+esbuild-freebsd-arm64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-freebsd-arm64/-/esbuild-freebsd-arm64-0.13.8.tgz#039a63acc12ec0892006c147ea221e55f9125a9f"
+  integrity sha1-A5pjrMEuwIkgBsFH6iIeVfkSWp8=
+
+esbuild-linux-32@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-linux-32/-/esbuild-linux-32-0.13.8.tgz#c537b67d7e694b60bfa2786581412838c6ba0284"
+  integrity sha1-xTe2fX5pS2C/onhlgUEoOMa6AoQ=
+
+esbuild-linux-64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-linux-64/-/esbuild-linux-64-0.13.8.tgz#0092fc8a064001a777bfa0e3b425bb8be8f96e6a"
+  integrity sha1-AJL8igZAAad3v6DjtCW7i+j5bmo=
+
+esbuild-linux-arm64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-linux-arm64/-/esbuild-linux-arm64-0.13.8.tgz#5cd3f2bb924212971482e8dbc25c4afd09b28110"
+  integrity sha1-XNPyu5JCEpcUgujbwlxK/QmygRA=
+
+esbuild-linux-arm@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-linux-arm/-/esbuild-linux-arm-0.13.8.tgz#ad634f96bf2975536907aeb9fdb75a3194f4ddce"
+  integrity sha1-rWNPlr8pdVNpB665/bdaMZT03c4=
+
+esbuild-linux-mips64le@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-linux-mips64le/-/esbuild-linux-mips64le-0.13.8.tgz#57857edfebf9bf65766dc8be1637f2179c990572"
+  integrity sha1-V4V+3+v5v2V2bci+FjfyF5yZBXI=
+
+esbuild-linux-ppc64le@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-linux-ppc64le/-/esbuild-linux-ppc64le-0.13.8.tgz#fdb82a059a5b86bb10fb42091b4ebcf488b9cd46"
+  integrity sha1-/bgqBZpbhrsQ+0IJG0689Ii5zUY=
+
 esbuild-loader@^2.10.0:
-  version "2.15.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-loader/-/esbuild-loader-2.15.1.tgz#5a3940f5d20317f1a35720efa33e933f97c923e9"
-  integrity sha1-WjlA9dIDF/GjVyDvoz6TP5fJI+k=
+  version "2.16.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-loader/-/esbuild-loader-2.16.0.tgz#a44a57a77ed2810d6b278579271f77d739aa7bc9"
+  integrity sha1-pEpXp37SgQ1rJ4V5Jx931zmqe8k=
   dependencies:
-    esbuild "^0.12.21"
+    esbuild "^0.13.4"
     joycon "^3.0.1"
     json5 "^2.2.0"
     loader-utils "^2.0.0"
@@ -6085,10 +6138,58 @@ esbuild-loader@^2.10.0:
     type-fest "^1.4.0"
     webpack-sources "^2.2.0"
 
-esbuild@^0.12.21:
-  version "0.12.29"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild/-/esbuild-0.12.29.tgz#be602db7c4dc78944a9dbde0d1ea19d36c1f882d"
-  integrity sha1-vmAtt8TceJRKnb3g0eoZ02wfiC0=
+esbuild-netbsd-64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-netbsd-64/-/esbuild-netbsd-64-0.13.8.tgz#d7879e7123d3b2c04754ece8bd061aa6866deeff"
+  integrity sha1-14eecSPTssBHVOzovQYapoZt7v8=
+
+esbuild-openbsd-64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-openbsd-64/-/esbuild-openbsd-64-0.13.8.tgz#88b280b6cb0a3f6adb60abf27fc506c506a35cf0"
+  integrity sha1-iLKAtssKP2rbYKvyf8UGxQajXPA=
+
+esbuild-sunos-64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-sunos-64/-/esbuild-sunos-64-0.13.8.tgz#229ae7c7703196a58acd0f0291ad9bebda815d63"
+  integrity sha1-Iprnx3AxlqWKzQ8Cka2b69qBXWM=
+
+esbuild-windows-32@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-windows-32/-/esbuild-windows-32-0.13.8.tgz#892d093e32a21c0c9135e5a0ffdc380aeb70e763"
+  integrity sha1-iS0JPjKiHAyRNeWg/9w4Cutw52M=
+
+esbuild-windows-64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-windows-64/-/esbuild-windows-64-0.13.8.tgz#7defd8d79ae3bb7e6f53b65a7190be7daf901686"
+  integrity sha1-fe/Y15rju35vU7ZacZC+fa+QFoY=
+
+esbuild-windows-arm64@0.13.8:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild-windows-arm64/-/esbuild-windows-arm64-0.13.8.tgz#e59ae004496fd8a5ab67bfc7945a2e47480d6fb9"
+  integrity sha1-5ZrgBElv2KWrZ7/HlFouR0gNb7k=
+
+esbuild@^0.13.4:
+  version "0.13.8"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/esbuild/-/esbuild-0.13.8.tgz#bd7cc51b881ab067789f88e17baca74724c1ec4f"
+  integrity sha1-vXzFG4gasGd4n4jhe6ynRyTB7E8=
+  optionalDependencies:
+    esbuild-android-arm64 "0.13.8"
+    esbuild-darwin-64 "0.13.8"
+    esbuild-darwin-arm64 "0.13.8"
+    esbuild-freebsd-64 "0.13.8"
+    esbuild-freebsd-arm64 "0.13.8"
+    esbuild-linux-32 "0.13.8"
+    esbuild-linux-64 "0.13.8"
+    esbuild-linux-arm "0.13.8"
+    esbuild-linux-arm64 "0.13.8"
+    esbuild-linux-mips64le "0.13.8"
+    esbuild-linux-ppc64le "0.13.8"
+    esbuild-netbsd-64 "0.13.8"
+    esbuild-openbsd-64 "0.13.8"
+    esbuild-sunos-64 "0.13.8"
+    esbuild-windows-32 "0.13.8"
+    esbuild-windows-64 "0.13.8"
+    esbuild-windows-arm64 "0.13.8"
 
 escalade@^3.0.2, escalade@^3.1.1:
   version "3.1.1"
@@ -6712,9 +6813,9 @@ flatted@^3.1.0:
   integrity sha1-ZL/tXLaP48p4s+shStl7Y77c5WE=
 
 flow-parser@0.*:
-  version "0.161.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/flow-parser/-/flow-parser-0.161.0.tgz#9b8d892deaca8c180ffaf332c1d1eef44902397c"
-  integrity sha1-m42JLerKjBgP+vMywdHu9EkCOXw=
+  version "0.162.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/flow-parser/-/flow-parser-0.162.1.tgz#128150cd483c4899719fb5ceb06744282e51a10d"
+  integrity sha1-EoFQzUg8SJlxn7XOsGdEKC5RoQ0=
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -6768,9 +6869,9 @@ fork-ts-checker-webpack-plugin@4.1.6, fork-ts-checker-webpack-plugin@^4.1.6:
     worker-rpc "^0.1.0"
 
 fork-ts-checker-webpack-plugin@^6.0.4, fork-ts-checker-webpack-plugin@^6.2.12, fork-ts-checker-webpack-plugin@^6.3.2:
-  version "6.3.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-6.3.4.tgz#9af17de0a36caf6f1b4e1d2d081cf586f0a12b14"
-  integrity sha1-mvF94KNsr28bTh0tCBz1hvChKxQ=
+  version "6.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/fork-ts-checker-webpack-plugin/-/fork-ts-checker-webpack-plugin-6.4.0.tgz#057e477cf1d8b013b2ed2669437f818680289c4c"
+  integrity sha1-BX5HfPHYsBOy7SZpQ3+BhoAonEw=
   dependencies:
     "@babel/code-frame" "^7.8.3"
     "@types/json-schema" "^7.0.5"
@@ -7542,6 +7643,19 @@ html-minifier-terser@^5.0.1:
     relateurl "^0.2.7"
     terser "^4.6.3"
 
+html-minifier-terser@^6.0.2:
+  version "6.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/html-minifier-terser/-/html-minifier-terser-6.0.2.tgz#14059ad64b69bf9f8b8a33f25b53411d8321e75d"
+  integrity sha1-FAWa1ktpv5+LijPyW1NBHYMh510=
+  dependencies:
+    camel-case "^4.1.2"
+    clean-css "^5.1.5"
+    commander "^8.1.0"
+    he "^1.2.0"
+    param-case "^3.0.4"
+    relateurl "^0.2.7"
+    terser "^5.7.2"
+
 html-tags@^3.1.0:
   version "3.1.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/html-tags/-/html-tags-3.1.0.tgz#7b5e6f7e665e9fb41f30007ed9e0d41e97fb2140"
@@ -7568,12 +7682,12 @@ html-webpack-plugin@^4.0.0:
     util.promisify "1.0.0"
 
 html-webpack-plugin@^5.0.0, html-webpack-plugin@^5.3.2:
-  version "5.3.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/html-webpack-plugin/-/html-webpack-plugin-5.3.2.tgz#7b04bf80b1f6fe84a6d3f66c8b79d64739321b08"
-  integrity sha1-ewS/gLH2/oSm0/Zsi3nWRzkyGwg=
+  version "5.4.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/html-webpack-plugin/-/html-webpack-plugin-5.4.0.tgz#d016cd9594be5c243bb5c12287af43babbe1c094"
+  integrity sha1-0BbNlZS+XCQ7tcEih69DurvhwJQ=
   dependencies:
-    "@types/html-minifier-terser" "^5.0.0"
-    html-minifier-terser "^5.0.1"
+    "@types/html-minifier-terser" "^6.0.0"
+    html-minifier-terser "^6.0.2"
     lodash "^4.17.21"
     pretty-error "^3.0.4"
     tapable "^2.0.0"
@@ -7967,17 +8081,10 @@ is-ci@^2.0.0:
   dependencies:
     ci-info "^2.0.0"
 
-is-ci@^3.0.0:
-  version "3.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-ci/-/is-ci-3.0.0.tgz#c7e7be3c9d8eef7d0fa144390bd1e4b88dc4c994"
-  integrity sha1-x+e+PJ2O730PoUQ5C9HkuI3EyZQ=
-  dependencies:
-    ci-info "^3.1.1"
-
 is-core-module@^2.2.0, is-core-module@^2.5.0:
-  version "2.7.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-core-module/-/is-core-module-2.7.0.tgz#3c0ef7d31b4acfc574f80c58409d568a836848e3"
-  integrity sha1-PA730xtKz8V0+AxYQJ1WioNoSOM=
+  version "2.8.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-core-module/-/is-core-module-2.8.0.tgz#0321336c3d0925e497fd97f5d95cb114a5ccd548"
+  integrity sha1-AyEzbD0JJeSX/Zf12VyxFKXM1Ug=
   dependencies:
     has "^1.0.3"
 
@@ -8211,10 +8318,10 @@ is-plain-obj@^3.0.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-plain-obj/-/is-plain-obj-3.0.0.tgz#af6f2ea14ac5a646183a5bbdb5baabbc156ad9d7"
   integrity sha1-r28uoUrFpkYYOlu9tbqrvBVq2dc=
 
-is-plain-object@3.0.1:
-  version "3.0.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-plain-object/-/is-plain-object-3.0.1.tgz#662d92d24c0aa4302407b0d45d21f2251c85f85b"
-  integrity sha1-Zi2S0kwKpDAkB7DUXSHyJRyF+Fs=
+is-plain-object@5.0.0:
+  version "5.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/is-plain-object/-/is-plain-object-5.0.0.tgz#4427f50ab3429e9025ea7d52e9043a9ef4159344"
+  integrity sha1-RCf1CrNCnpAl6n1S6QQ6nvQVk0Q=
 
 is-plain-object@^2.0.3, is-plain-object@^2.0.4:
   version "2.0.4"
@@ -8356,22 +8463,18 @@ isstream@~0.1.2:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/isstream/-/isstream-0.1.2.tgz#47e63f7af55afa6f92e1500e690eb8b8529c099a"
   integrity sha1-R+Y/evVa+m+S4VAOaQ64uFKcCZo=
 
-istanbul-lib-coverage@^3.0.0:
-  version "3.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/istanbul-lib-coverage/-/istanbul-lib-coverage-3.0.0.tgz#f5944a37c70b550b02a78a5c3b2055b280cec8ec"
-  integrity sha1-9ZRKN8cLVQsCp4pcOyBVsoDOyOw=
+istanbul-lib-coverage@^3.0.0, istanbul-lib-coverage@^3.0.1:
+  version "3.2.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/istanbul-lib-coverage/-/istanbul-lib-coverage-3.2.0.tgz#189e7909d0a39fa5a3dfad5b03f71947770191d3"
+  integrity sha1-GJ55CdCjn6Wj361bA/cZR3cBkdM=
 
-istanbul-lib-coverage@^3.0.1:
-  version "3.0.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/istanbul-lib-coverage/-/istanbul-lib-coverage-3.0.1.tgz#e8900b3ed6069759229cf30f7067388d148aeb5e"
-  integrity sha1-6JALPtYGl1kinPMPcGc4jRSK614=
-
-istanbul-lib-instrument@^4.0.0:
-  version "4.0.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/istanbul-lib-instrument/-/istanbul-lib-instrument-4.0.3.tgz#873c6fff897450118222774696a3f28902d77c1d"
-  integrity sha1-hzxv/4l0UBGCIndGlqPyiQLXfB0=
+istanbul-lib-instrument@^5.0.4:
+  version "5.0.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/istanbul-lib-instrument/-/istanbul-lib-instrument-5.0.4.tgz#e976f2aa66ebc6737f236d3ab05b76e36f885c80"
+  integrity sha1-6XbyqmbrxnN/I206sFt242+IXIA=
   dependencies:
-    "@babel/core" "^7.7.5"
+    "@babel/core" "^7.12.3"
+    "@babel/parser" "^7.14.7"
     "@istanbuljs/schema" "^0.1.2"
     istanbul-lib-coverage "^3.0.0"
     semver "^6.3.0"
@@ -8386,9 +8489,9 @@ istanbul-lib-report@^3.0.0:
     supports-color "^7.1.0"
 
 istanbul-reports@^3.0.2:
-  version "3.0.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/istanbul-reports/-/istanbul-reports-3.0.3.tgz#974d682037f6d12b15dc55f9a2a5f8f1ea923831"
-  integrity sha1-l01oIDf20SsV3FX5oqX48eqSODE=
+  version "3.0.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/istanbul-reports/-/istanbul-reports-3.0.5.tgz#a2580107e71279ea6d661ddede929ffc6d693384"
+  integrity sha1-olgBB+cSeeptZh3e3pKf/G1pM4Q=
   dependencies:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
@@ -8427,12 +8530,12 @@ jest-haste-map@^26.6.2:
   optionalDependencies:
     fsevents "^2.1.2"
 
-jest-haste-map@^27.2.4:
-  version "27.2.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-haste-map/-/jest-haste-map-27.2.4.tgz#f8974807bedf07348ca9fd24e5861ab7c8e61aba"
-  integrity sha1-+JdIB77fBzSMqf0k5YYat8jmGro=
+jest-haste-map@^27.3.1:
+  version "27.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-haste-map/-/jest-haste-map-27.3.1.tgz#7656fbd64bf48bda904e759fc9d93e2c807353ee"
+  integrity sha1-dlb71kv0i9qQTnWfydk+LIBzU+4=
   dependencies:
-    "@jest/types" "^27.2.4"
+    "@jest/types" "^27.2.5"
     "@types/graceful-fs" "^4.1.2"
     "@types/node" "*"
     anymatch "^3.0.3"
@@ -8440,8 +8543,8 @@ jest-haste-map@^27.2.4:
     graceful-fs "^4.2.4"
     jest-regex-util "^27.0.6"
     jest-serializer "^27.0.6"
-    jest-util "^27.2.4"
-    jest-worker "^27.2.4"
+    jest-util "^27.3.1"
+    jest-worker "^27.3.1"
     micromatch "^4.0.4"
     walker "^1.0.7"
   optionalDependencies:
@@ -8485,16 +8588,16 @@ jest-util@^26.6.2:
     is-ci "^2.0.0"
     micromatch "^4.0.2"
 
-jest-util@^27.2.4:
-  version "27.2.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-util/-/jest-util-27.2.4.tgz#3d7ce081b2e7f4cfe0156452ac01f3cb456cc656"
-  integrity sha1-PXzggbLn9M/gFWRSrAHzy0VsxlY=
+jest-util@^27.3.1:
+  version "27.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-util/-/jest-util-27.3.1.tgz#a58cdc7b6c8a560caac9ed6bdfc4e4ff23f80429"
+  integrity sha1-pYzce2yKVgyqye1r38Tk/yP4BCk=
   dependencies:
-    "@jest/types" "^27.2.4"
+    "@jest/types" "^27.2.5"
     "@types/node" "*"
     chalk "^4.0.0"
+    ci-info "^3.2.0"
     graceful-fs "^4.2.4"
-    is-ci "^3.0.0"
     picomatch "^2.2.3"
 
 jest-worker@^26.5.0, jest-worker@^26.6.2:
@@ -8506,10 +8609,10 @@ jest-worker@^26.5.0, jest-worker@^26.6.2:
     merge-stream "^2.0.0"
     supports-color "^7.0.0"
 
-jest-worker@^27.0.6, jest-worker@^27.2.4:
-  version "27.2.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-worker/-/jest-worker-27.2.4.tgz#881455df75e22e7726a53f43703ab74d6b36f82d"
-  integrity sha1-iBRV33XiLncmpT9DcDq3TWs2+C0=
+jest-worker@^27.0.6, jest-worker@^27.3.1:
+  version "27.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jest-worker/-/jest-worker-27.3.1.tgz#0def7feae5b8042be38479799aeb7b5facac24b2"
+  integrity sha1-De9/6uW4BCvjhHl5mut7X6ysJLI=
   dependencies:
     "@types/node" "*"
     merge-stream "^2.0.0"
@@ -8697,134 +8800,134 @@ jsprim@^1.2.2:
     json-schema "0.2.3"
     verror "1.10.0"
 
-jss-plugin-camel-case@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-camel-case/-/jss-plugin-camel-case-10.8.0.tgz#575fd849202d36713a6970796458e375754446c7"
-  integrity sha1-V1/YSSAtNnE6aXB5ZFjjdXVERsc=
+jss-plugin-camel-case@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-camel-case/-/jss-plugin-camel-case-10.8.1.tgz#342fd406c2e8781ecdc4ac298a78b892f75581ab"
+  integrity sha1-NC/UBsLoeB7NxKwpini4kvdVgas=
   dependencies:
     "@babel/runtime" "^7.3.1"
     hyphenate-style-name "^1.0.3"
-    jss "10.8.0"
+    jss "10.8.1"
 
-jss-plugin-compose@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-compose/-/jss-plugin-compose-10.8.0.tgz#bbc455c700090a69f421f7f921f58f76ca0c41b6"
-  integrity sha1-u8RVxwAJCmn0Iff5IfWPdsoMQbY=
+jss-plugin-compose@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-compose/-/jss-plugin-compose-10.8.1.tgz#23c3f27fdd71b69aed0ddf635c90fd34a7c8be92"
+  integrity sha1-I8Pyf91xtprtDd9jXJD9NKfIvpI=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
     tiny-warning "^1.0.2"
 
-jss-plugin-default-unit@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-default-unit/-/jss-plugin-default-unit-10.8.0.tgz#98db5962e62abbf43f1cc111e62cb70ffb09db59"
-  integrity sha1-mNtZYuYqu/Q/HMER5iy3D/sJ21k=
+jss-plugin-default-unit@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-default-unit/-/jss-plugin-default-unit-10.8.1.tgz#1c35b89cd70ca5b0e01c21d89d908e75c1ea80ad"
+  integrity sha1-HDW4nNcMpbDgHCHYnZCOdcHqgK0=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
 
-jss-plugin-expand@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-expand/-/jss-plugin-expand-10.8.0.tgz#c412161c4ee0ade00e616e406f2a719b91346053"
-  integrity sha1-xBIWHE7greAOYW5Abypxm5E0YFM=
+jss-plugin-expand@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-expand/-/jss-plugin-expand-10.8.1.tgz#a33e1bab6415b6b555c7c83dc6a7c02f4a949294"
+  integrity sha1-oz4bq2QVtrVVx8g9xqfAL0qUkpQ=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
 
-jss-plugin-extend@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-extend/-/jss-plugin-extend-10.8.0.tgz#46f6c2ff7ea09f0cf071cfc2171f358e7b674604"
-  integrity sha1-RvbC/36gnwzwcc/CFx81jntnRgQ=
+jss-plugin-extend@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-extend/-/jss-plugin-extend-10.8.1.tgz#eb76ddd27323505468526e944586e886f13377f5"
+  integrity sha1-63bd0nMjUFRoUm6URYbohvEzd/U=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
     tiny-warning "^1.0.2"
 
-jss-plugin-global@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-global/-/jss-plugin-global-10.8.0.tgz#0c2b0c056087f5846d600f3332eeb7a1a8b9c9f2"
-  integrity sha1-DCsMBWCH9YRtYA8zMu63oai5yfI=
+jss-plugin-global@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-global/-/jss-plugin-global-10.8.1.tgz#992a14210c567178eb4cd385edcd267ae8cc6f28"
+  integrity sha1-mSoUIQxWcXjrTNOF7c0meujMbyg=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
 
-jss-plugin-nested@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-nested/-/jss-plugin-nested-10.8.0.tgz#7ef9a815e9c9fbede41a8f52ce75cffb4c3b86d5"
-  integrity sha1-fvmoFenJ++3kGo9SznXP+0w7htU=
+jss-plugin-nested@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-nested/-/jss-plugin-nested-10.8.1.tgz#ac9750f8185725a0fd6ea484860767c53ec3d3dc"
+  integrity sha1-rJdQ+BhXJaD9bqSEhgdnxT7D09w=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
     tiny-warning "^1.0.2"
 
-jss-plugin-props-sort@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-props-sort/-/jss-plugin-props-sort-10.8.0.tgz#2a83e8ca80d72828495bad57b485f7d55a33543b"
-  integrity sha1-KoPoyoDXKChJW61XtIX31VozVDs=
+jss-plugin-props-sort@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-props-sort/-/jss-plugin-props-sort-10.8.1.tgz#ee07bebf8ebeab01f8d9369973c64891cca53af9"
+  integrity sha1-7ge+v46+qwH42TaZc8ZIkcylOvk=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
 
-jss-plugin-rule-value-function@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-rule-value-function/-/jss-plugin-rule-value-function-10.8.0.tgz#e011ed180789229e7ea8f75c222d34810bcab520"
-  integrity sha1-4BHtGAeJIp5+qPdcIi00gQvKtSA=
+jss-plugin-rule-value-function@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-rule-value-function/-/jss-plugin-rule-value-function-10.8.1.tgz#40b19406f3cc027d9001de9026750e726c322993"
+  integrity sha1-QLGUBvPMAn2QAd6QJnUOcmwyKZM=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
     tiny-warning "^1.0.2"
 
-jss-plugin-rule-value-observable@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-rule-value-observable/-/jss-plugin-rule-value-observable-10.8.0.tgz#ed02710675b57295f416db242235ba00b65e36f6"
-  integrity sha1-7QJxBnW1cpX0FtskIjW6ALZeNvY=
+jss-plugin-rule-value-observable@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-rule-value-observable/-/jss-plugin-rule-value-observable-10.8.1.tgz#669ad16c57960a22db7fe30054f34e94d0e5ed9c"
+  integrity sha1-ZprRbFeWCiLbf+MAVPNOlNDl7Zw=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
     symbol-observable "^1.2.0"
 
-jss-plugin-template@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-template/-/jss-plugin-template-10.8.0.tgz#fb6873a98c2618a84e95e51444a74d6494f39f55"
-  integrity sha1-+2hzqYwmGKhOleUURKdNZJTzn1U=
+jss-plugin-template@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-template/-/jss-plugin-template-10.8.1.tgz#b12d74e3f4da4035fc28a921c5feda73d54313db"
+  integrity sha1-sS104/TaQDX8KKkhxf7ac9VDE9s=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
+    jss "10.8.1"
     tiny-warning "^1.0.2"
 
-jss-plugin-vendor-prefixer@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-vendor-prefixer/-/jss-plugin-vendor-prefixer-10.8.0.tgz#024b6d77be50b68e5dfca2c75f68091d8b722d61"
-  integrity sha1-Akttd75Qto5d/KLHX2gJHYtyLWE=
+jss-plugin-vendor-prefixer@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-plugin-vendor-prefixer/-/jss-plugin-vendor-prefixer-10.8.1.tgz#362146c2b641aae1d29f279307aec0e2167c7ee2"
+  integrity sha1-NiFGwrZBquHSnyeTB67A4hZ8fuI=
   dependencies:
     "@babel/runtime" "^7.3.1"
     css-vendor "^2.0.8"
-    jss "10.8.0"
+    jss "10.8.1"
 
-jss-preset-default@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-preset-default/-/jss-preset-default-10.8.0.tgz#eef88895a64670be35a33d02e342b819fa3d3e8d"
-  integrity sha1-7viIlaZGcL41oz0C40K4Gfo9Po0=
+jss-preset-default@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss-preset-default/-/jss-preset-default-10.8.1.tgz#b170fdc9cf6add389bc933f848906ac5075ffda9"
+  integrity sha1-sXD9yc9q3TibyTP4SJBqxQdf/ak=
   dependencies:
     "@babel/runtime" "^7.3.1"
-    jss "10.8.0"
-    jss-plugin-camel-case "10.8.0"
-    jss-plugin-compose "10.8.0"
-    jss-plugin-default-unit "10.8.0"
-    jss-plugin-expand "10.8.0"
-    jss-plugin-extend "10.8.0"
-    jss-plugin-global "10.8.0"
-    jss-plugin-nested "10.8.0"
-    jss-plugin-props-sort "10.8.0"
-    jss-plugin-rule-value-function "10.8.0"
-    jss-plugin-rule-value-observable "10.8.0"
-    jss-plugin-template "10.8.0"
-    jss-plugin-vendor-prefixer "10.8.0"
+    jss "10.8.1"
+    jss-plugin-camel-case "10.8.1"
+    jss-plugin-compose "10.8.1"
+    jss-plugin-default-unit "10.8.1"
+    jss-plugin-expand "10.8.1"
+    jss-plugin-extend "10.8.1"
+    jss-plugin-global "10.8.1"
+    jss-plugin-nested "10.8.1"
+    jss-plugin-props-sort "10.8.1"
+    jss-plugin-rule-value-function "10.8.1"
+    jss-plugin-rule-value-observable "10.8.1"
+    jss-plugin-template "10.8.1"
+    jss-plugin-vendor-prefixer "10.8.1"
 
-jss@10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss/-/jss-10.8.0.tgz#5063ee73aabd9f228ea3849df7962f0d2e213a42"
-  integrity sha1-UGPuc6q9nyKOo4Sd95YvDS4hOkI=
+jss@10.8.1:
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/jss/-/jss-10.8.1.tgz#375797c259ffce417e56ae1a7fe703acde8de9ee"
+  integrity sha1-N1eXwln/zkF+Vq4af+cDrN6N6e4=
   dependencies:
     "@babel/runtime" "^7.3.1"
     csstype "^3.0.2"
@@ -9389,9 +9492,9 @@ min-indent@^1.0.0:
   integrity sha1-pj9oFnOzBXH76LwlaGrnRu76mGk=
 
 mini-css-extract-plugin@^2.1.0:
-  version "2.4.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mini-css-extract-plugin/-/mini-css-extract-plugin-2.4.1.tgz#3f3eb6576fb29dd00c423c365e6d3aa59c48ca2a"
-  integrity sha1-Pz62V2+yndAMQjw2Xm06pZxIyio=
+  version "2.4.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mini-css-extract-plugin/-/mini-css-extract-plugin-2.4.2.tgz#b3508191ea479388a4715018c99dd3e6dd40d2d2"
+  integrity sha1-s1CBkepHk4ikcVAYyZ3T5t1A0tI=
   dependencies:
     schema-utils "^3.1.0"
 
@@ -9574,10 +9677,10 @@ nan@^2.12.1, nan@^2.13.2:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/nan/-/nan-2.15.0.tgz#3f34a473ff18e15c1b5626b62903b5ad6e665fee"
   integrity sha1-PzSkc/8Y4VwbVia2KQO1rW5mX+4=
 
-nanoid@^3.1.28:
-  version "3.1.29"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/nanoid/-/nanoid-3.1.29.tgz#214fb2d7a33e1a5bef4757b779dfaeb6a4e5aeb4"
-  integrity sha1-IU+y16M+GlvvR1e3ed+utqTlrrQ=
+nanoid@^3.1.30:
+  version "3.1.30"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/nanoid/-/nanoid-3.1.30.tgz#63f93cc548d2a113dc5dfbc63bfa09e2b9b64362"
+  integrity sha1-Y/k8xUjSoRPcXfvGO/oJ4rm2Q2I=
 
 nanomatch@^1.2.9:
   version "1.2.13"
@@ -9710,10 +9813,15 @@ node-modules-regexp@^1.0.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
 
-node-releases@^1.1.61, node-releases@^1.1.77:
+node-releases@^1.1.61:
   version "1.1.77"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/node-releases/-/node-releases-1.1.77.tgz#50b0cfede855dd374e7585bf228ff34e57c1c32e"
   integrity sha1-ULDP7ehV3TdOdYW/Io/zTlfBwy4=
+
+node-releases@^2.0.0:
+  version "2.0.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/node-releases/-/node-releases-2.0.1.tgz#3d1d395f204f1f2f29a54358b9fb678765ad2fc5"
+  integrity sha1-PR05XyBPHy8ppUNYuftnh2WtL8U=
 
 node-sass@^6.0.1:
   version "6.0.1"
@@ -9975,9 +10083,9 @@ open@^7.0.2, open@^7.0.3:
     is-wsl "^2.1.1"
 
 open@^8.0.9:
-  version "8.2.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/open/-/open-8.2.1.tgz#82de42da0ccbf429bc12d099dad2e0975e14e8af"
-  integrity sha1-gt5C2gzL9Cm8EtCZ2tLgl14U6K8=
+  version "8.3.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/open/-/open-8.3.0.tgz#fdef1cdfe405e60dec8ebd18889e7e812f39c59f"
+  integrity sha1-/e8c3+QF5g3sjr0YiJ5+gS85xZ8=
   dependencies:
     define-lazy-prop "^2.0.0"
     is-docker "^2.1.1"
@@ -10156,7 +10264,7 @@ parallel-transform@^1.1.0:
     inherits "^2.0.3"
     readable-stream "^2.1.5"
 
-param-case@^3.0.3:
+param-case@^3.0.3, param-case@^3.0.4:
   version "3.0.4"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/param-case/-/param-case-3.0.4.tgz#7d17fe4aa12bde34d4a77d91acfb6219caad01c5"
   integrity sha1-fRf+SqEr3jTUp32RrPtiGcqtAcU=
@@ -10314,6 +10422,11 @@ picocolors@^0.2.1:
   version "0.2.1"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/picocolors/-/picocolors-0.2.1.tgz#570670f793646851d1ba135996962abad587859f"
   integrity sha1-VwZw95NkaFHRuhNZlpYqutWHhZ8=
+
+picocolors@^1.0.0:
+  version "1.0.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/picocolors/-/picocolors-1.0.0.tgz#cb5bdc74ff3f51892236eaf79d68bc44564ab81c"
+  integrity sha1-y1vcdP8/UYkiNur3nWi8RFZKuBw=
 
 picomatch@^2.0.4, picomatch@^2.2.1, picomatch@^2.2.3:
   version "2.3.0"
@@ -10511,12 +10624,12 @@ postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0
     source-map "^0.6.1"
 
 postcss@^8.2.15:
-  version "8.3.9"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/postcss/-/postcss-8.3.9.tgz#98754caa06c4ee9eb59cc48bd073bb6bd3437c31"
-  integrity sha1-mHVMqgbE7p61nMSL0HO7a9NDfDE=
+  version "8.3.10"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/postcss/-/postcss-8.3.10.tgz#4d614e108ccc69c65c2f6dc6cec23dd5c85b73af"
+  integrity sha1-TWFOEIzMacZcL23GzsI91chbc68=
   dependencies:
-    nanoid "^3.1.28"
-    picocolors "^0.2.1"
+    nanoid "^3.1.30"
+    picocolors "^1.0.0"
     source-map-js "^0.6.2"
 
 prelude-ls@^1.2.1:
@@ -10577,15 +10690,10 @@ pretty-quick@^3.1.1:
     mri "^1.1.5"
     multimatch "^4.0.0"
 
-prismjs@^1.21.0:
+prismjs@^1.21.0, prismjs@~1.25.0:
   version "1.25.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/prismjs/-/prismjs-1.25.0.tgz#6f822df1bdad965734b310b315a23315cf999756"
   integrity sha1-b4It8b2tllc0sxCzFaIzFc+Zl1Y=
-
-prismjs@~1.24.0:
-  version "1.24.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/prismjs/-/prismjs-1.24.1.tgz#c4d7895c4d6500289482fa8936d9cdd192684036"
-  integrity sha1-xNeJXE1lACiUgvqJNtnN0ZJoQDY=
 
 private@^0.1.8:
   version "0.1.8"
@@ -10642,9 +10750,9 @@ prompts@2.4.0:
     sisteransi "^1.0.5"
 
 prompts@^2.4.0:
-  version "2.4.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/prompts/-/prompts-2.4.1.tgz#befd3b1195ba052f9fd2fde8a486c4e82ee77f61"
-  integrity sha1-vv07EZW6BS+f0v3opIbE6C7nf2E=
+  version "2.4.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/prompts/-/prompts-2.4.2.tgz#7b57e73b3a48029ad10ebd44f74b01722a4cb069"
+  integrity sha1-e1fnOzpIAprRDr1E90sBcipMsGk=
   dependencies:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
@@ -10923,9 +11031,9 @@ react-display-name@^0.2.4:
   integrity sha1-MEx8v7We5AOJ1DbhqCLBf+J5NsY=
 
 react-docgen-typescript@^2.0.0, react-docgen-typescript@^2.1.0:
-  version "2.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-docgen-typescript/-/react-docgen-typescript-2.1.0.tgz#20db64a7fd62e63a8a9469fb4abd90600878cbb2"
-  integrity sha1-INtkp/1i5jqKlGn7Sr2QYAh4y7I=
+  version "2.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-docgen-typescript/-/react-docgen-typescript-2.1.1.tgz#c9f9ccb1fa67e0f4caf3b12f2a07512a201c2dcf"
+  integrity sha1-yfnMsfpn4PTK87EvKgdRKiAcLc8=
 
 react-docgen@^5.0.0:
   version "5.4.0"
@@ -10961,12 +11069,13 @@ react-draggable@^4.4.3:
     prop-types "^15.6.0"
 
 react-element-to-jsx-string@^14.3.2:
-  version "14.3.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-element-to-jsx-string/-/react-element-to-jsx-string-14.3.2.tgz#c0000ed54d1f8b4371731b669613f2d4e0f63d5c"
-  integrity sha1-wAAO1U0fi0NxcxtmlhPy1OD2PVw=
+  version "14.3.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-element-to-jsx-string/-/react-element-to-jsx-string-14.3.4.tgz#709125bc72f06800b68f9f4db485f2c7d31218a8"
+  integrity sha1-cJElvHLwaAC2j59NtIXyx9MSGKg=
   dependencies:
-    "@base2/pretty-print-object" "1.0.0"
-    is-plain-object "3.0.1"
+    "@base2/pretty-print-object" "1.0.1"
+    is-plain-object "5.0.0"
+    react-is "17.0.2"
 
 react-error-overlay@^6.0.9:
   version "6.0.9"
@@ -11005,28 +11114,28 @@ react-inspector@^5.1.0:
     is-dom "^1.0.0"
     prop-types "^15.0.0"
 
+react-is@17.0.2, react-is@^17.0.2:
+  version "17.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
+  integrity sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA=
+
 react-is@^16.7.0, react-is@^16.8.1:
   version "16.13.1"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha1-eJcppNw23imZ3BVt1sHZwYzqVqQ=
 
-react-is@^17.0.2:
-  version "17.0.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-is/-/react-is-17.0.2.tgz#e691d4a8e9c789365655539ab372762b0efb54f0"
-  integrity sha1-5pHUqOnHiTZWVVOas3J2Kw77VPA=
-
 react-jss@^10.8.0:
-  version "10.8.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-jss/-/react-jss-10.8.0.tgz#bdb2f4d4c9fa81021945db4fc8114351d2574b8f"
-  integrity sha1-vbL01Mn6gQIZRdtPyBFDUdJXS48=
+  version "10.8.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-jss/-/react-jss-10.8.1.tgz#f8115b09bd3dd355471e06f592990c4fb59a4225"
+  integrity sha1-+BFbCb0901VHHgb1kpkMT7WaQiU=
   dependencies:
     "@babel/runtime" "^7.3.1"
     "@emotion/is-prop-valid" "^0.7.3"
-    css-jss "10.8.0"
+    css-jss "10.8.1"
     hoist-non-react-statics "^3.2.0"
     is-in-browser "^1.1.3"
-    jss "10.8.0"
-    jss-preset-default "10.8.0"
+    jss "10.8.1"
+    jss-preset-default "10.8.1"
     prop-types "^15.6.0"
     shallow-equal "^1.2.0"
     theming "^3.3.0"
@@ -11243,13 +11352,13 @@ redent@^3.0.0:
     strip-indent "^3.0.0"
 
 refractor@^3.1.0:
-  version "3.4.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/refractor/-/refractor-3.4.0.tgz#62bd274b06c942041f390c371b676eb67cb0a678"
-  integrity sha1-Yr0nSwbJQgQfOQw3G2dutnywpng=
+  version "3.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/refractor/-/refractor-3.5.0.tgz#334586f352dda4beaf354099b48c2d18e0819aec"
+  integrity sha1-M0WG81LdpL6vNUCZtIwtGOCBmuw=
   dependencies:
     hastscript "^6.0.0"
     parse-entities "^2.0.0"
-    prismjs "~1.24.0"
+    prismjs "~1.25.0"
 
 regenerate-unicode-properties@^9.0.0:
   version "9.0.0"
@@ -11658,9 +11767,9 @@ sass-graph@2.2.5:
     yargs "^13.3.2"
 
 sass-loader@^12.1.0:
-  version "12.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass-loader/-/sass-loader-12.1.0.tgz#b73324622231009da6fba61ab76013256380d201"
-  integrity sha1-tzMkYiIxAJ2m+6Yat2ATJWOA0gE=
+  version "12.2.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass-loader/-/sass-loader-12.2.0.tgz#b370010fb0ababae2ef9c6c89e05d6c6debc6042"
+  integrity sha1-s3ABD7Crq64u+cbIngXWxt68YEI=
   dependencies:
     klona "^2.0.4"
     neo-async "^2.6.2"
@@ -11676,9 +11785,9 @@ sass-resources-loader@^2.2.3:
     loader-utils "^2.0.0"
 
 sass@^1.37.0:
-  version "1.42.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass/-/sass-1.42.1.tgz#5ab17bebc1cb1881ad2e0c9a932c66ad64e441e2"
-  integrity sha1-WrF768HLGIGtLgyakyxmrWTkQeI=
+  version "1.43.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass/-/sass-1.43.2.tgz#c02501520c624ad6622529a8b3724eb08da82d65"
+  integrity sha1-wCUBUgxiStZiJSmos3JOsI2oLWU=
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
@@ -11967,9 +12076,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2, signal-exit@^3.0.3:
   integrity sha1-nj6MwMdamUcrRDIQM6dwLnc4JS8=
 
 sirv@^1.0.7:
-  version "1.0.17"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sirv/-/sirv-1.0.17.tgz#86e2c63c612da5a1dace1c16c46f524aaa26ac45"
-  integrity sha1-huLGPGEtpaHazhwWxG9SSqomrEU=
+  version "1.0.18"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sirv/-/sirv-1.0.18.tgz#105fab52fb656ce8a2bebbf36b11052005952899"
+  integrity sha1-EF+rUvtlbOiivrvzaxEFIAWVKJk=
   dependencies:
     "@polka/url" "^1.0.0-next.20"
     mime "^2.3.1"
@@ -12312,13 +12421,14 @@ string-width@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     strip-ansi "^3.0.0"
 
-"string-width@^1.0.2 || 2":
-  version "2.1.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
-  integrity sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
+"string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
+  version "4.2.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
+  integrity sha1-JpxxF9J7Ba0uU2gwqOyJXvnG0BA=
   dependencies:
-    is-fullwidth-code-point "^2.0.0"
-    strip-ansi "^4.0.0"
+    emoji-regex "^8.0.0"
+    is-fullwidth-code-point "^3.0.0"
+    strip-ansi "^6.0.1"
 
 string-width@^3.0.0, string-width@^3.1.0:
   version "3.1.0"
@@ -12328,15 +12438,6 @@ string-width@^3.0.0, string-width@^3.1.0:
     emoji-regex "^7.0.1"
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^5.1.0"
-
-string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
-  version "4.2.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
-  integrity sha1-JpxxF9J7Ba0uU2gwqOyJXvnG0BA=
-  dependencies:
-    emoji-regex "^8.0.0"
-    is-fullwidth-code-point "^3.0.0"
-    strip-ansi "^6.0.1"
 
 "string.prototype.matchall@^4.0.0 || ^3.0.1":
   version "4.0.6"
@@ -12413,13 +12514,6 @@ strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   integrity sha1-ajhfuIU9lS1f8F0Oiq+UJ43GPc8=
   dependencies:
     ansi-regex "^2.0.0"
-
-strip-ansi@^4.0.0:
-  version "4.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
-  integrity sha1-qEeQIusaw2iocTibY1JixQXuNo8=
-  dependencies:
-    ansi-regex "^3.0.0"
 
 strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   version "5.2.0"
@@ -12502,7 +12596,7 @@ style-to-object@0.3.0, style-to-object@^0.3.0:
   dependencies:
     inline-style-parser "0.1.1"
 
-stylis@^4.0.3:
+stylis@^4.0.10:
   version "4.0.10"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/stylis/-/stylis-4.0.10.tgz#446512d1097197ab3f02fb3c258358c3f7a14240"
   integrity sha1-RGUS0Qlxl6s/Avs8JYNYw/ehQkA=
@@ -13010,9 +13104,9 @@ typedarray@^0.0.6:
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
 typescript@^4.1.2, typescript@^4.3.4:
-  version "4.4.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/typescript/-/typescript-4.4.3.tgz#bdc5407caa2b109efd4f82fe130656f977a29324"
-  integrity sha1-vcVAfKorEJ79T4L+EwZW+XeikyQ=
+  version "4.4.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/typescript/-/typescript-4.4.4.tgz#2cd01a1a1f160704d3101fd5a58ff0f9fcb8030c"
+  integrity sha1-LNAaGh8WBwTTEB/VpY/w+fy4Aww=
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
@@ -13348,7 +13442,7 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha1-sj5DWK+oogL+ehAK8fX4g/AgB+4=
 
-v8-compile-cache@^2.0.3, v8-compile-cache@^2.2.0:
+v8-compile-cache@^2.0.3:
   version "2.3.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/v8-compile-cache/-/v8-compile-cache-2.3.0.tgz#2de19618c66dc247dcfb6f99338035d8245a2cee"
   integrity sha1-LeGWGMZtwkfc+2+ZM4A12CRaLO4=
@@ -13477,14 +13571,14 @@ webidl-conversions@^3.0.0:
   integrity sha1-JFNCdeKnvGvnvIZhHMFq4KVlSHE=
 
 webpack-bundle-analyzer@^4.4.2:
-  version "4.4.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.4.2.tgz#39898cf6200178240910d629705f0f3493f7d666"
-  integrity sha1-OYmM9iABeCQJENYpcF8PNJP31mY=
+  version "4.5.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-bundle-analyzer/-/webpack-bundle-analyzer-4.5.0.tgz#1b0eea2947e73528754a6f9af3e91b2b6e0f79d5"
+  integrity sha1-Gw7qKUfnNSh1Sm+a8+kbK24PedU=
   dependencies:
     acorn "^8.0.4"
     acorn-walk "^8.0.0"
     chalk "^4.1.0"
-    commander "^6.2.0"
+    commander "^7.2.0"
     gzip-size "^6.0.0"
     lodash "^4.17.20"
     opener "^1.5.2"
@@ -13492,9 +13586,9 @@ webpack-bundle-analyzer@^4.4.2:
     ws "^7.3.1"
 
 webpack-cli@^4.7.2:
-  version "4.9.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-cli/-/webpack-cli-4.9.0.tgz#dc43e6e0f80dd52e89cbf73d5294bcd7ad6eb343"
-  integrity sha1-3EPm4PgN1S6Jy/c9UpS8161us0M=
+  version "4.9.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack-cli/-/webpack-cli-4.9.1.tgz#b64be825e2d1b130f285c314caa3b1ba9a4632b3"
+  integrity sha1-tkvoJeLRsTDyhcMUyqOxuppGMrM=
   dependencies:
     "@discoveryjs/json-ext" "^0.5.0"
     "@webpack-cli/configtest" "^1.1.0"
@@ -13507,7 +13601,6 @@ webpack-cli@^4.7.2:
     import-local "^3.0.2"
     interpret "^2.2.0"
     rechoir "^0.7.0"
-    v8-compile-cache "^2.2.0"
     webpack-merge "^5.7.3"
 
 webpack-config-single-spa-react-ts@^4.0.2:
@@ -13738,9 +13831,9 @@ webpack@4:
     webpack-sources "^1.4.1"
 
 webpack@^5.47.1, webpack@^5.9.0:
-  version "5.57.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack/-/webpack-5.57.1.tgz#ead5ace2c17ecef2ae8126f143bfeaa7f55eab44"
-  integrity sha1-6tWs4sF+zvKugSbxQ7/qp/Veq0Q=
+  version "5.59.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/webpack/-/webpack-5.59.1.tgz#60c77e9aad796252153d4d7ab6b2d4c11f0e548c"
+  integrity sha1-YMd+mq15YlIVPU16trLUwR8OVIw=
   dependencies:
     "@types/eslint-scope" "^3.7.0"
     "@types/estree" "^0.0.50"
@@ -13820,11 +13913,11 @@ which@^2.0.1, which@^2.0.2:
     isexe "^2.0.0"
 
 wide-align@^1.1.0:
-  version "1.1.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/wide-align/-/wide-align-1.1.3.tgz#ae074e6bdc0c14a431e804e624549c633b000457"
-  integrity sha1-rgdOa9wMFKQx6ATmJFScYzsABFc=
+  version "1.1.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/wide-align/-/wide-align-1.1.5.tgz#df1d4c206854369ecf3c9a4898f1b23fbd9d15d3"
+  integrity sha1-3x1MIGhUNp7PPJpImPGyP72dFdM=
   dependencies:
-    string-width "^1.0.2 || 2"
+    string-width "^1.0.2 || 2 || 3 || 4"
 
 widest-line@^3.1.0:
   version "3.1.0"
