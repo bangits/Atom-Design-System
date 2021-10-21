@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+    name: "atomaks-6778"
+    labels:
+        app: "atomaks-6778"
+spec:
+    type: LoadBalancer
+    ports:
+    - port: 6005
+      targetPort: 6005
+      protocol: TCP
+      name: http
+    selector:
+        app: "atomaks-6778"
