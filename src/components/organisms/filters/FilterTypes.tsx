@@ -50,5 +50,5 @@ export interface FiltersProps<T> {
   defaultOpened?: boolean;
   initialValues?: T;
   onSubmit: (state: T) => void;
-  onClear: () => void;
+  onClear: (state: T) => void;
 }
