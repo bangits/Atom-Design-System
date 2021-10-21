@@ -13,6 +13,7 @@
     "baseUrl": "src",
     "moduleResolution": "Node",
     "allowSyntheticDefaultImports": true,
+    "skipDefaultLibCheck": true,
     "paths": {
       "@/*": ["*"]
     },
