@@ -44,13 +44,13 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
                         {field.type === 'input' ? (
                           <TextInput
                             key={idx}
-                            {...props}
+                            {...(props as TextInputProps)}
                             {...field.props}
                             containerClassName={classNames(styles.ProviderForm, field.props.containerClassName)}
                           />
                         ) : (
                           <Select
-                            {...props}
+                            {...(props as SelectProps)}
                             {...field.props}
                             className={classNames(styles.ProviderForm, field.props.className)}
                             fullWidth
