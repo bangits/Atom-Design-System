@@ -18,9 +18,9 @@ const filterReducer = (filter: Filter, state, setState) => {
               {filter.props.map((prop) => (
                 <div className={styles.FilterRadioGroup}>
                   <div className={styles.FilterRadio}>
-                    <RadioButton key={prop.value} id={prop.value} {...prop} />
+                    <RadioButton key={prop.value} id={prop.value?.toString()} {...prop} />
                   </div>
-                  <label className={styles.FilterRadioLabel} htmlFor={prop.value}>
+                  <label className={styles.FilterRadioLabel} htmlFor={prop.value?.toString()}>
                     {prop.label}
                   </label>
                 </div>
@@ -45,6 +45,7 @@ const filterReducer = (filter: Filter, state, setState) => {
           // )}
           defaultValue={state?.[filter.name]}
           onChange={(e) => setState({ ...state, [filter.name]: e.filter((option) => option.value !== '*') })}
+          fullWidth
           {...filter.props}
         />
       );
@@ -130,7 +131,7 @@ function Filters<T>({
 
   return (
     <Card
-      borderRadius='1.6'
+      borderRadius={1.6}
       className={classNames(styles.FiltersBase, styles[`FiltersBase--${isOpen ? 'open' : 'closed'}`])}>
       <div className={styles.FiltersContainer}>
         {filters &&
@@ -220,7 +221,7 @@ function Filters<T>({
             </span>
           </div>
           <Typography variant='p1' className={!isOpen ? styles.ClearLabel : styles.ClearLabelActive}>
-            <span onClick={isOpen ? onClear : () => {}}>{clearLabel}</span>
+            <span onClick={isOpen ? onClear : undefined}>{clearLabel}</span>
           </Typography>
           <Button disabled={!isOpen} onClick={() => onSubmit(state)}>
             {applyLabel}
