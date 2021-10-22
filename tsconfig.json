@@ -2,6 +2,7 @@
   "compilerOptions": {
     "moduleResolution": "Node",
     "declaration": true,
+    "module": "system",
     "declarationDir": "dist",
     "rootDir": "src",
     "outDir": "dist",
@@ -17,6 +18,6 @@
       "@/*": ["*"]
     }
   },
-  "files": ["./src/atom-design-system.tsx"],
-  "exclude": ["./node_modules"]
+  "exclude": ["./node_modules"],
+  "include": ["src/index.ts"]
 }

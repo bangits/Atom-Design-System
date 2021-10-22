@@ -1,7 +1,9 @@
+// @ts-ignore
 import { CheckboxProps, SelectProps, TextInputProps } from '@my-ui/core';
 import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
 
 export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown' | 'from-to';
+
 export interface FilterReducerProps {
   type?: FilterType;
   props?: TextInputProps | RadioButtonProps;
@@ -25,12 +27,12 @@ export type Filter = {
   | {
       type: 'checkbox';
       label: string;
-      checkboxProps: CheckboxProps & { label: string; value: string | number; name: string }[];
+      checkboxProps: (CheckboxProps & { label: string; value: string | number; name: string })[];
     }
   | {
       type: 'radio';
       label: string;
-      props: RadioButtonProps & { label: string; value: string | number }[];
+      props: (RadioButtonProps & { label: string; value: string | number })[];
     }
   | {
       type: 'from-to';
@@ -38,6 +40,7 @@ export type Filter = {
       toInputProps: TextInputProps;
     }
 );
+
 export interface FiltersProps<T> {
   filters?: Filter[];
   checkboxFilters?: Filter[];
@@ -47,5 +50,5 @@ export interface FiltersProps<T> {
   defaultOpened?: boolean;
   initialValues?: T;
   onSubmit: (state: T) => void;
-  onClear: () => void;
+  onClear: (state: T) => void;
 }

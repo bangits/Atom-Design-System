@@ -1,11 +1,12 @@
 import { typedMemo } from '@/helpers/typedMemo';
 import { Button, Card, Checkbox, RadioButton, RadioGroup, Select, TextInput, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useMemo, useState } from 'react';
 import styles from './Filters.module.scss';
 import { Filter, FiltersProps } from './FilterTypes';
 
 const filterReducer = (filter: Filter, state, setState) => {
+  if (!filter) return;
   switch (filter.type) {
     case 'radio':
       return (
@@ -124,10 +125,52 @@ function Filters<T>({
 }: FiltersProps<T>) {
   const [state, setState] = useState(initialValues);
   const [isOpen, setIsOpen] = useState(defaultOpened);
+  const [dropdownFilters, setDropdownFilters] = useState<any>(filters);
+  const [dropdownCheckboxFilters, setDropdownCheckboxFilters] = useState<any>(checkboxFilters);
 
   const handelOpenClick = useCallback(() => {
     setIsOpen(!isOpen);
   }, [isOpen]);
+
+  const dropdownOptions = useMemo(
+    () => [
+      ...filters?.map((filter: Filter) => {
+        return {
+          label: filter.props?.label
+            ? filter.props?.label
+            : filter.props?.inputLabel
+            ? filter.props?.inputLabel
+            : filter?.toInputProps?.label
+            ? filter?.toInputProps?.label
+            : filter?.fromInputProps?.label
+            ? filter?.fromInputProps?.label
+            : filter?.label
+            ? filter?.label
+            : '',
+          value: filter?.name,
+          filterProps: filter
+        };
+      })
+    ],
+    [filters]
+  );
+
+  const dropdownCheckboxOptions = useMemo(
+    () => [
+      ...checkboxFilters.map((filter) => {
+        return { label: filter?.label, value: filter?.name, filterProps: filter };
+      })
+    ],
+    [checkboxFilters]
+  );
+
+  const dropdownFiltersDefaultValues = useMemo(() => dropdownOptions.map((value) => value.value), [dropdownOptions]);
+  const dropdownCheckboxFiltersDefaultValues = useMemo(
+    () => dropdownCheckboxOptions.map((value) => value.value),
+    [dropdownCheckboxOptions]
+  );
+
+  console.log(dropdownFilters);
 
   return (
     <Card
@@ -135,7 +178,7 @@ function Filters<T>({
       className={classNames(styles.FiltersBase, styles[`FiltersBase--${isOpen ? 'open' : 'closed'}`])}>
       <div className={styles.FiltersContainer}>
         {filters &&
-          filters.map((filter, key) => {
+          dropdownFilters.map((filter, key) => {
             return (
               <div className={styles.FilterContainer} key={key}>
                 {filterReducer(filter, state, setState)}
@@ -145,58 +188,27 @@ function Filters<T>({
       </div>
       <div className={styles.Checkbox}>
         {checkboxFilters &&
-          checkboxFilters.map((filter, key) => {
+          dropdownCheckboxFilters.map((filter, key) => {
             return <div key={key}>{checkboxReducer(filter, state, setState)}</div>;
           })}
       </div>
       <div className={styles.ControlContainer}>
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <span>
-            <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-              <g id='Filter_icon' transform='translate(-114 -317)'>
-                <g id='filter' transform='translate(118 321)'>
-                  <path
-                    id='Path_3504'
-                    data-name='Path 3504'
-                    d='M13.126,0H2.874A2.877,2.877,0,0,0,0,2.874V13.126A2.877,2.877,0,0,0,2.874,16H13.126A2.877,2.877,0,0,0,16,13.126V2.874A2.877,2.877,0,0,0,13.126,0Zm.4,12.486H8.394a1.476,1.476,0,0,1-2.8,0H2.478a.471.471,0,0,1,0-.941H5.6a1.476,1.476,0,0,1,2.8,0h5.128A.471.471,0,0,1,13.522,12.486Zm0-4.016H12.409a1.476,1.476,0,0,1-2.8,0H2.478a.471.471,0,0,1,0-.941H9.614a1.476,1.476,0,0,1,2.8,0h1.112A.471.471,0,0,1,13.522,8.471Zm0-4.016H6.386a1.476,1.476,0,0,1-2.8,0H2.478a.471.471,0,0,1,0-.941H3.591a1.476,1.476,0,0,1,2.8,0h7.136A.471.471,0,0,1,13.522,4.455Z'
-                    fill='currentColor'
-                  />
-                  <path
-                    id='Path_3505'
-                    data-name='Path 3505'
-                    d='M207.473,367.435a.533.533,0,0,0,0,1.067A.533.533,0,0,0,207.473,367.435Z'
-                    transform='translate(-200.477 -355.953)'
-                    fill='currentColor'
-                  />
-                  <path
-                    id='Path_3506'
-                    data-name='Path 3506'
-                    d='M143.222,110.431a.533.533,0,0,0,0,1.067A.533.533,0,0,0,143.222,110.431Z'
-                    transform='translate(-138.234 -106.98)'
-                    fill='currentColor'
-                  />
-                  <path
-                    id='Path_3507'
-                    data-name='Path 3507'
-                    d='M335.974,238.933a.533.533,0,0,0,0,1.067A.533.533,0,0,0,335.974,238.933Z'
-                    transform='translate(-324.962 -231.466)'
-                    fill='currentColor'
-                  />
-                </g>
-                <rect
-                  id='Rectangle_11086'
-                  data-name='Rectangle 11086'
-                  width='24'
-                  height='24'
-                  transform='translate(114 317)'
-                  fill='none'
-                />
-              </g>
-            </svg>{' '}
-          </span>
-          <Typography variant='p4' className={styles.FilterLabel}>
-            Filters
-          </Typography>
+        <div>
+          <Select
+            selectAll={false}
+            dropdown
+            isSearchable={false}
+            dropdownLabel={'Filters'}
+            isMulti={true}
+            onChange={(e) => {
+              setDropdownCheckboxFilters([
+                ...e.filter((e) => e.value !== '*')?.map((filterProp) => filterProp.filterProps)
+              ]);
+              setDropdownFilters([...e.filter((e) => e.value !== '*')?.map((filterProp) => filterProp.filterProps)]);
+            }}
+            defaultValue={[...dropdownFiltersDefaultValues, ...dropdownCheckboxFiltersDefaultValues]}
+            options={[...dropdownOptions, ...dropdownCheckboxOptions]}
+          />
         </div>
         <div className={styles.ToggleContainer}>
           <Typography variant='p4' className={styles.UserFoundLabel}>
@@ -221,6 +233,7 @@ function Filters<T>({
             </span>
           </div>
           <Typography variant='p1' className={!isOpen ? styles.ClearLabel : styles.ClearLabelActive}>
+            {/* @ts-ignore */}
             <span onClick={isOpen ? onClear : undefined}>{clearLabel}</span>
           </Typography>
           <Button disabled={!isOpen} onClick={() => onSubmit(state)}>
