@@ -28,14 +28,14 @@ const SignIn: FC<SignInProps> = ({
   const createEmailInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
       (props) =>
-        <TextInput {...inputProps} {...props} />,
+        <TextInput containerClassName={styles.LoginBottom} {...inputProps} {...props} />,
     []
   );
 
   const createPasswordInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
       (props) =>
-        <PasswordInput {...inputProps} {...props} />,
+        <PasswordInput containerClassName={styles.LoginBottom} {...inputProps} {...props} />,
     []
   );
 
