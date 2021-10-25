@@ -1,0 +1,20 @@
+:global {
+  .content-wrapper {
+    @include flex;
+
+    &__content {
+      flex-grow: 1;
+    }
+
+    &__header {
+      position: fixed;
+
+      width: 100vw;
+      top: 0;
+    }
+
+    &__content {
+      transform: translateY(getLayoutSizes(content-header-margin));
+    }
+  }
+}

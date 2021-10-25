@@ -1,0 +1,7 @@
+$layout-sizes: (
+  content-header-margin: calculateRem(56px)
+);
+
+@function getLayoutSizes($key) {
+  @return map-get($layout-sizes, $key);
+}
