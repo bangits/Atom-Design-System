@@ -21,9 +21,8 @@
 
             .ProviderForm {
               width: getProviderInSizes(provider-form);
-              height: getProviderInSizes(provider-form-height);
-              margin-bottom: getProviderInSizes(provider-form-marginBottom);
-
+              min-height: getProviderInSizes(provider-form-height);
+              margin-bottom: 2px;
               &:nth-child(odd) {
                 margin-right: getProviderInSizes(provider-form-groupMarginRigth);
               }

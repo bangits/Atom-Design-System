@@ -9,24 +9,14 @@
       color: #8ea6c1;
     }
 
-    input {
-      display: block;
-      height: calculateRem(38px);
-      width: calculateRem(280px);
-    }
-
-    .LoginButton {
-      button {
-        justify-content: center;
-      }
-    }
-
     .LoginPageTitle,
     .LoginPageSubTitle {
       margin: 0;
     }
     //
-
+    .LoginBottom {
+      margin-bottom: 2px;
+    }
     @include flex(flex-end);
 
     width: 100%;
@@ -55,8 +45,8 @@
       .FormWrapper {
         margin-bottom: getSignInSizes(form-margin);
         .EmailInput {
-          max-height: getSignInSizes(input-height);
-          margin-bottom: getSignInSizes(input-margin-bottom);
+          // max-height: getSignInSizes(input-height);
+          // margin-bottom: getSignInSizes(input-margin-bottom);
         }
       }
 
