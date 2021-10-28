@@ -52,24 +52,22 @@ const filterReducer = (filter: Filter, state, setState) => {
       );
     case 'from-to':
       return (
-        <div style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: '10.7rem', marginRight: '1.6rem' }}>
-            <TextInput
-              {...filter.fromInputProps}
-              fullWidth
-              value={state?.[filter.name]?.from}
-              onChange={(e) => setState({ ...state, [filter.name]: { ...state?.[filter.name], from: e.target.value } })}
-            />
-          </div>
-          <div style={{ width: '10.7rem' }}>
-            <TextInput
-              {...filter.toInputProps}
-              fullWidth
-              value={state[filter.name]?.to}
-              onChange={(e) => setState({ ...state, [filter.name]: { ...state?.[filter.name], to: e.target.value } })}
-            />
-          </div>
-        </div>
+        <>
+          <TextInput
+            {...filter.fromInputProps}
+            fullWidth
+            value={state?.[filter.name]?.from}
+            onChange={(e) => setState({ ...state, [filter.name]: { ...state?.[filter.name], from: e.target.value } })}
+            containerClassName={styles.FromInput}
+          />
+          <TextInput
+            {...filter.toInputProps}
+            fullWidth
+            value={state[filter.name]?.to}
+            onChange={(e) => setState({ ...state, [filter.name]: { ...state?.[filter.name], to: e.target.value } })}
+            containerClassName={styles.ToInput}
+          />
+        </>
       );
   }
 };
@@ -180,7 +178,11 @@ function Filters<T>({
         {filters &&
           dropdownFilters.map((filter, key) => {
             return (
-              <div className={styles.FilterContainer} key={key}>
+              <div
+                className={classNames(styles.FilterContainer, {
+                  [styles.FilterContainerFromTo]: filter.type === 'from-to'
+                })}
+                key={key}>
                 {filterReducer(filter, state, setState)}
               </div>
             );

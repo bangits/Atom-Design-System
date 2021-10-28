@@ -1043,9 +1043,9 @@
     "@babel/plugin-transform-flow-strip-types" "^7.14.5"
 
 "@babel/preset-modules@^0.1.4":
-  version "0.1.4"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/preset-modules/-/preset-modules-0.1.4.tgz#362f2b68c662842970fdb5e254ffc8fc1c2e415e"
-  integrity sha1-Ni8raMZihClw/bXiVP/I/BwuQV4=
+  version "0.1.5"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/preset-modules/-/preset-modules-0.1.5.tgz#ef939d6e7f268827e1841638dc6ff95515e115d9"
+  integrity sha1-75Odbn8miCfhhBY43G/5VRXhFdk=
   dependencies:
     "@babel/helper-plugin-utils" "^7.0.0"
     "@babel/plugin-proposal-unicode-property-regex" "^7.4.4"
@@ -1485,57 +1485,16 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-"@my-ui/core@2.0.20":
-  version "2.0.20"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.0.20.tgz#6e00a067eb8538eadf70056673e08be524033aee"
-  integrity sha1-bgCgZ+uFOOrfcAVmc+CL5SQDOu4=
-=======
-"@my-ui/core@2.1.0":
-  version "2.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.1.0.tgz#2e450f1be797407c67a2091466fe46097252bf1f"
-  integrity sha1-LkUPG+eXQHxnogkUZv5GCXJSvx8=
->>>>>>> 6e8d830b5d31b7c180f5b43f11bd571ab38436ba
-  dependencies:
-    "@my-ui/react-datepicker" "1.1.0"
-    "@my-ui/react-select" "1.1.0"
-    "@my-ui/react-table" "^1.0.0"
-    classnames "^2.3.1"
-    react-jss "^10.8.0"
-    single-spa-react "^4.2.0"
-=======
-"@my-ui/core@2.3.6":
-  version "2.3.6"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.3.6.tgz#f27a75fc2019a05219df10e9f46d5ef734b52fd0"
-  integrity sha1-8np1/CAZoFIZ3xDp9G1e9zS1L9A=
-  dependencies:
-    "@my-ui/react-datepicker" "^1.3.0"
-    "@my-ui/react-select" "1.1.2"
-    "@my-ui/react-table" "^1.2.0"
-=======
-"@my-ui/core@2.3.9":
-  version "2.3.9"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.3.9.tgz#5f291dac5bbb04e3a0e60405b641f6e0c57af38c"
-  integrity sha1-XykdrFu7BOOg5gQFtkH24MV684w=
-=======
 "@my-ui/core@2.4.4":
   version "2.4.4"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.4.4.tgz#b9b9bcffe3a17b5ea8d20ea476a7c478aa767ed4"
   integrity sha1-ubm8/+Ohe16o0g6kdqfEeKp2ftQ=
->>>>>>> d9a0e08f2436f2136c9b8cd17e302fcf82c51164
   dependencies:
     "@my-ui/react-datepicker" "^1.3.0"
     "@my-ui/react-select" "1.1.5"
     "@my-ui/react-table" "1.3.0"
->>>>>>> 38cee510ec3cc257505e5155bf1423adcd5a1497
     classnames "^2.3.1"
     react-jss "^10.8.0"
-<<<<<<< HEAD
->>>>>>> 8911a494e4406756d71474adb927a63d89bf2d6c
-=======
->>>>>>> d9a0e08f2436f2136c9b8cd17e302fcf82c51164
 
 "@my-ui/react-datepicker@^1.3.0":
   version "1.3.0"
@@ -1549,24 +1508,10 @@
     react-onclickoutside "^6.10.0"
     react-popper "^2.2.5"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-"@my-ui/react-select@1.1.2":
-  version "1.1.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.2.tgz#eadbf12fa5bea620eb21dc31a1de1ee58df5ed07"
-  integrity sha1-6tvxL6W+piDrIdwxod4e5Y317Qc=
-=======
-"@my-ui/react-select@1.1.3":
-  version "1.1.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.3.tgz#9f0e9ef79f2ed38a08a14ee19fcdf19c7de8b3b0"
-  integrity sha1-nw6e958u04oIoU7hn83xnH3os7A=
->>>>>>> 38cee510ec3cc257505e5155bf1423adcd5a1497
-=======
 "@my-ui/react-select@1.1.5":
   version "1.1.5"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.5.tgz#0da8d2953177756f741c26af0867fb68454816ef"
   integrity sha1-DajSlTF3dW90HCavCGf7aEVIFu8=
->>>>>>> d9a0e08f2436f2136c9b8cd17e302fcf82c51164
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
@@ -1576,17 +1521,10 @@
     prop-types "^15.6.0"
     react-transition-group "^4.3.0"
 
-<<<<<<< HEAD
-"@my-ui/react-table@^1.2.0":
-  version "1.2.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.2.0.tgz#44f2152c680d56684636ea45c62f128c3d78f632"
-  integrity sha1-RPIVLGgNVmhGNupFxi8SjD149jI=
-=======
 "@my-ui/react-table@1.3.0":
   version "1.3.0"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-table/-/react-table-1.3.0.tgz#b1746c61b797781e45fb7bcc446949fbe71bcd41"
   integrity sha1-sXRsYbeXeB5F+3vMRGlJ++cbzUE=
->>>>>>> 38cee510ec3cc257505e5155bf1423adcd5a1497
 
 "@nodelib/fs.scandir@2.1.5":
   version "2.1.5"
@@ -2793,9 +2731,9 @@
     "@types/estree" "*"
 
 "@types/eslint@*":
-  version "7.28.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/eslint/-/eslint-7.28.1.tgz#50b07747f1f84c2ba8cd394cf0fe0ba07afce320"
-  integrity sha1-ULB3R/H4TCuozTlM8P4LoHr84yA=
+  version "7.28.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/eslint/-/eslint-7.28.2.tgz#0ff2947cdd305897c52d5372294e8c76f351db68"
+  integrity sha1-D/KUfN0wWJfFLVNyKU6MdvNR22g=
   dependencies:
     "@types/estree" "*"
     "@types/json-schema" "*"
@@ -2941,9 +2879,9 @@
     form-data "^3.0.0"
 
 "@types/node@*":
-  version "16.11.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-16.11.2.tgz#31c249c136c3f9b35d4b60fb8e50e01a1f0cc9a5"
-  integrity sha1-McJJwTbD+bNdS2D7jlDgGh8MyaU=
+  version "16.11.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-16.11.3.tgz#fad0b069ec205b0e81429c805d306d2c12e26be1"
+  integrity sha1-+tCwaewgWw6BQpyAXTBtLBLia+E=
 
 "@types/node@8.0.0":
   version "8.0.0"
@@ -2951,9 +2889,9 @@
   integrity sha1-rKqJJHr93Hln6ZAv0Rdh2t6hpVU=
 
 "@types/node@^14.0.10":
-  version "14.17.27"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-14.17.27.tgz#5054610d37bb5f6e21342d0e6d24c494231f3b85"
-  integrity sha1-UFRhDTe7X24hNC0ObSTElCMfO4U=
+  version "14.17.28"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-14.17.28.tgz#c683413f485a5690649ef36cdc9402bae32da2df"
+  integrity sha1-xoNBP0haVpBknvNs3JQCuuMtot8=
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -3022,9 +2960,9 @@
     "@types/react" "*"
 
 "@types/react-transition-group@^4.4.0":
-  version "4.4.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-transition-group/-/react-transition-group-4.4.3.tgz#b0994da0a7023d67dbb4a8910a62112bc00d5688"
-  integrity sha1-sJlNoKcCPWfbtKiRCmIRK8ANVog=
+  version "4.4.4"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/react-transition-group/-/react-transition-group-4.4.4.tgz#acd4cceaa2be6b757db61ed7b432e103242d163e"
+  integrity sha1-rNTM6qK+a3V9th7XtDLhAyQtFj4=
   dependencies:
     "@types/react" "*"
 
@@ -4639,9 +4577,9 @@ camelcase@^6.2.0:
   integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
 
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001265:
-  version "1.0.30001270"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/caniuse-lite/-/caniuse-lite-1.0.30001270.tgz#cc9c37a4ec5c1a8d616fc7bace902bb053b0cdea"
-  integrity sha1-zJw3pOxcGo1hb8e6zpArsFOwzeo=
+  version "1.0.30001271"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/caniuse-lite/-/caniuse-lite-1.0.30001271.tgz#0dda0c9bcae2cf5407cd34cac304186616cc83e8"
+  integrity sha1-DdoMm8riz1QHzTTKwwQYZhbMg+g=
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -4986,9 +4924,9 @@ commander@^7.0.0, commander@^7.2.0:
   integrity sha1-o2y1fQtQHOEI5NIFWaFQo5HZerc=
 
 commander@^8.1.0:
-  version "8.2.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/commander/-/commander-8.2.0.tgz#37fe2bde301d87d47a53adeff8b5915db1381ca8"
-  integrity sha1-N/4r3jAdh9R6U63v+LWRXbE4HKg=
+  version "8.3.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/commander/-/commander-8.3.0.tgz#4837ea1b2da67b9c616a67afbb0fafee567bca66"
+  integrity sha1-SDfqGy2me5xhamevuw+v7lZ7ymY=
 
 commondir@^1.0.1:
   version "1.0.1"
@@ -5929,9 +5867,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.867:
-  version "1.3.876"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.876.tgz#fe6f65c9740406f4aa69f10faa8e1d79b81bdf34"
-  integrity sha1-/m9lyXQEBvSqafEPqo4debgb3zQ=
+  version "1.3.877"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.877.tgz#956870eea7c9d8cf43cc54ea40687fee4dc0c12a"
+  integrity sha1-lWhw7qfJ2M9DzFTqQGh/7k3AwSo=
 
 element-resize-detector@^1.2.2:
   version "1.2.3"
@@ -9554,9 +9492,9 @@ min-indent@^1.0.0:
   integrity sha1-pj9oFnOzBXH76LwlaGrnRu76mGk=
 
 mini-css-extract-plugin@^2.1.0:
-  version "2.4.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mini-css-extract-plugin/-/mini-css-extract-plugin-2.4.2.tgz#b3508191ea479388a4715018c99dd3e6dd40d2d2"
-  integrity sha1-s1CBkepHk4ikcVAYyZ3T5t1A0tI=
+  version "2.4.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/mini-css-extract-plugin/-/mini-css-extract-plugin-2.4.3.tgz#be742943c192b028645d4389084ef187615fff82"
+  integrity sha1-vnQpQ8GSsChkXUOJCE7xh2Ff/4I=
   dependencies:
     schema-utils "^3.1.0"
 
@@ -10686,9 +10624,9 @@ postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0
     source-map "^0.6.1"
 
 postcss@^8.2.15:
-  version "8.3.10"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/postcss/-/postcss-8.3.10.tgz#4d614e108ccc69c65c2f6dc6cec23dd5c85b73af"
-  integrity sha1-TWFOEIzMacZcL23GzsI91chbc68=
+  version "8.3.11"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/postcss/-/postcss-8.3.11.tgz#c3beca7ea811cd5e1c4a3ec6d2e7599ef1f8f858"
+  integrity sha1-w77KfqgRzV4cSj7G0udZnvH4+Fg=
   dependencies:
     nanoid "^3.1.30"
     picocolors "^1.0.0"
@@ -11847,9 +11785,9 @@ sass-resources-loader@^2.2.3:
     loader-utils "^2.0.0"
 
 sass@^1.37.0:
-  version "1.43.2"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass/-/sass-1.43.2.tgz#c02501520c624ad6622529a8b3724eb08da82d65"
-  integrity sha1-wCUBUgxiStZiJSmos3JOsI2oLWU=
+  version "1.43.3"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass/-/sass-1.43.3.tgz#aa16a69131b84f0cd23189a242571e8905f1ce43"
+  integrity sha1-qhamkTG4TwzSMYmiQlceiQXxzkM=
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
@@ -12647,9 +12585,9 @@ style-loader@^2.0.0:
     schema-utils "^3.0.0"
 
 style-loader@^3.0.0, style-loader@^3.2.1:
-  version "3.3.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/style-loader/-/style-loader-3.3.0.tgz#d66ea95fc50b22f8b79b69a9e414760fcf58d8d8"
-  integrity sha1-1m6pX8ULIvi3m2mp5BR2D89Y2Ng=
+  version "3.3.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/style-loader/-/style-loader-3.3.1.tgz#057dfa6b3d4d7c7064462830f9113ed417d38575"
+  integrity sha1-BX36az1NfHBkRigw+RE+1BfThXU=
 
 style-to-object@0.3.0, style-to-object@^0.3.0:
   version "0.3.0"

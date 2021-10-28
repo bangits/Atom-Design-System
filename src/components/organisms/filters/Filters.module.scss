@@ -4,6 +4,20 @@
   width: 124.6rem;
   box-sizing: border-box;
 
+  .FromInput,
+  .ToInput {
+    width: 100%;
+  }
+  .ToInput {
+    &::before {
+      content: '';
+    }
+  }
+
+  .FromInput {
+    margin-right: 1.6rem;
+  }
+
   .FiltersContainer {
     display: flex;
     align-items: flex-start;
@@ -16,6 +30,13 @@
       width: 23rem;
       margin-right: 1.6rem;
       margin-top: 2.4rem;
+
+      &.FilterContainerFromTo {
+        width: 47.5rem;
+
+        @include flex;
+      }
+
       &:empty {
         display: none;
       }
@@ -85,6 +106,7 @@
 .Checkbox {
   display: flex;
   margin-top: 26px;
+  flex-wrap: wrap;
   &:empty {
     display: none;
   }
