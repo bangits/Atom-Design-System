@@ -6,7 +6,7 @@ const PageWrapper = () => {
   return (
     <div className={styles.PageWrapper}>
       <div className={styles.PageWrapperHeader}>
-        <Typography variant='h2' className={styles.PageTitle}>
+        <Typography component='h2' variant='h2' className={styles.PageTitle}>
           Users
         </Typography>
       </div>

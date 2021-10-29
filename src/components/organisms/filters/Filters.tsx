@@ -2,6 +2,7 @@ import { typedMemo } from '@/helpers/typedMemo';
 import { Button, Card, Checkbox, RadioButton, RadioGroup, Select, TextInput, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useMemo, useState } from 'react';
+import { FilterArrow } from '../../../icons';
 import styles from './Filters.module.scss';
 import { Filter, FiltersProps } from './FilterTypes';
 
@@ -9,27 +10,27 @@ const filterReducer = (filter: Filter, state, setState) => {
   if (!filter) return;
   switch (filter.type) {
     case 'radio':
-      return (
-        <div>
-          <span className={styles.FilterRadioName}>{filter.label}</span>
-          <div className={styles.FilterRadioContainer} style={{ display: 'flex' }}>
-            <RadioGroup
-              value={state[filter.name]}
-              onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}>
-              {filter.props.map((prop) => (
-                <div className={styles.FilterRadioGroup}>
-                  <div className={styles.FilterRadio}>
-                    <RadioButton key={prop.value} id={prop.value?.toString()} {...prop} />
-                  </div>
-                  <label className={styles.FilterRadioLabel} htmlFor={prop.value?.toString()}>
-                    {prop.label}
-                  </label>
-                </div>
-              ))}
-            </RadioGroup>
-          </div>
-        </div>
-      );
+    // return (
+    //   <div>
+    //     <span className={styles.FilterRadioName}>{filter.label}</span>
+    //     <div className={styles.FilterRadioContainer} style={{ display: 'flex' }}>
+    //       <RadioGroup
+    //         value={state[filter.name]}
+    //         onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}>
+    //         {filter.props.map((prop) => (
+    //           <div className={styles.FilterRadioGroup}>
+    //             <div className={styles.FilterRadio}>
+    //               <RadioButton key={prop.value} id={prop.value?.toString()} {...prop} />
+    //             </div>
+    //             <label className={styles.FilterRadioLabel} htmlFor={prop.value?.toString()}>
+    //               {prop.label}
+    //             </label>
+    //           </div>
+    //         ))}
+    //       </RadioGroup>
+    //     </div>
+    //   </div>
+    // );
     case 'input':
       return (
         <TextInput

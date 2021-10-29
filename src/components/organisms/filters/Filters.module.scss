@@ -11,11 +11,20 @@
   .ToInput {
     &::before {
       content: '';
+      background-image: url('../../../icons/arrowfilter.svg');
+      background-repeat: no-repeat;
+      width: 4.5px; //to-input-icon-width
+      height: 9px; //to-input-icon-height
+      display: block;
+      position: absolute;
+      top: 2.5rem; //to-input-icon-postion-top
+      left: 50%;
+      transform: translate(-50%, -50%);
     }
   }
 
   .FromInput {
-    margin-right: 1.6rem;
+    margin-right: 1.6rem; //from-input-margin-rigth
   }
 
   .FiltersContainer {
@@ -33,7 +42,7 @@
 
       &.FilterContainerFromTo {
         width: 47.5rem;
-
+        position: relative;
         @include flex;
       }
 
