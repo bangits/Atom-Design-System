@@ -405,6 +405,67 @@ export const Default = () => {
               name: 'inactive'
             }
           ]
+        },
+        {
+          label: 'Status',
+          name: 'status',
+          type: 'checkbox',
+          checkboxProps: [
+            {
+              label: 'Active',
+              value: 1,
+              name: 'active'
+            },
+            {
+              label: 'Inactive',
+              value: 1,
+              name: 'inactive'
+            },
+            {
+              label: 'Inactive',
+              value: 1,
+              name: 'sinactive'
+            }
+          ]
+        },
+        {
+          label: 'Status',
+          name: 'status',
+          type: 'checkbox',
+          checkboxProps: [
+            {
+              label: 'Active',
+              value: 1,
+              name: 'active'
+            },
+            {
+              label: 'Inactive',
+              value: 1,
+              name: 'inactive'
+            }
+          ]
+        },
+        {
+          label: 'Status',
+          name: 'status',
+          type: 'checkbox',
+          checkboxProps: [
+            {
+              label: 'Active',
+              value: 1,
+              name: 'active'
+            },
+            {
+              label: 'Inactive',
+              value: 1,
+              name: 'inactive'
+            },
+            {
+              label: 'Inactive',
+              value: 1,
+              name: 'sinactive'
+            }
+          ]
         }
       ])}
       applyLabel={text('applyLabel', 'Apply')}

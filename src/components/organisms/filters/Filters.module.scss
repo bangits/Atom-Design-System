@@ -115,7 +115,7 @@
 
 .Checkbox {
   display: flex;
-  margin: 2px 0 0 16px;
+  margin: 2px 0 2px 16px;
   flex-wrap: wrap;
   &:empty {
     display: none;
@@ -161,7 +161,7 @@
   }
   .FilterCheckboxContainer {
     @include flex(null, center);
-    margin-top: 8px;
+    margin: 8px 0 8px 0;
     .FilterCheckboxWrapper {
       @include flex(null, center);
     }
