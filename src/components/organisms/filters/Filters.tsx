@@ -194,7 +194,9 @@ function Filters<T>({
           dropdownCheckboxFilters.map((filter, key) => {
             return <div key={key}>{checkboxReducer(filter, state, setState)}</div>;
           })}
+        <hr className={styles.DividerCheckbox} />
       </div>
+
       <div className={styles.ControlContainer}>
         <div>
           <Select
@@ -215,7 +217,7 @@ function Filters<T>({
         </div>
         <div className={styles.ToggleContainer}>
           <Typography variant='p4' className={styles.UserFoundLabel}>
-            {resultLabel}
+            {!isOpen ? resultLabel : ''}
           </Typography>
           <div className={styles.ArrowIconContainer}>
             <span onClick={handelOpenClick}>
