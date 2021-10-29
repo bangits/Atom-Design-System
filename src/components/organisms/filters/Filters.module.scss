@@ -152,7 +152,7 @@
 }
 
 .FilterCheckbox {
-  width: 100%;
+  min-width: 297.92px;
   margin: 0 4rem 0 0;
 
   .FilterNameChekbox {
@@ -175,6 +175,10 @@
       color: #505d6e;
       margin: 0 1.6rem 0 0.2rem; //filter-label-chekcbox-margin
       font-size: 1.4rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 5rem;
     }
   }
 }

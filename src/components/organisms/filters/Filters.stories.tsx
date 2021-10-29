@@ -407,63 +407,68 @@ export const Default = () => {
           ]
         },
         {
-          label: 'Status',
-          name: 'status',
+          name: 'platform',
           type: 'checkbox',
+          label: 'Platform',
           checkboxProps: [
             {
-              label: 'Active',
-              value: 1,
-              name: 'active'
+              label: 'Desktop',
+              name: 'desktop',
+              value: 1
             },
             {
-              label: 'Inactive',
-              value: 1,
-              name: 'inactive'
+              label: 'Tablet',
+              name: 'tablet',
+              value: 2
             },
             {
-              label: 'Inactive',
-              value: 1,
-              name: 'sinactive'
+              label: 'Mobile',
+              name: 'mobile',
+              value: 3
             }
           ]
         },
         {
-          label: 'Status',
-          name: 'status',
+          name: 'platform',
           type: 'checkbox',
+          label: 'Platform',
           checkboxProps: [
             {
-              label: 'Active',
-              value: 1,
-              name: 'active'
+              label: 'Desktop',
+              name: 'desktop',
+              value: 1
             },
             {
-              label: 'Inactive',
-              value: 1,
-              name: 'inactive'
+              label: 'Tablet',
+              name: 'tablet',
+              value: 2
+            },
+            {
+              label: 'Mobile',
+              name: 'mobile',
+              value: 3
             }
           ]
         },
         {
-          label: 'Status',
-          name: 'status',
+          name: 'platform',
           type: 'checkbox',
+          label: 'Platform',
           checkboxProps: [
             {
-              label: 'Active',
-              value: 1,
-              name: 'active'
+              label: 'Desktop',
+              name: 'desktop',
+              value: 1
             },
             {
-              label: 'Inactive',
-              value: 1,
-              name: 'inactive'
+              label: 'Tablet',
+              name: 'tablet',
+              value: 2
             },
             {
-              label: 'Inactive',
-              value: 1,
-              name: 'sinactive'
+              label: 'Mobile',
+              name: 'mobile',
+              value: 3
             }
           ]
         }
