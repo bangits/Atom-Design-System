@@ -12,6 +12,8 @@ export interface SignInProps {
   loginErrorMessage?: string;
   usernameInputLabel: string;
   passwordInputLabel: string;
+  usernameInputName?: string;
+  passwordInputName?: string;
   buttonProps?: string;
 }
 
@@ -23,7 +25,9 @@ const SignIn: FC<SignInProps> = ({
   usernameInputLabel,
   passwordInputLabel,
   buttonProps,
-  loginErrorMessage
+  loginErrorMessage,
+  usernameInputName = 'username',
+  passwordInputName = 'password'
 }) => {
   const createEmailInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
@@ -43,7 +47,7 @@ const SignIn: FC<SignInProps> = ({
     () =>
       renderInputs(
         createEmailInputRenderer({
-          label: 'Email or Username',
+          label: usernameInputName,
           type: 'text',
           startIcon: (
             <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
@@ -58,19 +62,19 @@ const SignIn: FC<SignInProps> = ({
         }),
         usernameInputLabel
       ),
-    [renderInputs, usernameInputLabel]
+    [renderInputs, usernameInputLabel, usernameInputName]
   );
 
   const passwordInput = useMemo(
     () =>
       renderInputs(
         createPasswordInputRenderer({
-          label: 'Password',
+          label: passwordInputLabel,
           type: 'password'
         }),
-        passwordInputLabel
+        passwordInputName
       ),
-    [renderInputs, passwordInputLabel]
+    [renderInputs, passwordInputLabel, passwordInputName]
   );
 
   return (
