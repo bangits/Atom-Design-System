@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
   return (
     <Form
-      title='Add provider'
+      title='Add Provider'
       firstButtonProps={{
         children: 'Cancel'
       }}
