@@ -47,7 +47,7 @@ const SignIn: FC<SignInProps> = ({
     () =>
       renderInputs(
         createEmailInputRenderer({
-          label: usernameInputName,
+          label: usernameInputLabel,
           type: 'text',
           startIcon: (
             <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24'>
@@ -60,7 +60,7 @@ const SignIn: FC<SignInProps> = ({
             </svg>
           )
         }),
-        usernameInputLabel
+        usernameInputName
       ),
     [renderInputs, usernameInputLabel, usernameInputName]
   );
