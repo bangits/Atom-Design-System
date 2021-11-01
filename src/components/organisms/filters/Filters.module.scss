@@ -4,18 +4,50 @@
   width: 124.6rem;
   box-sizing: border-box;
 
+  .FromInput,
+  .ToInput {
+    width: 100%;
+  }
+  .ToInput {
+    &::before {
+      content: '';
+      background-image: url('../../../icons/arrowfilter.svg');
+      background-repeat: no-repeat;
+      width: 4.5px; //to-input-icon-width
+      height: 9px; //to-input-icon-height
+      display: block;
+      position: absolute;
+      top: 2.5rem; //to-input-icon-postion-top
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .FromInput {
+    margin-right: 1.6rem; //from-input-margin-rigth
+  }
+
   .FiltersContainer {
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
     box-sizing: border-box;
     width: 100%;
-    margin: 2.4rem 1.6rem 0 1.6rem;
+    margin: 0rem 1.6rem 0 1.6rem;
+    padding-top: 2.8rem;
 
     .FilterContainer {
       width: 23rem;
       margin-right: 1.6rem;
       margin-bottom: 0.2rem;
+      // margin-top: 2.4rem;
+
+      &.FilterContainerFromTo {
+        width: 47.5rem;
+        position: relative;
+        @include flex;
+      }
+
       &:empty {
         display: none;
       }
@@ -56,6 +88,9 @@
     .ToggleContainer {
       display: flex;
       align-items: center;
+      .ButtonToogle {
+        width: 131px;
+      }
       .ClearLabelActive {
         color: #3c54b2;
         margin-right: 3.2rem;
@@ -84,12 +119,19 @@
 
 .Checkbox {
   display: flex;
-  margin-top: 26px;
+  margin: 2px 0 2px 16px;
+  flex-wrap: wrap;
   &:empty {
     display: none;
   }
 }
-
+.DividerCheckbox {
+  width: 1214px;
+  margin: auto;
+  border: solid 1px #f9f9f9;
+  background-color: #f9f9f9;
+  margin-top: 26.5px;
+}
 .FilterRadioName {
   color: #8ea6c1;
   font-size: 1.2rem;
@@ -113,8 +155,9 @@
 }
 
 .FilterCheckbox {
-  width: 100%;
-  margin: 1.6rem 4rem 0 2.9rem;
+  min-width: 297.92px;
+  margin: 0 4rem 0 0;
+
   .FilterNameChekbox {
     font-size: 1.2rem;
     color: #8ea6c1;
@@ -122,19 +165,23 @@
   }
   .FilterCheckboxContainer {
     @include flex(null, center);
+    margin: 8px 0 8px 0;
     .FilterCheckboxWrapper {
       @include flex(null, center);
     }
     .FilterCheckboxCheckContainer {
-      @include flex(null, center);
+      @include flex(center, center);
       width: 2.4rem;
       height: 2.4rem;
     }
     .FilterLabelChekcbox {
       color: #505d6e;
-      margin-left: 0.4rem;
-      margin-right: 0.8rem;
+      margin: 0 1.6rem 0 0.2rem; //filter-label-chekcbox-margin
       font-size: 1.4rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 5rem;
     }
   }
 }

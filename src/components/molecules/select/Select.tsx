@@ -1,1 +1,1 @@
-export { Select, SelectProps } from '@my-ui/core';
+export { GroupBase, Select, SelectOptionType, SelectProps, SelectValueType } from '@my-ui/core';

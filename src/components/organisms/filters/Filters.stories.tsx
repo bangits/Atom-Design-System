@@ -313,24 +313,24 @@ export const Default = () => {
             isSearchable: true,
             isMulti: true
           }
-        },
-        {
-          type: 'radio',
-          label: 'Status',
-          name: 'status',
-          props: [
-            {
-              value: '1',
-              label: 'Active',
-              name: 'active'
-            },
-            {
-              value: '2',
-              label: 'Inactive',
-              name: 'inactive'
-            }
-          ]
         }
+        // {
+        //   type: 'radio',
+        //   label: 'Status',
+        //   name: 'status',
+        //   props: [
+        //     {
+        //       value: '1',
+        //       label: 'Active',
+        //       name: 'active'
+        //     },
+        //     {
+        //       value: '2',
+        //       label: 'Inactive',
+        //       name: 'inactive'
+        //     }
+        //   ]
+        // }
       ])}
       checkboxFilters={object('checkboxFilters', [
         {
@@ -386,6 +386,89 @@ export const Default = () => {
               label: 'Portrait',
               value: 2,
               name: 'secondPortrait'
+            }
+          ]
+        },
+        {
+          label: 'Status',
+          name: 'status',
+          type: 'checkbox',
+          checkboxProps: [
+            {
+              label: 'Active',
+              value: 1,
+              name: 'active'
+            },
+            {
+              label: 'Inactive',
+              value: 1,
+              name: 'inactive'
+            }
+          ]
+        },
+        {
+          name: 'platform',
+          type: 'checkbox',
+          label: 'Platform',
+          checkboxProps: [
+            {
+              label: 'Desktop',
+              name: 'desktop',
+              value: 1
+            },
+            {
+              label: 'Tablet',
+              name: 'tablet',
+              value: 2
+            },
+            {
+              label: 'Mobile',
+              name: 'mobile',
+              value: 3
+            }
+          ]
+        },
+        {
+          name: 'platform',
+          type: 'checkbox',
+          label: 'Platform',
+          checkboxProps: [
+            {
+              label: 'Desktop',
+              name: 'desktop',
+              value: 1
+            },
+            {
+              label: 'Tablet',
+              name: 'tablet',
+              value: 2
+            },
+            {
+              label: 'Mobile',
+              name: 'mobile',
+              value: 3
+            }
+          ]
+        },
+        {
+          name: 'platform',
+          type: 'checkbox',
+          label: 'Platform',
+          checkboxProps: [
+            {
+              label: 'Desktop',
+              name: 'desktop',
+              value: 1
+            },
+            {
+              label: 'Tablet',
+              name: 'tablet',
+              value: 2
+            },
+            {
+              label: 'Mobile',
+              name: 'mobile',
+              value: 3
             }
           ]
         }
