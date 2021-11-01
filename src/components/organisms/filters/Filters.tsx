@@ -285,7 +285,7 @@ function Filters<T>({
             {/* @ts-ignore */}
             <span onClick={isOpen ? onClear : undefined}>{clearLabel}</span>
           </Typography>
-          <Button disabled={!isOpen} onClick={() => onSubmit(state)}>
+          <Button disabled={!isOpen} onClick={() => onSubmit(state)} className={styles.ButtonToogle}>
             {applyLabel}
           </Button>
         </div>

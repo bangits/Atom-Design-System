@@ -88,6 +88,9 @@
     .ToggleContainer {
       display: flex;
       align-items: center;
+      .ButtonToogle {
+        width: 131px;
+      }
       .ClearLabelActive {
         color: #3c54b2;
         margin-right: 3.2rem;
