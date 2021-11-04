@@ -18,6 +18,5 @@
       "@/*": ["*"]
     }
   },
-  "exclude": ["./node_modules"],
-  "include": ["src/constants/index.ts"]
+  "exclude": ["./node_modules"]
 }

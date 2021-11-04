@@ -5,18 +5,19 @@ import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './Form.module.scss';
 
+type FormSelectProps = SelectProps<any[], boolean, any>;
 export interface FormProps {
   title: string;
   firstButtonProps: ButtonProps;
   secondButtonProps: ButtonProps;
-  renderInputs: (InputComponent: typeof TextInput | typeof Select, name: string) => JSX.Element;
+  renderInputs: (InputComponent: React.ComponentType, name: string) => JSX.Element;
   fields: Array<
     {
       name: string;
     } & (
       | {
           type: 'select';
-          props: SelectProps;
+          props: FormSelectProps;
         }
       | {
           type: 'input';
@@ -50,7 +51,7 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
                           />
                         ) : (
                           <Select
-                            {...(props as SelectProps)}
+                            {...(props as FormSelectProps)}
                             {...field.props}
                             className={classNames(styles.ProviderForm, field.props.className)}
                             fullWidth

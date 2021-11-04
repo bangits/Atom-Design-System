@@ -316,14 +316,14 @@
     js-tokens "^4.0.0"
 
 "@babel/parser@^7.1.0", "@babel/parser@^7.1.6", "@babel/parser@^7.12.11", "@babel/parser@^7.12.7", "@babel/parser@^7.14.7", "@babel/parser@^7.16.0", "@babel/parser@^7.7.0":
-  version "7.16.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/parser/-/parser-7.16.0.tgz#cf147d7ada0a3655e79bf4b08ee846f00a00a295"
-  integrity sha1-zxR9etoKNlXnm/SwjuhG8AoAopU=
+  version "7.16.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/parser/-/parser-7.16.2.tgz#3723cd5c8d8773eef96ce57ea1d9b7faaccd12ac"
+  integrity sha1-NyPNXI2Hc+75bOV+odm3+qzNEqw=
 
 "@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression@^7.16.0":
-  version "7.16.0"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/-/plugin-bugfix-safari-id-destructuring-collision-in-function-expression-7.16.0.tgz#efb7f147042aca34ce8156a055906a7abaadeaf0"
-  integrity sha1-77fxRwQqyjTOgVagVZBqerqt6vA=
+  version "7.16.2"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/plugin-bugfix-safari-id-destructuring-collision-in-function-expression/-/plugin-bugfix-safari-id-destructuring-collision-in-function-expression-7.16.2.tgz#2977fca9b212db153c195674e57cfab807733183"
+  integrity sha1-KXf8qbIS2xU8GVZ05Xz6uAdzMYM=
   dependencies:
     "@babel/helper-plugin-utils" "^7.14.5"
 
@@ -1050,11 +1050,7 @@
     "@babel/helper-validator-option" "^7.14.5"
     "@babel/plugin-transform-flow-strip-types" "^7.16.0"
 
-<<<<<<< HEAD
 "@babel/preset-modules@^0.1.5":
-=======
-"@babel/preset-modules@^0.1.4":
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
   version "0.1.5"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@babel/preset-modules/-/preset-modules-0.1.5.tgz#ef939d6e7f268827e1841638dc6ff95515e115d9"
   integrity sha1-75Odbn8miCfhhBY43G/5VRXhFdk=
@@ -1497,23 +1493,13 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-"@my-ui/core@^2.7.3":
-  version "2.7.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.7.3.tgz#eab15e86fe8ae2897457acfa37e8f9e2b9bf28e3"
-  integrity sha1-6rFehv6K4ol0V6z6N+j54rm/KOM=
+"@my-ui/core@^2.8.0":
+  version "2.8.0"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.8.0.tgz#23185148dc113d8832742b5c33889235a6afa60a"
+  integrity sha1-IxhRSNwRPYgydCtcM4iSNaavpgo=
   dependencies:
     "@my-ui/react-datepicker" "^1.3.0"
     "@my-ui/react-select" "1.1.6"
-=======
-"@my-ui/core@2.6.1":
-  version "2.6.1"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.6.1.tgz#265820cd90885d18419fbb740babf7710f30dfa5"
-  integrity sha1-JlggzZCIXRhBn7t0C6v3cQ8w36U=
-  dependencies:
-    "@my-ui/react-datepicker" "^1.3.0"
-    "@my-ui/react-select" "1.1.5"
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
     "@my-ui/react-table" "1.3.0"
     classnames "^2.3.1"
     react-jss "^10.8.0"
@@ -1530,17 +1516,10 @@
     react-onclickoutside "^6.10.0"
     react-popper "^2.2.5"
 
-<<<<<<< HEAD
 "@my-ui/react-select@1.1.6":
   version "1.1.6"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.6.tgz#cb2caf2ade8e96deaf45198ba73d0387a43d1f42"
   integrity sha1-yyyvKt6Olt6vRRmLpz0Dh6Q9H0I=
-=======
-"@my-ui/react-select@1.1.5":
-  version "1.1.5"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/react-select/-/react-select-1.1.5.tgz#0da8d2953177756f741c26af0867fb68454816ef"
-  integrity sha1-DajSlTF3dW90HCavCGf7aEVIFu8=
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
   dependencies:
     "@babel/runtime" "^7.12.0"
     "@emotion/cache" "^11.4.0"
@@ -2908,15 +2887,9 @@
     form-data "^3.0.0"
 
 "@types/node@*":
-<<<<<<< HEAD
   version "16.11.6"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-16.11.6.tgz#6bef7a2a0ad684cf6e90fcfe31cecabd9ce0a3ae"
   integrity sha1-a+96KgrWhM9ukPz+Mc7KvZzgo64=
-=======
-  version "16.11.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-16.11.3.tgz#fad0b069ec205b0e81429c805d306d2c12e26be1"
-  integrity sha1-+tCwaewgWw6BQpyAXTBtLBLia+E=
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
 
 "@types/node@8.0.0":
   version "8.0.0"
@@ -2924,15 +2897,9 @@
   integrity sha1-rKqJJHr93Hln6ZAv0Rdh2t6hpVU=
 
 "@types/node@^14.0.10":
-<<<<<<< HEAD
   version "14.17.32"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-14.17.32.tgz#2ca61c9ef8c77f6fa1733be9e623ceb0d372ad96"
   integrity sha1-LKYcnvjHf2+hczvp5iPOsNNyrZY=
-=======
-  version "14.17.28"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@types/node/-/node-14.17.28.tgz#c683413f485a5690649ef36cdc9402bae32da2df"
-  integrity sha1-xoNBP0haVpBknvNs3JQCuuMtot8=
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.1"
@@ -4617,17 +4584,10 @@ camelcase@^6.2.0:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/camelcase/-/camelcase-6.2.0.tgz#924af881c9d525ac9d87f40d964e5cea982a1809"
   integrity sha1-kkr4gcnVJaydh/QNlk5c6pgqGAk=
 
-<<<<<<< HEAD
 caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001271:
   version "1.0.30001274"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/caniuse-lite/-/caniuse-lite-1.0.30001274.tgz#26ca36204d15b17601ba6fc35dbdad950a647cc7"
   integrity sha1-Jso2IE0VsXYBum/DXb2tlQpkfMc=
-=======
-caniuse-lite@^1.0.30001109, caniuse-lite@^1.0.30001125, caniuse-lite@^1.0.30001265:
-  version "1.0.30001271"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/caniuse-lite/-/caniuse-lite-1.0.30001271.tgz#0dda0c9bcae2cf5407cd34cac304186616cc83e8"
-  integrity sha1-DdoMm8riz1QHzTTKwwQYZhbMg+g=
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
 
 capture-exit@^2.0.0:
   version "2.0.0"
@@ -5914,17 +5874,10 @@ ee-first@1.1.1:
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/ee-first/-/ee-first-1.1.1.tgz#590c61156b0ae2f4f0255732a158b266bc56b21d"
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
-<<<<<<< HEAD
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.878:
-  version "1.3.885"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.885.tgz#c8cec32fbc61364127849ae00f2395a1bae7c454"
-  integrity sha1-yM7DL7xhNkEnhJrgDyOVobrnxFQ=
-=======
-electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.867:
-  version "1.3.877"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.877.tgz#956870eea7c9d8cf43cc54ea40687fee4dc0c12a"
-  integrity sha1-lWhw7qfJ2M9DzFTqQGh/7k3AwSo=
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
+  version "1.3.886"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/electron-to-chromium/-/electron-to-chromium-1.3.886.tgz#ac039c4001b665b1dd0f0ed9c2e4da90ff3c9267"
+  integrity sha1-rAOcQAG2ZbHdDw7ZwuTakP88kmc=
 
 element-resize-detector@^1.2.2:
   version "1.2.3"
@@ -11860,15 +11813,9 @@ sass-resources-loader@^2.2.3:
     loader-utils "^2.0.0"
 
 sass@^1.37.0:
-<<<<<<< HEAD
   version "1.43.4"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass/-/sass-1.43.4.tgz#68c7d6a1b004bef49af0d9caf750e9b252105d1f"
   integrity sha1-aMfWobAEvvSa8NnK91DpslIQXR8=
-=======
-  version "1.43.3"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/sass/-/sass-1.43.3.tgz#aa16a69131b84f0cd23189a242571e8905f1ce43"
-  integrity sha1-qhamkTG4TwzSMYmiQlceiQXxzkM=
->>>>>>> 54fc69f5397031723542cd73c217fa3a1b1e267f
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
 
