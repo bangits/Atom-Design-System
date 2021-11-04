@@ -83,7 +83,7 @@ function Filters<T extends Record<string, FilterValueType>>({
       </div>
       <div className={styles.Checkbox}>
         {checkboxFilters &&
-          showedCheckboxFilters.map((filter, key) => {
+          showedCheckboxFilters.map((filter) => {
             return (
               <CheckboxGroup
                 key={filter.name}

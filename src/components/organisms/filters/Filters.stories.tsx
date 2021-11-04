@@ -21,7 +21,11 @@ export const Default = () => {
         'from-to': {
           from: null,
           to: null
-        }
+        },
+        platform: [],
+        landscape: [],
+        portrait: [],
+        status: []
       })}
       filters={object('filters', [
         {
