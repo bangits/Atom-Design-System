@@ -1,0 +1,27 @@
+@mixin generate-radio-group-styles {
+  .FilterRadioName {
+    color: #8ea6c1;
+    font-size: 1.2rem;
+  }
+
+  .FilterRadioContainer {
+    display: flex;
+
+    .FilterRadioGroup {
+      @include flex(null, center);
+      margin-bottom: 0.2rem;
+
+      .FilterRadio {
+        @include flex(null, center);
+        width: 2.4rem;
+        height: 2.4rem;
+      }
+
+      .FilterRadioLabel {
+        margin-right: 0.8rem;
+        color: #505d6e;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+.CheckboxGroup {
+  min-width: 297.92px;
+  margin: 0 4rem 0 0;
+
+  .CheckboxGroupLabel {
+    font-size: 1.2rem;
+    color: #8ea6c1;
+    margin-bottom: 0.3rem;
+  }
+  .CheckboxGroupContainer {
+    @include flex(null, center);
+    margin: 8px 0 8px 0;
+    .CheckboxWrapper {
+      @include flex(null, center);
+    }
+    .CheckboxContainer {
+      @include flex(center, center);
+      width: 2.4rem;
+      height: 2.4rem;
+    }
+    .CheckboxLabel {
+      color: #505d6e;
+      margin: 0 1.6rem 0 0.2rem; //filter-label-chekcbox-margin
+      font-size: 1.4rem;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap;
+      max-width: 5rem;
+    }
+  }
+}

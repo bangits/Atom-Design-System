@@ -1,115 +1,10 @@
+import { CheckboxGroup, Filter, FilterValueType } from '@/components';
 import { typedMemo } from '@/helpers/typedMemo';
-import { Button, Card, Checkbox, RadioButton, RadioGroup, Select, TextInput, Typography } from '@my-ui/core';
+import { Button, Card, Select, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { useCallback, useMemo, useState } from 'react';
-import { FilterArrow } from '../../../icons';
+import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './Filters.module.scss';
-import { Filter, FiltersProps } from './FilterTypes';
-
-const filterReducer = (filter: Filter, state, setState) => {
-  if (!filter) return;
-  switch (filter.type) {
-    case 'radio':
-    // return (
-    //   <div>
-    //     <span className={styles.FilterRadioName}>{filter.label}</span>
-    //     <div className={styles.FilterRadioContainer} style={{ display: 'flex' }}>
-    //       <RadioGroup
-    //         value={state[filter.name]}
-    //         onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}>
-    //         {filter.props.map((prop) => (
-    //           <div className={styles.FilterRadioGroup}>
-    //             <div className={styles.FilterRadio}>
-    //               <RadioButton key={prop.value} id={prop.value?.toString()} {...prop} />
-    //             </div>
-    //             <label className={styles.FilterRadioLabel} htmlFor={prop.value?.toString()}>
-    //               {prop.label}
-    //             </label>
-    //           </div>
-    //         ))}
-    //       </RadioGroup>
-    //     </div>
-    //   </div>
-    // );
-    case 'input':
-      return (
-        <TextInput
-          {...filter.props}
-          value={state[filter.name]}
-          onChange={(e) => setState({ ...state, [filter.name]: e.target.value })}
-        />
-      );
-    case 'select':
-      return (
-        <Select
-          // value={state?.[filter.name].filter(
-          //   (option) => option.label === 'type'
-          // )}
-          defaultValue={state?.[filter.name]}
-          onChange={(e) => setState({ ...state, [filter.name]: e.filter((option) => option.value !== '*') })}
-          fullWidth
-          {...filter.props}
-        />
-      );
-    case 'from-to':
-      return (
-        <>
-          <TextInput
-            {...filter.fromInputProps}
-            fullWidth
-            value={state?.[filter.name]?.from}
-            onChange={(e) => setState({ ...state, [filter.name]: { ...state?.[filter.name], from: e.target.value } })}
-            containerClassName={styles.FromInput}
-          />
-          <TextInput
-            {...filter.toInputProps}
-            fullWidth
-            value={state[filter.name]?.to}
-            onChange={(e) => setState({ ...state, [filter.name]: { ...state?.[filter.name], to: e.target.value } })}
-            containerClassName={styles.ToInput}
-          />
-        </>
-      );
-  }
-};
-
-const checkboxReducer = (filter: Filter, state, setState) => {
-  switch (filter.type) {
-    case 'checkbox':
-      return (
-        <div className={styles.FilterCheckbox}>
-          <div className={styles.FilterNameChekbox}>
-            <span>{filter.label}</span>
-          </div>
-          <div className={styles.FilterCheckboxContainer}>
-            {filter.checkboxProps.map((prop) => {
-              return (
-                <div className={styles.FilterCheckboxWrapper} key={prop.name}>
-                  <div className={styles.FilterCheckboxCheckContainer}>
-                    <Checkbox
-                      onChange={(e) =>
-                        setState({
-                          ...state,
-                          [filter.name]: e.target.checked
-                            ? [...(state[filter.name] || []), prop.value]
-                            : state[filter.name].filter((id) => id !== prop.value)
-                        })
-                      }
-                      checked={(state[filter.name] || []).includes(prop.value)}
-                      id={prop.name}
-                    />
-                  </div>
-                  <label htmlFor={prop.name} className={styles.FilterLabelChekcbox}>
-                    {prop.label}
-                  </label>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      );
-  }
-};
+import { FilterProp, FiltersProps } from './FilterTypes';
 
 function Filters<T>({
   filters,
@@ -122,105 +17,105 @@ function Filters<T>({
   onSubmit,
   onClear
 }: FiltersProps<T>) {
-  const [state, setState] = useState(initialValues);
-  const [isOpen, setIsOpen] = useState(defaultOpened);
-  const [dropdownFilters, setDropdownFilters] = useState<any>(filters);
-  const [dropdownCheckboxFilters, setDropdownCheckboxFilters] = useState<any>(checkboxFilters);
-
-  const handelOpenClick = useCallback(() => {
-    setIsOpen(!isOpen);
-  }, [isOpen]);
-
-  const dropdownOptions = useMemo(
-    () => [
-      ...filters?.map((filter: Filter) => {
-        return {
-          label: filter.props?.label
-            ? filter.props?.label
-            : filter.props?.inputLabel
-            ? filter.props?.inputLabel
-            : filter?.toInputProps?.label
-            ? filter?.toInputProps?.label
-            : filter?.fromInputProps?.label
-            ? filter?.fromInputProps?.label
-            : filter?.label
-            ? filter?.label
-            : '',
-          value: filter?.name,
-          filterProps: filter
-        };
-      })
-    ],
-    [filters]
+  const [filterValues, setFilterValues] = useReducer<
+    (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
+  >(
+    (prevState, updatedState) => (updatedState === 'clear' ? initialValues : { ...prevState, ...updatedState }),
+    initialValues
   );
 
-  const dropdownCheckboxOptions = useMemo(
-    () => [
-      ...checkboxFilters.map((filter) => {
-        return { label: filter?.label, value: filter?.name, filterProps: filter };
-      })
-    ],
-    [checkboxFilters]
+  const [isOpenedFilterCollapse, setIsOpenedFilterCollapse] = useState(defaultOpened);
+  const [showedFilters, setShowedFilters] = useState<FilterProp[]>(filters);
+
+  const [showedCheckboxFilters, setShowedCheckboxFilters] = useState<typeof checkboxFilters>(checkboxFilters);
+
+  const toggleFiltersCollapse = useCallback(
+    () => setIsOpenedFilterCollapse(!isOpenedFilterCollapse),
+    [isOpenedFilterCollapse]
   );
 
-  const dropdownFiltersDefaultValues = useMemo(() => dropdownOptions.map((value) => value.value), [dropdownOptions]);
-  const dropdownCheckboxFiltersDefaultValues = useMemo(
-    () => dropdownCheckboxOptions.map((value) => value.value),
-    [dropdownCheckboxOptions]
+  const onFilterChange = useCallback((filterName: string, value: FilterValueType) => {
+    setFilterValues({ [filterName]: value });
+  }, []);
+
+  const onFiltersConfigChange = useCallback(
+    (selectedFilters) => {
+      setShowedFilters([...selectedFilters.map((filter) => filters.find((f) => f?.name === filter)).filter((f) => f)]);
+      setShowedCheckboxFilters([
+        ...selectedFilters.map((filter) => checkboxFilters.find((f) => f?.name === filter)).filter((f) => f)
+      ]);
+    },
+    [filters, checkboxFilters]
   );
 
-  console.log(dropdownFilters);
+  const filtersConfigOptions = useMemo(
+    () =>
+      [...filters, ...checkboxFilters].map((filter) => ({
+        label: filter.label,
+        value: filter.name
+      })),
+    [filters, checkboxFilters]
+  );
+
+  const filtersConfigDefaultValue = useMemo(
+    () => filtersConfigOptions.map((value) => value.value),
+    [filtersConfigOptions]
+  );
+
+  const onClearClick = useCallback(() => {
+    if (!isOpenedFilterCollapse) return;
+
+    setFilterValues('clear');
+
+    onClear(filterValues);
+  }, [isOpenedFilterCollapse]);
+
+  useEffect(() => setShowedFilters(filters), [filters]);
+  useEffect(() => setShowedCheckboxFilters(checkboxFilters), [checkboxFilters]);
 
   return (
     <Card
       borderRadius={1.6}
-      className={classNames(styles.FiltersBase, styles[`FiltersBase--${isOpen ? 'open' : 'closed'}`])}>
+      className={classNames(styles.FiltersBase, {
+        [styles['FiltersBase--closed']]: !isOpenedFilterCollapse
+      })}>
       <div className={styles.FiltersContainer}>
-        {filters &&
-          dropdownFilters.map((filter, key) => {
-            return (
-              <div
-                className={classNames(styles.FilterContainer, {
-                  [styles.FilterContainerFromTo]: filter.type === 'from-to'
-                })}
-                key={key}>
-                {filterReducer(filter, state, setState)}
-              </div>
-            );
-          })}
+        {showedFilters.map((filter) => (
+          <Filter key={filter.name} value={filterValues[filter.name]} filter={filter} onFilterChange={onFilterChange} />
+        ))}
       </div>
       <div className={styles.Checkbox}>
         {checkboxFilters &&
-          dropdownCheckboxFilters.map((filter, key) => {
-            return <div key={key}>{checkboxReducer(filter, state, setState)}</div>;
+          showedCheckboxFilters.map((filter) => {
+            return (
+              <CheckboxGroup
+                key={filter.name}
+                label={filter.label}
+                checkboxes={filter.checkboxProps}
+                value={filterValues[filter.name] as (string | number)[]}
+                onChange={(selectedCheckboxes: string[]) => onFilterChange(filter.name, selectedCheckboxes)}
+              />
+            );
           })}
-        <hr className={styles.DividerCheckbox} />
       </div>
-
       <div className={styles.ControlContainer}>
         <div>
           <Select
-            selectAll={false}
+            selectAll
             dropdown
-            isSearchable={false}
-            dropdownLabel={'Filters'}
+            dropdownLabel='Filters'
             isMulti={true}
-            onChange={(e) => {
-              setDropdownCheckboxFilters([
-                ...e.filter((e) => e.value !== '*')?.map((filterProp) => filterProp.filterProps)
-              ]);
-              setDropdownFilters([...e.filter((e) => e.value !== '*')?.map((filterProp) => filterProp.filterProps)]);
-            }}
-            defaultValue={[...dropdownFiltersDefaultValues, ...dropdownCheckboxFiltersDefaultValues]}
-            options={[...dropdownOptions, ...dropdownCheckboxOptions]}
+            onChange={onFiltersConfigChange}
+            defaultValue={filtersConfigDefaultValue}
+            options={filtersConfigOptions}
           />
         </div>
         <div className={styles.ToggleContainer}>
           <Typography variant='p4' className={styles.UserFoundLabel}>
-            {!isOpen ? resultLabel : ''}
+            {resultLabel}
           </Typography>
           <div className={styles.ArrowIconContainer}>
-            <span onClick={handelOpenClick}>
+            <span onClick={toggleFiltersCollapse}>
               <svg id='Arrow' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
                 <path
                   id='Path_1991'
@@ -237,11 +132,10 @@ function Filters<T>({
               </svg>
             </span>
           </div>
-          <Typography variant='p1' className={!isOpen ? styles.ClearLabel : styles.ClearLabelActive}>
-            {/* @ts-ignore */}
-            <span onClick={isOpen ? onClear : undefined}>{clearLabel}</span>
+          <Typography variant='p1' className={!isOpenedFilterCollapse ? styles.ClearLabel : styles.ClearLabelActive}>
+            <span onClick={onClearClick}>{clearLabel}</span>
           </Typography>
-          <Button disabled={!isOpen} onClick={() => onSubmit(state)}>
+          <Button disabled={!isOpenedFilterCollapse} onClick={() => onSubmit(filterValues)}>
             {applyLabel}
           </Button>
         </div>
