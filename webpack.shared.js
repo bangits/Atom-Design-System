@@ -1,3 +1,4 @@
+const CopyPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const path = require('path');
 
@@ -69,6 +70,20 @@ const configureAliases = () => ({
   '@': path.resolve(__dirname, './src')
 });
 
+const configureNodeModulesSvgs = () => [
+  new CopyPlugin({
+    patterns: [
+      {
+        from: './node_modules/**/*.svg',
+        to({ context, absoluteFilename }) {
+          return `${path.relative(context, absoluteFilename.split('\\').reverse()[0])}`;
+        },
+        toType: 'file'
+      }
+    ]
+  })
+];
+
 const configureSharedWebpack = (isDevelopment) => ({
   module: {
     rules: [...configureAssets(), ...configureSass(isDevelopment)]
@@ -76,7 +91,8 @@ const configureSharedWebpack = (isDevelopment) => ({
   // watchOptions: configureWatchOptions(),
   resolve: {
     alias: configureAliases()
-  }
+  },
+  plugins: [...configureNodeModulesSvgs()]
 });
 
 module.exports = {
@@ -84,5 +100,6 @@ module.exports = {
   configureAliases,
   configureWatchOptions,
   configureSass,
-  configureAssets
+  configureAssets,
+  configureNodeModulesSvgs
 };

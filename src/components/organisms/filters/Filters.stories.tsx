@@ -165,7 +165,7 @@ export const Default = () => {
             },
             {
               label: 'Inactive',
-              value: 1,
+              value: 2,
               name: 'inactive'
             }
           ]

@@ -47,8 +47,8 @@ const Filter: FC<FilterProps> = ({ filter, value, onFilterChange }) => {
     case 'from-to':
       filterComponent = (
         <FromToInput
-          fromInputProps={{ ...(filter.fromInputProps || {}), value: (value as { from: string })?.from }}
-          toInputProps={{ ...(filter.toInputProps || {}), value: (value as { to: string })?.to }}
+          fromInputProps={{ ...(filter.fromInputProps || {}), value: (value as { from: string })?.from || '' }}
+          toInputProps={{ ...(filter.toInputProps || {}), value: (value as { to: string })?.to || '' }}
           onChange={(updatedValues) => onFilterChange(filter.name, updatedValues)}
         />
       );

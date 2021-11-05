@@ -1,4 +1,10 @@
-const { configureSass, configureWatchOptions, configureAliases, configureAssets } = require('../webpack.shared');
+const {
+  configureSass,
+  configureWatchOptions,
+  configureAliases,
+  configureAssets,
+  configureNodeModulesSvgs
+} = require('../webpack.shared');
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -45,6 +51,10 @@ module.exports = {
       ...config.resolve,
       alias: configureAliases()
     };
+
+    console.log(config.module.plugins);
+
+    config.plugins = [...config.plugins, ...configureNodeModulesSvgs()];
 
     config.watchOptions = configureWatchOptions();
 

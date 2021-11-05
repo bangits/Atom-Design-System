@@ -64,15 +64,17 @@
       .ButtonToogle {
         width: 131px;
       }
+
       .ClearLabelActive {
         color: #3c54b2;
         margin-right: 3.2rem;
+        cursor: pointer;
       }
       .ClearLabel {
         color: #3c54b2;
         opacity: 0.5;
         margin-right: 3.2rem;
-        cursor: pointer;
+        cursor: default;
       }
       .UserFoundLabel {
         color: #505d6e;

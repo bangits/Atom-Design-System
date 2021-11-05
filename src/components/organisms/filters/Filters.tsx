@@ -2,11 +2,11 @@ import { CheckboxGroup, Filter, FilterValueType } from '@/components';
 import { typedMemo } from '@/helpers/typedMemo';
 import { Button, Card, Select, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { useCallback, useMemo, useReducer, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './Filters.module.scss';
 import { FilterProp, FiltersProps } from './FilterTypes';
 
-function Filters<T extends Record<string, FilterValueType>>({
+function Filters<T>({
   filters,
   checkboxFilters,
   clearLabel,
@@ -69,6 +69,9 @@ function Filters<T extends Record<string, FilterValueType>>({
 
     onClear(filterValues);
   }, [isOpenedFilterCollapse]);
+
+  useEffect(() => setShowedFilters(filters), [filters]);
+  useEffect(() => setShowedCheckboxFilters(checkboxFilters), [checkboxFilters]);
 
   return (
     <Card

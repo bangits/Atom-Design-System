@@ -338,7 +338,6 @@ export const Default = () => {
         checkboxFilters: [
           {
             name: 'platform',
-            type: 'checkbox',
             label: 'Platform',
             checkboxProps: [
               {
@@ -361,7 +360,6 @@ export const Default = () => {
           {
             name: 'landscape',
             label: 'Mobile Screen Mode',
-            type: 'checkbox',
             checkboxProps: [
               {
                 label: 'Landscape',
@@ -378,7 +376,6 @@ export const Default = () => {
           {
             label: 'Tablet Screen Mode',
             name: 'portrait',
-            type: 'checkbox',
             checkboxProps: [
               {
                 label: 'Landscape',

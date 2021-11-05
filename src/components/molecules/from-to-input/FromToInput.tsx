@@ -47,24 +47,26 @@ const FromToInput: FC<FromToInputProps> = ({
   );
 
   useEffect(() => {
-    if (fromInputProps.value) setInputValues({ from: fromInputProps.value });
+    if (fromInputProps.value !== undefined) setInputValues({ from: fromInputProps.value });
+  }, [fromInputProps.value]);
 
-    if (toInputProps.value) setInputValues({ to: toInputProps.value });
-  }, [fromInputProps.value, toInputProps.value]);
+  useEffect(() => {
+    if (toInputProps.value !== undefined) setInputValues({ to: toInputProps.value });
+  }, [fromInputProps.value]);
 
   return (
     <div className={styles.FromToInputContainer}>
       <TextInput
         {...fromInputProps}
         fullWidth
-        value={inputValues.from}
+        value={fromInputProps.value !== undefined ? fromInputProps.value : inputValues.from}
         onChange={onInputValueChange('from')}
         containerClassName={styles.FromInput}
       />
       <TextInput
         {...toInputProps}
         fullWidth
-        value={inputValues.to}
+        value={toInputProps.value !== undefined ? toInputProps.value : inputValues.to}
         onChange={onInputValueChange('to')}
         containerClassName={styles.ToInput}
       />
