@@ -2,7 +2,7 @@ import { typedMemo } from '@/helpers';
 // @ts-ignore
 import { Button, ButtonProps, Card, Select, SelectProps, TextInput, TextInputProps, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './Form.module.scss';
 
 export interface FormProps {
@@ -22,6 +22,10 @@ export interface FormProps {
           type: 'input';
           props: TextInputProps;
         }
+      | {
+          type: 'custom';
+          component: ReactNode;
+        }
     )
   >;
 }
@@ -38,28 +42,30 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
             <div className={styles.ProviderContainerWrapper}>
               <div className={styles.ProviderFormGroup}>
                 {fields.map((field, idx) =>
-                  renderInputs(
-                    (props: typeof field.props) => (
-                      <>
-                        {field.type === 'input' ? (
-                          <TextInput
-                            key={idx}
-                            {...(props as TextInputProps)}
-                            {...field.props}
-                            containerClassName={classNames(styles.ProviderForm, field.props.containerClassName)}
-                          />
-                        ) : (
-                          <Select
-                            {...(props as SelectProps)}
-                            {...field.props}
-                            className={classNames(styles.ProviderForm, field.props.className)}
-                            fullWidth
-                          />
-                        )}
-                      </>
-                    ),
-                    field.name
-                  )
+                  field.type === 'custom'
+                    ? field.component
+                    : renderInputs(
+                        (props: typeof field.props) => (
+                          <>
+                            {field.type === 'input' ? (
+                              <TextInput
+                                key={idx}
+                                {...(props as TextInputProps)}
+                                {...field.props}
+                                containerClassName={classNames(styles.ProviderForm, field.props.containerClassName)}
+                              />
+                            ) : (
+                              <Select
+                                {...(props as SelectProps)}
+                                {...field.props}
+                                className={classNames(styles.ProviderForm, field.props.className)}
+                                fullWidth
+                              />
+                            )}
+                          </>
+                        ),
+                        field.name
+                      )
                 )}
               </div>
             </div>
