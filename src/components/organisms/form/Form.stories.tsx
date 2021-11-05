@@ -30,13 +30,6 @@ export const Default = () => {
           }
         },
         {
-          type: 'custom',
-          name: 'certifiedCountries',
-          component: () => {
-            return <div>Custom Component</div>;
-          }
-        },
-        {
           type: 'select',
           name: 'targetMarkets',
           props: {
