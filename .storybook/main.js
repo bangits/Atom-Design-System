@@ -52,10 +52,6 @@ module.exports = {
       alias: configureAliases()
     };
 
-    console.log(config.module.plugins);
-
-    config.plugins = [...config.plugins, ...configureNodeModulesSvgs()];
-
     config.watchOptions = configureWatchOptions();
 
     return config;
