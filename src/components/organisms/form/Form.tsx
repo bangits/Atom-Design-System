@@ -1,9 +1,8 @@
 import { Select } from '@/components';
 import { typedMemo } from '@/helpers';
-// @ts-ignore
 import { Button, ButtonProps, Card, SelectProps, TextInput, TextInputProps, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import styles from './Form.module.scss';
 
 type FormSelectProps = SelectProps<any[], boolean, any>;
@@ -19,15 +18,20 @@ export interface FormProps {
   fields: Array<
     {
       name: string;
-      component?: () => JSX.Element;
     } & (
       | {
           type: 'select';
-          props: FormSelectProps;
+          props?: FormSelectProps;
+          component?: (props: FormSelectProps) => JSX.Element;
         }
       | {
           type: 'input';
-          props: TextInputProps;
+          props?: TextInputProps;
+          component?: (props: TextInputProps) => JSX.Element;
+        }
+      | {
+          type: 'custom';
+          component: () => JSX.Element;
         }
     )
   >;
@@ -46,21 +50,28 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
               <div className={styles.ProviderFormGroup}>
                 {fields.map((field, idx) => (
                   <div className={styles.ProviderForm}>
-                    {field.component
-                      ? renderInputs(field.component, field.name, 'custom')
-                      : renderInputs(
-                          (props: typeof field.props) => (
-                            <>
-                              {field.type === 'input' ? (
-                                <TextInput key={idx} {...(props as TextInputProps)} {...field.props} />
-                              ) : (
-                                <Select {...(props as SelectProps<any, any, any>)} {...field.props} fullWidth />
-                              )}
-                            </>
-                          ),
-                          field.name,
-                          field.type
-                        )}
+                    {field.type === 'custom' ? (
+                      field.component()
+                    ) : (
+                      <>
+                        {field.component
+                          ? // @ts-ignore
+                            renderInputs(field.component, field.name, field.type)
+                          : renderInputs(
+                              (props: typeof field.props) => (
+                                <>
+                                  {field.type === 'input' ? (
+                                    <TextInput key={idx} {...(props as TextInputProps)} {...field.props} />
+                                  ) : (
+                                    <Select {...(props as SelectProps<any, any, any>)} {...field.props} fullWidth />
+                                  )}
+                                </>
+                              ),
+                              field.name,
+                              field.type
+                            )}
+                      </>
+                    )}
                   </div>
                 ))}
               </div>
@@ -73,7 +84,7 @@ const Form: FC<FormProps> = ({ title, firstButtonProps, secondButtonProps, field
               className={classNames(styles.ProviderCloseButton, firstButtonProps.className)}
             />
 
-            <Button {...secondButtonProps} />
+            <Button {...secondButtonProps} type='submit' />
           </div>
         </Card>
       </div>
