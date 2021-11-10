@@ -1,6 +1,5 @@
 @mixin generate-page-wrapper-styles {
   .PageWrapper {
-    background-color: #f9f9f9;
     width: 100%;
     height: 100%;
     box-sizing: border-box;
@@ -12,6 +11,8 @@
       .PageTitle {
         color: #505d6e;
         font-weight: getPageWrapperInSizes(page-title-font-weigth);
+        margin: 0;
+        margin-bottom: getPageWrapperInSizes(page-title-margin-bottom);
       }
     }
   }

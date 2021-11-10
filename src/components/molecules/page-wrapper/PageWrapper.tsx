@@ -1,15 +1,22 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import styles from './PageWrapper.module.scss';
 import { Typography } from '@my-ui/core';
+import { FC } from 'react';
+import styles from './PageWrapper.module.scss';
 
-const PageWrapper = () => {
+export interface PageWrapperProps {
+  title: string;
+}
+
+const PageWrapper: FC<PageWrapperProps> = ({ children, title }) => {
   return (
     <div className={styles.PageWrapper}>
       <div className={styles.PageWrapperHeader}>
         <Typography component='h2' variant='h2' className={styles.PageTitle}>
-          Users
+          {title}
         </Typography>
       </div>
+
+      {children}
     </div>
   );
 };

@@ -45,6 +45,10 @@ export type FilterProp = {
       type: 'datepicker';
       props: Partial<DatepickerProps>;
     }
+  | {
+      type: 'custom';
+      component: (props: { onChange: (name: string, value: FilterValueType) => void }) => JSX.Element;
+    }
 );
 
 export interface FiltersProps<T> {

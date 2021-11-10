@@ -1,1 +1,1 @@
-export { default as DataTable } from './DataTable';
+export { DataTableProps, default as DataTable, FetchDataParameters } from './DataTable';

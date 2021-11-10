@@ -8,5 +8,5 @@ export default {
 };
 
 export const Default = () => {
-  return <PageWrapper />;
+  return <PageWrapper title='User' />;
 };

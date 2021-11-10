@@ -65,6 +65,8 @@ const Filter: FC<FilterProps> = ({ filter, value, onFilterChange }) => {
         />
       );
       break;
+    case 'custom':
+      filterComponent = <filter.component onChange={onFilterChange} />;
   }
 
   return (

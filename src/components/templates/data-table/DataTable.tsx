@@ -1,5 +1,4 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
-import { ObjectMock } from '@/types';
 import { useCallback, useState } from 'react';
 import styles from './DataTable.module.scss';
 
@@ -7,7 +6,7 @@ export interface FetchDataParameters<T, K> {
   filters: K | null;
   sortedBy: { id: keyof T; desc: boolean } | null;
 }
-export interface DataTableProps<T extends ObjectMock, K> {
+export interface DataTableProps<T extends {}, K> {
   isShowedFilter?: boolean;
   defaultSorted?: {
     id: keyof T;
@@ -18,7 +17,7 @@ export interface DataTableProps<T extends ObjectMock, K> {
   fetchData(fetchDataParameters: FetchDataParameters<T, K>): void;
 }
 
-function DataTable<T extends ObjectMock, K>({
+function DataTable<T extends {}, K>({
   tableProps,
   filterProps,
   defaultSorted,
