@@ -1,0 +1,7 @@
+$data-table-sizes: (
+  filters-margin-bottom: calculateRem(32px)
+);
+
+@function getDataTableSizes($key) {
+  @return map-get($data-table-sizes, $key);
+}

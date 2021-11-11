@@ -61,4 +61,5 @@ export interface FiltersProps<T> {
   initialValues: T;
   onSubmit: (state: T) => void;
   onClear?: (state: T) => void;
+  className?: string;
 }

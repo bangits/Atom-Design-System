@@ -15,7 +15,8 @@ function Filters<T>({
   defaultOpened,
   initialValues,
   onSubmit,
-  onClear
+  onClear,
+  className
 }: FiltersProps<T>) {
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
@@ -76,9 +77,13 @@ function Filters<T>({
   return (
     <Card
       borderRadius={1.6}
-      className={classNames(styles.FiltersBase, {
-        [styles['FiltersBase--closed']]: !isOpenedFilterCollapse
-      })}>
+      className={classNames(
+        styles.FiltersBase,
+        {
+          [styles['FiltersBase--closed']]: !isOpenedFilterCollapse
+        },
+        className
+      )}>
       <div className={styles.FiltersContainer}>
         {showedFilters.map((filter) => (
           <Filter key={filter.name} value={filterValues[filter.name]} filter={filter} onFilterChange={onFilterChange} />
