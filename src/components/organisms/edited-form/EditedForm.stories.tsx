@@ -10,7 +10,7 @@ export default {
 
 export const Default = () => {
   return (
-    <div style={{ width: '600px' }}>
+    <div style={{ maxWidth: '600px' }}>
       <EditedForm
         options={[
           { title: 'Email', value: 'antonian.evgenia@gmail.com' },
@@ -43,7 +43,7 @@ export const Default = () => {
             value: 'Inesa Khachatryan'
           }
         ]}
-        title='Account information'
+        title='Account Information'
         editButton={
           <IconButton
             icon={

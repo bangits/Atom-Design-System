@@ -1,0 +1,361 @@
+@mixin generate-player-details-styles {
+  .PlayerDetailsBase {
+    background-color: #f9f9f9;
+    &--breadCrumb {
+      margin-bottom: 1.6rem;
+    }
+
+    &--content {
+      @include flex(null, flex-start);
+    }
+  }
+  .PlayerDetailsUserInfo {
+    &--user {
+      background-color: white;
+      width: getPlayerDetailsSizes(user-width);
+      box-sizing: border-box;
+      margin: getPlayerDetailsSizes(user-margin);
+    }
+
+    &--user-detailsContainer {
+      @include flex();
+    }
+
+    &--user-avatarContainer {
+      width: getPlayerDetailsSizes(user-avatar-width);
+    }
+
+    &--user-details {
+      @include flex(null, flex-start, column);
+
+      > span {
+        height: getPlayerDetailsSizes(user-details-height);
+        font-size: getPlayerDetailsSizes(user-details-font-size);
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+      }
+
+      > span:first-child {
+        font-weight: bold;
+        color: getPlayerDetailsColors(user-details-name);
+        padding: getPlayerDetailsSizes(user-details-name-padding);
+      }
+      > span:last-child {
+        font-weight: normal;
+        color: getPlayerDetailsColors(user-details-id);
+      }
+    }
+
+    &--user-info {
+      @include flex(space-between, center);
+      padding: getPlayerDetailsSizes(user-info-container-padding);
+      margin: getPlayerDetailsSizes(user-info-container-margin);
+
+      > span {
+        height: getPlayerDetailsSizes(user-info-height);
+        font-size: getPlayerDetailsSizes(user-info-font-size);
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: getPlayerDetailsColors(user-info);
+      }
+    }
+    //Player Details User information End
+  }
+
+  .PlayerDetailsWalletInfo {
+    width: getPlayerDetailsSizes(wallet-width);
+    padding: getPlayerDetailsSizes(wallet-padding);
+    box-sizing: border-box;
+    margin: getPlayerDetailsSizes(wallet-margin);
+    background-color: white;
+
+    &--title {
+      height: getPlayerDetailsSizes(wallet-title-height);
+      font-size: getPlayerDetailsSizes(wallet-title-font-size);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getPlayerDetailsColors(wallet-title-color);
+    }
+
+    &--realBalance {
+      margin: getPlayerDetailsSizes(wallet-rb-margin);
+
+      > div:first-child {
+        @include flex(space-between, center);
+        margin: getPlayerDetailsSizes(wallet-rb-items-margin);
+
+        > span {
+          &:first-child {
+            height: getPlayerDetailsSizes(wallet-rb-height);
+            font-size: getPlayerDetailsSizes(wallet-rb-font-size);
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: getPlayerDetailsColors(wallet-rb-title-color);
+          }
+
+          &:last-child {
+            height: getPlayerDetailsSizes(wallet-rb-balance-height);
+            font-size: getPlayerDetailsSizes(wallet-rb-balance-font-size);
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: getPlayerDetailsColors(wallet-rb-balance-color);
+          }
+        }
+      }
+
+      > ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+          @include flex(space-between, center);
+          position: relative;
+          margin: getPlayerDetailsSizes(wallet-rb-items-margin);
+
+          &:before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: getPlayerDetailsColors(wallet-rb-title-color);
+            border-radius: 50%;
+          }
+
+          > span {
+            &:first-child {
+              padding: getPlayerDetailsSizes(wallet-rb-sub-padding);
+              height: getPlayerDetailsSizes(wallet-rb-sub-label-height);
+              font-size: getPlayerDetailsSizes(wallet-rb-sub-label-font-size);
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: normal;
+              text-align: left;
+              color: getPlayerDetailsColors(wallet-rb-title-color);
+            }
+
+            &:last-child {
+              height: getPlayerDetailsSizes(wallet-rb-sub-balance-height);
+              font-size: getPlayerDetailsSizes(wallet-rb-sub-balance-font-size);
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: normal;
+              text-align: right;
+              color: getPlayerDetailsColors(wallet-rb-balance-color);
+            }
+          }
+        }
+      }
+    }
+
+    &--bonusBalance {
+      @include flex(space-between, center);
+      margin: getPlayerDetailsSizes(wallet-bb-margin);
+
+      > span {
+        &:first-child {
+          height: getPlayerDetailsSizes(wallet-rb-height);
+          font-size: getPlayerDetailsSizes(wallet-rb-font-size);
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: getPlayerDetailsColors(wallet-rb-title-color);
+        }
+
+        &:last-child {
+          height: getPlayerDetailsSizes(wallet-rb-balance-height);
+          font-size: getPlayerDetailsSizes(wallet-rb-balance-font-size);
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: right;
+          color: getPlayerDetailsColors(wallet-rb-balance-color);
+        }
+      }
+    }
+
+    &--totalBalance {
+      @include flex(space-between, center);
+      padding: getPlayerDetailsSizes(wallet-tb-padding);
+      border-top: 1px solid #e9eaf1;
+
+      > span {
+        &:first-child {
+          height: getPlayerDetailsSizes(wallet-rb-height);
+          font-size: getPlayerDetailsSizes(wallet-rb-font-size);
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: getPlayerDetailsColors(wallet-rb-title-color);
+        }
+        &:last-child {
+          @include flex(null, center);
+          height: getPlayerDetailsSizes(wallet-rb-height);
+          font-size: getPlayerDetailsSizes(wallet-rb-font-size);
+          padding: getPlayerDetailsSizes(wallet-tb-balance-padding);
+          border-radius: getPlayerDetailsSizes(wallet-tb-balance-borderRadius);
+          background-color: getPlayerDetailsColors(wallet-tb-background);
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: right;
+          color: getPlayerDetailsColors(wallet-tb-color);
+        }
+      }
+    }
+  }
+
+  .PlayerDetailsStatusInfo {
+    @include flex(space-between, center);
+    width: getPlayerDetailsSizes(status-width);
+    padding: getPlayerDetailsSizes(status-padding);
+    margin: getPlayerDetailsSizes(status-margin);
+    box-sizing: border-box;
+    background-color: white;
+
+    > span {
+      &:first-child {
+        padding: getPlayerDetailsSizes(status-label-padding);
+        height: getPlayerDetailsSizes(status-label-height);
+        font-size: getPlayerDetailsSizes(status-label-font-size);
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: getPlayerDetailsColors(status-label-color);
+      }
+    }
+  }
+
+  .PlayerDetailsLastActivity {
+    margin: getPlayerDetailsSizes(last-activity-margin);
+    padding: getPlayerDetailsSizes(last-activity-padding);
+    width: getPlayerDetailsSizes(last-activity-width);
+    box-sizing: border-box;
+    background-color: white;
+
+    > span {
+      height: getPlayerDetailsSizes(last-activity-label-height);
+      font-size: getPlayerDetailsSizes(last-activity-label-font-size);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getPlayerDetailsColors(last-activity-label-color);
+    }
+
+    &--container {
+      @include flex(null, null, column);
+      margin: getPlayerDetailsSizes(last-activity-container-margin);
+
+      > div {
+        @include flex(space-between, center);
+        margin: getPlayerDetailsSizes(last-activity-label-margin);
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    &--label {
+      font-size: getPlayerDetailsSizes(last-activity-label-font-size);
+      max-width: getPlayerDetailsSizes(last-activity-label-max-width);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #8ea6c1;
+    }
+
+    &--date {
+      font-size: getPlayerDetailsSizes(last-activity-label-font-size);
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: right;
+      color: getPlayerDetailsColors(last-activity-date-color);
+    }
+  }
+
+  .PlayerDetailsTags {
+    width: getPlayerDetailsSizes(tags-width);
+    background-color: white;
+    padding: 0 16px;
+    box-sizing: border-box;
+
+    &--title {
+      display: inline-block;
+      padding-top: 10px;
+      margin-bottom: 17px;
+      height: 14px;
+      font-size: 12px;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: #3c54b2;
+    }
+
+    &--container {
+      @include flex();
+      flex-wrap: wrap;
+    }
+
+    &--tag {
+      width: 97px;
+      height: 24px;
+    }
+
+    &--button {
+      width: 90px;
+      height: 24px;
+      border-radius: 16px;
+      font-size: 12px;
+      padding: 0;
+    }
+  }
+}

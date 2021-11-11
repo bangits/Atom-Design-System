@@ -1,4 +1,5 @@
-import { Card, Typography } from '@my-ui/core';
+import { typedMemo } from '@/helpers';
+import { Card } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './EditedForm.module.scss';
@@ -16,7 +17,7 @@ const EditedForm: FC<EditedFormProps> = ({ title, editButton, options }) => {
   return (
     <div className={classNames(styles.EditedFormBase)}>
       <div className={classNames(styles['EditedFormBase--control'])}>
-        <Typography variant='p3'>{title}</Typography>
+        <span className={classNames(styles['EditedFormBase--control-title'])}>{title}</span>
         <div className={classNames(styles['EditedFormBase--control-button'])}>{editButton}</div>
       </div>
       <Card borderRadius={1.6} className={classNames(styles['EditedFormBase-content'])}>
@@ -32,4 +33,4 @@ const EditedForm: FC<EditedFormProps> = ({ title, editButton, options }) => {
   );
 };
 
-export default EditedForm;
+export default typedMemo(EditedForm);
