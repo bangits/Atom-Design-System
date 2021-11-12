@@ -1,0 +1,66 @@
+@mixin generate-edited-form-styles {
+  .EditedFormBase {
+    &--control {
+      @include flex(space-between, center);
+      padding: getEditedFormSizes(control-padding);
+      width: getEditedFormSizes(control-width);
+      height: auto;
+      box-sizing: border-box;
+    }
+
+    &--control-title {
+      height: getEditedFormSizes(control-title-height);
+      font-size: getEditedFormSizes(control-title-font-size);
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getEditedFormColors(control-title-color);
+    }
+
+    &-content {
+      background-color: white;
+      display: flex;
+      flex-wrap: wrap;
+      padding: getEditedFormSizes(content-padding);
+      width: getEditedFormSizes(content-width);
+      height: auto;
+      box-sizing: border-box;
+      border: solid 1px #e8edf3;
+    }
+
+    &--option {
+      @include flex(null, flex-start, column);
+      flex: getEditedFormSizes(option-flex);
+      width: getEditedFormSizes(option-width);
+      margin: getEditedFormSizes(option-margin);
+    }
+
+    &--option-title {
+      height: getEditedFormSizes(option-title-height);
+      font-size: getEditedFormSizes(option-title-font-size);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getEditedFormColors(option-title-color);
+      margin: getEditedFormSizes(option-title-margin);
+    }
+
+    &--option-value {
+      height: getEditedFormSizes(option-value-height);
+      font-size: getEditedFormSizes(option-value-font-size);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getEditedFormColors(option-value-color);
+    }
+  }
+}

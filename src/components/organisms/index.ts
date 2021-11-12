@@ -1,3 +1,4 @@
+export * from './edited-form';
 export * from './filters';
 export * from './form';
 export * from './navigation';
