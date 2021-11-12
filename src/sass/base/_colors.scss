@@ -1,0 +1,8 @@
+$colors: (
+  alabaster: #f9f9f9,
+  white: #fff
+);
+
+@function color($property-name) {
+  @return map-get($colors, $property-name);
+}

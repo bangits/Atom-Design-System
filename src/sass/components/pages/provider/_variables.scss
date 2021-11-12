@@ -1,4 +1,6 @@
-$provider-in-colors: ();
+$provider-in-colors: (
+  background: color(white)
+);
 
 $provider-in-sizes: (
   provider-wrapper: calculateRem(728px),
