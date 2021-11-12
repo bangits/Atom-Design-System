@@ -5,14 +5,14 @@
     box-sizing: border-box;
     padding: getPageWrapperInSizes(page-wrapper-padding);
     .PageWrapperHeader {
-      @include flex(null, center);
+      @include flex(space-between, center);
       padding-top: getPageWrapperInSizes(page-wrapper-padding-top);
+      margin-bottom: getPageWrapperInSizes(page-title-margin-bottom);
 
       .PageTitle {
         color: #505d6e;
         font-weight: getPageWrapperInSizes(page-title-font-weigth);
         margin: 0;
-        margin-bottom: getPageWrapperInSizes(page-title-margin-bottom);
       }
     }
   }

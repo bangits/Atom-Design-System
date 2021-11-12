@@ -1,14 +1,13 @@
 import { Header as MyUIHeader, Icons } from '@my-ui/core';
-import { HeaderProps } from '@my-ui/core/dist/components/navigation/header/Header';
 
-export const Header = (props: HeaderProps) => {
+export const Header: typeof MyUIHeader = (props) => {
   return (
     <>
       <MyUIHeader
         {...props}
         notificationProps={{
           ...props.notificationProps,
-          icon: <Icons.NotificationIcon />
+          children: <Icons.NotificationIcon />
         }}
       />
     </>
