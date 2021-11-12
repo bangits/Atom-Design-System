@@ -2,7 +2,7 @@ $player-details-sizes: (
   //USER INFORMATION
   user-width: calculateRem(244px),
   user-margin: 0 0 calculateRem(8px) 0,
-  user-avatar-width: calculateRem(56px),
+  user-avatar-width: calculateRem(42px),
   user-details-font-size: calculateRem(14px),
   user-details-height: calculateRem(17px),
   user-details-name-padding: calculateRem(16px) 0 calculateRem(8px) 0,
@@ -48,7 +48,16 @@ $player-details-sizes: (
   last-activity-label-margin: 0 0 calculateRem(6px) 0,
   last-activity-container-margin: calculateRem(15px) 0 0 0,
   //TAGS INFORMATION
-  tags-width: calculateRem(244px)
+  tags-width: calculateRem(244px),
+  tags-padding: 0 calculateRem(16px) calculateRem(24px) calculateRem(14px),
+  tags-title-padding: calculateRem(10px) 0 0 calculateRem(2px),
+  tags-title-margin: 0 0 calculateRem(17px) 0,
+  tags-title-height: calculateRem(14px),
+  tags-title-font-size: calculateRem(12px),
+  tag-width: calculateRem(97px),
+  tag-height: calculateRem(24px),
+  tag-padding: calculateRem(4px) 0 calculateRem(3px) calculateRem(8px),
+  tag-margin: 0 calculateRem(4px) calculateRem(8px) 0
 );
 
 $player-details-colors: (
@@ -65,7 +74,9 @@ $player-details-colors: (
   status-label-color: #3c54b2,
   //LAST ACTIVITY INFORMATION
   last-activity-label-color: #3c54b2,
-  last-activity-date-color: #505d6e
+  last-activity-date-color: #505d6e,
+  //TAGS INFORMATION
+  tags-title-color: #3c54b2
 );
 
 @function getPlayerDetailsSizes($key) {

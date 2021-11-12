@@ -23,6 +23,7 @@
 
     &--user-avatarContainer {
       width: getPlayerDetailsSizes(user-avatar-width);
+      padding: 14px 0 0 14px;
     }
 
     &--user-details {
@@ -322,22 +323,22 @@
   .PlayerDetailsTags {
     width: getPlayerDetailsSizes(tags-width);
     background-color: white;
-    padding: 0 16px;
+    padding: getPlayerDetailsSizes(tags-padding);
     box-sizing: border-box;
 
     &--title {
       display: inline-block;
-      padding-top: 10px;
-      margin-bottom: 17px;
-      height: 14px;
-      font-size: 12px;
+      padding: getPlayerDetailsSizes(tags-title-padding);
+      margin: getPlayerDetailsSizes(tags-title-margin);
+      height: getPlayerDetailsSizes(tags-title-height);
+      font-size: getPlayerDetailsSizes(tags-title-font-size);
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
       line-height: normal;
       letter-spacing: normal;
       text-align: left;
-      color: #3c54b2;
+      color: getPlayerDetailsColors(tags-title-color);
     }
 
     &--container {
@@ -346,8 +347,11 @@
     }
 
     &--tag {
-      width: 97px;
-      height: 24px;
+      @include flex(space-between);
+      width: getPlayerDetailsSizes(tag-width);
+      height: getPlayerDetailsSizes(tag-height);
+      padding: getPlayerDetailsSizes(tag-padding);
+      margin: getPlayerDetailsSizes(tag-margin);
     }
 
     &--button {
