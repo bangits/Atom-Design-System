@@ -359,12 +359,12 @@
     }
 
     &--button {
-      width: 90px;
-      height: 24px;
-      margin: 0 0 8px 0;
-      border-radius: 16px;
-      font-size: 12px;
-      padding: 0;
+      width: getPlayerDetailsSizes(tag-button-width);
+      height: getPlayerDetailsSizes(tag-button-height);
+      margin: getPlayerDetailsSizes(tag-button-margin);
+      border-radius: getPlayerDetailsSizes(tag-button-borderRadius);
+      font-size: getPlayerDetailsSizes(tag-button-font-size);
+      padding: getPlayerDetailsSizes(tag-button-padding);
     }
   }
 }

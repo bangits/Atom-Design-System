@@ -57,7 +57,13 @@ $player-details-sizes: (
   tag-width: calculateRem(97px),
   tag-height: calculateRem(24px),
   tag-padding: calculateRem(4px) 0 calculateRem(3px) calculateRem(8px),
-  tag-margin: 0 calculateRem(4px) calculateRem(8px) 0
+  tag-margin: 0 calculateRem(4px) calculateRem(8px) 0,
+  tag-button-width: calculateRem(90px),
+  tag-button-height: calculateRem(24px),
+  tag-button-margin: 0 0 calculateRem(8px) 0,
+  tag-button-borderRadius: calculateRem(16px),
+  tag-button-font-size: calculateRem(12px),
+  tag-button-padding: 0
 );
 
 $player-details-colors: (
