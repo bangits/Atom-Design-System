@@ -1,0 +1,30 @@
+$edited-form-sizes: (
+  control-padding: 0 calculateRem(16px),
+  control-width: 100%,
+  control-title-height: calculateRem(19px),
+  control-title-font-size: calculateRem(16px),
+  content-padding: calculateRem(16px) calculateRem(16px) 0 calculateRem(16px),
+  content-width: 100%,
+  option-flex: 50%,
+  option-width: 100%,
+  option-margin: 0 0 calculateRem(16px) 0,
+  option-title-height: calculateRem(14px),
+  option-title-font-size: calculateRem(12px),
+  option-title-margin: 0 0 calculateRem(4px) 0,
+  option-value-height: calculateRem(19px),
+  option-value-font-size: calculateRem(16px)
+);
+
+$edited-form-colors: (
+  control-title-color: #505d6e,
+  option-title-color: #8ea6c1,
+  option-value-color: #505d6e
+);
+
+@function getEditedFormSizes($key) {
+  @return map-get($edited-form-sizes, $key);
+}
+
+@function getEditedFormColors($key) {
+  @return map-get($edited-form-colors, $key);
+}
