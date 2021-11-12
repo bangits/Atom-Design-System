@@ -271,6 +271,7 @@
     background-color: white;
 
     > span {
+      display: inline-block;
       height: getPlayerDetailsSizes(last-activity-label-height);
       font-size: getPlayerDetailsSizes(last-activity-label-font-size);
       font-weight: normal;
@@ -297,23 +298,26 @@
     }
 
     &--label {
+      display: inline-block;
       font-size: getPlayerDetailsSizes(last-activity-label-font-size);
       max-width: getPlayerDetailsSizes(last-activity-label-max-width);
       font-weight: normal;
       font-stretch: normal;
       font-style: normal;
-      line-height: normal;
+      line-height: 14px;
       letter-spacing: normal;
       text-align: left;
       color: #8ea6c1;
     }
 
     &--date {
+      display: inline-block;
+      height: getPlayerDetailsSizes(last-activity-label-height);
       font-size: getPlayerDetailsSizes(last-activity-label-font-size);
       font-weight: 500;
       font-stretch: normal;
       font-style: normal;
-      line-height: normal;
+      line-height: 14px;
       letter-spacing: normal;
       text-align: right;
       color: getPlayerDetailsColors(last-activity-date-color);
@@ -357,6 +361,7 @@
     &--button {
       width: 90px;
       height: 24px;
+      margin: 0 0 8px 0;
       border-radius: 16px;
       font-size: 12px;
       padding: 0;

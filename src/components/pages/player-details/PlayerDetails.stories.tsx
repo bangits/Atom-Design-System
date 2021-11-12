@@ -1,6 +1,6 @@
 import { EditedForm } from '@/components';
 import { Card, IconButton, SubTab, Tab } from '@my-ui/core';
-import { withKnobs } from '@storybook/addon-knobs';
+import { object, withKnobs } from '@storybook/addon-knobs';
 import React, { useState } from 'react';
 import PlayerDetails from './PlayerDetails';
 
@@ -16,13 +16,13 @@ export const Default = () => {
 
   return (
     <PlayerDetails
-      userInfo={{
+      userInfo={object('userInfo', {
         title: 'Username Ines254',
         id: 'ID 1234567',
         userName: 'Inesa Khachatryan',
         regInfo: 'Bet365'
-      }}
-      walletInfo={{
+      })}
+      walletInfo={object('walletInfo', {
         title: 'Wallet',
         realBalance: {
           label: 'Real Balance',
@@ -40,13 +40,13 @@ export const Default = () => {
           label: 'Total Balance',
           balance: '21 423 AMD'
         }
-      }}
-      statusInfo={{
+      })}
+      statusInfo={object('statusInfo', {
         label: 'Status',
         variant: 'active',
         statusLabel: 'Active'
-      }}
-      lastActivity={{
+      })}
+      lastActivity={object('lastActivity', {
         title: 'Last Activity',
         info: [
           {
@@ -58,7 +58,7 @@ export const Default = () => {
             date: '12.09.2021 12:08:03'
           }
         ]
-      }}>
+      })}>
       <Card borderRadius={1.6} style={{ marginLeft: 8, backgroundColor: 'white' }}>
         <div style={{ paddingTop: 8, paddingLeft: 16, paddingRight: 16 }}>
           <Tab

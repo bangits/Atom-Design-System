@@ -13,10 +13,10 @@ $player-details-sizes: (
   //WALLET INFORMATION
   wallet-width: calculateRem(244px),
   wallet-margin: 0 0 calculateRem(8px) 0,
-  wallet-padding: calculateRem(10px) calculateRem(16px),
+  wallet-padding: calculateRem(10px) calculateRem(16px) calculateRem(7px) calculateRem(16px),
   wallet-title-height: calculateRem(14px),
   wallet-title-font-size: calculateRem(12px),
-  wallet-rb-margin: calculateRem(10px) 0 0 0,
+  wallet-rb-margin: calculateRem(8px) 0 0 0,
   wallet-rb-items-margin: 0 0 calculateRem(4px) 0,
   wallet-rb-height: calculateRem(14px),
   wallet-rb-font-size: calculateRem(12px),
