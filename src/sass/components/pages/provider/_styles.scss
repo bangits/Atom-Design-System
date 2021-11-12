@@ -2,9 +2,16 @@
   .ProviderWrapper {
     width: getProviderInSizes(provider-wrapper);
 
+    margin: auto;
+    min-height: inherit;
+
+    @include flex(null, center);
+
     .ProviderCard {
       padding: getProviderInSizes(provider-card-padding);
       box-sizing: border-box;
+
+      background-color: getProviderInColors(background);
 
       .ProviderContainer {
         .ProviderTitle {
