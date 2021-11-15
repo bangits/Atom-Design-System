@@ -1,5 +1,40 @@
 @mixin generate-edit-form-styles {
   .EditFormBase {
     background-color: getEditFormInColors(edit-form-background);
+    padding: getEditFormInSizes(edit-form-padding);
+    box-sizing: border-box;
+    @include generateBorderWithBoxShadow(getEditFormInColors(border-color), 0.1rem);
+
+    &--header {
+      @include flex(space-between, flex-start);
+
+      > span {
+        display: inline-block;
+        font-weight: 500;
+        height: getEditFormInSizes(edit-form-title-height);
+        font-size: getEditFormInSizes(edit-form-title-font-size);
+        color: getEditFormInColors(edit-form-title-color);
+      }
+    }
+
+    &--buttons {
+      @include flex();
+      margin: getEditFormInSizes(edit-form-buttons-margin);
+    }
+
+    &--content {
+      @include flex();
+      flex-wrap: wrap;
+      box-sizing: border-box;
+      width: getEditFormInSizes(edit-form-content-width);
+      height: auto;
+    }
+
+    &--field {
+      /*       flex: calc(50% - 16px);
+ */
+      width: getEditFormInSizes(edit-form-field-width);
+      margin: getEditFormInSizes(edit-form-field-margin);
+    }
   }
 }
