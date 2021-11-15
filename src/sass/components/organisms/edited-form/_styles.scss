@@ -28,7 +28,7 @@
       width: getEditedFormSizes(content-width);
       height: auto;
       box-sizing: border-box;
-      border: solid 1px #e8edf3;
+      @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
     }
 
     &--option {
