@@ -18,6 +18,11 @@
       letter-spacing: normal;
       text-align: left;
       color: getEditedFormColors(control-title-color);
+      word-break: break-all;
+      width: getEditedFormSizes(control-title-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     &-content {
@@ -49,6 +54,11 @@
       text-align: left;
       color: getEditedFormColors(option-title-color);
       margin: getEditedFormSizes(option-title-margin);
+      word-break: break-all;
+      width: getEditedFormSizes(option-title-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     &--option-value {
@@ -61,6 +71,11 @@
       letter-spacing: normal;
       text-align: left;
       color: getEditedFormColors(option-value-color);
+      word-break: break-all;
+      width: getEditedFormSizes(option-title-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }

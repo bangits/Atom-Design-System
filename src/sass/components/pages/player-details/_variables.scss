@@ -10,12 +10,16 @@ $player-details-sizes: (
   user-info-container-margin: calculateRem(16px) 0 0 0,
   user-info-font-size: calculateRem(12px),
   user-info-height: calculateRem(14px),
+  user-info-width: calculateRem(160px),
+  user-info-name-width: calculateRem(100px),
   //WALLET INFORMATION
   wallet-width: calculateRem(244px),
   wallet-margin: 0 0 calculateRem(8px) 0,
   wallet-padding: calculateRem(10px) calculateRem(16px) calculateRem(7px) calculateRem(16px),
   wallet-title-height: calculateRem(14px),
   wallet-title-font-size: calculateRem(12px),
+  wallet-title-width: calculateRem(180px),
+  wallet-balance-width: calculateRem(100px),
   wallet-rb-margin: calculateRem(8px) 0 0 0,
   wallet-rb-items-margin: 0 0 calculateRem(4px) 0,
   wallet-rb-height: calculateRem(14px),
@@ -47,6 +51,8 @@ $player-details-sizes: (
   last-activity-label-max-width: calculateRem(58px),
   last-activity-label-margin: 0 0 calculateRem(6px) 0,
   last-activity-container-margin: calculateRem(15px) 0 0 0,
+  last-activity-text-width: calculateRem(160px),
+  last-activity--date-width: calculateRem(120px),
   //TAGS INFORMATION
   tags-width: calculateRem(244px),
   tags-padding: 0 calculateRem(16px) calculateRem(24px) calculateRem(14px),
@@ -63,7 +69,9 @@ $player-details-sizes: (
   tag-button-margin: 0 0 calculateRem(8px) 0,
   tag-button-borderRadius: calculateRem(16px),
   tag-button-font-size: calculateRem(12px),
-  tag-button-padding: 0
+  tag-button-padding: 0,
+  tags-text-width: calculateRem(160px),
+  tag-text-width: calculateRem(65px)
 );
 
 $player-details-colors: (

@@ -37,6 +37,11 @@
         line-height: normal;
         letter-spacing: normal;
         text-align: left;
+        word-break: break-all;
+        width: getPlayerDetailsSizes(user-info-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       > span:first-child {
@@ -65,6 +70,11 @@
         letter-spacing: normal;
         text-align: left;
         color: getPlayerDetailsColors(user-info);
+        word-break: break-all;
+        width: getPlayerDetailsSizes(user-info-name-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
     //Player Details User information End
@@ -87,6 +97,11 @@
       letter-spacing: normal;
       text-align: left;
       color: getPlayerDetailsColors(wallet-title-color);
+      word-break: break-all;
+      width: getPlayerDetailsSizes(user-info-name-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     &--realBalance {
@@ -107,6 +122,11 @@
             letter-spacing: normal;
             text-align: left;
             color: getPlayerDetailsColors(wallet-rb-title-color);
+            word-break: break-all;
+            width: getPlayerDetailsSizes(wallet-balance-width);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
 
           &:last-child {
@@ -119,6 +139,11 @@
             letter-spacing: normal;
             text-align: right;
             color: getPlayerDetailsColors(wallet-rb-balance-color);
+            word-break: break-all;
+            width: getPlayerDetailsSizes(wallet-balance-width);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
           }
         }
       }
@@ -154,6 +179,11 @@
               letter-spacing: normal;
               text-align: left;
               color: getPlayerDetailsColors(wallet-rb-title-color);
+              word-break: break-all;
+              width: getPlayerDetailsSizes(wallet-balance-width);
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
             }
 
             &:last-child {
@@ -166,6 +196,11 @@
               letter-spacing: normal;
               text-align: right;
               color: getPlayerDetailsColors(wallet-rb-balance-color);
+              word-break: break-all;
+              width: getPlayerDetailsSizes(wallet-balance-width);
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
             }
           }
         }
@@ -177,6 +212,11 @@
       margin: getPlayerDetailsSizes(wallet-bb-margin);
 
       > span {
+        word-break: break-all;
+        width: getPlayerDetailsSizes(wallet-balance-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         &:first-child {
           height: getPlayerDetailsSizes(wallet-rb-height);
           font-size: getPlayerDetailsSizes(wallet-rb-font-size);
@@ -209,6 +249,11 @@
       border-top: 1px solid #e9eaf1;
 
       > span {
+        word-break: break-all;
+        width: getPlayerDetailsSizes(wallet-balance-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
         &:first-child {
           height: getPlayerDetailsSizes(wallet-rb-height);
           font-size: getPlayerDetailsSizes(wallet-rb-font-size);
@@ -259,6 +304,11 @@
         letter-spacing: normal;
         text-align: left;
         color: getPlayerDetailsColors(status-label-color);
+        word-break: break-all;
+        width: getPlayerDetailsSizes(wallet-balance-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
       }
     }
   }
@@ -281,6 +331,11 @@
       letter-spacing: normal;
       text-align: left;
       color: getPlayerDetailsColors(last-activity-label-color);
+      word-break: break-all;
+      width: getPlayerDetailsSizes(last-activity-text-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     &--container {
@@ -321,6 +376,11 @@
       letter-spacing: normal;
       text-align: right;
       color: getPlayerDetailsColors(last-activity-date-color);
+      word-break: break-all;
+      width: getPlayerDetailsSizes(last-activity--date-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 
@@ -343,6 +403,11 @@
       letter-spacing: normal;
       text-align: left;
       color: getPlayerDetailsColors(tags-title-color);
+      word-break: break-all;
+      width: getPlayerDetailsSizes(tags-text-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
 
     &--container {
@@ -356,6 +421,15 @@
       height: getPlayerDetailsSizes(tag-height);
       padding: getPlayerDetailsSizes(tag-padding);
       margin: getPlayerDetailsSizes(tag-margin);
+      > span {
+        &:first-child {
+          word-break: break-all;
+          width: getPlayerDetailsSizes(tag-text-width);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+      }
     }
 
     &--button {
@@ -365,6 +439,10 @@
       border-radius: getPlayerDetailsSizes(tag-button-borderRadius);
       font-size: getPlayerDetailsSizes(tag-button-font-size);
       padding: getPlayerDetailsSizes(tag-button-padding);
+      word-break: break-all;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
     }
   }
 }
