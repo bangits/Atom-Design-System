@@ -1,0 +1,5 @@
+@mixin generate-edit-form-styles {
+  .EditFormBase {
+    background-color: getEditFormInColors(edit-form-background);
+  }
+}

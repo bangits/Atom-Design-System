@@ -1,0 +1,21 @@
+$icon-group-sizes: (
+  icon-group-width: calculateRem(36px),
+  icon-group-padding: calculateRem(6px) calculateRem(6px) calculateRem(11px) calculateRem(6px),
+  icon-group-borderRadius: calculateRem(18px),
+  icon-group-icon-width: calculateRem(24px),
+  icon-group-icon-height: calculateRem(24px)
+);
+
+$icon-group-colors: (
+  icon-group-background: #e8edf3,
+  icon-group-icon-color: #505d6e,
+  icon-group-icon-active-color: #3c54b2
+);
+
+@function getIconGroupSizes($key) {
+  @return map-get($icon-group-sizes, $key);
+}
+
+@function getIconGroupColors($key) {
+  @return map-get($icon-group-colors, $key);
+}

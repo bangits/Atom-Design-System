@@ -1,0 +1,26 @@
+@mixin generate-icon-group-styles {
+  .IconsGroupBase {
+    @include flex(null, center, column);
+    background-color: getIconGroupColors(icon-group-background);
+    width: getIconGroupSizes(icon-group-width);
+    padding: getIconGroupSizes(icon-group-padding);
+    border-radius: getIconGroupSizes(icon-group-borderRadius);
+    cursor: pointer;
+    box-sizing: border-box;
+
+    &--icon {
+      @include flex(center, center);
+      width: getIconGroupSizes(icon-group-icon-width);
+      height: getIconGroupSizes(icon-group-icon-height);
+      color: getIconGroupColors(icon-group-icon-color);
+
+      &:hover {
+        color: getIconGroupColors(icon-group-icon-active-color);
+      }
+    }
+
+    &--active {
+      color: getIconGroupColors(icon-group-icon-active-color);
+    }
+  }
+}

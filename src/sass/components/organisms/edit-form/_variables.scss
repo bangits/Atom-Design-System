@@ -1,0 +1,13 @@
+$edit-form-in-sizes: ();
+
+$edit-form-in-colors: (
+  edit-form-background: #fff
+);
+
+@function getEditFormInSizes($key) {
+  @return map-get($edit-form-in-sizes, $key);
+}
+
+@function getEditFormInColors($key) {
+  @return map-get($edit-form-in-colors, $key);
+}
