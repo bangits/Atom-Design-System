@@ -16,6 +16,8 @@ export const Default = () => {
   const [subTabValue, setSubTabValue] = useState(1);
   const [edit, setEdit] = useState(false);
 
+  const [date, setDate] = useState<Date | null>(null);
+
   return (
     <PlayerDetails
       userInfo={object('userInfo', {
@@ -299,14 +301,16 @@ export const Default = () => {
                         },
                         disabled: true
                       },
+
                       {
-                        type: 'input',
-                        name: 'date',
+                        type: 'datePicker',
+                        name: 'datepicker',
                         props: {
-                          label: 'Registered Date',
-                          defaultValue: '09/05/2021 12:00:00'
-                        },
-                        disabled: true
+                          onChange: (date: Date) => setDate(date),
+                          placeholderText: 'dd/mm/yyyy',
+                          dateFormat: 'dd/MM/yyyy',
+                          selected: date || new Date()
+                        }
                       },
                       {
                         type: 'input',

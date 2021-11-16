@@ -1,6 +1,6 @@
 import { IconButton } from '@my-ui/core';
 import { withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
+import React, { useState } from 'react';
 import EditForm from './EditForm';
 
 export default {
@@ -10,6 +10,9 @@ export default {
 };
 
 export const Default = () => {
+  const [dateRange, setDateRange] = useState<[Date | null, Date | null]>([null, null]);
+  const [date, setDate] = useState<Date | null>(null);
+
   return (
     <div style={{ width: 477 }}>
       <EditForm
@@ -125,6 +128,19 @@ export const Default = () => {
               ],
               isSearchable: true
             }
+          },
+          {
+            type: 'datePicker',
+            name: 'datepicker',
+            props: {
+              onChange: (range: [Date, Date]) => setDateRange(range),
+              selectsRange: true,
+              placeholderText: 'dd/mm/yyyy',
+              dateFormat: 'dd/MM/yyyy',
+              startDate: dateRange[0],
+              endDate: dateRange[1]
+            },
+            disabled: true
           }
         ]}
       />

@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers';
-import { Card, Select, SelectProps, TextInput, TextInputProps } from '@my-ui/core';
+import { Card, DatePicker, DatepickerProps, Select, SelectProps, TextInput, TextInputProps } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './EditForm.module.scss';
@@ -12,7 +12,7 @@ export interface EditFormProps {
   renderInputs: (
     InputComponent: React.ComponentType,
     name: string,
-    fieldType: 'select' | 'input' | 'custom'
+    fieldType: 'select' | 'input' | 'custom' | 'datePicker'
   ) => JSX.Element;
   fields: Array<
     {
@@ -34,6 +34,12 @@ export interface EditFormProps {
           type: 'custom';
           disabled?: boolean;
           component: () => JSX.Element;
+        }
+      | {
+          type: 'datePicker';
+          disabled?: boolean;
+          props?: DatepickerProps;
+          component?: (props: DatepickerProps) => JSX.Element;
         }
     )
   >;
@@ -69,12 +75,20 @@ const EditForm: FC<EditFormProps> = ({ title, applyButton, closeButton, fields, 
                               {...(props as TextInputProps)}
                               {...field.props}
                             />
-                          ) : (
+                          ) : field.type === 'select' ? (
                             <Select
+                              key={idx}
                               disabled={field.disabled}
                               {...(props as SelectProps<any, any, any>)}
                               {...field.props}
                               fullWidth
+                            />
+                          ) : (
+                            <DatePicker
+                              key={idx}
+                              disabled={field.disabled}
+                              {...field.props}
+                              {...(props as DatepickerProps)}
                             />
                           )}
                         </>
