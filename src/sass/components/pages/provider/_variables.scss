@@ -13,9 +13,12 @@ $provider-in-sizes: (
   provider-form-groupMarginRigth: calculateRem(24px),
   provider-form-marginBottom: calculateRem(18px),
   provider-form: calculateRem(280px),
-  provider-button-marginTop: calculateRem(164px),
+  provider-form-small: calculateRem(184px),
+  provider-form-groupMarginRigth-small: calculateRem(16px),
+  provider-button-marginTop: calculateRem(75px),
   provider-button-closeMargin: calculateRem(16px),
-  provider-form-height: calculateRem(60px)
+  provider-form-height: calculateRem(60px),
+  provider-card-min-height: calculateRem(590px)
 );
 
 @function getProviderInColors($key) {

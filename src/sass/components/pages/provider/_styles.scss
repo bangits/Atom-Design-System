@@ -11,6 +11,11 @@
       padding: getProviderInSizes(provider-card-padding);
       box-sizing: border-box;
 
+      min-height: getProviderInSizes(provider-card-min-height);
+
+      @include flex;
+      flex-direction: column;
+
       background-color: getProviderInColors(background);
 
       .ProviderContainer {
@@ -21,17 +26,33 @@
 
         .ProviderContainerWrapper {
           margin-top: getProviderInSizes(provider-container-wrapper);
+
           .ProviderFormGroup {
             @include flex;
             flex-wrap: wrap;
             margin-bottom: getProviderInSizes(provider-form-groupMarginTop);
 
             .ProviderForm {
-              width: getProviderInSizes(provider-form);
               min-height: getProviderInSizes(provider-form-height);
               margin-bottom: 2px;
+
               &:nth-child(odd) {
-                margin-right: getProviderInSizes(provider-form-groupMarginRigth);
+              }
+
+              &--col-4 {
+                width: getProviderInSizes(provider-form-small);
+
+                &:nth-child(2) {
+                  margin: 0 16px;
+                }
+              }
+
+              &--col-6 {
+                &:nth-child(even) {
+                  margin-right: getProviderInSizes(provider-form-groupMarginRigth);
+                }
+
+                width: getProviderInSizes(provider-form);
               }
             }
           }
@@ -40,10 +61,24 @@
 
       .ProviderButtonGroup {
         @include flex(center, center);
-        margin-top: getProviderInSizes(provider-button-marginTop);
 
+        margin-top: auto;
+
+        position: relative;
         .ProviderCloseButton {
           margin-right: getProviderInSizes(provider-button-closeMargin);
+        }
+        .ProviderBackButton {
+          @include flex(center, center);
+          border: 1px solid #8ea6c1;
+          padding: 7px;
+          position: absolute;
+          border-radius: 100%;
+          left: 0;
+          cursor: pointer;
+        }
+        .ProviderButtons {
+          @include flex(center, center);
         }
       }
     }

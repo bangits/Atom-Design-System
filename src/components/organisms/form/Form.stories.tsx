@@ -1,4 +1,5 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { withKnobs, object, boolean } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 import Form from './Form';
 
 export default {
@@ -10,9 +11,11 @@ export default {
 export const Default = () => {
   return (
     <Form
-      title='Add Provider'
+      title='Add Player'
+      showBackButton={boolean('showBackButton', true)}
+      onClick={action('onClick')}
       firstButtonProps={{
-        children: 'Cancel'
+        children: 'Close'
       }}
       secondButtonProps={{
         children: 'Save'
@@ -21,84 +24,207 @@ export const Default = () => {
         console.log(Component, name);
         return <Component />;
       }}
-      fields={[
+      fields={object('fields', [
         {
           type: 'input',
-          name: 'name',
+          name: 'firstName',
+          label: 'First Name',
+          col: 4
+        },
+        {
+          type: 'input',
+          name: 'lastName',
+          label: 'Last Name',
+          col: 4
+        },
+        {
+          type: 'input',
+          name: 'middleName',
+          label: 'Middle Name',
+          col: 4
+        },
+        {
+          type: 'datepicker',
+          label: 'Date of Birth',
+          name: 'dateOfBirth',
+          col: 6,
+          props: {}
+        },
+        {
+          type: 'select',
+          name: 'gender',
+          col: 6,
           props: {
-            label: 'Provider Name'
+            inputLabel: 'Gender',
+            options: [
+              {
+                label: 'Male',
+                value: 1
+              },
+              {
+                label: 'Female',
+                value: 2
+              },
+              {
+                label: 'Other...',
+                value: 3
+              }
+            ]
           }
         },
         {
           type: 'select',
-          name: 'targetMarkets',
+          name: 'country',
+          col: 6,
           props: {
-            inputLabel: 'Target market',
+            inputLabel: 'Country',
             options: [
-              { label: 'market 1', value: 1 },
-              { label: 'market 2', value: 2 },
-              { label: 'market 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
+              {
+                label: 'Armenia',
+                value: 1
+              },
+              {
+                label: 'Russia',
+                value: 2
+              },
+              {
+                label: 'Italy',
+                value: 3
+              }
+            ]
           }
         },
         {
           type: 'select',
-          name: 'certifiedCountries',
+          name: 'region',
+          col: 6,
           props: {
-            inputLabel: 'Certified countries',
+            inputLabel: 'Region',
             options: [
-              { label: 'Certified country 1', value: 1 },
-              { label: 'Certified country 2', value: 2 },
-              { label: 'Certified country 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
+              {
+                label: 'Region 1',
+                value: 1
+              },
+              {
+                label: 'Region 2',
+                value: 2
+              },
+              {
+                label: 'Region 3',
+                value: 3
+              }
+            ]
           }
         },
         {
           type: 'select',
-          name: 'certifiedCountries',
+          name: 'city',
+          col: 6,
           props: {
-            inputLabel: 'Restricted countries',
+            inputLabel: 'City',
             options: [
-              { label: 'Restricted country 1', value: 1 },
-              { label: 'Restricted country 2', value: 2 },
-              { label: 'Restricted country 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
+              {
+                label: 'City 1',
+                value: 1
+              },
+              {
+                label: 'City 2',
+                value: 2
+              },
+              {
+                label: 'City 3',
+                value: 3
+              }
+            ]
           }
         },
         {
+          type: 'input',
+          name: 'address',
+          label: 'Address',
+          col: 6
+        },
+        {
+          type: 'input',
+          name: 'zipCode',
+          label: 'Zip code',
+          col: 6
+        },
+        {
+          type: 'input',
+          name: 'contactNumber',
+          label: 'Contact Number',
+          col: 6
+        },
+
+        {
           type: 'select',
-          name: 'providerCurrencies',
+          name: 'documentType',
+          col: 6,
           props: {
-            inputLabel: 'Currency',
+            inputLabel: 'Document type',
             options: [
-              { label: 'Currency 1', value: 1 },
-              { label: 'Currency 2', value: 2 },
-              { label: 'Currency 3', value: 3 }
-            ],
-            isSearchable: true,
-            isMulti: true
+              {
+                label: 'Document type 1',
+                value: 1
+              },
+              {
+                label: 'Document type 2',
+                value: 2
+              },
+              {
+                label: 'Document type 3',
+                value: 3
+              }
+            ]
           }
         },
         {
-          type: 'select',
-          name: 'defaultCurrency',
-          props: {
-            inputLabel: 'Default currency',
-            options: [
-              { label: 'Default currency 1', value: 1 },
-              { label: 'Default currency 2', value: 2 },
-              { label: 'Default currency 3', value: 3 }
-            ],
-            isSearchable: true
-          }
+          type: 'input',
+          name: 'passportId',
+          label: 'Passport/ID',
+          col: 6
         }
-      ]}
+
+        // {
+        //   type: 'checkbox',
+        //   name: 'checkbox',
+        //   label: 'checkbox',
+
+        //   props: {
+        //     checkboxes: [
+        //       {
+        //         label: 'Mobile',
+        //         name: 'mobile',
+        //         value: 1
+        //       },
+        //       {
+        //         label: 'Tablet',
+        //         name: 'tablet',
+        //         value: 2
+        //       }
+        //     ]
+        //   }
+        // },
+        // {
+        //   type: 'radio',
+        //   name: 'radio-group',
+        //   label: 'Radio Group',
+
+        //   props: {
+        //     radios: [
+        //       {
+        //         label: 'Desktop',
+        //         value: 1
+        //       },
+        //       {
+        //         label: 'Tablet',
+        //         value: 2
+        //       }
+        //     ]
+        //   }
+        // }
+      ])}
     />
   );
 };

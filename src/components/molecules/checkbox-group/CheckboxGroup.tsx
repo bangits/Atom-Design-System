@@ -40,7 +40,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({ label, checkboxes, value, defau
         <span>{label}</span>
       </div>
       <div className={styles.CheckboxGroupContainer}>
-        {checkboxes.map((checkbox) => {
+        {checkboxes?.map((checkbox) => {
           return (
             <div className={styles.CheckboxWrapper} key={checkbox.name}>
               <div className={styles.CheckboxContainer}>

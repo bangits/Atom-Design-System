@@ -19,18 +19,16 @@ const RadioGroup: FC<RadioGroupProps> = ({ radios, label, ...radioGroupProps }) 
       <div>
         <span className={styles.FilterRadioName}>{label}</span>
         <div className={styles.FilterRadioContainer}>
-          <MyUIRadioGroup {...radioGroupProps}>
-            {radios.map((radio) => (
-              <div className={styles.FilterRadioGroup} key={radio.value}>
-                <div className={styles.FilterRadio}>
-                  <RadioButton id={radio.value?.toString()} value={radio.value} />
-                </div>
-                <label className={styles.FilterRadioLabel} htmlFor={radio.value?.toString()}>
-                  {radio.label}
-                </label>
+          {radios.map((radio) => (
+            <div className={styles.FilterRadioGroup} key={radio.value}>
+              <div className={styles.FilterRadio}>
+                <RadioButton name={radioGroupProps.name} id={radio.value?.toString()} value={radio.value} />
               </div>
-            ))}
-          </MyUIRadioGroup>
+              <label className={styles.FilterRadioLabel} htmlFor={radio.value?.toString()}>
+                {radio.label}
+              </label>
+            </div>
+          ))}
         </div>
       </div>
     </>
