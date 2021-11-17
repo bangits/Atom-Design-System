@@ -63,7 +63,7 @@ export const Default = () => {
           }
         ]
       })}>
-      <Card borderRadius={1.6} style={{ marginLeft: 8, backgroundColor: 'white' }}>
+      <Card borderRadius={1.6} style={{ marginLeft: 8, backgroundColor: 'white', width: 994, paddingBottom: 8 }}>
         <div style={{ paddingTop: 8, paddingLeft: 16, paddingRight: 16 }}>
           <Tab
             options={[

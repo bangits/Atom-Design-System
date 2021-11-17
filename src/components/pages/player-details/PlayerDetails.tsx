@@ -157,7 +157,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({ children, userInfo, walletInfo,
                       </g>
                     </svg>
                   }>
-                  Add New
+                  <span>Add New</span>
                 </Button>
               </div>
             </div>
