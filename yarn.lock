@@ -1493,17 +1493,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-"@my-ui/core@^2.14.9":
-  version "2.14.9"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.14.9.tgz#e57a979277d59b17a83c859fcae5d30e9879bf3b"
-  integrity sha1-5XqXknfVmxeoPIWfyuXTDph5vzs=
-=======
-"@my-ui/core@^2.14.8":
-  version "2.14.8"
-  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.14.8.tgz#f974c4b38a481b5e0d9b41ee43bb365bd7928472"
-  integrity sha1-+XTEs4pIG14Nm0HuQ7s2W9eShHI=
->>>>>>> 181d1e05062e70eafb01c7e7214c2da3c82a03a3
+"@my-ui/core@^2.15.1":
+  version "2.15.1"
+  resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/@my-ui/core/-/core-2.15.1.tgz#25a105e1c8c29d8fa504691dc35487224fdfd71c"
+  integrity sha1-JaEF4cjCnY+lBGkdw1SHIk/f1xw=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
@@ -1512,6 +1505,7 @@
     classnames "^2.3.1"
     react-jss "^10.8.0"
     react-paginate "^7.1.5"
+    react-transition-group "^4.4.2"
 
 "@my-ui/react-datepicker@^1.5.0":
   version "1.5.0"
@@ -11448,7 +11442,7 @@ react-textarea-autosize@^8.3.0:
     use-composed-ref "^1.0.0"
     use-latest "^1.0.0"
 
-react-transition-group@^4.3.0:
+react-transition-group@^4.3.0, react-transition-group@^4.4.2:
   version "4.4.2"
   resolved "https://pkgs.dev.azure.com/bangitsgroup/Common/_packaging/ui-libs/npm/registry/react-transition-group/-/react-transition-group-4.4.2.tgz#8b59a56f09ced7b55cbd53c36768b922890d5470"
   integrity sha1-i1mlbwnO17VcvVPDZ2i5IokNVHA=
