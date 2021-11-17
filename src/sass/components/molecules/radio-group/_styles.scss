@@ -6,6 +6,7 @@
 
   .FilterRadioContainer {
     display: flex;
+    margin: 0.8rem 0 0.8rem 0;
 
     .FilterRadioGroup {
       @include flex(null, center);
