@@ -444,7 +444,7 @@
         overflow: hidden;
         text-overflow: ellipsis;
         white-space: nowrap;
-        max-width: getPlayerDetailsSizes(tags-max-width);
+        max-width: getPlayerDetailsSizes(tags-button-max-width);
       }
     }
   }

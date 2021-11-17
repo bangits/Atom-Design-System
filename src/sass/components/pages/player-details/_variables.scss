@@ -72,7 +72,8 @@ $player-details-sizes: (
   tag-button-padding: 0 1.2rem 0 1.6rem,
   tags-text-width: calculateRem(160px),
   tag-text-width: calculateRem(65px),
-  tags-max-width: calculateRem(180px)
+  tags-max-width: calculateRem(180px),
+  tags-button-max-width: calculateRem(172px)
 );
 
 $player-details-colors: (
