@@ -395,8 +395,65 @@ export const Default = () => {
         clearLabel: 'Clear'
       }}
       tableProps={{
-        data: [],
-        columns: []
+        data: [
+          [
+            {
+              y: 'ID1234567',
+              z: 'ID1234567',
+              b: '20BurningHot',
+              n: 'EGT',
+              w: '12/07/2021, 12:00:00',
+              e: 'Mobile Desktop',
+              v: 'Mobile, Desktop',
+              c: 'Slots'
+            }
+          ]
+        ],
+        columns: [
+          {
+            Header: 'Icon',
+            accessor: 'x',
+            variant: 'image'
+          },
+          {
+            Header: 'Game Id',
+            accessor: 'y'
+          },
+          {
+            Header: 'External Id',
+            accessor: 'z'
+          },
+          {
+            Header: 'Game Name',
+            accessor: 'b'
+          },
+          {
+            Header: 'Provider Id',
+            accessor: 'n'
+          },
+          {
+            Header: 'Category',
+            accessor: 'c'
+          },
+          {
+            Header: 'Version',
+            accessor: 'v',
+            maxWidth: '10rem'
+          },
+          {
+            Header: 'Release date and time',
+            accessor: 'w',
+            align: 'right',
+            sortingId: 'release'
+          },
+          {
+            Header: 'Status',
+            accessor: 'r',
+            disableSortBy: true,
+            maxWidth: '8rem',
+            dataMaxWidth: '9rem'
+          }
+        ]
       }}
     />
   );
