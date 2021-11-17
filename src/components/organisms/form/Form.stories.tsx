@@ -184,46 +184,46 @@ export const Default = () => {
           name: 'passportId',
           label: 'Passport/ID',
           col: 6
+        },
+
+        {
+          type: 'checkbox',
+          name: 'checkbox',
+          label: 'checkbox',
+
+          props: {
+            checkboxes: [
+              {
+                label: 'Mobile',
+                name: 'mobile',
+                value: 1
+              },
+              {
+                label: 'Tablet',
+                name: 'tablet',
+                value: 2
+              }
+            ]
+          }
+        },
+        {
+          type: 'radio',
+          name: 'radio-group',
+          label: 'Radio Group',
+
+          props: {
+            radios: [
+              {
+                label: 'Desktop',
+                value: 1
+              },
+              {
+                label: 'Tablet',
+                value: 2
+              }
+            ]
+          }
         }
-
-        // {
-        //   type: 'checkbox',
-        //   name: 'checkbox',
-        //   label: 'checkbox',
-
-        //   props: {
-        //     checkboxes: [
-        //       {
-        //         label: 'Mobile',
-        //         name: 'mobile',
-        //         value: 1
-        //       },
-        //       {
-        //         label: 'Tablet',
-        //         name: 'tablet',
-        //         value: 2
-        //       }
-        //     ]
-        //   }
-        // },
-        // {
-        //   type: 'radio',
-        //   name: 'radio-group',
-        //   label: 'Radio Group',
-
-        //   props: {
-        //     radios: [
-        //       {
-        //         label: 'Desktop',
-        //         value: 1
-        //       },
-        //       {
-        //         label: 'Tablet',
-        //         value: 2
-        //       }
-        //     ]
-        //   }
-        // }
       ])}
     />
   );
