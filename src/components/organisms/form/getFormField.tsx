@@ -17,18 +17,18 @@ const getFormField = (field: FormFieldProp) => {
       break;
     case 'input':
       fieldComponent = (props: TextInputProps) => (
-        <TextInput {...field.props} fullWidth {...props} label={field.label} />
+        <TextInput {...field.props} {...props} label={field.label} fullWidth />
       );
       break;
     case 'select':
       fieldComponent = (props: SelectProps<any, boolean, any>) => (
-        <Select {...field.props} fullWidth {...props} label={field.label} />
+        <Select {...field.props} {...props} label={field.label} fullWidth />
       );
       break;
 
     case 'datepicker':
       fieldComponent = (props: DatepickerProps) => (
-        <DatePicker {...field.props} placeholderText={field.label} {...props} />
+        <DatePicker {...field.props} {...props} placeholderText={field.label} fullWidth />
       );
       break;
     case 'custom':

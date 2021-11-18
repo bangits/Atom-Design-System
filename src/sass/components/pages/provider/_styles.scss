@@ -30,29 +30,21 @@
           .ProviderFormGroup {
             @include flex;
             flex-wrap: wrap;
+            column-gap: 1.6rem;
             margin-bottom: getProviderInSizes(provider-form-groupMarginTop);
 
             .ProviderForm {
               min-height: getProviderInSizes(provider-form-height);
               margin-bottom: 2px;
 
-              &:nth-child(odd) {
-              }
+              flex-grow: 1;
 
               &--col-4 {
-                width: getProviderInSizes(provider-form-small);
-
-                &:nth-child(2) {
-                  margin: 0 16px;
-                }
+                max-width: 18.4rem;
               }
 
               &--col-6 {
-                &:nth-child(even) {
-                  margin-right: getProviderInSizes(provider-form-groupMarginRigth);
-                }
-
-                width: getProviderInSizes(provider-form);
+                max-width: 28.4rem;
               }
             }
           }
