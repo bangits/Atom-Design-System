@@ -30,21 +30,21 @@
           .ProviderFormGroup {
             @include flex;
             flex-wrap: wrap;
-            column-gap: 1.6rem;
+            column-gap: getProviderInSizes(provider-column-gap);
             margin-bottom: getProviderInSizes(provider-form-groupMarginTop);
 
             .ProviderForm {
               min-height: getProviderInSizes(provider-form-height);
-              margin-bottom: 2px;
+              margin-bottom: getProviderInSizes(provider-field-margin-bottom);
 
               flex-grow: 1;
 
               &--col-4 {
-                max-width: 18.4rem;
+                max-width: getProviderInSizes(provider-col-4-width);
               }
 
               &--col-6 {
-                max-width: 28.4rem;
+                max-width: getProviderInSizes(provider-col-6-width);
               }
             }
           }

@@ -18,6 +18,10 @@ $provider-in-sizes: (
   provider-button-marginTop: calculateRem(75px),
   provider-button-closeMargin: calculateRem(16px),
   provider-form-height: calculateRem(60px),
+  provider-column-gap: calculateRem(24px),
+  provider-field-margin-bottom: calculateRem(2px),
+  provider-col-4-width: calculateRem(178.6px),
+  provider-col-6-width: calculateRem(284px),
   provider-card-min-height: calculateRem(590px)
 );
 
