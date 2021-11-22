@@ -22,7 +22,9 @@ module.exports = (webpackConfigEnv, argv) => {
 
       devServer: {
         port: webpackConfigEnv.PORT || 6005,
-        hot: false
+        liveReload: false,
+        hot: false,
+        webSocketServer: false
       },
 
       plugins: [
