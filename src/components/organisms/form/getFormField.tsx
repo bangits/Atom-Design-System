@@ -1,10 +1,9 @@
-import { RadioGroup, RadioGroupProps, CheckboxGroup, CheckboxGroupProps } from '@/components';
-import { DatePicker, Select, TextInput, TextInputProps, SelectProps, DatepickerProps } from '@my-ui/core';
-import { ReactNode } from 'react';
+import { CheckboxGroup, CheckboxGroupProps, RadioGroup, RadioGroupProps } from '@/components';
+import { DatePicker, DatepickerProps, Select, SelectProps, TextInput, TextInputProps } from '@my-ui/core';
 import { FormFieldProp } from './FormFieldTypes';
 
 const getFormField = (field: FormFieldProp) => {
-  let fieldComponent: ((props: any) => ReactNode) | null = null;
+  let fieldComponent: React.ElementType | null = null;
 
   switch (field.type) {
     case 'radio':

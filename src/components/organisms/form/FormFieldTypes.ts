@@ -1,34 +1,37 @@
-import { CheckboxProps, DatepickerProps, SelectProps, TextInputProps, RadioButtonProps } from '@my-ui/core';
+import { CheckboxProps, DatepickerProps, RadioButtonProps, SelectProps, TextInputProps } from '@my-ui/core';
 
-export type FormFieldTypes = 'select' | 'input' | 'custom' | 'datePicker' | 'checkbox' | 'radioButton';
+export type FormFieldTypes = 'select' | 'input' | 'custom' | 'datepicker' | 'checkbox' | 'radio';
 export type FormFieldValueType = string | number | string[] | number[] | Date;
 
 export type FormFieldProp = {
   name: string;
-  label: string;
   col?: number;
+  additionalProps?: any;
 } & (
   | {
+      label?: string;
       type: 'input';
-      props: TextInputProps;
+      props?: TextInputProps;
     }
   | {
+      label?: string;
       type: 'select';
-      props: SelectProps<any, boolean, any>;
+      props?: SelectProps<any, boolean, any>;
     }
   | {
       type: 'radio';
       label: string;
-      props: (RadioButtonProps & { label: string; value: string | number })[];
+      props?: (RadioButtonProps & { label: string; value: string | number })[];
     }
   | {
       type: 'checkbox';
       label: string;
-      props: (CheckboxProps & { label: string; value: string | number })[];
+      props?: (CheckboxProps & { label: string; value: string | number })[];
     }
   | {
       type: 'datepicker';
-      props: DatepickerProps;
+      label?: string;
+      props?: Omit<DatepickerProps, 'onChange'>;
     }
   | {
       type: 'custom';

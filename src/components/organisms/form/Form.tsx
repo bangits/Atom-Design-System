@@ -1,36 +1,18 @@
-import { Select } from '@/components';
 import { typedMemo } from '@/helpers';
-import {
-  Button,
-  ButtonProps,
-  Card,
-  SelectProps,
-  TextInput,
-  TextInputProps,
-  Typography,
-  DatepickerProps,
-  CheckboxProps,
-  RadioButtonProps
-} from '@my-ui/core';
+import { Button, ButtonProps, Card, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './Form.module.scss';
-import formField from './getFormField';
-import { FormFieldProp } from './FormFieldTypes';
+import { FormFieldProp, FormFieldTypes } from './FormFieldTypes';
 import getFormField from './getFormField';
 
-type FormSelectProps = SelectProps<any[], boolean, any>;
 export interface FormProps {
   onClick: (e: any) => void;
   showBackButton: boolean;
   title: string;
   firstButtonProps: ButtonProps;
   secondButtonProps: ButtonProps;
-  renderInputs: (
-    InputComponent: React.ComponentType,
-    name: string,
-    fieldType: 'select' | 'input' | 'custom' | 'datePicker' | 'checkbox' | 'radioButton'
-  ) => JSX.Element;
+  renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;
   fields: FormFieldProp[];
 }
 
@@ -53,15 +35,15 @@ const Form: FC<FormProps> = ({
             </Typography>
             <div className={styles.ProviderContainerWrapper}>
               <div className={styles.ProviderFormGroup}>
-                {fields.map((field, idx) => (
+                {fields.map((field) => (
                   <div
+                    key={field.name}
                     className={classNames(styles.ProviderForm, {
                       [styles[`ProviderForm--col-${field.col || 6}`]]: field.col || 6
                     })}>
                     {field.type === 'custom'
                       ? field.component()
-                      : // @ts-ignore
-                        renderInputs(getFormField(field), field.name, field.type)}
+                      : renderInputs(getFormField(field), field.name, field.type, field.additionalProps)}
                   </div>
                 ))}
               </div>

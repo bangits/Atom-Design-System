@@ -85,7 +85,7 @@ function DataTable<T extends {}, K>({
           }
         : column.variant === 'image'
         ? {
-            renderColumn: (value) => <img className={styles.imageColumn} src={value} />
+            renderColumn: (_, value) => <img className={styles.imageColumn} src={value} />
           }
         : {})
     }));

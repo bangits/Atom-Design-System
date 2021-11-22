@@ -1,5 +1,5 @@
-import { withKnobs, object, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { boolean, object, withKnobs } from '@storybook/addon-knobs';
 import Form from './Form';
 
 export default {
@@ -21,7 +21,6 @@ export const Default = () => {
         children: 'Save'
       }}
       renderInputs={(Component, name) => {
-        console.log(Component, name);
         return <Component />;
       }}
       fields={object('fields', [
