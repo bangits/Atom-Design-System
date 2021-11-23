@@ -7,8 +7,8 @@ import { FormFieldProp, FormFieldTypes } from './FormFieldTypes';
 import getFormField from './getFormField';
 
 export interface FormProps {
-  onClick: (e: any) => void;
-  showBackButton: boolean;
+  onBackButtonClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  showBackButton?: boolean;
   title: string;
   firstButtonProps: ButtonProps;
   secondButtonProps: ButtonProps;
@@ -21,9 +21,9 @@ const Form: FC<FormProps> = ({
   firstButtonProps,
   secondButtonProps,
   fields,
-  showBackButton,
+  showBackButton = false,
   renderInputs,
-  onClick
+  onBackButtonClick
 }) => {
   return (
     <>
@@ -51,7 +51,7 @@ const Form: FC<FormProps> = ({
           </div>
           <div className={styles.ProviderButtonGroup}>
             {showBackButton && (
-              <div className={styles.ProviderBackButton} onClick={onClick}>
+              <button type='button' className={styles.ProviderBackButton} onClick={onBackButtonClick}>
                 <svg xmlns='http://www.w3.org/2000/svg' width='10.11' height='10.11' viewBox='0 0 11.207 11.414'>
                   <path
                     id='Path_2014'
@@ -65,7 +65,7 @@ const Form: FC<FormProps> = ({
                     stroke-width='1'
                   />
                 </svg>
-              </div>
+              </button>
             )}
             <div className={styles.ProviderButtons}>
               <Button

@@ -13,7 +13,7 @@ export const Default = () => {
     <Form
       title='Add Player'
       showBackButton={boolean('showBackButton', true)}
-      onClick={action('onClick')}
+      onBackButtonClick={action('onClick')}
       firstButtonProps={{
         children: 'Close'
       }}

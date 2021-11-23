@@ -94,7 +94,6 @@ const SignIn: FC<SignInProps> = ({
             {passwordInput}
 
             {loginErrorMessage && (
-              // @ts-ignore
               <Typography variant='p5' color='danger'>
                 {loginErrorMessage}
               </Typography>
