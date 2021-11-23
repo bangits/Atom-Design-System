@@ -7,6 +7,7 @@ export type FormFieldProp = {
   name: string;
   col?: number;
   additionalProps?: any;
+  component: () => JSX.Element;
 } & (
   | {
       label?: string;

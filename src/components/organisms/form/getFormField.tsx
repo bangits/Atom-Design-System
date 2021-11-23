@@ -3,6 +3,8 @@ import { DatePicker, DatepickerProps, Select, SelectProps, TextInput, TextInputP
 import { FormFieldProp } from './FormFieldTypes';
 
 const getFormField = (field: FormFieldProp) => {
+  if (field.component) return field.component;
+
   let fieldComponent: React.ElementType | null = null;
 
   switch (field.type) {
