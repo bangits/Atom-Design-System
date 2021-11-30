@@ -6,7 +6,7 @@ import React, { useCallback, useEffect, useMemo, useReducer, useState } from 're
 import styles from './Filters.module.scss';
 import { FilterProp, FiltersProps } from './FilterTypes';
 
-function Filters<T>({
+export function Filters<T>({
   filters,
   checkboxFilters,
   clearLabel,
@@ -148,5 +148,9 @@ function Filters<T>({
     </Card>
   );
 }
+
+Filters.defaultProps = {
+  checkboxFilters: []
+};
 
 export default typedMemo(Filters);

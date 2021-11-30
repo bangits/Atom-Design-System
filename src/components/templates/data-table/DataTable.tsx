@@ -1,5 +1,5 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
-import { IconButton, Icons, Status, StatusProps } from '@my-ui/core';
+import { IconButton, Icons, Pagination, Status, StatusProps } from '@my-ui/core';
 import classNames from 'classnames';
 import { useCallback, useMemo, useState } from 'react';
 import styles from './DataTable.module.scss';
@@ -101,6 +101,28 @@ function DataTable<T extends {}, K>({
           onClear={onFiltersChange}
         />
       )}
+
+      <Pagination
+        onChange={console.log}
+        page={1}
+        totalPagesCount={10}
+        jumpToPage={{
+          inputTitle: 'Jump to page',
+          placeholder: '155'
+        }}
+        totalCountInfo={'1-20 of 365'}
+        pageSizeSelect={{
+          dropdownLabel: 'Rows per page: ',
+          onChange: console.log,
+          options: [
+            {
+              label: '20',
+              value: 20
+            }
+          ],
+          defaultValue: 20
+        }}
+      />
 
       <Table
         {...tableProps}

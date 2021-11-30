@@ -34,6 +34,8 @@
             margin-bottom: getProviderInSizes(provider-form-groupMarginTop);
 
             .ProviderForm {
+              width: 100%;
+
               min-height: getProviderInSizes(provider-form-height);
               margin-bottom: getProviderInSizes(provider-field-margin-bottom);
 
