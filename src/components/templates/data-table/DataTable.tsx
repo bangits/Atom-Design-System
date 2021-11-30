@@ -1,9 +1,13 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
-import { IconButton, Icons, Pagination, Status, StatusProps } from '@my-ui/core';
+import { IconButton, Icons, Pagination, PaginationProps, Status, StatusProps } from '@my-ui/core';
 import classNames from 'classnames';
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './DataTable.module.scss';
 
+export interface Pagination {
+  page: number;
+  pageSize: number;
+}
 export interface FetchDataParameters<T, K> {
   filters: K | null;
   sortedBy: { id: string; desc: boolean } | null;
@@ -14,6 +18,14 @@ export interface DataTableProps<T extends {}, K> {
     id: string;
     desc: boolean;
   };
+  defaultPaginationPage?: number;
+  defaultPageSize?: number;
+
+  paginationProps: {
+    pageSizeSelect: Omit<PaginationProps['pageSizeSelect'], 'onChange'>;
+    getTotalCountInfo(pagination: Pagination): string;
+  } & Pick<PaginationProps, 'jumpToPage' | 'totalPagesCount'>;
+
   tableProps: Omit<TableProps<T>, 'columns'> & {
     columns?: (TableProps<T>['columns'][number] & {
       variant?: 'status' | 'image';
@@ -22,7 +34,7 @@ export interface DataTableProps<T extends {}, K> {
     })[];
   };
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
-  fetchData(fetchDataParameters: FetchDataParameters<T, K>): void;
+  fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
   onEditButtonClick?(column: T): void;
   onViewButtonClick?(column: T): void;
 }
@@ -34,19 +46,41 @@ function DataTable<T extends {}, K>({
   fetchData,
   isShowedFilter = true,
   onViewButtonClick,
-  onEditButtonClick
+  onEditButtonClick,
+  defaultPaginationPage = 1,
+  defaultPageSize = 20,
+  paginationProps
 }: DataTableProps<T, K>) {
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
 
+  const initialPagination = useMemo(
+    () => ({
+      page: defaultPaginationPage,
+      pageSize: defaultPageSize
+    }),
+    []
+  );
+
+  const [pagination, setPagination] = useReducer(
+    (prevPagination: Pagination, updatedPagination: Partial<Pagination>): Pagination => ({
+      ...prevPagination,
+      ...updatedPagination
+    }),
+    initialPagination
+  );
+
   const onDataChange = useCallback(
     (changedFilters?: K | null, changedSorted?: FetchDataParameters<T, K>['sortedBy']) => {
       fetchData({
-        filters: changedFilters || filters,
+        filters: {
+          ...(changedFilters || filters),
+          pagination
+        },
         sortedBy: changedSorted === undefined ? sortedBy : changedSorted
       });
     },
-    [filters, sortedBy]
+    [filters, sortedBy, pagination]
   );
 
   const onFiltersChange = useCallback(
@@ -75,6 +109,20 @@ function DataTable<T extends {}, K>({
     [onDataChange]
   );
 
+  const onPaginationChange = useCallback((value: number) => {
+    setPagination({
+      page: value
+    });
+  }, []);
+
+  const onPaginationSizeChange = useCallback((value: number) => {
+    if (!value) return;
+
+    setPagination({
+      pageSize: value
+    });
+  }, []);
+
   const tableColumns = useMemo(() => {
     return (tableProps.columns || []).map((column) => ({
       ...column,
@@ -85,11 +133,22 @@ function DataTable<T extends {}, K>({
           }
         : column.variant === 'image'
         ? {
-            renderColumn: (_, value) => <img className={styles.imageColumn} src={value} />
+            renderColumn: (_, value) => <img className={styles.ImageColumn} src={value} />
           }
         : {})
     }));
   }, [tableProps.columns]);
+
+  const paginationTotalCountInfo = useMemo<string>(
+    () => paginationProps.getTotalCountInfo(pagination),
+    [paginationProps.getTotalCountInfo, pagination]
+  );
+
+  useEffect(() => {
+    if (pagination === initialPagination) return;
+
+    onDataChange(null, null);
+  }, [pagination]);
 
   return (
     <div className={styles.DataTablePageWrapper}>
@@ -103,25 +162,15 @@ function DataTable<T extends {}, K>({
       )}
 
       <Pagination
-        onChange={console.log}
-        page={1}
-        totalPagesCount={10}
-        jumpToPage={{
-          inputTitle: 'Jump to page',
-          placeholder: '155'
-        }}
-        totalCountInfo={'1-20 of 365'}
+        onChange={onPaginationChange}
+        page={pagination.page}
+        {...paginationProps}
+        totalCountInfo={paginationTotalCountInfo}
         pageSizeSelect={{
-          dropdownLabel: 'Rows per page: ',
-          onChange: console.log,
-          options: [
-            {
-              label: '20',
-              value: 20
-            }
-          ],
-          defaultValue: 20
+          ...paginationProps.pageSizeSelect,
+          onChange: onPaginationSizeChange
         }}
+        className={styles.PaginationWrapper}
       />
 
       <Table

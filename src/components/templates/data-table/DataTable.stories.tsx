@@ -11,6 +11,23 @@ export default {
 export const Default = () => {
   return (
     <DataTable
+      paginationProps={{
+        pageSizeSelect: {
+          dropdownLabel: 'Row per page: ',
+          options: [
+            {
+              value: 20,
+              label: '20'
+            }
+          ],
+          defaultValue: 20
+        },
+        totalPagesCount: 365,
+        jumpToPage: {
+          inputTitle: 'Jump to page'
+        },
+        getTotalCountInfo: () => '1-20 of 365'
+      }}
       fetchData={action('fetchData')}
       filterProps={{
         defaultOpened: true,

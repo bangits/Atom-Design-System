@@ -3,7 +3,11 @@
     margin-bottom: getDataTableSizes(filters-margin-bottom);
   }
 
-  .imageColumn {
+  .ImageColumn {
     border-radius: 50%;
+  }
+
+  .PaginationWrapper {
+    justify-content: flex-end;
   }
 }
