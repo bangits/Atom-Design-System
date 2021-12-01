@@ -1,1 +1,1 @@
-export { default as EditedForm } from './EditedForm';
+export { default as EditedForm, EditedFormProps } from './EditedForm';

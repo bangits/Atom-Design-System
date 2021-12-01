@@ -1,5 +1,6 @@
 @mixin generate-edited-form-styles {
   .EditedFormBase {
+    width: getEditedFormSizes(edited-form-width);
     &--control {
       @include flex(space-between, center);
       padding: getEditedFormSizes(control-padding);
@@ -26,6 +27,7 @@
     }
 
     &-content {
+      position: relative;
       background-color: white;
       display: flex;
       flex-wrap: wrap;
@@ -41,6 +43,7 @@
       flex: getEditedFormSizes(option-flex);
       width: getEditedFormSizes(option-width);
       margin: getEditedFormSizes(option-margin);
+      height: 37px;
     }
 
     &--option-title {
@@ -76,6 +79,32 @@
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+    }
+
+    &--viewMore {
+      @include flex(center, center);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: getEditedFormSizes(edit-form-view-more-borderRadius);
+      width: 100%;
+      height: getEditedFormSizes(edit-form-view-more-height);
+      background-color: getEditedFormColors(edit-form-view-bg);
+      cursor: pointer;
+
+      > div {
+        @include flex(center, center);
+        color: getEditedFormColors(edit-form-view-colors);
+        width: getEditedFormSizes(edit-form-view-icon-width);
+        width: getEditedFormSizes(edit-form-view-icon-height);
+        transition: 0.5s;
+      }
+
+      > span {
+        color: getEditedFormColors(edit-form-view-colors);
+        font-size: getEditedFormSizes(edit-form-view-font-size);
+        height: getEditedFormSizes(edit-form-view-label-height);
+      }
     }
   }
 }

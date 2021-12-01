@@ -1,10 +1,11 @@
 $edited-form-sizes: (
+  edited-form-width: calculateRem(477px),
   control-padding: 0 calculateRem(16px),
   control-width: 100%,
   control-title-height: calculateRem(19px),
   control-title-width: calculateRem(300px),
   control-title-font-size: calculateRem(16px),
-  content-padding: calculateRem(12px) calculateRem(16px) 0 calculateRem(16px),
+  content-padding: calculateRem(16px) calculateRem(16px) 0 calculateRem(16px),
   content-width: 100%,
   option-flex: 50%,
   option-width: 100%,
@@ -14,14 +15,22 @@ $edited-form-sizes: (
   option-title-font-size: calculateRem(12px),
   option-title-margin: 0 0 calculateRem(4px) 0,
   option-value-height: calculateRem(19px),
-  option-value-font-size: calculateRem(16px)
+  option-value-font-size: calculateRem(16px),
+  edit-form-view-more-borderRadius: 0 0 calculateRem(16px) calculateRem(16px),
+  edit-form-view-more-height: calculateRem(24px),
+  edit-form-view-icon-width: calculateRem(24px),
+  edit-form-view-icon-height: calculateRem(24px),
+  edit-form-view-font-size: calculateRem(12px),
+  edit-form-view-label-height: calculateRem(14px)
 );
 
 $edited-form-colors: (
   control-title-color: #505d6e,
   option-title-color: #8ea6c1,
   option-value-color: #505d6e,
-  border-color: #e8edf3
+  border-color: #e8edf3,
+  edit-form-view-bg: #f5f6fb,
+  edit-form-view-colors: #505d6e
 );
 
 @function getEditedFormSizes($key) {

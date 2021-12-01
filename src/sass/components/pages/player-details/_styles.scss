@@ -8,5 +8,19 @@
     &--content {
       @include flex(null, flex-start);
     }
+
+    &--content-control {
+      background-color: getPlayerDetailsColors(content-control-bg);
+      margin: getPlayerDetailsSizes(content-control-margin);
+      min-width: getPlayerDetailsSizes(content-control-width);
+    }
+
+    &--content-control__tabs {
+      padding: getPlayerDetailsSizes(content-control-tabs);
+    }
+
+    &--content-control__sub-tabs {
+      padding: getPlayerDetailsSizes(content-control-subTab-padding);
+    }
   }
 }
