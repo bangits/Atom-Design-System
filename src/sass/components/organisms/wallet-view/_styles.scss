@@ -1,0 +1,204 @@
+@mixin generate-wallet-view-styles {
+  .WalletView {
+    width: getWalletViewSizes(wallet-width);
+    padding: getWalletViewSizes(wallet-padding);
+    box-sizing: border-box;
+    margin: getWalletViewSizes(wallet-margin);
+    background-color: white;
+
+    &--title {
+      height: getWalletViewSizes(wallet-title-height);
+      font-size: getWalletViewSizes(wallet-title-font-size);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getWalletViewColors(wallet-title-color);
+      word-break: break-all;
+      width: getWalletViewSizes(user-info-name-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &--realBalance {
+      margin: getWalletViewSizes(wallet-rb-margin);
+
+      > div:first-child {
+        @include flex(space-between, center);
+        margin: getWalletViewSizes(wallet-rb-items-margin);
+
+        > span {
+          &:first-child {
+            height: getWalletViewSizes(wallet-rb-height);
+            font-size: getWalletViewSizes(wallet-rb-font-size);
+            font-weight: normal;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: left;
+            color: getWalletViewColors(wallet-rb-title-color);
+            word-break: break-all;
+            width: getWalletViewSizes(wallet-balance-width);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+
+          &:last-child {
+            height: getWalletViewSizes(wallet-rb-balance-height);
+            font-size: getWalletViewSizes(wallet-rb-balance-font-size);
+            font-weight: 500;
+            font-stretch: normal;
+            font-style: normal;
+            line-height: normal;
+            letter-spacing: normal;
+            text-align: right;
+            color: getWalletViewColors(wallet-rb-balance-color);
+            word-break: break-all;
+            width: getWalletViewSizes(wallet-balance-width);
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+      }
+
+      > ul {
+        padding: 0;
+        margin: 0;
+        list-style: none;
+
+        li {
+          @include flex(space-between, center);
+          position: relative;
+          margin: getWalletViewSizes(wallet-rb-items-margin);
+
+          &:before {
+            content: '';
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background-color: getWalletViewColors(wallet-rb-title-color);
+            border-radius: 50%;
+          }
+
+          > span {
+            &:first-child {
+              padding: getWalletViewSizes(wallet-rb-sub-padding);
+              height: getWalletViewSizes(wallet-rb-sub-label-height);
+              font-size: getWalletViewSizes(wallet-rb-sub-label-font-size);
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: normal;
+              text-align: left;
+              color: getWalletViewColors(wallet-rb-title-color);
+              word-break: break-all;
+              width: getWalletViewSizes(wallet-balance-width);
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+
+            &:last-child {
+              height: getWalletViewSizes(wallet-rb-sub-balance-height);
+              font-size: getWalletViewSizes(wallet-rb-sub-balance-font-size);
+              font-weight: normal;
+              font-stretch: normal;
+              font-style: normal;
+              line-height: normal;
+              letter-spacing: normal;
+              text-align: right;
+              color: getWalletViewColors(wallet-rb-balance-color);
+              word-break: break-all;
+              width: getWalletViewSizes(wallet-balance-width);
+              overflow: hidden;
+              text-overflow: ellipsis;
+              white-space: nowrap;
+            }
+          }
+        }
+      }
+    }
+
+    &--bonusBalance {
+      @include flex(space-between, center);
+      margin: getWalletViewSizes(wallet-bb-margin);
+
+      > span {
+        word-break: break-all;
+        width: getWalletViewSizes(wallet-balance-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:first-child {
+          height: getWalletViewSizes(wallet-rb-height);
+          font-size: getWalletViewSizes(wallet-rb-font-size);
+          font-weight: normal;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: getWalletViewColors(wallet-rb-title-color);
+        }
+
+        &:last-child {
+          height: getWalletViewSizes(wallet-rb-balance-height);
+          font-size: getWalletViewSizes(wallet-rb-balance-font-size);
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: right;
+          color: getWalletViewColors(wallet-rb-balance-color);
+        }
+      }
+    }
+
+    &--totalBalance {
+      @include flex(space-between, center);
+      padding: getWalletViewSizes(wallet-tb-padding);
+      border-top: 1px solid #e9eaf1;
+
+      > span {
+        word-break: break-all;
+        max-width: getWalletViewSizes(wallet-balance-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        &:first-child {
+          height: getWalletViewSizes(wallet-rb-height);
+          font-size: getWalletViewSizes(wallet-rb-font-size);
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: left;
+          color: getWalletViewColors(wallet-rb-title-color);
+        }
+        &:last-child {
+          height: getWalletViewSizes(wallet-rb-height);
+          font-size: getWalletViewSizes(wallet-rb-font-size);
+          padding: getWalletViewSizes(wallet-tb-balance-padding);
+          border-radius: getWalletViewSizes(wallet-tb-balance-borderRadius);
+          background-color: getWalletViewColors(wallet-tb-background);
+          font-weight: 500;
+          font-stretch: normal;
+          font-style: normal;
+          line-height: normal;
+          letter-spacing: normal;
+          text-align: right;
+          color: getWalletViewColors(wallet-tb-color);
+        }
+      }
+    }
+  }
+}

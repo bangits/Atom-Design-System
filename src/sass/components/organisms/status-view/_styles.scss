@@ -1,0 +1,30 @@
+@mixin generate-status-view-styles {
+  .StatusView {
+    @include flex(space-between, center);
+    width: getStatusViewSizes(status-width);
+    padding: getStatusViewSizes(status-padding);
+    margin: getStatusViewSizes(status-margin);
+    box-sizing: border-box;
+    background-color: white;
+
+    > span {
+      &:first-child {
+        padding: getStatusViewSizes(status-label-padding);
+        height: getStatusViewSizes(status-label-height);
+        font-size: getStatusViewSizes(status-label-font-size);
+        font-weight: normal;
+        font-stretch: normal;
+        font-style: normal;
+        line-height: normal;
+        letter-spacing: normal;
+        text-align: left;
+        color: getStatusViewColors(status-label-color);
+        word-break: break-all;
+        width: getStatusViewSizes(wallet-balance-width);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@mixin generate-tags-view-styles {
+  .TagsView {
+    width: getTagsViewSizes(tags-width);
+    background-color: white;
+    padding: getTagsViewSizes(tags-padding);
+    box-sizing: border-box;
+
+    &--title {
+      display: inline-block;
+      padding: getTagsViewSizes(tags-title-padding);
+      margin: getTagsViewSizes(tags-title-margin);
+      height: getTagsViewSizes(tags-title-height);
+      font-size: getTagsViewSizes(tags-title-font-size);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getTagsViewColors(tags-title-color);
+      word-break: break-all;
+      width: getTagsViewSizes(tags-text-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &--container {
+      @include flex();
+      flex-wrap: wrap;
+    }
+
+    &--tag {
+      @include flex(space-between);
+      min-width: getTagsViewSizes(tag-width);
+      height: getTagsViewSizes(tag-height);
+      padding: getTagsViewSizes(tag-padding);
+      margin: getTagsViewSizes(tag-margin);
+      > span {
+        &:first-child {
+          word-break: break-all;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: getTagsViewSizes(tags-max-width);
+        }
+      }
+    }
+
+    &--button {
+      min-width: getTagsViewSizes(tag-button-width);
+      height: getTagsViewSizes(tag-button-height);
+      margin: getTagsViewSizes(tag-button-margin);
+      border-radius: getTagsViewSizes(tag-button-borderRadius);
+      font-size: getTagsViewSizes(tag-button-font-size);
+      padding: getTagsViewSizes(tag-button-padding);
+
+      > span {
+        word-break: break-all;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        max-width: getTagsViewSizes(tags-button-max-width);
+      }
+    }
+  }
+}
