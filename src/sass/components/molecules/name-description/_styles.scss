@@ -1,0 +1,70 @@
+@mixin generate-name-description-styles {
+  .NameDescriptionBase {
+    position: relative;
+    width: getNameDescriptionSizes(base-width);
+    background-color: getNameDescriptionColors(base-bg);
+    padding: getNameDescriptionSizes(base-padding);
+
+    &--title {
+      width: getNameDescriptionSizes(title-width);
+      height: getNameDescriptionSizes(title-height);
+      font-size: getNameDescriptionSizes(title-font-size);
+      position: relative;
+      top: -6px;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getNameDescriptionColors(title-color);
+      word-break: break-all;
+    }
+
+    &--core {
+      @include flex(space-between, center);
+      margin: getNameDescriptionSizes(core-margin);
+    }
+
+    &--name {
+      height: getNameDescriptionSizes(title-height);
+      font-size: getNameDescriptionSizes(title-font-size);
+      color: getNameDescriptionColors(name-color);
+    }
+
+    &--description {
+      height: getNameDescriptionSizes(description-height);
+      font-size: getNameDescriptionSizes(description-font-size);
+      color: getNameDescriptionColors(description-color);
+      font-weight: 500;
+    }
+
+    &--sub-core {
+      @include flex(space-between, center);
+      margin: getNameDescriptionSizes(core-margin);
+      height: getNameDescriptionSizes(description-height);
+      font-size: getNameDescriptionSizes(description-font-size);
+      color: getNameDescriptionColors(description-color);
+    }
+
+    &--sub-core__name {
+      @include flex(null, center);
+      height: getNameDescriptionSizes(title-height);
+      font-size: getNameDescriptionSizes(title-font-size);
+      color: getNameDescriptionColors(name-color);
+
+      &:before {
+        content: '';
+        width: getNameDescriptionSizes(dot-width-height);
+        height: getNameDescriptionSizes(dot-width-height);
+        border-radius: 50%;
+        background-color: getNameDescriptionColors(name-color);
+        margin: getNameDescriptionSizes(dot-margin);
+      }
+    }
+  }
+}

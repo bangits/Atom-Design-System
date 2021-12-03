@@ -35,7 +35,7 @@ const Form: FC<FormProps> = ({
             </Typography>
             <div className={styles.ProviderContainerWrapper}>
               <div className={styles.ProviderFormGroup}>
-                {fields.map((field) => (
+                {fields?.map((field) => (
                   <div
                     key={field.name}
                     className={classNames(styles.ProviderForm, {

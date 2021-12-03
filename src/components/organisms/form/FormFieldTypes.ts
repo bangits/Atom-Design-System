@@ -1,4 +1,5 @@
-import { CheckboxProps, DatepickerProps, RadioButtonProps, SelectProps, TextInputProps } from '@my-ui/core';
+import { CheckboxGroupProps, RadioGroupProps } from '@/components';
+import { DatepickerProps, SelectProps, TextInputProps } from '@my-ui/core';
 
 export type FormFieldTypes = 'select' | 'input' | 'custom' | 'datepicker' | 'checkbox' | 'radio';
 export type FormFieldValueType = string | number | string[] | number[] | Date;
@@ -21,16 +22,16 @@ export type FormFieldProp = {
       component?: (props: SelectProps<any, boolean, any>) => JSX.Element;
     }
   | {
-      type: 'radio';
       label: string;
-      props?: (RadioButtonProps & { label: string; value: string | number })[];
-      component?: (props: (RadioButtonProps & { label: string; value: string | number })[]) => JSX.Element;
+      type: 'radio';
+      props?: RadioGroupProps;
+      component?: (props: RadioGroupProps) => JSX.Element;
     }
   | {
-      type: 'checkbox';
       label: string;
-      props?: (CheckboxProps & { label: string; value: string | number })[];
-      component?: (props: (CheckboxProps & { label: string; value: string | number })[]) => JSX.Element;
+      type: 'checkbox';
+      props?: CheckboxGroupProps;
+      component?: (props: CheckboxGroupProps) => JSX.Element;
     }
   | {
       type: 'datepicker';

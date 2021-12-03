@@ -1,0 +1,72 @@
+@mixin generate-last-activity-view-styles {
+  .LastActivityView {
+    margin: getLastActivityViewSizes(last-activity-margin);
+    padding: getLastActivityViewSizes(last-activity-padding);
+    width: getLastActivityViewSizes(last-activity-width);
+    box-sizing: border-box;
+    background-color: white;
+
+    > span {
+      display: inline-block;
+      height: getLastActivityViewSizes(last-activity-label-height);
+      font-size: getLastActivityViewSizes(last-activity-label-font-size);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: normal;
+      letter-spacing: normal;
+      text-align: left;
+      color: getLastActivityViewColors(last-activity-label-color);
+      word-break: break-all;
+      width: getLastActivityViewSizes(last-activity-text-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    &--container {
+      @include flex(null, null, column);
+      margin: getLastActivityViewSizes(last-activity-container-margin);
+
+      > div {
+        @include flex(space-between, center);
+        margin: getLastActivityViewSizes(last-activity-label-margin);
+
+        &:last-child {
+          margin: 0;
+        }
+      }
+    }
+
+    &--label {
+      display: inline-block;
+      font-size: getLastActivityViewSizes(last-activity-label-font-size);
+      max-width: getLastActivityViewSizes(last-activity-label-max-width);
+      font-weight: normal;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 14px;
+      letter-spacing: normal;
+      text-align: left;
+      color: #8ea6c1;
+    }
+
+    &--date {
+      display: inline-block;
+      height: getLastActivityViewSizes(last-activity-label-height);
+      font-size: getLastActivityViewSizes(last-activity-label-font-size);
+      font-weight: 500;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 14px;
+      letter-spacing: normal;
+      text-align: right;
+      color: getLastActivityViewColors(last-activity-date-color);
+      word-break: break-all;
+      width: getLastActivityViewSizes(last-activity--date-width);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

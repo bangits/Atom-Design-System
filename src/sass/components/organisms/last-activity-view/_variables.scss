@@ -1,0 +1,27 @@
+$last-activity-view-sizes: (
+  //LAST ACTIVITY INFORMATION
+  last-activity-width: calculateRem(244px),
+  last-activity-padding: calculateRem(10px) calculateRem(16px) calculateRem(8px) calculateRem(16px),
+  last-activity-margin: 0 0 calculateRem(8px) 0,
+  last-activity-label-height: calculateRem(14px),
+  last-activity-label-font-size: calculateRem(12px),
+  last-activity-label-max-width: calculateRem(58px),
+  last-activity-label-margin: 0 0 calculateRem(6px) 0,
+  last-activity-container-margin: calculateRem(15px) 0 0 0,
+  last-activity-text-width: calculateRem(160px),
+  last-activity--date-width: calculateRem(120px)
+);
+
+$last-activity-view-colors: (
+  //LAST ACTIVITY INFORMATION
+  last-activity-label-color: #3c54b2,
+  last-activity-date-color: #505d6e
+);
+
+@function getLastActivityViewSizes($key) {
+  @return map-get($last-activity-view-sizes, $key);
+}
+
+@function getLastActivityViewColors($key) {
+  @return map-get($last-activity-view-colors, $key);
+}

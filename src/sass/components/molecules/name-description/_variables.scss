@@ -1,0 +1,27 @@
+$name-description-sizes: (
+  base-width: calculateRem(244px),
+  base-padding: calculateRem(16px) calculateRem(16px) calculateRem(12px) calculateRem(16px),
+  title-width: calculateRem(180px),
+  title-height: calculateRem(14px),
+  title-font-size: calculateRem(12px),
+  core-margin: 0 0 calculateRem(4px) 0,
+  description-height: calculateRem(17px),
+  description-font-size: calculateRem(14px),
+  dot-width-height: calculateRem(3px),
+  dot-margin: 0 calculateRem(4px) 0 calculateRem(1px)
+);
+
+$name-description-colors: (
+  base-bg: #fff,
+  title-color: #3c54b2,
+  name-color: #8ea6c1,
+  description-color: #505d6e
+);
+
+@function getNameDescriptionSizes($key) {
+  @return map-get($name-description-sizes, $key);
+}
+
+@function getNameDescriptionColors($key) {
+  @return map-get($name-description-colors, $key);
+}

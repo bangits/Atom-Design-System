@@ -1,0 +1,35 @@
+$tags-view-styles: (
+  //TAGS INFORMATION
+  tags-width: calculateRem(244px),
+  tags-padding: 0 calculateRem(16px) calculateRem(24px) calculateRem(16px),
+  tags-title-padding: calculateRem(10px) 0 0 calculateRem(2px),
+  tags-title-margin: 0 0 calculateRem(17px) 0,
+  tags-title-height: calculateRem(14px),
+  tags-title-font-size: calculateRem(12px),
+  tag-width: calculateRem(97px),
+  tag-height: calculateRem(24px),
+  tag-padding: calculateRem(4px) 0 calculateRem(3px) calculateRem(8px),
+  tag-margin: 0 calculateRem(4px) calculateRem(8px) 0,
+  tag-button-width: calculateRem(90px),
+  tag-button-height: calculateRem(24px),
+  tag-button-margin: 0 0 calculateRem(8px) 0,
+  tag-button-borderRadius: calculateRem(16px),
+  tag-button-font-size: calculateRem(12px),
+  tag-button-padding: 0 1.2rem 0 1.6rem,
+  tags-text-width: calculateRem(160px),
+  tag-text-width: calculateRem(65px),
+  tags-max-width: calculateRem(180px),
+  tags-button-max-width: calculateRem(172px)
+);
+
+$tags-view-colors: (
+  //TAGS INFORMATION
+  tags-title-color: #3c54b2
+);
+
+@function getTagsViewSizes($key) {
+  @return map-get($tags-view-styles, $key);
+}
+@function getTagsViewColors($key) {
+  @return map-get($tags-view-colors, $key);
+}

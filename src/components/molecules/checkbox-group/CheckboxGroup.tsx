@@ -4,7 +4,7 @@ import React, { FC, useCallback, useState } from 'react';
 import styles from './CheckboxGroup.module.scss';
 
 export interface CheckboxGroupProps {
-  label: string;
+  label?: string;
   checkboxes: (CheckboxProps & { label: string })[];
   value?: CheckboxProps['value'][];
   defaultValue?: CheckboxProps['value'][];

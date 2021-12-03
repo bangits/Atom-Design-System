@@ -1,0 +1,22 @@
+$status-view-sizes: (
+  //STATUS INFORMATION
+  status-width: calculateRem(244px),
+  status-padding: calculateRem(6px),
+  status-margin: 0 0 calculateRem(8px) 0,
+  status-label-padding: 0 0 0 calculateRem(10px),
+  status-label-height: calculateRem(14px),
+  status-label-font-size: calculateRem(12px)
+);
+
+$status-view-colors: (
+  //STATUS INFORMATION
+  status-label-color: #3c54b2
+);
+
+@function getStatusViewSizes($key) {
+  @return map-get($status-view-sizes, $key);
+}
+
+@function getStatusViewColors($key) {
+  @return map-get($status-view-colors, $key);
+}

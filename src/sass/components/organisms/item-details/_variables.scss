@@ -1,0 +1,16 @@
+$item-details-sizes: (
+  base-min-width: calculateRem(994px),
+  base-padding: calculateRem(6px) calculateRem(16px) calculateRem(16px) calculateRem(16px),
+  subs-margin: calculateRem(8px) calculateRem(16px) calculateRem(8px) calculateRem(16px)
+);
+
+$item-details-colors: (
+  base-bg: #fff
+);
+
+@function getItemDetailsSizes($key) {
+  @return map-get($item-details-sizes, $key);
+}
+@function getItemDetailsColors($key) {
+  @return map-get($item-details-colors, $key);
+} ;

@@ -1,0 +1,23 @@
+@mixin generate-name-and-id-styles {
+  .NameAndIdBase {
+    @include flex(null, null, column);
+
+    &--name {
+      @include dots-after-text();
+      width: getGameAndIdSizes(base-label-width);
+      height: getGameAndIdSizes(base-label-height);
+      font-size: getGameAndIdSizes(base-font-size);
+      font-weight: bold;
+      color: getGameAndIdColors(name-color);
+      margin: getGameAndIdSizes(name-margin);
+    }
+
+    &--id {
+      @include dots-after-text();
+      width: getGameAndIdSizes(base-label-width);
+      height: getGameAndIdSizes(base-label-height);
+      font-size: getGameAndIdSizes(base-font-size);
+      color: getGameAndIdColors(id-color);
+    }
+  }
+}

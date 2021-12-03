@@ -1,12 +1,18 @@
 @mixin generate-edit-form-styles {
+  .EditForm {
+    width: getEditFormInSizes(edit-form-width);
+  }
+
   .EditFormBase {
+    position: relative;
     background-color: getEditFormInColors(edit-form-background);
     padding: getEditFormInSizes(edit-form-padding);
     box-sizing: border-box;
     @include generateBorderWithBoxShadow(getEditFormInColors(border-color), 0.1rem);
 
     &--header {
-      @include flex(space-between, flex-start);
+      @include flex(space-between, center);
+      padding: getEditFormInSizes(edit-form-header-padding);
 
       > span {
         display: inline-block;

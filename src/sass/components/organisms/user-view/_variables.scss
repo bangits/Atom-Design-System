@@ -1,0 +1,29 @@
+$user-view-sizes: (
+  //USER INFORMATION
+  user-width: calculateRem(244px),
+  user-margin: 0 0 calculateRem(8px) 0,
+  user-avatar-width: calculateRem(42px),
+  user-details-font-size: calculateRem(14px),
+  user-details-height: calculateRem(17px),
+  user-details-name-padding: calculateRem(16px) 0 calculateRem(8px) 0,
+  user-info-container-padding: 0 calculateRem(16px) calculateRem(12px) calculateRem(16px),
+  user-info-container-margin: calculateRem(16px) 0 0 0,
+  user-info-font-size: calculateRem(12px),
+  user-info-height: calculateRem(14px),
+  user-info-width: calculateRem(160px),
+  user-info-name-width: calculateRem(100px)
+);
+
+$user-view-colors: (
+  user-details-name: #3c54b2,
+  user-details-id: #8ea6c1,
+  user-info: #505d6e
+);
+
+@function getUserViewSizes($key) {
+  @return map-get($user-view-sizes, $key);
+}
+
+@function getUserViewColors($key) {
+  @return map-get($user-view-colors, $key);
+}
