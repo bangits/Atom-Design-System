@@ -22,5 +22,15 @@
     &--content-control__sub-tabs {
       padding: getPlayerDetailsSizes(content-control-subTab-padding);
     }
+
+    &--content-control__forms {
+      @include flex(space-between);
+      position: relative;
+      flex-wrap: wrap;
+      padding: 0 16px;
+      width: 994px;
+      box-sizing: border-box;
+      margin: 8px 16px 18px 0;
+    }
   }
 }

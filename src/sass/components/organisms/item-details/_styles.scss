@@ -1,0 +1,19 @@
+@mixin generate-item-details-styles {
+  .ItemDetailsBase {
+    width: getItemDetailsSizes(base-min-width);
+    background-color: getItemDetailsColors(base-bg);
+    padding: getItemDetailsSizes(base-padding);
+    box-sizing: border-box;
+
+    &--sub-tabs {
+      margin: getItemDetailsSizes(subs-margin);
+    }
+
+    &--forms {
+      @include flex(space-between);
+      position: relative;
+      flex-wrap: wrap;
+      box-sizing: border-box;
+    }
+  }
+}

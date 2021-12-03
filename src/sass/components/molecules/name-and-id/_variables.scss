@@ -1,0 +1,18 @@
+$name-and-id-styles: (
+  base-font-size: calculateRem(14px),
+  base-label-width: calculateRem(160px),
+  base-label-height: calculateRem(17px),
+  name-margin: 0 0 calculateRem(8px) 0
+);
+
+$name-and-id-colors: (
+  name-color: #3c54b2,
+  id-color: #8ea6c1
+);
+
+@function getGameAndIdSizes($key) {
+  @return map-get($name-and-id-styles, $key);
+}
+@function getGameAndIdColors($key) {
+  @return map-get($name-and-id-colors, $key);
+} ;

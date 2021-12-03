@@ -26,5 +26,21 @@
         white-space: nowrap;
       }
     }
+
+    &--container {
+      @include flex(null, center);
+    }
+
+    &--iconButton {
+      margin: 0 0 0 2px;
+      > button {
+        width: 2.4rem;
+        height: 2.4rem;
+        &:hover {
+          width: 2.4rem;
+          height: 2.4rem;
+        }
+      }
+    }
   }
 }
