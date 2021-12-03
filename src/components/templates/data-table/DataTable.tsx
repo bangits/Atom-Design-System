@@ -3,7 +3,6 @@ import { IconButton, Icons, Pagination, PaginationProps, Status, StatusProps, To
 import classNames from 'classnames';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './DataTable.module.scss';
-
 export interface Pagination {
   page: number;
   pageSize: number;
@@ -35,12 +34,13 @@ export interface DataTableProps<T extends {}, K> {
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
-    actions?: {
-      iconName: keyof typeof Icons;
-      shouldShow: TableProps<T>['actions'][number]['shouldShow'];
+    actions?: ({
+      iconName?: keyof typeof Icons;
+      shouldShow?: TableProps<T>['actions'][number]['shouldShow'];
+      shouldShowBulkAction?: (rows: T[]) => true;
       onClick: TableProps<T>['actions'][number]['onClick'];
       tooltipText?: string;
-    }[];
+    } & TableProps<T>['actions'][number])[];
   };
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
@@ -64,6 +64,8 @@ function DataTable<T extends {}, K>({
 }: DataTableProps<T, K>) {
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
+
+  const [selectedRows, setSelectedRows] = useState<T[]>([]);
 
   const initialPagination = useMemo(
     () => ({
@@ -158,6 +160,52 @@ function DataTable<T extends {}, K>({
     [paginationProps.getTotalCountInfo, pagination]
   );
 
+  const actions = useMemo<DataTableProps<T, {}>['tableProps']['actions']>(
+    () => [
+      ...(onEditButtonClick
+        ? [
+            {
+              component: IconButton,
+              onClick: onEditButtonClick,
+              props: {
+                icon: <Icons.EditIcon />
+              }
+            }
+          ]
+        : []),
+      ...(onViewButtonClick
+        ? [
+            {
+              component: IconButton,
+              onClick: onViewButtonClick,
+              props: {
+                icon: <Icons.ViewIcon />
+              }
+            }
+          ]
+        : []),
+      ...(tableProps.actions?.map((action) => {
+        const IconComponent = Icons[action.iconName];
+
+        return {
+          component: (props) => {
+            return (
+              <Tooltip showEvent='hover' text={action.tooltipText}>
+                <IconButton {...props} />
+              </Tooltip>
+            );
+          },
+          onClick: action.onClick,
+          shouldShow: action.shouldShow,
+          props: {
+            icon: <IconComponent />
+          }
+        };
+      }) || [])
+    ],
+    [tableProps.actions, onViewButtonClick, onEditButtonClick]
+  );
+
   useEffect(() => {
     if (pagination === initialPagination) return;
 
@@ -175,67 +223,36 @@ function DataTable<T extends {}, K>({
         />
       )}
 
-      {isShowedPagination && (
-        <Pagination
-          onChange={onPaginationChange}
-          page={pagination.page}
-          {...paginationProps}
-          totalPagesCount={Math.ceil(rowCount / pagination.pageSize)}
-          totalCountInfo={paginationTotalCountInfo}
-          pageSizeSelect={{
-            ...paginationProps.pageSizeSelect,
-            onChange: onPaginationSizeChange
-          }}
-          className={styles.PaginationWrapper}
-        />
-      )}
+      <div>
+        {actions && selectedRows.length
+          ? actions.map(
+              ({ component: Component, onClick, shouldShowBulkAction }) =>
+                shouldShowBulkAction(selectedRows) && <Component onClick={onClick} />
+            )
+          : null}
+
+        {isShowedPagination && (
+          <Pagination
+            onChange={onPaginationChange}
+            page={pagination.page}
+            {...paginationProps}
+            totalPagesCount={Math.ceil(rowCount / pagination.pageSize)}
+            totalCountInfo={paginationTotalCountInfo}
+            pageSizeSelect={{
+              ...paginationProps.pageSizeSelect,
+              onChange: onPaginationSizeChange
+            }}
+            className={styles.PaginationWrapper}
+          />
+        )}
+      </div>
 
       <Table
         {...tableProps}
         fetch={onTableFetchData}
         className={classNames(styles.Table, tableProps.className)}
-        actions={[
-          ...(onEditButtonClick
-            ? [
-                {
-                  component: IconButton,
-                  onClick: onEditButtonClick,
-                  props: {
-                    icon: <Icons.EditIcon />
-                  }
-                }
-              ]
-            : []),
-          ...(onViewButtonClick
-            ? [
-                {
-                  component: IconButton,
-                  onClick: onViewButtonClick,
-                  props: {
-                    icon: <Icons.ViewIcon />
-                  }
-                }
-              ]
-            : []),
-          ...(tableProps.actions?.map((action) => {
-            const IconComponent = Icons[action.iconName];
-
-            return {
-              component: (props) => {
-                return (
-                  <Tooltip showEvent='hover' text={action.tooltipText}>
-                    <IconButton {...props} />
-                  </Tooltip>
-                );
-              },
-              onClick: action.onClick,
-              shouldShow: action.shouldShow,
-              props: {
-                icon: <IconComponent />
-              }
-            };
-          }) || [])
-        ]}
+        onSelectedColumnsChange={(columns) => setSelectedRows(columns.map((c) => c.original))}
+        actions={actions}
         columns={tableColumns}
       />
     </div>
