@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { RadioButton, RadioGroup as MyUIRadioGroup, RadioGroupProps as MyUIRadioGroupProps } from '@my-ui/core';
+import { RadioButton, RadioGroupProps as MyUIRadioGroupProps } from '@my-ui/core';
 import { FC } from 'react';
 import styles from './RadioGroup.module.scss';
 
@@ -9,8 +9,8 @@ export interface RadioType {
 }
 
 export interface RadioGroupProps extends MyUIRadioGroupProps {
-  label: string;
-  radios: RadioType[];
+  label?: string;
+  radios?: RadioType[];
 }
 
 const RadioGroup: FC<RadioGroupProps> = ({ radios, label, ...radioGroupProps }) => {
