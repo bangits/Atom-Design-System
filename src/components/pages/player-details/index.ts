@@ -1,1 +1,1 @@
-export { default as PlayerDetails, PlayerDetailsProps, StatusInfo } from './PlayerDetails';
+export { default as PlayerDetails, PlayerDetailsProps } from './PlayerDetails';

@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { RadioButton, RadioGroupProps as MyUIRadioGroupProps } from '@my-ui/core';
+import { RadioButton, RadioGroup as MyUIRadioGroup, RadioGroupProps as MyUIRadioGroupProps } from '@my-ui/core';
 import { FC } from 'react';
 import styles from './RadioGroup.module.scss';
 
@@ -18,18 +18,25 @@ const RadioGroup: FC<RadioGroupProps> = ({ radios, label, ...radioGroupProps }) 
     <>
       <div>
         <span className={styles.FilterRadioName}>{label}</span>
-        <div className={styles.FilterRadioContainer}>
-          {radios.map((radio) => (
-            <div className={styles.FilterRadioGroup} key={radio.value}>
-              <div className={styles.FilterRadio}>
-                <RadioButton name={radioGroupProps.name} id={radio.value?.toString()} value={radio.value} />
+        <MyUIRadioGroup {...radioGroupProps}>
+          <div className={styles.FilterRadioContainer}>
+            {radios.map((radio) => (
+              <div className={styles.FilterRadioGroup} key={radio.value}>
+                <div className={styles.FilterRadio}>
+                  <RadioButton
+                    name={radioGroupProps.name}
+                    id={radio.value?.toString()}
+                    {...radioGroupProps}
+                    value={radio.value?.toString()}
+                  />
+                </div>
+                <label className={styles.FilterRadioLabel} htmlFor={radio.value?.toString()}>
+                  {radio.label}
+                </label>
               </div>
-              <label className={styles.FilterRadioLabel} htmlFor={radio.value?.toString()}>
-                {radio.label}
-              </label>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+        </MyUIRadioGroup>
       </div>
     </>
   );
