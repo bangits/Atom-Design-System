@@ -6,7 +6,7 @@ export declare type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dr
 export declare type FilterValueType = string | number | string[] | number[] | {
     from: string;
     to: string;
-} | Date | [Date, Date] | FromToValues;
+} | Date | [Date, Date] | FromToValues | boolean;
 export declare type CheckboxFilter = {
     label: string;
     name: string;
@@ -25,6 +25,14 @@ export declare type FilterProp = {
 } | {
     type: 'select';
     props: SelectProps<any, boolean, any>;
+} | {
+    type: 'truthly-select';
+    props: Omit<SelectProps<any, boolean, any>, 'options'>;
+    translations: {
+        falseValue: string;
+        trueValue: string;
+        nullValue: string;
+    };
 } | {
     type: 'radio';
     label: string;

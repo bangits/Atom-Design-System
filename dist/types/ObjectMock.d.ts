@@ -1,1 +1,1 @@
-export declare type ObjectMock = Record<string, unknown>;
+export declare type ObjectMock = {};

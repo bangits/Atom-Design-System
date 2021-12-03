@@ -11,7 +11,8 @@ export type FilterValueType =
   | { from: string; to: string }
   | Date
   | [Date, Date]
-  | FromToValues;
+  | FromToValues
+  | boolean;
 
 export type CheckboxFilter = {
   label: string;
@@ -30,6 +31,15 @@ export type FilterProp = {
   | {
       type: 'select';
       props: SelectProps<any, boolean, any>;
+    }
+  | {
+      type: 'truthly-select';
+      props: Omit<SelectProps<any, boolean, any>, 'options'>;
+      translations: {
+        falseValue: string;
+        trueValue: string;
+        nullValue: string;
+      };
     }
   | {
       type: 'radio';

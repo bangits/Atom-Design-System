@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <DataTable
+      rowCount={365}
       paginationProps={{
         pageSizeSelect: {
           dropdownLabel: 'Row per page: ',
@@ -22,7 +23,6 @@ export const Default = () => {
           ],
           defaultValue: 20
         },
-        totalPagesCount: 365,
         jumpToPage: {
           inputTitle: 'Jump to page'
         },

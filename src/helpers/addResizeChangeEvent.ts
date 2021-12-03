@@ -3,7 +3,9 @@ import { calculateRootFontSize } from './calculateRootFontSize';
 export const addResizeChangeEvent = () => {
   const onResize = () => {
     setTimeout(() => {
-      document.documentElement.style.fontSize = `${calculateRootFontSize()}px`;
+      const fontSize = calculateRootFontSize();
+
+      document.documentElement.style.fontSize = `${fontSize}px`;
     }, 100);
   };
 

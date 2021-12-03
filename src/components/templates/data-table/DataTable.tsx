@@ -1,5 +1,5 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
-import { IconButton, Icons, Pagination, PaginationProps, Status, StatusProps } from '@my-ui/core';
+import { IconButton, Icons, Pagination, PaginationProps, Status, StatusProps, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './DataTable.module.scss';
@@ -14,6 +14,7 @@ export interface FetchDataParameters<T, K> {
 }
 export interface DataTableProps<T extends {}, K> {
   isShowedFilter?: boolean;
+  isShowedPagination?: boolean;
   defaultSorted?: {
     id: string;
     desc: boolean;
@@ -24,14 +25,22 @@ export interface DataTableProps<T extends {}, K> {
   paginationProps: {
     pageSizeSelect: Omit<PaginationProps['pageSizeSelect'], 'onChange'>;
     getTotalCountInfo(pagination: Pagination): string;
-  } & Pick<PaginationProps, 'jumpToPage' | 'totalPagesCount'>;
+  } & Pick<PaginationProps, 'jumpToPage'>;
 
-  tableProps: Omit<TableProps<T>, 'columns'> & {
+  rowCount: number;
+
+  tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
     columns?: (TableProps<T>['columns'][number] & {
       variant?: 'status' | 'image';
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
+    actions?: {
+      iconName: keyof typeof Icons;
+      shouldShow: TableProps<T>['actions'][number]['shouldShow'];
+      onClick: TableProps<T>['actions'][number]['onClick'];
+      tooltipText?: string;
+    }[];
   };
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
@@ -45,11 +54,13 @@ function DataTable<T extends {}, K>({
   defaultSorted,
   fetchData,
   isShowedFilter = true,
+  isShowedPagination = true,
   onViewButtonClick,
   onEditButtonClick,
   defaultPaginationPage = 1,
   defaultPageSize = 20,
-  paginationProps
+  paginationProps,
+  rowCount
 }: DataTableProps<T, K>) {
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
@@ -110,6 +121,8 @@ function DataTable<T extends {}, K>({
   );
 
   const onPaginationChange = useCallback((value: number) => {
+    if (!value) return;
+
     setPagination({
       page: value
     });
@@ -119,6 +132,7 @@ function DataTable<T extends {}, K>({
     if (!value) return;
 
     setPagination({
+      page: 1,
       pageSize: value
     });
   }, []);
@@ -161,17 +175,20 @@ function DataTable<T extends {}, K>({
         />
       )}
 
-      <Pagination
-        onChange={onPaginationChange}
-        page={pagination.page}
-        {...paginationProps}
-        totalCountInfo={paginationTotalCountInfo}
-        pageSizeSelect={{
-          ...paginationProps.pageSizeSelect,
-          onChange: onPaginationSizeChange
-        }}
-        className={styles.PaginationWrapper}
-      />
+      {isShowedPagination && (
+        <Pagination
+          onChange={onPaginationChange}
+          page={pagination.page}
+          {...paginationProps}
+          totalPagesCount={Math.ceil(rowCount / pagination.pageSize)}
+          totalCountInfo={paginationTotalCountInfo}
+          pageSizeSelect={{
+            ...paginationProps.pageSizeSelect,
+            onChange: onPaginationSizeChange
+          }}
+          className={styles.PaginationWrapper}
+        />
+      )}
 
       <Table
         {...tableProps}
@@ -199,7 +216,25 @@ function DataTable<T extends {}, K>({
                   }
                 }
               ]
-            : [])
+            : []),
+          ...(tableProps.actions?.map((action) => {
+            const IconComponent = Icons[action.iconName];
+
+            return {
+              component: (props) => {
+                return (
+                  <Tooltip showEvent='hover' text={action.tooltipText}>
+                    <IconButton {...props} />
+                  </Tooltip>
+                );
+              },
+              onClick: action.onClick,
+              shouldShow: action.shouldShow,
+              props: {
+                icon: <IconComponent />
+              }
+            };
+          }) || [])
         ]}
         columns={tableColumns}
       />

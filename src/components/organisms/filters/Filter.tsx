@@ -30,7 +30,12 @@ const Filter: FC<FilterProps> = ({ filter, value, onFilterChange }) => {
         <TextInput
           {...filter.props}
           value={value as string}
-          onChange={(e) => onFilterChange(filter.name, e.target.value)}
+          onChange={(e) =>
+            onFilterChange(
+              filter.name,
+              e.target.value && filter.props?.type === 'number' ? +e.target.value : e.target.value
+            )
+          }
         />
       );
       break;
@@ -41,6 +46,33 @@ const Filter: FC<FilterProps> = ({ filter, value, onFilterChange }) => {
           value={value as string}
           onChange={(updatedOptions) => onFilterChange(filter.name, updatedOptions as string[] | string)}
           fullWidth
+        />
+      );
+      break;
+    case 'truthly-select':
+      filterComponent = (
+        <Select
+          {...filter.props}
+          isMulti={false}
+          value={String(value) as string}
+          onChange={(value: string) => {
+            onFilterChange(filter.name, value === 'null' ? null : value === 'true');
+          }}
+          fullWidth
+          options={[
+            {
+              value: 'null',
+              label: filter.translations.nullValue
+            },
+            {
+              value: 'true',
+              label: filter.translations.trueValue
+            },
+            {
+              value: 'false',
+              label: filter.translations.falseValue
+            }
+          ]}
         />
       );
       break;
