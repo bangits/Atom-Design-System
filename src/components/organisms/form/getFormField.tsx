@@ -9,9 +9,17 @@ const getFormField = (field: FormFieldProp) => {
 
   switch (field.type) {
     case 'radio':
-      fieldComponent = (props: RadioGroupProps) => (
-        <RadioGroup label={field.label} name={field.name} {...field.props} {...props} />
-      );
+      fieldComponent = (props: RadioGroupProps) => {
+        return (
+          <RadioGroup
+            label={field.label}
+            name={field.name}
+            {...field.props}
+            {...props}
+            value={props.value?.toString()}
+          />
+        );
+      };
       break;
     case 'checkbox':
       fieldComponent = (props: CheckboxGroupProps) => <CheckboxGroup label={field.label} {...field.props} {...props} />;
