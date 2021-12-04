@@ -1,13 +1,13 @@
 {
   "name": "@atom/design-system",
-  "version": "1.10.11",
+  "version": "1.10.17",
   "files": [
     "dist"
   ],
   "main": "",
   "types": "./dist/atom-design-system.d.ts",
   "scripts": {
-    "start": "webpack serve --env production",
+    "start": "webpack serve --env production --mode production",
     "start-with-storybook": "yarn start && yarn storybook",
     "start:standalone": "webpack serve --env standalone",
     "build": "webpack --mode=production --env production",
@@ -89,7 +89,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@my-ui/core": "^2.18.6",
+    "@my-ui/core": "^2.19.1",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

@@ -10,4 +10,12 @@
   .PaginationWrapper {
     justify-content: flex-end;
   }
+
+  .TableActionsWrapper {
+    @include flex;
+  }
+
+  .TableConfigsWrapper {
+    @include flex(space-between, center);
+  }
 }

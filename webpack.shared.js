@@ -53,8 +53,16 @@ const configureSass = (isDevelopment = true) => [
 const configureAssets = () => {
   return [
     {
-      test: /\.react.svg$/,
-      use: ['@svgr/webpack', 'file-loader']
+      test: /\.svg$/,
+      use: [
+        '@svgr/webpack',
+        {
+          loader: 'file-loader',
+          options: {
+            publicPath: '/'
+          }
+        }
+      ]
     }
   ];
 };

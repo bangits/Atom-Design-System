@@ -18,6 +18,11 @@
 
     &__content {
       transform: translateY(getLayoutSizes(content-header-margin));
+
+      flex-grow: 1;
+
+      // Reseting width for flex-grow
+      width: 0;
     }
   }
 }

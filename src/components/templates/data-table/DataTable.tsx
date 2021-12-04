@@ -34,13 +34,13 @@ export interface DataTableProps<T extends {}, K> {
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
-    actions?: ({
+    actions?: {
       iconName?: keyof typeof Icons;
       shouldShow?: TableProps<T>['actions'][number]['shouldShow'];
       shouldShowBulkAction?: (rows: T[]) => true;
-      onClick: TableProps<T>['actions'][number]['onClick'];
+      onClick: (columns: T | T[]) => void;
       tooltipText?: string;
-    } & TableProps<T>['actions'][number])[];
+    }[];
   };
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
@@ -144,7 +144,9 @@ function DataTable<T extends {}, K>({
       ...column,
       ...(column.variant === 'status'
         ? {
-            renderColumn: (value) => <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>,
+            renderColumn: (_, value) => (
+              <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>
+            ),
             maxWidth: '9.5rem'
           }
         : column.variant === 'image'
@@ -160,7 +162,9 @@ function DataTable<T extends {}, K>({
     [paginationProps.getTotalCountInfo, pagination]
   );
 
-  const actions = useMemo<DataTableProps<T, {}>['tableProps']['actions']>(
+  const actions = useMemo<
+    (DataTableProps<T, {}>['tableProps']['actions'][number] & TableProps<T>['actions'][number])[]
+  >(
     () => [
       ...(onEditButtonClick
         ? [
@@ -206,6 +210,19 @@ function DataTable<T extends {}, K>({
     [tableProps.actions, onViewButtonClick, onEditButtonClick]
   );
 
+  const tableBulkActions = useMemo(
+    () =>
+      actions && selectedRows.length > 1
+        ? actions.map(
+            ({ component: Component, onClick, shouldShow, props }) =>
+              (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
+                <Component onClick={() => onClick(selectedRows)} {...props} />
+              )
+          )
+        : null,
+    [actions, selectedRows]
+  );
+
   useEffect(() => {
     if (pagination === initialPagination) return;
 
@@ -223,13 +240,8 @@ function DataTable<T extends {}, K>({
         />
       )}
 
-      <div>
-        {actions && selectedRows.length
-          ? actions.map(
-              ({ component: Component, onClick, shouldShowBulkAction }) =>
-                shouldShowBulkAction(selectedRows) && <Component onClick={onClick} />
-            )
-          : null}
+      <div className={styles.TableConfigsWrapper}>
+        <div className={styles.TableActionsWrapper}>{tableBulkActions}</div>
 
         {isShowedPagination && (
           <Pagination
