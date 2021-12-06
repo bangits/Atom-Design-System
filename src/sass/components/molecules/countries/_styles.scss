@@ -1,0 +1,8 @@
+@mixin generate-countries-styles {
+  .CountriesWrapper {
+    @include flex(null, null, $flex-wrap: wrap);
+    > div {
+      margin: getCountriesInSizes(tag-country-margin);
+    }
+  }
+}

@@ -1,0 +1,16 @@
+$labelgroup-sizes: (
+  countries-label-margin: calculateRem(8px)
+);
+
+$labelgroup-colors: (
+  first-label-color: color(black-color),
+  countries-label-color: color(nepal)
+);
+
+@function getLabelGroupSizes($key) {
+  @return map-get($labelgroup-sizes, $key);
+}
+
+@function getLabelGroupColors($key) {
+  @return map-get($labelgroup-colors, $key);
+}

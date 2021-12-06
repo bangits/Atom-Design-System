@@ -1,0 +1,13 @@
+$countries-sizes: (
+  tag-country-margin: calculateRem(8px) 0 0 calculateRem(8px)
+);
+
+$countries-colors: ();
+
+@function getCountriesInSizes($key) {
+  @return map-get($countries-sizes, $key);
+}
+
+@function getCountriesInColors($key) {
+  @return map-get($countries-colors, $key);
+}
