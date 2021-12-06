@@ -1,5 +1,5 @@
 import { FlexibleForm } from '@/components';
-import { IconButton, Status } from '@my-ui/core';
+import { IconButton } from '@my-ui/core';
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import PartnerDetails from './PartnerDetails';
@@ -36,12 +36,7 @@ export const Default = () => {
           { name: 'Type', description: 'Partnership Agreement' },
           { name: 'Expiration Date', description: '12/08/2021' }
         ],
-        children: (
-          <>
-            <span>Status</span>
-            <Status variant='active'>Signed</Status>
-          </>
-        )
+        status: { statusName: 'Status', statusVariant: 'active', statusLabel: 'Signed' }
       }}
       itemDetailsProps={{
         defaultTabValue: 1,
