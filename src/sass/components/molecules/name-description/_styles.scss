@@ -4,6 +4,7 @@
     width: getNameDescriptionSizes(base-width);
     background-color: getNameDescriptionColors(base-bg);
     padding: getNameDescriptionSizes(base-padding);
+    box-sizing: border-box;
 
     &--title {
       width: getNameDescriptionSizes(title-width);
@@ -31,16 +32,18 @@
     }
 
     &--name {
+      @include dots-after-text();
       height: getNameDescriptionSizes(title-height);
       font-size: getNameDescriptionSizes(title-font-size);
       color: getNameDescriptionColors(name-color);
     }
 
     &--description {
+      @include dots-after-text();
       height: getNameDescriptionSizes(description-height);
       font-size: getNameDescriptionSizes(description-font-size);
       color: getNameDescriptionColors(description-color);
-      font-weight: 500;
+      /* font-weight: 500; */
     }
 
     &--sub-core {
@@ -64,6 +67,19 @@
         border-radius: 50%;
         background-color: getNameDescriptionColors(name-color);
         margin: getNameDescriptionSizes(dot-margin);
+      }
+    }
+
+    &--children {
+      @include flex(space-between, center);
+      border-top: 0.5px solid rgb(142, 166, 193, 0.1);
+      margin-top: 4px;
+      padding-top: 4.5px;
+
+      > span {
+        height: getNameDescriptionSizes(title-height);
+        font-size: getNameDescriptionSizes(title-font-size);
+        color: getNameDescriptionColors(name-color);
       }
     }
   }

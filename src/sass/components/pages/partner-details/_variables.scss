@@ -1,0 +1,10 @@
+$partner-details-sizes: (
+  base-width: calculateRem(994px),
+  container-margin: calculateRem(7.5px) 0 0 0,
+  leftBlock-margin: 0 calculateRem(8px) 0 0
+);
+$partner-details-colors: ();
+
+@function getPartnerDetailsSizes($key) {
+  @return map-get($partner-details-sizes, $key);
+}
