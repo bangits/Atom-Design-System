@@ -10,6 +10,17 @@ const Countries = () => {
       <TagCountry />
       <TagCountry />
       <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
+      <TagCountry />
     </div>
   );
 };

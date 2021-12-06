@@ -1,0 +1,18 @@
+@mixin generate-currency-styles {
+  .CurrencyGroupWrapper {
+    @include flex(null, center, $flex-wrap: wrap);
+    width: fit-content;
+    width: -moz-fit-content;
+    min-width: getCurrencySizes(currency-wrapper-min-width);
+    height: getCurrencySizes(currency-wrapper-height);
+    border-radius: getCurrencySizes(currency-wrapper-border-radius);
+    box-sizing: border-box;
+    grid-gap: getCurrencySizes(currency-wrapper-margin);
+
+    .Currency {
+      span {
+        color: getCurrencyColors(currency-color);
+      }
+    }
+  }
+}

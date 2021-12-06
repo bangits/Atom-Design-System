@@ -1,4 +1,5 @@
-import { Card, IconButton, Icons, Status, StatusProps, Tooltip } from '@my-ui/core';
+import { Icons } from '@/atom-design-system';
+import { Card, IconButton, Status, StatusProps, Tooltip } from '@my-ui/core';
 import { IconButtonProps } from '@my-ui/core/dist/components/inputs-and-elements/IconButton/IconButton';
 import classNames from 'classnames';
 import React, { FC } from 'react';
