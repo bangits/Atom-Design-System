@@ -9,7 +9,7 @@ export interface StatusInfo extends StatusProps {
   statusLabel: string;
   actions?: {
     iconName?: keyof typeof Icons;
-    onClick: () => void;
+    onClick: IconButtonProps['onClick'];
     tooltipText?: string;
     buttonVariant?: IconButtonProps['variant'];
   }[];

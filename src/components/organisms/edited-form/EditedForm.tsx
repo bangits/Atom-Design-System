@@ -8,7 +8,7 @@ import styles from './EditedForm.module.scss';
 export interface EditedFormProps {
   options: {
     title: string;
-    value: string | number;
+    value: ReactNode;
   }[];
   editButton: ReactNode;
   title?: string;
