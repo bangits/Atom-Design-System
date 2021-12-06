@@ -18,7 +18,9 @@ const StatusView: FC<StatusViewProps> = ({ statusInfo }) => {
     <Card borderRadius={1.6} className={classNames(styles.StatusView)}>
       <span>{statusInfo.label}</span>
       <div className={styles['StatusView--container']}>
-        <Status variant={statusInfo.variant}>{statusInfo.statusLabel}</Status>
+        <div className={styles['StatusView--status']}>
+          <Status variant={statusInfo.variant}>{statusInfo.statusLabel}</Status>
+        </div>
         {statusInfo?.actions?.map((action) => (
           <div className={styles['StatusView--iconButton']}>{action}</div>
         ))}
