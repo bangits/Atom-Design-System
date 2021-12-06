@@ -1,4 +1,5 @@
 import { Card, IconButton, Icons, Status, StatusProps, Tooltip } from '@my-ui/core';
+import { IconButtonProps } from '@my-ui/core/dist/components/inputs-and-elements/IconButton/IconButton';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './StatusView.module.scss';
@@ -10,6 +11,7 @@ export interface StatusInfo extends StatusProps {
     iconName?: keyof typeof Icons;
     onClick: () => void;
     tooltipText?: string;
+    buttonVariant?: IconButtonProps['variant'];
   }[];
 }
 
@@ -31,7 +33,11 @@ const StatusView: FC<StatusViewProps> = ({ statusInfo }) => {
           return (
             <div className={styles['StatusView--iconButton']}>
               <Tooltip showEvent='hover' text={action.tooltipText}>
-                <IconButton icon={<IconComponent />} onClick={action.onClick} />
+                <IconButton
+                  icon={<IconComponent />}
+                  onClick={action.onClick}
+                  variant={action.buttonVariant ?? 'dark'}
+                />
               </Tooltip>
             </div>
           );
