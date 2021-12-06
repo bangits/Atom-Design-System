@@ -1,10 +1,11 @@
 import { Card } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './NameDescription.module.scss';
 
 export interface NameDescriptionProps {
   title?: string;
+  children?: ReactNode;
   data: {
     name: string;
     description: string;
@@ -15,7 +16,7 @@ export interface NameDescriptionProps {
   }[];
 }
 
-const NameDescription: FC<NameDescriptionProps> = ({ data, title }) => {
+const NameDescription: FC<NameDescriptionProps> = ({ data, title, children }) => {
   return (
     <Card borderRadius={1.6} className={classNames(styles.NameDescriptionBase)}>
       {title && <span className={styles['NameDescriptionBase--title']}>{title}</span>}
@@ -34,6 +35,7 @@ const NameDescription: FC<NameDescriptionProps> = ({ data, title }) => {
             ))}
         </>
       ))}
+      {children && <div className={styles['NameDescriptionBase--children']}>{children}</div>}
     </Card>
   );
 };

@@ -4,6 +4,7 @@ export * from './edited-form';
 export * from './filters';
 export * from './flexible-form';
 export * from './form';
+export * from './item-details';
 export * from './last-activity-view';
 export * from './navigation';
 export * from './status-view';
