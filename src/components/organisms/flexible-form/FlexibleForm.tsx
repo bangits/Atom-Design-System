@@ -1,5 +1,6 @@
 import { EditedForm, EditedFormProps, EditForm, EditFormProps } from '@/components';
 import React, { FC } from 'react';
+import classNames from 'classnames';
 
 export interface FlexibleFormProps {
   editedFormProps?: EditedFormProps;
@@ -8,7 +9,11 @@ export interface FlexibleFormProps {
 }
 
 const FlexibleForm: FC<FlexibleFormProps> = ({ editedFormProps, editFormProps, isEdit = false }) => {
-  return <div>{isEdit ? <EditForm {...editFormProps} /> : <EditedForm {...editedFormProps} />}</div>;
+  return (
+    <div className={classNames('FlexibleForm')}>
+      {isEdit ? <EditForm {...editFormProps} /> : <EditedForm {...editedFormProps} />}
+    </div>
+  );
 };
 
 export default FlexibleForm;

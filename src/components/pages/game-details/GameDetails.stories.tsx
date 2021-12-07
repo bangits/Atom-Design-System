@@ -17,25 +17,6 @@ export const Default = () => {
         userName: 'Inesa Khachatryan',
         regInfo: 'Bet365'
       })}
-      walletInfo={object('walletInfo', {
-        title: 'Wallet',
-        realBalance: {
-          label: 'Real Balance',
-          balance: '21 300 AMD',
-          subBalance: [
-            { label: 'Casino', balance: '10 300 AMD' },
-            { label: 'Sport', balance: '11 000 AMD' }
-          ]
-        },
-        bonusBalance: {
-          label: 'Bonus Balance',
-          balance: '123 AMD'
-        },
-        totalBalance: {
-          label: 'Total Balance',
-          balance: '21 423 AMD'
-        }
-      })}
       statusInfo={object('statusInfo', {
         label: 'Status',
         variant: 'active',
@@ -54,6 +35,14 @@ export const Default = () => {
           }
         ]
       })}
+      docInfo={{
+        data: [
+          { name: 'Creation Date', description: '09/05/2021 12:00:00' },
+          { name: 'Created By', description: 'Inesa Khachatrian' },
+          { name: 'Last Updated Date', description: '09/05/2021 12:00:00' },
+          { name: 'Last Updateb By', description: 'Inesa Khachatrian' }
+        ]
+      }}
       breadCrumb={{
         links: [
           {

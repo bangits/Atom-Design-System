@@ -2,6 +2,7 @@
   .DetailsMainInfoWrapper {
     @include flex(null, center, $direction: column);
     background-color: getDetailsMainInfoColors(card-background);
+    width: getDetailsMainInfoSizes(details-main-info-width);
     height: getDetailsMainInfoSizes(details-main-info-height);
     margin-bottom: getDetailsMainInfoSizes(details-main-info-margin-bottom);
     .MainLogoContent {

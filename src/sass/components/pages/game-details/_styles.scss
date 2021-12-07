@@ -1,5 +1,107 @@
 @mixin generate-game-details-styles {
   .GameDetailsBase {
-    text-decoration: none;
+    &__Device-Tag {
+      display: inline-flex;
+      padding: 7px 12px;
+      margin-right: 8px;
+      border-radius: 6px;
+      cursor: default;
+      svg {
+        fill: #505d6e;
+      }
+    }
+    &__Device-Tag-Label {
+      font: normal normal normal 14px/17px Roboto;
+      color: #505d6e;
+      margin-left: 10px;
+    }
+    //
+
+    &__Tags-Cell {
+      display: flex;
+      & > div {
+        margin-right: 10px;
+      }
+    }
+
+    &__Other-Elements-Cell {
+      margin-top: 20px;
+      width: 100%;
+      padding-bottom: 20px;
+    }
+
+    &__Btn-Cell {
+      text-decoration: none;
+      display: flex;
+      padding-top: 10px;
+    }
+
+    &__Btn {
+      text-decoration: none;
+      display: block;
+      width: 100%;
+      min-height: 32px;
+      border-radius: 16px;
+      border: 0;
+      cursor: pointer;
+      border: solid #3c54b2 1px;
+      color: #3c54b2;
+      padding: 0;
+      margin: 0 10px 0 0;
+      &:last-child {
+        margin: 0 10px 0 0;
+      }
+
+      &--fill {
+        text-decoration: none;
+        background: #3c54b2;
+        color: #fff;
+      }
+    }
+
+    background-color: #f9f9f9;
+    &--breadCrumb {
+      margin-bottom: 1.6rem;
+    }
+
+    &--content {
+      @include flex(null, flex-start);
+    }
+
+    &--content-control {
+      background-color: getPlayerDetailsColors(content-control-bg);
+      margin: getPlayerDetailsSizes(content-control-margin);
+      min-width: getPlayerDetailsSizes(content-control-width);
+    }
+
+    &--content-control__tabs {
+      padding: getPlayerDetailsSizes(content-control-tabs);
+    }
+
+    &--content-control__sub-tabs {
+      padding: getPlayerDetailsSizes(content-control-subTab-padding);
+    }
+
+    &--content-control__forms {
+      @include flex(space-between);
+      position: relative;
+      flex-wrap: wrap;
+      padding: 0 16px;
+      width: 100%;
+      box-sizing: border-box;
+      margin: 8px 16px 18px 0;
+    }
+    &__Changes-Date {
+      padding-top: 10px;
+    }
+
+    &__Row {
+      display: flex;
+      flex-wrap: wrap;
+
+      & > div {
+        margin-right: 20px;
+      }
+    }
   }
 }
