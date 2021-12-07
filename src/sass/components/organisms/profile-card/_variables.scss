@@ -1,0 +1,10 @@
+$profile-card-styles: ();
+
+$profile-card-colors: ();
+
+@function getProfileCardSizes($key) {
+  @return map-get($profile-card-styles, $key);
+}
+@function getProfileCardColors($key) {
+  @return map-get($profile-card-colors, $key);
+}

@@ -1,0 +1,11 @@
+$game-details-sizes: ();
+
+$game-details-colors: ();
+
+@function getGameDetailsSizes($key) {
+  @return map-get($game-details-sizes, $key);
+}
+
+@function getGameDetailsColors($key) {
+  @return map-get($game-details-colors, $key);
+}
