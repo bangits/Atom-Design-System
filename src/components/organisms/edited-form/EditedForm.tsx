@@ -116,7 +116,7 @@ const EditedForm: FC<EditedFormProps> = ({ title, noDataText = 'N/A', options, v
                       styles['EditedFormBase--option-value'],
                       styles['EditedFormBase--option-value-bold']
                     )}>
-                    {option.value ?? noDataText}
+                    {option.value || noDataText}
                   </span>
                 </div>
               ) : (
