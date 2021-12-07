@@ -1,0 +1,18 @@
+@mixin generate-labelgroup-styles {
+  .LabelGroupWrapper {
+    margin: getLabelGroupSizes(label-group-wrapper);
+  }
+
+  .LabelGroupContainer {
+    margin-bottom: getLabelGroupSizes(countries-label-margin);
+
+    .FirstLabel {
+      color: getLabelGroupColors(first-label-color);
+      text-transform: capitalize;
+    }
+    .CountriesLabel {
+      margin-left: getLabelGroupSizes(countries-label-margin);
+      color: getLabelGroupColors(countries-label-color);
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@mixin generate-details-main-info-styles {
+  .DetailsMainInfoWrapper {
+    @include flex(null, center, $direction: column);
+    background-color: getDetailsMainInfoColors(card-background);
+    height: getDetailsMainInfoSizes(details-main-info-height);
+    margin-bottom: getDetailsMainInfoSizes(details-main-info-margin-bottom);
+    .MainLogoContent {
+      width: getDetailsMainInfoSizes(details-logo-width);
+      height: getDetailsMainInfoSizes(details-logo-height);
+      margin-top: getDetailsMainInfoSizes(details-logo-margin);
+      img {
+        width: 100%;
+      }
+    }
+    .BrandTitle {
+      color: getDetailsMainInfoColors(brand-title-color);
+      margin: getDetailsMainInfoSizes(brand-title-margin);
+    }
+    .IdNumbers {
+      color: getDetailsMainInfoColors(id-numbers-color);
+      margin: getDetailsMainInfoSizes(brand-title-margin);
+    }
+  }
+}

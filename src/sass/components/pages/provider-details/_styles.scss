@@ -1,0 +1,28 @@
+@mixin generate-providerdetails-styles {
+  .ProviderDetailsBase--container {
+    @include flex(null, flex-start);
+    margin-top: 11px;
+
+    .License {
+      span {
+        color: getProviderDetailsColors(license-color);
+        font-size: getProviderDetailsSizes(license-font-size);
+      }
+    }
+  }
+  .ProviderDetailsBase--leftBlock {
+    margin-right: getProviderDetailsSizes(provider-left-block-margin);
+  }
+
+  .StatusContent {
+    margin-bottom: getProviderDetailsSizes(status-content-margin-bottom);
+  }
+
+  .ButtonContent {
+    @include flex(flex-end, center);
+    margin-top: getProviderDetailsSizes(button-content-margin-top);
+    button {
+      width: getProviderDetailsSizes(button-content-width);
+    }
+  }
+}

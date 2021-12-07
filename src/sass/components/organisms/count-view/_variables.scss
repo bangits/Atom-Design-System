@@ -1,0 +1,21 @@
+$count-view-sizes: (
+  count-card-padding: 0 calculateRem(8px) 0 calculateRem(16px),
+  count-card-height: calculateRem(37px),
+  count-wrapper-margin-bottom: calculateRem(8px),
+  tag-wrapper-min-width: calculateRem(64px),
+  tag-wrapper-height: calculateRem(28px),
+  tag-text-font-weight: 700
+);
+
+$count-view-colors: (
+  card-background: color(white),
+  card-title-color: color(azure)
+);
+
+@function getCountViewSizes($key) {
+  @return map-get($count-view-sizes, $key);
+}
+
+@function getCountViewColors($key) {
+  @return map-get($count-view-colors, $key);
+}
