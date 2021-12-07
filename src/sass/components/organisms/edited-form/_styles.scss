@@ -31,6 +31,7 @@
       background-color: white;
       display: flex;
       flex-wrap: wrap;
+      align-content: flex-start;
       padding: getEditedFormSizes(content-padding);
       width: getEditedFormSizes(content-width);
       height: auto;
