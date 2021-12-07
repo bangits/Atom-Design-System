@@ -65,28 +65,6 @@
     margin-top: getFilterInSizes(checkbox-container-marginTop);
   }
 
-  .FilterRadioName {
-    color: #8ea6c1;
-    font-size: getFilterInSizes(filter-radio-name);
-  }
-  .FilterRadioContainer {
-    display: flex;
-    .FilterRadioGroup {
-      @include flex(null, center);
-      margin-bottom: getFilterInSizes(filter-radio-group-marginBottom);
-      .FilterRadio {
-        @include flex(null, center);
-        width: getFilterInSizes(filter-radio-wdith);
-        height: getFilterInSizes(filter-radio-height);
-      }
-      .FilterRadioLabel {
-        margin-right: getFilterInSizes(filter-radio-label-marginRight);
-        color: #505d6e;
-        font-size: getFilterInSizes(filter-radio-label-size);
-      }
-    }
-  }
-
   .FilterCheckbox {
     width: 100%;
     margin: getFilterInSizes(filter-checkbox-margin);
