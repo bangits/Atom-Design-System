@@ -1,6 +1,7 @@
 import { typedMemo } from '@/helpers';
 import { useStyles } from '@/helpers/useStyles';
-import { Card, Tag } from '@my-ui/core';
+import { PenIcon } from '@/icons';
+import { Card, IconButton, Tag } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
@@ -74,7 +75,9 @@ const EditedForm: FC<EditedFormProps> = ({ title, editButton, options, viewMoreL
     <div className={classNames(styles.EditedFormBase)} style={{ opacity: height ? 1 : 0 }}>
       <div className={classNames(styles['EditedFormBase--control'])}>
         <span className={classNames(styles['EditedFormBase--control-title'])}>{title}</span>
-        <div className={classNames(styles['EditedFormBase--control-button'])}>{editButton}</div>
+        <div className={classNames(styles['EditedFormBase--control-button'])}>
+          <IconButton icon={<PenIcon />} />
+        </div>
       </div>
       <div ref={containerRef}>
         <Card

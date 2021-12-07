@@ -198,50 +198,48 @@ export const Default = () => {
                       }}
                       editedFormProps={{
                         options: [
-                          { title: 'Email', value: 'antonian.evgenia@gmail.com' },
+                          { title: 'Owner', variant: 'label' },
+                          { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
                           {
                             title: 'Username',
-                            value: 'Eva123456'
+                            value: 'Eva123456',
+                            variant: 'default'
                           },
                           {
                             title: 'Currency',
-                            value: 'USD'
+                            value: 'USD',
+                            variant: 'bold'
+                          },
+
+                          {
+                            title: 'Created By',
+                            value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
+                            variant: 'tag'
                           },
                           {
                             title: 'Status',
-                            value: 'Active'
+                            value: 'Active',
+                            variant: 'default'
                           },
                           {
                             title: 'Segment',
-                            value: 'Vip Players'
+                            value: 'Vip Players',
+                            variant: 'default'
                           },
                           {
                             title: 'Btag',
-                            value: '111.123.56.85'
+                            value: '111.123.56.85',
+                            variant: 'default'
                           },
                           {
                             title: 'Registration Source',
-                            value: '09/05/2021 12:00:00'
+                            value: '09/05/2021 12:00:00',
+                            variant: 'default'
                           },
                           {
                             title: 'Created By',
-                            value: 'Inesa Khachatryan'
-                          },
-                          {
-                            title: 'Registration source ',
-                            value: '09/05/2021 12:00:00'
-                          },
-                          {
-                            title: 'Registration Form IP',
-                            value: 'No'
-                          },
-                          {
-                            title: 'Test Player',
-                            value: 'Yes'
-                          },
-                          {
-                            title: 'State',
-                            value: 'Forever'
+                            value: 'Inesa Khachatryan',
+                            variant: 'default'
                           }
                         ],
                         title: 'Account Information',
@@ -264,33 +262,48 @@ export const Default = () => {
                     <FlexibleForm
                       editedFormProps={{
                         options: [
+                          { title: 'Owner', variant: 'label' },
+                          { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
                           {
-                            title: 'First Name',
-                            value: 'N/A'
+                            title: 'Username',
+                            value: 'Eva123456',
+                            variant: 'default'
                           },
                           {
-                            title: 'Last Name',
-                            value: 'Antonian'
+                            title: 'Currency',
+                            value: 'USD',
+                            variant: 'bold'
+                          },
+
+                          {
+                            title: 'Created By',
+                            value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
+                            variant: 'tag'
                           },
                           {
-                            title: 'Middle Name',
-                            value: 'Sergei'
+                            title: 'Status',
+                            value: 'Active',
+                            variant: 'default'
                           },
                           {
-                            title: 'Date Of Birth',
-                            value: '30/08/1995'
+                            title: 'Segment',
+                            value: 'Vip Players',
+                            variant: 'default'
                           },
                           {
-                            title: 'Gender',
-                            value: 'Male'
+                            title: 'Btag',
+                            value: '111.123.56.85',
+                            variant: 'default'
                           },
                           {
-                            title: 'Document Type',
-                            value: 'Passport'
+                            title: 'Registration Source',
+                            value: '09/05/2021 12:00:00',
+                            variant: 'default'
                           },
                           {
-                            title: 'Passport ID',
-                            value: '123456789'
+                            title: 'Created By',
+                            value: 'Inesa Khachatryan',
+                            variant: 'default'
                           }
                         ],
                         title: 'Personal Information',
@@ -313,37 +326,48 @@ export const Default = () => {
                     <FlexibleForm
                       editedFormProps={{
                         options: [
+                          { title: 'Owner', variant: 'label' },
+                          { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
                           {
-                            title: 'Phone Number',
-                            value: '+374 (10) 11 00 13'
+                            title: 'Username',
+                            value: 'Eva123456',
+                            variant: 'default'
                           },
                           {
-                            title: 'Mobile Number',
-                            value: '+374 98 98 98 98'
+                            title: 'Currency',
+                            value: 'USD',
+                            variant: 'bold'
+                          },
+
+                          {
+                            title: 'Created By',
+                            value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
+                            variant: 'tag'
                           },
                           {
-                            title: 'Zip Code',
-                            value: '1111'
+                            title: 'Status',
+                            value: 'Active',
+                            variant: 'default'
                           },
                           {
-                            title: 'Address',
-                            value: '13 Qochar Street'
+                            title: 'Segment',
+                            value: 'Vip Players',
+                            variant: 'default'
                           },
                           {
-                            title: 'Country',
-                            value: 'Armenia'
+                            title: 'Btag',
+                            value: '111.123.56.85',
+                            variant: 'default'
                           },
                           {
-                            title: 'City',
-                            value: 'Yerevan'
+                            title: 'Registration Source',
+                            value: '09/05/2021 12:00:00',
+                            variant: 'default'
                           },
                           {
-                            title: 'Region',
-                            value: 'Armavir'
-                          },
-                          {
-                            title: 'Time Zone',
-                            value: '+4 GMT'
+                            title: 'Created By',
+                            value: 'Inesa Khachatryan',
+                            variant: 'default'
                           }
                         ],
                         title: 'Contacts',
@@ -365,26 +389,48 @@ export const Default = () => {
                     <FlexibleForm
                       editedFormProps={{
                         options: [
-                          { title: 'Document Verified', value: 'Yes' },
+                          { title: 'Owner', variant: 'label' },
+                          { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
                           {
-                            title: 'Document Verified Date',
-                            value: '09/05/2021 12:00:00'
+                            title: 'Username',
+                            value: 'Eva123456',
+                            variant: 'default'
                           },
                           {
-                            title: 'Email Verified',
-                            value: 'Yes'
+                            title: 'Currency',
+                            value: 'USD',
+                            variant: 'bold'
+                          },
+
+                          {
+                            title: 'Created By',
+                            value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
+                            variant: 'tag'
                           },
                           {
-                            title: 'Email Verified Date',
-                            value: '09/05/2021 12:00:00'
+                            title: 'Status',
+                            value: 'Active',
+                            variant: 'default'
                           },
                           {
-                            title: 'Mobile Number Verified',
-                            value: 'Yes'
+                            title: 'Segment',
+                            value: 'Vip Players',
+                            variant: 'default'
                           },
                           {
-                            title: 'Mobile Number Verified Date',
-                            value: '09/05/2021 12:00:00'
+                            title: 'Btag',
+                            value: '111.123.56.85',
+                            variant: 'default'
+                          },
+                          {
+                            title: 'Registration Source',
+                            value: '09/05/2021 12:00:00',
+                            variant: 'default'
+                          },
+                          {
+                            title: 'Created By',
+                            value: 'Inesa Khachatryan',
+                            variant: 'default'
                           }
                         ],
                         title: 'Verifications',
