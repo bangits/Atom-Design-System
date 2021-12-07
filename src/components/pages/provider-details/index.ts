@@ -1,1 +1,1 @@
-export { default as PlayerDetails } from './PartnerDetails';
+export { default as ProviderDetails } from './ProviderDetails';
