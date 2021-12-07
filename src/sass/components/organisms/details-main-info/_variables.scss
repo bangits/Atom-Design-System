@@ -1,0 +1,22 @@
+$details-main-info-sizes: (
+  details-main-info-height: calculateRem(156px),
+  details-logo-width: calculateRem(56px),
+  details-logo-height: calculateRem(60px),
+  details-logo-margin: calculateRem(16px),
+  details-main-info-margin-bottom: calculateRem(8px),
+  brand-title-margin: calculateRem(8px) 0 0 0
+);
+
+$details-main-info-colors: (
+  card-background: color(white),
+  brand-title-color: color(black-color),
+  id-numbers-color: color(wild-blue-yonder)
+);
+
+@function getDetailsMainInfoSizes($key) {
+  @return map-get($details-main-info-sizes, $key);
+}
+
+@function getDetailsMainInfoColors($key) {
+  @return map-get($details-main-info-colors, $key);
+}
