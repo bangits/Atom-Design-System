@@ -28,13 +28,13 @@ export interface EditedFormProps {
         variant: 'tag';
       }
   )[];
-
-  editButton: ReactNode;
+  noDataText?: string;
+  editButton?: ReactNode;
   title?: string;
   viewMoreLabel?: string;
 }
 
-const EditedForm: FC<EditedFormProps> = ({ title, editButton, options, viewMoreLabel }) => {
+const EditedForm: FC<EditedFormProps> = ({ title, noDataText = 'N/A', options, viewMoreLabel }) => {
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
   const [height, setHeight] = useState<number>();
 
@@ -91,7 +91,9 @@ const EditedForm: FC<EditedFormProps> = ({ title, editButton, options, viewMoreL
               option.variant === 'default' ? (
                 <div key={index} className={classNames(styles['EditedFormBase--option'])}>
                   <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                  <span className={classNames(styles['EditedFormBase--option-value'])}>{option.value}</span>
+                  <span className={classNames(styles['EditedFormBase--option-value'])}>
+                    {option.value ?? noDataText}
+                  </span>
                 </div>
               ) : option.variant === 'label' ? (
                 <div key={index} className={classNames(styles['EditedFormBase--option-label'])}>
@@ -114,7 +116,7 @@ const EditedForm: FC<EditedFormProps> = ({ title, editButton, options, viewMoreL
                       styles['EditedFormBase--option-value'],
                       styles['EditedFormBase--option-value-bold']
                     )}>
-                    {option.value}
+                    {option.value ?? noDataText}
                   </span>
                 </div>
               ) : (

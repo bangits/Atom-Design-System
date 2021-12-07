@@ -5,6 +5,7 @@ export interface FlexibleFormProps {
   editedFormProps?: EditedFormProps;
   editFormProps?: EditFormProps;
   isEdit?: boolean;
+  noDataText?: string;
 }
 
 const FlexibleForm: FC<FlexibleFormProps> = ({ editedFormProps, editFormProps, isEdit = false }) => {

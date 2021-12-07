@@ -18,12 +18,14 @@ export interface ItemDetailsProps {
   defaultTabValue?: number;
   defaultSubTabValue?: number;
   onTabChange?: (tabValue: number, subTabValue: number | string) => void;
+  noDataText?: string;
 }
 
 const ItemDetails: FC<ItemDetailsProps> = ({
   tabs,
   defaultTabValue = null,
   defaultSubTabValue = null,
+  noDataText = 'N/A',
   onTabChange
 }) => {
   const [currentTab, setCurrentTab] = useState<number>(defaultTabValue);

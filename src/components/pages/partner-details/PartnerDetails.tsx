@@ -11,6 +11,7 @@ import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcru
 import React, { FC } from 'react';
 import styles from './PartnerDetails.module.scss';
 export interface PartnerDetailsProps extends StatusViewProps {
+  noDataText?: string;
   parentCompany: NameDescriptionProps;
   breadCrumbProps: BreadcrumbProps;
   itemDetailsProps: ItemDetailsProps;
@@ -28,6 +29,7 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
   breadCrumbProps,
   itemDetailsProps,
   docInfo,
+  noDataText = 'N/A',
   ...props
 }) => {
   return (
@@ -50,6 +52,7 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
           tabs={itemDetailsProps.tabs}
           defaultSubTabValue={itemDetailsProps?.defaultSubTabValue}
           defaultTabValue={itemDetailsProps?.defaultTabValue}
+          noDataText={noDataText}
         />
       </div>
     </div>
