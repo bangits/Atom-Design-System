@@ -1,0 +1,11 @@
+@mixin generate-label-styles {
+  .Label {
+    color: getLabelColors(label-color);
+    margin-bottom: getLabelSizes(label-margin-bottom);
+  }
+
+  .LabelOptional {
+    margin-left: getLabelSizes(label-optional-margin-left);
+    opacity: getLabelSizes(label-optional-opacity);
+  }
+}

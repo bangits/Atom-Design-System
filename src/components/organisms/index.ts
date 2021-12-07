@@ -1,6 +1,7 @@
 export * from './dialog';
 export * from './edit-form';
 export * from './edited-form';
+export * from './file-uploader';
 export * from './filters';
 export * from './flexible-form';
 export * from './form';
