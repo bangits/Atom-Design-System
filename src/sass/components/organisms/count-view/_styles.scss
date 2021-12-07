@@ -1,0 +1,24 @@
+@mixin generate-count-view-styles {
+  .CountViewWrapper {
+    background-color: getCountViewColors(card-background);
+    margin-bottom: getCountViewSizes(count-wrapper-margin-bottom);
+    @include flex(space-between, center);
+    box-sizing: border-box;
+    padding: getCountViewSizes(count-card-padding);
+    height: getCountViewSizes(count-card-height);
+
+    .CardTitle {
+      color: getCountViewColors(card-title-color);
+    }
+    .TagWrapper {
+      > div {
+        min-width: getCountViewSizes(tag-wrapper-min-width);
+        height: getCountViewSizes(tag-wrapper-height);
+        height: 28px;
+        span {
+          font-weight: getCountViewSizes(tag-text-font-weight);
+        }
+      }
+    }
+  }
+}

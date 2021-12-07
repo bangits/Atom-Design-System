@@ -1,0 +1,18 @@
+$currency-sizes: (
+  currency-wrapper-min-width: calculateRem(32px),
+  currency-wrapper-height: calculateRem(32px),
+  currency-wrapper-border-radius: 16px,
+  currency-wrapper-margin: calculateRem(8px)
+);
+
+$currency-colors: (
+  currency-color: color(black-color)
+);
+
+@function getCurrencySizes($key) {
+  @return map-get($currency-sizes, $key);
+}
+
+@function getCurrencyColors($key) {
+  @return map-get($currency-colors, $key);
+}

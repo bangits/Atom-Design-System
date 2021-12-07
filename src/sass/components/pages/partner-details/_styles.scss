@@ -1,0 +1,16 @@
+@mixin generate-partner-details-styles {
+  .PartnerDetailsBase {
+    &--container {
+      @include flex(null, flex-start);
+      margin: getPartnerDetailsSizes(container-margin);
+    }
+
+    &--leftBlock {
+      margin: getPartnerDetailsSizes(leftBlock-margin);
+
+      > * {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}

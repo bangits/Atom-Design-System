@@ -3,7 +3,8 @@
     @include flex(space-between, center);
     width: getStatusViewSizes(status-width);
     padding: getStatusViewSizes(status-padding);
-    margin: getStatusViewSizes(status-margin);
+    /*     margin: getStatusViewSizes(status-margin);
+ */
     box-sizing: border-box;
     background-color: white;
 
@@ -31,8 +32,11 @@
       @include flex(null, center);
     }
 
+    &--status {
+      margin: getStatusViewSizes(st-label-margin);
+    }
+
     &--iconButton {
-      margin: 0 0 0 2px;
       > button {
         width: 2.4rem;
         height: 2.4rem;

@@ -1,0 +1,24 @@
+$providerdetails-sizes: (
+  label-content-margin-top: calculateRem(24px),
+  countries-content-margin: calculateRem(8px) calculateRem(8px) 0 0,
+  license-content-margin-top: calculateRem(24px),
+  copy-field-content-margin-top: calculateRem(26px),
+  button-content-margin-top: calculateRem(24px),
+  button-content-width: calculateRem(131px),
+  license-font-size: calculateRem(16px),
+  provider-left-block-margin: calculateRem(8px),
+  status-content-margin-bottom: calculateRem(8px)
+);
+
+$providerdetails-colors: (
+  label-color: color(black-color),
+  license-color: color(wild-blue-yonder)
+);
+
+@function getProviderDetailsSizes($key) {
+  @return map-get($providerdetails-sizes, $key);
+}
+
+@function getProviderDetailsColors($key) {
+  @return map-get($providerdetails-colors, $key);
+}

@@ -5,7 +5,8 @@ $status-view-sizes: (
   status-margin: 0 0 calculateRem(8px) 0,
   status-label-padding: 0 0 0 calculateRem(10px),
   status-label-height: calculateRem(14px),
-  status-label-font-size: calculateRem(12px)
+  status-label-font-size: calculateRem(12px),
+  st-label-margin: 0 calculateRem(2px) 0 0
 );
 
 $status-view-colors: (
