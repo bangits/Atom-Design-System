@@ -7,7 +7,7 @@ import styles from './EditedForm.module.scss';
 
 export interface EditedFormProps {
   options: {
-    title: string;
+    title: ReactNode;
     value: ReactNode;
   }[];
   editButton: ReactNode;
@@ -56,14 +56,14 @@ const EditedForm: FC<EditedFormProps> = ({ title, editButton, options, viewMoreL
           options?.map((option, index) => {
             if (!isMore) {
               return (
-                <div key={option.title} className={classNames(styles['EditedFormBase--option'])}>
+                <div key={index} className={classNames(styles['EditedFormBase--option'])}>
                   <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
                   <span className={classNames(styles['EditedFormBase--option-value'])}>{option.value}</span>
                 </div>
               );
             } else if (isMore && index < 8) {
               return (
-                <div key={option.title} className={classNames(styles['EditedFormBase--option'])}>
+                <div key={index} className={classNames(styles['EditedFormBase--option'])}>
                   <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
                   <span className={classNames(styles['EditedFormBase--option-value'])}>{option.value}</span>
                 </div>
