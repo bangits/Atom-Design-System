@@ -1,105 +1,154 @@
 import { typedMemo } from '@/helpers';
 import { useStyles } from '@/helpers/useStyles';
-import { Card } from '@my-ui/core';
+import { Card, Tag } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode, useCallback, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
 
 export interface EditedFormProps {
-  options: {
-    title: ReactNode;
-    value: ReactNode;
-  }[];
+  options: (
+    | {
+        title: ReactNode;
+        value: ReactNode;
+        variant: 'default';
+      }
+    | {
+        title: ReactNode;
+        variant: 'label';
+      }
+    | {
+        title: ReactNode;
+        value: ReactNode;
+        variant: 'bold';
+      }
+    | {
+        title: ReactNode;
+        value: string[];
+        variant: 'tag';
+      }
+  )[];
+
   editButton: ReactNode;
   title?: string;
   viewMoreLabel?: string;
 }
 
 const EditedForm: FC<EditedFormProps> = ({ title, editButton, options, viewMoreLabel }) => {
-  const [isMore, setIsMore] = useState<boolean>(true);
+  const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
+  const [height, setHeight] = useState<number>();
+
   const viewMoreClassNames = useStyles(
     {
       open: {
-        height: '100%',
-        paddingBottom: '24px',
-        transition: '1s'
+        height: 228
       },
       closed: {
-        height: '228px',
-        transition: '1s'
+        paddingBottom: '24px',
+        height: (data) => data.height,
+        minHeight: 228
       },
       iconTransform: {
         transform: 'rotate(180deg)',
         transition: '.5s'
       }
     },
-    {}
+    { height }
   );
 
   const handleViewClick = useCallback(() => {
-    setIsMore(!isMore);
-  }, [isMore]);
+    setOpenedCollapse(!isOpenedCollapse);
+  }, [isOpenedCollapse]);
+
+  const containerRef = useRef<HTMLDivElement>();
+
+  useLayoutEffect(() => {
+    const height = containerRef.current.offsetHeight;
+
+    // Using setTimeout for setting the height after first render
+    setTimeout(() => setHeight(height), 500);
+
+    setOpenedCollapse(height > 228);
+  }, [containerRef]);
 
   return (
-    <div className={classNames(styles.EditedFormBase)}>
+    <div className={classNames(styles.EditedFormBase)} style={{ opacity: height ? 1 : 0 }}>
       <div className={classNames(styles['EditedFormBase--control'])}>
         <span className={classNames(styles['EditedFormBase--control-title'])}>{title}</span>
         <div className={classNames(styles['EditedFormBase--control-button'])}>{editButton}</div>
       </div>
-      <Card
-        borderRadius={1.6}
-        className={classNames(styles['EditedFormBase-content'], {
-          [viewMoreClassNames.closed]: isMore,
-          [viewMoreClassNames.open]: !isMore
-        })}>
-        {options &&
-          options?.map((option, index) => {
-            if (!isMore) {
-              return (
+      <div ref={containerRef}>
+        <Card
+          borderRadius={1.6}
+          className={classNames(styles['EditedFormBase-content'], {
+            [viewMoreClassNames.closed]: !isOpenedCollapse,
+            [viewMoreClassNames.open]: isOpenedCollapse
+          })}>
+          {options &&
+            options?.map((option, index) =>
+              option.variant === 'default' ? (
                 <div key={index} className={classNames(styles['EditedFormBase--option'])}>
                   <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
                   <span className={classNames(styles['EditedFormBase--option-value'])}>{option.value}</span>
                 </div>
-              );
-            } else if (isMore && index < 8) {
-              return (
+              ) : option.variant === 'label' ? (
+                <div key={index} className={classNames(styles['EditedFormBase--option-label'])}>
+                  <span>{option.title}</span>
+                </div>
+              ) : option.variant === 'tag' ? (
+                <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
+                  <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                  <div>
+                    {option.value?.map((o) => (
+                      <Tag title={o} />
+                    ))}
+                  </div>
+                </div>
+              ) : option.variant === 'bold' ? (
                 <div key={index} className={classNames(styles['EditedFormBase--option'])}>
                   <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                  <span className={classNames(styles['EditedFormBase--option-value'])}>{option.value}</span>
+                  <span
+                    className={classNames(
+                      styles['EditedFormBase--option-value'],
+                      styles['EditedFormBase--option-value-bold']
+                    )}>
+                    {option.value}
+                  </span>
                 </div>
-              );
-            }
-          })}
-        {options?.length > 8 && (
-          <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'])}>
-            <div
-              className={classNames({
-                [viewMoreClassNames.iconTransform]: !isMore
-              })}>
-              <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-                <g id='Group_24108' transform='translate(-555 -465)'>
-                  <g id='Group_24107' transform='translate(0 6)'>
-                    <path
-                      id='Icon_ionic-ios-arrow-down'
-                      d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
-                      transform='translate(555.813 459.753)'
-                      fill='currentColor'
-                    />
-                    <path
-                      id='Icon_ionic-ios-arrow-down-2'
-                      d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
-                      transform='translate(555.813 455.753)'
-                      fill='currentColor'
-                    />
+              ) : (
+                <></>
+              )
+            )}
+          {height > 228 && (
+            <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'])}>
+              <div
+                className={classNames({
+                  [viewMoreClassNames.iconTransform]: !isOpenedCollapse
+                })}>
+                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                  <g id='Group_24108' transform='translate(-555 -465)'>
+                    <g id='Group_24107' transform='translate(0 6)'>
+                      <path
+                        id='Icon_ionic-ios-arrow-down'
+                        d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
+                        transform='translate(555.813 459.753)'
+                        fill='currentColor'
+                      />
+                      <path
+                        id='Icon_ionic-ios-arrow-down-2'
+                        d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
+                        transform='translate(555.813 455.753)'
+                        fill='currentColor'
+                      />
+                    </g>
+                    <rect id='Rectangle_11242' width='24' height='24' transform='translate(555 465)' fill='none' />
                   </g>
-                  <rect id='Rectangle_11242' width='24' height='24' transform='translate(555 465)' fill='none' />
-                </g>
-              </svg>
+                </svg>
+              </div>
+              <span>{viewMoreLabel}</span>
             </div>
-            <span>{viewMoreLabel}</span>
-          </div>
-        )}
-      </Card>
+          )}
+        </Card>
+      </div>
     </div>
   );
 };
