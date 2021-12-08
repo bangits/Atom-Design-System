@@ -94,19 +94,6 @@ export const Default = () => {
             ],
             isSearchable: true
           }
-        },
-        {
-          type: 'datePicker',
-          name: 'datepicker',
-          props: {
-            onChange: (range: [Date, Date]) => setDateRange(range),
-            selectsRange: true,
-            placeholderText: 'dd/mm/yyyy',
-            dateFormat: 'dd/MM/yyyy',
-            startDate: dateRange[0],
-            endDate: dateRange[1]
-          },
-          disabled: true
         }
       ]}
     />
