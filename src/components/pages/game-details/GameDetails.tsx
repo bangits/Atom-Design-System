@@ -20,7 +20,7 @@ import { typedMemo } from '@/helpers';
 import { Breadcrumb, Card, IconButton, SubTab, Status, StatusProps, SubTabProps, Tab, Tag } from '@my-ui/core';
 import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
 import { TabProps } from '@my-ui/core/dist/components/tab/Tab';
-// import { TagCountry } from '@my-ui/core/dist/components/tag-country/TagCountry';
+// import { TagCountry } from '@my-ui/core';
 
 import classNames from 'classnames';
 import React, { FC, useState } from 'react';
