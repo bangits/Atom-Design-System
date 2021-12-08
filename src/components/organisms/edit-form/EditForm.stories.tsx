@@ -1,4 +1,3 @@
-import { IconButton } from '@my-ui/core';
 import { withKnobs } from '@storybook/addon-knobs';
 import React, { useState } from 'react';
 import EditForm from './EditForm';
@@ -16,38 +15,6 @@ export const Default = () => {
   return (
     <EditForm
       title='Account Information'
-      applyButton={
-        <IconButton
-          icon={
-            <svg id='done_black_24dp' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-              <path id='Path_43198' data-name='Path 43198' d='M0,0H24V24H0Z' fill='none' />
-              <path
-                id='Path_43199'
-                data-name='Path 43199'
-                d='M8.491,15.236,4.673,11.418,3.4,12.691l5.091,5.091L19.4,6.873,18.127,5.6Z'
-                transform='translate(1)'
-                fill='#00b21e'
-              />
-            </svg>
-          }
-        />
-      }
-      closeButton={
-        <IconButton
-          icon={
-            <svg id='close_black_24dp' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-              <path id='Path_43196' data-name='Path 43196' d='M0,0H24V24H0Z' fill='none' />
-              <path
-                id='Path_43197'
-                data-name='Path 43197'
-                d='M17,6.209,15.791,5,11,9.791,6.209,5,5,6.209,9.791,11,5,15.791,6.209,17,11,12.209,15.791,17,17,15.791,12.209,11Z'
-                transform='translate(1 1)'
-                fill='#505d6e'
-              />
-            </svg>
-          }
-        />
-      }
       renderInputs={(Component, name) => {
         return <Component />;
       }}

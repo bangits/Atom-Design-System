@@ -1,14 +1,27 @@
 import { typedMemo } from '@/helpers';
-import { Card, DatePicker, DatepickerProps, Select, SelectProps, TextInput, TextInputProps } from '@my-ui/core';
+import { ApplyIcon, CloseIcon } from '@/icons';
+import {
+  Card,
+  DatePicker,
+  DatepickerProps,
+  IconButton,
+  Select,
+  SelectProps,
+  TextInput,
+  TextInputProps,
+  Tooltip
+} from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC } from 'react';
 import styles from './EditForm.module.scss';
 
 export type FormSelectProps = SelectProps<any[], boolean, any>;
 export interface EditFormProps {
+  applyButtonTooltipText?: string;
+  closeButtonTooltipText?: string;
   title?: string;
-  applyButton?: ReactNode;
-  closeButton?: ReactNode;
+  onToggle?: () => void;
+  onSubmit?: (onToggle: () => void) => void;
   renderInputs?: (
     InputComponent: React.ComponentType,
     name: string,
@@ -45,14 +58,26 @@ export interface EditFormProps {
   >;
 }
 
-const EditForm: FC<EditFormProps> = ({ title, applyButton, closeButton, fields, renderInputs }) => {
+const EditForm: FC<EditFormProps> = ({
+  title,
+  fields,
+  renderInputs,
+  onToggle,
+  onSubmit,
+  applyButtonTooltipText,
+  closeButtonTooltipText
+}) => {
   return (
     <div className={classNames(styles.EditForm)}>
       <div className={classNames(styles['EditFormBase--header'])}>
         <span>{title}</span>
         <div className={classNames(styles['EditFormBase--buttons'])}>
-          {applyButton}
-          {closeButton}
+          <Tooltip showEvent='hover' text={applyButtonTooltipText}>
+            <IconButton icon={<ApplyIcon />} type='button' onClick={() => onSubmit(onToggle)} />
+          </Tooltip>
+          <Tooltip showEvent='hover' text={closeButtonTooltipText}>
+            <IconButton icon={<CloseIcon />} type='button' onClick={onToggle} />
+          </Tooltip>
         </div>
       </div>
       <Card borderRadius={1.6} className={classNames(styles.EditFormBase)}>
