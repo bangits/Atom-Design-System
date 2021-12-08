@@ -77,7 +77,6 @@ export const Default = () => {
                           {
                             type: 'select',
                             name: 'currency',
-                            disabled: true,
                             props: {
                               inputLabel: 'Currency',
                               options: [
@@ -87,7 +86,8 @@ export const Default = () => {
                               ],
                               isSearchable: true,
                               isMulti: true,
-                              defaultValue: [1]
+                              defaultValue: [1],
+                              disabled: true
                             }
                           },
                           {
@@ -95,9 +95,9 @@ export const Default = () => {
                             name: 'status',
                             props: {
                               label: 'Status',
-                              defaultValue: 'Active'
-                            },
-                            disabled: true
+                              defaultValue: 'Active',
+                              disabled: true
+                            }
                           },
                           {
                             type: 'input',
@@ -112,35 +112,26 @@ export const Default = () => {
                             name: 'btag',
                             props: {
                               label: 'Btag',
-                              defaultValue: '111.123.56.85'
-                            },
-                            disabled: true
+                              defaultValue: '111.123.56.85',
+                              disabled: true
+                            }
                           },
                           {
                             type: 'input',
                             name: 'regSRC',
                             props: {
                               label: 'Registration Source',
-                              defaultValue: 'Forever'
-                            },
-                            disabled: true
+                              defaultValue: 'Forever',
+                              disabled: true
+                            }
                           },
                           {
                             type: 'input',
                             name: 'created',
                             props: {
                               label: 'Created By',
-                              defaultValue: 'Inesa Khachatryan'
-                            },
-                            disabled: true
-                          },
-
-                          {
-                            type: 'datePicker',
-                            name: 'datepicker',
-                            props: {
-                              placeholderText: 'dd/mm/yyyy',
-                              dateFormat: 'dd/MM/yyyy'
+                              defaultValue: 'Inesa Khachatryan',
+                              disabled: true
                             }
                           },
                           {
@@ -148,9 +139,9 @@ export const Default = () => {
                             name: 'form',
                             props: {
                               label: 'Registration Form IP',
-                              defaultValue: 'No'
-                            },
-                            disabled: true
+                              defaultValue: 'No',
+                              disabled: true
+                            }
                           }
                         ]
                       }}

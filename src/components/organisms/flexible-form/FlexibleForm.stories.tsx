@@ -99,17 +99,6 @@ export const Default = () => {
               disabled: true
             }
           },
-
-          // {
-          //   type: 'datePicker',
-          //   name: 'datepicker',
-          //   props: {
-          //     /* onChange: (date: Date) => setDate(date), */
-          //     placeholderText: 'dd/mm/yyyy',
-          //     dateFormat: 'dd/MM/yyyy'
-          //     /* selected: date || new Date() */
-          //   }
-          // },
           {
             type: 'input',
             name: 'form',
@@ -122,7 +111,7 @@ export const Default = () => {
         ]
       }}
       editedFormProps={{
-        noDataText: 'HELLLOOOO',
+        noDataText: 'N/A',
         editButtonTooltipText: 'Edit form',
         options: [
           { title: 'Owner', variant: 'label' },
