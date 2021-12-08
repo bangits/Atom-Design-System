@@ -10,20 +10,20 @@ export interface EditedFormProps {
   options: (
     | {
         title: ReactNode;
-        value: ReactNode;
+        value: ReactNode | string;
         variant: 'default';
       }
     | {
-        title: ReactNode;
+        title: ReactNode | string;
         variant: 'label';
       }
     | {
-        title: ReactNode;
-        value: ReactNode;
+        title: ReactNode | string;
+        value: ReactNode | string;
         variant: 'bold';
       }
     | {
-        title: ReactNode;
+        title: ReactNode | string;
         value: string[];
         variant: 'tag';
       }
@@ -92,7 +92,7 @@ const EditedForm: FC<EditedFormProps> = ({ title, noDataText = 'N/A', options, v
                 <div key={index} className={classNames(styles['EditedFormBase--option'])}>
                   <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
                   <span className={classNames(styles['EditedFormBase--option-value'])}>
-                    {option.value ?? noDataText}
+                    {option.value || noDataText}
                   </span>
                 </div>
               ) : option.variant === 'label' ? (
@@ -116,7 +116,7 @@ const EditedForm: FC<EditedFormProps> = ({ title, noDataText = 'N/A', options, v
                       styles['EditedFormBase--option-value'],
                       styles['EditedFormBase--option-value-bold']
                     )}>
-                    {option.value ?? noDataText}
+                    {option.value || noDataText}
                   </span>
                 </div>
               ) : (

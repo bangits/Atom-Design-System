@@ -12,12 +12,13 @@ export const Default = () => {
   return (
     <EditedForm
       viewMoreLabel='View More'
+      noDataText='No Data'
       options={[
         { title: 'Owner', variant: 'label' },
         { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
         {
           title: 'Username',
-          value: 'Eva123456',
+          value: '',
           variant: 'default'
         },
         {
