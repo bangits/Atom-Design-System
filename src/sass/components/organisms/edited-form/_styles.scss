@@ -31,11 +31,13 @@
       background-color: white;
       display: flex;
       flex-wrap: wrap;
+      align-content: flex-start;
       padding: getEditedFormSizes(content-padding);
       width: getEditedFormSizes(content-width);
-      height: auto;
       box-sizing: border-box;
       @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
+      transition: height 0.5s;
+      overflow: hidden;
     }
 
     &--option {
@@ -81,6 +83,10 @@
       white-space: nowrap;
     }
 
+    &--option-value-bold {
+      font-weight: bold;
+    }
+
     &--viewMore {
       @include flex(center, center);
       position: absolute;
@@ -104,6 +110,33 @@
         color: getEditedFormColors(edit-form-view-colors);
         font-size: getEditedFormSizes(edit-form-view-font-size);
         height: getEditedFormSizes(edit-form-view-label-height);
+      }
+    }
+
+    &--option-label {
+      flex: 100%;
+      margin: getEditedFormSizes(option-label-margin);
+
+      > span {
+        color: getEditedFormColors(option-label-color);
+        height: getEditedFormSizes(option-title-height);
+        font-size: getEditedFormSizes(option-title-font-size);
+        font-weight: 500;
+      }
+    }
+
+    &--option-tag {
+      margin: getEditedFormSizes(option-margin);
+      flex: 100%;
+      > div {
+        @include flex(null, center, $flex-wrap: wrap);
+
+        > div {
+          margin: getEditedFormSizes(option-tag-margin);
+          > span {
+            color: getEditedFormColors(tag-color) !important;
+          }
+        }
       }
     }
   }

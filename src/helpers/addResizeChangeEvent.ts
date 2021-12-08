@@ -5,7 +5,9 @@ export const addResizeChangeEvent = () => {
     setTimeout(() => {
       const fontSize = calculateRootFontSize();
 
-      document.documentElement.style.fontSize = `${fontSize}px`;
+      const MAX_FONT_SIZE = 10.5;
+
+      document.documentElement.style.fontSize = `${fontSize > MAX_FONT_SIZE ? MAX_FONT_SIZE : fontSize}px`;
     }, 100);
   };
 

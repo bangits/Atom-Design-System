@@ -1,6 +1,5 @@
-import { IconButton } from '@my-ui/core';
 import { withKnobs } from '@storybook/addon-knobs';
-import React, { useState } from 'react';
+import React from 'react';
 import FlexibleForm from './FlexibleForm';
 
 export default {
@@ -10,52 +9,16 @@ export default {
 };
 
 export const Default = () => {
-  const [isEdit, setIsEdit] = useState<boolean>(false);
-
   return (
     <FlexibleForm
-      isEdit={isEdit}
+      isEdit={true}
+      onSubmit={(closeForm) => {
+        closeForm();
+      }}
       editFormProps={{
         title: 'Account Information',
-        applyButton: (
-          <IconButton
-            icon={
-              <svg
-                onClick={() => setIsEdit(!isEdit)}
-                id='done_black_24dp'
-                xmlns='http://www.w3.org/2000/svg'
-                width='24'
-                height='24'
-                viewBox='0 0 24 24'>
-                <path id='Path_43198' data-name='Path 43198' d='M0,0H24V24H0Z' fill='none' />
-                <path
-                  id='Path_43199'
-                  data-name='Path 43199'
-                  d='M8.491,15.236,4.673,11.418,3.4,12.691l5.091,5.091L19.4,6.873,18.127,5.6Z'
-                  transform='translate(1)'
-                  fill='#00b21e'
-                />
-              </svg>
-            }
-          />
-        ),
-        closeButton: (
-          <IconButton
-            onClick={() => setIsEdit(!isEdit)}
-            icon={
-              <svg id='close_black_24dp' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-                <path id='Path_43196' data-name='Path 43196' d='M0,0H24V24H0Z' fill='none' />
-                <path
-                  id='Path_43197'
-                  data-name='Path 43197'
-                  d='M17,6.209,15.791,5,11,9.791,6.209,5,5,6.209,9.791,11,5,15.791,6.209,17,11,12.209,15.791,17,17,15.791,12.209,11Z'
-                  transform='translate(1 1)'
-                  fill='#505d6e'
-                />
-              </svg>
-            }
-          />
-        ),
+        applyButtonTooltipText: 'Submit Form',
+        closeButtonTooltipText: 'Close Form',
         renderInputs: (Component, name) => {
           return <Component />;
         },
@@ -159,72 +122,54 @@ export const Default = () => {
         ]
       }}
       editedFormProps={{
+        noDataText: 'HELLLOOOO',
+        editButtonTooltipText: 'Edit form',
         options: [
-          { title: 'Email', value: 'antonian.evgenia@gmail.com' },
+          { title: 'Owner', variant: 'label' },
+          { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
           {
             title: 'Username',
-            value: 'Eva123456'
+            value: '',
+            variant: 'default'
           },
           {
             title: 'Currency',
-            value: 'USD'
+            value: 'USD',
+            variant: 'bold'
+          },
+
+          {
+            title: 'Created By',
+            value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
+            variant: 'tag'
           },
           {
             title: 'Status',
-            value: 'Active'
+            value: 'Active',
+            variant: 'default'
           },
           {
             title: 'Segment',
-            value: 'Vip Players'
+            value: 'Vip Players',
+            variant: 'default'
           },
           {
             title: 'Btag',
-            value: '111.123.56.85'
+            value: '111.123.56.85',
+            variant: 'default'
           },
           {
             title: 'Registration Source',
-            value: '09/05/2021 12:00:00'
+            value: '09/05/2021 12:00:00',
+            variant: 'default'
           },
           {
             title: 'Created By',
-            value: 'Inesa Khachatryan'
-          },
-          {
-            title: 'Registration source ',
-            value: '09/05/2021 12:00:00'
-          },
-          {
-            title: 'Registration Form IP',
-            value: 'No'
-          },
-          {
-            title: 'Test Player',
-            value: 'Yes'
-          },
-          {
-            title: 'State',
-            value: 'Forever'
+            value: 'Inesa Khachatryan',
+            variant: 'default'
           }
         ],
-        title: 'Account Information',
-        editButton: (
-          <IconButton
-            icon={
-              <svg
-                onClick={() => setIsEdit(!isEdit)}
-                xmlns='http://www.w3.org/2000/svg'
-                width='12'
-                height='12'
-                viewBox='0 0 24 24'>
-                <path
-                  fill='currentColor'
-                  d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z'
-                />
-              </svg>
-            }
-            variant='dark'
-          />
-        )
+        title: 'Account Information'
       }}
     />
   );

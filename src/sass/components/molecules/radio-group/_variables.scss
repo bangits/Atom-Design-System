@@ -1,0 +1,21 @@
+$radio-group-sizes: (
+  filter-radio-name-font-size: calculateRem(12px),
+  filter-radio-container-margin: calculateRem(8px) 0 calculateRem(8px) 0,
+  filter-radio-group-margin-bottom: calculateRem(2px),
+  filter-radio-sizes: calculateRem(24px),
+  filter-radio-label-margin-right: calculateRem(8px),
+  filter-radio-label-font-size: calculateRem(14px)
+);
+
+$radio-group-colors: (
+  filter-radio-name: color(nepal),
+  filter-radio-label: color(black-color)
+);
+
+@function getRadioGroupSizes($key) {
+  @return map-get($radio-group-sizes, $key);
+}
+
+@function getRadioGroupColors($key) {
+  @return map-get($radio-group-colors, $key);
+}

@@ -1,0 +1,7 @@
+$file-uploader-sizes: (
+  label-container-max-width: calculateRem(280px)
+);
+
+@function getFileUploaderSizes($key) {
+  @return map-get($file-uploader-sizes, $key);
+}
