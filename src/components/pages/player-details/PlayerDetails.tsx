@@ -225,7 +225,6 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                     {
                       type: 'select',
                       name: 'currency',
-                      disabled: true,
                       props: {
                         inputLabel: 'Currency',
                         options: [
@@ -235,7 +234,8 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                         ],
                         isSearchable: true,
                         isMulti: true,
-                        defaultValue: [1]
+                        defaultValue: [1],
+                        disabled: true
                       }
                     },
                     {
@@ -243,9 +243,9 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                       name: 'status',
                       props: {
                         label: 'Status',
-                        defaultValue: 'Active'
-                      },
-                      disabled: true
+                        defaultValue: 'Active',
+                        disabled: true
+                      }
                     },
                     {
                       type: 'input',
@@ -260,37 +260,26 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                       name: 'btag',
                       props: {
                         label: 'Btag',
-                        defaultValue: '111.123.56.85'
-                      },
-                      disabled: true
+                        defaultValue: '111.123.56.85',
+                        disabled: true
+                      }
                     },
                     {
                       type: 'input',
                       name: 'regSRC',
                       props: {
                         label: 'Registration Source',
-                        defaultValue: 'Forever'
-                      },
-                      disabled: true
+                        defaultValue: 'Forever',
+                        disabled: true
+                      }
                     },
                     {
                       type: 'input',
                       name: 'created',
                       props: {
                         label: 'Created By',
-                        defaultValue: 'Inesa Khachatryan'
-                      },
-                      disabled: true
-                    },
-
-                    {
-                      type: 'datePicker',
-                      name: 'datepicker',
-                      props: {
-                        onChange: (date: Date) => setDate(date),
-                        placeholderText: 'dd/mm/yyyy',
-                        dateFormat: 'dd/MM/yyyy',
-                        selected: date || new Date()
+                        defaultValue: 'Inesa Khachatryan',
+                        disabled: true
                       }
                     },
                     {
@@ -298,9 +287,9 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                       name: 'form',
                       props: {
                         label: 'Registration Form IP',
-                        defaultValue: 'No'
-                      },
-                      disabled: true
+                        defaultValue: 'No',
+                        disabled: true
+                      }
                     }
                   ]
                 }}
