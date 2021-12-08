@@ -20,7 +20,7 @@ import { typedMemo } from '@/helpers';
 import { Breadcrumb, Card, IconButton, SubTab, Status, StatusProps, SubTabProps, Tab, Tag } from '@my-ui/core';
 import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
 import { TabProps } from '@my-ui/core/dist/components/tab/Tab';
-// import { TagCountry } from '@my-ui/core';
+import { TagCountry } from '@my-ui/core';
 
 import classNames from 'classnames';
 import React, { FC, useState } from 'react';
@@ -275,7 +275,9 @@ const GameDetails: FC<GameDetailsProps> = ({ breadCrumb, tabs, docInfo }) => {
                   </div>
 
                   <div className={classNames(styles['GameDetailsBase__Tags-Cell'], 'GameDetailsBase__Tags-Cell')}>
-                    {/* <TagCountry /> */}
+                    <TagCountry />
+                    <TagCountry />
+                    <TagCountry />
                   </div>
 
                   <span className={classNames(styles['GameDetailsBase__Device-Tag'], 'GameDetailsBase__Device-Tag')}>
