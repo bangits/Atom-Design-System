@@ -11,3 +11,11 @@ export { ReactComponent as LogOutIcon } from './log-out.react.svg';
 export { ReactComponent as DesktopIcon } from './desktop.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as MobileIcon } from './mobile.react.svg';
+
+export { ReactComponent as ChromeIcon } from './chrome.react.svg';
+export { ReactComponent as EdgeIcon } from './edge.react.svg';
+export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
+export { ReactComponent as OperaIcon } from './opera.react.svg';
+export { ReactComponent as SafariIcon } from './safari.react.svg';
+export { ReactComponent as Safari2Icon } from './safari2.react.svg';
+export { ReactComponent as IEIcon } from './ie.react.svg';

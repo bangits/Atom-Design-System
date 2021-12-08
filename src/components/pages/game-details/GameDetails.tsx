@@ -25,7 +25,18 @@ import { TagCountry } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import styles from './GameDetails.module.scss';
-import { DesktopIcon, TabletIcon, MobileIcon } from '@/icons';
+import {
+  DesktopIcon,
+  TabletIcon,
+  MobileIcon,
+  ChromeIcon,
+  EdgeIcon,
+  FirefoxIcon,
+  OperaIcon,
+  Safari2Icon,
+  IEIcon
+} from '@/icons';
+
 export interface GameDetailsProps
   extends UserViewProps,
     WalletViewProps,
@@ -284,6 +295,21 @@ const GameDetails: FC<GameDetailsProps> = ({ breadCrumb, tabs, docInfo }) => {
                     <Tag title='YEN' inactive className={styles.Currency} />
                     <Tag title='EUR' inactive className={styles.Currency} />
                     <Tag title='USD' inactive className={styles.Currency} />
+                  </div>
+
+                  <div className={classNames(styles['GameDetailsBase__Tags-Cell'], 'GameDetailsBase__Tags-Cell')}>
+                    <Tag title='YEN' inactive className={styles.Currency} />
+                    <Tag title='EUR' inactive className={styles.Currency} />
+                    <Tag title='USD' inactive className={styles.Currency} />
+                  </div>
+
+                  <div className={classNames(styles['GameDetailsBase__Tags-Cell'], 'GameDetailsBase__Tags-Cell')}>
+                    <ChromeIcon width='30px' />
+                    <EdgeIcon width='30px' />
+                    <FirefoxIcon width='30px' />
+                    <OperaIcon width='30px' />
+                    <Safari2Icon width='30px' />
+                    <IEIcon width='27px' />
                   </div>
 
                   <span className={classNames(styles['GameDetailsBase__Device-Tag'], 'GameDetailsBase__Device-Tag')}>
