@@ -14,8 +14,8 @@ import { IconsGroup } from '@/components/molecules/icons-group';
 import { UserViewProps } from '@/components/organisms/user-view/UserView';
 
 import WalletView, { WalletViewProps } from '@/components/organisms/wallet-view/WalletView';
-import DetailsMainInfo from '@/components/organisms/details-main-info/DetailsMainInfo';
-
+import DetailsMainInfo, { DetailsMainInfoProps } from '@/components/organisms/details-main-info/DetailsMainInfo';
+import { Button, ButtonProps } from '@my-ui/core';
 import { typedMemo } from '@/helpers';
 import { Breadcrumb, Card, IconButton, SubTab, Status, StatusProps, SubTabProps, Tab, Tag } from '@my-ui/core';
 import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
@@ -29,6 +29,8 @@ export interface GameDetailsProps
     WalletViewProps,
     StatusViewProps,
     LastActivityViewProps,
+    DetailsMainInfoProps,
+    ButtonProps,
     FlexibleFormProps {
   parentCompany: NameDescriptionProps;
   docInfo: Omit<NameDescriptionProps, 'children'> & {
@@ -64,7 +66,6 @@ const GameDetails: FC<GameDetailsProps> = ({
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
   const [edit, setEdit] = useState(false);
-
   const [date, setDate] = useState<Date | null>(null);
 
   return (
@@ -74,17 +75,20 @@ const GameDetails: FC<GameDetailsProps> = ({
       </div>
       <div className={classNames(styles['GameDetailsBase--content'])}>
         <div className={classNames(styles['GameDetailsUserInfo--content-info'])}>
-          <DetailsMainInfo />
+          <DetailsMainInfo
+            label='Shining Crown'
+            id='ID1234567'
+            src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
+          />
           <StatusView statusInfo={statusInfo} />
 
           <div className={classNames(styles['GameDetailsBase__Changes-Date'], 'GameDetailsBase__Changes-Date')}>
             <NameDescription data={docInfo.data} title={docInfo.title}></NameDescription>
           </div>
+
           <div className={classNames(styles['GameDetailsBase__Btn-Cell'])}>
-            <button className={classNames(styles['GameDetailsBase__Btn'], styles['GameDetailsBase__Btn--fill'])}>
-              Play
-            </button>
-            <button className={classNames(styles['GameDetailsBase__Btn'])}>Play Demo</button>
+            <Button>Play</Button>
+            <Button variant='ghost'>Play Demo</Button>
           </div>
         </div>
 
@@ -257,23 +261,12 @@ const GameDetails: FC<GameDetailsProps> = ({
                     styles['GameDetailsBase__Other-Elements-Cell'],
                     'GameDetailsBase__Other-Elements-Cell'
                   )}>
-                  <div className={classNames(styles['GameDetailsBase__Tag-Cell'], 'GameDetailsBase__Tags-Cell')}>
+                  <div className={classNames(styles['GameDetailsBase__Tags-Cell'], 'GameDetailsBase__Tags-Cell')}>
                     <Tag title='Armenia' closeIcon={false} inactive={false} />
                     <Tag title='Armenia' closeIcon={false} inactive={false} />
                     <Tag title='Armenia' closeIcon={false} inactive={false} />
                   </div>
 
-                  {/* <Tag
-        title={text('title', 'Armenia')}
-        closeIcon={boolean('closeIcon', true)}
-        inactive={boolean('inactive', false)}
-        color={getColorKnobs()}
-        handleClick={() => {
-          alert('close');
-        }}
-      /> */}
-
-                  {/* GameDetailsBase__Device-Tag */}
                   <span className={classNames(styles['GameDetailsBase__Device-Tag'], 'GameDetailsBase__Device-Tag')}>
                     <MobileIcon width='10px' />
                     <span
