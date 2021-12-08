@@ -226,7 +226,7 @@ function DataTable<T extends {}, K>({
   useEffect(() => {
     if (pagination === initialPagination) return;
 
-    onDataChange(null, null);
+    onDataChange(null);
   }, [pagination]);
 
   return (
