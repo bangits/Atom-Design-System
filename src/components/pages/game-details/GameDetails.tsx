@@ -280,6 +280,12 @@ const GameDetails: FC<GameDetailsProps> = ({ breadCrumb, tabs, docInfo }) => {
                     <TagCountry />
                   </div>
 
+                  <div className={classNames(styles['GameDetailsBase__Tags-Cell'], 'GameDetailsBase__Tags-Cell')}>
+                    <Tag title='YEN' inactive className={styles.Currency} />
+                    <Tag title='EUR' inactive className={styles.Currency} />
+                    <Tag title='USD' inactive className={styles.Currency} />
+                  </div>
+
                   <span className={classNames(styles['GameDetailsBase__Device-Tag'], 'GameDetailsBase__Device-Tag')}>
                     <MobileIcon width='10px' />
                     <span
