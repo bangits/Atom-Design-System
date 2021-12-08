@@ -20,6 +20,8 @@ import { typedMemo } from '@/helpers';
 import { Breadcrumb, Card, IconButton, SubTab, Status, StatusProps, SubTabProps, Tab, Tag } from '@my-ui/core';
 import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
 import { TabProps } from '@my-ui/core/dist/components/tab/Tab';
+// import { TagCountry } from '@my-ui/core/dist/components/tag-country/TagCountry';
+
 import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import styles from './GameDetails.module.scss';
@@ -54,15 +56,7 @@ export interface GameDetailsProps
   };
 }
 
-const GameDetails: FC<GameDetailsProps> = ({
-  userInfo,
-  walletInfo,
-  statusInfo,
-  lastActivity,
-  breadCrumb,
-  tabs,
-  docInfo
-}) => {
+const GameDetails: FC<GameDetailsProps> = ({ breadCrumb, tabs, docInfo }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
   const [edit, setEdit] = useState(false);
@@ -80,7 +74,20 @@ const GameDetails: FC<GameDetailsProps> = ({
             id='ID1234567'
             src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
           />
-          <StatusView statusInfo={statusInfo} />
+
+          <StatusView
+            statusInfo={{
+              label: 'Status',
+              statusLabel: 'Active',
+              actions: [
+                {
+                  iconName: 'LogOutIcon',
+                  onClick: () => {}
+                  // tooltipText: 'Terminate'
+                }
+              ]
+            }}
+          />
 
           <div className={classNames(styles['GameDetailsBase__Changes-Date'], 'GameDetailsBase__Changes-Date')}>
             <NameDescription data={docInfo.data} title={docInfo.title}></NameDescription>
@@ -265,6 +272,10 @@ const GameDetails: FC<GameDetailsProps> = ({
                     <Tag title='Armenia' closeIcon={false} inactive={false} />
                     <Tag title='Armenia' closeIcon={false} inactive={false} />
                     <Tag title='Armenia' closeIcon={false} inactive={false} />
+                  </div>
+
+                  <div className={classNames(styles['GameDetailsBase__Tags-Cell'], 'GameDetailsBase__Tags-Cell')}>
+                    {/* <TagCountry /> */}
                   </div>
 
                   <span className={classNames(styles['GameDetailsBase__Device-Tag'], 'GameDetailsBase__Device-Tag')}>
