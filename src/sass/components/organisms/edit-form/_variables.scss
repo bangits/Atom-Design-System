@@ -1,21 +1,25 @@
 $edit-form-in-sizes: (
   edit-form-width: calculateRem(477px),
-  edit-form-padding: calculateRem(8px) calculateRem(5px) calculateRem(16px) calculateRem(16px),
+  edit-form-padding: calculateRem(24px) calculateRem(16px) calculateRem(16px) calculateRem(16px),
   edit-form-title-height: calculateRem(19px),
   edit-form-title-font-size: calculateRem(16px),
   edit-form-title-width: calculateRem(300px),
   edit-form-content-width: 100%,
   edit-form-field-flex: 50%,
-  edit-form-field-width: calculateRem(212px),
+  edit-form-field-width: calculateRem(214px),
   edit-form-field-margin: 0 calculateRem(16px) 0 0,
   edit-form-buttons-margin: 0 calculateRem(3px) 0 0,
-  edit-form-header-padding: 0 0 0 calculateRem(16px)
+  edit-form-header-padding: 0 0 0 calculateRem(16px),
+  field-header-font-size: calculateRem(12px),
+  field-header-height: calculateRem(14px),
+  field-header-margin: 0 0 calculateRem(3px) 0
 );
 
 $edit-form-in-colors: (
   edit-form-background: #fff,
   edit-form-title-color: #505d6e,
-  border-color: #e8edf3
+  border-color: #e8edf3,
+  field-header-color: #4055bb
 );
 
 @function getEditFormInSizes($key) {

@@ -1,5 +1,4 @@
 import { Icons as MyUIIcons } from '@my-ui/core';
-import { addResizeChangeEvent } from './helpers';
 import * as DesignSystemIcons from './icons';
 
 export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
@@ -7,4 +6,5 @@ export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
 export * from './components';
 export * from './services';
 
-addResizeChangeEvent();
+/* addResizeChangeEvent();
+ */

@@ -20,6 +20,11 @@ export const Default = () => {
       }}
       fields={[
         {
+          type: 'header',
+          label: 'Owner',
+          name: ''
+        },
+        {
           type: 'input',
           name: 'name',
           props: {

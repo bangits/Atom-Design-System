@@ -40,6 +40,9 @@ const getFormField = (field: FormFieldProp) => {
         <DatePicker {...field.props} {...props} placeholderText={field.label} fullWidth />
       );
       break;
+    /* case 'header':
+      fieldComponent = () => <div>{field.label}</div>;
+      break; */
     case 'custom':
       fieldComponent = field.component;
   }
