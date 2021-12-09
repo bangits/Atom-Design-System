@@ -1,11 +1,19 @@
 $colors: (
   alabaster: #f9f9f9,
   white: #fff,
+  catskill-white: #e8edf3,
   black-color: #505d6e,
   nepal: #8ea6c1,
   selago: #f6f8fe,
   wild-blue-yonder: #7c83ac,
-  azure: #3c54b2
+  primary: #3c54b2,
+  white-lilac: #f5f6fb,
+  indigo: #4055bb,
+  black-transparent: #00000080,
+  woodsmoke: #040405,
+  gamboge: #dda213,
+  citrine-white: #fcf6e7,
+  athens-gray: #e9eaf1
 );
 
 @function color($property-name) {

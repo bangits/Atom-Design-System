@@ -7,9 +7,9 @@ $icon-group-sizes: (
 );
 
 $icon-group-colors: (
-  icon-group-background: #e8edf3,
-  icon-group-icon-color: #505d6e,
-  icon-group-icon-active-color: #3c54b2
+  icon-group-background: color(catskill-white),
+  icon-group-icon-color: color(black-color),
+  icon-group-icon-active-color: color(primary)
 );
 
 @function getIconGroupSizes($key) {

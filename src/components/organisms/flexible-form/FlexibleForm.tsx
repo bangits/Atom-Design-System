@@ -1,12 +1,13 @@
 import { EditedForm, EditedFormProps, EditForm, EditFormProps } from '@/components';
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useState } from 'react';
 
 export interface FlexibleFormProps {
   editedFormProps?: EditedFormProps;
   editFormProps?: EditFormProps;
   isEdit?: boolean;
-  noDataText?: string;
+  noDataText?: ReactNode;
   onSubmit?: (onToggle: () => void) => void;
+  title: ReactNode;
 }
 
 const FlexibleForm: FC<FlexibleFormProps> = ({
@@ -14,7 +15,8 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
   editFormProps,
   isEdit = false,
   onSubmit,
-  noDataText
+  noDataText,
+  title
 }) => {
   const [toggle, setToggle] = useState<boolean>(isEdit);
 
@@ -25,9 +27,9 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
   return (
     <div>
       {toggle ? (
-        <EditForm {...editFormProps} onToggle={onToggle} onSubmit={onSubmit} />
+        <EditForm {...editFormProps} onToggle={onToggle} title={title} onSubmit={onSubmit} />
       ) : (
-        <EditedForm {...editedFormProps} onToggle={onToggle} noDataText={noDataText} />
+        <EditedForm {...editedFormProps} onToggle={onToggle} title={title} noDataText={noDataText} />
       )}
     </div>
   );

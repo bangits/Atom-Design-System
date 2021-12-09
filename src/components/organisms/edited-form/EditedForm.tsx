@@ -29,8 +29,8 @@ export interface EditedFormProps {
         variant: 'tag';
       }
   )[];
-  noDataText?: string;
-  title?: string;
+  noDataText?: ReactNode;
+  title?: ReactNode;
   viewMoreLabel?: string;
   onToggle?: () => void;
 }

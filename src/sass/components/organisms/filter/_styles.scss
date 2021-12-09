@@ -1,20 +1,19 @@
 @mixin generate-filter-styles {
   .FiltersBase {
-    background-color: getFilterInColors(white);
-    box-shadow: 0 0 4px 0 rgba(0, 0, 0, 0.05);
-    width: getFilterInSizes(filter-base-width);
+    background-color: getFilterColors(filter-base-background);
+    box-shadow: getFilterSizes(box-shadow-filter-base) getFilterColors(box-shadow-color);
+    width: getFilterSizes(filter-base-width);
     box-sizing: border-box;
 
     .FiltersContainer {
-      @include flex(null, center);
-      flex-wrap: wrap;
+      @include flex(null, center, $flex-wrap: wrap);
       box-sizing: border-box;
       width: 100%;
-      margin: getFilterInSizes(filters-container-margin);
+      margin: getFilterSizes(filters-container-margin);
 
       .FilterContainer {
-        width: getFilterInSizes(filter-container);
-        margin: getFilterInSizes(filter-container-margin);
+        width: getFilterSizes(filter-container);
+        margin: getFilterSizes(filter-container-margin);
       }
     }
 
@@ -22,7 +21,7 @@
       height: 100%;
     }
     &--closed {
-      height: getFilterInSizes(filter-container-closed);
+      height: getFilterSizes(filter-container-closed);
 
       .FiltersContainer,
       .Checkbox {
@@ -32,46 +31,46 @@
 
     .ControlContainer {
       @include flex(space-between, center);
-      padding: getFilterInSizes(control-container-padding);
+      padding: getFilterSizes(control-container-padding);
       .FilterLabel {
-        font-weight: getFilterInSizes(filter-label-fontWeight);
-        letter-spacing: getFilterInSizes(filter-label-letterSpacing);
-        margin-right: getFilterInSizes(filter-label-marginRight);
-        color: #505d6e;
+        font-weight: getFilterSizes(filter-label-fontWeight);
+        letter-spacing: getFilterSizes(filter-label-letterSpacing);
+        margin-right: getFilterSizes(filter-label-marginRight);
+        color: getFilterColors(filter-label-color);
       }
       .ToggleContainer {
         @include flex(null, center);
         .ClearLabel {
-          color: #3c54b2;
-          opacity: getFilterInSizes(clear-label);
-          margin-right: getFilterInSizes(clear-label-marginRight);
+          color: getFilterColors(clear-label-color);
+          opacity: getFilterSizes(clear-label);
+          margin-right: getFilterSizes(clear-label-marginRight);
         }
         .UserFoundLabel {
-          color: #505d6e;
-          letter-spacing: getFilterInSizes(user-found-label-letterSpacing);
-          margin-right: getFilterInSizes(user-found-label-marginRight);
+          color: getFilterColors(user-label-color);
+          letter-spacing: getFilterSizes(user-found-label-letterSpacing);
+          margin-right: getFilterSizes(user-found-label-marginRight);
         }
         .ArrowIconContainer {
-          width: getFilterInSizes(arrow-icon-container-width);
-          height: getFilterInSizes(arrow-icon-container-height);
-          margin-right: getFilterInSizes(arrow-icon-container-marginRight);
+          width: getFilterSizes(arrow-icon-container-width);
+          height: getFilterSizes(arrow-icon-container-height);
+          margin-right: getFilterSizes(arrow-icon-container-marginRight);
         }
       }
     }
   }
 
   .Checkbox {
-    display: flex;
-    margin-top: getFilterInSizes(checkbox-container-marginTop);
+    @include flex();
+    margin-top: getFilterSizes(checkbox-container-marginTop);
   }
 
   .FilterCheckbox {
     width: 100%;
-    margin: getFilterInSizes(filter-checkbox-margin);
+    margin: getFilterSizes(filter-checkbox-margin);
     .FilterNameChekbox {
-      font-size: getFilterInSizes(filter-name-chekbox-size);
-      color: #8ea6c1;
-      margin-bottom: getFilterInSizes(filter-name-chekbox-marginBottom);
+      font-size: getFilterSizes(filter-name-chekbox-size);
+      color: getFilterColors(filter-name-checkbox-color);
+      margin-bottom: getFilterSizes(filter-name-chekbox-marginBottom);
     }
     .FilterCheckboxContainer {
       @include flex(null, center);
@@ -80,13 +79,13 @@
       }
       .FilterCheckboxCheckContainer {
         @include flex(null, center);
-        width: getFilterInSizes(filter-checkbox-check-container-width);
-        height: getFilterInSizes(filter-checkbox-check-container-height);
+        width: getFilterSizes(filter-checkbox-check-container-width);
+        height: getFilterSizes(filter-checkbox-check-container-height);
       }
       .FilterLabelChekcbox {
-        color: #505d6e;
-        margin: getFilterInSizes(filter-label-chekcbox-margin);
-        font-size: getFilterInSizes(filter-label-chekcbox-size);
+        color: getFilterColors(filter-label-checkbox-color);
+        margin: getFilterSizes(filter-label-chekcbox-margin);
+        font-size: getFilterSizes(filter-label-chekcbox-size);
       }
     }
   }

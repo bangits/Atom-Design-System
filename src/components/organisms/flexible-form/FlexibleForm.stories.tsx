@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <FlexibleForm
+      title='Account Information'
       isEdit={true}
       onSubmit={(closeForm) => {
         closeForm();

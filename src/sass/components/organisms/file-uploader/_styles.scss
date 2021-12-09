@@ -1,23 +1,18 @@
 @mixin generate-file-uploader-styles {
   .FileUploaderLabelContainer {
     @include flex(space-between, center);
-
     max-width: getFileUploaderSizes(label-container-max-width);
   }
 
   .FileUploaderTooltipIcon {
     cursor: pointer;
-
     @include flex(flex-end);
-
     color: getLabelColors(label-color);
-
     opacity: getLabelSizes(label-optional-opacity);
-
-    transition: opacity 0.3s;
+    transition: opacity getLabelSizes(file-uploader-tolltip-icon-transition);
 
     &:hover {
-      opacity: 1;
+      opacity: getLabelSizes(file-uploader-tolltip-icon-opacity);
     }
   }
 }

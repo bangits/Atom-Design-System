@@ -1,7 +1,7 @@
 @mixin generate-providerdetails-styles {
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
-    margin-top: 11px;
+    margin-top: getProviderDetailsSizes(provider-details-margin-top);
 
     .License {
       span {

@@ -4,15 +4,15 @@
   }
 
   .ImageColumn {
-    border-radius: 50%;
+    border-radius: getDataTableSizes(image-column);
   }
 
   .PaginationWrapper {
-    justify-content: flex-end;
+    @include flex(flex-end, null);
   }
 
   .TableActionsWrapper {
-    @include flex;
+    @include flex();
   }
 
   .TableConfigsWrapper {

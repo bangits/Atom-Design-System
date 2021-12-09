@@ -1,7 +1,8 @@
 $partner-details-sizes: (
   base-width: calculateRem(994px),
   container-margin: calculateRem(7.5px) 0 0 0,
-  leftBlock-margin: 0 calculateRem(8px) 0 0
+  leftBlock-margin: 0 calculateRem(8px) 0 0,
+  left-block-all-blocks-margin: calculateRem(8px)
 );
 $partner-details-colors: ();
 
