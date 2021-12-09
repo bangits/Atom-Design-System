@@ -147,7 +147,7 @@ function DataTable<T extends {}, K>({
             renderColumn: (_, value) => (
               <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>
             ),
-            maxWidth: '9.5rem'
+            maxWidth: '11rem'
           }
         : column.variant === 'image'
         ? {
@@ -226,7 +226,7 @@ function DataTable<T extends {}, K>({
   useEffect(() => {
     if (pagination === initialPagination) return;
 
-    onDataChange(null, null);
+    onDataChange(null);
   }, [pagination]);
 
   return (

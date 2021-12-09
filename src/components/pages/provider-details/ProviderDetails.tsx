@@ -1,19 +1,10 @@
-import {
-  ItemDetails,
-  ItemDetailsProps,
-  NameDescription,
-  NameDescriptionProps,
-  StatusView,
-  StatusViewProps
-} from '@/components';
+import { ItemDetails, NameDescription, StatusView } from '@/components';
 import Countries from '@/components/molecules/countries-group/Countries';
 import Currency from '@/components/molecules/currency-group/CurrencyGroup';
 import LabelGroup from '@/components/molecules/label-group/LabelGroup';
 import CountView from '@/components/organisms/count-view/CountView';
 import DetailsMainInfo from '@/components/organisms/details-main-info/DetailsMainInfo';
-import { Breadcrumb, Button, CopyField, Tag, TagCountry, Typography } from '@my-ui/core';
-import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
-import { EditIcon } from '@my-ui/core/dist/icons';
+import { Breadcrumb, Button, CopyField, Tag } from '@my-ui/core';
 import React, { FC } from 'react';
 import styles from './ProviderDetails.module.scss';
 

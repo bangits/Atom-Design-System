@@ -1,12 +1,13 @@
 import { typedMemo } from '@/helpers';
 import { useStyles } from '@/helpers/useStyles';
 import { PenIcon } from '@/icons';
-import { Card, IconButton, Tag } from '@my-ui/core';
+import { Card, IconButton, Tag, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
 
 export interface EditedFormProps {
+  editButtonTooltipText?: string;
   options: (
     | {
         title: ReactNode;
@@ -28,13 +29,20 @@ export interface EditedFormProps {
         variant: 'tag';
       }
   )[];
-  noDataText?: string;
-  editButton?: ReactNode;
-  title?: string;
+  noDataText?: ReactNode;
+  title?: ReactNode;
   viewMoreLabel?: string;
+  onToggle?: () => void;
 }
 
-const EditedForm: FC<EditedFormProps> = ({ title, noDataText = 'N/A', options, viewMoreLabel }) => {
+const EditedForm: FC<EditedFormProps> = ({
+  title,
+  noDataText = 'N/A',
+  options,
+  viewMoreLabel,
+  onToggle,
+  editButtonTooltipText
+}) => {
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
   const [height, setHeight] = useState<number>();
 
@@ -76,7 +84,9 @@ const EditedForm: FC<EditedFormProps> = ({ title, noDataText = 'N/A', options, v
       <div className={classNames(styles['EditedFormBase--control'])}>
         <span className={classNames(styles['EditedFormBase--control-title'])}>{title}</span>
         <div className={classNames(styles['EditedFormBase--control-button'])}>
-          <IconButton icon={<PenIcon />} />
+          <Tooltip showEvent='hover' text={editButtonTooltipText}>
+            <IconButton icon={<PenIcon />} onClick={onToggle} />
+          </Tooltip>
         </div>
       </div>
       <div ref={containerRef}>
