@@ -1,6 +1,8 @@
+export { ReactComponent as ApplyIcon } from './apply.react.svg';
 export { ReactComponent as IconButtonLeft } from './arrow-left.react.svg';
 export { ReactComponent as BlockPopupIcon } from './block-popup.react.svg';
 export { ReactComponent as CheckPopupIcon } from './check-popup.react.svg';
+export { ReactComponent as CloseIcon } from './close.react.svg';
 export { ReactComponent as EmptyDataIcon } from './empty-ilustration.react.svg';
 export { ReactComponent as FilterIcon } from './filter.react.svg';
 export { ReactComponent as GamesIcon } from './games.react.svg';
