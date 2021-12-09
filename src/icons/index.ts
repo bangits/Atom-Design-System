@@ -19,3 +19,4 @@ export { ReactComponent as OperaIcon } from './opera.react.svg';
 export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as Safari2Icon } from './safari2.react.svg';
 export { ReactComponent as IEIcon } from './ie.react.svg';
+export { ReactComponent as EmptyGameListIcon } from './empty-game-list.react.svg';
