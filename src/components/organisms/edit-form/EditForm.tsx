@@ -3,7 +3,7 @@ import { typedMemo } from '@/helpers';
 import { ApplyIcon, CloseIcon } from '@/icons';
 import { Card, IconButton, SelectProps, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './EditForm.module.scss';
 import EditFormFields from './EditFormFields';
 
@@ -11,7 +11,7 @@ export type FormSelectProps = SelectProps<any[], boolean, any>;
 export interface EditFormProps {
   applyButtonTooltipText?: string;
   closeButtonTooltipText?: string;
-  title: string;
+  title?: ReactNode;
   onToggle?: () => void;
   onSubmit?: (onToggle: () => void) => void;
   renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;

@@ -1,13 +1,13 @@
 import { EditedForm, EditedFormProps, EditForm, EditFormProps } from '@/components';
-import React, { FC, useCallback, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useState } from 'react';
 
 export interface FlexibleFormProps {
   editedFormProps?: EditedFormProps;
   editFormProps?: EditFormProps;
   isEdit?: boolean;
-  noDataText?: string;
+  noDataText?: ReactNode;
   onSubmit?: (onToggle: () => void) => void;
-  title: string;
+  title: ReactNode;
 }
 
 const FlexibleForm: FC<FlexibleFormProps> = ({
