@@ -10,7 +10,7 @@ export interface LabelProps {
 
 export const Label: FC<LabelProps> = ({ text, optional = false, optionalText }) => {
   return (
-    <Typography variant='p4' className={styles.Label}>
+    <Typography variant='p5' className={styles.Label}>
       {text}
 
       {optional && <span className={styles.LabelOptional}>{optionalText}</span>}
