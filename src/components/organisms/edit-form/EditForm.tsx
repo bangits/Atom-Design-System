@@ -1,10 +1,11 @@
-import { FormFieldProp, FormFieldTypes, getFormField } from '@/components';
+import { FormFieldProp, FormFieldTypes } from '@/components';
 import { typedMemo } from '@/helpers';
 import { ApplyIcon, CloseIcon } from '@/icons';
 import { Card, IconButton, SelectProps, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './EditForm.module.scss';
+import EditFormFields from './EditFormFields';
 
 export type FormSelectProps = SelectProps<any[], boolean, any>;
 export interface EditFormProps {
@@ -41,13 +42,7 @@ const EditForm: FC<EditFormProps> = ({
       </div>
       <Card borderRadius={1.6} className={classNames(styles.EditFormBase)}>
         <div className={classNames(styles['EditFormBase--content'])}>
-          {fields.map((field, idx) => (
-            <div className={styles['EditFormBase--field']} key={idx}>
-              {field.type === 'custom'
-                ? field.component()
-                : renderInputs(getFormField(field), field.name, field.type, field.additionalProps)}
-            </div>
-          ))}
+          <EditFormFields fields={fields} renderInputs={renderInputs} />
         </div>
       </Card>
     </div>

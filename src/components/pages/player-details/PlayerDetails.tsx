@@ -199,6 +199,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
               </div>
 
               <FlexibleForm
+                title='Account Information'
                 editFormProps={{
                   title: 'Account Information',
 
@@ -345,6 +346,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
               />
 
               <FlexibleForm
+                title='Account Information'
                 editedFormProps={{
                   options: [
                     { title: 'Owner', variant: 'label' },
@@ -396,6 +398,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
               />
 
               <FlexibleForm
+                title='Account Information'
                 editedFormProps={{
                   options: [
                     { title: 'Owner', variant: 'label' },
@@ -446,6 +449,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                 }}
               />
               <FlexibleForm
+                title='Account Information'
                 editedFormProps={{
                   options: [
                     { title: 'Owner', variant: 'label' },

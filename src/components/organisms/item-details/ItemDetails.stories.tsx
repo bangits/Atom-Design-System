@@ -20,6 +20,7 @@ export const Default = () => {
           content: (
             <>
               <FlexibleForm
+                title='Account Information'
                 editFormProps={{
                   title: 'Account Information',
 
@@ -165,6 +166,7 @@ export const Default = () => {
               />
 
               <FlexibleForm
+                title='Account Information'
                 editedFormProps={{
                   options: [
                     { title: 'Owner', variant: 'label' },
@@ -216,6 +218,7 @@ export const Default = () => {
               />
 
               <FlexibleForm
+                title='Account Information'
                 editedFormProps={{
                   options: [
                     { title: 'Owner', variant: 'label' },
@@ -266,6 +269,7 @@ export const Default = () => {
                 }}
               />
               <FlexibleForm
+                title='Account Information'
                 editedFormProps={{
                   options: [
                     { title: 'Owner', variant: 'label' },
@@ -329,6 +333,7 @@ export const Default = () => {
               content: (
                 <>
                   <FlexibleForm
+                    title='Account Information'
                     editFormProps={{
                       title: 'Account Information',
 
@@ -474,6 +479,7 @@ export const Default = () => {
                   />
 
                   <FlexibleForm
+                    title='Account Information'
                     editedFormProps={{
                       options: [
                         { title: 'Owner', variant: 'label' },
@@ -525,6 +531,7 @@ export const Default = () => {
                   />
 
                   <FlexibleForm
+                    title='Account Information'
                     editedFormProps={{
                       options: [
                         { title: 'Owner', variant: 'label' },
@@ -575,6 +582,7 @@ export const Default = () => {
                     }}
                   />
                   <FlexibleForm
+                    title='Account Information'
                     editedFormProps={{
                       options: [
                         { title: 'Owner', variant: 'label' },

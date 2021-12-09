@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <PlayerDetails
+      title=''
       userInfo={object('userInfo', {
         title: 'Username Ines254',
         id: 'ID 1234567',
