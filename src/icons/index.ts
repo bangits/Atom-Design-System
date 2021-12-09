@@ -13,3 +13,4 @@ export { ReactComponent as NoDataIcon } from './no-data.react.svg';
 export { ReactComponent as PartnersIcon } from './partners.react.svg';
 export { ReactComponent as PenIcon } from './pen.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
+export { ReactComponent as UsersIcon } from './users.react.svg';
