@@ -12,10 +12,16 @@ const EditFormFields = ({
   return (
     <>
       {fields.map((field, idx) => (
-        <div className={styles['EditFormBase--field']} key={idx}>
-          {field.type === 'custom'
-            ? field.component()
-            : renderInputs(getFormField(field), field.name, field.type, field.additionalProps)}
+        <div
+          className={field.type === 'header' ? styles['EditFormBase--field-header'] : styles['EditFormBase--field']}
+          key={idx}>
+          {field.type === 'custom' ? (
+            field.component()
+          ) : field.type === 'header' ? (
+            <>{field.label}</>
+          ) : (
+            renderInputs(getFormField(field), field.name, field.type, field.additionalProps)
+          )}
         </div>
       ))}
     </>
