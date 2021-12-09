@@ -9,7 +9,7 @@
       padding: getProviderSizes(provider-card-padding);
       box-sizing: border-box;
       min-height: getProviderSizes(provider-card-min-height);
-      @include flex(null, null, $flex-direction: column);
+      @include flex(null, null, $direction: column);
       background-color: getProviderColors(provider-background-color);
 
       .ProviderContainer {
