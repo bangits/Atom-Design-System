@@ -3,9 +3,11 @@ $user-view-sizes: (
   user-width: calculateRem(244px),
   user-margin: 0 0 calculateRem(8px) 0,
   user-avatar-width: calculateRem(42px),
+  user-avatar-container-padding: calculateRem(14px) 0 0 calculateRem(14px),
   user-details-font-size: calculateRem(14px),
   user-details-height: calculateRem(17px),
   user-details-name-padding: calculateRem(16px) 0 calculateRem(8px) 0,
+  user-details-span-first-font-weight: 700,
   user-info-container-padding: 0 calculateRem(16px) calculateRem(12px) calculateRem(16px),
   user-info-container-margin: calculateRem(16px) 0 0 0,
   user-info-font-size: calculateRem(12px),
@@ -15,9 +17,10 @@ $user-view-sizes: (
 );
 
 $user-view-colors: (
-  user-details-name: #3c54b2,
-  user-details-id: #8ea6c1,
-  user-info: #505d6e
+  user-view-background-color: color(white),
+  user-details-name: color(primary),
+  user-details-id: color(nepal),
+  user-info: color(black-color)
 );
 
 @function getUserViewSizes($key) {

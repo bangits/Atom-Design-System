@@ -5,8 +5,10 @@ $edited-form-sizes: (
   control-title-height: calculateRem(19px),
   control-title-width: calculateRem(300px),
   control-title-font-size: calculateRem(16px),
+  control-title-font-weight: 500,
   content-padding: calculateRem(16px) calculateRem(16px) 0 calculateRem(16px),
   content-width: 100%,
+  content-transition: 0.5s,
   option-flex: 50%,
   option-width: 100%,
   option-margin: 0 0 calculateRem(16px) 0,
@@ -16,25 +18,29 @@ $edited-form-sizes: (
   option-title-margin: 0 0 calculateRem(4px) 0,
   option-value-height: calculateRem(19px),
   option-value-font-size: calculateRem(16px),
+  option-tag-margin: calculateRem(4px) calculateRem(8px) 0 0,
+  option-label-margin: 0 0 calculateRem(8px) 0,
+  option-height: calculateRem(37px),
+  option-value-bold: 700,
+  option-label-font-weight: 700,
   edit-form-view-more-borderRadius: 0 0 calculateRem(16px) calculateRem(16px),
   edit-form-view-more-height: calculateRem(24px),
   edit-form-view-icon-width: calculateRem(24px),
   edit-form-view-icon-height: calculateRem(24px),
   edit-form-view-font-size: calculateRem(12px),
-  edit-form-view-label-height: calculateRem(14px),
-  option-label-margin: 0 0 calculateRem(8px) 0,
-  option-tag-margin: calculateRem(4px) calculateRem(8px) 0 0
+  edit-form-view-label-height: calculateRem(14px)
 );
 
 $edited-form-colors: (
-  control-title-color: #505d6e,
-  option-title-color: #8ea6c1,
-  option-value-color: #505d6e,
-  border-color: #e8edf3,
-  edit-form-view-bg: #f5f6fb,
-  edit-form-view-colors: #505d6e,
-  option-label-color: #4055bb,
-  tag-color: #7c83ac
+  control-title-color: color(black-color),
+  option-title-color: color(nepal),
+  option-value-color: color(black-color),
+  border-color: color(catskill-white),
+  edit-form-view-bg: color(white-lilac),
+  edit-form-view-colors: color(black-color),
+  option-label-color: color(indigo),
+  tag-color: color(wild-blue-yonder),
+  content-background-color: color(white)
 );
 
 @function getEditedFormSizes($key) {

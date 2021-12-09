@@ -32,19 +32,27 @@ $filter-in-sizes: (
   to-input-icon-width: calculateRem(4.5px),
   to-input-icon-height: calculateRem(9px),
   to-input-icon-postion-top: calculateRem(25px),
-  from-input-margin-rigth: calculateRem(16px)
+  from-input-margin-rigth: calculateRem(16px),
+  box-shadow-filter-base: 0 0 calculateRem(4px) 0
 );
 
 $filter-in-colors: (
-  filter-base-background: (
-    white
-  )
+  filter-base-background: color
+    (
+      white
+    ),
+  filter-label-color: color(black-color),
+  filter-name-checkbox-color: color(nepal),
+  filter-label-checkbox-color: color(black-color),
+  clear-label-color: color(primary),
+  user-label-color: color(black-color),
+  box-shadow-color: color(black-transparent)
 );
 
-@function getFilterInColors($key) {
+@function getFilterColors($key) {
   @return map-get($sign-in-colors, $key);
 }
 
-@function getFilterInSizes($key) {
+@function getFilterSizes($key) {
   @return map-get($sign-in-sizes, $key);
 }

@@ -7,23 +7,16 @@
     box-sizing: border-box;
 
     &--title {
+      position: relative;
+      top: getNameDescriptionSizes(title-position-top);
+      display: inline-block;
       width: getNameDescriptionSizes(title-width);
       height: getNameDescriptionSizes(title-height);
       font-size: getNameDescriptionSizes(title-font-size);
-      position: relative;
-      top: -6px;
-      display: inline-block;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
-      text-align: left;
       color: getNameDescriptionColors(title-color);
-      word-break: break-all;
+      @include dots-after-text();
+      text-align: left;
+      word-break: break-word;
     }
 
     &--core {
@@ -36,14 +29,13 @@
       height: getNameDescriptionSizes(title-height);
       font-size: getNameDescriptionSizes(title-font-size);
       color: getNameDescriptionColors(name-color);
+      max-width: getNameDescriptionSizes(name-max-width);
     }
 
     &--description {
-      @include dots-after-text();
       height: getNameDescriptionSizes(description-height);
       font-size: getNameDescriptionSizes(description-font-size);
       color: getNameDescriptionColors(description-color);
-      /* font-weight: 500; */
     }
 
     &--sub-core {
@@ -64,7 +56,7 @@
         content: '';
         width: getNameDescriptionSizes(dot-width-height);
         height: getNameDescriptionSizes(dot-width-height);
-        border-radius: 50%;
+        border-radius: getNameDescriptionSizes(core-name-border-radius);
         background-color: getNameDescriptionColors(name-color);
         margin: getNameDescriptionSizes(dot-margin);
       }
@@ -72,9 +64,9 @@
 
     &--children {
       @include flex(space-between, center);
-      border-top: 0.5px solid rgb(142, 166, 193, 0.1);
-      margin-top: 4px;
-      padding-top: 4.5px;
+      border-top: getNameDescriptionSizes(children-border) solid getNameDescriptionColors(children-border-color);
+      margin-top: getNameDescriptionSizes(children-margin-top);
+      padding-top: getNameDescriptionSizes(children-padding-top);
 
       > span {
         height: getNameDescriptionSizes(title-height);

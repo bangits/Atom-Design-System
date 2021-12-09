@@ -1,53 +1,45 @@
 @mixin generate-sign-in-styles {
   .LoginPageWrapper {
-    // Need to remove after ui package update
     .LoginPageTitle {
-      color: #3c54b2;
+      color: getSignColors(login-page-title-color);
     }
 
     .LoginPageSubTitle {
-      color: #8ea6c1;
+      color: getSignColors(login-page-sub-title-color);
     }
 
     .LoginPageTitle,
     .LoginPageSubTitle {
       margin: 0;
     }
-    //
-    .LoginBottom {
-      margin-bottom: 2px;
-    }
-    @include flex(flex-end);
 
+    .LoginBottom {
+      margin-bottom: getSignSizes(login-bottom-margin-bottom);
+    }
+
+    @include flex(flex-end);
     width: 100%;
     height: 100vh;
-
-    background-image: getSignInColors(gradient-bg);
+    background: getSignSizes(gradient-bg);
 
     .LoginPageBox {
-      @include center();
-      background-color: getSignInColors(login-box-bg);
-
-      width: getSignInSizes(login-box-width);
-      border-radius: getSignInSizes(login-box-radius);
-      padding-left: getSignInSizes(login-box-left-offset);
-
+      @include flex(center, center);
+      background-color: getSignColors(login-box-bg);
+      width: getSignSizes(login-box-width);
+      border-radius: getSignSizes(login-box-radius);
+      padding-left: getSignSizes(login-box-left-offset);
       box-sizing: border-box;
 
       .LoginPageTitle {
-        margin-bottom: getSignInSizes(title-margin);
+        margin-bottom: getSignSizes(title-margin);
       }
 
       .LoginPageSubTitle {
-        margin-bottom: getSignInSizes(subtitle-margin);
+        margin-bottom: getSignSizes(subtitle-margin);
       }
 
       .FormWrapper {
-        margin-bottom: getSignInSizes(form-margin);
-        .EmailInput {
-          // max-height: getSignInSizes(input-height);
-          // margin-bottom: getSignInSizes(input-margin-bottom);
-        }
+        margin-bottom: getSignSizes(form-margin);
       }
 
       .LoginButton {

@@ -1,34 +1,39 @@
-$provider-in-colors: (
-  background: color(white)
-);
-
 $provider-in-sizes: (
   provider-wrapper: calculateRem(728px),
   provider-container: calculateRem(584px),
   provider-container-wrapper: calculateRem(49px),
   provider-card-padding: calculateRem(15px) calculateRem(72px) calculateRem(24px) calculateRem(72px),
+  provider-card-min-height: calculateRem(590px),
   provider-title-fontWeight: 700,
   provider-title-align: center,
   provider-title-padding: calculateRem(15px),
   provider-form-groupMarginRigth: calculateRem(24px),
   provider-form-marginBottom: calculateRem(18px),
   provider-form: calculateRem(280px),
+  provider-form-flex-grow: 1,
   provider-form-small: calculateRem(184px),
   provider-form-groupMarginRigth-small: calculateRem(16px),
+  provider-form-height: calculateRem(60px),
   provider-button-marginTop: calculateRem(75px),
   provider-button-closeMargin: calculateRem(16px),
-  provider-form-height: calculateRem(60px),
   provider-column-gap: calculateRem(16px),
   provider-field-margin-bottom: calculateRem(2px),
   provider-col-4-width: calculateRem(178.6px),
   provider-col-6-width: calculateRem(284px),
-  provider-card-min-height: calculateRem(590px)
+  provider-back-button-border: 1px,
+  provider-back-button-padding: calculateRem(7px),
+  provider-back-button-border-radius: 100%
 );
 
-@function getProviderInColors($key) {
+$provider-in-colors: (
+  provider-background-color: color(white),
+  provider-back-button-border-color: color(nepal)
+);
+
+@function getProviderColors($key) {
   @return map-get($provider-in-colors, $key);
 }
 
-@function getProviderInSizes($key) {
+@function getProviderSizes($key) {
   @return map-get($provider-in-sizes, $key);
 }

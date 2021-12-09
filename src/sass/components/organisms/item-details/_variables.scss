@@ -5,7 +5,7 @@ $item-details-sizes: (
 );
 
 $item-details-colors: (
-  base-bg: #fff
+  base-bg: color(white)
 );
 
 @function getItemDetailsSizes($key) {

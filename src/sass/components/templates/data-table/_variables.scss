@@ -1,5 +1,6 @@
 $data-table-sizes: (
-  filters-margin-bottom: calculateRem(32px)
+  filters-margin-bottom: calculateRem(32px),
+  image-column: 50%
 );
 
 @function getDataTableSizes($key) {

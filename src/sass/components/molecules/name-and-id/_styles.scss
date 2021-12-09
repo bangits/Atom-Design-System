@@ -7,7 +7,7 @@
       width: getGameAndIdSizes(base-label-width);
       height: getGameAndIdSizes(base-label-height);
       font-size: getGameAndIdSizes(base-font-size);
-      font-weight: bold;
+      font-weight: getGameAndIdSizes(name-font-weight);
       color: getGameAndIdColors(name-color);
       margin: getGameAndIdSizes(name-margin);
     }

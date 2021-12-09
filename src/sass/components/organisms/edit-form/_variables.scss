@@ -9,13 +9,14 @@ $edit-form-in-sizes: (
   edit-form-field-width: calculateRem(212px),
   edit-form-field-margin: 0 calculateRem(16px) 0 0,
   edit-form-buttons-margin: 0 calculateRem(3px) 0 0,
-  edit-form-header-padding: 0 0 0 calculateRem(16px)
+  edit-form-header-padding: 0 0 0 calculateRem(16px),
+  edit-header-span-font-weight: 500
 );
 
 $edit-form-in-colors: (
-  edit-form-background: #fff,
-  edit-form-title-color: #505d6e,
-  border-color: #e8edf3
+  edit-form-background: color(white),
+  edit-form-title-color: color(black-color),
+  border-color: color(catskill-white)
 );
 
 @function getEditFormInSizes($key) {

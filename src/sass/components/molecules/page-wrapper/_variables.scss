@@ -6,13 +6,14 @@ $page-wrapper-sizes: (
 );
 
 $page-wrapper-colors: (
-  page-background-color: #f9f9f9
+  page-background-color: color(alabaster),
+  page-title-color: color(black-color)
 );
 
-@function getPageWrapperInSizes($key) {
+@function getPageWrapperSizes($key) {
   @return map-get($page-wrapper-sizes, $key);
 }
 
-@function getPageWrapperInColors($key) {
+@function getPageWrapperColors($key) {
   @return map-get($page-wrapper-colors, $key);
 }

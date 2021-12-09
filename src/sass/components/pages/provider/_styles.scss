@@ -1,52 +1,43 @@
 @mixin generate-provider-styles {
   .ProviderWrapper {
-    width: getProviderInSizes(provider-wrapper);
-
+    width: getProviderSizes(provider-wrapper);
     margin: auto;
     min-height: inherit;
-
     @include flex(null, center);
 
     .ProviderCard {
-      padding: getProviderInSizes(provider-card-padding);
+      padding: getProviderSizes(provider-card-padding);
       box-sizing: border-box;
-
-      min-height: getProviderInSizes(provider-card-min-height);
-
-      @include flex;
-      flex-direction: column;
-
-      background-color: getProviderInColors(background);
+      min-height: getProviderSizes(provider-card-min-height);
+      @include flex(null, null, $flex-direction: column);
+      background-color: getProviderColors(provider-background-color);
 
       .ProviderContainer {
         .ProviderTitle {
-          font-weight: getProviderInSizes(provider-title-fontWeight);
-          text-align: getProviderInSizes(provider-title-align);
+          font-weight: getProviderSizes(provider-title-fontWeight);
+          text-align: getProviderSizes(provider-title-align);
         }
 
         .ProviderContainerWrapper {
-          margin-top: getProviderInSizes(provider-container-wrapper);
+          margin-top: getProviderSizes(provider-container-wrapper);
 
           .ProviderFormGroup {
-            @include flex;
-            flex-wrap: wrap;
-            column-gap: getProviderInSizes(provider-column-gap);
-            margin-bottom: getProviderInSizes(provider-form-groupMarginTop);
+            @include flex(null, null, $flex-wrap: wrap);
+            column-gap: getProviderSizes(provider-column-gap);
+            margin-bottom: getProviderSizes(provider-form-groupMarginTop);
 
             .ProviderForm {
               width: 100%;
-
-              min-height: getProviderInSizes(provider-form-height);
-              margin-bottom: getProviderInSizes(provider-field-margin-bottom);
-
-              flex-grow: 1;
+              min-height: getProviderSizes(provider-form-height);
+              margin-bottom: getProviderSizes(provider-field-margin-bottom);
+              flex-grow: getProviderSizes(provider-form-flex-grow);
 
               &--col-4 {
-                max-width: getProviderInSizes(provider-col-4-width);
+                max-width: getProviderSizes(provider-col-4-width);
               }
 
               &--col-6 {
-                max-width: getProviderInSizes(provider-col-6-width);
+                max-width: getProviderSizes(provider-col-6-width);
               }
             }
           }
@@ -55,19 +46,19 @@
 
       .ProviderButtonGroup {
         @include flex(center, center);
-
         margin-top: auto;
-
         position: relative;
+
         .ProviderCloseButton {
-          margin-right: getProviderInSizes(provider-button-closeMargin);
+          margin-right: getProviderSizes(provider-button-closeMargin);
         }
         .ProviderBackButton {
           @include flex(center, center);
-          border: 1px solid #8ea6c1;
-          padding: 7px;
+          border: getProviderSizes(provider-back-button-border) solid
+            getProviderColors(provider-back-button-border-color);
+          padding: getProviderSizes(provider-back-button-padding);
           position: absolute;
-          border-radius: 100%;
+          border-radius: getProviderSizes(provider-back-button-border-radius);
           left: 0;
           cursor: pointer;
         }

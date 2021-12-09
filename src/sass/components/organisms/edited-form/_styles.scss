@@ -12,31 +12,23 @@
     &--control-title {
       height: getEditedFormSizes(control-title-height);
       font-size: getEditedFormSizes(control-title-font-size);
-      font-weight: 500;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
+      font-weight: getEditedFormSizes(control-title-font-weight);
       text-align: left;
       color: getEditedFormColors(control-title-color);
       word-break: break-all;
       width: getEditedFormSizes(control-title-width);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include dots-after-text();
     }
 
     &-content {
       position: relative;
-      background-color: white;
-      display: flex;
-      flex-wrap: wrap;
-      align-content: flex-start;
+      background-color: getEditedFormColors(content-background-color);
+      @include flex(flex-start, null, $flex-wrap: wrap);
       padding: getEditedFormSizes(content-padding);
       width: getEditedFormSizes(content-width);
       box-sizing: border-box;
       @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
-      transition: height 0.5s;
+      transition: height getEditedFormSizes(content-transition);
       overflow: hidden;
     }
 
@@ -45,46 +37,32 @@
       flex: getEditedFormSizes(option-flex);
       width: getEditedFormSizes(option-width);
       margin: getEditedFormSizes(option-margin);
-      height: 37px;
+      height: getEditedFormSizes(option-height);
     }
 
     &--option-title {
       height: getEditedFormSizes(option-title-height);
       font-size: getEditedFormSizes(option-title-font-size);
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       text-align: left;
       color: getEditedFormColors(option-title-color);
       margin: getEditedFormSizes(option-title-margin);
       word-break: break-all;
       width: getEditedFormSizes(option-title-width);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include dots-after-text();
     }
 
     &--option-value {
       height: getEditedFormSizes(option-value-height);
       font-size: getEditedFormSizes(option-value-font-size);
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       text-align: left;
       color: getEditedFormColors(option-value-color);
       word-break: break-all;
       width: getEditedFormSizes(option-title-width);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include dots-after-text();
     }
 
     &--option-value-bold {
-      font-weight: bold;
+      font-weight: getEditedFormSizes(option-value-bold);
     }
 
     &--viewMore {
@@ -103,7 +81,7 @@
         color: getEditedFormColors(edit-form-view-colors);
         width: getEditedFormSizes(edit-form-view-icon-width);
         width: getEditedFormSizes(edit-form-view-icon-height);
-        transition: 0.5s;
+        transition: getEditedFormSizes(content-transition);
       }
 
       > span {
@@ -121,7 +99,7 @@
         color: getEditedFormColors(option-label-color);
         height: getEditedFormSizes(option-title-height);
         font-size: getEditedFormSizes(option-title-font-size);
-        font-weight: 500;
+        font-weight: getEditedFormSizes(option-label-font-weight);
       }
     }
 

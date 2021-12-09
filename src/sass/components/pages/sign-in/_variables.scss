@@ -1,25 +1,25 @@
 $sign-in-colors: (
-  gradient-bg: linear-gradient(122deg, #709fb0 6%, #3c54b2 39%, #4a47a3 74%),
-  login-box-bg: #fff
+  login-box-bg: color(white),
+  login-page-title-color: color(primary),
+  login-page-sub-title-color: color(nepal),
+  login-bottom-margin-bottom: calculateRem(2px)
 );
 
 $sign-in-sizes: (
   login-box-width: 65%,
   login-box-radius: calculateRem(32px) 0 0 calculateRem(32px),
   login-box-left-offset: calculateRem(117px),
-  // Margins
+  gradient-bg: linear-gradient(122deg, #709fb0 6%, #3c54b2 39%, #4a47a3 74%),
   title-margin: calculateRem(4px),
   subtitle-margin: calculateRem(17px),
-  input-margin-bottom: calculateRem(26px),
-  input-height: calculateRem(44px),
   form-margin: calculateRem(56px),
   login-inputs-margin-bottom: calculateRem(2px)
 );
 
-@function getSignInColors($key) {
+@function getSignColors($key) {
   @return map-get($sign-in-colors, $key);
 }
 
-@function getSignInSizes($key) {
+@function getSignSizes($key) {
   @return map-get($sign-in-sizes, $key);
 }

@@ -1,5 +1,7 @@
 $file-uploader-sizes: (
-  label-container-max-width: calculateRem(280px)
+  label-container-max-width: calculateRem(280px),
+  file-uploader-tolltip-icon-transition: 0.3s,
+  file-uploader-tolltip-icon-opacity: 1
 );
 
 @function getFileUploaderSizes($key) {
