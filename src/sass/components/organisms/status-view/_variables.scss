@@ -6,12 +6,14 @@ $status-view-sizes: (
   status-label-padding: 0 0 0 calculateRem(10px),
   status-label-height: calculateRem(14px),
   status-label-font-size: calculateRem(12px),
-  st-label-margin: 0 calculateRem(2px) 0 0
+  st-label-margin: 0 calculateRem(2px) 0 0,
+  icon-button-sizes: calculateRem(24px)
 );
 
 $status-view-colors: (
   //STATUS INFORMATION
-  status-label-color: #3c54b2
+  status-view-background-color: color(white),
+  status-label-color: color(primary)
 );
 
 @function getStatusViewSizes($key) {

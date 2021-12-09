@@ -9,7 +9,7 @@
       margin: getPartnerDetailsSizes(leftBlock-margin);
 
       > * {
-        margin-bottom: 8px;
+        margin-bottom: getPartnerDetailsSizes(left-block-all-blocks-margin);
       }
     }
   }

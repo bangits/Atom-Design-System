@@ -1,7 +1,7 @@
 @mixin generate-user-view-styles {
   .UserView {
     &--user {
-      background-color: white;
+      background-color: getUserViewColors(user-view-background-color);
       width: getUserViewSizes(user-width);
       box-sizing: border-box;
       margin: getUserViewSizes(user-margin);
@@ -13,7 +13,7 @@
 
     &--user-avatarContainer {
       width: getUserViewSizes(user-avatar-width);
-      padding: 14px 0 0 14px;
+      padding: getUserViewSizes(user-avatar-container-padding);
     }
 
     &--user-details {
@@ -22,25 +22,18 @@
       > span {
         height: getUserViewSizes(user-details-height);
         font-size: getUserViewSizes(user-details-font-size);
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
         text-align: left;
         word-break: break-all;
         width: getUserViewSizes(user-info-width);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        @include dots-after-text();
       }
 
       > span:first-child {
-        font-weight: bold;
+        font-weight: getUserViewSizes(user-details-span-first-font-weight);
         color: getUserViewColors(user-details-name);
         padding: getUserViewSizes(user-details-name-padding);
       }
       > span:last-child {
-        font-weight: normal;
         color: getUserViewColors(user-details-id);
       }
     }
@@ -53,18 +46,11 @@
       > span {
         height: getUserViewSizes(user-info-height);
         font-size: getUserViewSizes(user-info-font-size);
-        font-weight: normal;
-        font-stretch: normal;
-        font-style: normal;
-        line-height: normal;
-        letter-spacing: normal;
         text-align: left;
         color: getUserViewColors(user-info);
         word-break: break-all;
         width: getUserViewSizes(user-info-name-width);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        @include dots-after-text();
       }
     }
     //Player Details User information End

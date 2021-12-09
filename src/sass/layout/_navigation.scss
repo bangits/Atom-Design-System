@@ -1,6 +1,6 @@
 :global {
   .content-wrapper {
-    @include flex;
+    @include flex();
 
     &__content {
       flex-grow: 1;
@@ -18,10 +18,7 @@
 
     &__content {
       transform: translateY(getLayoutSizes(content-header-margin));
-
       flex-grow: 1;
-
-      // Reseting width for flex-grow
       width: 0;
     }
   }

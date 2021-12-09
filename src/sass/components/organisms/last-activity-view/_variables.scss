@@ -7,15 +7,20 @@ $last-activity-view-sizes: (
   last-activity-label-font-size: calculateRem(12px),
   last-activity-label-max-width: calculateRem(58px),
   last-activity-label-margin: 0 0 calculateRem(6px) 0,
+  last-activity-label-line-height: calculateRem(14px),
   last-activity-container-margin: calculateRem(15px) 0 0 0,
   last-activity-text-width: calculateRem(160px),
-  last-activity--date-width: calculateRem(120px)
+  last-activity--date-width: calculateRem(120px),
+  last-activity--date-font-weight: 500,
+  last-activity--date-line-height: calculateRem(14px)
 );
 
 $last-activity-view-colors: (
   //LAST ACTIVITY INFORMATION
-  last-activity-label-color: #3c54b2,
-  last-activity-date-color: #505d6e
+  last-activity-view-background-color: color(white),
+  last-activity-span-color: color(primary),
+  last-activity-date-color: color(black-color),
+  last-activity-label-color: color(nepal)
 );
 
 @function getLastActivityViewSizes($key) {

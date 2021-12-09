@@ -1,7 +1,7 @@
 @mixin generate-tags-view-styles {
   .TagsView {
     width: getTagsViewSizes(tags-width);
-    background-color: white;
+    background-color: getTagsViewColors(tags-view-background-color);
     padding: getTagsViewSizes(tags-padding);
     box-sizing: border-box;
 
@@ -11,23 +11,15 @@
       margin: getTagsViewSizes(tags-title-margin);
       height: getTagsViewSizes(tags-title-height);
       font-size: getTagsViewSizes(tags-title-font-size);
-      font-weight: normal;
-      font-stretch: normal;
-      font-style: normal;
-      line-height: normal;
-      letter-spacing: normal;
       text-align: left;
       color: getTagsViewColors(tags-title-color);
       word-break: break-all;
       width: getTagsViewSizes(tags-text-width);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
+      @include dots-after-text();
     }
 
     &--container {
-      @include flex();
-      flex-wrap: wrap;
+      @include flex(null, null, $flex-wrap: wrap);
     }
 
     &--tag {
@@ -39,9 +31,7 @@
       > span {
         &:first-child {
           word-break: break-all;
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
+          @include dots-after-text();
           max-width: getTagsViewSizes(tags-max-width);
         }
       }
@@ -57,9 +47,7 @@
 
       > span {
         word-break: break-all;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        @include dots-after-text();
         max-width: getTagsViewSizes(tags-button-max-width);
       }
     }

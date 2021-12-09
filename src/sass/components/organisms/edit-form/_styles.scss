@@ -16,15 +16,13 @@
 
       > span {
         display: inline-block;
-        font-weight: 500;
+        width: getEditFormInSizes(edit-form-title-width);
         height: getEditFormInSizes(edit-form-title-height);
         font-size: getEditFormInSizes(edit-form-title-font-size);
-        color: getEditFormInColors(edit-form-title-color);
+        font-weight: getEditFormInSizes(edit-header-span-font-weight);
         word-break: break-all;
-        width: getEditFormInSizes(edit-form-title-width);
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        @include dots-after-text();
+        color: getEditFormInColors(edit-form-title-color);
       }
     }
 
