@@ -32,7 +32,9 @@
     }
 
     &--content {
-      @include flex(flex-start, null, $flex-wrap: wrap);
+      @include flex(space-between);
+      flex-wrap: wrap;
+      align-content: flex-start;
       box-sizing: border-box;
       width: getEditFormInSizes(edit-form-content-width);
       height: auto;
@@ -40,7 +42,15 @@
 
     &--field {
       width: getEditFormInSizes(edit-form-field-width);
-      margin: getEditFormInSizes(edit-form-field-margin);
+    }
+
+    &--field-header {
+      margin: getEditFormInSizes(field-header-margin);
+      height: getEditFormInSizes(field-header-height);
+      font-size: getEditFormInSizes(field-header-font-size);
+      font-weight: 500;
+      color: getEditFormInColors(field-header-color);
+      width: 100%;
     }
   }
 }

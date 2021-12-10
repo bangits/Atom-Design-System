@@ -5,6 +5,8 @@
 
   .ImageColumn {
     border-radius: getDataTableSizes(image-column);
+
+    object-fit: cover;
   }
 
   .PaginationWrapper {
