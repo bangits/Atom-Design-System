@@ -6,5 +6,4 @@ export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
 export * from './components';
 export * from './services';
 
-/* addResizeChangeEvent();
- */
+// addResizeChangeEvent();
