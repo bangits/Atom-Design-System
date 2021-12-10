@@ -12,10 +12,11 @@ export const Default = () => {
   return (
     <NameDescription
       title='Wallet'
+      noDataText='N/A'
       data={[
         {
           name: 'Lorem',
-          description: '1000',
+          description: '',
           subNameDescription: [
             {
               name: 'Casino',
