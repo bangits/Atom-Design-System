@@ -1,5 +1,6 @@
 export * from './checkbox-group';
 export * from './from-to-input';
+export * from './input-with-dropdown';
 export * from './name-description';
 export * from './page-wrapper';
 export * from './password-input';
