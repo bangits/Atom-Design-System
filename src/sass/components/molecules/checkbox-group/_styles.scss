@@ -1,0 +1,31 @@
+@mixin generate-checkbox-group-styles {
+  .CheckboxGroup {
+    min-width: getCheckboxGroupSizes(checkbox-group-min-width);
+    margin: getCheckboxGroupSizes(checkbox-group-margin);
+
+    .CheckboxGroupLabel {
+      font-size: getCheckboxGroupSizes(checkbox-group-label-font-size);
+      color: getCheckboxGroupColors(checkbox-group-label-color);
+      margin-bottom: getCheckboxGroupSizes(checkbox-group-label-margin-bottom);
+    }
+    .CheckboxGroupContainer {
+      @include flex(null, center);
+      margin: getCheckboxGroupSizes(checkbox-group-container-margin);
+      .CheckboxWrapper {
+        @include flex(null, center);
+      }
+      .CheckboxContainer {
+        @include flex(center, center);
+        width: getCheckboxGroupSizes(checkbox-container-sizes);
+        height: getCheckboxGroupSizes(checkbox-container-sizes);
+      }
+      .CheckboxLabel {
+        color: #505d6e;
+        margin: getCheckboxGroupSizes(checkbox-label-margin); //filter-label-chekcbox-margin
+        font-size: getCheckboxGroupSizes(checkbox-label-font-size);
+        @include dots-after-text();
+        max-width: getCheckboxGroupSizes(checkbox-label-max-width);
+      }
+    }
+  }
+}

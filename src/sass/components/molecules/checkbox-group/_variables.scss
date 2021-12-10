@@ -1,0 +1,23 @@
+$checkbox-group-sizes: (
+  checkbox-group-min-width: calculateRem(297.92px),
+  checkbox-group-margin: 0 calculateRem(40px) 0 0,
+  checkbox-group-label-font-size: calculateRem(12px),
+  checkbox-group-label-margin-bottom: calculateRem(3px),
+  checkbox-group-container-margin: calculateRem(8px) 0 calculateRem(8px) 0,
+  checkbox-container-sizes: calculateRem(24px),
+  checkbox-label-margin: 0 calculateRem(16px) 0 calculateRem(2px),
+  checkbox-label-font-size: calculateRem(14px),
+  checkbox-label-max-width: calculateRem(50px)
+);
+$checkbox-group-colors: (
+  checkbox-group-label-color: color(nepal),
+  checkbox-label-color: color(black-color)
+);
+
+@function getCheckboxGroupSizes($key) {
+  @return map-get($checkbox-group-sizes, $key);
+}
+
+@function getCheckboxGroupColors($key) {
+  @return map-get($checkbox-group-colors, $key);
+}
