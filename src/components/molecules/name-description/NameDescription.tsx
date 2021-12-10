@@ -6,7 +6,7 @@ import styles from './NameDescription.module.scss';
 export interface NameDescriptionProps {
   title?: ReactNode;
   children?: ReactNode;
-  noDataText?: ReactNode;
+  noDataText?: string;
   data: {
     name: ReactNode;
     description: ReactNode;

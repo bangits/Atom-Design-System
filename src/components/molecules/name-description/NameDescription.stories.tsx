@@ -20,7 +20,7 @@ export const Default = () => {
           subNameDescription: [
             {
               name: 'Casino',
-              description: '10 300'
+              description: ''
             },
             {
               name: 'Sport',

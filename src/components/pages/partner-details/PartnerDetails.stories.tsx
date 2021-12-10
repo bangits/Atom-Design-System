@@ -24,14 +24,16 @@ export const Default = () => {
         ]
       }}
       parentCompany={{
+        noDataText: 'N/A',
         data: [
-          { name: 'Parent Company', description: 'None' },
+          { name: 'Parent Company', description: '' },
           { name: 'Parent Company ID', description: 'None' }
         ]
       }}
       docInfo={{
+        noDataText: 'N/A',
         data: [
-          { name: 'Document ID', description: '5461213584' },
+          { name: 'Document ID', description: '' },
           { name: 'Type', description: 'Partnership Agreement' },
           { name: 'Expiration Date', description: '12/08/2021' }
         ],
