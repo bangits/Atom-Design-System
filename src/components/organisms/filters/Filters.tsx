@@ -1,3 +1,4 @@
+import { Icons } from '@/atom-design-system';
 import { CheckboxGroup, Filter, FilterValueType } from '@/components';
 import { typedMemo } from '@/helpers/typedMemo';
 import { Button, Card, Select, Typography } from '@my-ui/core';
@@ -113,6 +114,7 @@ export function Filters<T>({
             onChange={onFiltersConfigChange}
             defaultValue={filtersConfigDefaultValue}
             options={filtersConfigOptions}
+            dropdownIcon={<Icons.FilterIcon />}
           />
         </div>
         <div className={styles.ToggleContainer}>

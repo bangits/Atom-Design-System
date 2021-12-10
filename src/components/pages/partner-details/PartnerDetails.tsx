@@ -34,12 +34,19 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
 }) => {
   return (
     <div className={styles.PartnerDetailsBase}>
-      <Breadcrumb links={breadCrumbProps.links} />
+      <div className={styles['PartnerDetailsBase--breadCrumb']}>
+        <Breadcrumb links={breadCrumbProps.links} />
+      </div>
       <div className={styles['PartnerDetailsBase--container']}>
         <div className={styles['PartnerDetailsBase--leftBlock']}>
-          <NameDescription data={parentCompany.data} title={parentCompany.title} children={parentCompany.children} />
+          <NameDescription
+            {...parentCompany}
+            data={parentCompany.data}
+            title={parentCompany.title}
+            children={parentCompany.children}
+          />
           <StatusView statusInfo={props.statusInfo} />
-          <NameDescription data={docInfo.data} title={docInfo.title}>
+          <NameDescription {...docInfo} data={docInfo.data} title={docInfo.title}>
             {docInfo.status && (
               <>
                 <span>{docInfo.status.statusName}</span>
