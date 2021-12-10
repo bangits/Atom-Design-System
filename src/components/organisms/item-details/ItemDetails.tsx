@@ -1,4 +1,4 @@
-import { Card, SubTab, Tab } from '@my-ui/core';
+import { Card, Scroll, SubTab, Tab } from '@my-ui/core';
 import React, { FC, ReactNode, useMemo, useState } from 'react';
 import styles from './ItemDetails.module.scss';
 
@@ -18,14 +18,12 @@ export interface ItemDetailsProps {
   defaultTabValue?: number;
   defaultSubTabValue?: number;
   onTabChange?: (tabValue: number, subTabValue: number | string) => void;
-  noDataText?: string;
 }
 
 const ItemDetails: FC<ItemDetailsProps> = ({
   tabs,
   defaultTabValue = null,
   defaultSubTabValue = null,
-  noDataText = 'N/A',
   onTabChange
 }) => {
   const [currentTab, setCurrentTab] = useState<number>(defaultTabValue);
@@ -44,9 +42,8 @@ const ItemDetails: FC<ItemDetailsProps> = ({
         options={tabs}
         onChange={(value) => {
           if (onTabChange) onTabChange(value, currentSubTab);
-          setCurrentTab(value);
 
-          /* setCurrentSubTab() */
+          setCurrentTab(value);
         }}
         defaultValue={currentTab}
       />
@@ -62,7 +59,9 @@ const ItemDetails: FC<ItemDetailsProps> = ({
           />
         )}
       </div>
-      <div className={styles['ItemDetailsBase--forms']}>{currentSubTabInfo?.content || currentTabInfo?.content}</div>
+      <Scroll height='54.4rem' autoHide>
+        <div className={styles['ItemDetailsBase--forms']}>{currentSubTabInfo?.content || currentTabInfo?.content}</div>
+      </Scroll>
     </Card>
   );
 };

@@ -59,7 +59,6 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
           tabs={itemDetailsProps.tabs}
           defaultSubTabValue={itemDetailsProps?.defaultSubTabValue}
           defaultTabValue={itemDetailsProps?.defaultTabValue}
-          noDataText={noDataText}
         />
       </div>
     </div>
