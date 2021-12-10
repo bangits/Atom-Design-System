@@ -39,7 +39,7 @@ const EditedForm: FC<EditedFormProps> = ({
   title,
   noDataText = 'N/A',
   options,
-  viewMoreLabel,
+  viewMoreLabel = 'View More',
   onToggle,
   editButtonTooltipText
 }) => {
@@ -49,12 +49,12 @@ const EditedForm: FC<EditedFormProps> = ({
   const viewMoreClassNames = useStyles(
     {
       open: {
-        height: 228
+        paddingBottom: '24px',
+        height: (data) => data.height + 24,
+        minHeight: 228
       },
       closed: {
-        paddingBottom: '24px',
-        height: (data) => data.height,
-        minHeight: 228
+        height: 228
       },
       iconTransform: {
         transform: 'rotate(180deg)',
@@ -71,12 +71,10 @@ const EditedForm: FC<EditedFormProps> = ({
   const containerRef = useRef<HTMLDivElement>();
 
   useLayoutEffect(() => {
-    const height = containerRef.current.offsetHeight;
+    const height = containerRef.current.scrollHeight;
 
     // Using setTimeout for setting the height after first render
-    setTimeout(() => setHeight(height), 500);
-
-    setOpenedCollapse(height > 228);
+    setHeight(height);
   }, [containerRef]);
 
   return (
@@ -89,13 +87,13 @@ const EditedForm: FC<EditedFormProps> = ({
           </Tooltip>
         </div>
       </div>
-      <div ref={containerRef}>
-        <Card
-          borderRadius={1.6}
+      <Card borderRadius={1.6} className={classNames(styles['EditedFormBase--card-content'])}>
+        <div
           className={classNames(styles['EditedFormBase-content'], {
             [viewMoreClassNames.closed]: !isOpenedCollapse,
             [viewMoreClassNames.open]: isOpenedCollapse
-          })}>
+          })}
+          ref={containerRef}>
           {options &&
             options?.map((option, index) =>
               option.variant === 'default' ? (
@@ -137,7 +135,7 @@ const EditedForm: FC<EditedFormProps> = ({
             <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'])}>
               <div
                 className={classNames({
-                  [viewMoreClassNames.iconTransform]: !isOpenedCollapse
+                  [viewMoreClassNames.iconTransform]: isOpenedCollapse
                 })}>
                 <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
                   <g id='Group_24108' transform='translate(-555 -465)'>
@@ -162,8 +160,8 @@ const EditedForm: FC<EditedFormProps> = ({
               <span>{viewMoreLabel}</span>
             </div>
           )}
-        </Card>
-      </div>
+        </div>
+      </Card>
     </div>
   );
 };
