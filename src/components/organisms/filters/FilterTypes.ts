@@ -20,7 +20,7 @@ export type CheckboxFilter = {
   checkboxProps: (CheckboxProps & { label: string; value: string | number; name: string })[];
 };
 
-export type FilterProp = {
+export type FilterProp<T> = {
   name: string;
   label: string;
 } & (
@@ -57,12 +57,12 @@ export type FilterProp = {
     }
   | {
       type: 'custom';
-      component: (props: { onChange: (name: string, value: FilterValueType) => void }) => JSX.Element;
+      component: (props: { onChange: (name: string, value: FilterValueType) => void; filterValues: T }) => JSX.Element;
     }
 );
 
 export interface FiltersProps<T> {
-  filters: FilterProp[];
+  filters: FilterProp<T>[];
   checkboxFilters?: CheckboxFilter[];
   clearLabel?: string;
   applyLabel?: string;
