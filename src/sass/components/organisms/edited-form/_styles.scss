@@ -22,14 +22,18 @@
 
     &-content {
       position: relative;
-      background-color: getEditedFormColors(content-background-color);
       @include flex(flex-start, null, $flex-wrap: wrap);
+      align-content: flex-start;
       padding: getEditedFormSizes(content-padding);
       width: getEditedFormSizes(content-width);
       box-sizing: border-box;
-      @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
       transition: height getEditedFormSizes(content-transition);
       overflow: hidden;
+    }
+
+    &--card-content {
+      @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
+      background-color: getEditedFormColors(content-background-color);
     }
 
     &--option {

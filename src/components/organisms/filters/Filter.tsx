@@ -2,16 +2,17 @@ import { FilterValueType, FromToInput, RadioGroup } from '@/components';
 import { typedMemo } from '@/helpers';
 import { DatePicker, Select, TextInput } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, ReactNode } from 'react';
+import { ReactNode } from 'react';
 import styles from './Filters.module.scss';
 import { FilterProp } from './FilterTypes';
-export interface FilterProps {
-  filter: FilterProp;
+export interface FilterProps<T> {
+  filter: FilterProp<T>;
   value: FilterValueType;
   onFilterChange: (filterName: string, value: FilterValueType) => void;
+  filterValues: T;
 }
 
-const Filter: FC<FilterProps> = ({ filter, value, onFilterChange }) => {
+const Filter = <T,>({ filter, value, onFilterChange, filterValues }: FilterProps<T>) => {
   let filterComponent: ReactNode | null = null;
 
   switch (filter.type) {
@@ -98,7 +99,7 @@ const Filter: FC<FilterProps> = ({ filter, value, onFilterChange }) => {
       );
       break;
     case 'custom':
-      filterComponent = <filter.component onChange={onFilterChange} />;
+      filterComponent = <filter.component onChange={onFilterChange} filterValues={filterValues} />;
   }
 
   return (

@@ -27,7 +27,7 @@ export function Filters<T>({
   );
 
   const [isOpenedFilterCollapse, setIsOpenedFilterCollapse] = useState(defaultOpened);
-  const [showedFilters, setShowedFilters] = useState<FilterProp[]>(filters);
+  const [showedFilters, setShowedFilters] = useState<FilterProp<T>[]>(filters);
 
   const [showedCheckboxFilters, setShowedCheckboxFilters] = useState<typeof checkboxFilters>(checkboxFilters);
 
@@ -87,7 +87,13 @@ export function Filters<T>({
       )}>
       <div className={styles.FiltersContainer}>
         {showedFilters.map((filter) => (
-          <Filter key={filter.name} value={filterValues[filter.name]} filter={filter} onFilterChange={onFilterChange} />
+          <Filter
+            key={filter.name}
+            value={filterValues[filter.name]}
+            filter={filter}
+            onFilterChange={onFilterChange}
+            filterValues={filterValues}
+          />
         ))}
       </div>
       <div className={styles.Checkbox}>

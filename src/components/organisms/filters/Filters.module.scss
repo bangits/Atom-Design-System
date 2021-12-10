@@ -31,6 +31,10 @@
     }
   }
 
+  .ArrowIconContainer {
+    transform: rotate(180deg);
+  }
+
   &--closed {
     height: 7rem;
 
@@ -43,7 +47,7 @@
     }
 
     .ArrowIconContainer {
-      transform: rotate(180deg);
+      transform: rotate(0);
     }
   }
 

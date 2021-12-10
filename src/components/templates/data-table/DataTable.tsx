@@ -84,11 +84,15 @@ function DataTable<T extends {}, K>({
   );
 
   const onDataChange = useCallback(
-    (changedFilters?: K | null, changedSorted?: FetchDataParameters<T, K>['sortedBy']) => {
+    (
+      changedFilters?: K | null,
+      changedSorted?: FetchDataParameters<T, K>['sortedBy'],
+      updatedPagination?: Pagination
+    ) => {
       fetchData({
         filters: {
           ...(changedFilters || filters),
-          pagination
+          pagination: updatedPagination || pagination
         },
         sortedBy: changedSorted === undefined ? sortedBy : changedSorted
       });
@@ -100,9 +104,11 @@ function DataTable<T extends {}, K>({
     (changedFilters: K) => {
       setFilters(changedFilters);
 
-      onDataChange(changedFilters);
+      setPagination(initialPagination);
+
+      onDataChange(changedFilters, undefined, initialPagination);
     },
-    [onDataChange]
+    [onDataChange, initialPagination]
   );
 
   const onTableFetchData = useCallback<TableProps<T>['fetch']>(
