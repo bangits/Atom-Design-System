@@ -148,7 +148,7 @@ const GameDetails: FC<GameDetailsProps> = ({ breadCrumb, tabs, docInfo }) => {
                     value: 1
                   },
                   {
-                    title: 'Games',
+                    title: 'Assets',
                     value: 2
                   }
                 ]}
@@ -172,6 +172,7 @@ const GameDetails: FC<GameDetailsProps> = ({ breadCrumb, tabs, docInfo }) => {
                       'FlexibleFormWrapper--1'
                     )}>
                     <FlexibleForm
+                      className={classNames(styles['GameDetails__FlexibleForm'], 'GameDetails__FlexibleForm')}
                       editedFormProps={{
                         options: [
                           {
@@ -404,106 +405,7 @@ const GameDetails: FC<GameDetailsProps> = ({ breadCrumb, tabs, docInfo }) => {
                   </div>
                 </div>
               )}
-              {tabValue === 2 && subTabValue === 1 && (
-                <div className={classNames(styles['GamesList'], 'GamesList')}>
-                  {/* == START EMPTY GAMES LIST== */}
-                  <div className={classNames(styles['GamesList__Empty'], 'GamesList__Empty')}>
-                    <div className={classNames(styles['GamesList__Header'], 'GamesList__Header')}>
-                      <div className={classNames(styles['GamesList__Header-1'], 'GamesList__Header-1')}></div>
-                      <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-                        <Button
-                          type='button'
-                          className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}>
-                          <span
-                            className={classNames(
-                              styles['GamesList__Add-Game-Btn-Label'],
-                              'GamesList__Add-Game-Btn-Label'
-                            )}>
-                            <i
-                              className={classNames(
-                                styles['GamesList__Add-Game-Btn--Icon'],
-                                'GamesList__Add-Game-Btn--Icon'
-                              )}>
-                              +
-                            </i>
-                            Add Game
-                          </span>
-                        </Button>
-                      </div>
-                    </div>
-
-                    {/*  Start Empty-Cell */}
-                    <div className={classNames(styles['Empty-Page-Cell'], 'Empty-Page-Cell')}>
-                      <span className={classNames(styles['Empty-Page-Icon-Cell'], 'Empty-Page-Icon-Cell')}>
-                        <EmptyGameListIcon />
-                      </span>
-                    </div>
-                    <h2 className={classNames(styles['Empty-Page-Title'], 'Empty-Page-Title')}>No Games</h2>
-                    {/*  End Empty-Cell */}
-                  </div>
-                  {/* == END EMPTY GAMES LIST == */}
-
-                  {/* == START FILL GAMES LIST == */}
-                  <div className={classNames(styles['GamesList__Fill'], 'GamesList__Fill')}>
-                    <div className={classNames(styles['GamesList__Header'], 'GamesList__Header')}>
-                      <div className={classNames(styles['GamesList__Header-1'], 'GamesList__Header-1')}>
-                        <TextInput value={'Search'} />
-                      </div>
-                      <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-                        <Button
-                          type='button'
-                          className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}>
-                          <span
-                            className={classNames(
-                              styles['GamesList__Add-Game-Btn-Label'],
-                              'GamesList__Add-Game-Btn-Label'
-                            )}>
-                            <i
-                              className={classNames(
-                                styles['GamesList__Add-Game-Btn--Icon'],
-                                'GamesList__Add-Game-Btn--Icon'
-                              )}>
-                              +
-                            </i>
-                            Add Game
-                          </span>
-                        </Button>
-                      </div>
-                    </div>
-
-                    <div className={classNames(styles['TagsCell'], 'TagsCell')}>
-                      <Tag title='Lorem Ips(16)' closeIcon={false} inactive={false} />
-                      <Tag title='Lorem Ips(16)' closeIcon={false} inactive={false} />
-                      <Tag title='Lorem Ips(16)' closeIcon={false} inactive={false} />
-                      <Tag title='Lore(66)' closeIcon={false} inactive={false} />
-                      <Tag title='Lorem Ips(16)' closeIcon={false} inactive={false} />
-                    </div>
-                    {/* GamesContainer */}
-                    <div className={classNames(styles['GamesContainer'], 'GamesContainer')}>
-                      <CardImg title={'Phoenix Fortune'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Diamond Link'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Great America Wild'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'lucky spin jackpot'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Phoenix Fortune'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Diamond Link'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Phoenix Fortune'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Diamond Link'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Great America Wild'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'lucky spin jackpot'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Phoenix Fortune'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Diamond Link'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Joker Poker'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Jacks Or Better'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'All American'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Color Champion'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Joker Poker'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                      <CardImg title={'Jacks Or Better'} image={'https://wallpaperaccess.com/full/1765659.jpg'} />
-                    </div>
-                    {/* GamesContainer */}
-                  </div>
-                  {/* == END FILL GAMES LIST == */}
-                </div>
-              )}
+              {tabValue === 2 && subTabValue === 1 && <div>Assets</div>}
             </div>
           </Card>
         </div>

@@ -6,11 +6,12 @@ export interface FlexibleFormProps {
   editedFormProps?: EditedFormProps;
   editFormProps?: EditFormProps;
   isEdit?: boolean;
+  className?: string;
 }
 
-const FlexibleForm: FC<FlexibleFormProps> = ({ editedFormProps, editFormProps, isEdit = false }) => {
+const FlexibleForm: FC<FlexibleFormProps> = ({ editedFormProps, editFormProps, isEdit = false, className }, props) => {
   return (
-    <div className={classNames('FlexibleForm')}>
+    <div className={classNames(className, 'FlexibleForm')} {...props}>
       {isEdit ? <EditForm {...editFormProps} /> : <EditedForm {...editedFormProps} />}
     </div>
   );

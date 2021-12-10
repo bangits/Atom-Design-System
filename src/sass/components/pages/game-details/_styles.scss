@@ -1,5 +1,9 @@
 @mixin generate-game-details-styles {
   .GameDetailsBase {
+    &__GameTag {
+      cursor: pointer;
+    }
+
     .Empty-Page-Title {
       display: block;
       text-align: center;
@@ -80,7 +84,6 @@
         height: 32px;
         border-radius: 16px;
         font-size: 14px;
-        border: 0;
         cursor: pointer;
         padding: 0;
         margin: 0 10px 0 0;
@@ -158,75 +161,6 @@
       font: normal normal normal 14px/17px Roboto;
       color: #505d6e;
       margin-left: 10px;
-    }
-
-    .GamesList {
-      display: block;
-      padding: 15px 0;
-      &__Header {
-        display: flex;
-        justify-content: space-between;
-      }
-      &__Header-1 {
-        display: flex;
-        justify-content: flex-start;
-      }
-      &__Header-2 {
-        display: flex;
-        justify-content: flex-end;
-      }
-      &__Empty {
-        display: none;
-      }
-      &__Fill {
-        text-decoration: none;
-      }
-      &__Add-Game-Btn {
-        position: relative;
-        top: 0;
-        left: 0;
-        &-Label {
-          position: relative;
-          top: 0;
-          left: 0;
-          display: inline-flex;
-          justify-content: center;
-          align-items: center;
-        }
-        &--Icon {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          width: 12px;
-          height: 12px;
-          background: #fff;
-          color: #3c54b2;
-          font-size: 11px;
-          border-radius: 50%;
-          font-weight: 700;
-          transform: translate(-8px, 0);
-          font-style: normal;
-        }
-      }
-    }
-
-    .GamesContainer {
-      flex-wrap: wrap;
-      width: 100%;
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      grid-template-rows: auto;
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-
-      & > div > div > p {
-        font-size: 16px;
-      }
-
-      & > div > div {
-        width: auto;
-        height: auto;
-      }
     }
   }
 }
