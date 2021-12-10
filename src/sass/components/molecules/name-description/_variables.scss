@@ -22,7 +22,7 @@ $name-description-colors: (
   title-color: color(primary),
   name-color: color(nepal),
   description-color: color(black-color),
-  children-border-color: color(nepal)
+  children-border-color: rgba(color(nepal), 0.1)
 );
 
 @function getNameDescriptionSizes($key) {

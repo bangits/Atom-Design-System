@@ -12,5 +12,9 @@
         margin-bottom: getPartnerDetailsSizes(left-block-all-blocks-margin);
       }
     }
+
+    &--breadCrumb {
+      margin: getPartnerDetailsSizes(breadCrumb-margin);
+    }
   }
 }

@@ -2,12 +2,13 @@ import { Icons } from '@/atom-design-system';
 import { Card, IconButton, Status, StatusProps, Tooltip } from '@my-ui/core';
 import { IconButtonProps } from '@my-ui/core/dist/components/inputs-and-elements/IconButton/IconButton';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './StatusView.module.scss';
 
 export interface StatusInfo extends StatusProps {
   label: string;
   statusLabel: string;
+  noDataText?: ReactNode;
   actions?: {
     iconName?: keyof typeof Icons;
     onClick: IconButtonProps['onClick'];
@@ -23,10 +24,10 @@ export interface StatusViewProps {
 const StatusView: FC<StatusViewProps> = ({ statusInfo }) => {
   return (
     <Card borderRadius={1.6} className={classNames(styles.StatusView)}>
-      <span>{statusInfo.label}</span>
+      <span>{statusInfo.label || statusInfo.noDataText}</span>
       <div className={styles['StatusView--container']}>
         <div className={styles['StatusView--status']}>
-          <Status variant={statusInfo.variant}>{statusInfo.statusLabel}</Status>
+          <Status variant={statusInfo.variant}>{statusInfo.statusLabel || statusInfo.noDataText}</Status>
         </div>
         {statusInfo?.actions?.map((action) => {
           const IconComponent = Icons[action.iconName];
