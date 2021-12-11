@@ -1,0 +1,19 @@
+$game-details-sizes: (
+  content-control-margin: 0 0 0 calculateRem(8px),
+  content-control-width: calculateRem(994px),
+  content-control-padding: 0 0 calculateRem(8px) 0,
+  content-control-tabs: calculateRem(8px) calculateRem(16px) 0 calculateRem(16px),
+  content-control-subTab-padding: calculateRem(24px) calculateRem(16px) 0 calculateRem(16px)
+);
+
+$game-details-colors: (
+  content-control-bg: #fff
+);
+
+@function getGameDetailsSizes($key) {
+  @return map-get($game-details-sizes, $key);
+}
+
+@function getGameDetailsColors($key) {
+  @return map-get($game-details-colors, $key);
+}

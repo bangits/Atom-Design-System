@@ -1,9 +1,6 @@
-import { Button, CopyField } from '@my-ui/core';
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import ProviderDetails from './ProviderDetails';
-import { Countries, LabelGroup, LicenseGroup } from '@/components';
-import CurrencyGroup from '@/components/molecules/currency-group/CurrencyGroup';
 
 export default {
   title: 'components/pages/Provider Details',
@@ -15,9 +12,9 @@ export const Default = () => {
   return (
     <ProviderDetails
       mainDetailsInfo={{
-        imgURL: 'https://novomatic.com/sites/default/files/2017-05/Logo_N-Shortbrand.png',
-        nameLabel: 'Novomatic',
-        idLabel: 'ID1234567'
+        src: 'https://novomatic.com/sites/default/files/2017-05/Logo_N-Shortbrand.png',
+        label: 'Novomatic',
+        id: 'ID1234567'
       }}
       statusInfo={{
         label: 'Status',
@@ -56,93 +53,6 @@ export const Default = () => {
             label: 'Novomatic details'
           }
         ]
-      }}
-      details={{
-        tabs: [
-          {
-            title: 'General Information',
-            value: 1,
-            content: (
-              <div>
-                <LabelGroup>
-                  <Countries />
-                </LabelGroup>
-
-                <LabelGroup>
-                  <Countries />
-                </LabelGroup>
-
-                <LabelGroup>
-                  <Countries />
-                </LabelGroup>
-
-                <LabelGroup>
-                  <CurrencyGroup
-                    currencies={[
-                      {
-                        title: 'YEN',
-                        inactive: true
-                      },
-                      {
-                        title: 'YEN',
-                        inactive: true
-                      },
-                      {
-                        title: 'YEN',
-                        inactive: true
-                      },
-                      {
-                        title: 'YEN',
-                        inactive: true
-                      },
-                      {
-                        title: 'YEN',
-                        inactive: true
-                      },
-                      {
-                        title: 'YEN',
-                        inactive: true
-                      },
-                      {
-                        title: 'YEN',
-                        inactive: true
-                      }
-                    ]}
-                  />
-                </LabelGroup>
-
-                <LabelGroup>
-                  <LicenseGroup
-                    tags={[
-                      {
-                        title: 'Malta License',
-                        inactive: true
-                      },
-                      {
-                        title: 'Malta License',
-                        inactive: true
-                      }
-                    ]}
-                  />
-                </LabelGroup>
-
-                <LabelGroup>
-                  <CopyField />
-                </LabelGroup>
-
-                <LabelGroup>
-                  <CopyField />
-                </LabelGroup>
-              </div>
-            )
-          },
-          {
-            title: 'Games',
-            value: 2,
-            content: <div>Content</div>
-          }
-        ],
-        defaultTabValue: 1
       }}
     />
   );
