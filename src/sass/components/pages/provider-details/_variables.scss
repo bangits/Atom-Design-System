@@ -8,12 +8,77 @@ $providerdetails-sizes: (
   button-content-width: calculateRem(131px),
   license-font-size: calculateRem(16px),
   provider-left-block-margin: calculateRem(8px),
-  status-content-margin-bottom: calculateRem(8px)
+  status-content-margin-bottom: calculateRem(8px),
+  //
+  games-list-add-game-btn-icon-width: calculateRem(12px),
+  games-list-add-game-btn-icon-height: calculateRem(12px),
+  games-list-add-game-btn-icon-font-size: calculateRem(11px),
+  games-list-add-game-btn-icon-font-weight: 700,
+  games-list-add-game-btn-icon-font-style: normal,
+  games-list-add-game-btn-icon-border-radius: 50%,
+  games-list-add-game-btn-icon-transform: translate(-8px, 0),
+  //
+  games-list-padding: calculateRem(15px) calculateRem(15px) calculateRem(15px),
+  games-list-width: 100%,
+  //
+  game-tag-cursor: pointer,
+  //
+  provider-details-bottom-fading-cell-width: 100%,
+  provider-details-bottom-fading-cell-after-display: block,
+  provider-details-bottom-fading-cell-after-content: '',
+  provider-details-bottom-fading-cell-after-position: absolute,
+  provider-details-bottom-fading-cell-after-bottom: 0,
+  provider-details-bottom-fading-cell-after-left: 0,
+  provider-details-bottom-fading-cell-after-z-index: 10,
+  provider-details-bottom-fading-cell-after-width: 100%,
+  provider-details-bottom-fading-cell-after-height: calculateRem(32px),
+  //
+  games-container-width: 100%,
+  games-container-display: grid,
+  games-container-grid-template-columns: repeat(6, 1fr),
+  games-container-grid-template-rows: auto,
+  games-container-grid-column-gap: calculateRem(10px),
+  games-container-grid-row-gap: calculateRem(10px),
+  //
+  tags-cell-padding: calculateRem(7px) 0 calculateRem(18px) 0,
+  tags-cell__svg-margin-right: calculateRem(10px),
+  tags-cell__div-margin-right: calculateRem(10px),
+  //
+  tab-content-box-sizing: border-box,
+  //
+  tab-content-two-col-grid-display: grid,
+  tab-content-two-col-grid-grid-template-columns: repeat(2, 1fr),
+  tab-content-two-col-grid-grid-template-rows: auto,
+  tab-content-two-col-grid-grid-column-gap: calculateRem(10px),
+  tab-content-two-col-grid-grid-row-gap: calculateRem(10px),
+  tab-content-two-col-grid-grid-template-areas: '. .' '. .',
+  //
+  games-container__div__div-first-child-font-size: 0,
+  games-container__div__div-first-child-height: calculateRem(100px),
+  //
+  games-container__div__div-last-child-font-size: 0,
+  games-container__div__div-last-child-height: calculateRem(40px),
+  //
+  games-container__div__div-padding: calculateRem(20px) 0 calculateRem(20px) 0,
+  games-container__div__div-width: auto,
+  games-container__div__div-height: auto,
+  //
+  games-container__div__div__p-font-size: calculateRem(16px),
+  games-container__div__div__p-max-width: calculateRem(130px),
+  //
+  flexible-form-wrapper-box-sizing: border-box,
+  //
 );
 
 $providerdetails-colors: (
   label-color: color(black-color),
-  license-color: color(wild-blue-yonder)
+  license-color: color(wild-blue-yonder),
+  //
+  games-list-add-game-btn-icon-color: color(night-in-manchester),
+  games-list-add-game-btn-icon-bg-color: color(white),
+  //
+  provider-details-bottom-fading-cell-after-bg-color:
+    linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%) //
 );
 
 @function getProviderDetailsSizes($key) {

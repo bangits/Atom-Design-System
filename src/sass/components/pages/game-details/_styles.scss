@@ -163,4 +163,97 @@
       margin-left: 10px;
     }
   }
+
+  .TagsCell {
+    display: flex;
+    padding: 7px 0 18px 0;
+    & > svg,
+    & > div {
+      margin-right: 10px;
+    }
+  }
+
+  .TabContent {
+    display: flex;
+    box-sizing: border-box;
+    &--TwoColGrid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: auto;
+      grid-column-gap: 10px;
+      grid-row-gap: 10px;
+      grid-template-areas: '. .' '. .';
+    }
+    .FlexibleFormWrapper {
+      box-sizing: border-box;
+      & > div,
+      & > div > div {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      &--3 {
+        text-decoration: none;
+        width: 100%;
+        grid-area: 2 / 1 / 3 / 3;
+      }
+    }
+  }
+
+  .CardTitle {
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 17px;
+    font-size: 17px;
+    font-family: 'Roboto';
+    color: #505d6e;
+  }
+
+  .GameDetailsBase {
+    &__GameTag {
+      cursor: pointer;
+    }
+  }
+
+  .CardWrapper {
+    padding-bottom: 10px;
+    position: relative;
+    top: 0;
+    left: 0;
+    & > div {
+      margin-bottom: 0;
+    }
+  }
+
+  .Card__Inner {
+    border-radius: 26px;
+    min-height: 100%;
+    &--Lvl-1 {
+      background: #fff;
+      padding: 16px 24px 24px 24px;
+    }
+    &--Lvl-2 {
+      padding: 16px 16px 0 16px;
+    }
+  }
+
+  .CardSubtitle {
+    display: block;
+    font-family: 'Roboto';
+    font-size: 12px;
+    line-height: 14px;
+    color: #8ea6c1;
+  }
+
+  .CardTitle {
+    font-weight: 500;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    line-height: 17px;
+    font-size: 17px;
+    font-family: inherit;
+    color: #505d6e;
+  }
 }

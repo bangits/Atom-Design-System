@@ -2,6 +2,7 @@
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProviderDetailsSizes(provider-details-margin-top);
+    max-width: 1246px;
   }
   .ProviderDetailsBase--leftBlock {
     margin-right: getProviderDetailsSizes(provider-left-block-margin);
@@ -20,82 +21,58 @@
   }
 
   .GamesList {
-    display: block;
-    padding: 15px 0;
-    width: 100%;
-
+    padding: getProviderDetailsSizes(games-list-padding);
+    width: getProviderDetailsSizes(games-list-width);
     &__Header {
-      display: flex;
-      justify-content: space-between;
+      @include flex(space-between);
     }
     &__Header-1 {
-      display: flex;
-      justify-content: flex-start;
+      @include flex(flex-start);
     }
     &__Header-2 {
-      display: flex;
-      justify-content: flex-end;
+      @include flex(flex-end);
     }
     &__Empty {
       display: none;
     }
-    &__Fill {
-      text-decoration: none;
-    }
     &__Add-Game-Btn {
-      position: relative;
-      top: 0;
-      left: 0;
+      @include p;
       &-Label {
-        position: relative;
-        top: 0;
-        left: 0;
+        @include flex($justify-content: center, $align-items: center);
+        @include p;
         display: inline-flex;
-        justify-content: center;
-        align-items: center;
       }
       &--Icon {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 12px;
-        height: 12px;
-        background: #fff;
-        color: #3c54b2;
-        font-size: 11px;
-        border-radius: 50%;
-        font-weight: 700;
-        transform: translate(-8px, 0);
-        font-style: normal;
+        @include flex($justify-content: center, $align-items: center);
+        width: getProviderDetailsSizes(games-list-add-game-btn-icon-width);
+        height: getProviderDetailsSizes(games-list-add-game-btn-icon-height);
+        background: getProviderDetailsColors(games-list-add-game-btn-icon-bg-color);
+        color: getProviderDetailsColors(games-list-add-game-btn-icon-color);
+        font-size: getProviderDetailsSizes(games-list-add-game-btn-icon-font-size);
+        border-radius: getProviderDetailsSizes(games-list-add-game-btn-icon-border-radius);
+        font-weight: getProviderDetailsSizes(games-list-add-game-btn-icon-font-weight);
+        transform: getProviderDetailsSizes(games-list-add-game-btn-icon-transform);
+        font-style: getProviderDetailsSizes(games-list-add-game-btn-icon-font-style);
       }
     }
   }
 
   .GamesContainer {
-    flex-wrap: wrap;
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(6, 1fr);
-    grid-template-rows: auto;
-    grid-column-gap: 10px;
-    grid-row-gap: 10px;
-
-    @media only screen and (max-width: 1366px) {
-      grid-template-columns: repeat(5, 1fr);
-    }
-
-    @media only screen and (max-width: 1250px) {
-      grid-template-columns: repeat(4, 1fr);
-    }
+    width: getProviderDetailsSizes(games-container-width);
+    display: getProviderDetailsSizes(games-container-display);
+    grid-template-columns: getProviderDetailsSizes(games-container-grid-template-columns);
+    grid-template-rows: getProviderDetailsSizes(games-container-grid-template-rows);
+    grid-column-gap: getProviderDetailsSizes(games-container-grid-column-gap);
+    grid-row-gap: getProviderDetailsSizes(games-container-grid-row-gap);
 
     & > div > div:first-child {
-      font-size: 0;
-      height: 100px !important;
+      font-size: getProviderDetailsSizes(games-container__div__div-first-child-font-size);
+      height: getProviderDetailsSizes(games-container__div__div-first-child-height) !important;
     }
 
     & > div > div:last-child {
-      font-size: 0;
-      height: 40px !important;
+      font-size: getProviderDetailsSizes(games-container__div__div-last-child-font-size);
+      height: getProviderDetailsSizes(games-container__div__div-last-child-height) !important;
     }
 
     & > div > div {
@@ -113,24 +90,26 @@
   }
 
   .TagsCell {
-    display: flex;
-    padding: 7px 0 18px 0;
-    & > svg,
+    @include flex;
+    padding: getProviderDetailsSizes(tags-cell-padding);
+    & > svg {
+      margin-right: getProviderDetailsSizes(tags-cell__svg-margin-right);
+    }
     & > div {
-      margin-right: 10px;
+      margin-right: getProviderDetailsSizes(tags-cell__svg-margin-right);
     }
   }
 
   .TabContent {
-    display: flex;
-    box-sizing: border-box;
+    @include flex;
+    box-sizing: getProviderDetailsSizes(tab-content-box-sizing);
     &--TwoColGrid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      grid-template-rows: auto;
-      grid-column-gap: 10px;
-      grid-row-gap: 10px;
-      grid-template-areas: '. .' '. .';
+      display: getProviderDetailsSizes(tab-content-two-col-grid-display);
+      grid-template-columns: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-columns);
+      grid-template-rows: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-rows);
+      grid-column-gap: getProviderDetailsSizes(tab-content-two-col-grid-grid-column-gap);
+      grid-row-gap: getProviderDetailsSizes(tab-content-two-col-grid-grid-row-gap);
+      grid-template-areas: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-areas);
     }
     .FlexibleFormWrapper {
       box-sizing: border-box;
@@ -147,61 +126,24 @@
     }
   }
 
-  .CardTitle {
-    font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 17px;
-    font-size: 17px;
-    font-family: 'Roboto';
-    color: #505d6e;
-  }
-
-  .GameDetailsBase {
-    &__GameTag {
-      cursor: pointer;
-    }
-  }
-
-  .CardWrapper {
-    padding-bottom: 10px;
-    position: relative;
-    top: 0;
-    left: 0;
-    & > div {
-      margin-bottom: 0;
-    }
-  }
-
-  .Card__Inner {
-    border-radius: 26px;
-    min-height: 100%;
-    &--Lvl-1 {
-      background: #fff;
-      padding: 16px 24px 24px 24px;
-    }
-    &--Lvl-2 {
-      padding: 16px 16px 0 16px;
-    }
-  }
-
-  .CardSubtitle {
+  .ProviderDetails__Bottom-Fading-Cell {
     display: block;
-    font-family: 'Roboto';
-    font-size: 12px;
-    line-height: 14px;
-    color: #8ea6c1;
+    width: getProviderDetailsSizes(provider-details-bottom-fading-cell-width);
+    @include p;
+    &:after {
+      display: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-display);
+      content: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-content);
+      position: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-position);
+      bottom: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-bottom);
+      left: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-left);
+      z-index: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-z-index);
+      width: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-width);
+      height: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-height);
+      background: getProviderDetailsColors(provider-details-bottom-fading-cell-after-bg-color);
+    }
   }
 
-  .CardTitle {
-    font-weight: 500;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    line-height: 17px;
-    font-size: 17px;
-    font-family: 'Roboto';
-    color: #505d6e;
+  .GameDetailsBase__GameTag {
+    cursor: getProviderDetailsSizes(game-tag-cursor);
   }
 }
