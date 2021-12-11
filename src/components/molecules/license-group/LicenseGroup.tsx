@@ -9,7 +9,7 @@ export interface LicenseGroupProps {
 const TagsGroup: FC<LicenseGroupProps> = ({ tags }) => {
   return (
     <div className={styles.LicenseGroupWrapper}>
-      {tags && tags.map((tag) => <Tag {...tag} className={styles.License} />)}
+      {tags && tags.map((tag, idx) => <Tag {...tag} key={idx} className={styles.License} />)}
     </div>
   );
 };
