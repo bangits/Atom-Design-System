@@ -1,19 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './Currency.module.scss';
-import { Typography, Tag } from '@my-ui/core';
+import { Typography, Tag, TagProps } from '@my-ui/core';
 
-const Currency = () => {
+export interface CurrencyProps {
+  currencies: TagProps[];
+}
+
+const CurrencyGroup: FC<CurrencyProps> = ({ currencies }) => {
   return (
     <div className={styles.CurrencyGroupWrapper}>
-      <Tag title='YEN' inactive className={styles.Currency} />
-      <Tag title='YEN' inactive className={styles.Currency} />
-      <Tag title='YEN' inactive className={styles.Currency} />
-      <Tag title='YEN' inactive className={styles.Currency} />
-      <Tag title='YEN' inactive className={styles.Currency} />
-      <Tag title='YEN' inactive className={styles.Currency} />
-      <Tag title='YEN' inactive className={styles.Currency} />
+      {currencies && currencies.map((currency) => <Tag {...currency} className={styles.Currency} />)}
     </div>
   );
 };
 
-export default Currency;
+export default CurrencyGroup;

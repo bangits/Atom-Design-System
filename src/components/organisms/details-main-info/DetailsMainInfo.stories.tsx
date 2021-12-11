@@ -9,5 +9,12 @@ export default {
 };
 
 export const Default = () => {
-  return <DetailsMainInfo />;
+  return (
+    <DetailsMainInfo
+      imgURL='https://novomatic.com/sites/default/files/2017-05/Logo_N-Shortbrand.png'
+      nameLabel='Novomatic'
+      idLabel='ID1234567'
+      noDataText='N/A'
+    />
+  );
 };

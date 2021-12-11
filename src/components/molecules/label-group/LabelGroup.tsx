@@ -2,15 +2,20 @@ import React, { FC } from 'react';
 import styles from './LabelGroup.module.scss';
 import { Typography } from '@my-ui/core';
 
-const LabelGroup: FC = ({ children }) => {
+export interface LabelGroupProps {
+  title?: string;
+  totalLabel?: string;
+}
+
+const LabelGroup: FC<LabelGroupProps> = ({ children, title, totalLabel }) => {
   return (
     <div className={styles.LabelGroupWrapper}>
       <div className={styles.LabelGroupContainer}>
         <Typography component='span' variant='p4' className={styles.FirstLabel}>
-          Total Market
+          {title}
         </Typography>
         <Typography component='span' variant='p4' className={styles.CountriesLabel}>
-          ( 19 Countries )
+          ( {totalLabel} )
         </Typography>
       </div>
       {children}

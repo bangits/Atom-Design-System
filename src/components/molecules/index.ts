@@ -6,3 +6,7 @@ export * from './page-wrapper';
 export * from './password-input';
 export * from './radio-group';
 export * from './select';
+export * from './countries-group';
+export * from './currency-group';
+export * from './license-group';
+export * from './label-group';

@@ -2,13 +2,6 @@
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProviderDetailsSizes(provider-details-margin-top);
-
-    .License {
-      span {
-        color: getProviderDetailsColors(license-color);
-        font-size: getProviderDetailsSizes(license-font-size);
-      }
-    }
   }
   .ProviderDetailsBase--leftBlock {
     margin-right: getProviderDetailsSizes(provider-left-block-margin);
