@@ -1,1 +1,1 @@
-export { default as ProviderDetails } from './ProviderDetails';
+export { default as ProviderDetails, ProviderDetailsProps } from './ProviderDetails';

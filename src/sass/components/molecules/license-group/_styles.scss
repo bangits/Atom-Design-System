@@ -1,0 +1,19 @@
+@mixin generate-licens-group-styles {
+  .LicenseGroupWrapper {
+    @include flex(null, center, $flex-wrap: wrap);
+    width: fit-content;
+    width: -moz-fit-content;
+    min-width: getLicenseSizes(license-wrapper-min-width);
+    height: getLicenseSizes(license-wrapper-height);
+    border-radius: getLicenseSizes(license-wrapper-border-radius);
+    box-sizing: border-box;
+    grid-gap: getLicenseSizes(license-wrapper-margin);
+  }
+
+  .License {
+    span {
+      color: getLicenseColors(license-color);
+      font-size: getLicenseSizes(license-font-size);
+    }
+  }
+}

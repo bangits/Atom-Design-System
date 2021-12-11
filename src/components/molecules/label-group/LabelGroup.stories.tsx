@@ -9,5 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return <LabelGroup />;
+  return <LabelGroup title='Total Market' totalLabel='19 Countries' />;
 };

@@ -14,3 +14,5 @@ export * from './table';
 export * from './tags-view';
 export * from './user-view';
 export * from './wallet-view';
+export * from './details-main-info';
+export * from './count-view';

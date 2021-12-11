@@ -20,7 +20,7 @@
         height: getCheckboxGroupSizes(checkbox-container-sizes);
       }
       .CheckboxLabel {
-        color: #505d6e;
+        color: getCheckboxGroupColors(checkbox-label-color);
         margin: getCheckboxGroupSizes(checkbox-label-margin); //filter-label-chekcbox-margin
         font-size: getCheckboxGroupSizes(checkbox-label-font-size);
         @include dots-after-text();

@@ -1,0 +1,33 @@
+@mixin generate-from-to-input-styles {
+  .FromToInputContainer {
+    width: getFromToInputSizes(from-to-input-container-width);
+    position: relative;
+    @include flex();
+  }
+  .FromInput,
+  .ToInput {
+    width: 100%;
+  }
+
+  .ToInput {
+    &::before {
+      content: '';
+      background-image: svgToDataUrl(
+        '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 5.914 10.414"> <path id="Path_43206" data-name="Path 43206" d="M101,656.5m0,0L96.5,661m4.5-4.5L96.5,652" transform="translate(-95.793 -651.293)" fill="none" stroke="#f00f11" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/> </svg>'
+      );
+      background-repeat: no-repeat;
+      background-size: 100%;
+      width: getFromToInputSizes(to-input-before-width);
+      height: getFromToInputSizes(to-input-before-height);
+      display: block;
+      position: absolute;
+      top: getFromToInputSizes(to-input-before-position-top);
+      left: getFromToInputSizes(to-input-before-position-left);
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .FromInput {
+    margin-right: getFromToInputSizes(form-input-margin-right);
+  }
+}

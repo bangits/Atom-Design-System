@@ -1,0 +1,17 @@
+$from-to-input-sizes: (
+  from-to-input-container-width: calculateRem(475px),
+  to-input-before-width: calculateRem(4.5px),
+  to-input-before-height: calculateRem(9px),
+  to-input-before-position-top: calculateRem(25px),
+  to-input-before-position-left: 50%,
+  form-input-margin-right: calculateRem(16px)
+);
+$from-to-input-colors: ();
+
+@function getFromToInputSizes($key) {
+  @return map-get($from-to-input-sizes, $key);
+}
+
+@function getFromToInputColors($key) {
+  @return map-get($from-to-input-colors, $key);
+}
