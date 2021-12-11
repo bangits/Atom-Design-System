@@ -1,1 +1,1 @@
-export { default as Currency, CurrencyProps } from './CurrencyGroup';
+export { default as CurrencyGroup, CurrencyGroupProps } from './CurrencyGroup';

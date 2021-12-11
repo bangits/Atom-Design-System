@@ -2,11 +2,11 @@ import React, { FC } from 'react';
 import styles from './Currency.module.scss';
 import { Typography, Tag, TagProps } from '@my-ui/core';
 
-export interface CurrencyProps {
+export interface CurrencyGroupProps {
   currencies: TagProps[];
 }
 
-const CurrencyGroup: FC<CurrencyProps> = ({ currencies }) => {
+const CurrencyGroup: FC<CurrencyGroupProps> = ({ currencies }) => {
   return (
     <div className={styles.CurrencyGroupWrapper}>
       {currencies && currencies.map((currency, idx) => <Tag {...currency} key={idx} className={styles.Currency} />)}
