@@ -1,7 +1,7 @@
 @mixin generate-item-details-styles {
   .ItemDetailsBase {
-    max-width: getItemDetailsSizes(base-min-width);
-    min-width: getItemDetailsSizes(base-min-width);
+    max-width: getItemDetailsSizes(base-max-width);
+    min-width: 100%;
     background-color: getItemDetailsColors(base-bg);
     padding: getItemDetailsSizes(base-padding);
     box-sizing: border-box;
