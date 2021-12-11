@@ -1,5 +1,5 @@
 import { FromToValues } from '@/components';
-import { CheckboxProps, DatepickerProps, SelectProps, TextInputProps } from '@my-ui/core';
+import { CheckboxProps, DatepickerProps, DateTimePickerProps, SelectProps, TextInputProps } from '@my-ui/core';
 import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
 
 export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown' | 'from-to' | 'datepicker';
@@ -54,6 +54,16 @@ export type FilterProp<T> = {
   | {
       type: 'datepicker';
       props: Partial<DatepickerProps>;
+    }
+  | {
+      type: 'timepicker';
+      props: Partial<DateTimePickerProps>;
+    }
+  | {
+      type: 'timepicker-from-to';
+      props: Partial<DateTimePickerProps>;
+      fromTimePickerProps: Partial<DateTimePickerProps>;
+      toTimePickerProps: Partial<DateTimePickerProps>;
     }
   | {
       type: 'custom';

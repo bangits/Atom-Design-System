@@ -1,8 +1,9 @@
 $from-to-timepicker-sizes: (
-  currency-wrapper-min-width: calculateRem(32px),
-  currency-wrapper-height: calculateRem(32px),
-  currency-wrapper-border-radius: 16px,
-  currency-wrapper-margin: calculateRem(8px)
+  from-to-picker-container: calculateRem(475px),
+  from-to-picker-icon-width: calculateRem(4.5px),
+  from-to-picker-icon-height: calculateRem(9px),
+  from-to-picker-icon-top: calculateRem(25px),
+  from-to-picker-input-offset: calculateRem(16px)
 );
 
 @function getFromToTimepickerSizes($key) {

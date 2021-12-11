@@ -25,7 +25,9 @@ export const Default = () => {
         platform: [],
         landscape: [],
         portrait: [],
-        status: []
+        status: [],
+        'timepicker-from-to': [null, null],
+        timepicker: null
       })}
       filters={object('filters', [
         {
@@ -85,6 +87,24 @@ export const Default = () => {
             withDropdowns: true,
             selectsRange: true,
             monthsShown: 2
+          }
+        },
+        {
+          type: 'timepicker',
+          label: 'Datetimepicker',
+          name: 'timepicker',
+          props: {}
+        },
+        {
+          type: 'timepicker-from-to',
+          label: 'Datetimepicker from to',
+          name: 'timepicker-from-to',
+          props: {},
+          fromTimePickerProps: {
+            placeholderText: 'Datetimepicker'
+          },
+          toTimePickerProps: {
+            placeholderText: 'Datetimepicker'
           }
         },
         {

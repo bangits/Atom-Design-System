@@ -1,6 +1,6 @@
-import { FilterValueType, FromToInput, RadioGroup } from '@/components';
+import { FilterValueType, FromToInput, FromToTimePicker, RadioGroup } from '@/components';
 import { typedMemo } from '@/helpers';
-import { DatePicker, Select, TextInput } from '@my-ui/core';
+import { DatePicker, DateTimePicker, Select, TextInput } from '@my-ui/core';
 import classNames from 'classnames';
 import { ReactNode } from 'react';
 import styles from './Filters.module.scss';
@@ -91,9 +91,30 @@ const Filter = <T,>({ filter, value, onFilterChange, filterValues }: FilterProps
         <DatePicker
           {...filter.props}
           {...(filter.props.selectsRange
-            ? { startDate: value[0] as Date, endDate: value[1] as Date }
+            ? { startDate: (value[0] || null) as Date, endDate: (value[1] || null) as Date }
             : { selected: value as Date })}
           placeholderText={filter.label}
+          onChange={(updatedDate) => onFilterChange(filter.name, updatedDate)}
+        />
+      );
+      break;
+    case 'timepicker':
+      filterComponent = (
+        <DateTimePicker
+          {...filter.props}
+          placeholderText={filter.label}
+          onChange={(updatedDate) => onFilterChange(filter.name, updatedDate)}
+          selected={value as Date}
+        />
+      );
+      break;
+    case 'timepicker-from-to':
+      filterComponent = (
+        <FromToTimePicker
+          {...filter.props}
+          selected={value as [Date, Date]}
+          toPickerProps={filter.toTimePickerProps}
+          fromPickerProps={filter.fromTimePickerProps}
           onChange={(updatedDate) => onFilterChange(filter.name, updatedDate)}
         />
       );
@@ -105,7 +126,7 @@ const Filter = <T,>({ filter, value, onFilterChange, filterValues }: FilterProps
   return (
     <div
       className={classNames(styles.FilterContainer, {
-        [styles.FilterContainerFromTo]: filter.type === 'from-to'
+        [styles.FilterContainerFromTo]: filter.type === 'from-to' || filter.type === 'timepicker-from-to'
       })}
       key={filter.name}>
       {filterComponent}
