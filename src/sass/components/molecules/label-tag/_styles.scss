@@ -1,0 +1,17 @@
+@mixin generate-label-tag-styles {
+  .LabelTagBase {
+    @include flex(null, center);
+
+    &--label {
+      color: getLabelTagColors(label-color);
+      margin: getLabelTagSizes(label-margin);
+    }
+
+    &--tag {
+      > span {
+        color: getLabelTagColors(tag-color) !important;
+        font-weight: 500;
+      }
+    }
+  }
+}

@@ -9,7 +9,8 @@ export interface CurrencyGroupProps {
 const CurrencyGroup: FC<CurrencyGroupProps> = ({ currencies }) => {
   return (
     <div className={styles.CurrencyGroupWrapper}>
-      {currencies && currencies.map((currency, idx) => <Tag {...currency} key={idx} className={styles.Currency} />)}
+      {currencies &&
+        currencies.map((currency, idx) => <Tag {...currency} inactive key={idx} className={styles.Currency} />)}
     </div>
   );
 };
