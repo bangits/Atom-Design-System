@@ -19,12 +19,7 @@ import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import styles from './PlayerDetails.module.scss';
 
-export interface PlayerDetailsProps
-  extends UserViewProps,
-    WalletViewProps,
-    StatusViewProps,
-    LastActivityViewProps,
-    FlexibleFormProps {
+export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, LastActivityViewProps, FlexibleFormProps {
   breadCrumb?: BreadcrumbProps;
   tabs?: {
     tab?: TabProps & {
@@ -37,6 +32,7 @@ export interface PlayerDetailsProps
       whichSub: number;
     };
   };
+  statusInfo: StatusViewProps;
 }
 
 const PlayerDetails: FC<PlayerDetailsProps> = ({
@@ -64,7 +60,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
 
           <WalletView walletInfo={walletInfo} />
 
-          <StatusView statusInfo={statusInfo} />
+          <StatusView {...statusInfo} />
 
           <LastActivityView lastActivity={lastActivity} />
 

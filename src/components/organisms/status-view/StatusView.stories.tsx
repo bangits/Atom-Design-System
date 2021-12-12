@@ -11,20 +11,18 @@ export default {
 export const Default = () => {
   return (
     <StatusView
-      statusInfo={{
-        label: 'Status',
-        variant: 'active',
-        statusLabel: 'Validated',
-        actions: [
-          {
-            onClick: () => {
-              console.log;
-            },
-            buttonVariant: 'dark',
-            iconName: 'ClearIcon'
-          }
-        ]
-      }}
+      label='Status'
+      variant='active'
+      statusLabel='Validated'
+      actions={[
+        {
+          onClick: () => {
+            console.log;
+          },
+          buttonVariant: 'dark',
+          iconName: 'ClearIcon'
+        }
+      ]}
     />
   );
 };

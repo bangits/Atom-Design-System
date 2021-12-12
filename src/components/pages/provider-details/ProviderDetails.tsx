@@ -16,11 +16,12 @@ import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './ProviderDetails.module.scss';
 
-export interface ProviderDetailsProps extends StatusViewProps {
+export interface ProviderDetailsProps {
   mainDetailsInfo?: DetailsMainInfoProps;
   countViewInfo?: CountViewProps;
   creationInfo?: NameDescriptionProps;
   breadCrumb?: BreadcrumbProps;
+  statusInfo: StatusViewProps;
 }
 
 const ProviderDetails: FC<ProviderDetailsProps> = ({
@@ -40,7 +41,7 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
           <CountView {...countViewInfo} />
 
           <div className={styles.StatusContent}>
-            <StatusView statusInfo={statusInfo} />
+            <StatusView {...statusInfo} />
           </div>
           <NameDescription {...creationInfo} />
         </div>

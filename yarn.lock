@@ -3,9 +3,9 @@
 
 
 "@atom/common@^2.3.4":
-  version "2.4.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.4.3.tgz#e77be02a69f7f7986f66dd33648f14fbef02e79d"
-  integrity sha1-53vgKmn395hvZt0zZI8U++8C550=
+  version "2.4.5"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.4.5.tgz#bb9c15bdd5039caa3af5dd7d22a37a44a783f7ac"
+  integrity sha1-u5wVvdUDnKo69d19IqN6RKeD96w=
   dependencies:
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
@@ -1519,24 +1519,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-"@my-ui/core@^2.23.16":
-  version "2.23.16"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.23.16.tgz#c86847e69335efbf4695f2c85e527306a811a980"
-  integrity sha1-yGhH5pM1779GlfLIXlJzBqgRqYA=
-=======
-"@my-ui/core@^2.23.9":
-  version "2.23.9"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.23.9.tgz#29d5ae7594caf484248beab56f76ab35ece598ca"
-  integrity sha1-KdWudZTK9IQki+q1b3arNezlmMo=
->>>>>>> b779a62e98920c2c0e7f6a7d20f3432a6ffe11c1
-=======
-"@my-ui/core@^2.22.10":
-  version "2.22.10"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.22.10.tgz#07129dcbbde957fbed11fd8ca8c92b3d75c19af7"
-  integrity sha1-BxKdy73pV/vtEf2MqMkrPXXBmvc=
->>>>>>> f3a9cd448facbae63865c5955b3d1f697983aef6
+"@my-ui/core@^2.23.17":
+  version "2.23.17"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.23.17.tgz#b9de2bf6e7556f86c4ffefd95b31c4f549a85719"
+  integrity sha1-ud4r9udVb4bE/+/ZWzHE9UmoVxk=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
@@ -6040,15 +6026,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.896:
-<<<<<<< HEAD
   version "1.4.16"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.16.tgz#38ddecc616385e6f101359d1b978c802664157d2"
   integrity sha1-ON3sxhY4Xm8QE1nRuXjIAmZBV9I=
-=======
-  version "1.4.13"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.13.tgz#6b8a21a71c6f30b4a4def54d3afe94e0ddbc58b3"
-  integrity sha1-a4ohpxxvMLSk3vVNOv6U4N28WLM=
->>>>>>> f3a9cd448facbae63865c5955b3d1f697983aef6
 
 element-resize-detector@^1.2.2:
   version "1.2.3"
@@ -11371,9 +11351,9 @@ react-display-name@^0.2.4:
   integrity sha1-MEx8v7We5AOJ1DbhqCLBf+J5NsY=
 
 react-docgen-typescript@^2.0.0, react-docgen-typescript@^2.1.0:
-  version "2.2.1"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-docgen-typescript/-/react-docgen-typescript-2.2.1.tgz#608ef48bd54661c2e59cc094ce5726c9e9636e30"
-  integrity sha1-YI70i9VGYcLlnMCUzlcmyeljbjA=
+  version "2.2.2"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-docgen-typescript/-/react-docgen-typescript-2.2.2.tgz#4611055e569edc071204aadb20e1c93e1ab1659c"
+  integrity sha1-RhEFXlae3AcSBKrbIOHJPhqxZZw=
 
 react-docgen@^5.0.0:
   version "5.4.0"
@@ -13016,9 +12996,9 @@ style-to-object@0.3.0, style-to-object@^0.3.0:
     inline-style-parser "0.1.1"
 
 stylis@^4.0.10:
-  version "4.0.12"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/stylis/-/stylis-4.0.12.tgz#cad79b30964de9a7e3ca92687a0e73718cbf0e17"
-  integrity sha1-ytebMJZN6afjypJoeg5zcYy/Dhc=
+  version "4.0.13"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/stylis/-/stylis-4.0.13.tgz#f5db332e376d13cc84ecfe5dace9a2a51d954c91"
+  integrity sha1-9dszLjdtE8yE7P5drOmipR2VTJE=
 
 supports-color@^2.0.0:
   version "2.0.0"

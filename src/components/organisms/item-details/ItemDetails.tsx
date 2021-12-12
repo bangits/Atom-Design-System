@@ -11,7 +11,7 @@ export interface ItemDetailsProps {
     subTabs?: {
       title: string;
       value: number;
-      badgeCount: number;
+      badgeCount?: number;
       content: ReactNode;
     }[];
   }[];

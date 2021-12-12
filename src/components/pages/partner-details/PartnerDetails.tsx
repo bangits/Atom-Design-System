@@ -1,64 +1,120 @@
-import {
-  ItemDetails,
-  ItemDetailsProps,
-  NameDescription,
-  NameDescriptionProps,
-  StatusView,
-  StatusViewProps
-} from '@/components';
-import { Breadcrumb, Status, StatusProps } from '@my-ui/core';
-import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
-import React, { FC } from 'react';
+import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
+import { Breadcrumb, BreadcrumbProps, Status, StatusProps } from '@my-ui/core';
+import React, { FC, ReactNode } from 'react';
 import styles from './PartnerDetails.module.scss';
-export interface PartnerDetailsProps extends StatusViewProps {
+export interface PartnerDetailsProps {
   noDataText?: string;
-  parentCompany: NameDescriptionProps;
-  breadCrumbProps: BreadcrumbProps;
-  itemDetailsProps: ItemDetailsProps;
-  docInfo: Omit<NameDescriptionProps, 'children'> & {
-    status?: {
-      statusVariant?: StatusProps['variant'];
-      statusName?: string;
-      statusLabel?: string;
-    };
+  breadCrumbs: BreadcrumbProps['links'];
+
+  parentCompany: string;
+  parentCompanyId: number | string;
+
+  statusInfo: Omit<StatusViewProps, 'label'>;
+
+  translations: {
+    parentCompany: string;
+    parentCompanyId: string;
+    status: string;
+    expirationDate: string;
+    type: string;
+    documentID: string;
+    providerInformation: string;
+    mainInformation: string;
+    organizationData: string;
   };
+
+  docInfo: {
+    documentID: string | number;
+    type: string;
+    expirationDate: string;
+    statusLabel: string;
+    statusVariant: StatusProps['variant'];
+  };
+
+  organizationDataMainInformationForms: ReactNode;
 }
 
 const PartnerDetails: FC<PartnerDetailsProps> = ({
-  parentCompany,
-  breadCrumbProps,
-  itemDetailsProps,
+  breadCrumbs,
   docInfo,
   noDataText = 'N/A',
-  ...props
+  parentCompanyId,
+  parentCompany,
+  translations,
+  statusInfo,
+  organizationDataMainInformationForms
 }) => {
   return (
     <div className={styles.PartnerDetailsBase}>
       <div className={styles['PartnerDetailsBase--breadCrumb']}>
-        <Breadcrumb links={breadCrumbProps.links} />
+        <Breadcrumb links={breadCrumbs} />
       </div>
       <div className={styles['PartnerDetailsBase--container']}>
         <div className={styles['PartnerDetailsBase--leftBlock']}>
           <NameDescription
-            {...parentCompany}
-            data={parentCompany.data}
-            title={parentCompany.title}
-            children={parentCompany.children}
+            data={[
+              {
+                name: translations.parentCompany,
+                description: parentCompany
+              },
+              {
+                name: translations.parentCompanyId,
+                description: parentCompanyId
+              }
+            ]}
+            noDataText={noDataText}
           />
-          <StatusView statusInfo={props.statusInfo} />
-          <NameDescription {...docInfo} data={docInfo.data} title={docInfo.title}>
-            {docInfo.status && (
-              <>
-                <span>{docInfo.status.statusName}</span>
-                <Status variant={docInfo.status.statusVariant}>{docInfo.status.statusLabel}</Status>
-              </>
-            )}
+          <StatusView {...statusInfo} label={translations.status} />
+
+          <NameDescription
+            data={[
+              {
+                name: translations.documentID,
+                description: docInfo.documentID
+              },
+              {
+                name: translations.type,
+                description: docInfo.type
+              },
+              {
+                name: translations.expirationDate,
+                description: docInfo.expirationDate
+              }
+            ]}
+            noDataText={noDataText}>
+            <span>{translations.status}</span>
+            <Status variant={docInfo.statusVariant}>{docInfo.statusLabel}</Status>
           </NameDescription>
         </div>
         <ItemDetails
-          tabs={itemDetailsProps.tabs}
-          defaultSubTabValue={itemDetailsProps?.defaultSubTabValue}
-          defaultTabValue={itemDetailsProps?.defaultTabValue}
+          tabs={[
+            {
+              title: translations.organizationData,
+              value: 1,
+              subTabs: [
+                {
+                  title: translations.mainInformation,
+                  value: 1,
+                  content: <>{organizationDataMainInformationForms}</>
+                },
+                {
+                  title: translations.providerInformation,
+                  value: 2,
+                  content: <></>
+                }
+              ]
+            },
+            {
+              title: 'Projects',
+              value: 2
+            },
+            {
+              title: 'Documents',
+              value: 3
+            }
+          ]}
+          defaultTabValue={1}
+          defaultSubTabValue={1}
         />
       </div>
     </div>

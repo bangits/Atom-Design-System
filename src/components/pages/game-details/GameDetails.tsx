@@ -72,17 +72,15 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
 
           <div className={classNames(styles['CardWrapper'], 'CardWrapper')}>
             <StatusView
-              statusInfo={{
-                label: 'Status',
-                statusLabel: 'Active',
-                actions: [
-                  {
-                    iconName: 'LogOutIcon',
-                    onClick: () => {},
-                    tooltipText: 'Terminate'
-                  }
-                ]
-              }}
+              label='Status'
+              statusLabel='Active'
+              actions={[
+                {
+                  iconName: 'LogOutIcon',
+                  onClick: () => {},
+                  tooltipText: 'Terminate'
+                }
+              ]}
             />
           </div>
 
