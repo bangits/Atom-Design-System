@@ -198,6 +198,7 @@ export const Default = () => {
           />
         </>
       }
+      organizationDataProviderInformation={<></>}
     />
   );
 };

@@ -32,6 +32,7 @@ export interface PartnerDetailsProps {
   };
 
   organizationDataMainInformationForms: ReactNode;
+  organizationDataProviderInformation: ReactNode;
 }
 
 const PartnerDetails: FC<PartnerDetailsProps> = ({
@@ -42,7 +43,8 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
   parentCompany,
   translations,
   statusInfo,
-  organizationDataMainInformationForms
+  organizationDataMainInformationForms,
+  organizationDataProviderInformation
 }) => {
   return (
     <div className={styles.PartnerDetailsBase}>
@@ -100,7 +102,7 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
                 {
                   title: translations.providerInformation,
                   value: 2,
-                  content: <></>
+                  content: <>{organizationDataProviderInformation}</>
                 }
               ]
             },

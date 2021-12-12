@@ -1,7 +1,10 @@
 import {
-  CountViewProps,
+  Countries,
+  CurrencyGroup,
   DetailsMainInfoProps,
   ItemDetails,
+  LabelGroup,
+  LicenseGroup,
   NameDescription,
   NameDescriptionProps,
   StatusView,
@@ -10,77 +13,110 @@ import {
 import CountView from '@/components/organisms/count-view/CountView';
 import DetailsMainInfo from '@/components/organisms/details-main-info/DetailsMainInfo';
 import { EmptyGameListIcon } from '@/icons';
-import { Breadcrumb, Button, CardImg, Tag, TextInput } from '@my-ui/core';
+import { Breadcrumb, Button, CardImg, CopyField, Tag, TextInput } from '@my-ui/core';
 import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './ProviderDetails.module.scss';
 
 export interface ProviderDetailsProps {
+  noDataText?: string;
+  breadCrumb?: BreadcrumbProps['links'];
+
   mainDetailsInfo?: DetailsMainInfoProps;
-  countViewInfo?: CountViewProps;
-  creationInfo?: NameDescriptionProps;
-  breadCrumb?: BreadcrumbProps;
   statusInfo: StatusViewProps;
+
+  translations: {
+    totalGameCount: string;
+    status: string;
+    creationDate: string;
+    createdBy: string;
+    generalInformation: string;
+    games: string;
+    editButton: string;
+  };
+
+  totalGameCount: string;
+  creationDate: string;
+  createdBy: string;
+  generalInformationContext: ReactNode;
 }
 
 const ProviderDetails: FC<ProviderDetailsProps> = ({
   statusInfo,
   mainDetailsInfo,
-  countViewInfo,
-  creationInfo,
-  breadCrumb
+  totalGameCount,
+  breadCrumb,
+  noDataText = 'N/A',
+  translations,
+  creationDate,
+  createdBy,
+  generalInformationContext
 }) => {
   return (
     <div className={styles.ProviderDetailsBase}>
-      <Breadcrumb {...breadCrumb} />
+      <Breadcrumb links={breadCrumb} />
       <div className={styles['ProviderDetailsBase--container']}>
         <div className={styles['ProviderDetailsBase--leftBlock']}>
-          <DetailsMainInfo {...mainDetailsInfo} />
+          <DetailsMainInfo {...mainDetailsInfo} noDataText={noDataText} />
 
-          <CountView {...countViewInfo} />
+          <CountView noDataText={noDataText} title={translations.totalGameCount} count={totalGameCount} />
 
           <div className={styles.StatusContent}>
-            <StatusView {...statusInfo} />
+            <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
           </div>
-          <NameDescription {...creationInfo} />
+          <NameDescription
+            noDataText={noDataText}
+            data={[
+              {
+                name: translations.creationDate,
+                description: creationDate
+              },
+              {
+                name: translations.createdBy,
+                description: createdBy
+              }
+            ]}
+          />
         </div>
         <div
           className={classNames(styles['ProviderDetails__Bottom-Fading-Cell'], 'ProviderDetails__Bottom-Fading-Cell')}>
           <ItemDetails
             tabs={[
               {
-                title: 'General Information',
-                value: 2,
+                title: translations.generalInformation,
+                value: 1,
                 content: (
                   <div>
-                    {/* <LabelGroup>
-                    <Countries />
-                  </LabelGroup>
+                    {generalInformationContext}
+                    {/*   <LabelGroup>
+                      <Countries />
+                    </LabelGroup>
 
-                  <LabelGroup>
-                    <Countries />
-                  </LabelGroup>
+                    <LabelGroup>
+                      <Countries />
+                    </LabelGroup>
 
-                  <LabelGroup>
-                    <Countries />
-                  </LabelGroup>
+                    <LabelGroup>
+                      <Countries />
+                    </LabelGroup>
 
-                  <LabelGroup>
-                    <CurrencyGroup />
-                  </LabelGroup>
+                    <LabelGroup>
+                      <CurrencyGroup />
+                    </LabelGroup>
 
-                  <LabelGroup>
-                    <Tag title='Malta License' className={styles.License} inactive />
-                  </LabelGroup>
+                    <LabelGroup>
+                      <LicenseGroup />
+                      <Tag title='Malta License' className={styles.License} inactive />
+                    </LabelGroup>
 
-                  <LabelGroup>
-                    <CopyField />
-                  </LabelGroup>
+                    <LabelGroup>
+                      <CopyField />
+                    </LabelGroup>
 
-                  <LabelGroup>
-                    <CopyField />
-                  </LabelGroup> */}
+                    <LabelGroup>
+                      <CopyField />
+                    </LabelGroup> */}
 
                     <div className={styles.ButtonContent}>
                       <Button
@@ -114,15 +150,15 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
                             </g>
                           </svg>
                         }>
-                        Edit
+                        {translations.editButton}
                       </Button>
                     </div>
                   </div>
                 )
               },
               {
-                title: 'Games',
-                value: 1,
+                title: translations.games,
+                value: 2,
                 content: (
                   <div className={classNames(styles['GamesList'], 'GamesList')}>
                     {/* == START EMPTY GAMES LIST== */}
