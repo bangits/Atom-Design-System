@@ -57,10 +57,11 @@
       & > div {
         margin-bottom: getGameDetailsSizes(card-wrapper__div-margin-bottom);
       }
-      & > div > div,
-      & > div > span,
-      & > div > div > div {
-        height: auto !important;
+
+      &--Change-Update {
+        & > div > div > span {
+          font-size: getGameDetailsSizes(card-wrapper-change-update__div__div__span-font-size);
+        }
       }
     }
 

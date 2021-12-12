@@ -54,7 +54,13 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
             />
           </div>
 
-          <div className={classNames(styles['CardWrapper'], 'CardWrapper')}>
+          <div
+            className={classNames(
+              styles['CardWrapper'],
+              styles['CardWrapper--Change-Update'],
+              'CardWrapper',
+              'CardWrapper--Change-Update'
+            )}>
             <NameDescription data={docInfo.data} title={docInfo.title}></NameDescription>
           </div>
           <div className={classNames(styles['EmptyWrapper'], 'EmptyWrapper')}>
