@@ -309,7 +309,8 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
                         <CardImg
                           title={'Color Champion'}
                           image={
-                            'https://static.casino.guru/pict/50483/Color-Champion.jpg?timestamp=1597795200000&imageDataId=17845&width=320'
+                            ''
+                            // https://static.casino.guru/pict/50483/Color-Champion.jpg?timestamp=1597795200000&imageDataId=17845&width=320
                           }
                         />
                         <CardImg
