@@ -7,44 +7,40 @@
     .Empty-Page-Title {
       display: block;
       text-align: center;
-      width: 100%;
-      font-size: 16px;
-      line-height: 19px;
-      font-family: 'Roboto';
-      letter-spacing: 0.32px;
-      color: #8ea6c1;
-      font-weight: 400;
-      opacity: 0.5;
+      width: getGameDetailsSizes(empty-page-title-width);
+      font-size: getGameDetailsSizes(empty-page-title-font-size);
+      line-height: getGameDetailsSizes(empty-page-title-line-height);
+      font-family: inherit;
+      letter-spacing: getGameDetailsSizes(empty-page-title-letter-spacing);
+      font-weight: getGameDetailsSizes(empty-page-title-font-weight);
+      opacity: getGameDetailsSizes(empty-page-title-opacity);
+      color: getGameDetailsColors(empty-page-title-color);
     }
 
     .Empty-Page-Cell {
-      display: flex;
-      min-height: 400px;
-      justify-content: center;
-      align-items: center;
-      flex-wrap: wrap;
+      @include flex(center, center, null, wrap);
+      min-height: getGameDetailsSizes(empty-page-cell-min-height);
     }
     .FlexList {
-      display: flex;
+      @include flex;
       &__Item {
-        padding-right: 20px;
+        padding-right: getGameDetailsSizes(flex-list-Item-padding-right);
       }
     }
 
     .MainCarcass {
-      max-width: 1246px;
-      display: flex;
-      flex-wrap: nowrap;
+      @include flex($flex-wrap: nowrap);
+      max-width: getGameDetailsSizes(main-carcass-max-width);
       &__Sidebar {
-        width: 300px;
+        width: getGameDetailsSizes(main-carcass-sidebar-width);
       }
       &__Content {
         width: 100%;
-        padding-left: 10px;
+        padding-left: getGameDetailsSizes(main-carcass-content-padding-left);
       }
     }
     .Empty-Page-Icon-Cell {
-      max-width: 504px;
+      max-width: getGameDetailsSizes(empty-page-icon-cell-max-width);
       & > svg {
         width: 100% !important;
         height: auto !important;
@@ -52,115 +48,131 @@
     }
     .BreadCrumbWrapper {
       display: block;
-      padding-bottom: 10px;
+      padding-bottom: getGameDetailsSizes(bread-crumb-wrapper-padding-bottom);
     }
 
     .CardWrapper {
-      padding-bottom: 10px;
-      position: relative;
-      top: 0;
-      left: 0;
+      @include p;
+      padding-bottom: getGameDetailsSizes(card-wrapper-padding-bottom);
       & > div {
-        margin-bottom: 0;
+        margin-bottom: getGameDetailsSizes(card-wrapper__div-margin-bottom);
       }
-    }
 
-    .Card__Inner {
-      border-radius: 26px;
-      min-height: 100%;
-      &--Lvl-1 {
-        background: #fff;
-        padding: 16px 24px 24px 24px;
-      }
-      &--Lvl-2 {
-        padding: 16px 16px 0 16px;
+      &--Change-Update {
+        & > div > div > span {
+          font-size: getGameDetailsSizes(card-wrapper-change-update__div__div__span-font-size);
+        }
       }
     }
 
     .EmptyWrapper {
-      display: flex;
+      @include flex;
       button {
-        width: 100%;
-        height: 32px;
-        border-radius: 16px;
-        font-size: 14px;
+        width: getGameDetailsSizes(empty-wrapper__button-width);
+        height: getGameDetailsSizes(empty-wrapper__button-height);
+        border-radius: getGameDetailsSizes(empty-wrapper__button-border-radius);
+        font-size: getGameDetailsSizes(empty-wrapper__button-font-size);
+        padding: getGameDetailsSizes(empty-wrapper__button-padding);
+        margin: getGameDetailsSizes(empty-wrapper__button-margin);
+
         cursor: pointer;
-        padding: 0;
-        margin: 0 10px 0 0;
         &:last-child {
           margin: 0 10px 0 0;
         }
       }
     }
 
-    .CardSubtitle {
-      display: block;
-      font-family: 'Roboto';
-      font-size: 12px;
-      line-height: 14px;
-      color: #8ea6c1;
-    }
-
-    .TagsCell {
-      display: flex;
-      padding: 7px 0 18px 0;
-      & > svg,
-      & > div {
-        margin-right: 10px;
-      }
-    }
-
-    .TabContent {
-      display: flex;
-      box-sizing: border-box;
-      &--TwoColGrid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
-        grid-column-gap: 10px;
-        grid-row-gap: 10px;
-        grid-template-areas: '. .' '. .';
-      }
-      .FlexibleFormWrapper {
-        box-sizing: border-box;
-        & > div,
-        & > div > div {
-          width: 100%;
-          box-sizing: border-box;
-        }
-        &--3 {
-          text-decoration: none;
-          width: 100%;
-          grid-area: 2 / 1 / 3 / 3;
-        }
-      }
-    }
-
-    .CardTitle {
-      font-weight: 500;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      line-height: 17px;
-      font-size: 17px;
-      font-family: 'Roboto';
-      color: #505d6e;
-    }
-
     .Device-Tag {
       display: inline-flex;
-      padding: 3px 16px 7px 0;
-      border-radius: 6px;
+      padding: getGameDetailsSizes(device-tag-padding);
+      border-radius: getGameDetailsSizes(device-tag-border-radius);
       cursor: default;
       svg {
-        fill: #505d6e;
+        fill: getGameDetailsColors(device-tag-svg-fill);
       }
     }
 
     .Device-Tag-Label {
-      font: normal normal normal 14px/17px Roboto;
-      color: #505d6e;
-      margin-left: 10px;
+      font-family: inherit;
+      font-size: getGameDetailsSizes(device-tag-label-font-size);
+      line-height: getGameDetailsSizes(device-tag-label-line-height);
+      margin-left: getGameDetailsSizes(device-tag-label-margin-left);
+      color: getGameDetailsColors(device-tag-label-color);
     }
+  }
+
+  .TagsCell {
+    @include flex;
+    padding: getGameDetailsSizes(tags-cell-padding);
+    & > svg {
+      margin-right: getGameDetailsSizes(tags-cell__svg-margin-right);
+    }
+    & > div {
+      margin-right: getGameDetailsSizes(tags-cell__div-margin-right);
+    }
+  }
+
+  .TabContent {
+    @include flex;
+    box-sizing: getGameDetailsSizes(tab-content-box-sizing);
+
+    &--TwoColGrid {
+      display: getGameDetailsSizes(tab-content-two-col-grid-display);
+      grid-template-columns: getGameDetailsSizes(tab-content-two-col-grid-grid-template-columns);
+      grid-template-rows: getGameDetailsSizes(tab-content-two-col-grid-grid-template-rows);
+      grid-column-gap: getGameDetailsSizes(tab-content-two-col-grid-grid-column-gap);
+      grid-row-gap: getGameDetailsSizes(tab-content-two-col-grid-grid-row-gap);
+      grid-template-areas: getGameDetailsSizes(tab-content-two-col-grid-grid-template-areas);
+    }
+    .FlexibleFormWrapper {
+      box-sizing: border-box;
+      & > div,
+      & > div > div {
+        width: 100%;
+        box-sizing: border-box;
+      }
+      &--3 {
+        text-decoration: none;
+        width: 100%;
+        grid-area: 2 / 1 / 3 / 3;
+      }
+    }
+  }
+
+  .GameDetailsBase {
+    &__GameTag {
+      cursor: pointer;
+    }
+  }
+
+  .Card__Inner {
+    border-radius: getGameDetailsSizes(card-inner-border-radius);
+    min-height: getGameDetailsSizes(card-inner-min-height);
+    &--Lvl-1 {
+      background: getGameDetailsColors(card-inner-lvl-1-bg-color);
+      padding: getGameDetailsSizes(card-inner-lvl-1-padding);
+    }
+    &--Lvl-2 {
+      padding: getGameDetailsSizes(card-inner-lvl-2-padding);
+    }
+  }
+
+  .CardSubtitle {
+    display: block;
+    font-family: getGameDetailsSizes(card-subtitle-font-family);
+    font-size: getGameDetailsSizes(card-subtitle-font-size);
+    line-height: getGameDetailsSizes(card-subtitle-line-height);
+    color: getGameDetailsColors(card-subtitle-color);
+  }
+
+  .CardTitle {
+    font-weight: getGameDetailsSizes(card-title-font-weight);
+    overflow: getGameDetailsSizes(card-title-overflow);
+    text-overflow: getGameDetailsSizes(card-title-text-overflow);
+    white-space: getGameDetailsSizes(card-title-white-space);
+    line-height: getGameDetailsSizes(card-title-line-height);
+    font-size: getGameDetailsSizes(card-title-font-size);
+    font-family: getGameDetailsSizes(card-title-font-family);
+    color: getGameDetailsColors(card-title-color);
   }
 }

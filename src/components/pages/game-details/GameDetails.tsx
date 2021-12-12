@@ -16,38 +16,6 @@ import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import styles from './GameDetails.module.scss';
 
-// export interface GameDetailsProps
-//   extends UserViewProps,
-//     WalletViewProps,
-//     StatusViewProps,
-//     LastActivityViewProps,
-//     DetailsMainInfoProps,
-//     ButtonProps,
-//     CardImgProps,
-//     TextInputProps,
-//     FlexibleFormProps {
-//   parentCompany: NameDescriptionProps;
-//   docInfo: Omit<NameDescriptionProps, 'children'> & {
-//     status?: {
-//       statusVariant?: StatusProps['variant'];
-//       statusName?: string;
-//       statusLabel?: string;
-//     };
-//   };
-//   breadCrumb?: BreadcrumbProps;
-//   tabs?: {
-//     tab?: TabProps & {
-//       whichSubs: number;
-//     };
-//     subTab?: SubTabProps & {
-//       whichTab: number;
-//     };
-//     form?: FlexibleFormProps[] & {
-//       whichSub: number;
-//     };
-//   };
-// }
-
 const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
@@ -84,7 +52,13 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
             />
           </div>
 
-          <div className={classNames(styles['CardWrapper'], 'CardWrapper')}>
+          <div
+            className={classNames(
+              styles['CardWrapper'],
+              styles['CardWrapper--Change-Update'],
+              'CardWrapper',
+              'CardWrapper--Change-Update'
+            )}>
             <NameDescription data={docInfo.data} title={docInfo.title}></NameDescription>
           </div>
           <div className={classNames(styles['EmptyWrapper'], 'EmptyWrapper')}>
@@ -347,9 +321,9 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
 
                         <div className={classNames(styles['CardSubtitle'], 'CardSubtitle')}>Currencies</div>
                         <div className={classNames(styles['TagsCell'], 'TagsCell')}>
-                          <Tag title='YEN' inactive className={styles.Currency} />
-                          <Tag title='EUR' inactive className={styles.Currency} />
-                          <Tag title='USD' inactive className={styles.Currency} />
+                          <Tag title='¥ YEN' inactive className={styles.Currency} />
+                          <Tag title='€ EUR' inactive className={styles.Currency} />
+                          <Tag title='$ USD' inactive className={styles.Currency} />
                         </div>
 
                         <div className={classNames(styles['CardSubtitle'], 'CardSubtitle')}>Supported Browsers</div>
