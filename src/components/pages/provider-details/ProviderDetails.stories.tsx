@@ -53,6 +53,7 @@ export const Default = () => {
       ])}
       gamesTabContent={
         <ProviderGames
+          searchInputMaxLength={30}
           translations={{
             addGame: 'Add Game',
             noGames: 'No Games',
@@ -169,6 +170,8 @@ export const Default = () => {
           ]}
           onChange={console.log}
           onGameClick={console.log}
+          onAddGameClick={console.log}
+          isLoadingGames={true}
         />
       }
     />

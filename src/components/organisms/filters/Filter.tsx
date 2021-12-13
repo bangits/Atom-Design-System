@@ -5,14 +5,14 @@ import classNames from 'classnames';
 import { ReactNode } from 'react';
 import styles from './Filters.module.scss';
 import { FilterProp } from './FilterTypes';
-export interface FilterProps<T> {
+export interface FilterProps<T> extends Omit<React.InputHTMLAttributes<HTMLDivElement>, 'value'> {
   filter: FilterProp<T>;
   value: FilterValueType;
   onFilterChange: (filterName: string, value: FilterValueType) => void;
   filterValues: T;
 }
 
-const Filter = <T,>({ filter, value, onFilterChange, filterValues }: FilterProps<T>) => {
+const Filter = <T,>({ filter, value, onFilterChange, filterValues, ...props }: FilterProps<T>) => {
   let filterComponent: ReactNode | null = null;
 
   switch (filter.type) {
@@ -125,10 +125,12 @@ const Filter = <T,>({ filter, value, onFilterChange, filterValues }: FilterProps
 
   return (
     <div
+      {...props}
       className={classNames(styles.FilterContainer, {
         [styles.FilterContainerFromTo]: filter.type === 'from-to' || filter.type === 'timepicker-from-to'
       })}
       key={filter.name}>
+      <div>X</div>
       {filterComponent}
     </div>
   );
