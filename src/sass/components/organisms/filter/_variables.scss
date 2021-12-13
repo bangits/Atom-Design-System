@@ -1,4 +1,4 @@
-$filter-in-sizes: (
+$filter-sizes: (
   filter-base-width: calculateRem(1246px),
   filters-container-margin: 0 calculateRem(16px) 0 calculateRem(16px),
   filter-container: calcalculateRem(230px),
@@ -36,11 +36,8 @@ $filter-in-sizes: (
   box-shadow-filter-base: 0 0 calculateRem(4px) 0
 );
 
-$filter-in-colors: (
-  filter-base-background: color
-    (
-      white
-    ),
+$filter-colors: (
+  filter-base-background: color(white),
   filter-label-color: color(black-color),
   filter-name-checkbox-color: color(nepal),
   filter-label-checkbox-color: color(black-color),
@@ -49,10 +46,10 @@ $filter-in-colors: (
   box-shadow-color: color(black-transparent)
 );
 
-@function getFilterColors($key) {
-  @return map-get($sign-in-colors, $key);
+@function getFilterSizes($key) {
+  @return map-get($filter-sizes, $key);
 }
 
-@function getFilterSizes($key) {
-  @return map-get($sign-in-sizes, $key);
+@function getFilterColors($key) {
+  @return map-get($filter-colors, $key);
 }

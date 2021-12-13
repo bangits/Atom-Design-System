@@ -1,0 +1,25 @@
+$loading-page-sizes: (
+  loading-page-loader-after-width: calculateRem(10px),
+  loading-page-loader-after-height: calculateRem(30px),
+  loading-page-loader-after-animation: 1s,
+  loading-page-loader-position-top: calculateRem(27px),
+  loading-page-loader-text-indent: calculateRem(-999999px),
+  loading-page-loader-font-size: calculateRem(11px),
+  loading-page-loader-animation: -0.16s,
+  loading-page-loader-before-position-left: calculateRem(-17px),
+  loading-page-loader-after-position-left: calculateRem(17px),
+  loading-page-loader-before-animation: -0.32s
+);
+
+$loading-page-colors: (
+  loading-wrapper-background-color: color(white),
+  loading-page-loader-color: color(primary)
+);
+
+@function getLoadingPageSizes($key) {
+  @return map-get($loading-page-sizes, $key);
+}
+
+@function getLoadingPageColors($key) {
+  @return map-get($loading-page-colors, $key);
+}
