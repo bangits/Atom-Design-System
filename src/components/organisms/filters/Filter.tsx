@@ -130,7 +130,6 @@ const Filter = <T,>({ filter, value, onFilterChange, filterValues, ...props }: F
         [styles.FilterContainerFromTo]: filter.type === 'from-to' || filter.type === 'timepicker-from-to'
       })}
       key={filter.name}>
-      <div>X</div>
       {filterComponent}
     </div>
   );

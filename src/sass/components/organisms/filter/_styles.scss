@@ -7,20 +7,22 @@
     overflow: hidden;
 
     .FiltersContainer {
-      @include flex(flex-start, null, $flex-wrap: wrap);
       box-sizing: border-box;
       width: 100%;
-      margin: getFilterSizes(filter-base-container-margin);
+      padding: 0 getFilterSizes(filter-base-container-margin);
       padding-top: getFilterSizes(filter-base-container-padding-top);
 
-      .FilterContainer {
-        width: getFilterSizes(filter-container-width);
-        margin: getFilterSizes(filter-container-margin);
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-columns: repeat(auto-fill, minmax(getFilterSizes(filter-container-width), 1fr));
+      grid-gap: getFilterSizes(filter-base-container-margin);
 
+      .FilterContainer {
         &.FilterContainerFromTo {
-          width: getFilterSizes(filter-container-from-to-width);
-          position: relative;
           @include flex();
+
+          position: relative;
+          grid-column: span 2;
         }
 
         &:empty {
