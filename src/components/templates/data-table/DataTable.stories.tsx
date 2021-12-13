@@ -29,6 +29,12 @@ export const Default = () => {
         getTotalCountInfo: () => '1-20 of 365'
       }}
       fetchData={action('fetchData')}
+      filtersDropdownProps={{
+        selectAll: true,
+        selectAllLabel: 'All',
+        clearButton: true,
+        clearButtonLabel: 'Clear All'
+      }}
       filterProps={{
         defaultOpened: true,
         initialValues: {

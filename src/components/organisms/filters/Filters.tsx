@@ -11,6 +11,7 @@ import { FilterProp, FiltersProps } from './FilterTypes';
 
 export function Filters<T>({
   filters,
+  selectProps,
   checkboxFilters,
   clearLabel,
   applyLabel,
@@ -176,7 +177,7 @@ export function Filters<T>({
       <div className={styles.ControlContainer}>
         <div>
           <Select
-            selectAll
+            {...selectProps}
             dropdown
             dropdownLabel='Filters'
             isMulti={true}
