@@ -32,7 +32,8 @@ export const ProviderGames = ({
   gameTypes,
   games,
   onGameClick,
-  searchInputMaxLength
+  searchInputMaxLength,
+  onChange
 }: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -54,17 +55,24 @@ export const ProviderGames = ({
               </svg>
             }
             value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
             maxLength={searchInputMaxLength}
           />
         </div>
         <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-          {Icons}
           <Button
             type='button'
             className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
-            endIcon={<Icons.PlusCircle />}
-          />
+            endIcon={
+              <Icons.PlusCircle
+                onClick={() => {
+                  setSearchValue(searchValue);
+
+                  onChange(selectedGameType, searchValue);
+                }}
+              />
+            }>
+            {translations.addGame}
+          </Button>
         </div>
       </div>
 
@@ -78,7 +86,11 @@ export const ProviderGames = ({
                 closeIcon={false}
                 inactive={selectedGameType !== type.id}
                 key={type.id}
-                onClick={() => setSelectedGameType(type.id)}
+                onClick={() => {
+                  setSelectedGameType((prevTypeId) => (prevTypeId === type.id ? null : type.id));
+
+                  onChange(type.id, searchValue);
+                }}
               />
             ))}
           </div>
