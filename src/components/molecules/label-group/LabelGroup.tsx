@@ -15,7 +15,7 @@ const LabelGroup: FC<LabelGroupProps> = ({ children, title, totalLabel }) => {
           {title}
         </Typography>
         <Typography component='span' variant='p4' className={styles.CountriesLabel}>
-          ( {totalLabel} )
+          {totalLabel && <>( {totalLabel} )</>}
         </Typography>
       </div>
       {children}

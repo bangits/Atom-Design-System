@@ -6,6 +6,7 @@ export * from './from-to-input';
 export * from './from-to-timepicker';
 export * from './input-with-dropdown';
 export * from './label-group';
+export * from './label-tag';
 export * from './license-group';
 export * from './name-description';
 export * from './page-wrapper';

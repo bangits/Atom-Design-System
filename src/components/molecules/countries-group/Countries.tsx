@@ -9,8 +9,8 @@ export interface CountriesProps {
 const Countries: FC<CountriesProps> = ({ tagCountries }) => {
   return (
     <div className={styles.CountriesWrapper}>
-      {tagCountries?.map((tagCountry) => (
-        <TagCountry imgSrc={tagCountry.imgSrc} tagName={tagCountry.tagName} />
+      {tagCountries?.map((tagCountry, idx) => (
+        <TagCountry key={idx} imgSrc={tagCountry.imgSrc} tagName={tagCountry.tagName} />
       ))}
     </div>
   );
