@@ -31,9 +31,6 @@
     &__Header-2 {
       @include flex(flex-end);
     }
-    &__Empty {
-      // display: none;
-    }
     &__Add-Game-Btn {
       @include p;
       &-Label {
