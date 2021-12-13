@@ -86,7 +86,7 @@ export const ProviderGames = ({
                 closeIcon={false}
                 inactive={selectedGameType !== type.id}
                 key={type.id}
-                onClick={() => {
+                handleClick={() => {
                   setSelectedGameType((prevTypeId) => (prevTypeId === type.id ? null : type.id));
 
                   onChange(type.id, searchValue);
