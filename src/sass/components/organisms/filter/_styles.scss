@@ -32,15 +32,24 @@
       transform: rotate(180deg);
     }
 
+    .FiltersContainer,
+    .Checkbox {
+      transition: height getFilterSizes(filter-animation-height),
+        padding-top getFilterSizes(filter-animation-padding-top);
+    }
+
     &--closed {
       height: getFilterSizes(filter-base-closed-height);
 
       .FiltersContainer {
-        display: none;
+        height: 0;
+        opacity: 0;
+        padding-top: 0;
       }
 
       .Checkbox {
-        display: none;
+        height: 0;
+        opacity: 0;
       }
 
       .ArrowIconContainer {
