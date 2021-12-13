@@ -5,7 +5,7 @@ import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './StatusView.module.scss';
 
-export interface StatusInfo extends StatusProps {
+export interface StatusViewProps extends StatusProps {
   label: string;
   statusLabel: string;
   noDataText?: ReactNode;
@@ -17,23 +17,19 @@ export interface StatusInfo extends StatusProps {
   }[];
 }
 
-export interface StatusViewProps {
-  statusInfo: StatusInfo;
-}
-
-const StatusView: FC<StatusViewProps> = ({ statusInfo }) => {
+const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, variant, actions }) => {
   return (
     <Card borderRadius={1.6} className={classNames(styles.StatusView)}>
-      <span>{statusInfo.label || statusInfo.noDataText}</span>
+      <span>{label || noDataText}</span>
       <div className={styles['StatusView--container']}>
         <div className={styles['StatusView--status']}>
-          <Status variant={statusInfo.variant}>{statusInfo.statusLabel || statusInfo.noDataText}</Status>
+          <Status variant={variant}>{statusLabel || noDataText}</Status>
         </div>
-        {statusInfo?.actions?.map((action) => {
+        {actions?.map((action, idx) => {
           const IconComponent = Icons[action.iconName];
 
           return (
-            <div className={styles['StatusView--iconButton']}>
+            <div className={styles['StatusView--iconButton']} key={idx}>
               <Tooltip showEvent='hover' text={action.tooltipText}>
                 <IconButton
                   icon={<IconComponent />}

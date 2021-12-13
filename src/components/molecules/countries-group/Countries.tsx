@@ -1,26 +1,17 @@
-import React from 'react';
+import React, { FC } from 'react';
 import styles from './Countries.module.scss';
-import { TagCountry } from '@my-ui/core';
+import { TagCountry, TagCountryProps } from '@my-ui/core';
 
-const Countries = () => {
+export interface CountriesProps {
+  tagCountries?: TagCountryProps[];
+}
+
+const Countries: FC<CountriesProps> = ({ tagCountries }) => {
   return (
     <div className={styles.CountriesWrapper}>
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
-      <TagCountry />
+      {tagCountries?.map((tagCountry, idx) => (
+        <TagCountry key={idx} imgSrc={tagCountry.imgSrc} tagName={tagCountry.tagName} />
+      ))}
     </div>
   );
 };

@@ -1,1 +1,1 @@
-export { default as PartnerDetails } from './PartnerDetails';
+export { default as PartnerDetails, PartnerDetailsProps } from './PartnerDetails';

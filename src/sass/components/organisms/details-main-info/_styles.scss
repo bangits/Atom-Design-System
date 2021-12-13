@@ -2,8 +2,13 @@
   .DetailsMainInfoWrapper {
     @include flex(null, center, $direction: column);
     background-color: getDetailsMainInfoColors(card-background);
-    height: getDetailsMainInfoSizes(details-main-info-height);
+    width: getDetailsMainInfoSizes(details-main-info-width);
+    min-height: getDetailsMainInfoSizes(details-main-info-height);
     margin-bottom: getDetailsMainInfoSizes(details-main-info-margin-bottom);
+    // padding: getDetailsMainInfoSizes(details-main-info-padding);
+    text-align: center;
+    word-break: break-word;
+
     .MainLogoContent {
       width: getDetailsMainInfoSizes(details-logo-width);
       height: getDetailsMainInfoSizes(details-logo-height);
@@ -14,11 +19,14 @@
     }
     .BrandTitle {
       color: getDetailsMainInfoColors(brand-title-color);
-      margin: getDetailsMainInfoSizes(brand-title-margin);
+      padding-top: 5px;
+      margin: 0;
     }
     .IdNumbers {
       color: getDetailsMainInfoColors(id-numbers-color);
-      margin: getDetailsMainInfoSizes(brand-title-margin);
+      padding: 3px 10px 0 10px;
+      margin: 0;
+      display: block;
     }
   }
 }

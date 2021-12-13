@@ -1,10 +1,12 @@
 $details-main-info-sizes: (
+  details-main-info-width: calculateRem(244px),
   details-main-info-height: calculateRem(156px),
   details-logo-width: calculateRem(56px),
   details-logo-height: calculateRem(60px),
   details-logo-margin: calculateRem(16px),
   details-main-info-margin-bottom: calculateRem(8px),
-  brand-title-margin: calculateRem(8px) 0 0 0
+  details-main-info-padding: calculateRem(10px),
+  brand-title-margin: calculateRem(8px) calculateRem(0) calculateRem(0) calculateRem(0)
 );
 
 $details-main-info-colors: (

@@ -1,1 +1,1 @@
-export { default as StatusView, StatusInfo, StatusViewProps } from './StatusView';
+export { default as StatusView, StatusViewProps } from './StatusView';

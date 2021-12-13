@@ -9,5 +9,38 @@ export default {
 };
 
 export const Default = () => {
-  return <CurrencyGroup />;
+  return (
+    <CurrencyGroup
+      currencies={[
+        {
+          title: 'YEN',
+          inactive: true
+        },
+        {
+          title: 'YEN',
+          inactive: true
+        },
+        {
+          title: 'YEN',
+          inactive: true
+        },
+        {
+          title: 'YEN',
+          inactive: true
+        },
+        {
+          title: 'YEN',
+          inactive: true
+        },
+        {
+          title: 'YEN',
+          inactive: true
+        },
+        {
+          title: 'YEN',
+          inactive: true
+        }
+      ]}
+    />
+  );
 };

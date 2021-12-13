@@ -1,0 +1,16 @@
+$labelTag-sizes: (
+  label-margin: 0 calculateRem(8px) 0 0
+);
+
+$labelTag-colors: (
+  label-color: color(nepal),
+  tag-color: color(black-color)
+);
+
+@function getLabelTagSizes($key) {
+  @return map-get($labelTag-sizes, $key);
+}
+
+@function getLabelTagColors($key) {
+  @return map-get($labelTag-colors, $key);
+}

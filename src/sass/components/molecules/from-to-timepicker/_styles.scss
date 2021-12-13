@@ -1,2 +1,40 @@
 @mixin generate-from-to-timepicker-styles {
+  .FromToTimePickerContainer {
+    position: relative;
+
+    width: getFromToTimepickerSizes(from-to-picker-container);
+
+    @include flex;
+  }
+
+  .FromPicker,
+  .ToPicker {
+    width: 100%;
+  }
+
+  .ToPicker {
+    flex-grow: 1;
+
+    &::before {
+      content: '';
+      display: block;
+
+      background-image: url('../../../../icons/arrowfilter.svg');
+      background-repeat: no-repeat;
+      width: getFromToTimepickerSizes(from-to-picker-icon-width);
+      height: getFromToTimepickerSizes(from-to-picker-icon-height);
+
+      position: absolute;
+
+      top: getFromToTimepickerSizes(from-to-picker-icon-top);
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .FromPicker {
+    flex-grow: 1;
+
+    margin-right: getFromToTimepickerSizes(from-to-picker-input-offset);
+  }
 }

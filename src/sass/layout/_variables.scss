@@ -1,5 +1,6 @@
 $layout-sizes: (
-  content-header-margin: calculateRem(56px)
+  content-header-margin: calculateRem(56px),
+  mfe-padding-bottom: calculateRem(40px)
 );
 
 @function getLayoutSizes($key) {

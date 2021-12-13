@@ -9,5 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return <CountView />;
+  return <CountView title='Total Game Count' count='1024' />;
 };

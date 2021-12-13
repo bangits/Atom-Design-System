@@ -20,6 +20,7 @@
       transform: translateY(getLayoutSizes(content-header-margin));
       flex-grow: 1;
       width: 0;
+      padding-bottom: getLayoutSizes(mfe-padding-bottom);
     }
   }
 }

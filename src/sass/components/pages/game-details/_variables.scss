@@ -1,0 +1,103 @@
+$game-details-sizes: (
+  content-control-margin: 0 0 0 calculateRem(8px),
+  content-control-width: calculateRem(994px),
+  content-control-padding: 0 0 calculateRem(8px) 0,
+  content-control-tabs: calculateRem(8px) calculateRem(16px) 0 calculateRem(16px),
+  content-control-subTab-padding: calculateRem(24px) calculateRem(16px) 0 calculateRem(16px),
+  //
+  card-subtitle-font-family: inherit,
+  card-subtitle-font-size: calculateRem(12px),
+  card-subtitle-line-height: calculateRem(14px),
+  //
+  card-inner-lvl-1-padding: calculateRem(16px) calculateRem(24px) calculateRem(24px) calculateRem(24px),
+  card-inner-lvl-2-padding: calculateRem(16px) calculateRem(16px) 0 calculateRem(16px),
+  //
+  card-inner-border-radius: calculateRem(26px),
+  card-inner-min-height: 100%,
+  //
+  card-title-overflow: hidden,
+  card-title-white-space: nowrap,
+  card-title-line-height: calculateRem(17px),
+  card-title-font-family: inherit,
+  card-title-font-weight: 500,
+  card-title-text-overflow: ellipsis,
+  card-title-font-size: calculateRem(17px),
+  //
+  tab-content-box-sizing: border-box,
+  tab-content-two-col-grid-display: grid,
+  tab-content-two-col-grid-grid-template-columns: repeat(2, 1fr),
+  tab-content-two-col-grid-grid-template-rows: auto,
+  tab-content-two-col-grid-grid-column-gap: calculateRem(10px),
+  tab-content-two-col-grid-grid-row-gap: calculateRem(10px),
+  tab-content-two-col-grid-grid-template-areas: '. .' '. .',
+  //
+  tags-cell-padding: calculateRem(7px) 0 calculateRem(18px) 0,
+  //
+  tags-cell__svg-margin-right: 10px,
+  tags-cell__div-margin-right: 10px,
+  //
+  game-details-base-game-tag-cursor: pointer,
+  //
+  empty-page-title-width: 100%,
+  empty-page-title-font-size: calculateRem(16px),
+  empty-page-title-line-height: calculateRem(19px),
+  empty-page-title-letter-spacing: calculateRem(0.32px),
+  empty-page-title-font-weight: 400,
+  empty-page-title-opacity: 0.5,
+  //
+  empty-page-cell-min-height: calculateRem(400px),
+  //
+  flex-list-Item-padding-right: calculateRem(20px),
+  //
+  main-carcass-max-width: calculateRem(1246px),
+  //
+  main-carcass-sidebar-width: calculateRem(300px),
+  //
+  main-carcass-content-padding-left: calculateRem(10px),
+  //
+  empty-page-icon-cell-max-width: calculateRem(504px),
+  //
+  bread-crumb-wrapper-padding-bottom: calculateRem(10px),
+  //
+  card-wrapper-padding-bottom: calculateRem(10px),
+  //
+  card-wrapper__div-margin-bottom: calculateRem(0px),
+  //
+  device-tag-label-font-size: calculateRem(14px),
+  device-tag-label-line-height: calculateRem(17px),
+  device-tag-label-margin-left: calculateRem(10px),
+  //
+  empty-wrapper__button-width: 100%,
+  empty-wrapper__button-height: calculateRem(32px),
+  empty-wrapper__button-border-radius: calculateRem(16px),
+  empty-wrapper__button-font-size: calculateRem(14px),
+  empty-wrapper__button-padding: 0,
+  empty-wrapper__button-margin: calculateRem(0px) calculateRem(10px) calculateRem(0px) calculateRem(0px),
+  //
+  device-tag-padding: calculateRem(3px) calculateRem(16px) calculateRem(7px) calculateRem(0px),
+  device-tag-border-radius: calculateRem(6px),
+  //
+  card-wrapper-change-update__div__div__span-font-size: calculateRem(11.5px)
+);
+
+$game-details-colors: (
+  content-control-bg: #fff,
+  card-title-color: color(black-color),
+  //
+  card-subtitle-color: color(nepal),
+  card-inner-lvl-1-bg-color: color(white),
+  //
+  device-tag-label-color: color(black-color),
+  //
+  device-tag-svg-fill: color(black-color),
+  //
+  empty-page-title-color: color(black-color)
+);
+
+@function getGameDetailsSizes($key) {
+  @return map-get($game-details-sizes, $key);
+}
+
+@function getGameDetailsColors($key) {
+  @return map-get($game-details-colors, $key);
+}

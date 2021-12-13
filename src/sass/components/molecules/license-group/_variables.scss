@@ -1,0 +1,19 @@
+$license-sizes: (
+  license-wrapper-min-width: calculateRem(32px),
+  license-wrapper-height: calculateRem(32px),
+  license-wrapper-border-radius: 16px,
+  license-wrapper-margin: calculateRem(8px),
+  license-font-size: calculateRem(16px)
+);
+
+$license-colors: (
+  license-color: color(wild-blue-yonder)
+);
+
+@function getLicenseSizes($key) {
+  @return map-get($license-sizes, $key);
+}
+
+@function getLicenseColors($key) {
+  @return map-get($license-colors, $key);
+}
