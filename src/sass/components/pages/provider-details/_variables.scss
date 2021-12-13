@@ -27,7 +27,7 @@ $providerdetails-sizes: (
   provider-details-bottom-fading-cell-after-display: block,
   provider-details-bottom-fading-cell-after-content: '',
   provider-details-bottom-fading-cell-after-position: absolute,
-  provider-details-bottom-fading-cell-after-bottom: 0,
+  provider-details-bottom-fading-cell-after-bottom: calculateRem(10px),
   provider-details-bottom-fading-cell-after-left: 0,
   provider-details-bottom-fading-cell-after-z-index: 10,
   provider-details-bottom-fading-cell-after-width: 100%,
@@ -35,7 +35,7 @@ $providerdetails-sizes: (
   //
   games-container-width: 100%,
   games-container-display: grid,
-  games-container-grid-template-columns: repeat(6, 1fr),
+  games-container-grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)),
   games-container-grid-template-rows: auto,
   games-container-grid-column-gap: calculateRem(10px),
   games-container-grid-row-gap: calculateRem(10px),

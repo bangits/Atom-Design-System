@@ -21,8 +21,8 @@ const NameDescription: FC<NameDescriptionProps> = ({ data, title, children, noDa
   return (
     <Card borderRadius={1.6} className={classNames(styles.NameDescriptionBase)}>
       {title && <span className={styles['NameDescriptionBase--title']}>{title}</span>}
-      {data.map((d) => (
-        <>
+      {data.map((d, index) => (
+        <React.Fragment key={index}>
           <div className={classNames(styles['NameDescriptionBase--core'])}>
             <span className={styles['NameDescriptionBase--name']}>{d.name || noDataText}</span>
             <span className={styles['NameDescriptionBase--description']}>{d.description || noDataText}</span>
@@ -36,7 +36,7 @@ const NameDescription: FC<NameDescriptionProps> = ({ data, title, children, noDa
                 </span>
               </div>
             ))}
-        </>
+        </React.Fragment>
       ))}
       {children && <div className={styles['NameDescriptionBase--children']}>{children}</div>}
     </Card>

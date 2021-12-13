@@ -2,7 +2,6 @@
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProviderDetailsSizes(provider-details-margin-top);
-    max-width: 1246px;
   }
   .ProviderDetailsBase--leftBlock {
     margin-right: getProviderDetailsSizes(provider-left-block-margin);
@@ -33,7 +32,7 @@
       @include flex(flex-end);
     }
     &__Empty {
-      display: none;
+      // display: none;
     }
     &__Add-Game-Btn {
       @include p;

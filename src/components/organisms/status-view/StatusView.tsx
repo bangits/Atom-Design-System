@@ -25,11 +25,11 @@ const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, varia
         <div className={styles['StatusView--status']}>
           <Status variant={variant}>{statusLabel || noDataText}</Status>
         </div>
-        {actions?.map((action) => {
+        {actions?.map((action, idx) => {
           const IconComponent = Icons[action.iconName];
 
           return (
-            <div className={styles['StatusView--iconButton']}>
+            <div className={styles['StatusView--iconButton']} key={idx}>
               <Tooltip showEvent='hover' text={action.tooltipText}>
                 <IconButton
                   icon={<IconComponent />}

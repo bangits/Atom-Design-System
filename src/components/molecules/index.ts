@@ -1,4 +1,5 @@
 export * from './checkbox-group';
+export * from './copy-field';
 export * from './countries-group';
 export * from './currency-group';
 export * from './from-to-input';
@@ -11,4 +12,4 @@ export * from './page-wrapper';
 export * from './password-input';
 export * from './radio-group';
 export * from './select';
-export * from './copy-field';
+export * from './text-input';
