@@ -1,3 +1,4 @@
+import { Icons } from '@/atom-design-system';
 import { EmptyGameListIcon } from '@/icons';
 import { Button, CardImg, Tag, TextInput, Typography } from '@my-ui/core';
 import classNames from 'classnames';
@@ -20,11 +21,19 @@ export interface ProviderGamesProps {
     name: string;
     icon: string;
   }[];
+  searchInputMaxLength: number;
+
   onChange(gameTypeId: number, search: string): void;
   onGameClick(gameId: number): void;
 }
 
-export const ProviderGames = ({ translations, gameTypes, games, onGameClick }: ProviderGamesProps) => {
+export const ProviderGames = ({
+  translations,
+  gameTypes,
+  games,
+  onGameClick,
+  searchInputMaxLength
+}: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
 
   const [selectedGameType, setSelectedGameType] = useState<number>(null);
@@ -34,7 +43,7 @@ export const ProviderGames = ({ translations, gameTypes, games, onGameClick }: P
       <div className={classNames(styles['GamesList__Header'], 'GamesList__Header')}>
         <div className={classNames(styles['GamesList__Header-1'], 'GamesList__Header-1')}>
           <TextInput
-            placeholder={'Search'}
+            placeholder={translations.search}
             endIcon={
               <svg
                 xmlns='http://www.w3.org/2000/svg'
@@ -46,16 +55,16 @@ export const ProviderGames = ({ translations, gameTypes, games, onGameClick }: P
             }
             value={searchValue}
             onChange={(e) => setSearchValue(e.target.value)}
-            maxLength={30}
+            maxLength={searchInputMaxLength}
           />
         </div>
         <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-          <Button type='button' className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}>
-            <span className={classNames(styles['GamesList__Add-Game-Btn-Label'], 'GamesList__Add-Game-Btn-Label')}>
-              <i className={classNames(styles['GamesList__Add-Game-Btn--Icon'], 'GamesList__Add-Game-Btn--Icon')}>+</i>
-              Add Game
-            </span>
-          </Button>
+          {Icons}
+          <Button
+            type='button'
+            className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
+            endIcon={<Icons.PlusCircle />}
+          />
         </div>
       </div>
 
