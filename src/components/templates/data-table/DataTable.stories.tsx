@@ -31,6 +31,12 @@ export const Default = () => {
       fetchData={action('fetchData')}
       filterProps={{
         defaultOpened: true,
+        selectProps: {
+          selectAll: true,
+          selectAllLabel: 'All',
+          clearButton: true,
+          clearButtonLabel: 'Clear All'
+        },
         initialValues: {
           gameId: '1256789DS',
           externalId: '',

@@ -72,6 +72,7 @@ export type FilterProp<T> = {
 );
 
 export interface FiltersProps<T> {
+  selectProps?: SelectProps<any, boolean, any>;
   filters: FilterProp<T>[];
   checkboxFilters?: CheckboxFilter[];
   clearLabel?: string;
