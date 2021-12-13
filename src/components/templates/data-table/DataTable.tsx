@@ -1,5 +1,5 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
-import { IconButton, Icons, Pagination, PaginationProps, Status, StatusProps, Tooltip } from '@my-ui/core';
+import { IconButton, Icons, Pagination, PaginationProps, SelectProps, Status, StatusProps, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './DataTable.module.scss';
@@ -12,6 +12,7 @@ export interface FetchDataParameters<T, K> {
   sortedBy: { id: string; desc: boolean } | null;
 }
 export interface DataTableProps<T extends {}, K> {
+  filtersDropdownProps?: SelectProps<any, boolean, any>;
   isShowedFilter?: boolean;
   isShowedPagination?: boolean;
   defaultSorted?: {
@@ -52,6 +53,7 @@ function DataTable<T extends {}, K>({
   tableProps,
   filterProps,
   defaultSorted,
+  filtersDropdownProps,
   fetchData,
   isShowedFilter = true,
   isShowedPagination = true,
@@ -240,6 +242,7 @@ function DataTable<T extends {}, K>({
       {isShowedFilter && (
         <Filters
           {...filterProps}
+          selectProps={filtersDropdownProps}
           className={classNames(styles.Filters, filterProps.className)}
           onSubmit={onFiltersChange}
           onClear={onFiltersChange}
