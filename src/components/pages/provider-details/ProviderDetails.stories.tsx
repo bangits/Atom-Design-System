@@ -171,7 +171,6 @@ export const Default = () => {
           onChange={console.log}
           onGameClick={console.log}
           onAddGameClick={console.log}
-          isLoadingGames={true}
         />
       }
     />
