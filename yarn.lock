@@ -3,9 +3,9 @@
 
 
 "@atom/common@^2.3.4":
-  version "2.4.5"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.4.5.tgz#bb9c15bdd5039caa3af5dd7d22a37a44a783f7ac"
-  integrity sha1-u5wVvdUDnKo69d19IqN6RKeD96w=
+  version "2.5.18"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.5.18.tgz#a1289f3dbc8803b78c8005cea03fe6964ee8f0c3"
+  integrity sha1-oSifPbyIA7eMgAXOoD/mlk7o8MM=
   dependencies:
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
@@ -1199,16 +1199,16 @@
     "@emotion/utils" "0.11.3"
     "@emotion/weak-memoize" "0.2.5"
 
-"@emotion/cache@^11.4.0", "@emotion/cache@^11.6.0":
-  version "11.6.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@emotion/cache/-/cache-11.6.0.tgz#65fbdbbe4382f1991d8b20853c38e63ecccec9a1"
-  integrity sha1-ZfvbvkOC8ZkdiyCFPDjmPszOyaE=
+"@emotion/cache@^11.4.0", "@emotion/cache@^11.7.1":
+  version "11.7.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@emotion/cache/-/cache-11.7.1.tgz#08d080e396a42e0037848214e8aa7bf879065539"
+  integrity sha1-CNCA45akLgA3hIIU6Kp7+HkGVTk=
   dependencies:
     "@emotion/memoize" "^0.7.4"
     "@emotion/sheet" "^1.1.0"
     "@emotion/utils" "^1.0.0"
     "@emotion/weak-memoize" "^0.2.5"
-    stylis "^4.0.10"
+    stylis "4.0.13"
 
 "@emotion/core@^10.0.9", "@emotion/core@^10.1.1":
   version "10.3.1"
@@ -1266,12 +1266,12 @@
   integrity sha1-LED4FEmk5VTp/GOWkQ7UhD7CvlA=
 
 "@emotion/react@^11.1.1":
-  version "11.7.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@emotion/react/-/react-11.7.0.tgz#b179da970ac0e8415de3ac165deadf8d9c4bf89f"
-  integrity sha1-sXnalwrA6EFd46wWXerfjZxL+J8=
+  version "11.7.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@emotion/react/-/react-11.7.1.tgz#3f800ce9b20317c13e77b8489ac4a0b922b2fe07"
+  integrity sha1-P4AM6bIDF8E+d7hImsSguSKy/gc=
   dependencies:
     "@babel/runtime" "^7.13.10"
-    "@emotion/cache" "^11.6.0"
+    "@emotion/cache" "^11.7.1"
     "@emotion/serialize" "^1.0.2"
     "@emotion/sheet" "^1.1.0"
     "@emotion/utils" "^1.0.0"
@@ -1519,31 +1519,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-"@my-ui/core@^2.23.31":
-  version "2.23.31"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.23.31.tgz#d70e1674bff8f394031e78ede705359b92fac5fd"
-  integrity sha1-1w4WdL/485QDHnjt5wU1m5L6xf0=
-=======
-<<<<<<< HEAD
-"@my-ui/core@2.23.31":
-  version "2.23.31"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.23.31.tgz#d70e1674bff8f394031e78ede705359b92fac5fd"
-  integrity sha1-1w4WdL/485QDHnjt5wU1m5L6xf0=
-=======
-<<<<<<< HEAD
-"@my-ui/core@^2.23.28":
-  version "2.23.28"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.23.28.tgz#7adc1076f9dffded280e807890b77617c6920aa6"
-  integrity sha1-etwQdvnf/e0oDoB4kLd2F8aSCqY=
-=======
-"@my-ui/core@^2.23.29":
-  version "2.23.29"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.23.29.tgz#8dfb8f85b79b11983d5062874744b6c212e684b2"
-  integrity sha1-jfuPhbebEZg9UGKHR0S2whLmhLI=
->>>>>>> cca74ab6a1d844948916812e76abc1e56ac787a3
->>>>>>> e20cd3615f3606777d23007d1e73356f152e1a44
->>>>>>> 606f68c658e1c9b072c1c4d2f6ccbfcc0b9aa549
+"@my-ui/core@^2.24.1":
+  version "2.24.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.24.1.tgz#643a5abd33c34461695b4efe871fa85835eda130"
+  integrity sha1-ZDpavTPDRGFpW07+hx+oWDXtoTA=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
@@ -3730,11 +3709,6 @@ ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
   integrity sha1-w7M6te42DYbg5ijwRorn7yfWVN8=
-
-ansi-regex@^3.0.0:
-  version "3.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/ansi-regex/-/ansi-regex-3.0.0.tgz#ed0317c322064f79466c02966bddb605ab37d998"
-  integrity sha1-7QMXwyIGT3lGbAKWa922Bas32Zg=
 
 ansi-regex@^4.1.0:
   version "4.1.0"
@@ -6047,9 +6021,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.3.896:
-  version "1.4.16"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.16.tgz#38ddecc616385e6f101359d1b978c802664157d2"
-  integrity sha1-ON3sxhY4Xm8QE1nRuXjIAmZBV9I=
+  version "1.4.17"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.17.tgz#16ec40f61005582d5d41fac08400a254dccfb85f"
+  integrity sha1-FuxA9hAFWC1dQfrAhACiVNzPuF8=
 
 element-resize-detector@^1.2.2:
   version "1.2.3"
@@ -6255,126 +6229,125 @@ es6-shim@^0.35.5:
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/es6-shim/-/es6-shim-0.35.6.tgz#d10578301a83af2de58b9eadb7c2c9945f7388a0"
   integrity sha1-0QV4MBqDry3li56tt8LJlF9ziKA=
 
-esbuild-android-arm64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-android-arm64/-/esbuild-android-arm64-0.13.15.tgz#3fc3ff0bab76fe35dd237476b5d2b32bb20a3d44"
-  integrity sha1-P8P/C6t2/jXdI3R2tdKzK7IKPUQ=
+esbuild-android-arm64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-android-arm64/-/esbuild-android-arm64-0.14.3.tgz#f0fc0a892dd6f2f42baf68f9ac24c9bfcfdaba20"
+  integrity sha1-8PwKiS3W8vQrr2j5rCTJv8/auiA=
 
-esbuild-darwin-64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-darwin-64/-/esbuild-darwin-64-0.13.15.tgz#8e9169c16baf444eacec60d09b24d11b255a8e72"
-  integrity sha1-jpFpwWuvRE6s7GDQmyTRGyVajnI=
+esbuild-darwin-64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-darwin-64/-/esbuild-darwin-64-0.14.3.tgz#074268b97df08dc2ea60ddd3c29b05fd93ff63d3"
+  integrity sha1-B0JouX3wjcLqYN3TwpsF/ZP/Y9M=
 
-esbuild-darwin-arm64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.13.15.tgz#1b07f893b632114f805e188ddfca41b2b778229a"
-  integrity sha1-Gwf4k7YyEU+AXhiN38pBsrd4Ipo=
+esbuild-darwin-arm64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-darwin-arm64/-/esbuild-darwin-arm64-0.14.3.tgz#72a62c7e5c58a2321f0bb839f1368878d4a5a814"
+  integrity sha1-cqYsflxYojIfC7g58TaIeNSlqBQ=
 
-esbuild-freebsd-64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-freebsd-64/-/esbuild-freebsd-64-0.13.15.tgz#0b8b7eca1690c8ec94c75680c38c07269c1f4a85"
-  integrity sha1-C4t+yhaQyOyUx1aAw4wHJpwfSoU=
+esbuild-freebsd-64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-freebsd-64/-/esbuild-freebsd-64-0.14.3.tgz#63f507254f41ccbab97bb6dce655e7dbc127f351"
+  integrity sha1-Y/UHJU9BzLq5e7bc5lXn28En81E=
 
-esbuild-freebsd-arm64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-freebsd-arm64/-/esbuild-freebsd-arm64-0.13.15.tgz#2e1a6c696bfdcd20a99578b76350b41db1934e52"
-  integrity sha1-LhpsaWv9zSCplXi3Y1C0HbGTTlI=
+esbuild-freebsd-arm64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-freebsd-arm64/-/esbuild-freebsd-arm64-0.14.3.tgz#6520f6c8339df943633586d0d597ac2ee1f1958d"
+  integrity sha1-ZSD2yDOd+UNjNYbQ1ZesLuHxlY0=
 
-esbuild-linux-32@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-32/-/esbuild-linux-32-0.13.15.tgz#6fd39f36fc66dd45b6b5f515728c7bbebc342a69"
-  integrity sha1-b9OfNvxm3UW2tfUVcox7vrw0Kmk=
+esbuild-linux-32@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-32/-/esbuild-linux-32-0.14.3.tgz#813d7baf2d33675c9264a07b09a26c39d588abb2"
+  integrity sha1-gT17ry0zZ1ySZKB7CaJsOdWIq7I=
 
-esbuild-linux-64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-64/-/esbuild-linux-64-0.13.15.tgz#9cb8e4bcd7574e67946e4ee5f1f1e12386bb6dd3"
-  integrity sha1-nLjkvNdXTmeUbk7l8fHhI4a7bdM=
+esbuild-linux-64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-64/-/esbuild-linux-64-0.14.3.tgz#6356ff2d2c6ec978eb6e794a8891cc5cfadab3f1"
+  integrity sha1-Y1b/LSxuyXjrbnlKiJHMXPras/E=
 
-esbuild-linux-arm64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-arm64/-/esbuild-linux-arm64-0.13.15.tgz#3891aa3704ec579a1b92d2a586122e5b6a2bfba1"
-  integrity sha1-OJGqNwTsV5obktKlhhIuW2or+6E=
+esbuild-linux-arm64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-arm64/-/esbuild-linux-arm64-0.14.3.tgz#a289bb67a5207e021d1ac8cae3532771eda473a6"
+  integrity sha1-oom7Z6UgfgIdGsjK41Mnce2kc6Y=
 
-esbuild-linux-arm@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-arm/-/esbuild-linux-arm-0.13.15.tgz#8a00e99e6a0c6c9a6b7f334841364d8a2b4aecfe"
-  integrity sha1-igDpnmoMbJprfzNIQTZNiitK7P4=
+esbuild-linux-arm@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-arm/-/esbuild-linux-arm-0.14.3.tgz#b193de64458d4829be18206e58d127296367c189"
+  integrity sha1-sZPeZEWNSCm+GCBuWNEnKWNnwYk=
 
-esbuild-linux-mips64le@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-mips64le/-/esbuild-linux-mips64le-0.13.15.tgz#36b07cc47c3d21e48db3bb1f4d9ef8f46aead4f7"
-  integrity sha1-NrB8xHw9IeSNs7sfTZ749Grq1Pc=
+esbuild-linux-mips64le@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-mips64le/-/esbuild-linux-mips64le-0.14.3.tgz#d3c826fc746f1cbf3aea696017b001625ea28b59"
+  integrity sha1-08gm/HRvHL866mlgF7ABYl6ii1k=
 
-esbuild-linux-ppc64le@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-ppc64le/-/esbuild-linux-ppc64le-0.13.15.tgz#f7e6bba40b9a11eb9dcae5b01550ea04670edad2"
-  integrity sha1-9+a7pAuaEeudyuWwFVDqBGcO2tI=
+esbuild-linux-ppc64le@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-linux-ppc64le/-/esbuild-linux-ppc64le-0.14.3.tgz#483974c92555eefe86d623145ff5f328074b6c9b"
+  integrity sha1-SDl0ySVV7v6G1iMUX/XzKAdLbJs=
 
 esbuild-loader@^2.10.0:
-  version "2.16.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-loader/-/esbuild-loader-2.16.0.tgz#a44a57a77ed2810d6b278579271f77d739aa7bc9"
-  integrity sha1-pEpXp37SgQ1rJ4V5Jx931zmqe8k=
+  version "2.17.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-loader/-/esbuild-loader-2.17.0.tgz#7caff8f92c30345555c9d2a659e7fc29d6d7d874"
+  integrity sha1-fK/4+SwwNFVVydKmWef8KdbX2HQ=
   dependencies:
-    esbuild "^0.13.4"
+    esbuild "^0.14.2"
     joycon "^3.0.1"
     json5 "^2.2.0"
     loader-utils "^2.0.0"
     tapable "^2.2.0"
-    type-fest "^1.4.0"
     webpack-sources "^2.2.0"
 
-esbuild-netbsd-64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-netbsd-64/-/esbuild-netbsd-64-0.13.15.tgz#a2fedc549c2b629d580a732d840712b08d440038"
-  integrity sha1-ov7cVJwrYp1YCnMthAcSsI1EADg=
+esbuild-netbsd-64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-netbsd-64/-/esbuild-netbsd-64-0.14.3.tgz#76442f9d2d6e6dc796d18eb321256ccdc68ead53"
+  integrity sha1-dkQvnS1ubceW0Y6zISVszcaOrVM=
 
-esbuild-openbsd-64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-openbsd-64/-/esbuild-openbsd-64-0.13.15.tgz#b22c0e5806d3a1fbf0325872037f885306b05cd7"
-  integrity sha1-siwOWAbTofvwMlhyA3+IUwawXNc=
+esbuild-openbsd-64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-openbsd-64/-/esbuild-openbsd-64-0.14.3.tgz#13b0adfd39e165f0dfd30af3e629c601b1b5fa36"
+  integrity sha1-E7Ct/TnhZfDf0wrz5inGAbG1+jY=
 
-esbuild-sunos-64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-sunos-64/-/esbuild-sunos-64-0.13.15.tgz#d0b6454a88375ee8d3964daeff55c85c91c7cef4"
-  integrity sha1-0LZFSog3XujTlk2u/1XIXJHHzvQ=
+esbuild-sunos-64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-sunos-64/-/esbuild-sunos-64-0.14.3.tgz#f8ce1a0c6f165b82d589c7f3de01baf094587fd2"
+  integrity sha1-+M4aDG8WW4LVicfz3gG68JRYf9I=
 
-esbuild-windows-32@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-windows-32/-/esbuild-windows-32-0.13.15.tgz#c96d0b9bbb52f3303322582ef8e4847c5ad375a7"
-  integrity sha1-yW0Lm7tS8zAzIlgu+OSEfFrTdac=
+esbuild-windows-32@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-windows-32/-/esbuild-windows-32-0.14.3.tgz#f555cbf0fca5974c3c303d9d9ff0d39e08f26916"
+  integrity sha1-9VXL8Pyll0w8MD2dn/DTngjyaRY=
 
-esbuild-windows-64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-windows-64/-/esbuild-windows-64-0.13.15.tgz#1f79cb9b1e1bb02fb25cd414cb90d4ea2892c294"
-  integrity sha1-H3nLmx4bsC+yXNQUy5DU6iiSwpQ=
+esbuild-windows-64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-windows-64/-/esbuild-windows-64-0.14.3.tgz#02c9804f9ca5e587ccb8b18e46a00f9237e54689"
+  integrity sha1-AsmAT5yl5YfMuLGORqAPkjflRok=
 
-esbuild-windows-arm64@0.13.15:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-windows-arm64/-/esbuild-windows-arm64-0.13.15.tgz#482173070810df22a752c686509c370c3be3b3c3"
-  integrity sha1-SCFzBwgQ3yKnUsaGUJw3DDvjs8M=
+esbuild-windows-arm64@0.14.3:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild-windows-arm64/-/esbuild-windows-arm64-0.14.3.tgz#8bcf737feddde3ccf4d2d6d581b2422b45a9b6e2"
+  integrity sha1-i89zf+3d48z00tbVgbJCK0WptuI=
 
-esbuild@^0.13.4:
-  version "0.13.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild/-/esbuild-0.13.15.tgz#db56a88166ee373f87dbb2d8798ff449e0450cdf"
-  integrity sha1-21aogWbuNz+H27LYeY/0SeBFDN8=
+esbuild@^0.14.2:
+  version "0.14.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/esbuild/-/esbuild-0.14.3.tgz#38db1d26aaeccc43f478225974538e2c4de9d6b1"
+  integrity sha1-ONsdJqrszEP0eCJZdFOOLE3p1rE=
   optionalDependencies:
-    esbuild-android-arm64 "0.13.15"
-    esbuild-darwin-64 "0.13.15"
-    esbuild-darwin-arm64 "0.13.15"
-    esbuild-freebsd-64 "0.13.15"
-    esbuild-freebsd-arm64 "0.13.15"
-    esbuild-linux-32 "0.13.15"
-    esbuild-linux-64 "0.13.15"
-    esbuild-linux-arm "0.13.15"
-    esbuild-linux-arm64 "0.13.15"
-    esbuild-linux-mips64le "0.13.15"
-    esbuild-linux-ppc64le "0.13.15"
-    esbuild-netbsd-64 "0.13.15"
-    esbuild-openbsd-64 "0.13.15"
-    esbuild-sunos-64 "0.13.15"
-    esbuild-windows-32 "0.13.15"
-    esbuild-windows-64 "0.13.15"
-    esbuild-windows-arm64 "0.13.15"
+    esbuild-android-arm64 "0.14.3"
+    esbuild-darwin-64 "0.14.3"
+    esbuild-darwin-arm64 "0.14.3"
+    esbuild-freebsd-64 "0.14.3"
+    esbuild-freebsd-arm64 "0.14.3"
+    esbuild-linux-32 "0.14.3"
+    esbuild-linux-64 "0.14.3"
+    esbuild-linux-arm "0.14.3"
+    esbuild-linux-arm64 "0.14.3"
+    esbuild-linux-mips64le "0.14.3"
+    esbuild-linux-ppc64le "0.14.3"
+    esbuild-netbsd-64 "0.14.3"
+    esbuild-openbsd-64 "0.14.3"
+    esbuild-sunos-64 "0.14.3"
+    esbuild-windows-32 "0.14.3"
+    esbuild-windows-64 "0.14.3"
+    esbuild-windows-arm64 "0.14.3"
 
 escalade@^3.0.2, escalade@^3.1.1:
   version "3.1.1"
@@ -7004,9 +6977,9 @@ flatted@^3.1.0:
   integrity sha1-KNmWnqkGYbUTQlnzEqtqp5KaxeI=
 
 flow-parser@0.*:
-  version "0.167.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/flow-parser/-/flow-parser-0.167.0.tgz#78c6a49b2e1aee2735674780c4706c162f9d33f9"
-  integrity sha1-eMakmy4a7ic1Z0eAxHBsFi+dM/k=
+  version "0.167.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/flow-parser/-/flow-parser-0.167.1.tgz#393091cd6d0108b981a02caaca8c8939508fef3b"
+  integrity sha1-OTCRzW0BCLmBoCyqyoyJOVCP7zs=
 
 flush-write-stream@^1.0.0:
   version "1.1.1"
@@ -7231,9 +7204,9 @@ fuse.js@^3.6.1:
   integrity sha1-fehf3W4bM3fCPOAQiSZWOF/ZsQw=
 
 gauge@^3.0.0:
-  version "3.0.1"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/gauge/-/gauge-3.0.1.tgz#4bea07bcde3782f06dced8950e51307aa0f4a346"
-  integrity sha1-S+oHvN43gvBtztiVDlEweqD0o0Y=
+  version "3.0.2"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/gauge/-/gauge-3.0.2.tgz#03bf4441c044383908bcfa0656ad91803259b395"
+  integrity sha1-A79EQcBEODkIvPoGVq2RgDJZs5U=
   dependencies:
     aproba "^1.0.3 || ^2.0.0"
     color-support "^1.1.2"
@@ -7241,8 +7214,8 @@ gauge@^3.0.0:
     has-unicode "^2.0.1"
     object-assign "^4.1.1"
     signal-exit "^3.0.0"
-    string-width "^1.0.1 || ^2.0.0"
-    strip-ansi "^3.0.1 || ^4.0.0"
+    string-width "^4.2.3"
+    strip-ansi "^6.0.1"
     wide-align "^1.1.2"
 
 gauge@~2.7.3:
@@ -10902,9 +10875,9 @@ postcss@^7.0.14, postcss@^7.0.26, postcss@^7.0.32, postcss@^7.0.35, postcss@^7.0
     source-map "^0.6.1"
 
 postcss@^8.2.15:
-  version "8.4.4"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/postcss/-/postcss-8.4.4.tgz#d53d4ec6a75fd62557a66bb41978bf47ff0c2869"
-  integrity sha1-1T1Oxqdf1iVXpmu0GXi/R/8MKGk=
+  version "8.4.5"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/postcss/-/postcss-8.4.5.tgz#bae665764dfd4c6fcc24dc0fdf7e7aa00cc77f95"
+  integrity sha1-uuZldk39TG/MJNwP3356oAzHf5U=
   dependencies:
     nanoid "^3.1.30"
     picocolors "^1.0.0"
@@ -11527,17 +11500,17 @@ react-refresh@^0.10.0:
   integrity sha1-L1NslmDAubHVAGhNnlKmXnQE9+M=
 
 react-router-dom@^6.0.0:
-  version "6.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-router-dom/-/react-router-dom-6.1.0.tgz#94e650ee43b0cdeb80049dea72223402a27c7f61"
-  integrity sha1-lOZQ7kOwzeuABJ3qciI0AqJ8f2E=
+  version "6.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-router-dom/-/react-router-dom-6.1.1.tgz#ed59376ff9115bc49227e87982a32e91e9530ca3"
+  integrity sha1-7Vk3b/kRW8SSJ+h5gqMukelTDKM=
   dependencies:
     history "^5.1.0"
-    react-router "6.1.0"
+    react-router "6.1.1"
 
-react-router@6.1.0, react-router@^6.0.0:
-  version "6.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-router/-/react-router-6.1.0.tgz#a34a2dbba7f6167d64a4c209009f28b635ea8477"
-  integrity sha1-o0otu6f2Fn1kpMIJAJ8otjXqhHc=
+react-router@6.1.1, react-router@^6.0.0:
+  version "6.1.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/react-router/-/react-router-6.1.1.tgz#16f41bf54e87d995bcd4d447720a693f77d8fcb9"
+  integrity sha1-FvQb9U6H2ZW81NRHcgppP3fY/Lk=
   dependencies:
     history "^5.1.0"
 
@@ -12835,14 +12808,6 @@ string-width@^1.0.1:
     is-fullwidth-code-point "^1.0.0"
     strip-ansi "^3.0.0"
 
-"string-width@^1.0.1 || ^2.0.0":
-  version "2.1.1"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/string-width/-/string-width-2.1.1.tgz#ab93f27a8dc13d28cac815c462143a6d9012ae9e"
-  integrity sha1-q5Pyeo3BPSjKyBXEYhQ6bZASrp4=
-  dependencies:
-    is-fullwidth-code-point "^2.0.0"
-    strip-ansi "^4.0.0"
-
 "string-width@^1.0.2 || 2 || 3 || 4", string-width@^4.0.0, string-width@^4.1.0, string-width@^4.2.0, string-width@^4.2.2, string-width@^4.2.3:
   version "4.2.3"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/string-width/-/string-width-4.2.3.tgz#269c7117d27b05ad2e536830a8ec895ef9c6d010"
@@ -12937,13 +12902,6 @@ strip-ansi@^3.0.0, strip-ansi@^3.0.1:
   dependencies:
     ansi-regex "^2.0.0"
 
-"strip-ansi@^3.0.1 || ^4.0.0", strip-ansi@^4.0.0:
-  version "4.0.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/strip-ansi/-/strip-ansi-4.0.0.tgz#a8479022eb1ac368a871389b635262c505ee368f"
-  integrity sha1-qEeQIusaw2iocTibY1JixQXuNo8=
-  dependencies:
-    ansi-regex "^3.0.0"
-
 strip-ansi@^5.0.0, strip-ansi@^5.1.0, strip-ansi@^5.2.0:
   version "5.2.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/strip-ansi/-/strip-ansi-5.2.0.tgz#8c9a536feb6afc962bdfa5b104a5091c1ad9c0ae"
@@ -13025,7 +12983,7 @@ style-to-object@0.3.0, style-to-object@^0.3.0:
   dependencies:
     inline-style-parser "0.1.1"
 
-stylis@^4.0.10:
+stylis@4.0.13:
   version "4.0.13"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/stylis/-/stylis-4.0.13.tgz#f5db332e376d13cc84ecfe5dace9a2a51d954c91"
   integrity sha1-9dszLjdtE8yE7P5drOmipR2VTJE=
@@ -13578,11 +13536,6 @@ type-fest@^0.8.1:
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/type-fest/-/type-fest-0.8.1.tgz#09e249ebde851d3b1e48d27c105444667f17b83d"
   integrity sha1-CeJJ696FHTseSNJ8EFREZn8XuD0=
 
-type-fest@^1.4.0:
-  version "1.4.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/type-fest/-/type-fest-1.4.0.tgz#e9fb813fe3bf1744ec359d55d1affefa76f14be1"
-  integrity sha1-6fuBP+O/F0TsNZ1V0a/++nbxS+E=
-
 type-is@~1.6.17, type-is@~1.6.18:
   version "1.6.18"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/type-is/-/type-is-1.6.18.tgz#4e552cd05df09467dcbc4ef739de89f2cf37c131"
@@ -13609,9 +13562,9 @@ typescript@^4.1.2, typescript@^4.3.4:
   integrity sha1-r6qFjmjHEDMX2J65DF2JBiaNNTw=
 
 uglify-js@^3.1.4:
-  version "3.14.4"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/uglify-js/-/uglify-js-3.14.4.tgz#68756f17d1b90b9d289341736cb9a567d6882f90"
-  integrity sha1-aHVvF9G5C50ok0FzbLmlZ9aIL5A=
+  version "3.14.5"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/uglify-js/-/uglify-js-3.14.5.tgz#cdabb7d4954231d80cb4a927654c4655e51f4859"
+  integrity sha1-zau31JVCMdgMtKknZUxGVeUfSFk=
 
 unbox-primitive@^1.0.1:
   version "1.0.1"
