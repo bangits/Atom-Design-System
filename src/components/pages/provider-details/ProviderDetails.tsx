@@ -149,7 +149,8 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
               {
                 title: translations.games,
                 value: 2,
-                content: gamesTabContent
+                content: gamesTabContent,
+                disableScroll: true
               }
             ]}
             defaultTabValue={1}

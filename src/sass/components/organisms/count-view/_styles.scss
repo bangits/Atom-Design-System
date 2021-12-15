@@ -7,9 +7,6 @@
     padding: getCountViewSizes(count-card-padding);
     height: getCountViewSizes(count-card-height);
 
-    .CardTitle {
-      color: getCountViewColors(card-title-color);
-    }
     .TagWrapper {
       > div {
         min-width: getCountViewSizes(tag-wrapper-min-width);

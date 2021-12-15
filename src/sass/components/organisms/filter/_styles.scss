@@ -4,7 +4,6 @@
     box-shadow: getFilterSizes(filter-base-box-shadow) getFilterColors(filter-base-box-shadow);
     width: 100%;
     box-sizing: border-box;
-    overflow: hidden;
 
     .FiltersContainer {
       box-sizing: border-box;
@@ -18,6 +17,8 @@
       grid-gap: getFilterSizes(filter-base-container-margin);
 
       .FilterContainer {
+        max-height: getFilterSizes(filter-element-max-height);
+
         &.FilterContainerFromTo {
           @include flex();
 
@@ -44,15 +45,14 @@
     &--closed {
       height: getFilterSizes(filter-base-closed-height);
 
-      .FiltersContainer {
-        height: 0;
-        opacity: 0;
-        padding-top: 0;
-      }
-
+      .FiltersContainer,
       .Checkbox {
         height: 0;
         opacity: 0;
+        padding-top: 0;
+
+        position: relative;
+        z-index: -1;
       }
 
       .ArrowIconContainer {

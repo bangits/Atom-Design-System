@@ -89,6 +89,23 @@
     }
   }
 
+  .GamesList__Fill {
+    width: 100%;
+    padding-bottom: getProviderDetailsSizes(providers-games-padding-bottom);
+
+    &:after {
+      display: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-display);
+      content: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-content);
+      position: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-position);
+      bottom: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-bottom);
+      left: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-left);
+      z-index: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-z-index);
+      width: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-width);
+      height: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-height);
+      background: getProviderDetailsColors(provider-details-bottom-fading-cell-after-bg-color);
+    }
+  }
+
   .TagsCell {
     @include flex;
     padding: getProviderDetailsSizes(tags-cell-padding);
@@ -129,17 +146,6 @@
     display: block;
     width: getProviderDetailsSizes(provider-details-bottom-fading-cell-width);
     @include p;
-    &:after {
-      display: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-display);
-      content: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-content);
-      position: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-position);
-      bottom: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-bottom);
-      left: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-left);
-      z-index: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-z-index);
-      width: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-width);
-      height: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-height);
-      background: getProviderDetailsColors(provider-details-bottom-fading-cell-after-bg-color);
-    }
   }
 
   .GameDetailsBase__GameTag {
