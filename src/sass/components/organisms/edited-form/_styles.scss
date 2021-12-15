@@ -27,7 +27,11 @@
       @include dots-after-text();
     }
 
-    &-content {
+    &--content-children {
+      height: 100% !important;
+    }
+
+    &--content {
       position: relative;
       @include flex(flex-start, null, $flex-wrap: wrap);
       align-content: flex-start;
@@ -36,6 +40,9 @@
       box-sizing: border-box;
       transition: height getEditedFormSizes(content-transition);
       overflow: hidden;
+      form {
+        width: 100%;
+      }
     }
 
     &--card-content {

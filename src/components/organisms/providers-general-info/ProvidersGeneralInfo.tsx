@@ -53,7 +53,7 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
   noDataText
 }) => {
   return (
-    <>
+    <div className={styles['ProviderGeneralInfo--items']}>
       <LabelGroup title={totalMarket.title} totalLabel={totalMarket.countries.length > 0 ? totalMarket.total : ''}>
         {totalMarket.countries.length > 0 ? (
           <Countries tagCountries={totalMarket.countries} />
@@ -129,7 +129,7 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
           </Typography>
         )}
       </LabelGroup>
-    </>
+    </div>
   );
 };
 

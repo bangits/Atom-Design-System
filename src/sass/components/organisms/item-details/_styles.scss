@@ -1,6 +1,7 @@
 @mixin generate-item-details-styles {
   .ItemDetailsBase {
     min-width: getItemDetailsSizes(base-min-width);
+    min-height: getItemDetailsSizes(base-min-height);
     background-color: getItemDetailsColors(base-bg);
     padding: getItemDetailsSizes(base-padding);
     box-sizing: border-box;
@@ -14,6 +15,9 @@
       position: relative;
       box-sizing: border-box;
       padding: 2px;
+      form {
+        width: 100%;
+      }
     }
   }
 }
