@@ -31,7 +31,7 @@ export interface DataTableProps<T extends {}, K> {
 
   tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
     columns?: (TableProps<T>['columns'][number] & {
-      variant?: 'status' | 'image' | 'hover';
+      variant?: 'status' | 'image' | 'hovered-image';
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
@@ -161,9 +161,9 @@ function DataTable<T extends {}, K>({
         ? {
             renderColumn: (_, value) => <img className={styles.ImageColumn} src={value} />
           }
-        : column.variant === 'hover'
+        : column.variant === 'hovered-image'
         ? {
-            renderColumn: (_, value) => <img className={styles.HoverColumn} src={value} />
+            renderColumn: (_, value) => <img className={styles.ImageHoverColumn} src={value} />
           }
         : {})
     }));

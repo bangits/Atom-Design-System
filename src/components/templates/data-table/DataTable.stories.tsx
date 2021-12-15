@@ -436,7 +436,7 @@ export const Default = () => {
           {
             Header: 'Icon',
             accessor: 'x',
-            variant: 'image'
+            variant: 'hovered-image'
           },
           {
             Header: 'Game Id',
