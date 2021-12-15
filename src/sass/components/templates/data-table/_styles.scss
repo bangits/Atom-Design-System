@@ -8,6 +8,9 @@
 
     object-fit: cover;
   }
+  .HoverColumn {
+    background-color: red;
+  }
 
   .PaginationWrapper {
     @include flex(flex-end, null);
