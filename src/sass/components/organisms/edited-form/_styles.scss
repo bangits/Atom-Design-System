@@ -1,6 +1,13 @@
 @mixin generate-edited-form-styles {
   .EditedFormBase {
     width: getEditedFormSizes(edited-form-width);
+    &--12 {
+      width: 100%;
+    }
+    &--6 {
+      width: getEditedFormSizes(edited-form-width);
+    }
+
     &--control {
       @include flex(space-between, center);
       padding: getEditedFormSizes(control-padding);

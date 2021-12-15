@@ -2,6 +2,17 @@
   .EditForm {
     width: getEditFormInSizes(edit-form-width);
   }
+  .EditForm--12 {
+    width: 100%;
+    .EditFormBase--content {
+      column-gap: 16px;
+      justify-content: flex-start;
+    }
+  }
+
+  .EditForm--6 {
+    width: getEditFormInSizes(edit-form-width);
+  }
 
   .EditFormBase {
     position: relative;
