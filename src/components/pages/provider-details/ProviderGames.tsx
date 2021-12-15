@@ -115,7 +115,7 @@ export const ProviderGames = ({
             autoHide
             onScroll={(e) => {
               if (isLoadingGames) return;
-
+              //@ts-expect-error ignoring offsetHeight, scrollTop and scrollHeight values
               const isScrolledToBottom = e.target.offsetHeight + e.target.scrollTop >= e.target.scrollHeight;
 
               if (isScrolledToBottom) {
