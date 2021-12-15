@@ -5,8 +5,35 @@
 
   .ImageColumn {
     border-radius: getDataTableSizes(image-column);
-
     object-fit: cover;
+  }
+
+  .DataTablePageWrapper .ImageHoverColumn {
+    width: 40px;
+    height: 40px;
+    z-index: 10;
+    top: 0;
+    left: 107px;
+    transition: 0.5s;
+    border-radius: 4px;
+    animation-delay: 1s;
+    animation-play-state: running;
+    animation-fill-mode: forwards;
+
+    &:hover {
+      animation-name: img-scale;
+    }
+  }
+
+  @keyframes img-scale {
+    0% {
+    }
+    100% {
+      position: fixed;
+      top: inherit;
+      transform: scale(2.75);
+      box-shadow: 0px 2px 10px #00000029;
+    }
   }
 
   .PaginationWrapper {
