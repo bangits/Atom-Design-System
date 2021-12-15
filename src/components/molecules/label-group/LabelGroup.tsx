@@ -1,6 +1,6 @@
+import { Typography } from '@my-ui/core';
 import React, { FC } from 'react';
 import styles from './LabelGroup.module.scss';
-import { Typography } from '@my-ui/core';
 
 export interface LabelGroupProps {
   title?: string;

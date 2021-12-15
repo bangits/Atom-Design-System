@@ -9,7 +9,7 @@ $count-view-sizes: (
 
 $count-view-colors: (
   card-background: color(white),
-  card-title-color: color(alabaster)
+  card-title-color: color(primary)
 );
 
 @function getCountViewSizes($key) {
