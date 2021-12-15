@@ -116,7 +116,9 @@ export const ProviderGames = ({
             onScroll={(e) => {
               if (isLoadingGames) return;
 
-              const isScrolledToBottom = e.target.offsetHeight + e.target.scrollTop >= e.target.scrollHeight;
+              const isScrolledToBottom =
+                (e.target as HTMLDivElement).offsetHeight + (e.target as HTMLDivElement).scrollTop >=
+                (e.target as HTMLDivElement).scrollHeight;
 
               if (isScrolledToBottom) {
                 onChange(selectedGameType, searchValue, currentPage + 1);
