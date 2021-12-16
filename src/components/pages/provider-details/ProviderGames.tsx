@@ -23,6 +23,7 @@ export interface ProviderGamesProps {
   }[];
   searchInputMaxLength: number;
   isLoadingGames: boolean;
+  isAllGamesLoaded: boolean;
 
   onChange(gameTypeId: number, search: string, page: number): void;
   onGameClick(gameId: number): void;
@@ -37,7 +38,8 @@ export const ProviderGames = ({
   searchInputMaxLength,
   onChange,
   onAddGameClick,
-  isLoadingGames
+  isLoadingGames,
+  isAllGamesLoaded
 }: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -114,7 +116,7 @@ export const ProviderGames = ({
             height='40rem'
             autoHide
             onScroll={(e) => {
-              if (isLoadingGames) return;
+              if (isAllGamesLoaded || isLoadingGames) return;
 
               const isScrolledToBottom =
                 (e.target as HTMLDivElement).offsetHeight + (e.target as HTMLDivElement).scrollTop >=
