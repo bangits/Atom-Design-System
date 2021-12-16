@@ -22,6 +22,10 @@
     &--core {
       @include flex(space-between, center);
       margin: getNameDescriptionSizes(core-margin);
+
+      &:last-child {
+        margin-bottom: getNameDescriptionSizes(core-last-child-margin-bottom);
+      }
     }
 
     &--name {
