@@ -1,0 +1,34 @@
+@mixin generate-user-details-styles {
+  .UserDetailsWrapper {
+    margin-top: getUserDetailsSizes(user-details-wrapper-margin-top);
+    @include flex();
+    .AsideLeftContent {
+      margin-right: getUserDetailsSizes(user-card-aside-left-margin-right);
+      .UserMainInfo {
+        margin-right: getUserDetailsSizes(card-user-main-info-margin);
+      }
+      .CardName {
+        @include flex(null, center);
+        background-color: getUserDetailsColors(card-background-color);
+        width: getUserDetailsSizes(user-details-card-width);
+        height: getUserDetailsSizes(user-card-name-height);
+        padding: getUserDetailsSizes(user-card-name-padding);
+        box-sizing: border-box;
+      }
+      .StatusViewContainer {
+        height: getUserDetailsSizes(card-statusview-height);
+        margin-top: getUserDetailsSizes(card-statusview-margin);
+      }
+      .CardDateContent {
+        margin-top: getUserDetailsSizes(card-statusview-margin);
+        max-height: getUserDetailsSizes(card-date-content-height);
+      }
+    }
+    .AsideRightContent {
+      width: 100%;
+      .CardContent {
+        background-color: getUserDetailsColors(card-background-color);
+      }
+    }
+  }
+}
