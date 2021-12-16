@@ -1,13 +1,14 @@
-// @mixin generate-label-styles {
-@mixin generate-full-screen-pop-up-styles {
-  .FullScreenPopUp {
+@mixin generate-game-launcher-styles {
+  .GameLauncher {
     display: block;
     width: 99%;
     height: 99%;
-    position: absolute;
     background: rgba(0, 0, 0, 0.5);
     padding-top: 56px;
     z-index: 100;
+    position: absolute;
+    top: 0;
+    left: 0;
     overflow: hidden;
 
     * {
@@ -68,7 +69,8 @@
         box-shadow: 0px 5px 15px -1px rgba(0, 0, 0, 0.6);
       }
     }
-    .FullScreenPopUp__Tools-Cell {
+
+    &__Tools-Cell {
       display: flex;
       width: 90%;
       max-width: 1276px;
@@ -77,13 +79,12 @@
       padding-right: 10px;
       margin: 0 auto;
       height: 23px;
-
       justify-content: flex-end;
       align-items: center;
     }
   }
 
-  .FullScreenPopUpIcons {
+  .GameLauncherIcons {
     display: flex;
     width: 22px;
     height: 22px;
@@ -122,13 +123,13 @@
     margin-left: 35px;
   }
 
-  .Game-Screen-Cover {
+  .ScreenCover {
     width: 100%;
     height: 100%;
     position: absolute;
     left: 0;
     top: 0;
-    filter: blur(12px);
+    filter: blur(15px);
     overflow: hidden;
     img {
       display: block;
