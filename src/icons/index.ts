@@ -27,3 +27,4 @@ export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
 export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg';
+export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
