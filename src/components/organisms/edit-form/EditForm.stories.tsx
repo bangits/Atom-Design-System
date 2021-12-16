@@ -15,6 +15,7 @@ export const Default = () => {
   return (
     <EditForm
       title='Account Information'
+      col={6}
       renderInputs={(Component, name) => {
         return <Component />;
       }}
@@ -57,6 +58,47 @@ export const Default = () => {
             ],
             isSearchable: true,
             isMulti: true
+          }
+        },
+        {
+          type: 'select',
+          name: 'certifiedCountries',
+          props: {
+            inputLabel: 'Restricted countries',
+            options: [
+              { label: 'Restricted country 1', value: 1 },
+              { label: 'Restricted country 2', value: 2 },
+              { label: 'Restricted country 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          type: 'select',
+          name: 'providerCurrencies',
+          props: {
+            inputLabel: 'Currency',
+            options: [
+              { label: 'Currency 1', value: 1 },
+              { label: 'Currency 2', value: 2 },
+              { label: 'Currency 3', value: 3 }
+            ],
+            isSearchable: true,
+            isMulti: true
+          }
+        },
+        {
+          type: 'select',
+          name: 'defaultCurrency',
+          props: {
+            inputLabel: 'Default currency',
+            options: [
+              { label: 'Default currency 1', value: 1 },
+              { label: 'Default currency 2', value: 2 },
+              { label: 'Default currency 3', value: 3 }
+            ],
+            isSearchable: true
           }
         },
         {
