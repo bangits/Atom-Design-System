@@ -1,18 +1,33 @@
-import { Typography } from '@my-ui/core';
-import React, { FC, ReactNode } from 'react';
-import styles from './GameLauncher.module.scss';
+import { closeFullScreen, openFullScreen } from '@/helpers';
+import { CloseWidePopUp, FullScreenIcon } from '@/icons';
 import classNames from 'classnames';
+import React, { useCallback, useState } from 'react';
+import styles from './GameLauncher.module.scss';
 
-import { FullScreenIcon, CloseWidePopUp } from '@/icons';
+export interface GameLauncherProps {
+  iframeUrl: string;
+  gameBackgroundUrl: string;
+  onCloseButtonClick?: () => void;
+}
 
-export interface GameLauncherProps {}
+export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick }: GameLauncherProps) => {
+  const [_, setFullScreenMode] = useState(false);
 
-export const GameLauncher = ({}) => {
+  const toggleFullScreen = useCallback(() => {
+    setFullScreenMode((prevFullScreenMode) => {
+      if (prevFullScreenMode) closeFullScreen();
+      else openFullScreen();
+
+      return !prevFullScreenMode;
+    });
+  }, []);
+
   return (
     <aside className={classNames(styles['GameLauncher'], 'GameLauncher')}>
       <div className={classNames(styles['GameLauncher__Header'], 'GameLauncher__Header')}>
         <div className={classNames(styles['GameLauncher__Tools-Cell'], 'GameLauncher__Tools-Cell')}>
           <span
+            onClick={toggleFullScreen}
             className={classNames(
               styles['IconSpace'],
               styles['GameLauncherIcons'],
@@ -24,6 +39,7 @@ export const GameLauncher = ({}) => {
             <FullScreenIcon width='20' />
           </span>
           <span
+            onClick={onCloseButtonClick}
             className={classNames(
               styles['IconSpace'],
               styles['GameLauncherIcons'],
@@ -37,16 +53,18 @@ export const GameLauncher = ({}) => {
         </div>
       </div>
       <div className={classNames(styles['GameLauncher__Body'], 'GameLauncher__Body')}>
-        <div className={classNames(styles['ScreenCover'])}>
-          <img src='https://newslotgames.net/images/slots/2020/diamond-link-oasis-riches-1.jpg' alt='' />
-        </div>
+        {gameBackgroundUrl && (
+          <div className={classNames(styles['ScreenCover'])}>
+            <img src={gameBackgroundUrl} alt='' />
+          </div>
+        )}
         <div className={classNames(styles['GameLauncher__Content'], 'GameLauncher__Content')}>
           <div className={classNames(styles['GameLauncher__Content-Inner'], 'GameLauncher__Content-Inner')}>
             <iframe
               width='560'
               height='315'
-              src='https://www.youtube.com/embed/-T5eEgVMblQ'
-              title='YouTube video player'
+              src={iframeUrl}
+              title='Game Launcher'
               frameBorder='0'
               allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>
           </div>

@@ -35,7 +35,7 @@ export interface PartnerProviderInfoProps {
   };
 }
 
-const ProvidersGeneralInfo: FC<PartnerProviderInfoProps> = ({
+const PartnerProviderInfo: FC<PartnerProviderInfoProps> = ({
   noDataText = 'N/A',
   totalGameCount,
   gameTypes,
@@ -95,4 +95,4 @@ const ProvidersGeneralInfo: FC<PartnerProviderInfoProps> = ({
   );
 };
 
-export default ProvidersGeneralInfo;
+export default PartnerProviderInfo;

@@ -1,8 +1,14 @@
 @mixin generate-providerdetails-styles {
+  .GamesLoading {
+    @include flex(center);
+    margin-top: getProviderDetailsSizes(provider-games-margin-top);
+  }
+
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProviderDetailsSizes(provider-details-margin-top);
   }
+
   .ProviderDetailsBase--leftBlock {
     margin-right: getProviderDetailsSizes(provider-left-block-margin);
   }
@@ -87,6 +93,21 @@
       width: getProviderDetailsSizes(games-container__div__div-width) !important;
       height: getProviderDetailsSizes(games-container__div__div-height) !important;
     }
+  }
+
+  .GamesList__Empty {
+    margin-top: getProviderDetailsSizes(provider-games-empty-margin-top);
+  }
+
+  .Empty-Page-Cell {
+    @include flex(center);
+  }
+
+  .Empty-Page-Title {
+    margin: 0;
+    margin-top: getProviderDetailsSizes(provider-games-empty-text-margin-top);
+
+    text-align: center;
   }
 
   .GamesList__Fill {
