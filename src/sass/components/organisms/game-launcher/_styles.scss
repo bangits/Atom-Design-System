@@ -98,7 +98,7 @@
   }
 
   .IconSpace {
-    margin-left: 35px;
+    margin-left: getGameLauncherSizes(icon-space-margin-left);
   }
 
   .ScreenCover {
