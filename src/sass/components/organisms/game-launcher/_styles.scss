@@ -1,6 +1,6 @@
 @mixin generate-game-launcher-styles {
   .GameLauncher {
-    @include p('abs');
+    @include p('fix');
     display: block;
     width: getGameLauncherSizes(game-launcher-width);
     height: getGameLauncherSizes(game-launcher-height);

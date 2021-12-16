@@ -1,10 +1,10 @@
 $game-launcher-sizes: (
   game-launcher-padding-top: calculateRem(56px),
   game-launcher-display: block,
-  game-launcher-width: 99%,
-  game-launcher-height: 99%,
+  game-launcher-width: 100%,
+  game-launcher-height: 100%,
   game-launcher-bg: rgba(0, 0, 0, 0.5),
-  game-launcher-z-index: 100,
+  game-launcher-z-index: 9999,
   game-launcher-overflow: hidden,
   //
   game-launcher__header-width: 100%,
