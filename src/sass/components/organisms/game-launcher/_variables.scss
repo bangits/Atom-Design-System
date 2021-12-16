@@ -1,0 +1,17 @@
+$label-sizes: (
+  label-margin-bottom: calculateRem(3px),
+  label-optional-margin-left: calculateRem(5px),
+  label-optional-opacity: 0.5
+);
+
+$label-colors: (
+  label-color: color(nepal)
+);
+
+@function getLabelSizes($key) {
+  @return map-get($label-sizes, $key);
+}
+
+@function getLabelColors($key) {
+  @return map-get($label-colors, $key);
+}
