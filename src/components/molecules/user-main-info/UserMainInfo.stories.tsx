@@ -9,5 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return <UserMainInfo />;
+  return <UserMainInfo className='' />;
 };
