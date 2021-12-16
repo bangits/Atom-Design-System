@@ -1,0 +1,116 @@
+@mixin generate-game-launcher-styles {
+  .GameLauncher {
+    @include p('abs');
+    display: block;
+    width: getGameLauncherSizes(game-launcher-width);
+    height: getGameLauncherSizes(game-launcher-height);
+    background: getGameLauncherColors(game-launcher-bg-color);
+    padding-top: getGameLauncherSizes(game-launcher-padding-top);
+    z-index: getGameLauncherSizes(game-launcher-z-index);
+    overflow: getGameLauncherSizes(game-launcher-overflow);
+
+    * {
+      box-sizing: border-box;
+    }
+
+    &__Header {
+      @include flex(flex-end, center);
+      @include p('abs');
+      width: getGameLauncherSizes(game-launcher__header-width);
+      height: getGameLauncherSizes(game-launcher-padding-top);
+      background: getGameLauncherColors(game-launcher__header-bg-color);
+      z-index: getGameLauncherSizes(game-launcher__header-z-index);
+      box-shadow: getGameLauncherSizes(game-launcher__header-box-shadow);
+    }
+    &__Body {
+      @include flex(center, center);
+      width: getGameLauncherSizes(game-launcher__body-width);
+      height: getGameLauncherSizes(game-launcher__body-height);
+      height: getGameLauncherSizes(game-launcher__body-height);
+      padding: getGameLauncherSizes(game-launcher__body-padding);
+      background: getGameLauncherColors(game-launcher__body-bg-gradient);
+    }
+    &__Content {
+      @include flex(center, center);
+      @include p;
+      width: getGameLauncherSizes(game-launcher__content-width);
+      height: getGameLauncherSizes(game-launcher__content-height);
+      overflow: getGameLauncherSizes(game-launcher__content-overflow);
+      z-index: getGameLauncherSizes(game-launcher__content-z-index);
+      &-Inner {
+        @include flex(center, center);
+        width: getGameLauncherSizes(game-launcher__content-inner-width);
+        height: getGameLauncherSizes(game-launcher__content-inner-height);
+      }
+      iframe,
+      img {
+        display: getGameLauncherSizes(game-launcher__content-img-iframe-block);
+        width: getGameLauncherSizes(game-launcher__content-img-iframe-width);
+        height: getGameLauncherSizes(game-launcher__content-img-iframe-height);
+        max-width: getGameLauncherSizes(game-launcher__content-img-iframe-max-width);
+        height: getGameLauncherSizes(game-launcher__content-img-iframe-mix-height);
+        object-fit: getGameLauncherSizes(game-launcher__content-img-iframe-object);
+        box-shadow: getGameLauncherSizes(game-launcher__content-box-img-iframe-shadow);
+      }
+    }
+
+    &__Tools-Cell {
+      @include flex(flex-end, center);
+      height: getGameLauncherSizes(game-launcher__tools-cell-height);
+      width: getGameLauncherSizes(game-launcher__tools-cell-width);
+      max-width: getGameLauncherSizes(game-launcher__tools-cell-max-width);
+      min-width: getGameLauncherSizes(game-launcher__tools-cell-min-width);
+      padding-left: getGameLauncherSizes(game-launcher__tools-cell-padding-left);
+      padding-right: getGameLauncherSizes(game-launcher__tools-cell-padding-right);
+      margin: 0 auto;
+    }
+  }
+
+  .GameLauncherIcons {
+    @include flex(center, center);
+    width: getGameLauncherSizes(game-launcher-icons-width);
+    height: getGameLauncherSizes(game-launcher-icons-height);
+    transform: getGameLauncherSizes(game-launcher-icons-transform);
+    transition: getGameLauncherSizes(game-launcher-icons-transition);
+
+    &:hover {
+      transform: scale(1.3);
+    }
+    cursor: pointer;
+    svg {
+      fill: getGameLauncherColors(game-launcher-icons-svg-fill);
+    }
+    &--Wide {
+      svg {
+        fill: getGameLauncherColors(game-launcher-icons-svg-fill);
+      }
+    }
+    &--Close {
+      @include flex(center, center);
+      width: getGameLauncherSizes(game-launcher-icons--close-width);
+      height: getGameLauncherSizes(game-launcher-icons--close-height);
+      border-radius: 50%;
+      background: getGameLauncherColors(game-launcher-icons-close-bg-color);
+      svg {
+        fill: getGameLauncherColors(game-launcher-icons-close-svg-fill);
+      }
+    }
+  }
+
+  .IconSpace {
+    margin-left: 35px;
+  }
+
+  .ScreenCover {
+    @include p('abs');
+    width: getGameLauncherSizes(screen-cover-width);
+    height: getGameLauncherSizes(screen-cover-height);
+    overflow: hidden;
+    filter: blur(15px);
+    img {
+      display: block;
+      height: auto;
+      width: 100%;
+    }
+  }
+}

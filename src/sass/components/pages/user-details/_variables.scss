@@ -1,0 +1,26 @@
+$user-details-sizes: (
+  user-details-wrapper-margin-top: calculateRem(11px),
+  user-details-card-width: calculateRem(244px),
+  user-card-aside-left-margin-right: calculateRem(8px),
+  user-card-name-height: calculateRem(74px),
+  user-card-name-padding: calculateRem(16px),
+  card-user-main-info-margin: calculateRem(16px),
+  card-statusview-height: calculateRem(34.29px),
+  card-statusview-margin: calculateRem(8px),
+  card-date-content-height: calculateRem(75px),
+  user-details-table-margin-top: calculateRem(27px),
+  user-details-button-margin-top: calculateRem(20px),
+  select-content-svg-margin: calculateRem(15px) 0 0 calculateRem(12px)
+);
+
+$user-details-colors: (
+  card-background-color: color(white)
+);
+
+@function getUserDetailsColors($key) {
+  @return map-get($user-details-colors, $key);
+}
+
+@function getUserDetailsSizes($key) {
+  @return map-get($user-details-sizes, $key);
+}
