@@ -1,17 +1,74 @@
-$label-sizes: (
-  label-margin-bottom: calculateRem(3px),
-  label-optional-margin-left: calculateRem(5px),
-  label-optional-opacity: 0.5
+$game-launcher-sizes: (
+  game-launcher-padding-top: calculateRem(56px),
+  game-launcher-display: block,
+  game-launcher-width: 99%,
+  game-launcher-height: 99%,
+  game-launcher-bg: rgba(0, 0, 0, 0.5),
+  game-launcher-z-index: 100,
+  game-launcher-overflow: hidden,
+  //
+  game-launcher__header-width: 100%,
+  game-launcher__header-z-index: 100,
+  //
+  game-launcher__body-width: 100%,
+  game-launcher__body-height: 100%,
+  game-launcher__body-padding: calculateRem(30px) calculateRem(0px) calculateRem(22px) calculateRem(0px),
+  //
+  game-launcher__content-width: 77.713%,
+  game-launcher__content-height: 100%,
+  game-launcher__content-overflow: auto,
+  game-launcher__content-z-index: 100,
+  //
+  game-launcher__content-iframe-img-box-shadow: -1px 4px 10px 0px rgba(0, 0, 0, 0.56),
+  //
+  game-launcher__content-inner-height: 100%,
+  game-launcher__content-inner-width: 100%,
+  //
+  game-launcher__content-img-iframe-block: block,
+  game-launcher__content-img-iframe-width: 100%,
+  game-launcher__content-img-iframe-height: 70%,
+  game-launcher__content-img-iframe-max-width: 1060px,
+  game-launcher__content-img-iframe-object: cover,
+  //
+  game-launcher__tools-cell-width: 90%,
+  game-launcher__tools-cell-max-width: 1276px,
+  game-launcher__tools-cell-min-width: 768px,
+  game-launcher__tools-cell-padding-left: calculateRem(10px),
+  game-launcher__tools-cell-padding-right: calculateRem(10px),
+  game-launcher__tools-cell-height: calculateRem(23px),
+  //
+  screen-cover-width: 100%,
+  screen-cover-height: 100%,
+  //
+  game-launcher-icons-width: calculateRem(22px),
+  game-launcher-icons-height: calculateRem(22px),
+  game-launcher-icons-transform: scale(1),
+  game-launcher-icons-transition: transform 0.12s ease,
+  //
+  game-launcher-icons--close-width: 22px,
+  game-launcher-icons--close-height: 22px
 );
 
-$label-colors: (
-  label-color: color(nepal)
+$game-launcher-colors: (
+  game-launcher-bg-color: rgba(0, 0, 0, 0.5),
+  //
+  game-launcher__header-bg-color: color(shisha-coal),
+  game-launcher__header-box-shadow: -1px 4px 10px 0px rgba(0, 0, 0, 0.56),
+  game-launcher__body-bg-gradient: linear-gradient(180deg, #121212 0%, #404040 50%, #101010 100%) 0% 0%,
+  //
+  game-launcher__content-box-shadow: 0px 5px 15px -1px rgba(0, 0, 0, 0.6),
+  game-launcher__content-box-img-iframe-shadow: 0px 5px 15px -1px rgba(0, 0, 0, 0.6),
+  //
+  game-launcher-icons-svg-fill: color(white),
+  game-launcher-icons-close-svg-fill: color(abs-black),
+  game-launcher-icons-close-bg-color: color(white),
+  //
 );
 
-@function getLabelSizes($key) {
-  @return map-get($label-sizes, $key);
+@function getGameLauncherSizes($key) {
+  @return map-get($game-launcher-sizes, $key);
 }
 
-@function getLabelColors($key) {
-  @return map-get($label-colors, $key);
+@function getGameLauncherColors($key) {
+  @return map-get($game-launcher-colors, $key);
 }
