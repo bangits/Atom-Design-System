@@ -25,3 +25,5 @@ export { ReactComponent as Safari2Icon } from './safari2.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
+export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
+export { ReactComponent as closeWidePopUp } from './close-wide-pop-up.react.svg';
