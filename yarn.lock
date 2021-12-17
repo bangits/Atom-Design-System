@@ -3,9 +3,9 @@
 
 
 "@atom/common@^2.3.4":
-  version "2.6.1"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.6.1.tgz#768b810247e59bdf136a88253278a21408eb1368"
-  integrity sha1-douBAkflm98TaoglMniiFAjrE2g=
+  version "2.5.18"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.5.18.tgz#a1289f3dbc8803b78c8005cea03fe6964ee8f0c3"
+  integrity sha1-oSifPbyIA7eMgAXOoD/mlk7o8MM=
   dependencies:
     "@automapper/classes" "^7.0.2"
     "@automapper/core" "^7.0.2"
@@ -1530,10 +1530,17 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+<<<<<<< HEAD
 "@my-ui/core@^2.24.1":
   version "2.24.1"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.24.1.tgz#643a5abd33c34461695b4efe871fa85835eda130"
   integrity sha1-ZDpavTPDRGFpW07+hx+oWDXtoTA=
+=======
+"@my-ui/core@^2.24.8":
+  version "2.24.8"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.24.8.tgz#8ba476c242289eb0878d749c7af7b17fc1b61e43"
+  integrity sha1-i6R2wkIonrCHjXScevexf8G2HkM=
+>>>>>>> daee71b0ad926ecb1d2893f173d09882cc911c74
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"

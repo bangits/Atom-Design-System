@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <ProvidersGeneralInfo
+      noDataText='Not Completed'
       totalMarket={{
         title: 'Total Market',
         total: '1 Country',
@@ -63,7 +64,7 @@ export const Default = () => {
       }}
       realURL={{
         title: 'Absolute Real URL',
-        URL: 'www.google.com',
+        URL: '',
         tooltip: {
           showEvent: 'click',
           text: 'Copied!',

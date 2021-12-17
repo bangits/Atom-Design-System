@@ -1,6 +1,7 @@
+import { Countries, CurrencyGroup, LabelGroup, LicenseGroup } from '@/components';
+import { CopyField, TagCountryProps, TagProps, TooltipProps, Typography } from '@my-ui/core';
 import React, { FC } from 'react';
-import { CopyField, TagCountryProps, TagProps, TooltipProps } from '@my-ui/core';
-import { Countries, LabelGroup, CurrencyGroup, LicenseGroup } from '@/components';
+import styles from './ProvidersGeneralInfo.module.scss';
 
 export interface ProvidersGeneralInfoProps {
   noDataText?: string;
@@ -52,35 +53,83 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
   noDataText
 }) => {
   return (
-    <>
-      <LabelGroup title={totalMarket.title} totalLabel={totalMarket.total}>
-        <Countries tagCountries={totalMarket.countries} />
+    <div className={styles['ProviderGeneralInfo--items']}>
+      <LabelGroup title={totalMarket.title} totalLabel={totalMarket.countries.length > 0 ? totalMarket.total : ''}>
+        {totalMarket.countries.length > 0 ? (
+          <Countries tagCountries={totalMarket.countries} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
 
-      <LabelGroup title={certifiedCountries.title} totalLabel={certifiedCountries.total}>
-        <Countries tagCountries={certifiedCountries.countries} />
+      <LabelGroup
+        title={certifiedCountries.title}
+        totalLabel={certifiedCountries.countries.length > 0 ? certifiedCountries.total : ''}>
+        {certifiedCountries.countries.length > 0 ? (
+          <Countries tagCountries={certifiedCountries.countries} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
 
-      <LabelGroup title={restrictedtCountries.title} totalLabel={restrictedtCountries.total}>
-        <Countries tagCountries={restrictedtCountries.countries} />
+      <LabelGroup
+        title={restrictedtCountries.title}
+        totalLabel={restrictedtCountries.countries.length > 0 ? restrictedtCountries.total : ''}>
+        {restrictedtCountries.countries.length > 0 ? (
+          <Countries tagCountries={restrictedtCountries.countries} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
 
-      <LabelGroup title={supportedCurrencies.title} totalLabel={supportedCurrencies.total}>
-        <CurrencyGroup currencies={supportedCurrencies.currencies} />
+      <LabelGroup
+        title={supportedCurrencies.title}
+        totalLabel={supportedCurrencies.currencies.length > 0 ? supportedCurrencies.total : ''}>
+        {supportedCurrencies.currencies.length > 0 ? (
+          <CurrencyGroup currencies={supportedCurrencies.currencies} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
 
-      <LabelGroup title={licenses.title} totalLabel={licenses.total}>
-        <LicenseGroup tags={licenses.licenses} />
+      <LabelGroup title={licenses.title} totalLabel={licenses.licenses.length > 0 ? licenses.total : ''}>
+        {licenses.licenses.length > 0 ? (
+          <LicenseGroup tags={licenses.licenses} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
 
       <LabelGroup title={realURL.title}>
-        <CopyField label={realURL.URL} tooltip={realURL.tooltip} noDataText={noDataText} />
+        {realURL.URL ? (
+          <CopyField label={realURL.URL} tooltip={realURL.tooltip} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
 
       <LabelGroup title={demoURL.title}>
-        <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} noDataText={noDataText} />
+        {demoURL.URL ? (
+          <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
-    </>
+    </div>
   );
 };
 

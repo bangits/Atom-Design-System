@@ -1,5 +1,16 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
-import { IconButton, Icons, Pagination, PaginationProps, SelectProps, Status, StatusProps, Tooltip } from '@my-ui/core';
+import { SettingsIcon } from '@/icons';
+import {
+  IconButton,
+  Icons,
+  Pagination,
+  PaginationProps,
+  Select,
+  SelectProps,
+  Status,
+  StatusProps,
+  Tooltip
+} from '@my-ui/core';
 import classNames from 'classnames';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './DataTable.module.scss';
@@ -12,6 +23,11 @@ export interface FetchDataParameters<T, K> {
   sortedBy: { id: string; desc: boolean } | null;
 }
 export interface DataTableProps<T extends {}, K> {
+  columnDropdownTranslations?: {
+    selectAllLabel: string;
+    clearButtonLabel: string;
+    dropdownLabel: string;
+  };
   filtersDropdownProps?: SelectProps<any, boolean, any>;
   isShowedFilter?: boolean;
   isShowedPagination?: boolean;
@@ -31,7 +47,7 @@ export interface DataTableProps<T extends {}, K> {
 
   tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
     columns?: (TableProps<T>['columns'][number] & {
-      variant?: 'status' | 'image';
+      variant?: 'status' | 'image' | 'hovered-image';
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
@@ -62,12 +78,34 @@ function DataTable<T extends {}, K>({
   defaultPaginationPage = 1,
   defaultPageSize = 20,
   paginationProps,
+  columnDropdownTranslations,
   rowCount
 }: DataTableProps<T, K>) {
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
 
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
+
+  const dropdownOptions = useMemo<SelectProps<any, boolean, any>['options']>(
+    () =>
+      tableProps.columns.map((column) => ({
+        label: column.Header,
+        value: column.accessor,
+        disabled: false
+      })),
+    []
+  );
+
+  const columnsConfigDefaultValue = useMemo(() => dropdownOptions.map((value) => value.value), [dropdownOptions]);
+  const [dropdownValues, setDropdownValues] = useState<string[]>(columnsConfigDefaultValue);
+
+  const configColumns = useMemo(
+    () =>
+      dropdownValues.length === 0
+        ? tableProps.columns.filter((column) => columnsConfigDefaultValue.slice(0, 3).includes(column.accessor))
+        : tableProps.columns.filter((column) => dropdownValues.includes(column.accessor)),
+    [dropdownValues, tableProps.columns, columnsConfigDefaultValue]
+  );
 
   const initialPagination = useMemo(
     () => ({
@@ -148,7 +186,7 @@ function DataTable<T extends {}, K>({
   }, []);
 
   const tableColumns = useMemo(() => {
-    return (tableProps.columns || []).map((column) => ({
+    return (configColumns || []).map((column) => ({
       ...column,
       ...(column.variant === 'status'
         ? {
@@ -161,9 +199,13 @@ function DataTable<T extends {}, K>({
         ? {
             renderColumn: (_, value) => <img className={styles.ImageColumn} src={value} />
           }
+        : column.variant === 'hovered-image'
+        ? {
+            renderColumn: (_, value) => <img className={styles.ImageHoverColumn} src={value} />
+          }
         : {})
     }));
-  }, [tableProps.columns]);
+  }, [tableProps.columns, dropdownValues]);
 
   const paginationTotalCountInfo = useMemo<string>(
     () => paginationProps.getTotalCountInfo(pagination),
@@ -250,6 +292,25 @@ function DataTable<T extends {}, K>({
       )}
 
       <div className={styles.TableConfigsWrapper}>
+        <div>
+          <Select
+            isMulti
+            dropdown
+            dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
+            dropdownIcon={<SettingsIcon />}
+            clearButton
+            clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
+            selectAll
+            selectAllLabel={columnDropdownTranslations?.selectAllLabel || 'All'}
+            color='primary'
+            options={dropdownOptions}
+            disableSelectedOptions={dropdownValues.length < 4}
+            value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
+            onChange={(values) => {
+              setDropdownValues(values);
+            }}
+          />
+        </div>
         <div className={styles.TableActionsWrapper}>{tableBulkActions}</div>
 
         {isShowedPagination && (

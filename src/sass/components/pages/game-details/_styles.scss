@@ -74,6 +74,8 @@
         font-size: getGameDetailsSizes(empty-wrapper__button-font-size);
         padding: getGameDetailsSizes(empty-wrapper__button-padding);
         margin: getGameDetailsSizes(empty-wrapper__button-margin);
+        max-width: auto;
+        min-width: auto;
 
         cursor: pointer;
         &:last-child {

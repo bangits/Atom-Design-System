@@ -32,7 +32,9 @@ export interface EditedFormProps {
   noDataText?: ReactNode;
   title?: ReactNode;
   viewMoreLabel?: string;
+  viewLessLabel?: string;
   onToggle?: () => void;
+  col?: 6 | 12;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -40,8 +42,11 @@ const EditedForm: FC<EditedFormProps> = ({
   noDataText = 'N/A',
   options,
   viewMoreLabel = 'View More',
+  viewLessLabel = 'View Less',
   onToggle,
-  editButtonTooltipText
+  editButtonTooltipText,
+  children,
+  col
 }) => {
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
   const [height, setHeight] = useState<number>();
@@ -78,7 +83,12 @@ const EditedForm: FC<EditedFormProps> = ({
   }, [containerRef]);
 
   return (
-    <div className={classNames(styles.EditedFormBase)} style={{ opacity: height ? 1 : 0 }}>
+    <div
+      className={classNames(styles.EditedFormBase, {
+        [styles[`EditedFormBase--${col}`]]: col,
+        [styles[`EditedFormBase--${col}`]]: col
+      })}
+      style={{ opacity: height ? 1 : 0 }}>
       <div className={classNames(styles['EditedFormBase--control'])}>
         <span className={classNames(styles['EditedFormBase--control-title'])}>{title}</span>
         <div className={classNames(styles['EditedFormBase--control-button'])}>
@@ -89,76 +99,81 @@ const EditedForm: FC<EditedFormProps> = ({
       </div>
       <Card borderRadius={1.6} className={classNames(styles['EditedFormBase--card-content'])}>
         <div
-          className={classNames(styles['EditedFormBase-content'], {
+          className={classNames(styles['EditedFormBase--content'], {
             [viewMoreClassNames.closed]: !isOpenedCollapse,
-            [viewMoreClassNames.open]: isOpenedCollapse
+            [viewMoreClassNames.open]: isOpenedCollapse,
+            [styles[`EditedFormBase--content-children`]]: children
           })}
           ref={containerRef}>
-          {options &&
-            options?.map((option, index) =>
-              option.variant === 'default' ? (
-                <div key={index} className={classNames(styles['EditedFormBase--option'])}>
-                  <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                  <span className={classNames(styles['EditedFormBase--option-value'])}>
-                    {option.value || noDataText}
-                  </span>
-                </div>
-              ) : option.variant === 'label' ? (
-                <div key={index} className={classNames(styles['EditedFormBase--option-label'])}>
-                  <span>{option.title}</span>
-                </div>
-              ) : option.variant === 'tag' ? (
-                <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
-                  <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                  <div>
-                    {option.value?.map((o) => (
-                      <Tag title={o} />
-                    ))}
+          {children || (
+            <>
+              {options &&
+                options?.map((option, index) =>
+                  option.variant === 'default' ? (
+                    <div key={index} className={classNames(styles['EditedFormBase--option'])}>
+                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                      <span className={classNames(styles['EditedFormBase--option-value'])}>
+                        {option.value || noDataText}
+                      </span>
+                    </div>
+                  ) : option.variant === 'label' ? (
+                    <div key={index} className={classNames(styles['EditedFormBase--option-label'])}>
+                      <span>{option.title}</span>
+                    </div>
+                  ) : option.variant === 'tag' ? (
+                    <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
+                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                      <div>
+                        {option.value?.map((o) => (
+                          <Tag title={o} />
+                        ))}
+                      </div>
+                    </div>
+                  ) : option.variant === 'bold' ? (
+                    <div key={index} className={classNames(styles['EditedFormBase--option'])}>
+                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                      <span
+                        className={classNames(
+                          styles['EditedFormBase--option-value'],
+                          styles['EditedFormBase--option-value-bold']
+                        )}>
+                        {option.value || noDataText}
+                      </span>
+                    </div>
+                  ) : (
+                    <></>
+                  )
+                )}
+              {height > 228 && (
+                <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'])}>
+                  <div
+                    className={classNames({
+                      [viewMoreClassNames.iconTransform]: isOpenedCollapse
+                    })}>
+                    <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                      <g id='Group_24108' transform='translate(-555 -465)'>
+                        <g id='Group_24107' transform='translate(0 6)'>
+                          <path
+                            id='Icon_ionic-ios-arrow-down'
+                            d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
+                            transform='translate(555.813 459.753)'
+                            fill='currentColor'
+                          />
+                          <path
+                            id='Icon_ionic-ios-arrow-down-2'
+                            d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
+                            transform='translate(555.813 455.753)'
+                            fill='currentColor'
+                          />
+                        </g>
+                        <rect id='Rectangle_11242' width='24' height='24' transform='translate(555 465)' fill='none' />
+                      </g>
+                    </svg>
                   </div>
+                  <span>{isOpenedCollapse ? viewLessLabel : viewMoreLabel}</span>
                 </div>
-              ) : option.variant === 'bold' ? (
-                <div key={index} className={classNames(styles['EditedFormBase--option'])}>
-                  <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                  <span
-                    className={classNames(
-                      styles['EditedFormBase--option-value'],
-                      styles['EditedFormBase--option-value-bold']
-                    )}>
-                    {option.value || noDataText}
-                  </span>
-                </div>
-              ) : (
-                <></>
-              )
-            )}
-          {height > 228 && (
-            <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'])}>
-              <div
-                className={classNames({
-                  [viewMoreClassNames.iconTransform]: isOpenedCollapse
-                })}>
-                <svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-                  <g id='Group_24108' transform='translate(-555 -465)'>
-                    <g id='Group_24107' transform='translate(0 6)'>
-                      <path
-                        id='Icon_ionic-ios-arrow-down'
-                        d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
-                        transform='translate(555.813 459.753)'
-                        fill='currentColor'
-                      />
-                      <path
-                        id='Icon_ionic-ios-arrow-down-2'
-                        d='M11.189,14.739l3.781-3.309a.786.786,0,0,1,1.009,0,.576.576,0,0,1,0,.885L11.7,16.064a.789.789,0,0,1-.985.018L6.4,12.318a.574.574,0,0,1,0-.885.786.786,0,0,1,1.009,0Z'
-                        transform='translate(555.813 455.753)'
-                        fill='currentColor'
-                      />
-                    </g>
-                    <rect id='Rectangle_11242' width='24' height='24' transform='translate(555 465)' fill='none' />
-                  </g>
-                </svg>
-              </div>
-              <span>{viewMoreLabel}</span>
-            </div>
+              )}
+            </>
           )}
         </div>
       </Card>

@@ -5,8 +5,32 @@
 
   .ImageColumn {
     border-radius: getDataTableSizes(image-column);
-
     object-fit: cover;
+  }
+
+  .DataTablePageWrapper {
+    tr:hover ~ tr .ImageHoverColumn {
+      z-index: getDataTableSizes(image-z-index-row);
+    }
+
+    .ImageHoverColumn {
+      position: fixed;
+      width: getDataTableSizes(image-column-sizes);
+      height: getDataTableSizes(image-column-sizes);
+      top: unset;
+      left: unset;
+      margin-top: getDataTableSizes(image-column-margin-top);
+      border-radius: getDataTableSizes(image-column-border-radius);
+      transition: all getDataTableSizes(image-column-transition-all) linear;
+      transition-delay: getDataTableSizes(image-column-transition-delay);
+      z-index: getDataTableSizes(image-z-index);
+
+      &:hover {
+        width: getDataTableSizes(image-column-hover-sizes);
+        height: getDataTableSizes(image-column-hover-sizes);
+        box-shadow: getDataTableSizes(image-box-shadow) getDataTableColors(box-shadow-color);
+      }
+    }
   }
 
   .PaginationWrapper {

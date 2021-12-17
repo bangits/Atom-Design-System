@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <FlexibleForm
+      col={6}
       title='Account Information'
       isEdit={true}
       onSubmit={(closeForm) => {
@@ -114,6 +115,7 @@ export const Default = () => {
       editedFormProps={{
         noDataText: 'N/A',
         editButtonTooltipText: 'Edit form',
+        viewLessLabel: 'View Less Info',
         options: [
           { title: 'Owner', variant: 'label' },
           { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },

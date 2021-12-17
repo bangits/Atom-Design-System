@@ -8,11 +8,13 @@ export interface ItemDetailsProps {
     value: number;
     content?: ReactNode;
     defaultValue?: number;
+    disableScroll?: boolean;
     subTabs?: {
       title: string;
       value: number;
       badgeCount?: number;
       content: ReactNode;
+      disableScroll?: boolean;
     }[];
   }[];
   defaultTabValue?: number;
@@ -59,9 +61,15 @@ const ItemDetails: FC<ItemDetailsProps> = ({
           />
         )}
       </div>
-      <Scroll height='54.4rem' autoHide>
+      {(currentSubTabInfo ? currentSubTabInfo.disableScroll || false : currentTabInfo?.disableScroll || false) ? (
         <div className={styles['ItemDetailsBase--forms']}>{currentSubTabInfo?.content || currentTabInfo?.content}</div>
-      </Scroll>
+      ) : (
+        <Scroll height='54.4rem' autoHide>
+          <div className={styles['ItemDetailsBase--forms']}>
+            {currentSubTabInfo?.content || currentTabInfo?.content}
+          </div>
+        </Scroll>
+      )}
     </Card>
   );
 };

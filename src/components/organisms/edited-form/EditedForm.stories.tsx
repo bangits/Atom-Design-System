@@ -10,7 +10,9 @@ export default {
 export const Default = () => {
   return (
     <EditedForm
+      col={6}
       viewMoreLabel='View More'
+      viewLessLabel={'View Less'}
       noDataText='No Data'
       options={[
         { title: 'Owner', variant: 'label' },
@@ -18,14 +20,8 @@ export const Default = () => {
         {
           title: 'Username',
           value: '',
-          variant: 'default'
-        },
-        {
-          title: 'Currency',
-          value: 'USD',
           variant: 'bold'
         },
-
         {
           title: 'Created By',
           value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
@@ -35,6 +31,11 @@ export const Default = () => {
           title: 'Status',
           value: 'Active',
           variant: 'default'
+        },
+        {
+          title: 'Currency',
+          value: 'USD',
+          variant: 'bold'
         },
         {
           title: 'Segment',
