@@ -292,41 +292,41 @@ function DataTable<T extends {}, K>({
       )}
 
       <div className={styles.TableConfigsWrapper}>
-        <div>
-          <Select
-            isMulti
-            dropdown
-            dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
-            dropdownIcon={<SettingsIcon />}
-            clearButton
-            clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
-            selectAll
-            selectAllLabel={columnDropdownTranslations?.selectAllLabel || 'All'}
-            color='primary'
-            options={dropdownOptions}
-            disableSelectedOptions={dropdownValues.length < 4}
-            value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
-            onChange={(values) => {
-              setDropdownValues(values);
-            }}
-          />
+        <div className={styles.TableLeftSideWrapper}>
+          <div className={styles.TableConfigSelect}>
+            <Select
+              isMulti
+              dropdown
+              dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
+              dropdownIcon={<SettingsIcon />}
+              clearButton
+              clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
+              selectAll
+              selectAllLabel={columnDropdownTranslations?.selectAllLabel || 'All'}
+              color='primary'
+              options={dropdownOptions}
+              disableSelectedOptions={dropdownValues.length < 4}
+              value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
+              onChange={(values) => {
+                setDropdownValues(values);
+              }}
+            />
+          </div>
+          <div className={styles.TableActionsWrapper}>{tableBulkActions}</div>
         </div>
-        <div className={styles.TableActionsWrapper}>{tableBulkActions}</div>
 
-        {isShowedPagination && (
-          <Pagination
-            onChange={onPaginationChange}
-            page={pagination.page}
-            {...paginationProps}
-            totalPagesCount={Math.ceil(rowCount / pagination.pageSize)}
-            totalCountInfo={paginationTotalCountInfo}
-            pageSizeSelect={{
-              ...paginationProps.pageSizeSelect,
-              onChange: onPaginationSizeChange
-            }}
-            className={styles.PaginationWrapper}
-          />
-        )}
+        <Pagination
+          onChange={onPaginationChange}
+          page={pagination.page}
+          {...paginationProps}
+          totalPagesCount={Math.ceil(rowCount / pagination.pageSize)}
+          totalCountInfo={paginationTotalCountInfo}
+          pageSizeSelect={{
+            ...paginationProps.pageSizeSelect,
+            onChange: onPaginationSizeChange
+          }}
+          className={styles.PaginationWrapper}
+        />
       </div>
 
       <Table
