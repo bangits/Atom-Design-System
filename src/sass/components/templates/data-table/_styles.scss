@@ -1,4 +1,12 @@
 @mixin generate-data-table-styles {
+  .TableConfigSelect {
+    max-width: getDataTableSizes(table-config-select);
+  }
+
+  .TableLeftSideWrapper {
+    @include flex(null, center);
+  }
+
   .Filters {
     margin-bottom: getDataTableSizes(filters-margin-bottom);
   }
@@ -8,35 +16,32 @@
     object-fit: cover;
   }
 
-  .DataTablePageWrapper {
-    // tr:hover ~ tr .ImageHoverColumn {
-    //   z-index: getDataTableSizes(image-z-index-row);
-    // }
+  // .DataTablePageWrapper .ImageHoverColumn {
+  //   width: 40px;
+  //   height: 40px;
+  //   top: 0;
+  //   left: 107px;
+  //   transition: 0.5s;
+  //   border-radius: 4px;
+  //   animation-delay: 1s;
+  //   animation-play-state: running;
+  //   animation-fill-mode: forwards;
 
-    // .ImageHoverColumn {
-    //   width: getDataTableSizes(image-column-sizes);
-    //   height: getDataTableSizes(image-column-sizes);
-    //   top: unset;
-    //   left: unset;
-    //   margin-top: getDataTableSizes(image-column-margin-top);
-    //   border-radius: getDataTableSizes(image-column-border-radius);
-    //   transition: all getDataTableSizes(image-column-transition-all) linear;
-    //   transition-delay: getDataTableSizes(image-column-transition-delay);
-    //   z-index: getDataTableSizes(image-z-index);
+  //   &:hover {
+  //     animation-name: img-scale;
+  //   }
+  // }
 
-    //   &:hover {
-    //     width: getDataTableSizes(image-column-hover-sizes);
-    //     height: getDataTableSizes(image-column-hover-sizes);
-    //     box-shadow: getDataTableSizes(image-box-shadow) getDataTableColors(box-shadow-color);
-    //     position: fixed;
-
-    //   }
-    // }
-  }
-
-  .PaginationWrapper {
-    @include flex(flex-end, null);
-  }
+  // @keyframes img-scale {
+  //   0% {
+  //   }
+  //   100% {
+  //     position: fixed;
+  //     top: inherit;
+  //     transform: scale(2.75);
+  //     box-shadow: 0px 2px 10px #00000029;
+  //   }
+  // }
 
   .TableActionsWrapper {
     @include flex();
