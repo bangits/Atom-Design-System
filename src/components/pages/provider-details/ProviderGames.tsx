@@ -23,6 +23,9 @@ export interface ProviderGamesProps {
   }[];
   searchInputMaxLength: number;
   isLoadingGames: boolean;
+  isAllGamesLoaded: boolean;
+  isTabLoading: boolean;
+  hasGames: boolean;
 
   onChange(gameTypeId: number, search: string, page: number): void;
   onGameClick(gameId: number): void;
@@ -37,7 +40,10 @@ export const ProviderGames = ({
   searchInputMaxLength,
   onChange,
   onAddGameClick,
-  isLoadingGames
+  isLoadingGames,
+  isAllGamesLoaded,
+  isTabLoading,
+  hasGames
 }: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -48,7 +54,7 @@ export const ProviderGames = ({
     <div className={classNames(styles['GamesList'], 'GamesList')}>
       <div className={classNames(styles['GamesList__Header'], 'GamesList__Header')}>
         <div className={classNames(styles['GamesList__Header-1'], 'GamesList__Header-1')}>
-          {games && games.length ? (
+          {hasGames && !isTabLoading ? (
             <TextInput
               label={translations.search}
               endIcon={
@@ -58,6 +64,8 @@ export const ProviderGames = ({
                   style={{ fill: '#8ea6c1', cursor: 'pointer', opacity: '0.5' }}
                   viewBox='0 0 512 512'
                   onClick={() => {
+                    if (searchValue.length < 3) return;
+
                     setCurrentPage(1);
 
                     onChange(selectedGameType, searchValue, 1);
@@ -75,7 +83,7 @@ export const ProviderGames = ({
           <Button
             type='button'
             className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
-            endIcon={
+            startIcon={
               <Icons.PlusCircle
                 onClick={() => {
                   setCurrentPage(1);
@@ -90,7 +98,11 @@ export const ProviderGames = ({
         </div>
       </div>
 
-      {games && games.length ? (
+      {isTabLoading ? (
+        <div className={styles.GamesLoading}>
+          <Loader />
+        </div>
+      ) : games && games.length ? (
         <div className={classNames(styles['GamesList__Fill'], 'GamesList__Fill')}>
           <div className={classNames(styles['TagsCell'], 'TagsCell')}>
             {gameTypes.map((type) => (
@@ -114,9 +126,11 @@ export const ProviderGames = ({
             height='40rem'
             autoHide
             onScroll={(e) => {
-              if (isLoadingGames) return;
-              //@ts-expect-error ignoring offsetHeight, scrollTop and scrollHeight values
-              const isScrolledToBottom = e.target.offsetHeight + e.target.scrollTop >= e.target.scrollHeight;
+              if (isAllGamesLoaded || isLoadingGames) return;
+
+              const isScrolledToBottom =
+                (e.target as HTMLDivElement).offsetHeight + (e.target as HTMLDivElement).scrollTop >=
+                (e.target as HTMLDivElement).scrollHeight;
 
               if (isScrolledToBottom) {
                 onChange(selectedGameType, searchValue, currentPage + 1);

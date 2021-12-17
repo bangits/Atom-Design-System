@@ -16,7 +16,10 @@ $colors: (
   athens-gray: #e9eaf1,
   night-in-manchester: #3c54b2,
   cascading-white: #f6f6f6,
-  black-rgba: #00000080
+  black-rgba: #00000080,
+  box-shadow-image: #00000029,
+  shisha-coal: #3c3c3c,
+  abs-black: #000
 );
 
 @function color($property-name) {

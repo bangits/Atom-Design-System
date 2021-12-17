@@ -16,6 +16,7 @@ export interface EditFormProps {
   onSubmit?: (onToggle: () => void) => void;
   renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;
   fields: FormFieldProp[];
+  col?: 6 | 12;
 }
 
 const EditForm: FC<EditFormProps> = ({
@@ -25,10 +26,15 @@ const EditForm: FC<EditFormProps> = ({
   onToggle,
   onSubmit,
   applyButtonTooltipText,
-  closeButtonTooltipText
+  closeButtonTooltipText,
+  children,
+  col
 }) => {
   return (
-    <div className={classNames(styles.EditForm)}>
+    <div
+      className={classNames(styles.EditForm, {
+        [styles[`EditForm--${col}`]]: col
+      })}>
       <div className={classNames(styles['EditFormBase--header'])}>
         <span>{title}</span>
         <div className={classNames(styles['EditFormBase--buttons'])}>
@@ -41,9 +47,11 @@ const EditForm: FC<EditFormProps> = ({
         </div>
       </div>
       <Card borderRadius={1.6} className={classNames(styles.EditFormBase)}>
-        <div className={classNames(styles['EditFormBase--content'])}>
-          <EditFormFields fields={fields} renderInputs={renderInputs} />
-        </div>
+        {children || (
+          <div className={classNames(styles['EditFormBase--content'])}>
+            <EditFormFields fields={fields} renderInputs={renderInputs} />
+          </div>
+        )}
       </Card>
     </div>
   );

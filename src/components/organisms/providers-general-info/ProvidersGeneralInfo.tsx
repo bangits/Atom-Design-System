@@ -53,7 +53,7 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
   noDataText
 }) => {
   return (
-    <>
+    <div className={styles['ProviderGeneralInfo--items']}>
       <LabelGroup title={totalMarket.title} totalLabel={totalMarket.countries.length > 0 ? totalMarket.total : ''}>
         {totalMarket.countries.length > 0 ? (
           <Countries tagCountries={totalMarket.countries} />
@@ -111,13 +111,25 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
       </LabelGroup>
 
       <LabelGroup title={realURL.title}>
-        <CopyField label={realURL.URL} tooltip={realURL.tooltip} noDataText={noDataText} />
+        {realURL.URL ? (
+          <CopyField label={realURL.URL} tooltip={realURL.tooltip} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
 
       <LabelGroup title={demoURL.title}>
-        <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} noDataText={noDataText} />
+        {demoURL.URL ? (
+          <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} />
+        ) : (
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {noDataText}
+          </Typography>
+        )}
       </LabelGroup>
-    </>
+    </div>
   );
 };
 
