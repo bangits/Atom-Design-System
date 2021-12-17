@@ -11,49 +11,41 @@ export default {
 export const Default = () => {
   return (
     <GameDetails
-      userInfo={object('userInfo', {
-        title: 'Username Ines254',
-        id: 'ID 1234567',
-        userName: 'Inesa Khachatryan',
-        regInfo: 'Bet365'
+      breadCrumbs={[]}
+      buttons={{ first: 'Play', second: 'Play Demo' }}
+      noDataText='data chka'
+      translations={object('translations', {
+        creationDate: 'Creation Date',
+        createdBy: 'Created By',
+        lastUpdateDate: 'Last Updated Date',
+        lastUpdateBy: 'Last Update By',
+        status: 'Active',
+        expirationDate: '21/12/2021',
+        type: 'male',
+        documentID: 'ID',
+        gameInformation: 'gameInformation',
+        mainInformation: 'mainInformation',
+        organizationData: 'organizationData',
+        noDataText: 'data chka'
       })}
+      creationDate='creationDate'
+      createdBy='creationBy'
+      lastUpdateBy='lastUpdateBy'
+      lastUpdateDate='lastUpdateDate'
       statusInfo={object('statusInfo', {
         label: 'Status',
         variant: 'active',
         statusLabel: 'Active'
       })}
-      lastActivity={object('lastActivity', {
-        title: 'Last Activity',
-        info: [
-          {
-            label: 'Last login',
-            date: '12.09.2021 12:08:03'
-          },
-          {
-            label: 'Last game session',
-            date: '12.09.2021 12:08:03'
-          }
-        ]
+      docInfo={object('docInfo', {
+        documentID: 5461213584,
+        type: 'Partnership Agreement',
+        expirationDate: '12/08/2021',
+        statusLabel: 'Signed',
+        statusVariant: 'active'
       })}
-      docInfo={{
-        data: [
-          { name: 'Creation Date', description: '09/05/2021 12:00:00' },
-          { name: 'Created By', description: 'Inesa Khachatrian' },
-          { name: 'Last Updated Date', description: '09/05/2021 12:00:00' },
-          { name: 'Last Updateb By', description: 'Inesa Khachatrian' }
-        ]
-      }}
-      breadCrumb={{
-        links: [
-          {
-            label: 'Game Management',
-            isRedirect: true
-          },
-          {
-            label: '"Shining Crown" game details'
-          }
-        ]
-      }}
+
+      // breadCrumbs={object('breadCrumbProps', [])}
     />
   );
 };

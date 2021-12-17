@@ -1,5 +1,4 @@
-import { NameDescription, StatusView } from '@/components';
-import DetailsMainInfo from '@/components/organisms/details-main-info/DetailsMainInfo';
+import { NameDescription, StatusView, StatusViewProps } from '@/components';
 import { typedMemo } from '@/helpers';
 import {
   ChromeIcon,
@@ -11,12 +10,59 @@ import {
   Safari2Icon,
   TabletIcon
 } from '@/icons';
-import { Breadcrumb, Button, Card, Tab, Tag, TagCountry } from '@my-ui/core';
+import { Breadcrumb, BreadcrumbProps, Button, Card, StatusProps, Tab, Tag, TagCountry } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import styles from './GameDetails.module.scss';
 
-const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
+export interface GameDetailsProps {
+  statusInfo: Omit<StatusViewProps, 'label'>;
+  breadCrumbs?: BreadcrumbProps['links'];
+  creationDate: string;
+  createdBy: string;
+  lastUpdateDate: string;
+  lastUpdateBy: string;
+  noDataText: string;
+
+  docInfo: {
+    documentID: string | number;
+    type: string;
+    expirationDate: string;
+    statusLabel: string;
+    statusVariant: StatusProps['variant'];
+  };
+  buttons: {
+    first: string;
+    second: string;
+  };
+
+  translations: {
+    creationDate: string;
+    createdBy: string;
+    lastUpdateDate: string;
+    lastUpdateBy: string;
+    status: string;
+    expirationDate: string;
+    type: string;
+    documentID: string;
+    gameInformation: string;
+    mainInformation: string;
+    organizationData: string;
+    noDataText: string;
+  };
+}
+const GameDetails: FC<GameDetailsProps> = ({
+  breadCrumbs,
+  docInfo,
+  buttons,
+  statusInfo,
+  translations,
+  creationDate,
+  createdBy,
+  lastUpdateBy,
+  lastUpdateDate,
+  noDataText
+}) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
   const [edit, setEdit] = useState(false);
@@ -25,31 +71,20 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
   return (
     <div className={classNames(styles.GameDetailsBase)}>
       <div className={classNames(styles['BreadCrumbWrapper'])}>
-        <Breadcrumb links={breadCrumb.links} />
+        <Breadcrumb links={[]} />
       </div>
       {/* MainCarcass */}
       <div className={classNames(styles['MainCarcass'], 'MainCarcass')}>
         <div className={classNames(styles['MainCarcass__Sidebar'], 'MainCarcass__Sidebar')}>
-          <div className={classNames(styles['CardWrapper'], 'CardWrapper')}>
-            <DetailsMainInfo
+          {/* <div className={classNames(styles['CardWrapper'], 'CardWrapper')}> */}
+          {/* <DetailsMainInfo
               label='Shining Crown'
               id='ID1234567'
               src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
-            />
-          </div>
-
-          <div className={classNames(styles['CardWrapper'], 'CardWrapper')}>
-            <StatusView
-              label='Status'
-              statusLabel='Active'
-              actions={[
-                {
-                  iconName: 'LogOutIcon',
-                  onClick: () => {},
-                  tooltipText: 'Terminate'
-                }
-              ]}
-            />
+            /> */}
+          {/* </div>  */}
+          <div>
+            <StatusView {...statusInfo} label={'Status'} />
           </div>
 
           <div
@@ -59,11 +94,31 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
               'CardWrapper',
               'CardWrapper--Change-Update'
             )}>
-            <NameDescription data={docInfo.data} title={docInfo.title}></NameDescription>
+            <NameDescription
+              data={[
+                {
+                  name: translations.creationDate,
+                  description: creationDate
+                },
+                {
+                  name: translations.createdBy,
+                  description: createdBy
+                },
+                {
+                  name: translations.createdBy,
+                  description: lastUpdateDate
+                },
+                {
+                  name: translations.createdBy,
+                  description: lastUpdateBy
+                }
+              ]}
+              noDataText={noDataText}
+            />
           </div>
           <div className={classNames(styles['EmptyWrapper'], 'EmptyWrapper')}>
-            <Button>Play</Button>
-            <Button variant='ghost'>Play Demo</Button>
+            <Button>{buttons.first}</Button>
+            <Button variant='ghost'>{buttons.second}</Button>
           </div>
         </div>
         <div className={classNames(styles['MainCarcass__Content'], 'MainCarcass__Content')}>
@@ -104,101 +159,14 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
                       styles['FlexibleFormWrapper--1'],
                       'FlexibleFormWrapper',
                       'FlexibleFormWrapper--1'
-                    )}>
-                    {/* <FlexibleForm
-                      className={classNames(styles['GameDetails__FlexibleForm'], 'GameDetails__FlexibleForm')}
-                      editedFormProps={{
-                        options: [
-                          {
-                            title: 'Game Name',
-                            value: 'Shining Crown'
-                          },
-                          {
-                            title: 'Shining Crown',
-                            value: 'ID123456789415'
-                          },
-                          {
-                            title: 'Type',
-                            value: 'Casino Games'
-                          },
-                          {
-                            title: 'Subtype',
-                            value: 'Slots'
-                          },
-                          {
-                            title: 'Provider',
-                            value: 'EGT'
-                          },
-                          {
-                            title: 'Release Date',
-                            value: '09/05/2021 12:00:00'
-                          },
-                          {
-                            title: 'Class',
-                            value: 'Branded'
-                          },
-                          {
-                            title: 'Has Demo',
-                            value: 'Yes'
-                          }
-                        ],
-                        title: 'Game Information',
-                        editButton: (
-                          <IconButton
-                            icon={
-                              <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'>
-                                <path
-                                  fill='currentColor'
-                                  d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z'
-                                />
-                              </svg>
-                            }
-                            variant='dark'
-                          />
-                        )
-                      }}
-                    /> */}
-                  </div>
+                    )}></div>
                   <div
                     className={classNames(
                       styles['FlexibleFormWrapper'],
                       styles['FlexibleFormWrapper--2'],
                       'FlexibleFormWrapper',
                       'FlexibleFormWrapper--2'
-                    )}>
-                    {/* <FlexibleForm
-                      editedFormProps={{
-                        options: [
-                          {
-                            title: 'RTP',
-                            value: '98.7 %'
-                          },
-                          {
-                            title: 'Volatility',
-                            value: 'Low-Medium'
-                          },
-                          {
-                            title: 'Max Win',
-                            value: 'x 2000'
-                          }
-                        ],
-                        title: 'Game Properties',
-                        editButton: (
-                          <IconButton
-                            icon={
-                              <svg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24'>
-                                <path
-                                  fill='currentColor'
-                                  d='M19.769 9.923l-12.642 12.639-7.127 1.438 1.438-7.128 12.641-12.64 5.69 5.691zm1.414-1.414l2.817-2.82-5.691-5.689-2.816 2.817 5.69 5.692z'
-                                />
-                              </svg>
-                            }
-                            variant='dark'
-                          />
-                        )
-                      }}
-                    /> */}
-                  </div>
+                    )}></div>
 
                   <div
                     className={classNames(
@@ -210,7 +178,7 @@ const GameDetails: FC<any> = ({ breadCrumb, tabs, docInfo }) => {
                     <div className={classNames(styles['CardHeader'], 'CardHeader')}>
                       <h2 className={classNames(styles['CardTitle'], 'CardTitle')}>Compatibility</h2>
                     </div>
-
+                    qw qw w
                     <Card>
                       <div
                         className={classNames(

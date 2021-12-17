@@ -15,7 +15,7 @@ const CountView: FC<CountViewProps> = ({ title, count, noDataText }) => {
         {title}
       </Typography>
       <div className={styles.TagWrapper}>
-        <Tag title={count || noDataText} color='primary' />
+        <Tag title={count || '0'} color='primary' />
       </div>
     </Card>
   );
