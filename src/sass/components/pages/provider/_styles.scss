@@ -16,6 +16,7 @@
         .ProviderTitle {
           font-weight: getProviderSizes(provider-title-fontWeight);
           text-align: getProviderSizes(provider-title-align);
+          padding-top: 2rem;
         }
 
         .ProviderContainerWrapper {
@@ -46,7 +47,7 @@
 
       .ProviderButtonGroup {
         @include flex(center, center);
-        margin-top: auto;
+        margin-top: 14rem;
         position: relative;
 
         .ProviderCloseButton {

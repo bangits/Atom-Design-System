@@ -1,25 +1,9 @@
 $data-table-sizes: (
   filters-margin-bottom: calculateRem(32px),
-  image-column: 50%,
-  image-z-index-row: 9998,
-  image-column-sizes: calculateRem(40px),
-  image-column-margin-top: calculateRem(-20px),
-  image-column-border-radius: 4px,
-  image-column-transition-all: 0.16s,
-  image-column-transition-delay: 1000ms,
-  image-z-index: 9999,
-  image-column-hover-sizes: calculateRem(110px),
-  image-box-shadow: 0 calculateRem(2px) calculateRem(10px)
-);
-
-$data-table-colors: (
-  box-shadow-color: color(box-shadow-image)
+  table-config-select: calculateRem(100px),
+  image-column: 50%
 );
 
 @function getDataTableSizes($key) {
   @return map-get($data-table-sizes, $key);
-}
-
-@function getDataTableColors($key) {
-  @return map-get($data-table-colors, $key);
-}
+} ;
