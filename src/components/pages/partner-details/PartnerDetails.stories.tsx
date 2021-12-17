@@ -2,7 +2,7 @@ import { FlexibleForm } from '@/components';
 import { number, object, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import PartnerDetails from './PartnerDetails';
-
+import classNames from 'classnames';
 export default {
   title: 'components/pages/Partner Details',
   component: PartnerDetails,
@@ -50,7 +50,7 @@ export const Default = () => {
         statusVariant: 'active'
       })}
       organizationDataMainInformationForms={
-        <>
+        <div>
           <FlexibleForm
             title='Account Information'
             editFormProps={{
@@ -776,7 +776,7 @@ export const Default = () => {
               title: 'Account Information'
             }}
           />
-        </>
+        </div>
       }
       organizationDataProviderInformation={<></>}
     />
