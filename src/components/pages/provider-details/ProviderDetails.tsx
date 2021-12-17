@@ -76,7 +76,8 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
               {
                 title: translations.generalInformation,
                 value: 1,
-                content: <>{generalInformationContext}</>
+                content: <>{generalInformationContext}</>,
+                disableScroll: true
               },
               {
                 title: translations.games,

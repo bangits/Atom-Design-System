@@ -7,7 +7,7 @@
 
     &--leftBlock {
       margin: getPartnerDetailsSizes(leftBlock-margin);
-      width: 100%;
+      width: auto;
       > * {
         margin-bottom: getPartnerDetailsSizes(left-block-all-blocks-margin);
       }
