@@ -201,7 +201,7 @@ function DataTable<T extends {}, K>({
           }
         : column.variant === 'hovered-image'
         ? {
-            renderColumn: (_, value) => <img className={styles.ImageHoverColumn} src={value} />
+            renderColumn: (_, value) => (value ? <img className={styles.ImageHoverColumn} src={value} /> : null)
           }
         : {})
     }));
