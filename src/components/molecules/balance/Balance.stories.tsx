@@ -6,6 +6,7 @@ export default {
   decorators: [withKnobs],
   title: 'components/molecules/Balance'
 };
+const g = '';
 
 export const Default = () => {
   return (
