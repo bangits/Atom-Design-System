@@ -3,7 +3,7 @@ import { ItemDetails, NameDescription, StatusView } from '@/components';
 import { NameAndId } from '@/components/molecules/name-and-id';
 import UserMainInfo from '@/components/molecules/user-main-info/UserMainInfo';
 import { CloseIcon } from '@/icons';
-import { Breadcrumb, Button, Card, Select, Status, Table } from '@my-ui/core';
+import { Breadcrumb, Button, Card, Select, Table } from '@my-ui/core';
 import React from 'react';
 import styles from './UserDetails.module.scss';
 
@@ -125,7 +125,8 @@ const UserDetails = () => {
                       ]}
                       className={styles.UserDetailsTable}
                     />
-                    <Button variant='link' startIcon={<Icons.PlusCircleLarge />} className={styles.AddButton}>
+                    {/* {PlusCircleLarge is not ready becouse of  CloseIcon } */}
+                    <Button variant='link' startIcon={<Icons.CloseIcon />} className={styles.AddButton}>
                       Add Wallet
                     </Button>
                     <div className={styles.SelectContent}>

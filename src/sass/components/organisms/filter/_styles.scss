@@ -93,11 +93,16 @@
           margin-right: getFilterSizes(user-found-label-margin-right);
         }
         .ArrowIconContainer {
-          width: getFilterSizes(arrow-icon-container-sizes);
-          height: getFilterSizes(arrow-icon-container-sizes);
-          margin-right: getFilterSizes(arrow-icon-container-margin-right);
+          width: getFilterSizes(arrow-icon-container-width);
+          height: getFilterSizes(arrow-icon-container-height);
+          margin: getFilterSizes(arrow-icon-container-margin);
           transition: transform getFilterSizes(arrow-icon-container-animation);
           cursor: pointer;
+
+          svg {
+            width: getFilterSizes(arrow-icon-container-width);
+            height: getFilterSizes(arrow-icon-container-height);
+          }
         }
       }
     }
