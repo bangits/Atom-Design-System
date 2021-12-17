@@ -209,7 +209,7 @@ export function Filters<T>({
               </svg>
             </span>
           </div>
-          <Typography variant='p1' className={!isOpenedFilterCollapse ? styles.ClearLabel : styles.ClearLabelActive}>
+          <Typography variant='p3' className={!isOpenedFilterCollapse ? styles.ClearLabel : styles.ClearLabelActive}>
             <span onClick={onClearClick}>{clearLabel}</span>
           </Typography>
           <Button disabled={!isOpenedFilterCollapse} onClick={() => onSubmit(filterValues)}>

@@ -14,7 +14,7 @@ const PageWrapper: FC<PageWrapperProps> = ({ children, title, showButton, button
     <div className={styles.PageWrapper}>
       {(title || showButton) && (
         <div className={styles.PageWrapperHeader}>
-          <Typography component='h2' variant='h2' className={styles.PageTitle}>
+          <Typography component='h2' variant='h3' className={styles.PageTitle}>
             {title}
           </Typography>
           {showButton && <Button {...buttonProps} type='button' />}
