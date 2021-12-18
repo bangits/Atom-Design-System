@@ -25,24 +25,4 @@
   .EditedFormBase {
     width: getEditedFormSizes(edited-form-width);
   }
-
-  .ItemDetailsBase--forms {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    grid-column-gap: 15px;
-    grid-row-gap: 15px;
-    & > div {
-      width: 100% !important;
-      height: auto !important;
-      min-height: auto !important;
-      max-height: auto !important;
-    }
-    & > div > div {
-      text-decoration: none !important;
-    }
-    & > div > div + div {
-      height: unset !important;
-    }
-  }
 }

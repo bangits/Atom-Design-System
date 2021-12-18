@@ -268,6 +268,7 @@ export const Default = () => {
                   title: 'Contacts'
                 }}
               />
+
               <FlexibleForm
                 title='Account Information'
                 editedFormProps={{
@@ -581,6 +582,7 @@ export const Default = () => {
                       title: 'Contacts'
                     }}
                   />
+
                   <FlexibleForm
                     title='Account Information'
                     editedFormProps={{
