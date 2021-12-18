@@ -16,13 +16,9 @@
       box-sizing: border-box;
       padding: 2px;
       form {
-        width: 100%;
-        flex: 50%;
+        width: calc(50% - getPartnerDetailsSizes(form-gap));
+        margin-bottom: getPartnerDetailsSizes(form-gap);
       }
     }
-  }
-
-  .EditedFormBase {
-    width: getEditedFormSizes(edited-form-width);
   }
 }

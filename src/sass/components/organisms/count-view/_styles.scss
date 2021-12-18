@@ -1,5 +1,5 @@
 @mixin generate-count-view-styles {
-  .CountViewWrapper {
+  div.CountViewWrapper {
     background-color: getCountViewColors(card-background);
     margin-bottom: getCountViewSizes(count-wrapper-margin-bottom);
     @include flex(space-between, center);

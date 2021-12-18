@@ -55,6 +55,7 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
           <div className={styles.StatusContent}>
             <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
           </div>
+
           <NameDescription
             noDataText={noDataText}
             data={[

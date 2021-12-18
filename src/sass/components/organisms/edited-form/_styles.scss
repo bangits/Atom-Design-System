@@ -1,7 +1,5 @@
 @mixin generate-edited-form-styles {
   .EditedFormBase {
-    width: getEditedFormSizes(edited-form-width);
-
     &--12 {
       width: 100%;
     }
