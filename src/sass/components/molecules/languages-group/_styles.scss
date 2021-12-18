@@ -1,0 +1,19 @@
+@mixin generate-languages-group-styles {
+  .LanguagesGroupWrapper {
+    @include flex(null, center, $flex-wrap: wrap);
+    width: fit-content;
+    width: -moz-fit-content;
+    min-width: getLanguagesSizes(languages-wrapper-min-width);
+    height: getLanguagesSizes(languages-wrapper-height);
+    border-radius: getLanguagesSizes(languages-wrapper-border-radius);
+    box-sizing: border-box;
+    grid-gap: getLanguagesSizes(languages-wrapper-margin);
+  }
+
+  .Languages {
+    span {
+      color: getLanguagesColors(languages-color) !important;
+      font-size: getLanguagesSizes(languages-font-size);
+    }
+  }
+}
