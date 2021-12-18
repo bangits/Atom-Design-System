@@ -20,7 +20,6 @@ export const Default = () => {
 
   return (
     <GameDetails
-      // @ts-ignore
       gameId=''
       gameName=''
       generalInformationContext={

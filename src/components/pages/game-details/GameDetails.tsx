@@ -13,6 +13,8 @@ export interface GameDetailsProps {
   lastUpdateDate: string;
   lastUpdateBy: string;
   noDataText: string;
+  gameName: string;
+  gameId: string;
 
   generalInformationContext: ReactNode;
 
@@ -22,8 +24,6 @@ export interface GameDetailsProps {
   };
 
   translations: {
-    gameName: string;
-    gameId: string;
     creationDate: string;
     createdBy: string;
     lastUpdateDate: string;
