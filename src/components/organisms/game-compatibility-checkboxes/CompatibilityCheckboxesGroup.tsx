@@ -3,6 +3,7 @@ import React, { FC, useEffect, useState } from 'react';
 import styles from './CompatibilityCheckboxesGroup.module.scss';
 
 export interface CompatibilityCheckboxesGroupProps {
+  
   onPlatformChange?: (values: (number | string)[]) => void;
   onMobileModeChange?: (values: (number | string)[]) => void;
   onTabletModeChange?: (values: (number | string)[]) => void;

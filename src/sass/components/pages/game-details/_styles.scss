@@ -1,5 +1,6 @@
 @mixin generate-game-details-styles {
   .GameDetailsBase {
+    
     &__GameTag {
       cursor: pointer;
     }
@@ -41,7 +42,14 @@
       &__Content {
         width: 100%;
         padding-left: getGameDetailsSizes(main-carcass-content-padding-left);
+
+        form {
+          &:last-child{
+            width: 100%;
+          }
+        }
       }
+
     }
     .Empty-Page-Icon-Cell {
       max-width: getGameDetailsSizes(empty-page-icon-cell-max-width);
@@ -131,6 +139,7 @@
       grid-template-areas: getGameDetailsSizes(tab-content-two-col-grid-grid-template-areas);
     }
     .FlexibleFormWrapper {
+      
       box-sizing: border-box;
       & > div,
       & > div > div {
