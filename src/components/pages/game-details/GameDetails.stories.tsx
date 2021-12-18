@@ -20,6 +20,8 @@ export const Default = () => {
 
   return (
     <GameDetails
+      gameId=''
+      gameName=''
       generalInformationContext={
         <>
           <GameCompatibility
