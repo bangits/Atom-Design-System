@@ -26,6 +26,7 @@ export interface ProviderGamesProps {
   isAllGamesLoaded: boolean;
   isTabLoading: boolean;
   hasGames: boolean;
+  shouldShowAddGameButton?: boolean;
 
   onChange(gameTypeId: number, search: string, page: number): void;
   onGameClick(gameId: number): void;
@@ -43,7 +44,8 @@ export const ProviderGames = ({
   isLoadingGames,
   isAllGamesLoaded,
   isTabLoading,
-  hasGames
+  hasGames,
+  shouldShowAddGameButton = true
 }: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
 
@@ -79,23 +81,25 @@ export const ProviderGames = ({
             />
           ) : null}
         </div>
-        <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-          <Button
-            type='button'
-            className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
-            startIcon={
-              <Icons.PlusCircle
-                onClick={() => {
-                  setCurrentPage(1);
+        {shouldShowAddGameButton && (
+          <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
+            <Button
+              type='button'
+              className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
+              startIcon={
+                <Icons.PlusCircle
+                  onClick={() => {
+                    setCurrentPage(1);
 
-                  onChange(selectedGameType, searchValue, 1);
-                }}
-              />
-            }
-            onClick={onAddGameClick}>
-            {translations.addGame}
-          </Button>
-        </div>
+                    onChange(selectedGameType, searchValue, 1);
+                  }}
+                />
+              }
+              onClick={onAddGameClick}>
+              {translations.addGame}
+            </Button>
+          </div>
+        )}
       </div>
 
       {isTabLoading ? (
