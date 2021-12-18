@@ -4,6 +4,11 @@
     margin-top: getProviderDetailsSizes(provider-games-margin-top);
   }
 
+  .ProviderDetailsBase form {
+    width: 100%;
+    margin: 0;
+  }
+
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProviderDetailsSizes(provider-details-margin-top);
