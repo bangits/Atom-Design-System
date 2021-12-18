@@ -20,6 +20,7 @@ export const Default = () => {
 
   return (
     <GameDetails
+      // @ts-ignore
       gameId=''
       gameName=''
       generalInformationContext={
@@ -62,7 +63,7 @@ export const Default = () => {
       noDataText='N/A'
       buttons={{
         playButtonProps: {
-          onClick: () => console.log('hello')
+          onClick: () => console.log('onClick')
         },
         playDemoButtonProps: {}
       }}
