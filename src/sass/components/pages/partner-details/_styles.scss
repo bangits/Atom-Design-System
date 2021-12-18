@@ -7,7 +7,7 @@
 
     &--leftBlock {
       margin: getPartnerDetailsSizes(leftBlock-margin);
-      width: 100%;
+      min-width: 244px;
       > * {
         margin-bottom: getPartnerDetailsSizes(left-block-all-blocks-margin);
       }
@@ -15,6 +15,41 @@
 
     &--breadCrumb {
       margin: getPartnerDetailsSizes(breadCrumb-margin);
+    }
+    &__Main-Content {
+      width: 100%;
+    }
+    &__Sidebar {
+      & > div {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    &__Sidebar-Widget {
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+
+  .QuadCell {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    // background: rgba(0, 0, 0, 0.3);
+    & > div {
+      width: calc(50% - 10px);
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+    & > div > div:nth-child(2) {
+      height: unset;
+      & > div > div {
+        width: calc(50% - 10px);
+      }
+      & > div > div:last-child {
+        width: 100%;
+      }
     }
   }
 }
