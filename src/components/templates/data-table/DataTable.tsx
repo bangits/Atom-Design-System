@@ -305,7 +305,11 @@ function DataTable<T extends {}, K>({
         {...tableProps}
         fetch={onTableFetchData}
         className={classNames(styles.Table, tableProps.className)}
-        onSelectedColumnsChange={(columns) => setSelectedRows(columns.map((c) => c.original))}
+        onSelectedColumnsChange={(columns) => {
+          setSelectedRows(columns.map((c) => c.original));
+
+          if (tableProps.onSelectedColumnsChange) tableProps.onSelectedColumnsChange(columns);
+        }}
         actions={actions}
         columns={tableColumns}
       />
