@@ -181,4 +181,8 @@
     font-family: getGameDetailsSizes(card-title-font-family);
     color: getGameDetailsColors(card-title-color);
   }
+
+  .GameDetails__Sidebar-Widget {
+    padding-bottom: 10px;
+  }
 }

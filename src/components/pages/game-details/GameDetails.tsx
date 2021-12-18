@@ -1,8 +1,8 @@
-import { value ItemDetails, value NameDescription, value StatusView, value StatusViewProps } from '@/components';
-import { value typedMemo } from '@/helpers';
-import { value Breadcrumb, value BreadcrumbProps, value Button, value ButtonProps } from '@my-ui/core';
+import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
+import { typedMemo } from '@/helpers';
+import { Breadcrumb, BreadcrumbProps, Button, ButtonProps } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { value FC, value ReactNode, value useState } from 'react';
+import React, { FC, ReactNode, useState } from 'react';
 import styles from './GameDetails.module.scss';
 
 export interface GameDetailsProps {
@@ -67,7 +67,8 @@ const GameDetails: FC<GameDetailsProps> = ({
               src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
             /> */}
           {/* </div>  */}
-          <div>
+
+          <div className={styles['GameDetails__Sidebar-Widget']}>
             <StatusView {...statusInfo} label={'Status'} />
           </div>
 
@@ -100,6 +101,7 @@ const GameDetails: FC<GameDetailsProps> = ({
               noDataText={noDataText}
             />
           </div>
+
           <div className={classNames(styles['EmptyWrapper'], 'EmptyWrapper')}>
             <Button {...buttons.playButtonProps}>{translations.playButton}</Button>
             <Button {...buttons.playDemoButtonProps} variant='ghost'>
