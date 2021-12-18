@@ -1,8 +1,8 @@
-import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
-import { typedMemo } from '@/helpers';
-import { Breadcrumb, BreadcrumbProps, Button, ButtonProps } from '@my-ui/core';
+import { value ItemDetails, value NameDescription, value StatusView, value StatusViewProps } from '@/components';
+import { value typedMemo } from '@/helpers';
+import { value Breadcrumb, value BreadcrumbProps, value Button, value ButtonProps } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode, useState } from 'react';
+import React, { value FC, value ReactNode, value useState } from 'react';
 import styles from './GameDetails.module.scss';
 
 export interface GameDetailsProps {
@@ -13,8 +13,6 @@ export interface GameDetailsProps {
   lastUpdateDate: string;
   lastUpdateBy: string;
   noDataText: string;
-  gameName: string;
-  gameId: string;
 
   generalInformationContext: ReactNode;
 
@@ -24,6 +22,8 @@ export interface GameDetailsProps {
   };
 
   translations: {
+    gameName: string;
+    gameId: string;
     creationDate: string;
     createdBy: string;
     lastUpdateDate: string;
@@ -45,9 +45,7 @@ const GameDetails: FC<GameDetailsProps> = ({
   createdBy,
   lastUpdateBy,
   lastUpdateDate,
-  noDataText,
-  gameName,
-  gameId
+  noDataText
 }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
