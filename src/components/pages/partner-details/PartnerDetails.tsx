@@ -88,36 +88,38 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
             <Status variant={docInfo.statusVariant}>{docInfo.statusLabel}</Status>
           </NameDescription>
         </div>
-        <ItemDetails
-          tabs={[
-            {
-              title: translations.organizationData,
-              value: 1,
-              subTabs: [
-                {
-                  title: translations.mainInformation,
-                  value: 1,
-                  content: <>{organizationDataMainInformationForms}</>
-                },
-                {
-                  title: translations.providerInformation,
-                  value: 2,
-                  content: <>{organizationDataProviderInformation}</>
-                }
-              ]
-            },
-            {
-              title: 'Projects',
-              value: 2
-            },
-            {
-              title: 'Documents',
-              value: 3
-            }
-          ]}
-          defaultTabValue={1}
-          defaultSubTabValue={1}
-        />
+        <div className={styles['PartnerDetailsBase--rightBlock']}>
+          <ItemDetails
+            tabs={[
+              {
+                title: translations.organizationData,
+                value: 1,
+                subTabs: [
+                  {
+                    title: translations.mainInformation,
+                    value: 1,
+                    content: <>{organizationDataMainInformationForms}</>
+                  },
+                  {
+                    title: translations.providerInformation,
+                    value: 2,
+                    content: <>{organizationDataProviderInformation}</>
+                  }
+                ]
+              },
+              {
+                title: 'Projects',
+                value: 2
+              },
+              {
+                title: 'Documents',
+                value: 3
+              }
+            ]}
+            defaultTabValue={1}
+            defaultSubTabValue={1}
+          />
+        </div>
       </div>
     </div>
   );

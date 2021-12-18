@@ -13,6 +13,13 @@
       }
     }
 
+    &--rightBlock {
+      width: 100%;
+      > div {
+        padding-top: getPartnerDetailsSizes(tab-padding-top);
+      }
+    }
+
     &--breadCrumb {
       margin: getPartnerDetailsSizes(breadCrumb-margin);
     }
