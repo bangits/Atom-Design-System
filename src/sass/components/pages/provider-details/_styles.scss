@@ -66,7 +66,8 @@
     width: getProviderDetailsSizes(games-container-width);
     display: getProviderDetailsSizes(games-container-display);
     grid-template-columns: getProviderDetailsSizes(games-container-grid-template-columns);
-    grid-template-rows: getProviderDetailsSizes(games-container-grid-template-rows);
+    // grid-template-rows: getProviderDetailsSizes(games-container-grid-template-rows);
+    grid-template-rows: auto;
     grid-column-gap: getProviderDetailsSizes(games-container-grid-column-gap);
     grid-row-gap: getProviderDetailsSizes(games-container-grid-row-gap);
     & > div > div:first-child {
