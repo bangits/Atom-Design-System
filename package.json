@@ -1,6 +1,6 @@
 {
   "name": "@atom/design-system",
-  "version": "2.2.8",
+  "version": "2.2.10",
   "files": [
     "dist"
   ],
@@ -90,7 +90,11 @@
   },
   "dependencies": {
     "@atom/common": "^2.3.4",
+<<<<<<< HEAD
     "@my-ui/core": "2.27.0",
+=======
+    "@my-ui/core": "^2.27.0",
+>>>>>>> 17291a45b231a2e843aeb9096f6fb172d02878f5
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",

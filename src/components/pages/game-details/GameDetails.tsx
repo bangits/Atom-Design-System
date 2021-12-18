@@ -13,8 +13,6 @@ export interface GameDetailsProps {
   lastUpdateDate: string;
   lastUpdateBy: string;
   noDataText: string;
-  gameName: string;
-  gameId: string;
 
   generalInformationContext: ReactNode;
 
@@ -24,6 +22,8 @@ export interface GameDetailsProps {
   };
 
   translations: {
+    gameName: string;
+    gameId: string;
     creationDate: string;
     createdBy: string;
     lastUpdateDate: string;
@@ -45,9 +45,7 @@ const GameDetails: FC<GameDetailsProps> = ({
   createdBy,
   lastUpdateBy,
   lastUpdateDate,
-  noDataText,
-  gameName,
-  gameId
+  noDataText
 }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
@@ -69,7 +67,8 @@ const GameDetails: FC<GameDetailsProps> = ({
               src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
             /> */}
           {/* </div>  */}
-          <div>
+
+          <div className={styles['GameDetails__Sidebar-Widget']}>
             <StatusView {...statusInfo} label={'Status'} />
           </div>
 
@@ -102,6 +101,7 @@ const GameDetails: FC<GameDetailsProps> = ({
               noDataText={noDataText}
             />
           </div>
+
           <div className={classNames(styles['EmptyWrapper'], 'EmptyWrapper')}>
             <Button {...buttons.playButtonProps}>{translations.playButton}</Button>
             <Button {...buttons.playDemoButtonProps} variant='ghost'>

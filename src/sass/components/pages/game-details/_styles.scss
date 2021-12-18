@@ -34,7 +34,7 @@
 
     .MainCarcass {
       @include flex($flex-wrap: nowrap);
-      max-width: getGameDetailsSizes(main-carcass-max-width);
+      // max-width: getGameDetailsSizes(main-carcass-max-width);
       &__Sidebar {
         width: getGameDetailsSizes(main-carcass-sidebar-width);
       }
@@ -180,5 +180,9 @@
     font-size: getGameDetailsSizes(card-title-font-size);
     font-family: getGameDetailsSizes(card-title-font-family);
     color: getGameDetailsColors(card-title-color);
+  }
+
+  .GameDetails__Sidebar-Widget {
+    padding-bottom: 10px;
   }
 }
