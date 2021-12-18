@@ -30,7 +30,6 @@ export interface DataTableProps<T extends {}, K> {
   };
   filtersDropdownProps?: SelectProps<any, boolean, any>;
   isShowedFilter?: boolean;
-  isShowedPagination?: boolean;
   defaultSorted?: {
     id: string;
     desc: boolean;
@@ -61,8 +60,6 @@ export interface DataTableProps<T extends {}, K> {
   };
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
-  onEditButtonClick?(column: T): void;
-  onViewButtonClick?(column: T): void;
 }
 
 function DataTable<T extends {}, K>({
@@ -72,9 +69,6 @@ function DataTable<T extends {}, K>({
   filtersDropdownProps,
   fetchData,
   isShowedFilter = true,
-  isShowedPagination = true,
-  onViewButtonClick,
-  onEditButtonClick,
   defaultPaginationPage = 1,
   defaultPageSize = 20,
   paginationProps,
@@ -216,28 +210,6 @@ function DataTable<T extends {}, K>({
     (DataTableProps<T, {}>['tableProps']['actions'][number] & TableProps<T>['actions'][number])[]
   >(
     () => [
-      ...(onEditButtonClick
-        ? [
-            {
-              component: IconButton,
-              onClick: onEditButtonClick,
-              props: {
-                icon: <Icons.EditIcon />
-              }
-            }
-          ]
-        : []),
-      ...(onViewButtonClick
-        ? [
-            {
-              component: IconButton,
-              onClick: onViewButtonClick,
-              props: {
-                icon: <Icons.ViewIcon />
-              }
-            }
-          ]
-        : []),
       ...(tableProps.actions?.map((action) => {
         const IconComponent = Icons[action.iconName];
 
@@ -257,7 +229,7 @@ function DataTable<T extends {}, K>({
         };
       }) || [])
     ],
-    [tableProps.actions, onViewButtonClick, onEditButtonClick]
+    [tableProps.actions]
   );
 
   const tableBulkActions = useMemo(

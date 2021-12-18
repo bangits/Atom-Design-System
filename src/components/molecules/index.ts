@@ -2,6 +2,7 @@ export * from './checkbox-group';
 export * from './copy-field';
 export * from './countries-group';
 export * from './currency-group';
+export * from './datepickers';
 export * from './from-to-input';
 export * from './from-to-timepicker';
 export * from './input-with-dropdown';

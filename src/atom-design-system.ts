@@ -7,5 +7,8 @@ export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
 export * from './components';
 export * from './services';
 
-/* addResizeChangeEvent();
- */
+try {
+  if (process.env.STORYBOOK !== 'true') throw new Error('');
+} catch (error) {
+  addResizeChangeEvent();
+}
