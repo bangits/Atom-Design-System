@@ -11,14 +11,16 @@ export interface BrowsersCheckboxGroupProps {
     EDGE: number | string;
     OPERA: number | string;
   };
+  initialValues?: (number | string)[];
   onChange?: (values: (string | number)[]) => void;
+  disabled?: boolean;
 }
 
-const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, onChange }) => {
-  const [values, setValues] = useState<(number | string)[]>([]);
+const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, onChange, initialValues }) => {
+  const [values, setValues] = useState<(number | string)[]>(initialValues ?? []);
 
   useEffect(() => {
-    onChange(values);
+    onChange?.(values);
   }, [values]);
   return (
     <div className={styles.BrowsersCheckboxGroupBase}>
