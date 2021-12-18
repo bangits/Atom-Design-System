@@ -66,23 +66,6 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
 
           <TagsView />
         </div>
-
-        {/* <ItemDetails
-          tabs={[
-            {
-              title: '',
-              value: 1,
-              content: <></>,
-              subTabs: [
-                {
-                  title: '',
-                  value: 1,
-                  content: <></>
-                }
-              ]
-            }
-          ]}
-        /> */}
         <Card className={classNames(styles['PlayerDetailsBase--content-control'])} borderRadius={1.6}>
           <div className={classNames(styles['PlayerDetailsBase--content-control__tabs'])}>
             <Tab

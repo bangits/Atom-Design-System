@@ -96,7 +96,6 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
             </div>
           </div>
         </div>
-        {/*  */}
 
         <div className={styles['PartnerDetailsBase__Main-Content']}>
           <ItemDetails
