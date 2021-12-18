@@ -33,6 +33,9 @@
     }
     &__Header-1 {
       @include flex(flex-start);
+      > div {
+        width: 26rem;
+      }
     }
     &__Header-2 {
       @include flex(flex-end);
@@ -73,7 +76,7 @@
       background-color: getProviderDetailsColors(games-container__div__div-bg-color);
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: 50% 50%;
+      background-size: auto;
     }
 
     & > div > div:last-child {

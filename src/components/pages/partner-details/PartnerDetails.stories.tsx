@@ -50,7 +50,7 @@ export const Default = () => {
         statusVariant: 'active'
       })}
       organizationDataMainInformationForms={
-        <div>
+        <>
           <FlexibleForm
             title='Account Information'
             editFormProps={{
@@ -776,7 +776,7 @@ export const Default = () => {
               title: 'Account Information'
             }}
           />
-        </div>
+        </>
       }
       organizationDataProviderInformation={<></>}
     />
