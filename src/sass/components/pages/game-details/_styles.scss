@@ -4,6 +4,10 @@
       cursor: pointer;
     }
 
+    .GameDetailsBase--notCompleted {
+      color: color(black-color);
+    }
+
     .Empty-Page-Title {
       display: block;
       text-align: center;

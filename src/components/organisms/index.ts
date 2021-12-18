@@ -1,4 +1,4 @@
-export * from './browsers-checkbox';
+export * from './browsers-group';
 export * from './count-view';
 export * from './details-main-info';
 export * from './dialog';
