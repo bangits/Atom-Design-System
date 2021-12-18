@@ -15,6 +15,12 @@
 
     .LoginBottom {
       margin-bottom: getSignSizes(login-bottom-margin-bottom);
+
+      max-width: 24rem;
+
+      &:last-child {
+        min-height: 9rem;
+      }
     }
 
     @include flex(flex-end);
