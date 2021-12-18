@@ -1,8 +1,8 @@
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { Breadcrumb, BreadcrumbProps, Status, StatusProps } from '@my-ui/core';
+import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './PartnerDetails.module.scss';
-import classNames from 'classnames';
 export interface PartnerDetailsProps {
   noDataText?: string;
   breadCrumbs: BreadcrumbProps['links'];
@@ -24,7 +24,7 @@ export interface PartnerDetailsProps {
     organizationData: string;
   };
 
-  docInfo: {
+  docInfo?: {
     documentID: string | number;
     type: string;
     expirationDate: string;
@@ -120,14 +120,14 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
                   }
                 ]
               },
-              {
+             /*  {
                 title: 'Projects',
                 value: 2
               },
               {
                 title: 'Documents',
                 value: 3
-              }
+              } */
             ]}
             defaultTabValue={1}
             defaultSubTabValue={1}
