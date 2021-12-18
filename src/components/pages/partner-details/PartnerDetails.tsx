@@ -74,25 +74,27 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
               <StatusView {...statusInfo} label={translations.status} />
             </div>
             <div className={styles['PartnerDetailsBase__Sidebar-Widget']}>
-              <NameDescription
-                data={[
-                  {
-                    name: translations.documentID,
-                    description: docInfo.documentID
-                  },
-                  {
-                    name: translations.type,
-                    description: docInfo.type
-                  },
-                  {
-                    name: translations.expirationDate,
-                    description: docInfo.expirationDate
-                  }
-                ]}
-                noDataText={noDataText}>
-                <span>{translations.status}</span>
-                <Status variant={docInfo.statusVariant}>{docInfo.statusLabel}</Status>
-              </NameDescription>
+              {docInfo && (
+                <NameDescription
+                  data={[
+                    {
+                      name: translations.documentID,
+                      description: docInfo.documentID
+                    },
+                    {
+                      name: translations.type,
+                      description: docInfo.type
+                    },
+                    {
+                      name: translations.expirationDate,
+                      description: docInfo.expirationDate
+                    }
+                  ]}
+                  noDataText={noDataText}>
+                  <span>{translations.status}</span>
+                  <Status variant={docInfo.statusVariant}>{docInfo.statusLabel}</Status>
+                </NameDescription>
+              )}
             </div>
           </div>
         </div>
@@ -119,8 +121,8 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
                     content: <>{organizationDataProviderInformation}</>
                   }
                 ]
-              },
-             /*  {
+              }
+              /*  {
                 title: 'Projects',
                 value: 2
               },
