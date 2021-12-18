@@ -6,16 +6,11 @@ export default {
   decorators: [withKnobs],
   title: 'components/molecules/Balance'
 };
-const g = '';
 
 export const Default = () => {
   return (
     <>
-      <Balance
-        money={number('label Max Value', 1)}
-        locale={text('label', 'fr-Fr')}
-        currency={text('currency value', 'USD')}
-      />
+      <Balance money={number('Value', 1)} locale={text('label', 'fr-Fr')} currency={text('currency value', 'USD')} />
     </>
   );
 };

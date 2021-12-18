@@ -8,14 +8,19 @@ export interface BalanceProps {
   locale?: string;
 }
 
-const Balance: FC<BalanceProps> = ({ money, currency, locale = 'en-EN' }) => {
-  const a = money?.toLocaleString(locale, {
+const Balance: FC<BalanceProps> = ({ money, currency, locale = 'fr-FR' }) => {
+  const options = {
     minimumFractionDigits: 0,
     maximumFractionDigits: 4,
     style: 'currency',
-    currency: currency
-  });
-  const number = a.replaceAll(',', '.');
+    currency: currency,
+    currencyDisplay: 'code'
+  };
+
+  const a = money?.toLocaleString(locale, options);
+  const c = a.replaceAll(',', '.');
+
+  const number = c;
   return (
     <div className={styles.balanceContainer}>
       <span className={styles.balanceIcon}>
