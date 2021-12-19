@@ -7,7 +7,8 @@ $player-details-sizes: (
   content-control-forms-padding: 0 calculateRem(16px),
   content-control-forms-margin: calculateRem(8px) calculateRem(16px) calculateRem(18px) 0,
   content-control-forms-width: calculateRem(994px),
-  player-details-base-margin: calculateRem(16px)
+  player-details-base-margin: calculateRem(16px),
+  lastactivity-view-wrapper-margin: calculateRem(8px)
 );
 
 $player-details-colors: (

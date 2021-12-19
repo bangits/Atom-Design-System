@@ -1,6 +1,5 @@
 @mixin generate-game-details-styles {
   .GameDetailsBase {
-    
     &__GameTag {
       cursor: pointer;
     }
@@ -44,12 +43,11 @@
         padding-left: getGameDetailsSizes(main-carcass-content-padding-left);
 
         form {
-          &:last-child{
+          &:last-child {
             width: 100%;
           }
         }
       }
-
     }
     .Empty-Page-Icon-Cell {
       max-width: getGameDetailsSizes(empty-page-icon-cell-max-width);
@@ -71,6 +69,9 @@
       }
 
       &--Change-Update {
+        & > div {
+          width: auto !important;
+        }
         & > div > div > span {
           font-size: getGameDetailsSizes(card-wrapper-change-update__div__div__span-font-size);
         }
@@ -78,21 +79,24 @@
     }
 
     .EmptyWrapper {
-      @include flex;
+      // @include flex;
+      &--Two-Cols {
+        display: grid;
+        grid-template: auto / repeat(2, 1fr);
+        grid-column-gap: 7px;
+      }
+
       button {
+        // border: solid #ff0000 1px !important;
         width: getGameDetailsSizes(empty-wrapper__button-width);
         height: getGameDetailsSizes(empty-wrapper__button-height);
         border-radius: getGameDetailsSizes(empty-wrapper__button-border-radius);
         font-size: getGameDetailsSizes(empty-wrapper__button-font-size);
         padding: getGameDetailsSizes(empty-wrapper__button-padding);
-        margin: getGameDetailsSizes(empty-wrapper__button-margin);
+        // margin: getGameDetailsSizes(empty-wrapper__button-margin);
         max-width: auto;
         min-width: auto;
-
         cursor: pointer;
-        &:last-child {
-          margin: 0 10px 0 0;
-        }
       }
     }
 
@@ -139,7 +143,6 @@
       grid-template-areas: getGameDetailsSizes(tab-content-two-col-grid-grid-template-areas);
     }
     .FlexibleFormWrapper {
-      
       box-sizing: border-box;
       & > div,
       & > div > div {
@@ -193,5 +196,119 @@
 
   .GameDetails__Sidebar-Widget {
     padding-bottom: 10px;
+    & > div {
+      width: auto !important;
+    }
+  }
+}
+
+.ProfileBlock {
+  display: block;
+  min-height: 175px;
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 244px;
+  margin: 0 auto;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #fff;
+
+  &__CoverPhotoIconCell {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__CoverPhotoIcon {
+    fill: #505d6e;
+  }
+
+  &__Cover {
+    text-decoration: none;
+    min-height: 90px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: #ebedf7;
+    overflow: hidden;
+    z-index: 100;
+  }
+  &__CoverImg {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    object-fit: cover;
+    z-index: 20;
+  }
+  &__ImgCell {
+    text-decoration: none;
+    position: absolute;
+    top: 45px;
+    left: 16px;
+    width: 64px;
+    height: 64px;
+    background: #505d6e;
+    z-index: 10;
+    border-radius: 8px;
+    border: solid #fff 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    z-index: 101;
+    svg {
+      fill: #fff;
+    }
+  }
+  &__Info {
+    padding-top: 26px;
+    padding-bottom: 10px;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  &__Title {
+    font-size: 18px;
+    line-height: 22px;
+    color: #505d6e;
+    display: block;
+    font-weight: 700;
+    word-break: break-word;
+  }
+  &__SubTitle {
+    display: block;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8ea6c1;
+    padding-top: 2px;
+    word-break: break-word;
+  }
+  &__PhotoCamIcon {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  &__Img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
   }
 }
