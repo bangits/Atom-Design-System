@@ -64,7 +64,6 @@ const ItemDetails: FC<ItemDetailsProps> = ({
       {(currentSubTabInfo ? currentSubTabInfo.disableScroll || false : currentTabInfo?.disableScroll || false) ? (
         <div className={styles['ItemDetailsBase--forms']}>{currentSubTabInfo?.content || currentTabInfo?.content}</div>
       ) : (
-        // @ts-ignore
         <Scroll height='54.4rem' autoHide autoHeightMin='54.4rem'>
           <div className={styles['ItemDetailsBase--forms']}>
             {currentSubTabInfo?.content || currentTabInfo?.content}

@@ -1,3 +1,4 @@
+export * from './browsers-checkbox';
 export * from './checkbox-group';
 export * from './copy-field';
 export * from './countries-group';
@@ -8,6 +9,7 @@ export * from './from-to-timepicker';
 export * from './input-with-dropdown';
 export * from './label-group';
 export * from './label-tag';
+export * from './languages-group';
 export * from './license-group';
 export * from './name-description';
 export * from './page-wrapper';

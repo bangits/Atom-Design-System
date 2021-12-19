@@ -1,0 +1,8 @@
+@mixin generate-browsers-checkbox-groupe {
+  .BrowsersCheckboxGroupBase {
+    @include flex();
+    > div {
+      margin: BrowsersCheckboxGroupSizes(margin);
+    }
+  }
+}

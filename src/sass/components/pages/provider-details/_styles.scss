@@ -4,6 +4,11 @@
     margin-top: getProviderDetailsSizes(provider-games-margin-top);
   }
 
+  .ProviderDetailsBase form {
+    width: 100%;
+    margin: 0;
+  }
+
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProviderDetailsSizes(provider-details-margin-top);
@@ -66,7 +71,8 @@
     width: getProviderDetailsSizes(games-container-width);
     display: getProviderDetailsSizes(games-container-display);
     grid-template-columns: getProviderDetailsSizes(games-container-grid-template-columns);
-    grid-template-rows: getProviderDetailsSizes(games-container-grid-template-rows);
+    // grid-template-rows: getProviderDetailsSizes(games-container-grid-template-rows);
+    grid-template-rows: auto;
     grid-column-gap: getProviderDetailsSizes(games-container-grid-column-gap);
     grid-row-gap: getProviderDetailsSizes(games-container-grid-row-gap);
     & > div > div:first-child {

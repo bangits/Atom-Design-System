@@ -47,6 +47,7 @@ const CheckboxGroup: FC<CheckboxGroupProps> = ({ label, checkboxes, value, defau
                 <Checkbox
                   onChange={onCheckboxChange(checkbox.value)}
                   checked={(value || checkedCheckboxes).includes(checkbox.value)}
+                  disabled={checkbox.disabled}
                   id={checkbox.name}
                 />
               </div>

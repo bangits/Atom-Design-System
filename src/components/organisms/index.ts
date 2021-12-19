@@ -1,4 +1,4 @@
-export * from './browsers-checkbox';
+export * from './browsers-group';
 export * from './count-view';
 export * from './details-main-info';
 export * from './dialog';
@@ -8,6 +8,7 @@ export * from './file-uploader';
 export * from './filters';
 export * from './flexible-form';
 export * from './form';
+export * from './game-compatibility-checkboxes';
 export * from './game-launcher';
 export * from './item-details';
 export * from './last-activity-view';
@@ -21,3 +22,4 @@ export * from './table';
 export * from './tags-view';
 export * from './user-view';
 export * from './wallet-view';
+

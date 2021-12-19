@@ -47,7 +47,7 @@
 
       .ProviderButtonGroup {
         @include flex(center, center);
-        margin-top: 14rem;
+        margin-top: getProviderSizes(provider-button-group-margin-top);
         position: relative;
 
         .ProviderCloseButton {

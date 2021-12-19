@@ -1,7 +1,12 @@
 @mixin generate-game-details-styles {
   .GameDetailsBase {
+    
     &__GameTag {
       cursor: pointer;
+    }
+
+    .GameDetailsBase--notCompleted {
+      color: color(black-color);
     }
 
     .Empty-Page-Title {
@@ -30,14 +35,21 @@
 
     .MainCarcass {
       @include flex($flex-wrap: nowrap);
-      max-width: getGameDetailsSizes(main-carcass-max-width);
+      // max-width: getGameDetailsSizes(main-carcass-max-width);
       &__Sidebar {
         width: getGameDetailsSizes(main-carcass-sidebar-width);
       }
       &__Content {
         width: 100%;
         padding-left: getGameDetailsSizes(main-carcass-content-padding-left);
+
+        form {
+          &:last-child{
+            width: 100%;
+          }
+        }
       }
+
     }
     .Empty-Page-Icon-Cell {
       max-width: getGameDetailsSizes(empty-page-icon-cell-max-width);
@@ -127,6 +139,7 @@
       grid-template-areas: getGameDetailsSizes(tab-content-two-col-grid-grid-template-areas);
     }
     .FlexibleFormWrapper {
+      
       box-sizing: border-box;
       & > div,
       & > div > div {
@@ -176,5 +189,9 @@
     font-size: getGameDetailsSizes(card-title-font-size);
     font-family: getGameDetailsSizes(card-title-font-family);
     color: getGameDetailsColors(card-title-color);
+  }
+
+  .GameDetails__Sidebar-Widget {
+    padding-bottom: 10px;
   }
 }
