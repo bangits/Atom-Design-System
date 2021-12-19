@@ -31,3 +31,4 @@ export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg';
 export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as PhotoCamIcon } from './photo-cam-icon.react.svg';
+export { ReactComponent as EmptyCardImagePokerToken } from './empty-card-image-poker-token.react.svg';
