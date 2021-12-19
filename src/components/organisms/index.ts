@@ -1,3 +1,4 @@
+export * from './banner-uploader';
 export * from './browsers-group';
 export * from './count-view';
 export * from './details-main-info';
