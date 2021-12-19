@@ -1,10 +1,10 @@
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { typedMemo } from '@/helpers';
-import { Breadcrumb, BreadcrumbProps, Button, ButtonProps } from '@my-ui/core';
+import { Breadcrumb, BreadcrumbProps, Button, ButtonProps, Card } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useState } from 'react';
 import styles from './GameDetails.module.scss';
-
+import { PhotoCamIcon } from '@/icons';
 export interface GameDetailsProps {
   statusInfo: Omit<StatusViewProps, 'label'>;
   breadCrumbs?: BreadcrumbProps['links'];
@@ -60,14 +60,45 @@ const GameDetails: FC<GameDetailsProps> = ({
       {/* MainCarcass */}
       <div className={classNames(styles['MainCarcass'], 'MainCarcass')}>
         <div className={classNames(styles['MainCarcass__Sidebar'], 'MainCarcass__Sidebar')}>
-          {/* <div className={classNames(styles['CardWrapper'], 'CardWrapper')}> */}
-          {/* <DetailsMainInfo
-              label='Shining Crown'
-              id='ID1234567'
-              src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
-            /> */}
-          {/* </div>  */}
+          {/*  */}
+          <div className={classNames(styles['GameDetails__Sidebar-Widget'], 'GameDetails__Sidebar-Widget')}>
+            <Card className={classNames(styles['ProfileBlock'], 'ProfileBlock')} borderRadius={1.6}>
+              <div className={classNames(styles['ProfileBlock__ImgCell'], 'ProfileBlock__ImgCell')}>
+                <img
+                  className={classNames(styles['ProfileBlock__Img'], 'ProfileBlock__Img')}
+                  src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
+                  alt=''
+                />
 
+                <PhotoCamIcon
+                  width='21'
+                  className={classNames(styles['ProfileBlock__PhotoCamIcon'], 'ProfileBlock__PhotoCamIcon')}
+                />
+              </div>
+              <div className={classNames(styles['ProfileBlock__Cover'], 'ProfileBlock__Cover')}>
+                <img
+                  className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg')}
+                  src='https://www.punctul.ro/wp-content/uploads/2021/08/shining-crown-si-burning-hot.jpg'
+                  alt=''
+                />
+                <div
+                  className={classNames(
+                    styles['ProfileBlock__CoverPhotoIconCell'],
+                    'ProfileBlock__CoverPhotoIconCell'
+                  )}>
+                  <PhotoCamIcon
+                    width='10'
+                    className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
+                  />
+                </div>
+              </div>
+              <div className={classNames(styles['ProfileBlock__Info'], 'ProfileBlock__Info')}>
+                <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>Shining Crown</div>
+                <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>ID1234567</div>
+              </div>
+            </Card>
+          </div>
+          {/*  */}
           <div className={styles['GameDetails__Sidebar-Widget']}>
             <StatusView {...statusInfo} label={'Status'} />
           </div>
