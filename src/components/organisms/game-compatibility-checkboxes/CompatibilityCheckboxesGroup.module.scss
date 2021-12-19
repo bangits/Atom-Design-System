@@ -1,0 +1,6 @@
+.CompatibilityCheckboxesGroup {
+    @include flex();
+    > div {
+        min-width: auto;
+    }
+}

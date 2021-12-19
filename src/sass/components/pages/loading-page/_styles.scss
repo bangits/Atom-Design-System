@@ -1,0 +1,72 @@
+@mixin generate-loading-page-styles {
+  .LoadingPageWrapper {
+    @include flex(center, center);
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: getLoadingPageColors(loading-wrapper-background-color);
+    z-index: 1000;
+  }
+
+  .LoadingPageLoader,
+  .LoadingPageLoader:before,
+  .LoadingPageLoader:after {
+    background-color: getLoadingPageColors(loading-wrapper-background-color);
+    -webkit-animation: load1 getLoadingPageSizes(loading-page-loader-after-animation) infinite ease-in-out;
+    animation: load1 getLoadingPageSizes(loading-page-loader-after-animation) infinite ease-in-out;
+    width: getLoadingPageSizes(loading-page-loader-after-width);
+    height: getLoadingPageSizes(loading-page-loader-after-height);
+  }
+  .LoadingPageLoader {
+    position: relative;
+    top: getLoadingPageSizes(loading-page-loader-position-top);
+    color: getLoadingPageColors(loading-page-loader-color);
+    text-indent: getLoadingPageSizes(loading-page-loader-text-indent);
+    font-size: getLoadingPageSizes(loading-page-loader-font-size);
+    -webkit-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-animation-delay: getLoadingPageSizes(loading-page-loader-animation);
+    animation-delay: getLoadingPageSizes(loading-page-loader-animation);
+  }
+  .LoadingPageLoader:before,
+  .LoadingPageLoader:after {
+    position: absolute;
+    top: 0;
+    content: '';
+  }
+  .LoadingPageLoader:before {
+    left: getLoadingPageSizes(loading-page-loader-before-position-left);
+    -webkit-animation-delay: getLoadingPageSizes(loading-page-loader-before-animation);
+    animation-delay: getLoadingPageSizes(loading-page-loader-before-animation);
+  }
+  .LoadingPageLoader:after {
+    left: getLoadingPageSizes(loading-page-loader-after-position-left);
+  }
+  @-webkit-keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      height: 5em;
+    }
+  }
+  @keyframes load1 {
+    0%,
+    80%,
+    100% {
+      box-shadow: 0 0;
+      height: 4em;
+    }
+    40% {
+      box-shadow: 0 -2em;
+      height: 5em;
+    }
+  }
+}

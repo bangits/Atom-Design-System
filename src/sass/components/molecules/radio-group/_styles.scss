@@ -22,6 +22,8 @@
         margin-right: getRadioGroupSizes(filter-radio-label-margin-right);
         color: getRadioGroupColors(filter-radio-label);
         font-size: getRadioGroupSizes(filter-radio-label-font-size);
+
+        cursor: pointer;
       }
     }
   }

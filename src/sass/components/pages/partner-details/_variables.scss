@@ -3,7 +3,9 @@ $partner-details-sizes: (
   container-margin: calculateRem(7.5px) 0 0 0,
   leftBlock-margin: 0 calculateRem(8px) 0 0,
   left-block-all-blocks-margin: calculateRem(8px),
-  breadCrumb-margin: calculateRem(8.5px) 0 0 0
+  breadCrumb-margin: calculateRem(8.5px) 0 0 0,
+  tab-padding-top: calculateRem(16px),
+  form-gap: calculateRem(5px)
 );
 $partner-details-colors: ();
 

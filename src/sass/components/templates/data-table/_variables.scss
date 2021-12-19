@@ -1,8 +1,9 @@
 $data-table-sizes: (
   filters-margin-bottom: calculateRem(32px),
+  table-config-select: calculateRem(100px),
   image-column: 50%
 );
 
 @function getDataTableSizes($key) {
   @return map-get($data-table-sizes, $key);
-}
+} ;

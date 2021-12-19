@@ -35,7 +35,7 @@ export const Default = () => {
           }
         ]
       }}
-      restrictedtCountries={{
+      restrictedCountries={{
         title: 'Restricted Countries',
         countries: [
           {

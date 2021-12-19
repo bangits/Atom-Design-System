@@ -8,6 +8,9 @@ export interface FlexibleFormProps {
   noDataText?: ReactNode;
   onSubmit?: (onToggle: () => void) => void;
   title: ReactNode;
+  editModeChildren?: ReactNode;
+  editedModeChildren?: ReactNode;
+  col?: 6 | 12;
 }
 
 const FlexibleForm: FC<FlexibleFormProps> = ({
@@ -16,7 +19,10 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
   isEdit = false,
   onSubmit,
   noDataText,
-  title
+  title,
+  editModeChildren,
+  editedModeChildren,
+  col
 }) => {
   const [toggle, setToggle] = useState<boolean>(isEdit);
 
@@ -25,13 +31,27 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
   }, [toggle]);
 
   return (
-    <div>
+    <>
       {toggle ? (
-        <EditForm {...editFormProps} onToggle={onToggle} title={title} onSubmit={onSubmit} />
+        <EditForm
+          {...editFormProps}
+          onToggle={onToggle}
+          title={title}
+          onSubmit={onSubmit}
+          children={editModeChildren}
+          col={col}
+        />
       ) : (
-        <EditedForm {...editedFormProps} onToggle={onToggle} title={title} noDataText={noDataText} />
+        <EditedForm
+          {...editedFormProps}
+          onToggle={onToggle}
+          title={title}
+          noDataText={noDataText}
+          children={editedModeChildren}
+          col={col}
+        />
       )}
-    </div>
+    </>
   );
 };
 

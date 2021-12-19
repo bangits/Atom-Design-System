@@ -1,9 +1,19 @@
 @mixin generate-providerdetails-styles {
+  .GamesLoading {
+    @include flex(center);
+    margin-top: getProviderDetailsSizes(provider-games-margin-top);
+  }
+
+  .ProviderDetailsBase form {
+    width: 100%;
+    margin: 0;
+  }
+
   .ProviderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProviderDetailsSizes(provider-details-margin-top);
-    max-width: 1246px;
   }
+
   .ProviderDetailsBase--leftBlock {
     margin-right: getProviderDetailsSizes(provider-left-block-margin);
   }
@@ -28,12 +38,12 @@
     }
     &__Header-1 {
       @include flex(flex-start);
+      > div {
+        width: 26rem;
+      }
     }
     &__Header-2 {
       @include flex(flex-end);
-    }
-    &__Empty {
-      display: none;
     }
     &__Add-Game-Btn {
       @include p;
@@ -61,7 +71,8 @@
     width: getProviderDetailsSizes(games-container-width);
     display: getProviderDetailsSizes(games-container-display);
     grid-template-columns: getProviderDetailsSizes(games-container-grid-template-columns);
-    grid-template-rows: getProviderDetailsSizes(games-container-grid-template-rows);
+    // grid-template-rows: getProviderDetailsSizes(games-container-grid-template-rows);
+    grid-template-rows: auto;
     grid-column-gap: getProviderDetailsSizes(games-container-grid-column-gap);
     grid-row-gap: getProviderDetailsSizes(games-container-grid-row-gap);
     & > div > div:first-child {
@@ -71,7 +82,7 @@
       background-color: getProviderDetailsColors(games-container__div__div-bg-color);
       background-repeat: no-repeat;
       background-position: center center;
-      background-size: 50% 50%;
+      background-size: auto;
     }
 
     & > div > div:last-child {
@@ -90,6 +101,38 @@
     & > div > div {
       width: getProviderDetailsSizes(games-container__div__div-width) !important;
       height: getProviderDetailsSizes(games-container__div__div-height) !important;
+    }
+  }
+
+  .GamesList__Empty {
+    margin-top: getProviderDetailsSizes(provider-games-empty-margin-top);
+  }
+
+  .Empty-Page-Cell {
+    @include flex(center);
+  }
+
+  .Empty-Page-Title {
+    margin: 0;
+    margin-top: getProviderDetailsSizes(provider-games-empty-text-margin-top);
+
+    text-align: center;
+  }
+
+  .GamesList__Fill {
+    width: 100%;
+    padding-bottom: getProviderDetailsSizes(providers-games-padding-bottom);
+
+    &:after {
+      display: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-display);
+      content: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-content);
+      position: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-position);
+      bottom: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-bottom);
+      left: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-left);
+      z-index: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-z-index);
+      width: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-width);
+      height: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-height);
+      background: getProviderDetailsColors(provider-details-bottom-fading-cell-after-bg-color);
     }
   }
 
@@ -133,17 +176,6 @@
     display: block;
     width: getProviderDetailsSizes(provider-details-bottom-fading-cell-width);
     @include p;
-    &:after {
-      display: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-display);
-      content: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-content);
-      position: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-position);
-      bottom: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-bottom);
-      left: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-left);
-      z-index: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-z-index);
-      width: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-width);
-      height: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-height);
-      background: getProviderDetailsColors(provider-details-bottom-fading-cell-after-bg-color);
-    }
   }
 
   .GameDetailsBase__GameTag {

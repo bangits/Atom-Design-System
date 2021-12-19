@@ -34,5 +34,7 @@
     position: relative;
   } @else if $position == abs {
     position: absolute;
+  } @else if $position == fix {
+    position: fixed;
   }
 }

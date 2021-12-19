@@ -8,4 +8,20 @@
   .min-height-content-wrapper {
     min-height: calc(100vh - getLayoutSizes(content-header-margin));
   }
+
+  .cursor-pointer {
+    cursor: pointer;
+  }
+
+  .d-flex {
+    @include flex;
+  }
+
+  .details-form-wrapper {
+    @include flex(null, center, $flex-wrap: wrap);
+    width: fit-content;
+    width: -moz-fit-content;
+    grid-gap: calculateRem(16px);
+    align-content: flex-start;
+  }
 }

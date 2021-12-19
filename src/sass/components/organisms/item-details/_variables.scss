@@ -1,7 +1,8 @@
 $item-details-sizes: (
   base-max-width: calculateRem(994px),
+  base-min-height: calculateRem(656px),
   base-min-width: 80%,
-  base-padding: calculateRem(6px) calculateRem(16px) calculateRem(16px) calculateRem(16px),
+  base-padding: calculateRem(16px) calculateRem(16px) calculateRem(16px) calculateRem(16px),
   subs-margin: calculateRem(8px) calculateRem(16px) calculateRem(8px) calculateRem(16px)
 );
 

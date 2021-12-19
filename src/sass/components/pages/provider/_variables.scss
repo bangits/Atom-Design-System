@@ -1,9 +1,9 @@
 $provider-in-sizes: (
-  provider-wrapper: calculateRem(728px),
+  provider-wrapper: calculateRem(630px),
   provider-container: calculateRem(584px),
-  provider-container-wrapper: calculateRem(49px),
-  provider-card-padding: calculateRem(15px) calculateRem(72px) calculateRem(24px) calculateRem(72px),
-  provider-card-min-height: calculateRem(590px),
+  provider-container-wrapper: calculateRem(40px),
+  provider-card-padding: 0 calculateRem(20px) calculateRem(20px) calculateRem(20px),
+  provider-card-min-height: calculateRem(540px),
   provider-title-fontWeight: 700,
   provider-title-align: center,
   provider-title-padding: calculateRem(15px),
@@ -16,18 +16,21 @@ $provider-in-sizes: (
   provider-form-height: calculateRem(60px),
   provider-button-marginTop: calculateRem(75px),
   provider-button-closeMargin: calculateRem(16px),
-  provider-column-gap: calculateRem(16px),
+  provider-column-gap: calculateRem(20px),
   provider-field-margin-bottom: calculateRem(2px),
-  provider-col-4-width: calculateRem(178.6px),
+  provider-col-4-width: calculateRem(182px),
   provider-col-6-width: calculateRem(284px),
   provider-back-button-border: 1px,
   provider-back-button-padding: calculateRem(7px),
+  provider-button-group-margin-top: calculateRem(70px),
   provider-back-button-border-radius: 100%
 );
 
 $provider-in-colors: (
   provider-background-color: color(white),
-  provider-back-button-border-color: color(nepal)
+  provider-back-button-border-color: color(nepal),
+  close-button-border-color: color(nepal),
+  close-button-color: color(nepal)
 );
 
 @function getProviderColors($key) {

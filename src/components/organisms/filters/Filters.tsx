@@ -1,14 +1,17 @@
 import { Icons } from '@/atom-design-system';
 import { CheckboxGroup, Filter, FilterValueType } from '@/components';
+import { arrayMoveMutable } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
 import { Button, Card, Select, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import styles from './Filters.module.scss';
 import { FilterProp, FiltersProps } from './FilterTypes';
 
 export function Filters<T>({
   filters,
+  selectProps,
   checkboxFilters,
   clearLabel,
   applyLabel,
@@ -72,6 +75,67 @@ export function Filters<T>({
     onClear(filterValues);
   }, [isOpenedFilterCollapse]);
 
+  const onDragChange = useCallback(
+    ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
+      setShowedFilters((prevFilters) => [...arrayMoveMutable(prevFilters, oldIndex, newIndex)]);
+    },
+    [setShowedFilters]
+  );
+
+  const SortableFilterItem = useMemo(
+    () =>
+      SortableElement(
+        ({
+          filter,
+          filterValues,
+          onFilterChange
+        }: {
+          filter: FilterProp<T>;
+          filterValues: T;
+          onFilterChange: (filterName: string, value: FilterValueType) => void;
+        }) => (
+          <Filter
+            key={filter.name}
+            value={filterValues[filter.name]}
+            filter={filter}
+            onFilterChange={onFilterChange}
+            filterValues={filterValues}
+          />
+        )
+      ),
+    []
+  );
+
+  const SortableFiltersList = useMemo(
+    () =>
+      SortableContainer(
+        ({
+          filterValues,
+          onFilterChange,
+          items
+        }: {
+          filterValues: T;
+          onFilterChange: (filterName: string, value: FilterValueType) => void;
+          items: FilterProp<T>[];
+        }) => {
+          return (
+            <div className={styles.FiltersContainer}>
+              {items.map((filter, index) => (
+                <SortableFilterItem
+                  key={filter.name}
+                  index={index}
+                  filterValues={filterValues}
+                  onFilterChange={onFilterChange}
+                  filter={filter}
+                />
+              ))}
+            </div>
+          );
+        }
+      ),
+    []
+  );
+
   useEffect(() => setShowedFilters(filters), [filters]);
   useEffect(() => setShowedCheckboxFilters(checkboxFilters), [checkboxFilters]);
 
@@ -85,17 +149,17 @@ export function Filters<T>({
         },
         className
       )}>
-      <div className={styles.FiltersContainer}>
-        {showedFilters.map((filter) => (
-          <Filter
-            key={filter.name}
-            value={filterValues[filter.name]}
-            filter={filter}
-            onFilterChange={onFilterChange}
-            filterValues={filterValues}
-          />
-        ))}
-      </div>
+      <SortableFiltersList
+        pressDelay={200}
+        shouldCancelStart={() => false}
+        axis='xy'
+        items={showedFilters}
+        filterValues={filterValues}
+        onFilterChange={onFilterChange}
+        onSortEnd={onDragChange}
+        disableAutoscroll
+      />
+
       <div className={styles.Checkbox}>
         {checkboxFilters &&
           showedCheckboxFilters.map((filter) => {
@@ -113,7 +177,7 @@ export function Filters<T>({
       <div className={styles.ControlContainer}>
         <div>
           <Select
-            selectAll
+            {...selectProps}
             dropdown
             dropdownLabel='Filters'
             isMulti={true}
@@ -145,7 +209,7 @@ export function Filters<T>({
               </svg>
             </span>
           </div>
-          <Typography variant='p1' className={!isOpenedFilterCollapse ? styles.ClearLabel : styles.ClearLabelActive}>
+          <Typography variant='p3' className={!isOpenedFilterCollapse ? styles.ClearLabel : styles.ClearLabelActive}>
             <span onClick={onClearClick}>{clearLabel}</span>
           </Typography>
           <Button disabled={!isOpenedFilterCollapse} onClick={() => onSubmit(filterValues)}>

@@ -1,8 +1,16 @@
 import { CheckboxGroupProps, RadioGroupProps } from '@/components';
-import { DatepickerProps, SelectProps, TextInputProps } from '@my-ui/core';
+import { DatepickerProps, DateTimePickerProps, SelectProps, TextInputProps } from '@my-ui/core';
 import { ReactNode } from 'react';
 
-export type FormFieldTypes = 'select' | 'input' | 'custom' | 'datepicker' | 'checkbox' | 'radio' | 'header';
+export type FormFieldTypes =
+  | 'select'
+  | 'input'
+  | 'custom'
+  | 'datepicker'
+  | 'timepicker'
+  | 'checkbox'
+  | 'radio'
+  | 'header';
 export type FormFieldValueType = string | number | string[] | number[] | Date;
 
 export type FormFieldProp = {
@@ -39,6 +47,12 @@ export type FormFieldProp = {
       label?: string;
       props?: Omit<DatepickerProps, 'onChange'>;
       component?: (props: DatepickerProps) => JSX.Element;
+    }
+  | {
+      type: 'timepicker';
+      label?: string;
+      props?: Omit<DateTimePickerProps, 'onChange'>;
+      component?: (props: DateTimePickerProps) => JSX.Element;
     }
   | {
       type: 'custom';

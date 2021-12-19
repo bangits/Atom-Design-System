@@ -7,14 +7,39 @@
 
     &--leftBlock {
       margin: getPartnerDetailsSizes(leftBlock-margin);
-
+      min-width: 244px;
       > * {
         margin-bottom: getPartnerDetailsSizes(left-block-all-blocks-margin);
+      }
+    }
+
+    &--rightBlock {
+      width: 100%;
+      > div {
+        padding-top: getPartnerDetailsSizes(tab-padding-top);
       }
     }
 
     &--breadCrumb {
       margin: getPartnerDetailsSizes(breadCrumb-margin);
     }
+    &__Main-Content {
+      width: 100%;
+    }
+    &__Sidebar {
+      & > div {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+    &__Sidebar-Widget {
+      & > div {
+        width: 100%;
+      }
+    }
+  }
+
+  .QuadCell {
+    @include flex(space-between, $flex-wrap: wrap);
   }
 }

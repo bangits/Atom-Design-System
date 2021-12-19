@@ -1,6 +1,12 @@
 @mixin generate-edited-form-styles {
   .EditedFormBase {
-    width: getEditedFormSizes(edited-form-width);
+    &--12 {
+      width: 100%;
+    }
+    &--6 {
+      width: getEditedFormSizes(edited-form-width);
+    }
+
     &--control {
       @include flex(space-between, center);
       padding: getEditedFormSizes(control-padding);
@@ -20,7 +26,11 @@
       @include dots-after-text();
     }
 
-    &-content {
+    &--content-children {
+      height: 100% !important;
+    }
+
+    &--content {
       position: relative;
       @include flex(flex-start, null, $flex-wrap: wrap);
       align-content: flex-start;
@@ -29,6 +39,9 @@
       box-sizing: border-box;
       transition: height getEditedFormSizes(content-transition);
       overflow: hidden;
+      form {
+        width: 100%;
+      }
     }
 
     &--card-content {

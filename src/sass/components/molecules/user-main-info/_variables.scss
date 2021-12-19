@@ -1,0 +1,11 @@
+$user-main-info-sizes: ();
+
+$user-main-info-colors: ();
+
+@function getUserMainInfoSizes($key) {
+  @return map-get($user-main-info-sizes, $key);
+}
+
+@function getUserMainInfoColors($key) {
+  @return map-get($user-main-info-colors, $key);
+}

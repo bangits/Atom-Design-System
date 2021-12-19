@@ -1,0 +1,7 @@
+$browsers-checkbox-groupe-sizes: (
+  margin: 0 calculateRem(16px) 0 0
+);
+
+@function BrowsersCheckboxGroupSizes($key) {
+  @return map-get($browsers-checkbox-groupe-sizes, $key);
+}

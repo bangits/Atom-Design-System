@@ -1,0 +1,18 @@
+@mixin generate-balance-group-styles {
+  .balanceContainer {
+    min-width: getBalanceGroupSizes(balance-group-min-width);
+    height: getBalanceGroupSizes(balance-group-height);
+    display: inline-flex;
+    align-items: center;
+    background: #8ea6c11a 0% 0% no-repeat padding-box;
+    border-radius: calculateRem(8px);
+  }
+  .balanceIcon {
+    padding: calculateRem(10px) 0 calculateRem(10px) calculateRem(10px);
+  }
+  .balanceQuantity {
+    height: getBalanceGroupSizes(balance-quantity-height);
+    font-size: getBalanceGroupQuantity(balance-quantity-font-size);
+    padding: calculateRem(9px) calculateRem(10px) calculateRem(8px) calculateRem(9px);
+  }
+}

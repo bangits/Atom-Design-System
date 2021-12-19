@@ -1,0 +1,19 @@
+$languages-sizes: (
+  languages-wrapper-min-width: calculateRem(32px),
+  languages-wrapper-height: calculateRem(32px),
+  languages-wrapper-border-radius: 16px,
+  languages-wrapper-margin: calculateRem(8px),
+  languages-font-size: calculateRem(16px)
+);
+
+$languages-colors: (
+  languages-color: #7c83ac
+);
+
+@function getLanguagesSizes($key) {
+  @return map-get($languages-sizes, $key);
+}
+
+@function getLanguagesColors($key) {
+  @return map-get($languages-colors, $key);
+}

@@ -1,6 +1,6 @@
+import { Countries, CurrencyGroup, LabelGroup, LabelTag } from '@/components';
+import { TagCountryProps, TagProps, Typography } from '@my-ui/core';
 import React, { FC } from 'react';
-import { CopyField, TagCountryProps, TagProps, TooltipProps } from '@my-ui/core';
-import { Countries, LabelGroup, CurrencyGroup, LicenseGroup, LabelTag } from '@/components';
 
 export interface PartnerProviderInfoProps {
   noDataText?: string;
@@ -28,20 +28,20 @@ export interface PartnerProviderInfoProps {
     total?: string;
     countries: TagCountryProps[];
   };
-  restrictedtCountries: {
+  restrictedCountries: {
     title: string;
     total?: string;
     countries: TagCountryProps[];
   };
 }
 
-const ProvidersGeneralInfo: FC<PartnerProviderInfoProps> = ({
-  noDataText,
+const PartnerProviderInfo: FC<PartnerProviderInfoProps> = ({
+  noDataText = 'N/A',
   totalGameCount,
   gameTypes,
   currencies,
   targetMarkets,
-  restrictedtCountries,
+  restrictedCountries,
   certifiedCountries
 }) => {
   return (
@@ -53,26 +53,46 @@ const ProvidersGeneralInfo: FC<PartnerProviderInfoProps> = ({
         }}
       />
       <LabelGroup title={gameTypes.title} totalLabel={gameTypes.total}>
-        <CurrencyGroup currencies={gameTypes.types} />
+        {gameTypes.types.length === 0 ? (
+          <Typography variant='p4'>{noDataText}</Typography>
+        ) : (
+          <CurrencyGroup currencies={gameTypes.types} />
+        )}
       </LabelGroup>
 
       <LabelGroup title={currencies.title} totalLabel={currencies.total}>
-        <CurrencyGroup currencies={currencies.currencies} />
+        {currencies.currencies.length === 0 ? (
+          <Typography variant='p3'>{noDataText}</Typography>
+        ) : (
+          <CurrencyGroup currencies={currencies.currencies} />
+        )}
       </LabelGroup>
 
       <LabelGroup title={targetMarkets.title} totalLabel={targetMarkets.total}>
-        <Countries tagCountries={targetMarkets.markets} />
+        {targetMarkets.markets.length === 0 ? (
+          <Typography variant='p3'>{noDataText}</Typography>
+        ) : (
+          <Countries tagCountries={targetMarkets.markets} />
+        )}
       </LabelGroup>
 
       <LabelGroup title={certifiedCountries.title} totalLabel={certifiedCountries.total}>
-        <Countries tagCountries={certifiedCountries.countries} />
+        {certifiedCountries.countries.length === 0 ? (
+          <Typography variant='p3'>{noDataText}</Typography>
+        ) : (
+          <Countries tagCountries={certifiedCountries.countries} />
+        )}
       </LabelGroup>
 
-      <LabelGroup title={restrictedtCountries.title} totalLabel={restrictedtCountries.total}>
-        <Countries tagCountries={restrictedtCountries.countries} />
+      <LabelGroup title={restrictedCountries.title} totalLabel={restrictedCountries.total}>
+        {restrictedCountries.countries.length === 0 ? (
+          <Typography variant='p3'>{noDataText}</Typography>
+        ) : (
+          <Countries tagCountries={restrictedCountries.countries} />
+        )}
       </LabelGroup>
     </>
   );
 };
 
-export default ProvidersGeneralInfo;
+export default PartnerProviderInfo;

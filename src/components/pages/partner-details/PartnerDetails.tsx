@@ -1,5 +1,6 @@
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { Breadcrumb, BreadcrumbProps, Status, StatusProps } from '@my-ui/core';
+import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './PartnerDetails.module.scss';
 export interface PartnerDetailsProps {
@@ -23,7 +24,7 @@ export interface PartnerDetailsProps {
     organizationData: string;
   };
 
-  docInfo: {
+  docInfo?: {
     documentID: string | number;
     type: string;
     expirationDate: string;
@@ -53,71 +54,87 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
       </div>
       <div className={styles['PartnerDetailsBase--container']}>
         <div className={styles['PartnerDetailsBase--leftBlock']}>
-          <NameDescription
-            data={[
-              {
-                name: translations.parentCompany,
-                description: parentCompany
-              },
-              {
-                name: translations.parentCompanyId,
-                description: parentCompanyId
-              }
-            ]}
-            noDataText={noDataText}
-          />
-          <StatusView {...statusInfo} label={translations.status} />
-
-          <NameDescription
-            data={[
-              {
-                name: translations.documentID,
-                description: docInfo.documentID
-              },
-              {
-                name: translations.type,
-                description: docInfo.type
-              },
-              {
-                name: translations.expirationDate,
-                description: docInfo.expirationDate
-              }
-            ]}
-            noDataText={noDataText}>
-            <span>{translations.status}</span>
-            <Status variant={docInfo.statusVariant}>{docInfo.statusLabel}</Status>
-          </NameDescription>
+          <div className={styles['PartnerDetailsBase__Sidebar']}>
+            <div className={styles['PartnerDetailsBase__Sidebar-Widget']}>
+              <NameDescription
+                data={[
+                  {
+                    name: translations.parentCompany,
+                    description: parentCompany
+                  },
+                  {
+                    name: translations.parentCompanyId,
+                    description: parentCompanyId
+                  }
+                ]}
+                noDataText={noDataText}
+              />
+            </div>
+            <div className={styles['PartnerDetailsBase__Sidebar-Widget']}>
+              <StatusView {...statusInfo} label={translations.status} />
+            </div>
+            <div className={styles['PartnerDetailsBase__Sidebar-Widget']}>
+              {docInfo && (
+                <NameDescription
+                  data={[
+                    {
+                      name: translations.documentID,
+                      description: docInfo.documentID
+                    },
+                    {
+                      name: translations.type,
+                      description: docInfo.type
+                    },
+                    {
+                      name: translations.expirationDate,
+                      description: docInfo.expirationDate
+                    }
+                  ]}
+                  noDataText={noDataText}>
+                  <span>{translations.status}</span>
+                  <Status variant={docInfo.statusVariant}>{docInfo.statusLabel}</Status>
+                </NameDescription>
+              )}
+            </div>
+          </div>
         </div>
-        <ItemDetails
-          tabs={[
-            {
-              title: translations.organizationData,
-              value: 1,
-              subTabs: [
-                {
-                  title: translations.mainInformation,
-                  value: 1,
-                  content: <>{organizationDataMainInformationForms}</>
-                },
-                {
-                  title: translations.providerInformation,
-                  value: 2,
-                  content: <>{organizationDataProviderInformation}</>
-                }
-              ]
-            },
-            {
-              title: 'Projects',
-              value: 2
-            },
-            {
-              title: 'Documents',
-              value: 3
-            }
-          ]}
-          defaultTabValue={1}
-          defaultSubTabValue={1}
-        />
+
+        <div className={styles['PartnerDetailsBase__Main-Content']}>
+          <ItemDetails
+            tabs={[
+              {
+                title: translations.organizationData,
+                value: 1,
+                subTabs: [
+                  {
+                    title: translations.mainInformation,
+                    value: 1,
+                    content: (
+                      <div className={classNames(styles['QuadCell'], 'QuadCell')}>
+                        {organizationDataMainInformationForms}
+                      </div>
+                    )
+                  },
+                  {
+                    title: translations.providerInformation,
+                    value: 2,
+                    content: <>{organizationDataProviderInformation}</>
+                  }
+                ]
+              }
+              /*  {
+                title: 'Projects',
+                value: 2
+              },
+              {
+                title: 'Documents',
+                value: 3
+              } */
+            ]}
+            defaultTabValue={1}
+            defaultSubTabValue={1}
+          />
+        </div>
       </div>
     </div>
   );
