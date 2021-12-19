@@ -62,7 +62,9 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
 
           <StatusView {...statusInfo} />
 
-          <LastActivityView lastActivity={lastActivity} />
+          <div className={styles.LastActivityViewWrapper}>
+            <LastActivityView lastActivity={lastActivity} />
+          </div>
 
           <TagsView />
         </div>

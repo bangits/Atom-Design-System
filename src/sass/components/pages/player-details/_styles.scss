@@ -31,5 +31,8 @@
       width: getPlayerDetailsSizes(content-control-forms-width);
       box-sizing: border-box;
     }
+    .LastActivityViewWrapper {
+      margin-top: getPlayerDetailsSizes(lastactivity-view-wrapper-margin);
+    }
   }
 }
