@@ -133,11 +133,17 @@ const GameDetails: FC<GameDetailsProps> = ({
             />
           </div>
 
-          <div className={classNames(styles['EmptyWrapper'], 'EmptyWrapper')}>
-            <Button {...buttons.playButtonProps}>{translations.playButton}</Button>
+          <div
+            className={classNames(
+              styles['EmptyWrapper'],
+              styles['EmptyWrapper--Two-Cols'],
+              'EmptyWrapper',
+              'EmptyWrapper--Two-Cols'
+            )}>
             <Button {...buttons.playDemoButtonProps} variant='ghost'>
               {translations.playDemoButton}
             </Button>
+            <Button {...buttons.playButtonProps}>{translations.playButton}</Button>
           </div>
         </div>
 

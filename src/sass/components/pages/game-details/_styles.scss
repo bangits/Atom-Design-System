@@ -79,21 +79,24 @@
     }
 
     .EmptyWrapper {
-      @include flex;
+      // @include flex;
+      &--Two-Cols {
+        display: grid;
+        grid-template: auto / repeat(2, 1fr);
+        grid-column-gap: 7px;
+      }
+
       button {
+        // border: solid #ff0000 1px !important;
         width: getGameDetailsSizes(empty-wrapper__button-width);
         height: getGameDetailsSizes(empty-wrapper__button-height);
         border-radius: getGameDetailsSizes(empty-wrapper__button-border-radius);
         font-size: getGameDetailsSizes(empty-wrapper__button-font-size);
         padding: getGameDetailsSizes(empty-wrapper__button-padding);
-        margin: getGameDetailsSizes(empty-wrapper__button-margin);
+        // margin: getGameDetailsSizes(empty-wrapper__button-margin);
         max-width: auto;
         min-width: auto;
-
         cursor: pointer;
-        &:last-child {
-          margin: 0 10px 0 0;
-        }
       }
     }
 
