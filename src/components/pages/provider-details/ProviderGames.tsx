@@ -86,7 +86,19 @@ export const ProviderGames = ({
         </div>
         {shouldShowAddGameButton && (
           <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-            <Button
+            <button onClick={onAddGameClick} className={classNames(styles['UniqueBtn'], 'UniqueBtn')}>
+              <span
+                className={classNames(styles['UniqueBtn__IconCell'], 'UniqueBtn__IconCell')}
+                onClick={() => {
+                  setCurrentPage(1);
+
+                  onChange(selectedGameType, searchValue, 1);
+                }}>
+                <span className={classNames(styles['UniqueBtn__Icon'], 'UniqueBtn__Icon')}></span>
+              </span>
+              <span className={classNames(styles['UniqueBtn__Label'], 'UniqueBtn__Label')}>Add</span>
+            </button>
+            {/* <Button
               type='button'
               className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
               startIcon={
@@ -100,14 +112,17 @@ export const ProviderGames = ({
               }
               onClick={onAddGameClick}>
               {translations.addGame}
-            </Button>
+              Add
+            </Button> */}
           </div>
         )}
       </div>
 
       {isTabLoading ? (
         <div className={styles.GamesLoading}>
-          <Loader />
+          <div className={classNames(styles['GamesContainer__Loader'], 'GamesContainer__Loader')}>
+            <Loader />
+          </div>
         </div>
       ) : games && games.length ? (
         <div className={classNames(styles['GamesList__Fill'], 'GamesList__Fill')}>
@@ -152,7 +167,11 @@ export const ProviderGames = ({
                 <CardImg title={game.name} image={game.icon} key={game.id} handleClick={() => onGameClick(game.id)} />
               ))}
             </div>
-            {isLoadingGames && <Loader />}
+            {isLoadingGames && (
+              <div className={classNames(styles['GamesContainer__Loader'], 'GamesContainer__Loader')}>
+                <Loader />
+              </div>
+            )}
           </Scroll>
         </div>
       ) : (
