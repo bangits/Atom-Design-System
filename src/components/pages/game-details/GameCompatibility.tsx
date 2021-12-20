@@ -137,9 +137,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
-                  {translations.noDataText}
-                </Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
               )}
             </div>
           </div>
@@ -168,9 +166,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
-                  {translations.noDataText}
-                </Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
               )}
             </div>
           </div>
