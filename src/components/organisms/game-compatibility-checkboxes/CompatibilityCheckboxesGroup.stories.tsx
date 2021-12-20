@@ -21,8 +21,14 @@ export const Default = () => {
         tabletScreenMode: 'Tablet Screen Mode'
       }}
       platformInitialValues={[1,3]}
-      mobileInitialValues={[1]}
-      tabletInitialValues={[2]}
+      mobileInitialValues={{
+        landscape: true,
+        portrait: false,
+      }}
+      tabletInitialValues={{
+        landscape: true,
+        portrait: false
+      }}
       onMobileModeChange={action('onMobileModeChange')}
       onPlatformChange={action('onPlatformModeChange')}
       onTabletModeChange={action('onTabletModeChange')}

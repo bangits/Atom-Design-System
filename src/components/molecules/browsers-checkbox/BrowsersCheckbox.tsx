@@ -9,7 +9,7 @@ export interface BrowsersCheckboxProps {
   onChange?: (value: boolean) => void;
 }
 
-const BrowsersCheckbox: FC<BrowsersCheckboxProps> = ({ browserIcon, disabled, defaultSelected = false, onChange }) => {
+const BrowsersCheckbox: FC<BrowsersCheckboxProps> = ({ browserIcon, disabled, defaultSelected, onChange }) => {
   const [selected, setSelected] = useState<boolean>(defaultSelected);
 
   useEffect(() => {
