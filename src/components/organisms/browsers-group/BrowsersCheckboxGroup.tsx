@@ -17,7 +17,7 @@ export interface BrowsersCheckboxGroupProps {
 }
 
 const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, onChange, initialValues, disabled }) => {
-  const [values, setValues] = useState<(number | string)[]>(initialValues ?? []);
+  const [values, setValues] = useState<(number | string)[]>(initialValues ? [...initialValues] : []);
 
   useEffect(() => {
     onChange?.(values);
@@ -27,9 +27,9 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       <BrowsersCheckbox
         browserIcon={<ChromeIcon />}
         disabled={disabled}
-        defaultSelected={values.includes(browsersEnum.CHROME)}
+        defaultSelected={!values.includes(browsersEnum.CHROME)}
         onChange={(value) => {
-          value
+          !value
             ? setValues([...values, browsersEnum.CHROME])
             : setValues([...values.filter((value) => value !== browsersEnum.CHROME)]);
         }}
@@ -37,9 +37,9 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       <BrowsersCheckbox
         browserIcon={<EdgeIcon />}
         disabled={disabled}
-        defaultSelected={values.includes(browsersEnum.EDGE)}
+        defaultSelected={!values.includes(browsersEnum.EDGE)}
         onChange={(value) => {
-          value
+          !value
             ? setValues([...values, browsersEnum.EDGE])
             : setValues([...values.filter((value) => value !== browsersEnum.EDGE)]);
         }}
@@ -47,9 +47,9 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       <BrowsersCheckbox
         browserIcon={<FirefoxIcon />}
         disabled={disabled}
-        defaultSelected={values.includes(browsersEnum.FIREFOX)}
+        defaultSelected={!values.includes(browsersEnum.FIREFOX)}
         onChange={(value) => {
-          value
+          !value
             ? setValues([...values, browsersEnum.FIREFOX])
             : setValues([...values.filter((value) => value !== browsersEnum.FIREFOX)]);
         }}
@@ -57,9 +57,9 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       <BrowsersCheckbox
         browserIcon={<OperaIcon />}
         disabled={disabled}
-        defaultSelected={values.includes(browsersEnum.OPERA)}
+        defaultSelected={!values.includes(browsersEnum.OPERA)}
         onChange={(value) => {
-          value
+         !value
             ? setValues([...values, browsersEnum.OPERA])
             : setValues([...values.filter((value) => value !== browsersEnum.OPERA)]);
         }}
@@ -69,7 +69,7 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
         disabled={disabled}
         defaultSelected={values.includes(browsersEnum.SAFARI)}
         onChange={(value) => {
-          value
+          !value
             ? setValues([...values, browsersEnum.SAFARI])
             : setValues([...values.filter((value) => value !== browsersEnum.SAFARI)]);
         }}
