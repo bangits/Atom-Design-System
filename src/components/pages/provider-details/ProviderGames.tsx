@@ -20,6 +20,7 @@ export interface ProviderGamesProps {
     id: number;
     name: string;
     icon: string;
+    hasDemo: boolean;
   }[];
   searchInputMaxLength: number;
   isLoadingGames: boolean;
@@ -29,7 +30,7 @@ export interface ProviderGamesProps {
   shouldShowAddGameButton?: boolean;
 
   onChange(gameTypeId: number, search: string, page: number): void;
-  onGameClick(gameId: number): void;
+  onGameClick(gameId: number, isDemo: boolean): void;
   onAddGameClick(): void;
 }
 
