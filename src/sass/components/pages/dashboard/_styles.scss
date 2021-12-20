@@ -29,6 +29,8 @@
     width: 100%;
     @include flex(center, center, $flex-wrap: wrap);
 
+    color: var(--theme-default-avatar-label-color, #505d6e);
+
     font-size: getDashboardSizes(title-font-size);
     margin: 0;
 

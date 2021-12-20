@@ -177,7 +177,7 @@ export const ProviderGames = ({
                     </span>
                     <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
                   </span>
-                  <CardImg title={game.name} image={game.icon} key={game.id} />
+                  <CardImg className={styles.CardImg} title={game.name} image={game.icon} key={game.id} />
                 </div>
               ))}
             </div>
