@@ -1,5 +1,5 @@
 import { Icons } from '@/atom-design-system';
-import { EmptyGameListIcon } from '@/icons';
+import { EmptyGameListIcon, PlayArrowIcon, ViewCardImageIcon } from '@/icons';
 import { Button, CardImg, Loader, Scroll, Tag, TextInput, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
@@ -152,9 +152,26 @@ export const ProviderGames = ({
             }}>
             <div className={classNames(styles['GamesContainer'], 'GamesContainer')}>
               {games.map((game) => (
-                <CardImg title={game.name} image={game.icon} key={game.id} handleClick={() => onGameClick(game.id)} />
+                <div className={classNames(styles['HoverContainer'], 'HoverContainer')}>
+                  <span className={classNames(styles['HoverBox'], 'HoverBox')}>
+                    <span className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}>
+                      <span className={classNames(styles['HoverBox-PlayBtnInner'], 'HoverBox-PlayBtnInner')}>
+                        <span className={classNames(styles['HoverBox-PlayBtnIcon'], 'HoverBox-PlayBtnIcon')}>
+                          <PlayArrowIcon width={'100%'} />
+                        </span>
+                      </span>
+                    </span>
+                    <span className={classNames(styles['HoverBox-ViewIcon'], 'HoverBox-ViewIcon')}>
+                      <ViewCardImageIcon width={'100%'} />
+                    </span>
+                    <span className={classNames(styles['HoverBox-LinkText'], 'HoverBox-LinkText')}>Play demo</span>
+                    <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
+                  </span>
+                  <CardImg title={game.name} image={game.icon} key={game.id} handleClick={() => onGameClick(game.id)} />
+                </div>
               ))}
             </div>
+
             {isLoadingGames && (
               <div className={classNames(styles['GamesContainer__Loader'], 'GamesContainer__Loader')}>
                 <Loader />
