@@ -16,7 +16,7 @@ export interface BrowsersCheckboxGroupProps {
   disabled?: boolean;
 }
 
-const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, onChange, initialValues }) => {
+const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, onChange, initialValues, disabled }) => {
   const [values, setValues] = useState<(number | string)[]>(initialValues ?? []);
 
   useEffect(() => {
@@ -26,6 +26,8 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
     <div className={styles.BrowsersCheckboxGroupBase}>
       <BrowsersCheckbox
         browserIcon={<ChromeIcon />}
+        disabled={disabled}
+        defaultSelected={values.includes(browsersEnum.CHROME)}
         onChange={(value) => {
           value
             ? setValues([...values, browsersEnum.CHROME])
@@ -34,6 +36,8 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       />
       <BrowsersCheckbox
         browserIcon={<EdgeIcon />}
+        disabled={disabled}
+        defaultSelected={values.includes(browsersEnum.EDGE)}
         onChange={(value) => {
           value
             ? setValues([...values, browsersEnum.EDGE])
@@ -42,6 +46,8 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       />
       <BrowsersCheckbox
         browserIcon={<FirefoxIcon />}
+        disabled={disabled}
+        defaultSelected={values.includes(browsersEnum.FIREFOX)}
         onChange={(value) => {
           value
             ? setValues([...values, browsersEnum.FIREFOX])
@@ -50,6 +56,8 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       />
       <BrowsersCheckbox
         browserIcon={<OperaIcon />}
+        disabled={disabled}
+        defaultSelected={values.includes(browsersEnum.OPERA)}
         onChange={(value) => {
           value
             ? setValues([...values, browsersEnum.OPERA])
@@ -58,6 +66,8 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       />
       <BrowsersCheckbox
         browserIcon={<SafariIcon />}
+        disabled={disabled}
+        defaultSelected={values.includes(browsersEnum.SAFARI)}
         onChange={(value) => {
           value
             ? setValues([...values, browsersEnum.SAFARI])
