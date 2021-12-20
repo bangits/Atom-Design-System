@@ -33,3 +33,5 @@ export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
+export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
+export { ReactComponent as PlayArrowIcon } from './play-arrow-icon.react.svg';

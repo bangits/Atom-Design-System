@@ -9,5 +9,10 @@ export default {
 };
 
 export const Default = () => {
-  return <Dashboard username='Armen' />;
+  return (
+    <Dashboard
+      username='Armen'
+      logoSrc='https://www.tattooforaweek.com/files/modules/products/5135/photos/full_the-atom-tattoonie-temporary-tattoo-s.jpg?v=0'
+    />
+  );
 };

@@ -61,7 +61,7 @@ export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick 
         <div className={classNames(styles['GameLauncher__Content'], 'GameLauncher__Content')}>
           <div className={classNames(styles['GameLauncher__Content-Inner'], 'GameLauncher__Content-Inner')}>
             <iframe
-              width='560'
+              width='100%'
               height='315'
               src={iframeUrl}
               title='Game Launcher'

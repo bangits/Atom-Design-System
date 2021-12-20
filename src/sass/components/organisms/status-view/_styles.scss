@@ -28,13 +28,9 @@
     }
 
     &--iconButton {
-      > button {
+      button {
         width: getStatusViewSizes(icon-button-sizes);
         height: getStatusViewSizes(icon-button-sizes);
-        &:hover {
-          width: getStatusViewSizes(icon-button-sizes);
-          height: getStatusViewSizes(icon-button-sizes);
-        }
       }
     }
   }
