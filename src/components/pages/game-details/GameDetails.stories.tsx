@@ -20,6 +20,8 @@ export const Default = () => {
 
   return (
     <GameDetails
+      backgroundImgUrl=''
+      mainImgUrl=''
       gameId=''
       gameName=''
       generalInformationContext={
@@ -37,7 +39,7 @@ export const Default = () => {
             mobileLandscape={false}
             supportedBrowsers={{
               browsersEnum: SupportedBrowsersEnum,
-              onChange: (values) => console.log(values),
+              onChange: (values) => console.log(values)
             }}
             translations={{
               noDataText: 'Not Completed',

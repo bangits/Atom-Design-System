@@ -58,7 +58,8 @@ export const Default = () => {
           translations={{
             addGame: 'Add Game',
             noGames: 'No Games',
-            search: 'Search'
+            search: 'Search',
+            playDemo: 'Play Demo'
           }}
           gameTypes={[
             {

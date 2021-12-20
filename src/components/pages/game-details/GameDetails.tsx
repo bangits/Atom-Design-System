@@ -16,6 +16,9 @@ export interface GameDetailsProps {
   gameName: string;
   gameId: string;
 
+  backgroundImgUrl: string;
+  mainImgUrl: string;
+
   generalInformationContext: ReactNode;
 
   buttons: {
@@ -47,7 +50,9 @@ const GameDetails: FC<GameDetailsProps> = ({
   lastUpdateDate,
   noDataText,
   gameId,
-  gameName
+  gameName,
+  backgroundImgUrl,
+  mainImgUrl
 }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
@@ -68,8 +73,8 @@ const GameDetails: FC<GameDetailsProps> = ({
               <div className={classNames(styles['ProfileBlock__ImgCell'], 'ProfileBlock__ImgCell')}>
                 <img
                   className={classNames(styles['ProfileBlock__Img'], 'ProfileBlock__Img')}
-                  src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
-                  alt=''
+                  src={mainImgUrl}
+                  alt={mainImgUrl}
                 />
 
                 <PhotoCamIcon
@@ -80,8 +85,8 @@ const GameDetails: FC<GameDetailsProps> = ({
               <div className={classNames(styles['ProfileBlock__Cover'], 'ProfileBlock__Cover')}>
                 <img
                   className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg')}
-                  src='https://www.punctul.ro/wp-content/uploads/2021/08/shining-crown-si-burning-hot.jpg'
-                  alt=''
+                  src={backgroundImgUrl}
+                  alt={backgroundImgUrl}
                 />
                 <div
                   className={classNames(

@@ -137,9 +137,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
-                  {translations.noDataText}
-                </Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
               )}
             </div>
           </div>
@@ -168,9 +166,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
-                  {translations.noDataText}
-                </Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
               )}
             </div>
           </div>
@@ -227,7 +223,12 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
         </LabelGroup>
 
         <LabelGroup title={'Supported Browsers'}>
-          <BrowsersCheckboxGroup onChange={supportedBrowsers.onChange} browsersEnum={supportedBrowsers.browsersEnum} />
+          <BrowsersCheckboxGroup
+            onChange={supportedBrowsers.onChange}
+            browsersEnum={supportedBrowsers.browsersEnum}
+            disabled={supportedBrowsers.disabled}
+            initialValues={supportedBrowsers.initialValues}
+          />
         </LabelGroup>
       </div>
     </>
