@@ -17,11 +17,12 @@ export interface BrowsersCheckboxGroupProps {
 }
 
 const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, onChange, initialValues, disabled }) => {
-  const [values, setValues] = useState<(number | string)[]>(initialValues ? [...initialValues] : []);
+  const [values, setValues] = useState<(number | string)[]>(initialValues || []);
 
   useEffect(() => {
     onChange?.(values);
   }, [values]);
+
   return (
     <div className={styles.BrowsersCheckboxGroupBase}>
       <BrowsersCheckbox
@@ -67,7 +68,7 @@ const BrowsersCheckboxGroup: FC<BrowsersCheckboxGroupProps> = ({ browsersEnum, o
       <BrowsersCheckbox
         browserIcon={<SafariIcon />}
         disabled={disabled}
-        defaultSelected={values.includes(browsersEnum.SAFARI)}
+        defaultSelected={!values.includes(browsersEnum.SAFARI)}
         onChange={(value) => {
           !value
             ? setValues([...values, browsersEnum.SAFARI])
