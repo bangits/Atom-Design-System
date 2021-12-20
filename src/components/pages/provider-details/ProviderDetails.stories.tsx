@@ -76,97 +76,116 @@ export const Default = () => {
             {
               id: 25,
               name: 'EGT',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 26,
               name: 'EGT',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 27,
               name: 'EGT',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 28,
               name: 'EGT',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 29,
               name: 'EGT',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 30,
               name: 'քոեռտըւ',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 31,
               name: 'ԱԱԱՍՍՍԲԲԲԲԲ',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 32,
               name: '                                                 1',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 33,
               name: 'սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ  ',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 34,
               name: 'սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ սլօտ %  ',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 35,
               name: '!@#$%^&&^%$#@#$F%^%$#',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 36,
               name: '!@#$%^&&^%$#@#$F%^%$#',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 37,
               name: '!@#$%^&&^%$#@#$F%^%$#',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 38,
               name: '!@#$%^&&^%$#@#$F%^%$#',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 39,
               name: '!@#$%^&&^%$#@#$F%^%$#',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 40,
               name: '!@#$%^&&^%$#@#$F%^%$#',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 41,
               name: 'stringfg',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 42,
               name: 'string',
-              icon: null
+              icon: null,
+              hasDemo: true
             },
             {
               id: 43,
               name: 'string',
-              icon: null
+              icon: null,
+              hasDemo: true
             }
           ]}
           onChange={console.log}

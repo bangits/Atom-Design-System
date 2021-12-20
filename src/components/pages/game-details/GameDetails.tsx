@@ -1,10 +1,10 @@
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { typedMemo } from '@/helpers';
+import { PhotoCamIcon } from '@/icons';
 import { Breadcrumb, BreadcrumbProps, Button, ButtonProps, Card } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useState } from 'react';
 import styles from './GameDetails.module.scss';
-import { PhotoCamIcon } from '@/icons';
 export interface GameDetailsProps {
   statusInfo: Omit<StatusViewProps, 'label'>;
   breadCrumbs?: BreadcrumbProps['links'];
@@ -45,7 +45,9 @@ const GameDetails: FC<GameDetailsProps> = ({
   createdBy,
   lastUpdateBy,
   lastUpdateDate,
-  noDataText
+  noDataText,
+  gameId,
+  gameName
 }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
@@ -93,8 +95,8 @@ const GameDetails: FC<GameDetailsProps> = ({
                 </div>
               </div>
               <div className={classNames(styles['ProfileBlock__Info'], 'ProfileBlock__Info')}>
-                <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>Shining Crown</div>
-                <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>ID1234567</div>
+                <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>{gameName}</div>
+                <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>{gameId}</div>
               </div>
             </Card>
           </div>
