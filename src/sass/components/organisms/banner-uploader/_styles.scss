@@ -1,0 +1,25 @@
+@mixin generate-banner-uploader-styles {
+  .BannerUploader {
+    @include flex(null, center);
+    min-height: getBannerUploaderSizes(banner-uploader-min-height);
+
+    height: 100%;
+
+    &Description {
+      color: getBannerUploaderColors(banner-description-color);
+    }
+
+    :global {
+      .cropper-container {
+        // Using important becaus in library width is set in style attribute
+        width: calc(100% + 20px) !important;
+      }
+    }
+  }
+
+  .BannerUploaderUploadedImage {
+    object-fit: scale-down;
+
+    max-height: getBannerUploaderSizes(img-max-height);
+  }
+}

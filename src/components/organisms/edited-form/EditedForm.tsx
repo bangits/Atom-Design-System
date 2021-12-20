@@ -124,9 +124,11 @@ const EditedForm: FC<EditedFormProps> = ({
                     <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
                       <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
                       <div>
-                        {option.value?.map((o) => (
-                          <Tag title={o} />
-                        ))}
+                        {option.value.length === 0 ? (
+                          <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
+                        ) : (
+                          option.value?.map((o) => <Tag title={o} />)
+                        )}
                       </div>
                     </div>
                   ) : option.variant === 'bold' ? (

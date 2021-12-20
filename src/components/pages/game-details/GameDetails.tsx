@@ -121,11 +121,11 @@ const GameDetails: FC<GameDetailsProps> = ({
                   description: createdBy
                 },
                 {
-                  name: translations.createdBy,
+                  name: translations.lastUpdateDate,
                   description: lastUpdateDate
                 },
                 {
-                  name: translations.createdBy,
+                  name: translations.lastUpdateBy,
                   description: lastUpdateBy
                 }
               ]}

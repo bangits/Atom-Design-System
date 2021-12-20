@@ -2,7 +2,7 @@ import { Icons } from '@/atom-design-system';
 import { EmptyGameListIcon } from '@/icons';
 import { Button, CardImg, Loader, Scroll, Tag, TextInput, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import styles from './ProviderDetails.module.scss';
 
 export interface ProviderGamesProps {
@@ -48,6 +48,7 @@ export const ProviderGames = ({
   shouldShowAddGameButton = true
 }: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
+  const latestSearchValue = useRef('');
 
   const [selectedGameType, setSelectedGameType] = useState<number>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
@@ -66,7 +67,9 @@ export const ProviderGames = ({
                   style={{ fill: '#8ea6c1', cursor: 'pointer', opacity: '0.5' }}
                   viewBox='0 0 512 512'
                   onClick={() => {
-                    if (searchValue.length < 3) return;
+                    if (!(latestSearchValue.current && !searchValue.length) && searchValue.length < 3) return;
+
+                    latestSearchValue.current = searchValue;
 
                     setCurrentPage(1);
 
@@ -120,11 +123,13 @@ export const ProviderGames = ({
                 inactive={selectedGameType !== type.id}
                 key={type.id}
                 onClick={() => {
-                  setSelectedGameType((prevTypeId) => (prevTypeId === type.id ? null : type.id));
+                  setSelectedGameType((prevTypeId) => {
+                    onChange(prevTypeId === type.id ? null : type.id, searchValue, 1);
+
+                    return prevTypeId === type.id ? null : type.id;
+                  });
 
                   setCurrentPage(1);
-
-                  onChange(type.id, searchValue, 1);
                 }}
               />
             ))}
