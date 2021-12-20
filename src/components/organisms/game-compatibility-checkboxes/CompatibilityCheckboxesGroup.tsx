@@ -3,20 +3,14 @@ import React, { FC, useEffect, useState } from 'react';
 import styles from './CompatibilityCheckboxesGroup.module.scss';
 
 export interface CompatibilityCheckboxesGroupProps {
+  
   onPlatformChange?: (values: (number | string)[]) => void;
   onMobileModeChange?: (values: (number | string)[]) => void;
   onTabletModeChange?: (values: (number | string)[]) => void;
 
   platformInitialValues?: (number | string)[];
-
-  mobileInitialValues?: {
-    portrait?: boolean;
-    landscape?: boolean;
-  };
-  tabletInitialValues?: {
-    portrait?: boolean;
-    landscape?: boolean;
-  };
+  mobileInitialValues?: (number | string)[];
+  tabletInitialValues?: (number | string)[];
 
   platformCheckboxesValues: {
     mobile: number | string;
@@ -57,8 +51,8 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
   translations
 }) => {
   const [platform, setPlatform] = useState<(number | string)[]>(platformInitialValues ?? []);
-  const [mobile, setMobile] = useState<(number | string)[]>([]);
-  const [tablet, setTablet] = useState<(number | string)[]>([]);
+  const [mobile, setMobile] = useState<(number | string)[]>(mobileInitialValues ?? []);
+  const [tablet, setTablet] = useState<(number | string)[]>(tabletInitialValues ?? []);
 
   useEffect(() => {
     onPlatformChange?.(platform);
@@ -93,36 +87,34 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
       <CheckboxGroup
         label={translations.mobileScreenMode}
         onChange={(selectedValues) => setMobile(selectedValues as string[] | number[])}
+        defaultValue={mobileInitialValues}
         checkboxes={[
           {
             label: translations.portrait,
             disabled: !platform.includes(platformCheckboxesValues.mobile),
-            value: mobileCheckboxesValues.portrait,
-            defaultChecked: mobileInitialValues.portrait
+            value: mobileCheckboxesValues.portrait
           },
           {
             label: translations.landscape,
             value: mobileCheckboxesValues.landscape,
-            disabled: !platform.includes(platformCheckboxesValues.mobile),
-            defaultChecked: mobileInitialValues.landscape
+            disabled: !platform.includes(platformCheckboxesValues.mobile)
           }
         ]}
       />
       <CheckboxGroup
         label={translations.tabletScreenMode}
+        defaultValue={tabletInitialValues}
         onChange={(selectedValues) => setTablet(selectedValues as string[] | number[])}
         checkboxes={[
           {
             label: translations.portrait,
             value: tabletCheckboxesValues.portrait,
-            disabled: !platform.includes(platformCheckboxesValues.tablet),
-            defaultChecked: tabletInitialValues.portrait
+            disabled: !platform.includes(platformCheckboxesValues.tablet)
           },
           {
             label: translations.landscape,
             value: mobileCheckboxesValues.landscape,
-            disabled: !platform.includes(platformCheckboxesValues.tablet),
-            defaultChecked: tabletInitialValues.landscape           
+            disabled: !platform.includes(platformCheckboxesValues.tablet)
           }
         ]}
       />
