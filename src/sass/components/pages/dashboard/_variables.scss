@@ -1,0 +1,18 @@
+$dashboard-sizes: (
+  dashboard-wrapper-position-top: calculateRem(-100px),
+  logo-max-width: calculateRem(70px),
+  logo-margin: 0 calculateRem(15px),
+  title-font-size: calculateRem(30px),
+  title-margin-top: calculateRem(10px),
+  illustartion-width: calculateRem(400px)
+);
+
+$dashboard-colors: ();
+
+@function getDashboardSizes($key) {
+  @return map-get($dashboard-sizes, $key);
+}
+
+@function getDashboardColors($key) {
+  @return map-get($dashboard-colors, $key);
+}

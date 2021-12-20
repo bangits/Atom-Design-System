@@ -1,3 +1,4 @@
+export * from './dashboard';
 export * from './game-details';
 export * from './loading-page';
 export * from './partner-details';
