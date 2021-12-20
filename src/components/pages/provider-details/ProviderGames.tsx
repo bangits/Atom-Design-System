@@ -10,6 +10,7 @@ export interface ProviderGamesProps {
     noGames: string;
     addGame: string;
     search: string;
+    playDemo: string;
   };
   gameTypes: {
     id: number;
@@ -155,7 +156,10 @@ export const ProviderGames = ({
               {games.map((game) => (
                 <div className={classNames(styles['HoverContainer'], 'HoverContainer')}>
                   <span className={classNames(styles['HoverBox'], 'HoverBox')}>
-                    <span className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}>
+                    <span
+                      role='button'
+                      className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}
+                      onClick={() => onGameClick(game.id, false)}>
                       <span className={classNames(styles['HoverBox-PlayBtnInner'], 'HoverBox-PlayBtnInner')}>
                         <span className={classNames(styles['HoverBox-PlayBtnIcon'], 'HoverBox-PlayBtnIcon')}>
                           <PlayArrowIcon width={'100%'} />
@@ -165,10 +169,15 @@ export const ProviderGames = ({
                     <span className={classNames(styles['HoverBox-ViewIcon'], 'HoverBox-ViewIcon')}>
                       <ViewCardImageIcon width={'100%'} />
                     </span>
-                    <span className={classNames(styles['HoverBox-LinkText'], 'HoverBox-LinkText')}>Play demo</span>
+                    <span
+                      role='button'
+                      className={classNames(styles['HoverBox-LinkText'], 'HoverBox-LinkText')}
+                      onClick={() => onGameClick(game.id, true)}>
+                      {translations.playDemo}
+                    </span>
                     <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
                   </span>
-                  <CardImg title={game.name} image={game.icon} key={game.id} handleClick={() => onGameClick(game.id)} />
+                  <CardImg title={game.name} image={game.icon} key={game.id} />
                 </div>
               ))}
             </div>

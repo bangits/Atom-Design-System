@@ -1,6 +1,6 @@
 {
   "name": "@atom/design-system",
-  "version": "2.3.6",
+  "version": "2.3.7",
   "files": [
     "dist"
   ],
@@ -90,7 +90,7 @@
   },
   "dependencies": {
     "@atom/common": "^2.3.4",
-    "@my-ui/core": "^2.26.26",
+    "@my-ui/core": "^2.26.27",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-cropper": "^2.1.8",
