@@ -86,23 +86,12 @@ export const ProviderGames = ({
         </div>
         {shouldShowAddGameButton && (
           <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-            <button onClick={onAddGameClick} className={classNames(styles['UniqueBtn'], 'UniqueBtn')}>
-              <span
-                className={classNames(styles['UniqueBtn__IconCell'], 'UniqueBtn__IconCell')}
-                onClick={() => {
-                  setCurrentPage(1);
-
-                  onChange(selectedGameType, searchValue, 1);
-                }}>
-                <span className={classNames(styles['UniqueBtn__Icon'], 'UniqueBtn__Icon')}></span>
-              </span>
-              <span className={classNames(styles['UniqueBtn__Label'], 'UniqueBtn__Label')}>Add</span>
-            </button>
-            {/* <Button
+            <Button
               type='button'
+              variant='link'
               className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
               startIcon={
-                <Icons.PlusCircle
+                <Icons.PlusCircleLarge
                   onClick={() => {
                     setCurrentPage(1);
 
@@ -112,8 +101,7 @@ export const ProviderGames = ({
               }
               onClick={onAddGameClick}>
               {translations.addGame}
-              Add
-            </Button> */}
+            </Button>
           </div>
         )}
       </div>
