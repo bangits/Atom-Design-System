@@ -10,9 +10,6 @@ $balance-group-colors: (
   balance-group-background:color(alabaster),
   balance-number-color:color(black-color),
 );
-$balance-groupe-quantity: (
-  balance-quantity-font-size: calculateRem(14px)
-);
 
 @function getBalanceGroupSizes($key) {
   @return map-get($balance-group-sizes, $key);
