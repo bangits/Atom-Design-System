@@ -13,7 +13,9 @@ $sign-in-sizes: (
   title-margin: calculateRem(4px),
   subtitle-margin: calculateRem(17px),
   form-margin: calculateRem(56px),
-  login-inputs-margin-bottom: calculateRem(2px)
+  login-inputs-margin-bottom: calculateRem(2px),
+  login-bottom-max-width:calculateRem(240px),
+  login-bottom-last-child-height:calculateRem(90px),
 );
 
 @function getSignColors($key) {

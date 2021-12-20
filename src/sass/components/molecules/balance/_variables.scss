@@ -1,13 +1,14 @@
 $balance-group-sizes: (
   balance-group-min-width: calculateRem(50px),
   balance-group-height: calculateRem(34px),
-  balance-group-margin: 0 calculateRem(12px) 0 calculateRem(12px),
-  balance-quantity-height: calculateRem(17px),
-  balance-quantity-margin: 0 0 0 calculateRem(8px)
+  balance-group-padding:0 calculateRem(10px) 0 calculateRem(10px),
+  balance-border-radius:8px,
+  balance-quantity-margin:calculateRem(8px),
+
 );
 $balance-group-colors: (
-  checkbox-group-label-color: color(nepal),
-  checkbox-label-color: color(black-color)
+  balance-group-background:color(alabaster),
+  balance-number-color:color(black-color),
 );
 $balance-groupe-quantity: (
   balance-quantity-font-size: calculateRem(14px)
@@ -19,8 +20,4 @@ $balance-groupe-quantity: (
 
 @function getBalanceGroupColors($key) {
   @return map-get($balance-group-colors, $key);
-}
-
-@function getBalanceGroupQuantity($key) {
-  @return map-get($balance-groupe-quantity, $key);
 }

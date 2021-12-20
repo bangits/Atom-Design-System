@@ -1,6 +1,7 @@
 import { BalanceIcon } from '@/icons';
 import styles from './Balance.module.scss';
 import React, { FC, ReactNode } from 'react';
+import { Typography } from '@my-ui/core';
 
 export interface BalanceProps {
   money?: number;
@@ -22,11 +23,9 @@ const Balance: FC<BalanceProps> = ({ money, currency, locale = 'fr-FR' }) => {
 
   const number = c;
   return (
-    <div className={styles.balanceContainer}>
-      <span className={styles.balanceIcon}>
-        <BalanceIcon />
-      </span>
-      <span className={styles.balanceQuantity}>{number}</span>
+    <div className={styles.BalanceContainer}>
+      <BalanceIcon />
+      <Typography variant='p4' component='span' className={styles.BalanceQuantity}>{number}</Typography>
     </div>
   );
 };
