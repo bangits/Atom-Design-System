@@ -1,31 +1,36 @@
 import classNames from 'classnames';
-import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useState } from 'react';
 import styles from './BrowsersCheckbox.module.scss';
 
 export interface BrowsersCheckboxProps {
   browserIcon?: ReactNode;
   disabled?: boolean;
   defaultSelected?: boolean;
+  selected?: boolean;
   onChange?: (value: boolean) => void;
 }
 
-const BrowsersCheckbox: FC<BrowsersCheckboxProps> = ({ browserIcon, disabled, defaultSelected, onChange }) => {
+const BrowsersCheckbox: FC<BrowsersCheckboxProps> = ({
+  browserIcon,
+  disabled,
+  selected: selectedProp,
+  defaultSelected,
+  onChange
+}) => {
   const [selected, setSelected] = useState<boolean>(defaultSelected);
-
-  useEffect(() => {
-    if (onChange) onChange(selected);
-  }, [selected]);
 
   const onClickHandler = useCallback(() => {
     setSelected(!selected);
-  }, [selected, setSelected]);
+
+    if (onChange) onChange(!(selectedProp !== undefined ? selectedProp : selected));
+  }, [selected, selectedProp, setSelected, onChange]);
 
   return (
     <>
       <div
         onClick={!disabled ? onClickHandler : null}
         className={classNames(styles.BrowsersCheckboxBase, {
-          [styles['BrowsersCheckboxBase--selected']]: selected
+          [styles['BrowsersCheckboxBase--selected']]: selectedProp !== undefined ? selectedProp : selected
         })}>
         {browserIcon}
       </div>
