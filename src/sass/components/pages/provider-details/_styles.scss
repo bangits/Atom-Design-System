@@ -4,34 +4,33 @@
     top: 0;
     left: 0;
     width: 100%;
-    &:hover {
-      .HoverBox-OpacityLayer {
-        background: rgba(0, 0, 0, 0.8);
-      }
+    // &:hover {
 
-      & > span {
-        opacity: 1;
-      }
-    }
+    // }
     & > span {
       height: calc(100% - 40px);
     }
   }
 
+  .HoverBox-OpacityLayer {
+    background-color: inherit !important;
+  }
+
   .HoverBox {
     opacity: 0;
     display: block;
-    cursor: pointer;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    opacity: 0.4;
     transition: opacity 0.16s linear;
 
     &:hover {
       opacity: 1;
+      .HoverBox-OpacityLayer {
+        background-color: #000000cc !important;
+      }
 
       .HoverBox-LinkText {
         opacity: 1;
@@ -48,6 +47,7 @@
     }
   }
   .HoverBox-PlayBtn {
+    cursor: pointer;
     display: block;
     width: 32px;
     height: 32px;
@@ -83,7 +83,6 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0);
     transition: linear 0.16s all;
   }
 

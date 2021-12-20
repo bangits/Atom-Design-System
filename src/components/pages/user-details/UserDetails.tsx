@@ -2,6 +2,7 @@ import { Icons } from '@/atom-design-system';
 import { ItemDetails, NameDescription, StatusView } from '@/components';
 import { NameAndId } from '@/components/molecules/name-and-id';
 import UserMainInfo from '@/components/molecules/user-main-info/UserMainInfo';
+import UserProjects from '@/components/organisms/user-projects/UserProjects';
 import { CloseIcon } from '@/icons';
 import { Breadcrumb, Button, Card, Select, Table } from '@my-ui/core';
 import React from 'react';
@@ -185,7 +186,8 @@ const UserDetails = () => {
               },
               {
                 title: 'Projects',
-                value: 3
+                value: 3,
+                content: <UserProjects/>
               }
             ]}
             defaultTabValue={1}
