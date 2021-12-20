@@ -1,0 +1,16 @@
+$banner-uploader-sizes: (
+  img-max-height: calculateRem(210px),
+  banner-uploader-min-height: calculateRem(210px)
+);
+
+$banner-uploader-colors: (
+  banner-description-color: #fff
+);
+
+@function getBannerUploaderColors($key) {
+  @return map-get($banner-uploader-colors, $key);
+}
+
+@function getBannerUploaderSizes($key) {
+  @return map-get($banner-uploader-sizes, $key);
+}

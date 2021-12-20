@@ -59,7 +59,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
   desktopLandscape
 }) => {
   return (
-    <div>
+    <>
       <div
         className={classNames(
           styles['Card__Inner'],
@@ -230,7 +230,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
           <BrowsersCheckboxGroup onChange={supportedBrowsers.onChange} browsersEnum={supportedBrowsers.browsersEnum} />
         </LabelGroup>
       </div>
-    </div>
+    </>
   );
 };
 
