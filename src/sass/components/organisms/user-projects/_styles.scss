@@ -21,8 +21,10 @@
       color: getUserProjectsColors(wrapper-text-color);
     }
   }
+  
   .NoDataWrapper {
     @include flex(center, center, $direction: column);
+    @include center-absolute();
 
     .TitleUserProjects {
       color: getUserProjectsColors(wrapper-title-color);
