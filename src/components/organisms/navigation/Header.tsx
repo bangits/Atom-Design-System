@@ -1,15 +1,18 @@
-import { Header as MyUIHeader } from '@my-ui/core';
+import { Balance, BalanceProps } from '@/components';
+import { Header as MyUIHeader, HeaderProps as MyUIHeaderProps } from '@my-ui/core';
+import { useMemo } from 'react';
 
-export const Header: typeof MyUIHeader = (props) => {
+export interface HeaderProps extends MyUIHeaderProps, BalanceProps {}
+
+export const Header = ({ money, currency, minimumFractionDigits, ...props }: HeaderProps) => {
+  const headerContent = useMemo(
+    () => <Balance minimumFractionDigits={minimumFractionDigits} money={money} currency={currency} />,
+    [money, currency, minimumFractionDigits]
+  );
+
   return (
     <>
-      <MyUIHeader
-        {...props}
-        // notificationProps={{
-        //   ...props.notificationProps,
-        //   children: <Icons.NotificationIcon />
-        // }}
-      />
+      <MyUIHeader {...props} headerContent={headerContent} />
     </>
   );
 };

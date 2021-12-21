@@ -1,18 +1,20 @@
 @mixin generate-balance-group-styles {
   .BalanceContainer {
+    @include flex(null, center);
+
+    width: fit-content;
+    width: -moz-fit-content;
+
     min-width: getBalanceGroupSizes(balance-group-min-width);
     max-height: getBalanceGroupSizes(balance-group-height);
-    padding:getBalanceGroupSizes(balance-group-padding);
+    padding: getBalanceGroupSizes(balance-group-padding);
     box-sizing: border-box;
-    @include flex(null,center);
-    width:fit-content;
-    width:-moz-fit-content;
-    background-color:getBalanceGroupColors(balance-group-background);
+    background-color: getBalanceGroupColors(balance-group-background);
     border-radius: getBalanceGroupSizes(balance-border-radius);
-
   }
-  .BalanceQuantity{
-   margin:getBalanceGroupSizes(balance-quantity-margin);
-   color: getBalanceGroupColors(balance-number-color);
+
+  .BalanceQuantity {
+    margin: getBalanceGroupSizes(balance-quantity-margin);
+    color: getBalanceGroupColors(balance-number-color);
   }
 }

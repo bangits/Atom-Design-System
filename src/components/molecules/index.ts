@@ -1,3 +1,4 @@
+export * from './balance';
 export * from './browsers-checkbox';
 export * from './checkbox-group';
 export * from './copy-field';
