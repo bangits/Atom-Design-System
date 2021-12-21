@@ -92,13 +92,12 @@ export const BannerUploader = ({
                 icon: <Icons.CloseIcon />,
                 label: translations.cancel,
                 onClick: () => {
-                  setUploadedImage(null);
                   setMode(BannerUploaderMode.VIEW);
                 },
                 position: 'left' as const
               },
               {
-                icon: <Icons.EllipseIcon />,
+                icon: <Icons.RotateIcon />,
                 label: translations.rotate,
                 onClick: () => cropper.rotate(90),
                 position: 'right' as const
@@ -116,7 +115,7 @@ export const BannerUploader = ({
             ]
         : [
             {
-              icon: <Icons.EditIcon />,
+              icon: <Icons.CameraIcon />,
               label: translations.upload,
               onClick: () => fileUploadInputRef.current.click(),
               position: uploadedImage ? ('left' as const) : ('right' as const)

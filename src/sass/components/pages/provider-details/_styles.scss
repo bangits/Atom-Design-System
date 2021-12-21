@@ -12,10 +12,6 @@
     }
   }
 
-  .HoverBox-OpacityLayer {
-    background-color: inherit !important;
-  }
-
   .HoverBox {
     opacity: 0;
     display: block;
@@ -25,12 +21,10 @@
     width: 100%;
     height: 100%;
     transition: opacity 0.16s linear;
+    background-color: inherit !important;
 
     &:hover {
       opacity: 1;
-      .HoverBox-OpacityLayer {
-        background-color: #000000cc !important;
-      }
 
       .HoverBox-LinkText {
         opacity: 1;
@@ -46,6 +40,7 @@
       }
     }
   }
+
   .HoverBox-PlayBtn {
     cursor: pointer;
     display: block;
@@ -63,6 +58,7 @@
     opacity: 0;
     transition: all 0.13s linear;
   }
+
   .HoverBox-PlayBtnInner {
     display: block;
     width: 100%;
@@ -83,6 +79,7 @@
     left: 0;
     width: 100%;
     height: 100%;
+    background: none !important;
     transition: linear 0.16s all;
   }
 
