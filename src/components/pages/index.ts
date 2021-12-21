@@ -5,3 +5,5 @@ export * from './partner-details';
 export * from './player-details';
 export * from './provider-details';
 export * from './sign-in';
+export * from './user-details';
+
