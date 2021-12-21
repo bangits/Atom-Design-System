@@ -43,6 +43,7 @@ $providerdetails-sizes: (
   games-container-grid-template-rows: auto,
   games-container-grid-column-gap: calculateRem(10px),
   games-container-grid-row-gap: calculateRem(10px),
+  games-container-icon-size: calculateRem(58px) calculateRem(42px),
   //
   tags-cell-padding: calculateRem(7px) 0 calculateRem(18px) 0,
   tags-cell__svg-margin-right: calculateRem(10px),
@@ -94,7 +95,9 @@ $providerdetails-sizes: (
   hoverbox-view-icon-positon-right: calculateRem(8px),
   hoverbox-view-icon-width: calculateRem(12px),
   hoverbox-link-text-position-right: 50%,
-  hoverbox-link-text-font-size: calculateRem(12px)
+  hoverbox-link-text-font-size: calculateRem(12px),
+  //
+  games-list-header-1-div: calculateRem(260px)
 );
 
 $providerdetails-colors: (
@@ -114,7 +117,10 @@ $providerdetails-colors: (
   hoverbox-opacity-layer-background-color: color(dark-opacity),
   play-icon-fill: color(night-in-manchester),
   hoverbox-view-icon-color: color(white),
-  hover-box-link-text-after-backgroud-color: color(white-opacity-2)
+  hover-box-link-text-after-backgroud-color: color(white-opacity-2),
+  //
+  games-container-icon-bg-color: color(alabaster),
+  //
 );
 
 @function getProviderDetailsSizes($key) {

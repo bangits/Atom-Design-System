@@ -40,7 +40,7 @@
     &__Header-1 {
       @include flex(flex-start);
       > div {
-        width: 26rem;
+        width: getProviderDetailsSizes(games-list-header-1-div);
       }
     }
     &__Header-2 {
@@ -83,7 +83,7 @@
         background-color: #f9f9f9;
         background-repeat: no-repeat;
         background-position: center center;
-        background-size: 58px 42px;
+        background-size: getProviderDetailsSizes(games-container-icon-size);
       }
 
       & > div > div:last-child {
@@ -192,64 +192,6 @@
   padding: 10px 0 0 0;
 }
 
-.UniqueBtn {
-  width: 56px;
-  height: 21px;
-  border: solid transparent 0;
-  display: flex;
-  padding: 0;
-  margin: 0;
-  outline: 0;
-  cursor: pointer;
-  background-color: transparent;
-  &__Icon {
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: #3c54b2;
-    border-radius: 50%;
-    position: relative;
-    top: 0;
-    left: 0;
-    &:before {
-      display: block;
-      content: '';
-      width: 11px;
-      height: 2px;
-      background: #fff;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-    &:after {
-      display: block;
-      content: '';
-      height: 11px;
-      width: 2px;
-      background: #fff;
-      position: absolute;
-      top: 0;
-      left: 0;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-  &__Label {
-    font-family: 17px;
-    font-size: 14px;
-    font-family: inherit;
-    color: #3c54b2;
-    text-decoration: underline;
-    display: inline-block;
-    padding-left: 10px;
-    &:hover {
-      text-decoration: none;
-    }
-  }
-}
-
 .HoverBox {
   opacity: 0;
   display: block;
@@ -258,7 +200,6 @@
   left: 0;
   width: 100%;
   height: 100%;
-  // opacity: getProviderDetailsColors(disabled-opacity);
   transition: all 0.16s linear;
 
   button {
@@ -291,15 +232,12 @@
   display: block;
   width: getProviderDetailsSizes(hoverbox-playbtn-sizes);
   height: getProviderDetailsSizes(hoverbox-playbtn-sizes);
-  // border: getProviderDetailsColors(hoverbox-playbtn-border-color);
   border: solid #fff 1px;
   @include center-absolute();
-  // padding: getProviderDetailsSizes(hoverbox-playbtn-padding);
   padding: 1px;
   z-index: getProviderDetailsSizes(hoverbox-playbtn-z-index);
   border-radius: getProviderDetailsSizes(hoverbox-playbtn-border-radius);
   margin-top: getProviderDetailsSizes(hoverbox-playbtn-margin-top);
-  // opacity: getProviderDetailsSizes(hoverbox-playbtn-opacity);
   opacity: 0;
   transition: all getProviderDetailsSizes(hoverbox-playbtn-transition) linear;
   &:hover {
