@@ -2,7 +2,7 @@
 # yarn lockfile v1
 
 
-"@atom/common@^2.3.4":
+"@atom/common@^2.8.6":
   version "2.8.6"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.8.6.tgz#c234d252b6de66e64114df34f162e71ae4af8422"
   integrity sha1-wjTSUrbeZuZBFN808WLnGuSvhCI=
@@ -1529,10 +1529,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/core@^2.26.24":
-  version "2.26.24"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.26.24.tgz#2e54dd270a51476a147073c59740cb2cfcf64927"
-  integrity sha1-LlTdJwpRR2oUcHPFl0DLLPz2SSc=
+"@my-ui/core@^2.26.38":
+  version "2.26.38"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.26.38.tgz#f9e1fbeed2c2978e95daaa5bc2aef1ac9337a148"
+  integrity sha1-+eH77tLCl46V2qpbwq7xrJM3oUg=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
