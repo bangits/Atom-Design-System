@@ -1,55 +1,76 @@
 import { Icons } from '@/atom-design-system';
-import { ItemDetails, NameDescription, StatusView } from '@/components';
+import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { NameAndId } from '@/components/molecules/name-and-id';
-import UserMainInfo from '@/components/molecules/user-main-info/UserMainInfo';
 import UserProjects from '@/components/organisms/user-projects/UserProjects';
 import { CloseIcon } from '@/icons';
-import { Breadcrumb, Button, Card, Select, Table } from '@my-ui/core';
-import React from 'react';
+import { AvatarCard, Breadcrumb, BreadcrumbProps, Button, Card, Select, Table } from '@my-ui/core';
+import React, { FC, ReactNode } from 'react';
 import styles from './UserDetails.module.scss';
 
-const UserDetails = () => {
+export interface UserDetailsProps {
+  statusInfo: Omit<StatusViewProps, 'label'>;
+  breadCrumbs?: BreadcrumbProps['links'];
+
+  lastLoginDate: string;
+  lastLoginIp: string;
+  registeredFormIp: string;
+
+  userName: string;
+  userId: string;
+  userImgUrl: string;
+
+  translations: {
+    status: string;
+    lastLoginDate: string;
+    lastLoginIp: string;
+    registeredFormIp: string;
+    generalInformation: string;
+    wallet: string;
+    projects: string;
+  };
+
+  generalInformationContext: ReactNode;
+}
+
+const UserDetails: FC<UserDetailsProps> = ({
+  breadCrumbs,
+  statusInfo,
+  lastLoginDate,
+  lastLoginIp,
+  registeredFormIp,
+  userName,
+  userId,
+  userImgUrl,
+  translations,
+  generalInformationContext
+}) => {
   return (
     <>
-      <Breadcrumb
-        links={[
-          {
-            label: 'User Managment',
-            isRedirect: true
-          },
-          {
-            label: 'User Details'
-          }
-        ]}
-      />
+      <Breadcrumb links={breadCrumbs} />
       <div className={styles.UserDetailsWrapper}>
         <div className={styles.AsideLeftContent}>
           <Card borderRadius={1.6} className={styles.CardName}>
-            <UserMainInfo className={styles.UserMainInfo} />
-            <NameAndId name='Inesa Khachatryan' id='ID 1234567' />
+            <AvatarCard avatarImg={userImgUrl} variant='default' imageSize='md' />
+            <NameAndId name={userName} id={userId} />
           </Card>
           <div className={styles.StatusViewContainer}>
-            <StatusView
-              label='status'
-              statusLabel='Expired'
-              actions={[{ iconName: 'LogOutIcon', onClick: () => {}, tooltipText: 'Terminate' }]}
-            />
+            <StatusView {...statusInfo} label={translations.status} />
           </div>
           <Card className={styles.CardDateContent}>
             <div>
               <NameDescription
                 data={[
                   {
-                    name: 'Last Login Date',
-                    description: '12/01/2021'
+                    name: translations.lastLoginDate,
+                    description: lastLoginDate
                   },
                   {
-                    name: 'Last Login IP',
-                    description: '192.158.1.38'
+                    name: translations.lastLoginIp,
+                    description: lastLoginIp,
                   },
                   {
-                    name: 'Registered From IP:',
-                    description: '192.158.1.38'
+                    name: translations.registeredFormIp,
+                    description: registeredFormIp
                   }
                 ]}
               />
@@ -60,12 +81,12 @@ const UserDetails = () => {
           <ItemDetails
             tabs={[
               {
-                title: 'General Information',
+                title: translations.generalInformation,
                 value: 1,
-                content: <div>General Information</div>
+                content: generalInformationContext
               },
               {
-                title: 'Wallets',
+                title: translations.wallet,
                 value: 2,
                 content: (
                   <div className={styles.UserDetailsTableContent}>
@@ -187,7 +208,7 @@ const UserDetails = () => {
               {
                 title: 'Projects',
                 value: 3,
-                content: <UserProjects/>
+                content: <UserProjects />
               }
             ]}
             defaultTabValue={1}
