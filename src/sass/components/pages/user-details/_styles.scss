@@ -14,6 +14,11 @@
         height: getUserDetailsSizes(user-card-name-height);
         padding: getUserDetailsSizes(user-card-name-padding);
         box-sizing: border-box;
+        > div {
+          &:first-child {
+            margin-right: getUserDetailsSizes(avatar-img-margin-left);
+          }
+        }
       }
       .StatusViewContainer {
         height: getUserDetailsSizes(card-statusview-height);
