@@ -10,6 +10,10 @@
       .AddButton {
         color: getUserProjectsColors(add-bittpn-color);
         opacity: getUserProjectsSizes(user-add-button-opacity);
+        width: getUserProjectsSizes(user-add-button-width);
+        height: getUserProjectsSizes(user-add-button-height);
+        fill: getUserProjectsColors(user-add-button-color);
+        cursor: pointer;
       }
     }
 
@@ -21,7 +25,7 @@
       color: getUserProjectsColors(wrapper-text-color);
     }
   }
-  
+
   .NoDataWrapper {
     @include flex(center, center, $direction: column);
     @include center-absolute();
