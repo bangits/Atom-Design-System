@@ -227,7 +227,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
             onChange={supportedBrowsers.onChange}
             browsersEnum={supportedBrowsers.browsersEnum}
             disabled={supportedBrowsers.disabled}
-            initialValues={supportedBrowsers.initialValues}
+            values={supportedBrowsers.initialValues}
           />
         </LabelGroup>
       </div>

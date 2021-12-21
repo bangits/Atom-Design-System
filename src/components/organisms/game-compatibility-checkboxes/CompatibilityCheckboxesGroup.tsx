@@ -3,7 +3,6 @@ import React, { FC, useEffect, useState } from 'react';
 import styles from './CompatibilityCheckboxesGroup.module.scss';
 
 export interface CompatibilityCheckboxesGroupProps {
-  
   onPlatformChange?: (values: (number | string)[]) => void;
   onMobileModeChange?: (values: (number | string)[]) => void;
   onTabletModeChange?: (values: (number | string)[]) => void;
@@ -57,7 +56,6 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
   useEffect(() => {
     onPlatformChange?.(platform);
     onMobileModeChange?.(mobile);
-    onTabletModeChange?.(tablet);
   }, [platform, mobile, tablet]);
 
   return (
@@ -87,7 +85,7 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
       <CheckboxGroup
         label={translations.mobileScreenMode}
         onChange={(selectedValues) => setMobile(selectedValues as string[] | number[])}
-        defaultValue={mobile}
+        defaultValue={mobileInitialValues}
         checkboxes={[
           {
             label: translations.portrait,
@@ -103,8 +101,12 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
       />
       <CheckboxGroup
         label={translations.tabletScreenMode}
-        defaultValue={tablet}
-        onChange={(selectedValues) => setTablet(selectedValues as string[] | number[])}
+        defaultValue={tabletInitialValues}
+        onChange={(selectedValues) => {
+          setTablet(selectedValues as string[] | number[]);
+
+          onTabletModeChange?.(selectedValues as string[] | number[]);
+        }}
         checkboxes={[
           {
             label: translations.portrait,
