@@ -155,7 +155,7 @@ export const ProviderGames = ({
             <div className={classNames(styles['GamesContainer'], 'GamesContainer')}>
               {games.map((game) => (
                 <div className={classNames(styles['HoverContainer'], 'HoverContainer')}>
-                  <span className={classNames(styles['HoverBox'], 'HoverBox')}>
+                  {/* <span className={classNames(styles['HoverBox'], 'HoverBox')}>
                     <span
                       role='button'
                       className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}
@@ -176,7 +176,7 @@ export const ProviderGames = ({
                       {translations.playDemo}
                     </span>
                     <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
-                  </span>
+                  </span> */}
                   <CardImg className={styles.CardImg} title={game.name} image={game.icon} key={game.id} />
                 </div>
               ))}
