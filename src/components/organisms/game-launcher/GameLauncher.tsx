@@ -1,7 +1,7 @@
 import { closeFullScreen, openFullScreen } from '@/helpers';
 import { CloseWidePopUp, FullScreenIcon } from '@/icons';
 import classNames from 'classnames';
-import React, { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import styles from './GameLauncher.module.scss';
 
 export interface GameLauncherProps {
@@ -11,7 +11,7 @@ export interface GameLauncherProps {
 }
 
 export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick }: GameLauncherProps) => {
-  const [_, setFullScreenMode] = useState(false);
+  const [isFullScreen, setFullScreenMode] = useState(false);
 
   const toggleFullScreen = useCallback(() => {
     setFullScreenMode((prevFullScreenMode) => {
@@ -20,6 +20,23 @@ export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick 
 
       return !prevFullScreenMode;
     });
+  }, []);
+
+  const checkForClosingFullScreen = useCallback(() => {
+    if (!document.fullscreenElement) setFullScreenMode(false);
+  }, []);
+
+  useEffect(() => {
+    document.addEventListener('fullscreenchange', checkForClosingFullScreen);
+
+    /* Firefox */
+    document.addEventListener('mozfullscreenchange', checkForClosingFullScreen);
+
+    /* Chrome, Safari and Opera */
+    document.addEventListener('webkitfullscreenchange', checkForClosingFullScreen);
+
+    /* IE / Edge */
+    document.addEventListener('msfullscreenchange', checkForClosingFullScreen);
   }, []);
 
   return (
@@ -61,12 +78,15 @@ export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick 
         <div className={classNames(styles['GameLauncher__Content'], 'GameLauncher__Content')}>
           <div className={classNames(styles['GameLauncher__Content-Inner'], 'GameLauncher__Content-Inner')}>
             <iframe
-              width='560'
+              width='100%'
               height='315'
               src={iframeUrl}
               title='Game Launcher'
               frameBorder='0'
-              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'></iframe>
+              allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
+              className={classNames({
+                [styles.FullScreenIFrame]: isFullScreen
+              })}></iframe>
           </div>
         </div>
       </div>

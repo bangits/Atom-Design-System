@@ -1,5 +1,5 @@
 import { Icons } from '@/atom-design-system';
-import { EmptyGameListIcon } from '@/icons';
+import { EmptyGameListIcon, PlayArrowIcon, ViewCardImageIcon } from '@/icons';
 import { Button, CardImg, Loader, Scroll, Tag, TextInput, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
@@ -10,6 +10,7 @@ export interface ProviderGamesProps {
     noGames: string;
     addGame: string;
     search: string;
+    playDemo: string;
   };
   gameTypes: {
     id: number;
@@ -20,6 +21,7 @@ export interface ProviderGamesProps {
     id: number;
     name: string;
     icon: string;
+    hasDemo: boolean;
   }[];
   searchInputMaxLength: number;
   isLoadingGames: boolean;
@@ -29,7 +31,7 @@ export interface ProviderGamesProps {
   shouldShowAddGameButton?: boolean;
 
   onChange(gameTypeId: number, search: string, page: number): void;
-  onGameClick(gameId: number): void;
+  onGameClick(gameId: number, isDemo: boolean): void;
   onAddGameClick(): void;
 }
 
@@ -86,23 +88,12 @@ export const ProviderGames = ({
         </div>
         {shouldShowAddGameButton && (
           <div className={classNames(styles['GamesList__Header-2'], 'GamesList__Header-2')}>
-            <button onClick={onAddGameClick} className={classNames(styles['UniqueBtn'], 'UniqueBtn')}>
-              <span
-                className={classNames(styles['UniqueBtn__IconCell'], 'UniqueBtn__IconCell')}
-                onClick={() => {
-                  setCurrentPage(1);
-
-                  onChange(selectedGameType, searchValue, 1);
-                }}>
-                <span className={classNames(styles['UniqueBtn__Icon'], 'UniqueBtn__Icon')}></span>
-              </span>
-              <span className={classNames(styles['UniqueBtn__Label'], 'UniqueBtn__Label')}>Add</span>
-            </button>
-            {/* <Button
+            <Button
               type='button'
+              variant='link'
               className={classNames(styles['GamesList__Add-Game-Btn'], 'GamesList__Add-Game-Btn')}
               startIcon={
-                <Icons.PlusCircle
+                <Icons.PlusCircleLarge
                   onClick={() => {
                     setCurrentPage(1);
 
@@ -112,8 +103,7 @@ export const ProviderGames = ({
               }
               onClick={onAddGameClick}>
               {translations.addGame}
-              Add
-            </Button> */}
+            </Button>
           </div>
         )}
       </div>
@@ -164,9 +154,48 @@ export const ProviderGames = ({
             }}>
             <div className={classNames(styles['GamesContainer'], 'GamesContainer')}>
               {games.map((game) => (
-                <CardImg title={game.name} image={game.icon} key={game.id} handleClick={() => onGameClick(game.id)} />
+                <div className={classNames(styles['HoverContainer'], 'HoverContainer')}>
+                  <CardImg
+                    className={styles.CardImg}
+                    title={game.name}
+                    image={game.icon}
+                    key={game.id}
+                    hoverComponent={
+                      <span className={classNames(styles['HoverBox'], 'HoverBox')}>
+                        <button
+                          type='button'
+                          role='button'
+                          className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}
+                          onClick={() => onGameClick(game.id, false)}>
+                          <span className={classNames(styles['HoverBox-PlayBtnInner'], 'HoverBox-PlayBtnInner')}>
+                            <span className={classNames(styles['HoverBox-PlayBtnIcon'], 'HoverBox-PlayBtnIcon')}>
+                              <PlayArrowIcon width={'100%'} />
+                            </span>
+                          </span>
+                        </button>
+                        <button
+                          type='button'
+                          role='button'
+                          className={classNames(styles['HoverBox-ViewIcon'], 'HoverBox-ViewIcon')}>
+                          <ViewCardImageIcon width={'100%'} />
+                        </button>
+
+                        <span className={classNames(styles['HoverBox-Link'], 'HoverBox-Link')}>
+                          <button
+                            role='button'
+                            onClick={() => onGameClick(game.id, true)}
+                            className={classNames(styles['HoverBox-Link__Text'], 'HoverBox-Link__Text')}>
+                            {translations.playDemo}
+                          </button>
+                        </span>
+                        <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
+                      </span>
+                    }
+                  />
+                </div>
               ))}
             </div>
+
             {isLoadingGames && (
               <div className={classNames(styles['GamesContainer__Loader'], 'GamesContainer__Loader')}>
                 <Loader />

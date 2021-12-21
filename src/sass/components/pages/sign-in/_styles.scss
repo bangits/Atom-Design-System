@@ -15,11 +15,10 @@
 
     .LoginBottom {
       margin-bottom: getSignSizes(login-bottom-margin-bottom);
-
-      max-width: 24rem;
+      max-width: getSignSizes(login-bottom-max-width);
 
       &:last-child {
-        min-height: 9rem;
+        min-height: getSignSizes(login-bottom-last-child-height);
       }
     }
 

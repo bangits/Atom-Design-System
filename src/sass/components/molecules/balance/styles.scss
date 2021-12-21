@@ -1,18 +1,20 @@
 @mixin generate-balance-group-styles {
-  .balanceContainer {
+  .BalanceContainer {
+    @include flex(null, center);
+
+    width: fit-content;
+    width: -moz-fit-content;
+
     min-width: getBalanceGroupSizes(balance-group-min-width);
-    height: getBalanceGroupSizes(balance-group-height);
-    display: inline-flex;
-    align-items: center;
-    background: #8ea6c11a 0% 0% no-repeat padding-box;
-    border-radius: calculateRem(8px);
+    max-height: getBalanceGroupSizes(balance-group-height);
+    padding: getBalanceGroupSizes(balance-group-padding);
+    box-sizing: border-box;
+    background-color: getBalanceGroupColors(balance-group-background);
+    border-radius: getBalanceGroupSizes(balance-border-radius);
   }
-  .balanceIcon {
-    padding: calculateRem(10px) 0 calculateRem(10px) calculateRem(10px);
-  }
-  .balanceQuantity {
-    height: getBalanceGroupSizes(balance-quantity-height);
-    font-size: getBalanceGroupQuantity(balance-quantity-font-size);
-    padding: calculateRem(9px) calculateRem(10px) calculateRem(8px) calculateRem(9px);
+
+  .BalanceQuantity {
+    margin: getBalanceGroupSizes(balance-quantity-margin);
+    color: getBalanceGroupColors(balance-number-color);
   }
 }

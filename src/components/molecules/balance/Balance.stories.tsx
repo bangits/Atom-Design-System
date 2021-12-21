@@ -1,4 +1,4 @@
-import { withKnobs, number, text } from '@storybook/addon-knobs';
+import { number, text, withKnobs } from '@storybook/addon-knobs';
 import Balance from './Balance';
 
 export default {
@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
   return (
     <>
-      <Balance money={number('Value', 1)} locale={text('label', 'fr-Fr')} currency={text('currency value', 'USD')} />
+      <Balance money={number('money', 1)} currency={text('currency', 'USD')} />
     </>
   );
 };

@@ -1,10 +1,10 @@
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { typedMemo } from '@/helpers';
+import { PhotoCamIcon } from '@/icons';
 import { Breadcrumb, BreadcrumbProps, Button, ButtonProps, Card } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useState } from 'react';
 import styles from './GameDetails.module.scss';
-import { PhotoCamIcon } from '@/icons';
 export interface GameDetailsProps {
   statusInfo: Omit<StatusViewProps, 'label'>;
   breadCrumbs?: BreadcrumbProps['links'];
@@ -15,6 +15,9 @@ export interface GameDetailsProps {
   noDataText: string;
   gameName: string;
   gameId: string;
+
+  backgroundImgUrl: string;
+  mainImgUrl: string;
 
   generalInformationContext: ReactNode;
 
@@ -45,7 +48,11 @@ const GameDetails: FC<GameDetailsProps> = ({
   createdBy,
   lastUpdateBy,
   lastUpdateDate,
-  noDataText
+  noDataText,
+  gameId,
+  gameName,
+  backgroundImgUrl,
+  mainImgUrl
 }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
@@ -66,8 +73,8 @@ const GameDetails: FC<GameDetailsProps> = ({
               <div className={classNames(styles['ProfileBlock__ImgCell'], 'ProfileBlock__ImgCell')}>
                 <img
                   className={classNames(styles['ProfileBlock__Img'], 'ProfileBlock__Img')}
-                  src='https://www.casinowow.com/media/uploads/Shining-Crown-Icon-190x190.png'
-                  alt=''
+                  src={mainImgUrl}
+                  alt={mainImgUrl}
                 />
 
                 <PhotoCamIcon
@@ -78,8 +85,8 @@ const GameDetails: FC<GameDetailsProps> = ({
               <div className={classNames(styles['ProfileBlock__Cover'], 'ProfileBlock__Cover')}>
                 <img
                   className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg')}
-                  src='https://www.punctul.ro/wp-content/uploads/2021/08/shining-crown-si-burning-hot.jpg'
-                  alt=''
+                  src={backgroundImgUrl}
+                  alt={backgroundImgUrl}
                 />
                 <div
                   className={classNames(
@@ -93,14 +100,14 @@ const GameDetails: FC<GameDetailsProps> = ({
                 </div>
               </div>
               <div className={classNames(styles['ProfileBlock__Info'], 'ProfileBlock__Info')}>
-                <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>Shining Crown</div>
-                <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>ID1234567</div>
+                <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>{gameName}</div>
+                <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>{gameId}</div>
               </div>
             </Card>
           </div>
           {/*  */}
           <div className={styles['GameDetails__Sidebar-Widget']}>
-            <StatusView {...statusInfo} label={'Status'} />
+            <StatusView {...statusInfo} label={translations.status} />
           </div>
 
           <div

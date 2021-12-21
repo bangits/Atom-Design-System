@@ -1,0 +1,27 @@
+$user-projects-styles: (
+  user-projects-wrapper-width: calculateRem(477px),
+  user-projects-wrapper-height: calculateRem(248px),
+  user-projects-wrapper-border: 1px,
+  user-projects-wrapper-border-radius: 16px,
+  user-add-button-opacity: 0.2,
+  user-add-button-wrapper-margin-top: calculateRem(56px),
+  user-title-user-projects-margin: calculateRem(16px) 0 calculateRem(8px) 0,
+  user-add-button-width: calculateRem(32px),
+  user-add-button-height: calculateRem(32px)
+);
+
+$user-projects-colors: (
+  wrapper-background-color: color(white),
+  wrapper-border-color: color(nepal-opacity),
+  wrapper-title-color: color(black-color),
+  wrapper-text-color: color(black-color),
+  add-bittpn-color: color(night-in-manchester),
+  user-add-button-color: color(primary)
+);
+
+@function getUserProjectsSizes($key) {
+  @return map-get($user-projects-styles, $key);
+}
+@function getUserProjectsColors($key) {
+  @return map-get($user-projects-colors, $key);
+}

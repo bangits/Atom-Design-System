@@ -17,7 +17,8 @@ export const Default = () => {
         {
           label: 'Checkbox1',
           value: 1,
-          name: 'checkbox1'
+          name: 'checkbox1',
+          defaultChecked: true
         },
         {
           label: 'Checkbox2',
