@@ -4,7 +4,7 @@ $colors: (
   catskill-white: #e8edf3,
   black-color: #505d6e,
   nepal: #8ea6c1,
-  nepal-opacity:#8ea6c133,
+  nepal-opacity: #8ea6c133,
   selago: #f6f8fe,
   wild-blue-yonder: #7c83ac,
   primary: #3c54b2,
@@ -20,7 +20,10 @@ $colors: (
   black-rgba: #00000080,
   box-shadow-image: #00000029,
   shisha-coal: #3c3c3c,
-  abs-black: #000
+  abs-black: #000,
+  white-opacity: #ffffffb3,
+  white-opacity-2: #ffffff80,
+  dark-opacity: #000000cc
 );
 
 @function color($property-name) {
