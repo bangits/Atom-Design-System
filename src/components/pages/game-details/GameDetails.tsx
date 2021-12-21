@@ -108,7 +108,7 @@ const GameDetails: FC<GameDetailsProps> = ({
             </Card>
           </div>
           <div className={styles['GameDetails__Sidebar-Widget']}>
-            <StatusView {...statusInfo} label={'Status'} />
+            <StatusView {...statusInfo} label={translations.status} />
           </div>
 
           <div
