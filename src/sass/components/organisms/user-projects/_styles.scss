@@ -1,0 +1,41 @@
+@mixin generate-user-projects-styles {
+  .UserProjectsWrapper {
+    width: getUserProjectsSizes(user-projects-wrapper-width);
+    height: getUserProjectsSizes(user-projects-wrapper-height);
+    border: solid getUserProjectsSizes(user-projects-wrapper-border) getUserProjectsColors(wrapper-border-color);
+    border-radius: getUserProjectsSizes(user-projects-wrapper-border-radius);
+    @include flex(null, center, $direction: column);
+    .AddButtonWrapper {
+      margin-top: getUserProjectsSizes(user-add-button-wrapper-margin-top);
+      .AddButton {
+        color: getUserProjectsColors(add-bittpn-color);
+        opacity: getUserProjectsSizes(user-add-button-opacity);
+        width: getUserProjectsSizes(user-add-button-width);
+        height: getUserProjectsSizes(user-add-button-height);
+        fill: getUserProjectsColors(user-add-button-color);
+        cursor: pointer;
+      }
+    }
+
+    .TitleUserProjects {
+      color: getUserProjectsColors(wrapper-title-color);
+      margin: getUserProjectsSizes(user-title-user-projects-margin);
+    }
+    .UserProjectsText {
+      color: getUserProjectsColors(wrapper-text-color);
+    }
+  }
+
+  .NoDataWrapper {
+    @include flex(center, center, $direction: column);
+    @include center-absolute();
+
+    .TitleUserProjects {
+      color: getUserProjectsColors(wrapper-title-color);
+      margin: getUserProjectsSizes(user-title-user-projects-margin);
+    }
+    .UserProjectsText {
+      color: getUserProjectsColors(wrapper-text-color);
+    }
+  }
+}

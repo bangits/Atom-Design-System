@@ -12,9 +12,10 @@
 
     &--forms {
       @include flex(space-between, null, $flex-wrap: wrap);
-      position: relative;
+
       box-sizing: border-box;
       padding: 2px;
+      
       form {
         width: calc(50% - getPartnerDetailsSizes(form-gap));
         margin-bottom: getPartnerDetailsSizes(form-gap);
