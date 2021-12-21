@@ -21,16 +21,17 @@
       color: getUserProjectsColors(wrapper-text-color);
     }
   }
-//   .NoDataWrapper {
-//     @include flex(center, center, $direction: column);
-//     @include center-absolute();
+  
+  .NoDataWrapper {
+    @include flex(center, center, $direction: column);
+    @include center-absolute();
 
-//     .TitleUserProjects {
-//       color: getUserProjectsColors(wrapper-title-color);
-//       margin: getUserProjectsSizes(user-title-user-projects-margin);
-//     }
-//     .UserProjectsText {
-//       color: getUserProjectsColors(wrapper-text-color);
-//     }
-//   }
+    .TitleUserProjects {
+      color: getUserProjectsColors(wrapper-title-color);
+      margin: getUserProjectsSizes(user-title-user-projects-margin);
+    }
+    .UserProjectsText {
+      color: getUserProjectsColors(wrapper-text-color);
+    }
+  }
 }

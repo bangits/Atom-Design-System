@@ -7,7 +7,7 @@ import styles from './UserProjects.module.scss';
 const UserProjects = () => {
   return (
     <>
-      <div className={styles.UserProjectsWrapper}>
+      {/* <div className={styles.UserProjectsWrapper}>
         <div className={styles.AddButtonWrapper}>
           <Icons.PlusCircleLarge className={styles.AddButton} />
         </div>
@@ -17,8 +17,8 @@ const UserProjects = () => {
         <Typography component='span' variant='p4' className={styles.UserProjectsText}>
           <a href=''>Click here</a> to add partner and projects
         </Typography>
-      </div>
-      <div className={styles.NoDataWrapper} style={{display:'none'}}>
+      </div> */}
+      <div className={styles.NoDataWrapper}>
         <NoDataIcon />
         <Typography component='h4' variant='h6' className={styles.TitleUserProjects}>
           Add Partner & Projects
