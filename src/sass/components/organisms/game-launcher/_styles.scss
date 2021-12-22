@@ -26,13 +26,11 @@
       @include flex(center, center);
       width: getGameLauncherSizes(game-launcher__body-width);
       height: getGameLauncherSizes(game-launcher__body-height);
-      height: getGameLauncherSizes(game-launcher__body-height);
-      padding: getGameLauncherSizes(game-launcher__body-padding);
       background: getGameLauncherColors(game-launcher__body-bg-gradient);
     }
     &__Content {
       @include flex(center, center);
-      @include p;
+      margin-top:getGameLauncherSizes(game-launcher__content-margin-top);
       width: getGameLauncherSizes(game-launcher__content-width);
       height: getGameLauncherSizes(game-launcher__content-height);
       overflow: getGameLauncherSizes(game-launcher__content-overflow);
