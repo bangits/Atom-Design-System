@@ -1,0 +1,11 @@
+$profile-block-sizes: ();
+
+$profile-block-colors: ();
+
+@function getProfileBlockSizes($key) {
+  @return map-get($profile-block-sizes, $key);
+}
+
+@function getProfileBlockColors($key) {
+  @return map-get($profile-block-colors, $key);
+}

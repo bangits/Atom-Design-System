@@ -11,12 +11,14 @@ import { ReactNode, useCallback, useMemo, useRef, useState } from 'react';
 import Cropper from 'react-cropper';
 import styles from './BannerUploader.module.scss';
 
-export interface BannerUploaderProps extends Omit<BaseFileUploaderProps, 'accept'> {
+export interface BannerUploaderProps extends BaseFileUploaderProps {
   uploadedImage?: string;
   onSave: (base64Image: string) => void;
   onDelete?: () => void;
   minCropBoxWidth?: number;
   minCropBoxHeight?: number;
+  maxSize?: number;
+  aspectRatio?: number;
   translations: {
     upload: string;
     edit: string;
@@ -43,6 +45,9 @@ export const BannerUploader = ({
   minCropBoxHeight = 10,
   translations,
   children,
+  aspectRatio,
+  maxSize = 2000000,
+  accept,
   ...fileUploaderProps
 }: BannerUploaderProps) => {
   const [uploadedImage, setUploadedImage] = useState(uploadedImageProps || '');
@@ -70,10 +75,12 @@ export const BannerUploader = ({
   const onFileUpload = useCallback(
     createHandleFileUpload({
       ...fileUploaderProps,
-      accept: 'image/*',
-      onChange: onFileSelection
+      maxSize,
+      accept: accept || 'image/*',
+      onChange: onFileSelection,
+      onError: (error) => console.log(error)
     }),
-    []
+    [accept, onFileSelection]
   );
 
   const actions = useMemo<DialogWithActionsProps['actions']>(
@@ -149,7 +156,13 @@ export const BannerUploader = ({
   return (
     <>
       <DialogWithActions
-        onClose={() => setUploaderBannerUploader(false)}
+        onClose={() => {
+          setUploaderBannerUploader(false);
+
+          if (mode === BannerUploaderMode.VIEW) {
+            setUploadedImage(uploadedImageProps);
+          }
+        }}
         title={translations.title}
         isOpened={isOpenedBannerUploader}
         mode='dark'
@@ -164,27 +177,27 @@ export const BannerUploader = ({
                 width='100%'
                 style={{ height: '30rem', width: '100%' }}
                 preview='.img-preview'
-                aspectRatio={1 / 1}
+                aspectRatio={aspectRatio}
                 minCropBoxHeight={minCropBoxHeight}
                 minCropBoxWidth={minCropBoxWidth}
-                zoomable={false}
                 cropBoxResizable={isCropBoxResizable}
+                minContainerWidth={minCropBoxWidth}
+                minContainerHeight={minCropBoxHeight}
+                guides={false}
+                viewMode={1}
+                checkOrientation={false}
+                dragMode='move'
+                src={uploadedImage}
+                onInitialized={(instance) => {
+                  setCropper(instance);
+                  instance.rotate(180);
+                }}
                 data={{ width: minCropBoxWidth, height: minCropBoxHeight }}
                 crop={(event) => {
                   const width = event.detail.width;
                   const height = event.detail.height;
 
                   setCropBoxResizable(!(width < minCropBoxWidth || height < minCropBoxHeight));
-                }}
-                minContainerWidth={minCropBoxWidth}
-                minContainerHeight={minCropBoxHeight}
-                guides={false}
-                viewMode={1}
-                dragMode='move'
-                src={uploadedImage}
-                onInitialized={(instance) => {
-                  setCropper(instance);
-                  instance.rotate(180);
                 }}
               />
             </>

@@ -15,6 +15,7 @@ export * from './license-group';
 export * from './name-description';
 export * from './page-wrapper';
 export * from './password-input';
+export * from './profile-block';
 export * from './radio-group';
 export * from './select';
 export * from './text-input';

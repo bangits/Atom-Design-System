@@ -66,7 +66,7 @@ const UserDetails: FC<UserDetailsProps> = ({
                   },
                   {
                     name: translations.lastLoginIp,
-                    description: lastLoginIp,
+                    description: lastLoginIp
                   },
                   {
                     name: translations.registeredFormIp,
@@ -219,4 +219,5 @@ const UserDetails: FC<UserDetailsProps> = ({
     </>
   );
 };
+
 export default UserDetails;
