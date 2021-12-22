@@ -3,7 +3,7 @@ import { typedMemo } from '@/helpers';
 import { PhotoCamIcon } from '@/icons';
 import { Breadcrumb, BreadcrumbProps, Button, ButtonProps, Card } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode, useState } from 'react';
+import React, { FC, ReactNode } from 'react';
 import styles from './GameDetails.module.scss';
 export interface GameDetailsProps {
   statusInfo: Omit<StatusViewProps, 'label'>;
@@ -18,6 +18,9 @@ export interface GameDetailsProps {
 
   backgroundImgUrl: string;
   mainImgUrl: string;
+
+  onMainImgClick?: () => void;
+  onBackgroundImgClick?: () => void;
 
   generalInformationContext: ReactNode;
 
@@ -52,25 +55,22 @@ const GameDetails: FC<GameDetailsProps> = ({
   gameId,
   gameName,
   backgroundImgUrl,
-  mainImgUrl
+  mainImgUrl,
+  onMainImgClick,
+  onBackgroundImgClick
 }) => {
-  const [tabValue, setTabValue] = useState(1);
-  const [subTabValue, setSubTabValue] = useState(1);
-  const [edit, setEdit] = useState(false);
-  const [date, setDate] = useState<Date | null>(null);
-
   return (
     <div className={classNames(styles.GameDetailsBase)}>
       <div className={classNames(styles['BreadCrumbWrapper'])}>
         <Breadcrumb links={breadCrumbs} />
       </div>
-      {/* MainCarcass */}
       <div className={classNames(styles['MainCarcass'], 'MainCarcass')}>
         <div className={classNames(styles['MainCarcass__Sidebar'], 'MainCarcass__Sidebar')}>
-          {/*  */}
           <div className={classNames(styles['GameDetails__Sidebar-Widget'], 'GameDetails__Sidebar-Widget')}>
             <Card className={classNames(styles['ProfileBlock'], 'ProfileBlock')} borderRadius={1.6}>
-              <div className={classNames(styles['ProfileBlock__ImgCell'], 'ProfileBlock__ImgCell')}>
+              <div
+                className={classNames(styles['ProfileBlock__ImgCell'], 'ProfileBlock__ImgCell')}
+                onClick={onBackgroundImgClick}>
                 <img
                   className={classNames(styles['ProfileBlock__Img'], 'ProfileBlock__Img')}
                   src={mainImgUrl}
@@ -82,7 +82,9 @@ const GameDetails: FC<GameDetailsProps> = ({
                   className={classNames(styles['ProfileBlock__PhotoCamIcon'], 'ProfileBlock__PhotoCamIcon')}
                 />
               </div>
-              <div className={classNames(styles['ProfileBlock__Cover'], 'ProfileBlock__Cover')}>
+              <div
+                className={classNames(styles['ProfileBlock__Cover'], 'ProfileBlock__Cover')}
+                onClick={onMainImgClick}>
                 <img
                   className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg')}
                   src={backgroundImgUrl}
@@ -105,7 +107,6 @@ const GameDetails: FC<GameDetailsProps> = ({
               </div>
             </Card>
           </div>
-          {/*  */}
           <div className={styles['GameDetails__Sidebar-Widget']}>
             <StatusView {...statusInfo} label={translations.status} />
           </div>
@@ -171,7 +172,6 @@ const GameDetails: FC<GameDetailsProps> = ({
           />
         </div>
       </div>
-      {/* MainCarcass */}
     </div>
   );
 };

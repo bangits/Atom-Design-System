@@ -195,11 +195,17 @@ function DataTable<T extends {}, K>({
           }
         : column.variant === 'hovered-image'
         ? {
-            renderColumn: (_, value) => (value ? <img className={styles.ImageHoverColumn} src={value} /> : null)
+            renderColumn: (_, value) => {
+              return <img className={styles.ImageHoverColumn} src={value} />;
+            }
           }
         : {})
     }));
   }, [tableProps.columns, dropdownValues]);
+
+  const isTableHaveHoveredImage = useMemo(() => {
+    return tableProps.columns.some((column) => column.variant === 'hovered-image');
+  }, [tableProps.columns]);
 
   const paginationTotalCountInfo = useMemo<string>(
     () => paginationProps.getTotalCountInfo(pagination),
@@ -304,7 +310,9 @@ function DataTable<T extends {}, K>({
       <Table
         {...tableProps}
         fetch={onTableFetchData}
-        className={classNames(styles.Table, tableProps.className)}
+        className={classNames(styles.Table, tableProps.className, {
+          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage
+        })}
         onSelectedColumnsChange={(columns) => {
           setSelectedRows(columns.map((c) => c.original));
 

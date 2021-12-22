@@ -51,6 +51,7 @@ export const BannerUploader = ({
   const [cropper, setCropper] = useState<Cropper>();
 
   const [isOpenedBannerUploader, setUploaderBannerUploader] = useState(false);
+  const [isCropBoxResizable, setCropBoxResizable] = useState(true);
 
   const fileUploadInputRef = useRef<HTMLInputElement>(null);
 
@@ -89,10 +90,12 @@ export const BannerUploader = ({
             ]
           : [
               {
-                icon: <Icons.CloseIcon />,
+                icon: <Icons.CloseIcon className={styles.CloseButton} />,
                 label: translations.cancel,
                 onClick: () => {
                   setMode(BannerUploaderMode.VIEW);
+
+                  if (!uploadedImage.includes('http')) setUploadedImage('');
                 },
                 position: 'left' as const
               },
@@ -106,9 +109,13 @@ export const BannerUploader = ({
                 icon: <Icons.CheckIcon width='1.6rem' />,
                 label: translations.save,
                 onClick: () => {
-                  setUploadedImage(cropper.getCroppedCanvas().toDataURL());
+                  const imageBase64Source = cropper.getCroppedCanvas().toDataURL();
+
+                  setUploadedImage(imageBase64Source);
 
                   setMode(BannerUploaderMode.VIEW);
+
+                  onSave(imageBase64Source);
                 },
                 position: 'right' as const
               }
@@ -154,25 +161,31 @@ export const BannerUploader = ({
           ) : mode === BannerUploaderMode.EDIT ? (
             <>
               <Cropper
+                width='100%'
                 style={{ height: '30rem', width: '100%' }}
-                zoomTo={0.5}
-                initialAspectRatio={1}
                 preview='.img-preview'
-                src={uploadedImage}
-                viewMode={1}
+                aspectRatio={1 / 1}
                 minCropBoxHeight={minCropBoxHeight}
                 minCropBoxWidth={minCropBoxWidth}
-                background={false}
-                responsive={true}
-                autoCropArea={1}
-                cropBoxResizable={false}
-                checkOrientation={false}
-                width='100%'
+                zoomable={false}
+                cropBoxResizable={isCropBoxResizable}
+                data={{ width: minCropBoxWidth, height: minCropBoxHeight }}
+                crop={(event) => {
+                  const width = event.detail.width;
+                  const height = event.detail.height;
+
+                  setCropBoxResizable(!(width < minCropBoxWidth || height < minCropBoxHeight));
+                }}
+                minContainerWidth={minCropBoxWidth}
+                minContainerHeight={minCropBoxHeight}
+                guides={false}
+                viewMode={1}
+                dragMode='move'
+                src={uploadedImage}
                 onInitialized={(instance) => {
                   setCropper(instance);
                   instance.rotate(180);
                 }}
-                guides={true}
               />
             </>
           ) : (
