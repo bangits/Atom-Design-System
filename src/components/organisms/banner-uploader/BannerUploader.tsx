@@ -51,6 +51,7 @@ export const BannerUploader = ({
   const [cropper, setCropper] = useState<Cropper>();
 
   const [isOpenedBannerUploader, setUploaderBannerUploader] = useState(false);
+  const [isCropBoxResizable, setCropBoxResizable] = useState(true);
 
   const fileUploadInputRef = useRef<HTMLInputElement>(null);
 
@@ -94,7 +95,7 @@ export const BannerUploader = ({
                 onClick: () => {
                   setMode(BannerUploaderMode.VIEW);
 
-                  setUploadedImage('');
+                  if (!uploadedImage.includes('http')) setUploadedImage('');
                 },
                 position: 'left' as const
               },
@@ -163,9 +164,20 @@ export const BannerUploader = ({
                 width='100%'
                 style={{ height: '30rem', width: '100%' }}
                 preview='.img-preview'
-                aspectRatio={16 / 9}
+                aspectRatio={1 / 1}
                 minCropBoxHeight={minCropBoxHeight}
                 minCropBoxWidth={minCropBoxWidth}
+                zoomable={false}
+                cropBoxResizable={isCropBoxResizable}
+                data={{ width: minCropBoxWidth, height: minCropBoxHeight }}
+                crop={(event) => {
+                  const width = event.detail.width;
+                  const height = event.detail.height;
+
+                  setCropBoxResizable(!(width < minCropBoxWidth || height < minCropBoxHeight));
+                }}
+                minContainerWidth={minCropBoxWidth}
+                minContainerHeight={minCropBoxHeight}
                 guides={false}
                 viewMode={1}
                 dragMode='move'
