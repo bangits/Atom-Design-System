@@ -10,6 +10,8 @@ export default {
 export const Default = () => {
   return (
     <UserDetails
+    createdBy={'11/11/1111'}
+    creationDate={'2017-11/11'}
       breadCrumbs={[
         {
           label: 'User Managment',
@@ -27,6 +29,8 @@ export const Default = () => {
         status: 'Status',
         wallet: 'Wallet',
         projects: 'Projects',
+        createdBy: 'CreatedBy',
+        creationDate: 'CreationDate'
       }}
       userName='Inesa Khachatryan'
       userId='ID 1234567'

@@ -1,5 +1,5 @@
 import { CheckboxGroup } from '@/components';
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './CompatibilityCheckboxesGroup.module.scss';
 
 export interface CompatibilityCheckboxesGroupProps {
@@ -50,20 +50,16 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
   translations
 }) => {
   const [platform, setPlatform] = useState<(number | string)[]>(platformInitialValues ?? []);
-  const [mobile, setMobile] = useState<(number | string)[]>(mobileInitialValues ?? []);
-  const [tablet, setTablet] = useState<(number | string)[]>(tabletInitialValues ?? []);
-
-  useEffect(() => {
-    onPlatformChange?.(platform);
-    onMobileModeChange?.(mobile);
-  }, [platform, mobile, tablet]);
 
   return (
     <div className={styles.CompatibilityCheckboxesGroup}>
       <CheckboxGroup
         label={translations.platform}
-        onChange={(selectedValues) => setPlatform(selectedValues as string[] | number[])}
-        defaultValue={platform}
+        onChange={(selectedValues) => {
+          setPlatform(selectedValues as string[] | number[]);
+          onPlatformChange?.(selectedValues as string[] | number[]);
+        }}
+        defaultValue={platformInitialValues}
         checkboxes={[
           {
             label: translations.mobile,
@@ -84,8 +80,10 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
       />
       <CheckboxGroup
         label={translations.mobileScreenMode}
-        onChange={(selectedValues) => setMobile(selectedValues as string[] | number[])}
-        defaultValue={mobileInitialValues}
+        onChange={(selectedValues) => {
+          onMobileModeChange?.(selectedValues as string[] | number[]);
+        }}
+        defaultValue={mobileInitialValues || []}
         checkboxes={[
           {
             label: translations.portrait,
@@ -101,10 +99,8 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
       />
       <CheckboxGroup
         label={translations.tabletScreenMode}
-        defaultValue={tabletInitialValues}
+        defaultValue={tabletInitialValues || []}
         onChange={(selectedValues) => {
-          setTablet(selectedValues as string[] | number[]);
-
           onTabletModeChange?.(selectedValues as string[] | number[]);
         }}
         checkboxes={[
