@@ -61,8 +61,6 @@
         object-fit: cover;
         transform-origin: top left;
         &:hover {
-          // transform: scaleY(2.3) scaleX(3) translate(30%, 30%);
-
           transform: scale(3);
         }
       }
