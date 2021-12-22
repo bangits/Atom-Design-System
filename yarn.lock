@@ -2,6 +2,36 @@
 # yarn lockfile v1
 
 
+<<<<<<< HEAD
+=======
+"@atom/common@^2.8.6":
+  version "2.8.16"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/common/-/common-2.8.16.tgz#e4cd6e9e68cdcf8dcbb8e6c8d63ab13f9274a411"
+  integrity sha1-5M1unmjNz43LuObI1jqxP5J0pBE=
+  dependencies:
+    "@automapper/classes" "^7.0.2"
+    "@automapper/core" "^7.0.2"
+    "@microsoft/signalr" "^6.0.1"
+    "@microsoft/signalr-protocol-msgpack" "^6.0.1"
+    axios "^0.23.0"
+    dayjs "^1.10.7"
+    formik "^2.2.9"
+    query-string "^7.0.1"
+    react "^17.0.2"
+    single-spa "^5.9.3"
+    single-spa-react "^4.6.0"
+
+"@automapper/classes@^7.0.2":
+  version "7.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@automapper/classes/-/classes-7.1.0.tgz#fb53027f8fed983e3516aef99453826cdd886d83"
+  integrity sha1-+1MCf4/tmD41Fq75lFOCbN2IbYM=
+
+"@automapper/core@^7.0.2":
+  version "7.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@automapper/core/-/core-7.1.0.tgz#44e5d8d7132036298e7d658d8b01dd1ba44ffa5e"
+  integrity sha1-ROXY1xMgNimOfWWNiwHdG6RP+l4=
+
+>>>>>>> 6e450b89eef1c9a33ba6d0f9ebac52c98de2f394
 "@babel/code-frame@7.10.4":
   version "7.10.4"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@babel/code-frame/-/code-frame-7.10.4.tgz#168da1a36e90da68ae8d49c0f1b48c7c6249213a"
@@ -1504,10 +1534,29 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+<<<<<<< HEAD
 "@my-ui/core@^2.26.40":
   version "2.26.40"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.26.40.tgz#a82dc3517c19cbe5bcc887df6a9af11587db5ef2"
   integrity sha1-qC3DUXwZy+W8yIffaprxFYfbXvI=
+=======
+<<<<<<< HEAD
+"@msgpack/msgpack@^2.7.0":
+  version "2.7.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@msgpack/msgpack/-/msgpack-2.7.1.tgz#f01954baadc502f3c82e9c3f72c740ce65eae1cc"
+  integrity sha1-8BlUuq3FAvPILpw/csdAzmXq4cw=
+
+"@my-ui/core@^2.26.43":
+  version "2.26.43"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.26.43.tgz#62743897c289ee8d6cf858b02c136c38b7bd2204"
+  integrity sha1-YnQ4l8KJ7o1s+FiwLBNsOLe9IgQ=
+=======
+"@my-ui/core@^2.26.36":
+  version "2.26.36"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.26.36.tgz#86390ab57779793e0b5bc99633de0c69c0b06859"
+  integrity sha1-hjkKtXd5eT4LW8mWM94MacCwaFk=
+>>>>>>> f13c90fea9d1859f59024bceb43ff1acfb1b39e2
+>>>>>>> 6e450b89eef1c9a33ba6d0f9ebac52c98de2f394
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
@@ -10990,9 +11039,9 @@ pretty-hrtime@^1.0.3:
   integrity sha1-t+PqQkNaTJsnWdmeDyAesZWALuE=
 
 pretty-quick@^3.1.1:
-  version "3.1.2"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/pretty-quick/-/pretty-quick-3.1.2.tgz#89d8741af7122cbd7f34182df746c5a7ea360b5c"
-  integrity sha1-idh0GvcSLL1/NBgt90bFp+o2C1w=
+  version "3.1.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/pretty-quick/-/pretty-quick-3.1.3.tgz#15281108c0ddf446675157ca40240099157b638e"
+  integrity sha1-FSgRCMDd9EZnUVfKQCQAmRV7Y44=
   dependencies:
     chalk "^3.0.0"
     execa "^4.0.0"

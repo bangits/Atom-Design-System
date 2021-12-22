@@ -1,13 +1,4 @@
 @mixin generate-data-table-styles {
-  @keyframes zIndex {
-    from {
-      z-index: 100;
-    }
-    to {
-      z-index: 100;
-    }
-  }
-
   .TableConfigSelect {
     max-width: getDataTableSizes(table-config-select);
   }
@@ -42,7 +33,7 @@
       }
 
       table {
-        min-height: 190px;
+        min-height: getDataTableSizes(data-table-single-item-min-height);
       }
 
       tr td:nth-child(2) > div {
@@ -50,12 +41,12 @@
       }
 
       .ImageHoverColumn {
-        width: 40px;
-        height: 40px;
+        width: getDataTableSizes(data-table-image-hover-column-width);
+        height: getDataTableSizes(data-table-image-hover-column-height);
         top: 0;
-        left: 107px;
+        left: getDataTableSizes(data-table-image-hover-column-left);
+        border-radius: getDataTableSizes(data-table-image-border-radius);
         transition: 0.5s;
-        border-radius: 4px;
         transition: transform 0.3s;
         transition-delay: 0.7s;
         object-fit: cover;

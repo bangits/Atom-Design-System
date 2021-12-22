@@ -18,6 +18,8 @@ export interface UserDetailsProps {
   userName: string;
   userId: string;
   userImgUrl: string;
+  createdBy: string;
+  creationDate: string;
 
   translations: {
     status: string;
@@ -27,6 +29,8 @@ export interface UserDetailsProps {
     generalInformation: string;
     wallet: string;
     projects: string;
+    creationDate: string;
+    createdBy: string;
   };
 
   generalInformationContext: ReactNode;
@@ -39,9 +43,11 @@ const UserDetails: FC<UserDetailsProps> = ({
   lastLoginIp,
   registeredFormIp,
   userName,
+  creationDate,
   userId,
   userImgUrl,
   translations,
+  createdBy,
   generalInformationContext
 }) => {
   return (
@@ -66,11 +72,23 @@ const UserDetails: FC<UserDetailsProps> = ({
                   },
                   {
                     name: translations.lastLoginIp,
-                    description: lastLoginIp,
+                    description: lastLoginIp
                   },
                   {
                     name: translations.registeredFormIp,
                     description: registeredFormIp
+                  }
+                ]}
+              />
+              <NameDescription
+                data={[
+                  {
+                    name: translations.creationDate,
+                    description: creationDate
+                  },
+                  {
+                    name: translations.createdBy,
+                    description: createdBy
                   }
                 ]}
               />
