@@ -1,7 +1,13 @@
 $data-table-sizes: (
   filters-margin-bottom: calculateRem(32px),
   table-config-select: calculateRem(100px),
-  image-column: 50%
+  image-column: 50%,
+  data-table-single-item-min-height: calculateRem(190px),
+  //
+  data-table-image-hover-column-width: calculateRem(40px),
+  data-table-image-hover-column-height: calculateRem(40px),
+  data-table-image-hover-column-left: calculateRem(107px),
+  data-table-image-border-radius: calculateRem(4px)
 );
 
 @function getDataTableSizes($key) {
