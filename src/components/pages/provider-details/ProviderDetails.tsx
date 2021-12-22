@@ -9,7 +9,7 @@ import styles from './ProviderDetails.module.scss';
 
 export interface ProviderDetailsProps {
   noDataText?: string;
-  breadCrumb?: BreadcrumbProps['links'];
+  breadCrumb: BreadcrumbProps['links'];
 
   mainDetailsInfo?: DetailsMainInfoProps;
   statusInfo: StatusViewProps;
@@ -22,11 +22,15 @@ export interface ProviderDetailsProps {
     generalInformation: string;
     games: string;
     editButton: string;
+    lastUpdatedDate: string;
+    lastUpdatedBy: string;
   };
 
   totalGameCount: string;
   creationDate: string;
   createdBy: string;
+  lastUpdatedDate: string;
+  lastUpdatedBy: string;
   generalInformationContext: ReactNode;
   gamesTabContent: ReactNode;
 }
@@ -41,7 +45,9 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
   creationDate,
   createdBy,
   generalInformationContext,
-  gamesTabContent
+  gamesTabContent,
+  lastUpdatedBy,
+  lastUpdatedDate
 }) => {
   return (
     <div className={styles.ProviderDetailsBase}>
@@ -66,6 +72,14 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
               {
                 name: translations.createdBy,
                 description: createdBy
+              },
+              {
+                name: translations.lastUpdatedDate,
+                description: lastUpdatedDate
+              },
+              {
+                name: translations.lastUpdatedBy,
+                description: lastUpdatedBy
               }
             ]}
           />
