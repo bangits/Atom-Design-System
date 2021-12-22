@@ -24,7 +24,12 @@
     border-radius: getDataTableSizes(image-column);
     object-fit: cover;
   }
-
+  tr:hover {
+    z-index: 500;
+  }
+  tr {
+    transition: 5s;
+  }
   .DataTablePageWrapper {
     .TableHaveHoveredImage {
       tbody tr {
@@ -35,7 +40,9 @@
         &:last-child img {
           transform-origin: bottom left;
         }
-
+        &:nth-last-child(2) img {
+          transform-origin: bottom left;
+        }
         &:first-child img {
           transform-origin: top left;
         }
@@ -48,7 +55,6 @@
       tr td:nth-child(2) > div {
         overflow: unset;
       }
-
       .ImageHoverColumn {
         width: 40px;
         height: 40px;
@@ -60,6 +66,7 @@
         transition-delay: 0.7s;
         object-fit: cover;
         transform-origin: top left;
+        background-color: red;
         &:hover {
           transform: scale(3);
         }
