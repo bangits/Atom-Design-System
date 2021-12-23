@@ -4,7 +4,7 @@ import React from 'react';
 const UserMainInfo = ({ className }: { className?: string }) => {
   return (
     <div className={className}>
-      <UserMainIcon />
+      <UserMainIcon width='4rem' />
     </div>
   );
 };
