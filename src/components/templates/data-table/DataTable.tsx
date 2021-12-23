@@ -1,7 +1,7 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
 import { SettingsIcon } from '@/icons';
-import noImage from '@/icons/img/noImage.png';
-import gameImg from '@/icons/img/noImageGame.png';
+import noImage from '@/img/noImage.png';
+import gameImg from '@/img/noImageGame.png';
 import {
   IconButton,
   Icons,

@@ -4,7 +4,7 @@
     width: fit-content;
     width: -moz-fit-content;
     min-width: getLanguagesSizes(languages-wrapper-min-width);
-    height: getLanguagesSizes(languages-wrapper-height);
+    min-height: getLanguagesSizes(languages-wrapper-height);
     border-radius: getLanguagesSizes(languages-wrapper-border-radius);
     box-sizing: border-box;
     grid-gap: getLanguagesSizes(languages-wrapper-margin);

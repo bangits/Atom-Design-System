@@ -4,7 +4,7 @@
     width: fit-content;
     width: -moz-fit-content;
     min-width: getLicenseSizes(license-wrapper-min-width);
-    height: getLicenseSizes(license-wrapper-height);
+    min-height: getLicenseSizes(license-wrapper-height);
     border-radius: getLicenseSizes(license-wrapper-border-radius);
     box-sizing: border-box;
     grid-gap: getLicenseSizes(license-wrapper-margin);
