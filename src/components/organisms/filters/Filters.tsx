@@ -16,10 +16,13 @@ export function Filters<T>({
   clearLabel,
   applyLabel,
   resultLabel,
+  saveLabel = 'Save',
   defaultOpened,
   initialValues,
   onSubmit,
   onClear,
+  onSaveClick,
+  actionsButtonDisabledTime = 2,
   className
 }: FiltersProps<T>) {
   const [filterValues, setFilterValues] = useReducer<
@@ -31,6 +34,8 @@ export function Filters<T>({
 
   const [isOpenedFilterCollapse, setIsOpenedFilterCollapse] = useState(defaultOpened);
   const [showedFilters, setShowedFilters] = useState<FilterProp<T>[]>(filters);
+
+  const [isDisabledSaveButton, setDisabledSaveButton] = useState(false);
 
   const [showedCheckboxFilters, setShowedCheckboxFilters] = useState<typeof checkboxFilters>(checkboxFilters);
 
@@ -175,22 +180,50 @@ export function Filters<T>({
           })}
       </div>
       <div className={styles.ControlContainer}>
-        <div>
-          <Select
-            {...selectProps}
-            dropdown
-            dropdownLabel='Filters'
-            isMulti={true}
-            onChange={onFiltersConfigChange}
-            defaultValue={filtersConfigDefaultValue}
-            options={filtersConfigOptions}
-            dropdownIcon={<Icons.FilterIcon />}
-          />
-        </div>
+        <Select
+          {...selectProps}
+          dropdown
+          dropdownLabel='Filters'
+          isMulti={true}
+          onChange={onFiltersConfigChange}
+          defaultValue={filtersConfigDefaultValue}
+          options={filtersConfigOptions}
+          dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
+          className={styles.FiltersDropdown}
+          color='primary'
+        />
+
         <div className={styles.ToggleContainer}>
           <Typography variant='p4' className={styles.UserFoundLabel}>
             {resultLabel}
           </Typography>
+
+          {isOpenedFilterCollapse && (
+            <>
+              <Button
+                variant='link'
+                onClick={(event) => {
+                  if (actionsButtonDisabledTime) {
+                    setDisabledSaveButton(true);
+
+                    setTimeout(() => setDisabledSaveButton(false), actionsButtonDisabledTime * 1000);
+                  }
+
+                  if (onSaveClick) onSaveClick(event);
+                }}
+                disabled={isDisabledSaveButton}
+                className={styles.SaveButton}>
+                {saveLabel}
+              </Button>
+              <Button variant='ghost' onClick={onClearClick}>
+                {clearLabel}
+              </Button>
+              <Button onClick={() => onSubmit(filterValues)} className={styles.ApplyButton}>
+                {applyLabel}
+              </Button>
+            </>
+          )}
+
           <div className={styles.ArrowIconContainer}>
             <span onClick={toggleFiltersCollapse}>
               <svg id='Arrow' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
@@ -209,12 +242,6 @@ export function Filters<T>({
               </svg>
             </span>
           </div>
-          <Typography variant='p3' className={!isOpenedFilterCollapse ? styles.ClearLabel : styles.ClearLabelActive}>
-            <span onClick={onClearClick}>{clearLabel}</span>
-          </Typography>
-          <Button disabled={!isOpenedFilterCollapse} onClick={() => onSubmit(filterValues)}>
-            {applyLabel}
-          </Button>
         </div>
       </div>
     </Card>

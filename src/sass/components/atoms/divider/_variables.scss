@@ -1,0 +1,11 @@
+$divider-sizes: ();
+
+$divider-colors: ();
+
+@function getDividerSizes($key) {
+  @return map-get($divider-sizes, $key);
+}
+
+@function getDividerColors($key) {
+  @return map-get($divider-colors, $key);
+}

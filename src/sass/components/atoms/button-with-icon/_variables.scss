@@ -1,0 +1,18 @@
+$button-with-icon-sizes: (
+  button-font-size: calculateRem(14px),
+  button-icon-margin: calculateRem(12px),
+  hover-transition: 0.3s,
+  button-icon-size: calculateRem(24px)
+);
+
+$button-with-icon-colors: (
+  button-hover-color: color(abs-black)
+);
+
+@function getButtonWithIconSizes($key) {
+  @return map-get($button-with-icon-sizes, $key);
+}
+
+@function getButtonWithIconColors($key) {
+  @return map-get($button-with-icon-colors, $key);
+}

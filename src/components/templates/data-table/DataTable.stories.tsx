@@ -51,9 +51,40 @@ export const Default = () => {
             { label: 'Theme 2', value: 2 }
           ],
           status: '2',
-          rtp: { from: '500', to: '5000000' }
+          rtp: { from: '500', to: '5000000' },
+          lastUpdate: [null, null],
+          creationDate: [null, null]
         },
-        filters: [],
+        filters: [
+          {
+            type: 'datepicker' as const,
+            name: 'lastUpdate',
+            label: 'Last Update Date',
+            props: {
+              selectsRange: true,
+              monthsShown: 2
+            }
+          },
+          {
+            name: 'createdBy',
+            type: 'input' as const,
+            label: 'Created By',
+
+            props: {
+              label: 'Created By'
+            }
+          },
+          {
+            type: 'datepicker' as const,
+            name: 'creationDate',
+            label: 'Creation Date',
+
+            props: {
+              selectsRange: true,
+              monthsShown: 2
+            }
+          }
+        ],
         checkboxFilters: [
           {
             name: 'platform',

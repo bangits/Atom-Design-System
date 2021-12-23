@@ -1,0 +1,39 @@
+@mixin generate-button-with-icon-styles {
+  .ButtonWithIcon {
+    @include button-reset;
+
+    @include flex(null, center);
+
+    font-family: inherit;
+    letter-spacing: 0.14rem;
+
+    color: getBaseColors(accent-color);
+    font-weight: 500;
+    font-size: getButtonWithIconSizes(button-font-size);
+    line-height: 1em;
+
+    transition: color getButtonWithIconSizes(hover-transition);
+
+    &:disabled {
+      opacity: 0.4;
+
+      cursor: default;
+    }
+    // &:hover {
+    //   color: getButtonWithIconColors(button-hover-color);
+    // }
+  }
+
+  .ButtonIconWrapper {
+    @include flex;
+
+    margin-right: getButtonWithIconSizes(button-icon-margin);
+
+    width: getButtonWithIconSizes(button-icon-size);
+    height: getButtonWithIconSizes(button-icon-size);
+
+    path {
+      fill: getBaseColors(accent-color);
+    }
+  }
+}

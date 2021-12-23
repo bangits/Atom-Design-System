@@ -77,10 +77,13 @@ export interface FiltersProps<T> {
   checkboxFilters?: CheckboxFilter[];
   clearLabel?: string;
   applyLabel?: string;
+  saveLabel?: string;
   resultLabel?: string;
   defaultOpened?: boolean;
   initialValues: T;
   onSubmit: (state: T) => void;
+  onSaveClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   onClear?: (state: T) => void;
   className?: string;
+  actionsButtonDisabledTime?: number;
 }
