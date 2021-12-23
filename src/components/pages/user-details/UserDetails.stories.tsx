@@ -10,8 +10,8 @@ export default {
 export const Default = () => {
   return (
     <UserDetails
-    createdBy={'11/11/1111'}
-    creationDate={'2017-11/11'}
+      createdBy={'11/11/1111'}
+      creationDate={'2017-11/11'}
       breadCrumbs={[
         {
           label: 'User Managment',
@@ -34,7 +34,7 @@ export const Default = () => {
       }}
       userName='Inesa Khachatryan'
       userId='ID 1234567'
-      userImgUrl='https://www.1tv.am/images/video/5/24776/5.jpeg'
+      userImgUrl=''
       statusInfo={object('statusInfo', {
         label: 'Status',
         variant: 'active',

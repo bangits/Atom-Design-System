@@ -25,7 +25,9 @@ $filter-sizes: (
   checkbox-margin: calculateRem(2px) 0 calculateRem(2px) calculateRem(16px),
   divider-checkbox-width: calculateRem(1214px),
   divider-checkbox-border: 1px,
-  divider-checkbox-margin-top: calculateRem(26.5px)
+  divider-checkbox-margin-top: calculateRem(26.5px),
+  control-buttons-margin: calculateRem(16px),
+  filter-icon-border-radius: 4px
 );
 
 $filter-colors: (

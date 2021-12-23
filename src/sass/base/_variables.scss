@@ -1,5 +1,7 @@
 @import './colors';
 
 $base-colors: (
-  application-background: color(alabaster)
+  application-background: color(alabaster),
+  primary: color(night-in-manchester),
+  accent-color: color(black-color)
 );

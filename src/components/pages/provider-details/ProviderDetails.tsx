@@ -7,8 +7,7 @@ import {
   StatusViewProps
 } from '@/components';
 import CountView from '@/components/organisms/count-view/CountView';
-import { Breadcrumb } from '@my-ui/core';
-import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
+import { Breadcrumb, BreadcrumbProps } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './ProviderDetails.module.scss';

@@ -34,6 +34,7 @@ export interface UserDetailsProps {
   };
 
   generalInformationContext: ReactNode;
+  walletTabContent: ReactNode;
 }
 
 const UserDetails: FC<UserDetailsProps> = ({
@@ -48,7 +49,8 @@ const UserDetails: FC<UserDetailsProps> = ({
   userImgUrl,
   translations,
   createdBy,
-  generalInformationContext
+  generalInformationContext,
+  walletTabContent
 }) => {
   return (
     <>
@@ -165,8 +167,7 @@ const UserDetails: FC<UserDetailsProps> = ({
                       ]}
                       className={styles.UserDetailsTable}
                     />
-                    {/* {PlusCircleLarge is not ready becouse of  CloseIcon } */}
-                    <Button variant='link' startIcon={<Icons.CloseIcon />} className={styles.AddButton}>
+                    <Button variant='link' startIcon={<Icons.PlusCircleLarge />} className={styles.AddButton}>
                       Add Wallet
                     </Button>
                     <div className={styles.SelectContent}>

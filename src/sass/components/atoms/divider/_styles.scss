@@ -1,0 +1,19 @@
+@mixin generate-divider-styles {
+  .Divider {
+    position: relative;
+    margin-left: 28px;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+
+      height: 9px;
+      background: #8ea6c1;
+      width: 2px;
+      left: -14px;
+    }
+  }
+}

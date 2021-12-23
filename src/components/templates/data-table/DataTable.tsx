@@ -1,4 +1,5 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
+import { ButtonWithIcon, Divider } from '@/components/atoms';
 import { SettingsIcon } from '@/icons';
 import {
   IconButton,
@@ -12,7 +13,7 @@ import {
   Tooltip
 } from '@my-ui/core';
 import classNames from 'classnames';
-import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { MouseEvent, useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import styles from './DataTable.module.scss';
 export interface Pagination {
   page: number;
@@ -36,6 +37,7 @@ export interface DataTableProps<T extends {}, K> {
   };
   defaultPaginationPage?: number;
   defaultPageSize?: number;
+  actionsButtonDisabledTime?: number;
 
   paginationProps: {
     pageSizeSelect: Omit<PaginationProps['pageSizeSelect'], 'onChange'>;
@@ -43,6 +45,8 @@ export interface DataTableProps<T extends {}, K> {
   } & Pick<PaginationProps, 'jumpToPage'>;
 
   rowCount: number;
+  refreshLabel?: string;
+  onRefreshButtonClick?: (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
 
   tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
     columns?: (TableProps<T>['columns'][number] & {
@@ -73,12 +77,16 @@ function DataTable<T extends {}, K>({
   defaultPageSize = 20,
   paginationProps,
   columnDropdownTranslations,
-  rowCount
+  rowCount,
+  refreshLabel = 'Refresh',
+  onRefreshButtonClick,
+  actionsButtonDisabledTime = 2
 }: DataTableProps<T, K>) {
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
 
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
+  const [isDisabledRefreshButton, setDisabledRefreshButton] = useState(false);
 
   const dropdownOptions = useMemo<SelectProps<any, boolean, any>['options']>(
     () =>
@@ -262,6 +270,7 @@ function DataTable<T extends {}, K>({
       {isShowedFilter && (
         <Filters
           {...filterProps}
+          actionsButtonDisabledTime={actionsButtonDisabledTime}
           selectProps={filtersDropdownProps}
           className={classNames(styles.Filters, filterProps.className)}
           onSubmit={onFiltersChange}
@@ -271,25 +280,43 @@ function DataTable<T extends {}, K>({
 
       <div className={styles.TableConfigsWrapper}>
         <div className={styles.TableLeftSideWrapper}>
-          <div className={styles.TableConfigSelect}>
-            <Select
-              isMulti
-              dropdown
-              dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
-              dropdownIcon={<SettingsIcon />}
-              clearButton
-              clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
-              selectAll
-              selectAllLabel={columnDropdownTranslations?.selectAllLabel || 'All'}
-              color='primary'
-              options={dropdownOptions}
-              disableSelectedOptions={dropdownValues.length < 4}
-              value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
-              onChange={(values) => {
-                setDropdownValues(values);
+          <Select
+            isMulti
+            dropdown
+            dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
+            dropdownIcon={<SettingsIcon />}
+            clearButton
+            clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
+            selectAll
+            selectAllLabel={columnDropdownTranslations?.selectAllLabel || 'All'}
+            color='primary'
+            options={dropdownOptions}
+            disableSelectedOptions={dropdownValues.length < 4}
+            value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
+            onChange={(values) => {
+              setDropdownValues(values);
+            }}
+            className={styles.TableConfigSelect}
+          />
+
+          <Divider>
+            <ButtonWithIcon
+              icon='RotateIcon'
+              disabled={isDisabledRefreshButton}
+              onClick={(event) => {
+                if (actionsButtonDisabledTime) {
+                  setDisabledRefreshButton(true);
+
+                  setTimeout(() => setDisabledRefreshButton(false), actionsButtonDisabledTime * 1000);
+                }
+
+                if (onRefreshButtonClick) onRefreshButtonClick(event);
               }}
-            />
-          </div>
+              className={styles.RefreshButton}>
+              {refreshLabel}
+            </ButtonWithIcon>
+          </Divider>
+
           <div className={styles.TableActionsWrapper}>{tableBulkActions}</div>
         </div>
 

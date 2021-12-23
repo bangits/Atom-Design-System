@@ -32,6 +32,15 @@
       }
     }
 
+    .FiltersDropdown {
+      max-width: 8rem;
+    }
+
+    .FiltersDropdownIcon {
+      background-color: rgba(getBaseColors(primary), 0.1);
+      border-radius: getFilterSizes(filter-icon-border-radius);
+    }
+
     .ArrowIconContainer {
       transform: rotate(180deg);
     }
@@ -43,7 +52,7 @@
     }
 
     &--closed {
-      height: getFilterSizes(filter-base-closed-height);
+      // height: getFilterSizes(filter-base-closed-height);
 
       .FiltersContainer,
       .Checkbox {
@@ -104,6 +113,16 @@
             height: getFilterSizes(arrow-icon-container-height);
           }
         }
+      }
+
+      .ApplyButton {
+        margin: 0 getFilterSizes(control-buttons-margin);
+      }
+
+      .SaveButton {
+        margin-right: getFilterSizes(control-buttons-margin) - calculateRem(10px);
+
+        background: none !important;
       }
     }
   }
