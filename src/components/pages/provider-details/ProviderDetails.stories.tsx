@@ -29,11 +29,10 @@ export const Default = () => {
         lastUpdatedBy: 'Last Updated By',
         lastUpdatedDate: 'Last Updated Date'
       }}
-      mainDetailsInfo={{
-        src: 'https://novomatic.com/sites/default/files/2017-05/Logo_N-Shortbrand.png',
-        label: 'Novomatic',
-        id: 'ID1234567'
-      }}
+      backgroundImgUrl='https://novomatic.com/sites/default/files/2017-05/Logo_N-Shortbrand.png'
+      providerId='ID1234567'
+      providerName='Novomatic'
+      onBackgroundImgClick={console.log}
       statusInfo={{
         label: '',
         statusLabel: 'Active',
@@ -196,6 +195,7 @@ export const Default = () => {
           onChange={console.log}
           onGameClick={console.log}
           onAddGameClick={console.log}
+          onGameDetailsClick={console.log}
           isAllGamesLoaded={false}
           isTabLoading={false}
           hasGames={true}

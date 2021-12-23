@@ -1,4 +1,4 @@
-import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
+import { ItemDetails, NameDescription, ProfileBlock, StatusView, StatusViewProps } from '@/components';
 import { Breadcrumb, BreadcrumbProps, Status, StatusProps } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
@@ -11,6 +11,11 @@ export interface PartnerDetailsProps {
   parentCompanyId: number | string;
 
   statusInfo: Omit<StatusViewProps, 'label'>;
+
+  backgroundImgUrl: string;
+  onBackgroundImgClick: () => void;
+  partnerId: number | string;
+  partnerName: string;
 
   translations: {
     parentCompany: string;
@@ -48,7 +53,11 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
   statusInfo,
   organizationDataMainInformationForms,
   organizationDataProviderInformation,
-  showProviderInformation = true
+  showProviderInformation = true,
+  backgroundImgUrl,
+  onBackgroundImgClick,
+  partnerId,
+  partnerName
 }) => {
   return (
     <div className={styles.PartnerDetailsBase}>
@@ -58,6 +67,13 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
       <div className={styles['PartnerDetailsBase--container']}>
         <div className={styles['PartnerDetailsBase--leftBlock']}>
           <div className={styles['PartnerDetailsBase__Sidebar']}>
+            <ProfileBlock
+              backgroundImgUrl={backgroundImgUrl}
+              itemId={partnerId}
+              itemName={partnerName}
+              onBackgroundImgClick={onBackgroundImgClick}
+            />
+
             <div className={styles['PartnerDetailsBase__Sidebar-Widget']}>
               <NameDescription
                 data={[

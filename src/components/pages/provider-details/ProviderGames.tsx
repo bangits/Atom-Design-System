@@ -32,6 +32,7 @@ export interface ProviderGamesProps {
 
   onChange(gameTypeId: number, search: string, page: number): void;
   onGameClick(gameId: number, isDemo: boolean): void;
+  onGameDetailsClick(gameId: number): void;
   onAddGameClick(): void;
 }
 
@@ -47,7 +48,8 @@ export const ProviderGames = ({
   isAllGamesLoaded,
   isTabLoading,
   hasGames,
-  shouldShowAddGameButton = true
+  shouldShowAddGameButton = true,
+  onGameDetailsClick
 }: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
   const latestSearchValue = useRef('');
@@ -176,7 +178,8 @@ export const ProviderGames = ({
                         <button
                           type='button'
                           role='button'
-                          className={classNames(styles['HoverBox-ViewIcon'], 'HoverBox-ViewIcon')}>
+                          className={classNames(styles['HoverBox-ViewIcon'], 'HoverBox-ViewIcon')}
+                          onClick={() => onGameDetailsClick(game.id)}>
                           <ViewCardImageIcon width={'100%'} />
                         </button>
 

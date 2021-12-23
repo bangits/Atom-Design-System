@@ -237,4 +237,5 @@ const UserDetails: FC<UserDetailsProps> = ({
     </>
   );
 };
+
 export default UserDetails;
