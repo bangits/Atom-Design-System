@@ -11,11 +11,11 @@ export default {
 export const Default = () => {
   return (
     <>
-      <BrowsersCheckbox browserIcon={<ChromeIcon />} />
-      <BrowsersCheckbox browserIcon={<EdgeIcon />} />
-      <BrowsersCheckbox browserIcon={<FirefoxIcon />} />
-      <BrowsersCheckbox browserIcon={<OperaIcon />} />
-      <BrowsersCheckbox browserIcon={<SafariIcon />} />
+      <BrowsersCheckbox browserIcon={<ChromeIcon width='3rem' />} />
+      <BrowsersCheckbox browserIcon={<EdgeIcon width='3rem' />} />
+      <BrowsersCheckbox browserIcon={<FirefoxIcon width='3rem' />} />
+      <BrowsersCheckbox browserIcon={<OperaIcon width='3rem' />} />
+      <BrowsersCheckbox browserIcon={<SafariIcon width='3rem' />} />
     </>
   );
 };
