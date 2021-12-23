@@ -11,6 +11,7 @@ export const Default = () => {
   return (
     <UserDetails
       createdBy={'11/11/1111'}
+      walletTabContent={<></>}
       creationDate={'2017-11/11'}
       breadCrumbs={[
         {
