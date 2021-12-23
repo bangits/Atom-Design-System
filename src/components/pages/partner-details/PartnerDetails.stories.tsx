@@ -1,8 +1,8 @@
 import { FlexibleForm } from '@/components';
+import { action } from '@storybook/addon-actions';
 import { number, object, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import PartnerDetails from './PartnerDetails';
-import classNames from 'classnames';
 export default {
   title: 'components/pages/Partner Details',
   component: PartnerDetails,
@@ -12,6 +12,10 @@ export default {
 export const Default = () => {
   return (
     <PartnerDetails
+      backgroundImgUrl={text('backgroundImgUrl', null)}
+      onBackgroundImgClick={action('onBackgroundImgClick')}
+      partnerId={text('partnerId', null)}
+      partnerName={text('partnerName', null)}
       breadCrumbs={object('breadCrumbProps', [])}
       parentCompany={text('parentCompany', null)}
       parentCompanyId={number('parentCompanyId', null)}

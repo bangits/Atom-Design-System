@@ -1,6 +1,12 @@
-import { DetailsMainInfoProps, ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
+import {
+  DetailsMainInfoProps,
+  ItemDetails,
+  NameDescription,
+  ProfileBlock,
+  StatusView,
+  StatusViewProps
+} from '@/components';
 import CountView from '@/components/organisms/count-view/CountView';
-import DetailsMainInfo from '@/components/organisms/details-main-info/DetailsMainInfo';
 import { Breadcrumb } from '@my-ui/core';
 import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
 import classNames from 'classnames';
@@ -9,7 +15,7 @@ import styles from './ProviderDetails.module.scss';
 
 export interface ProviderDetailsProps {
   noDataText?: string;
-  breadCrumb?: BreadcrumbProps['links'];
+  breadCrumb: BreadcrumbProps['links'];
 
   mainDetailsInfo?: DetailsMainInfoProps;
   statusInfo: StatusViewProps;
@@ -22,13 +28,22 @@ export interface ProviderDetailsProps {
     generalInformation: string;
     games: string;
     editButton: string;
+    lastUpdatedDate: string;
+    lastUpdatedBy: string;
   };
 
   totalGameCount: string;
   creationDate: string;
   createdBy: string;
+  providerName: string;
+  backgroundImgUrl: string;
+  providerId: number | string;
+  lastUpdatedDate: string;
+  lastUpdatedBy: string;
   generalInformationContext: ReactNode;
   gamesTabContent: ReactNode;
+
+  onBackgroundImgClick: () => void;
 }
 
 const ProviderDetails: FC<ProviderDetailsProps> = ({
@@ -41,14 +56,25 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
   creationDate,
   createdBy,
   generalInformationContext,
-  gamesTabContent
+  gamesTabContent,
+  onBackgroundImgClick,
+  providerName,
+  providerId,
+  backgroundImgUrl,
+  lastUpdatedBy,
+  lastUpdatedDate
 }) => {
   return (
     <div className={styles.ProviderDetailsBase}>
       <Breadcrumb links={breadCrumb} />
       <div className={styles['ProviderDetailsBase--container']}>
         <div className={styles['ProviderDetailsBase--leftBlock']}>
-          <DetailsMainInfo {...mainDetailsInfo} noDataText={noDataText} />
+          <ProfileBlock
+            backgroundImgUrl={backgroundImgUrl}
+            itemId={providerId}
+            itemName={providerName}
+            onBackgroundImgClick={onBackgroundImgClick}
+          />
 
           <CountView noDataText={noDataText} title={translations.totalGameCount} count={totalGameCount} />
 
@@ -66,6 +92,14 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
               {
                 name: translations.createdBy,
                 description: createdBy
+              },
+              {
+                name: translations.lastUpdatedDate,
+                description: lastUpdatedDate
+              },
+              {
+                name: translations.lastUpdatedBy,
+                description: lastUpdatedBy
               }
             ]}
           />

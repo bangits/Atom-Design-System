@@ -9,7 +9,7 @@ import styles from './UserDetails.module.scss';
 
 export interface UserDetailsProps {
   statusInfo: Omit<StatusViewProps, 'label'>;
-  breadCrumbs?: BreadcrumbProps['links'];
+  breadCrumbs: BreadcrumbProps['links'];
 
   lastLoginDate: string;
   lastLoginIp: string;
@@ -237,4 +237,5 @@ const UserDetails: FC<UserDetailsProps> = ({
     </>
   );
 };
+
 export default UserDetails;
