@@ -1,5 +1,7 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
 import { SettingsIcon } from '@/icons';
+import noImage from '@/icons/img/noImage.png';
+import gameImg from '@/icons/img/noImageGame.png';
 import {
   IconButton,
   Icons,
@@ -192,12 +194,12 @@ function DataTable<T extends {}, K>({
           }
         : column.variant === 'image'
         ? {
-            renderColumn: (_, value) => <img className={styles.ImageColumn} src={value} />
+            renderColumn: (_, value) => <img className={styles.ImageColumn} src={value || noImage} />
           }
         : column.variant === 'hovered-image'
         ? {
             renderColumn: (_, value) => {
-              return <img className={styles.ImageHoverColumn} src={value} />;
+              return <img className={styles.ImageHoverColumn} src={value || gameImg} />;
             }
           }
         : {})
