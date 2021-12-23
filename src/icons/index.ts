@@ -1,7 +1,7 @@
 export { ReactComponent as ApplyIcon } from './apply.react.svg';
 export { ReactComponent as IconButtonLeft } from './arrow-left.react.svg';
 export { ReactComponent as BalanceIcon } from './balance.react.svg';
-export { ReactComponent as UnBlockPopupIcon } from './block-popup.react.svg';
+export { ReactComponent as UnBlockPopupIcon } from './block.react.svg';
 export { ReactComponent as CheckPopupIcon } from './check-popup.react.svg';
 export { ReactComponent as ChromeIcon } from './chrome.react.svg';
 export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg';
@@ -31,7 +31,7 @@ export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as Safari2Icon } from './safari2.react.svg';
 export { ReactComponent as SettingsIcon } from './setting.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
-export { ReactComponent as BlockPopupIcon } from './unblock-popup.react.svg';
+export { ReactComponent as BlockPopupIcon } from './unblock.react.svg';
 export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
