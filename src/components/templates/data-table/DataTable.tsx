@@ -1,8 +1,7 @@
 import { Filters, FiltersProps, Table, TableProps } from '@/components';
 import { ButtonWithIcon, Divider } from '@/components/atoms';
 import { SettingsIcon } from '@/icons';
-import noImage from '@/img/noImage.png';
-import gameImg from '@/img/noImageGame.png';
+import { noImage, noImageGame } from '@/img';
 import {
   IconButton,
   Icons,
@@ -127,7 +126,6 @@ function DataTable<T extends {}, K>({
     initialPagination
   );
 
-
   const onDataChange = useCallback(
     (
       changedFilters?: K | null,
@@ -207,7 +205,7 @@ function DataTable<T extends {}, K>({
         : column.variant === 'hovered-image'
         ? {
             renderColumn: (_, value) => {
-              return <img className={styles.ImageHoverColumn} src={value || gameImg} />;
+              return <img className={styles.ImageHoverColumn} src={value || noImageGame} />;
             }
           }
         : {})
