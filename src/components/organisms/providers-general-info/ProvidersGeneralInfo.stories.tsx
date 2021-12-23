@@ -69,6 +69,9 @@ export const Default = () => {
           showEvent: 'click',
           text: 'Copied!',
           placement: 'top'
+        },
+        onClick: () => {
+          console.log('');
         }
       }}
       demoURL={{
@@ -78,6 +81,9 @@ export const Default = () => {
           showEvent: 'click',
           text: 'Copied!',
           placement: 'top'
+        },
+        onClick: () => {
+          console.log('');
         }
       }}
     />
