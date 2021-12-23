@@ -68,15 +68,14 @@
         top: 0;
         left: getDataTableSizes(data-table-image-hover-column-left);
         border-radius: getDataTableSizes(data-table-image-border-radius);
-        transition: 0.3s;
-        transition: transform 0.3s;
-        transition-delay: 0.7s;
+        transition: getDataTableSizes(data-table-image-animation);
+        transition: transform getDataTableSizes(data-table-image-animation);
+        transition-delay: getDataTableSizes(data-table-image-animation-delay);
         object-fit: cover;
         transform-origin: top left;
-
         &:hover {
-          transform: scale(3);
-          box-shadow: 0px 2px 10px #00000029;
+          transform: scale(getDataTableSizes(data-table-image-scale));
+          box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
         }
       }
     }

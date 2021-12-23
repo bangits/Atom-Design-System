@@ -34,11 +34,13 @@ export interface ProvidersGeneralInfoProps {
     title: string;
     URL: string;
     tooltip?: Omit<TooltipProps, 'children'>;
+    onClick: () => void;
   };
   demoURL: {
     title: string;
     URL: string;
     tooltip?: Omit<TooltipProps, 'children'>;
+    onClick: () => void;
   };
 }
 
@@ -112,7 +114,7 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
 
       <LabelGroup title={realURL.title}>
         {realURL.URL ? (
-          <CopyField label={realURL.URL} tooltip={realURL.tooltip} />
+          <CopyField label={realURL.URL} tooltip={realURL.tooltip} onClick={realURL.onClick} />
         ) : (
           <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
             {noDataText}
@@ -122,7 +124,7 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
 
       <LabelGroup title={demoURL.title}>
         {demoURL.URL ? (
-          <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} />
+          <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} onClick={demoURL.onClick} />
         ) : (
           <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
             {noDataText}
