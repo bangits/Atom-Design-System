@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 80 80">
+  <g id="Unblock" transform="translate(-2000 8351)">
+    <g id="Group_2585" data-name="Group 2585" transform="translate(17123.848 -874.325)">
+      <g id="Group_502" data-name="Group 502" transform="translate(-15123.848 -7476.675)">
+        <circle id="Ellipse_1" data-name="Ellipse 1" cx="40" cy="40" r="40" transform="translate(0 0)" fill="#d30000" opacity="0.1"/>
+      </g>
+    </g>
+    <g id="Group_24168" data-name="Group 24168" transform="translate(1688 -8545.059)">
+      <path id="Icon_ionic-ios-unlock" data-name="Icon ionic-ios-unlock" d="M36.067,17.872H16.383V13.04a6.658,6.658,0,0,1,2.094-4.832,7.279,7.279,0,0,1,10.051,0,6.658,6.658,0,0,1,2.094,4.832h0a1.467,1.467,0,0,0,2.932,0h0A9.9,9.9,0,0,0,23.366,3.375a9.936,9.936,0,0,0-9.915,9.8v4.7H10.938A4.122,4.122,0,0,0,6.75,21.9V41.228a4.122,4.122,0,0,0,4.188,4.027H36.067a4.122,4.122,0,0,0,4.188-4.027V21.9A4.122,4.122,0,0,0,36.067,17.872Zm-11.1,12.564v6.926a1.468,1.468,0,0,1-1.393,1.45A1.443,1.443,0,0,1,22.036,37.4V30.436a3.2,3.2,0,0,1-1.874-3.191,3.361,3.361,0,0,1,6.69.292A3.2,3.2,0,0,1,24.968,30.436Z" transform="translate(328.498 209.744)" fill="#d30000"/>
+      <rect id="Rectangle_11293" data-name="Rectangle 11293" width="36" height="36" transform="translate(334 219)" fill="none"/>
+    </g>
+  </g>
+</svg>
