@@ -36,7 +36,7 @@ const Balance: FC<BalanceProps> = ({
 
   return (
     <div className={styles.BalanceContainer}>
-      <BalanceIcon />
+      <BalanceIcon width='1.8rem' fill='currentColor' />
       <Typography variant='p4' component='span' className={styles.BalanceQuantity}>
         {transformedMoney || 0} {currency}
       </Typography>
