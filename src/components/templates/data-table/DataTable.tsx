@@ -117,6 +117,7 @@ function DataTable<T extends {}, K>({
     initialPagination
   );
 
+
   const onDataChange = useCallback(
     (
       changedFilters?: K | null,

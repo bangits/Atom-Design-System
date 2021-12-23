@@ -81,14 +81,10 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
                     name: translations.parentCompany,
                     description: parentCompany
                   },
-                  ...(showProviderInformation
-                    ? [
-                        {
-                          name: translations.parentCompanyId,
-                          description: parentCompanyId
-                        }
-                      ]
-                    : [])
+                  {
+                    name: translations.parentCompanyId,
+                    description: parentCompanyId
+                  }
                 ]}
                 noDataText={noDataText}
               />
@@ -138,11 +134,15 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
                       </div>
                     )
                   },
-                  {
-                    title: translations.providerInformation,
-                    value: 2,
-                    content: <>{organizationDataProviderInformation}</>
-                  }
+                  ...(showProviderInformation
+                    ? [
+                        {
+                          title: translations.providerInformation,
+                          value: 2,
+                          content: <>{organizationDataProviderInformation}</>
+                        }
+                      ]
+                    : [])
                 ]
               }
               /*  {
