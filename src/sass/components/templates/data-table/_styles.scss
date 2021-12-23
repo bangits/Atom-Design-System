@@ -18,9 +18,9 @@
   .DataTablePageWrapper {
     .TableHaveHoveredImage {
       tbody tr {
-        transition: 3s;
+        transition: getDataTableSizes(data-table-tbody-tr-animation);
         &:hover {
-          z-index: 500;
+          z-index: getDataTableSizes(data-table-tbody-tr-z-index);
         }
         img {
           &:hover {
@@ -59,19 +59,19 @@
         top: 0;
         left: getDataTableSizes(data-table-image-hover-column-left);
         border-radius: getDataTableSizes(data-table-image-border-radius);
-        transition: 0.3s;
-        transition: transform 0.3s;
-        transition-delay: 0.7s;
+        transition: getDataTableSizes(data-table-image-animation);
+        transition: transform getDataTableSizes(data-table-image-animation);
+        transition-delay: getDataTableSizes(data-table-image-animation-delay);
         object-fit: cover;
         transform-origin: top left;
         background-image: url('https://media.istockphoto.com/photos/the-croupier-holds-a-roulette-ball-in-a-casino-in-his-hand-picture-id1158005632?k=20&m=1158005632&s=612x612&w=0&h=DeeyqQewMX_Y3ZUnUoYEu7HriAXGVkf7WBOjCQjqrSc=');
-        background-size:100%;
+        background-size: 100%;
 
         //background-image and background-size:written for the test, must be removed
-      
+
         &:hover {
-          transform: scale(3);
-          box-shadow: 0px 2px 10px #00000029;
+          transform: scale(getDataTableSizes(data-table-image-scale));
+          box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
         }
       }
     }
