@@ -34,28 +34,6 @@
       .CardContent {
         background-color: getUserDetailsColors(card-background-color);
       }
-      .UserDetailsTableContent {
-        margin-top: getUserDetailsSizes(user-details-table-margin-top);
-        width: 100%;
-
-        .UserDetailsTable {
-          width: 100%;
-          box-shadow: none;
-          background-color: transparent;
-          border-radius: 0;
-        }
-        .SelectContent {
-          @include flex();
-
-          .CloseIcon {
-            margin: getUserDetailsSizes(select-content-svg-margin);
-          }
-        }
-
-        .AddButton {
-          margin-top: getUserDetailsSizes(user-details-button-margin-top);
-        }
-      }
     }
   }
 }
