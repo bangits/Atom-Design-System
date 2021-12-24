@@ -36,7 +36,7 @@ const ProfileBlock = ({
 
             <PhotoCamIcon
               onClick={!mainImgUrl ? undefined : onMainImgClick}
-              width='21'
+              width='2.1rem'
               className={classNames(styles['ProfileBlock__PhotoCamIcon'], 'ProfileBlock__PhotoCamIcon')}
             />
           </div>
@@ -56,7 +56,7 @@ const ProfileBlock = ({
             className={classNames(styles['ProfileBlock__CoverPhotoIconCell'], 'ProfileBlock__CoverPhotoIconCell')}
             onClick={!backgroundImgUrl ? undefined : onBackgroundImgClick}>
             <PhotoCamIcon
-              width='10'
+              width='1rem'
               className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
             />
           </div>
