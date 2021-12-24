@@ -1,4 +1,10 @@
 @mixin generate-data-table-styles {
+  // table {
+  //   section > div > div {
+  //     background-color: green !important;
+  //   }
+  // }
+
   table {
     section > div > div:nth-child(1) {
       svg {
