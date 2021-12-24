@@ -6,6 +6,7 @@
     display: block;
     width: getProfileBlockSizes(profile-block-width);
     height: initial;
+    width: 100%;
     margin: 0 auto;
     border-radius: getProfileBlockSizes(profile-block-border-radius);
     overflow: hidden;

@@ -1,7 +1,8 @@
 @mixin generate-name-description-styles {
   .NameDescriptionBase {
     position: relative;
-    width: getNameDescriptionSizes(base-width);
+    // width: getNameDescriptionSizes(base-width);
+    width: 100%;
     background-color: getNameDescriptionColors(base-bg);
     padding: getNameDescriptionSizes(base-padding);
     box-sizing: border-box;

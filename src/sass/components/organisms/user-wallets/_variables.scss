@@ -1,0 +1,16 @@
+$user-details-sizes: (
+  user-details-table-margin-top: calculateRem(27px),
+  user-details-button-margin-top: calculateRem(20px),
+  select-content-svg-margin: calculateRem(15px) 0 0 calculateRem(12px),
+  currencies-select-max-height: calculateRem(40px)
+);
+
+$user-details-colors: ();
+
+@function getUserDetailsSizes($key) {
+  @return map-get($user-details-sizes, $key);
+}
+
+@function getUserDetailsColors($key) {
+  @return map-get($user-details-colors, $key);
+}
