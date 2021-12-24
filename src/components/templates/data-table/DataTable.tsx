@@ -293,7 +293,7 @@ function DataTable<T extends {}, K>({
             isMulti
             dropdown
             dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
-            dropdownIcon={<SettingsIcon />}
+            dropdownIcon={<SettingsIcon width="1.7rem" />}
             clearButton
             clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
             selectAll
