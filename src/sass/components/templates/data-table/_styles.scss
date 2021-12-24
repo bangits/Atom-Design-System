@@ -47,6 +47,10 @@
     border-radius: getDataTableSizes(image-column);
     object-fit: cover;
   }
+  .ImageColumnCircle {
+    border-radius: getDataTableSizes(image-column-circle);
+    object-fit: cover;
+  }
 
   .DataTablePageWrapper {
     .TableHaveHoveredImage {
@@ -95,6 +99,22 @@
       }
 
       .ImageHoverColumn {
+        width: getDataTableSizes(data-table-image-hover-column-width);
+        height: getDataTableSizes(data-table-image-hover-column-height);
+        top: 0;
+        left: getDataTableSizes(data-table-image-hover-column-left);
+        border-radius: getDataTableSizes(data-table-image-border-radius);
+        transition: getDataTableSizes(data-table-image-animation);
+        transition: transform getDataTableSizes(data-table-image-animation);
+        transition-delay: getDataTableSizes(data-table-image-animation-delay);
+        object-fit: cover;
+        transform-origin: top left;
+        &:hover {
+          transform: scale(getDataTableSizes(data-table-image-scale));
+          box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
+        }
+      }
+      .ImageHoverColumnCircle {
         width: getDataTableSizes(data-table-image-hover-column-width);
         height: getDataTableSizes(data-table-image-hover-column-height);
         top: 0;
