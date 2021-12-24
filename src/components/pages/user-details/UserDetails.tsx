@@ -1,9 +1,8 @@
-import { Icons } from '@/atom-design-system';
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { NameAndId } from '@/components/molecules/name-and-id';
 import UserProjects from '@/components/organisms/user-projects/UserProjects';
-import { CloseIcon, UserMainIcon } from '@/icons';
-import { AvatarCard, Breadcrumb, BreadcrumbProps, Button, Card, Select, Table } from '@my-ui/core';
+import { UserMainIcon } from '@/icons';
+import { AvatarCard, Breadcrumb, BreadcrumbProps, Card } from '@my-ui/core';
 import React, { FC, ReactNode } from 'react';
 import styles from './UserDetails.module.scss';
 
@@ -34,7 +33,7 @@ export interface UserDetailsProps {
   };
 
   generalInformationContext: ReactNode;
-  walletTabContent: ReactNode;
+  userWalletsContent: ReactNode;
 }
 
 const UserDetails: FC<UserDetailsProps> = ({
@@ -50,7 +49,7 @@ const UserDetails: FC<UserDetailsProps> = ({
   translations,
   createdBy,
   generalInformationContext,
-  walletTabContent
+  userWalletsContent
 }) => {
   return (
     <>
@@ -60,7 +59,7 @@ const UserDetails: FC<UserDetailsProps> = ({
           <Card borderRadius={1.6} className={styles.CardName}>
             {userImgUrl ? (
               <AvatarCard avatarImg={userImgUrl} variant='default' imageSize='md' />
-            ) : ( 
+            ) : (
               <div className={styles['CardName--avatar']}>
                 <UserMainIcon />
               </div>
@@ -114,121 +113,7 @@ const UserDetails: FC<UserDetailsProps> = ({
               {
                 title: translations.wallet,
                 value: 2,
-                content: (
-                  <div className={styles.UserDetailsTableContent}>
-                    <Table
-                      columns={[
-                        {
-                          Header: 'currency',
-                          accessor: 'x',
-                          disableSortBy: true
-                        },
-                        {
-                          Header: 'balance',
-                          accessor: 'y',
-                          disableSortBy: true
-                        },
-                        {
-                          Header: 'account Id',
-                          accessor: 'z',
-                          disableSortBy: true
-                        },
-                        {
-                          Header: 'type',
-                          accessor: 'z',
-                          disableSortBy: true
-                        }
-                      ]}
-                      data={[
-                        {
-                          y: 'ID1234567',
-                          z: 'ID1234567',
-                          b: '20BurningHot',
-                          n: 'EGT',
-                          w: '12/07/2021, 12:00:00',
-                          e: 'Mobile Desktop',
-                          v: 'Mobile, Desktop',
-                          c: 'Slots'
-                        },
-                        {
-                          y: 'ID1234567',
-                          z: 'ID1234567',
-                          b: '20BurningHot',
-                          n: 'EGT',
-                          w: '12/07/2021, 12:00:00',
-                          e: 'Mobile Desktop',
-                          v: 'Mobile, Desktop',
-                          c: 'Slots'
-                        },
-                        {
-                          y: 'ID1234567',
-                          z: 'ID1234567',
-                          b: '20BurningHot',
-                          n: 'EGT',
-                          w: '12/07/2021, 12:00:00',
-                          e: 'Mobile Desktop',
-                          v: 'Mobile, Desktop',
-                          c: 'Slots'
-                        }
-                      ]}
-                      className={styles.UserDetailsTable}
-                    />
-                    <Button variant='link' startIcon={<Icons.PlusCircleLarge />} className={styles.AddButton}>
-                      Add Wallet
-                    </Button>
-                    <div className={styles.SelectContent}>
-                      <Select
-                        options={[
-                          {
-                            label: 'Game data',
-                            value: 7
-                          },
-                          {
-                            label: 'Provider',
-                            value: 8
-                          },
-                          {
-                            label: 'Theme',
-                            value: 9
-                          },
-                          {
-                            label: 'Type',
-                            value: 10
-                          },
-                          {
-                            label: 'Provider',
-                            value: 11
-                          },
-                          {
-                            label: 'Theme',
-                            value: 12
-                          },
-                          {
-                            label: 'Type',
-                            value: 13
-                          },
-                          {
-                            label: 'Subtype',
-                            value: 14
-                          },
-                          {
-                            label: 'Provider',
-                            value: 15
-                          },
-                          {
-                            label: 'Theme',
-                            value: 16
-                          },
-                          {
-                            label: 'Type',
-                            value: 17
-                          }
-                        ]}
-                      />
-                      <CloseIcon className={styles.CloseIcon} />
-                    </div>
-                  </div>
-                )
+                content: userWalletsContent
               },
               {
                 title: 'Projects',

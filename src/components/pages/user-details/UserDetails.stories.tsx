@@ -10,7 +10,7 @@ export default {
 export const Default = () => {
   return (
     <UserDetails
-      walletTabContent={<></>}
+      userWalletsContent={<></>}
       createdBy={'11/11/1111'}
       creationDate={'2017-11/11'}
       breadCrumbs={[
