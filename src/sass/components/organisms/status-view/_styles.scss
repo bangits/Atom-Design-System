@@ -29,8 +29,12 @@
 
     &--iconButton {
       button {
-        width: getStatusViewSizes(icon-button-sizes);
-        height: getStatusViewSizes(icon-button-sizes);
+        // width: getStatusViewSizes(icon-button-sizes);
+        // height: getStatusViewSizes(icon-button-sizes);
+        svg {
+          width: 1.7rem;
+          fill: currentColor;
+        }
       }
     }
   }
