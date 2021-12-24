@@ -34,6 +34,24 @@
 
     .FiltersDropdown {
       max-width: 8rem;
+
+      & > div > div {
+        span:first-child {
+          display: flex;
+          justify-content: flex-end !important;
+          align-items: center;
+          border-radius: none;
+          font-size: 0;
+        }
+
+        svg {
+          background: none;
+          transform: translate(0, 0);
+          width: 1.6rem;
+          fill: currentColor;
+          border-radius: none;
+        }
+      }
     }
 
     .FiltersDropdownIcon {
