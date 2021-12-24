@@ -88,12 +88,14 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
           {
             label: translations.portrait,
             disabled: !platform.includes(platformCheckboxesValues.mobile),
-            value: mobileCheckboxesValues.portrait
+            value: mobileCheckboxesValues.portrait,
+            name: 'portrait',
           },
           {
             label: translations.landscape,
             value: mobileCheckboxesValues.landscape,
-            disabled: !platform.includes(platformCheckboxesValues.mobile)
+            disabled: !platform.includes(platformCheckboxesValues.mobile),
+            name: 'landscape',
           }
         ]}
       />
@@ -107,12 +109,14 @@ const CompatibilityCheckboxesGroup: FC<CompatibilityCheckboxesGroupProps> = ({
           {
             label: translations.portrait,
             value: tabletCheckboxesValues.portrait,
-            disabled: !platform.includes(platformCheckboxesValues.tablet)
+            disabled: !platform.includes(platformCheckboxesValues.tablet),
+            name: 'port',
           },
           {
             label: translations.landscape,
             value: mobileCheckboxesValues.landscape,
-            disabled: !platform.includes(platformCheckboxesValues.tablet)
+            disabled: !platform.includes(platformCheckboxesValues.tablet),
+            name: 'land',
           }
         ]}
       />
