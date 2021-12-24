@@ -39,15 +39,15 @@ $game-launcher-sizes: (
   screen-cover-width: 100%,
   screen-cover-height: 100%,
   //
-  game-launcher-icons-width: 24px,
-  game-launcher-icons-height: 24px,
+  game-launcher-icons-width: calculateRem(24px),
+  game-launcher-icons-height: calculateRem(24px),
   game-launcher-icons-transform: scale(1),
   game-launcher-icons-transition: transform 0.12s ease,
   //
-  game-launcher-icons--close-width: 24px,
-  game-launcher-icons--close-height: 24px,
+  game-launcher-icons--close-width: calculateRem(24px),
+  game-launcher-icons--close-height: calculateRem(24px),
   //
-  icon-space-margin-left: 35px
+  icon-space-margin-left: calculateRem(35px)
 );
 
 $game-launcher-colors: (

@@ -25,7 +25,7 @@
   }
 
   .ButtonIconWrapper {
-    @include flex;
+    @include flex(null, center);
 
     margin-right: getButtonWithIconSizes(button-icon-margin);
 

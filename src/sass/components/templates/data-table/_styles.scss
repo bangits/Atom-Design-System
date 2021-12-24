@@ -1,36 +1,4 @@
 @mixin generate-data-table-styles {
-  // table {
-  //   section > div > div {
-  //     background-color: green !important;
-  //   }
-  // }
-
-  table {
-    section > div > div:nth-child(1) {
-      svg {
-        width: 2rem;
-      }
-    }
-
-    section > div > div:nth-child(2) {
-      svg {
-        width: 2rem;
-      }
-    }
-
-    section > div > div:nth-child(3) {
-      svg {
-        width: 2rem;
-      }
-    }
-
-    section > div > div:last-child {
-      svg {
-        width: 1.4rem;
-      }
-    }
-  }
-
   .TableConfigSelect {
     max-width: getDataTableSizes(table-config-select);
   }

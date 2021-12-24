@@ -45,11 +45,13 @@
         }
 
         svg {
-          background: none;
           transform: translate(0, 0);
-          width: 1.6rem;
+          width: 2.5rem;
+          height: 2.5rem;
+          padding: 0.5rem;
           fill: currentColor;
           border-radius: none;
+          box-sizing: border-box;
         }
       }
     }
@@ -138,7 +140,7 @@
       }
 
       .SaveButton {
-        margin-right: getFilterSizes(control-buttons-margin) - calculateRem(10px);
+        margin-right: getFilterSizes(control-buttons-margin);
 
         background: none !important;
       }

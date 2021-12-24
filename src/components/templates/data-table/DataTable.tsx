@@ -293,7 +293,7 @@ function DataTable<T extends {}, K>({
             isMulti
             dropdown
             dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
-            dropdownIcon={<SettingsIcon width="1.7rem" />}
+            dropdownIcon={<SettingsIcon width="1.8rem" height="1.8rem" />}
             clearButton
             clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
             selectAll
@@ -323,7 +323,12 @@ function DataTable<T extends {}, K>({
 
                 if (onRefreshButtonClick) onRefreshButtonClick(event);
               }}
-              className={styles.RefreshButton}>
+              className={styles.RefreshButton}
+              iconProps={{
+                width: "1.8rem",
+                height: "1.8rem"
+              }}
+              >
               {refreshLabel}
             </ButtonWithIcon>
           </Divider>
