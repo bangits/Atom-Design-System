@@ -32,7 +32,7 @@
         // width: getStatusViewSizes(icon-button-sizes);
         // height: getStatusViewSizes(icon-button-sizes);
         svg {
-          width: 1.7rem;
+          width: getStatusViewSizes(icon-button-icon-sizes);
           fill: currentColor;
         }
       }
