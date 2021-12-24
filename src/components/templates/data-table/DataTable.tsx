@@ -63,6 +63,10 @@ export interface DataTableProps<T extends {}, K> {
       tooltipText?: string;
     }[];
   };
+
+  onTableConfigChange?: (columns: SelectProps<any, boolean, any>['options'], selectedColumns: string[]) => void;
+  columnsConfigDefaultValue?: string[];
+
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
 }
@@ -81,7 +85,9 @@ function DataTable<T extends {}, K>({
   rowCount,
   refreshLabel = 'Refresh',
   onRefreshButtonClick,
-  actionsButtonDisabledTime = 2
+  actionsButtonDisabledTime = 2,
+  onTableConfigChange,
+  columnsConfigDefaultValue: columnsConfigDefaultValueProp
 }: DataTableProps<T, K>) {
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
@@ -99,7 +105,10 @@ function DataTable<T extends {}, K>({
     []
   );
 
-  const columnsConfigDefaultValue = useMemo(() => dropdownOptions.map((value) => value.value), [dropdownOptions]);
+  const columnsConfigDefaultValue = useMemo(
+    () => columnsConfigDefaultValueProp || dropdownOptions.map((value) => value.value),
+    [dropdownOptions, columnsConfigDefaultValueProp]
+  );
   const [dropdownValues, setDropdownValues] = useState<string[]>(columnsConfigDefaultValue);
 
   const configColumns = useMemo(
@@ -271,7 +280,6 @@ function DataTable<T extends {}, K>({
       {isShowedFilter && (
         <Filters
           {...filterProps}
-          actionsButtonDisabledTime={actionsButtonDisabledTime}
           selectProps={filtersDropdownProps}
           className={classNames(styles.Filters, filterProps.className)}
           onSubmit={onFiltersChange}
@@ -296,6 +304,8 @@ function DataTable<T extends {}, K>({
             value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
             onChange={(values) => {
               setDropdownValues(values);
+
+              if (onTableConfigChange) onTableConfigChange(dropdownOptions, values);
             }}
             className={styles.TableConfigSelect}
           />

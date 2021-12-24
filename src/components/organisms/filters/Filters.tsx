@@ -11,6 +11,7 @@ import { FilterProp, FiltersProps } from './FilterTypes';
 
 export function Filters<T>({
   filters,
+  onFiltersViewChange,
   selectProps,
   checkboxFilters,
   clearLabel,
@@ -22,8 +23,9 @@ export function Filters<T>({
   onSubmit,
   onClear,
   onSaveClick,
-  actionsButtonDisabledTime = 2,
-  className
+  className,
+  defaultFilters,
+  showedFilters: showedFiltersProp
 }: FiltersProps<T>) {
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
@@ -33,9 +35,9 @@ export function Filters<T>({
   );
 
   const [isOpenedFilterCollapse, setIsOpenedFilterCollapse] = useState(defaultOpened);
-  const [showedFilters, setShowedFilters] = useState<FilterProp<T>[]>(filters);
+  const [showedFilters, setShowedFilters] = useState<FilterProp<T>[]>(showedFiltersProp || filters);
 
-  const [isDisabledSaveButton, setDisabledSaveButton] = useState(false);
+  const [isDisabledSaveButton, setDisabledSaveButton] = useState(true);
 
   const [showedCheckboxFilters, setShowedCheckboxFilters] = useState<typeof checkboxFilters>(checkboxFilters);
 
@@ -50,12 +52,20 @@ export function Filters<T>({
 
   const onFiltersConfigChange = useCallback(
     (selectedFilters) => {
-      setShowedFilters([...selectedFilters.map((filter) => filters.find((f) => f?.name === filter)).filter((f) => f)]);
+      setDisabledSaveButton(false);
+
+      const updatedFilters = [
+        ...selectedFilters.map((filter) => filters.find((f) => f?.name === filter)).filter((f) => f)
+      ];
+
+      if (onFiltersViewChange) onFiltersViewChange(updatedFilters);
+
+      setShowedFilters(updatedFilters);
       setShowedCheckboxFilters([
         ...selectedFilters.map((filter) => checkboxFilters.find((f) => f?.name === filter)).filter((f) => f)
       ]);
     },
-    [filters, checkboxFilters]
+    [filters, checkboxFilters, onFiltersViewChange]
   );
 
   const filtersConfigOptions = useMemo(
@@ -68,8 +78,8 @@ export function Filters<T>({
   );
 
   const filtersConfigDefaultValue = useMemo(
-    () => filtersConfigOptions.map((value) => value.value),
-    [filtersConfigOptions]
+    () => defaultFilters || filtersConfigOptions.map((value) => value.value),
+    [filtersConfigOptions, defaultFilters]
   );
 
   const onClearClick = useCallback(() => {
@@ -82,7 +92,15 @@ export function Filters<T>({
 
   const onDragChange = useCallback(
     ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
-      setShowedFilters((prevFilters) => [...arrayMoveMutable(prevFilters, oldIndex, newIndex)]);
+      setDisabledSaveButton(false);
+
+      setShowedFilters((prevFilters) => {
+        const updatedFilters = [...arrayMoveMutable(prevFilters, oldIndex, newIndex)];
+
+        if (onFiltersViewChange) onFiltersViewChange(updatedFilters);
+
+        return updatedFilters;
+      });
     },
     [setShowedFilters]
   );
@@ -141,7 +159,7 @@ export function Filters<T>({
     []
   );
 
-  useEffect(() => setShowedFilters(filters), [filters]);
+  useEffect(() => setShowedFilters(showedFiltersProp || filters), [filters]);
   useEffect(() => setShowedCheckboxFilters(checkboxFilters), [checkboxFilters]);
 
   return (
@@ -203,13 +221,9 @@ export function Filters<T>({
               <Button
                 variant='link'
                 onClick={(event) => {
-                  if (actionsButtonDisabledTime) {
-                    setDisabledSaveButton(true);
+                  setDisabledSaveButton(true);
 
-                    setTimeout(() => setDisabledSaveButton(false), actionsButtonDisabledTime * 1000);
-                  }
-
-                  if (onSaveClick) onSaveClick(event);
+                  if (onSaveClick) onSaveClick(filters, showedFilters, event);
                 }}
                 disabled={isDisabledSaveButton}
                 className={styles.SaveButton}>

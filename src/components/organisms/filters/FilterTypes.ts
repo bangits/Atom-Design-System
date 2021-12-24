@@ -74,6 +74,7 @@ export type FilterProp<T> = {
 export interface FiltersProps<T> {
   selectProps?: SelectProps<any, boolean, any>;
   filters: FilterProp<T>[];
+  onFiltersViewChange?: (updatedFilters: FilterProp<T>[]) => void;
   checkboxFilters?: CheckboxFilter[];
   clearLabel?: string;
   applyLabel?: string;
@@ -82,8 +83,13 @@ export interface FiltersProps<T> {
   defaultOpened?: boolean;
   initialValues: T;
   onSubmit: (state: T) => void;
-  onSaveClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  onSaveClick?: (
+    filters: FilterProp<T>[],
+    showedFilters: FilterProp<T>[],
+    e: React.MouseEvent<HTMLButtonElement, MouseEvent>
+  ) => void;
   onClear?: (state: T) => void;
   className?: string;
-  actionsButtonDisabledTime?: number;
+  defaultFilters?: string[];
+  showedFilters?: FilterProp<T>[];
 }
