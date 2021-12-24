@@ -53,7 +53,7 @@ export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick 
               'GameLauncherIcons',
               'GameLauncherIcons--Wide'
             )}>
-            <FullScreenIcon width='20' />
+            <FullScreenIcon width='2rem' />
           </span>
           <span
             onClick={onCloseButtonClick}
@@ -65,7 +65,7 @@ export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick 
               'GameLauncherIcons',
               'GameLauncherIcons--Close'
             )}>
-            <CloseWidePopUp width='10' />
+            <CloseWidePopUp width='1rem' />
           </span>
         </div>
       </div>

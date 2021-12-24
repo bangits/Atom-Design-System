@@ -1,30 +1,4 @@
 @mixin generate-data-table-styles {
-  table {
-    section > div > div:nth-child(2) {
-      svg {
-        width: 2rem;
-      }
-    }
-
-    section > div > div:nth-child(3) {
-      svg {
-        width: 2rem;
-      }
-    }
-
-    section > div > div:last-child {
-      svg {
-        width: 1.4rem;
-      }
-    }
-
-    section > div > div:nth-child(1) {
-      svg {
-        width: 2rem;
-      }
-    }
-  }
-
   .TableConfigSelect {
     max-width: getDataTableSizes(table-config-select);
   }
@@ -39,6 +13,10 @@
 
   .ImageColumn {
     border-radius: getDataTableSizes(image-column);
+    object-fit: cover;
+  }
+  .ImageColumnCircle {
+    border-radius: getDataTableSizes(image-column-circle);
     object-fit: cover;
   }
 
@@ -93,6 +71,22 @@
       }
 
       .ImageHoverColumn {
+        width: getDataTableSizes(data-table-image-hover-column-width);
+        height: getDataTableSizes(data-table-image-hover-column-height);
+        top: 0;
+        left: getDataTableSizes(data-table-image-hover-column-left);
+        border-radius: getDataTableSizes(data-table-image-border-radius);
+        transition: getDataTableSizes(data-table-image-animation);
+        transition: transform getDataTableSizes(data-table-image-animation);
+        transition-delay: getDataTableSizes(data-table-image-animation-delay);
+        object-fit: cover;
+        transform-origin: top left;
+        &:hover {
+          transform: scale(getDataTableSizes(data-table-image-scale));
+          box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
+        }
+      }
+      .ImageHoverColumnCircle {
         width: getDataTableSizes(data-table-image-hover-column-width);
         height: getDataTableSizes(data-table-image-hover-column-height);
         top: 0;

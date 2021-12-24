@@ -1504,10 +1504,31 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+<<<<<<< HEAD
 "@my-ui/core@^2.28.19":
   version "2.28.19"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.19.tgz#67935fb487a56d83f254c6ae5939011b5a7abcce"
   integrity sha1-Z5NftIelbYPyVMauWTkBG1p6vM4=
+=======
+<<<<<<< HEAD
+"@my-ui/core@^2.28.38":
+  version "2.28.38"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.38.tgz#4b204eb2610d5e46496b845aba79fdf5383e6019"
+  integrity sha1-SyBOsmENXkZJa4Raunn99Tg+YBk=
+=======
+<<<<<<< HEAD
+"@my-ui/core@^2.28.17":
+  version "2.28.17"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.17.tgz#39d7885693368c5a1741387209573ec343eb5a73"
+  integrity sha1-OdeIVpM2jFoXQThyCVc+w0PrWnM=
+=======
+"@my-ui/core@^2.28.15":
+  version "2.28.15"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.15.tgz#47e04f6f46c628ca33ec48e11b169bc3c21f2dc2"
+  integrity sha1-R+BPb0bGKMoz7EjhGxabw8IfLcI=
+>>>>>>> f9f46626fb74618c08694c9802658a8d1c0c8520
+>>>>>>> 1743a24eb23ac955741b69130ec36351e2bba9fc
+>>>>>>> fd4fde21288d07b66ab90c9822718eae9b6ff789
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
@@ -2807,9 +2828,9 @@
     "@types/babel__traverse" "*"
 
 "@types/babel__generator@*":
-  version "7.6.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/babel__generator/-/babel__generator-7.6.3.tgz#f456b4b2ce79137f768aa130d2423d2f0ccfaba5"
-  integrity sha1-9Fa0ss55E392iqEw0kI9LwzPq6U=
+  version "7.6.4"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/babel__generator/-/babel__generator-7.6.4.tgz#1f20ce4c5b1990b37900b63f050182d28c2439b7"
+  integrity sha1-HyDOTFsZkLN5ALY/BQGC0owkObc=
   dependencies:
     "@babel/types" "^7.0.0"
 
@@ -2837,9 +2858,9 @@
     "@types/node" "*"
 
 "@types/bonjour@^3.5.9":
-  version "3.5.9"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/bonjour/-/bonjour-3.5.9.tgz#3cc4e5135dbb5940fc6051604809234612f89cb4"
-  integrity sha1-PMTlE127WUD8YFFgSAkjRhL4nLQ=
+  version "3.5.10"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/bonjour/-/bonjour-3.5.10.tgz#0f6aadfe00ea414edc86f5d106357cda9701e275"
+  integrity sha1-D2qt/gDqQU7chvXRBjV82pcB4nU=
   dependencies:
     "@types/node" "*"
 
@@ -2897,9 +2918,9 @@
   integrity sha1-Hgyqk2TT/M0pMcPtlv2+ql1MyoM=
 
 "@types/express-serve-static-core@*", "@types/express-serve-static-core@^4.17.18":
-  version "4.17.26"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/express-serve-static-core/-/express-serve-static-core-4.17.26.tgz#5d9a8eeecb9d5f9d7fc1d85f541512a84638ae88"
-  integrity sha1-XZqO7sudX51/wdhfVBUSqEY4rog=
+  version "4.17.27"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/express-serve-static-core/-/express-serve-static-core-4.17.27.tgz#7a776191e47295d2a05962ecbb3a4ce97e38b401"
+  integrity sha1-endhkeRyldKgWWLsuzpM6X44tAE=
   dependencies:
     "@types/node" "*"
     "@types/qs" "*"
@@ -2968,9 +2989,9 @@
   integrity sha1-LQJOrOlQyDbZ4zNaZrl5YK5B0CI=
 
 "@types/istanbul-lib-coverage@*", "@types/istanbul-lib-coverage@^2.0.0", "@types/istanbul-lib-coverage@^2.0.1":
-  version "2.0.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.3.tgz#4ba8ddb720221f432e443bd5f9117fd22cfd4762"
-  integrity sha1-S6jdtyAiH0MuRDvV+RF/0iz9R2I=
+  version "2.0.4"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/istanbul-lib-coverage/-/istanbul-lib-coverage-2.0.4.tgz#8467d4b3c087805d63580480890791277ce35c44"
+  integrity sha1-hGfUs8CHgF1jWASAiQeRJ3zjXEQ=
 
 "@types/istanbul-lib-report@*":
   version "3.0.0"
@@ -3037,9 +3058,9 @@
     form-data "^3.0.0"
 
 "@types/node@*":
-  version "17.0.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/node/-/node-17.0.3.tgz#4b086e316ed4504f49bd78135d48642bf50aa135"
-  integrity sha1-SwhuMW7UUE9JvXgTXUhkK/UKoTU=
+  version "17.0.4"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/node/-/node-17.0.4.tgz#fec0ce0526abb6062fd206d72a642811b887a111"
+  integrity sha1-/sDOBSartgYv0gbXKmQoEbiHoRE=
 
 "@types/node@8.0.0":
   version "8.0.0"
@@ -3057,9 +3078,9 @@
   integrity sha1-0zV0eaD9/dWQf+Z+F+CoXJBuEwE=
 
 "@types/npmlog@^4.1.2":
-  version "4.1.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/npmlog/-/npmlog-4.1.3.tgz#9c24b49a97e25cf15a890ff404764080d7942132"
-  integrity sha1-nCS0mpfiXPFaiQ/0BHZAgNeUITI=
+  version "4.1.4"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/npmlog/-/npmlog-4.1.4.tgz#30eb872153c7ead3e8688c476054ddca004115f6"
+  integrity sha1-MOuHIVPH6tPoaIxHYFTdygBBFfY=
 
 "@types/overlayscrollbars@^1.12.0":
   version "1.12.1"
@@ -3123,9 +3144,9 @@
     "@types/react" "*"
 
 "@types/react@*", "@types/react@^17.0.27":
-  version "17.0.37"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/react/-/react-17.0.37.tgz#6884d0aa402605935c397ae689deed115caad959"
-  integrity sha1-aITQqkAmBZNcOXrmid7tEVyq2Vk=
+  version "17.0.38"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@types/react/-/react-17.0.38.tgz#f24249fefd89357d5fa71f739a686b8d7c7202bd"
+  integrity sha1-8kJJ/v2JNX1fpx9zmmhrjXxyAr0=
   dependencies:
     "@types/prop-types" "*"
     "@types/scheduler" "*"
@@ -5297,17 +5318,17 @@ copy-webpack-plugin@^9.0.1:
     serialize-javascript "^6.0.0"
 
 core-js-compat@^3.18.0, core-js-compat@^3.19.1, core-js-compat@^3.8.1:
-  version "3.20.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/core-js-compat/-/core-js-compat-3.20.0.tgz#fd704640c5a213816b6d10ec0192756111e2c9d1"
-  integrity sha1-/XBGQMWiE4FrbRDsAZJ1YRHiydE=
+  version "3.20.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/core-js-compat/-/core-js-compat-3.20.1.tgz#96917b4db634fbbbc7b36575b2e8fcbf7e4f9691"
+  integrity sha1-lpF7TbY0+7vHs2V1suj8v35PlpE=
   dependencies:
     browserslist "^4.19.1"
     semver "7.0.0"
 
 core-js-pure@^3.19.0, core-js-pure@^3.8.1, core-js-pure@^3.8.2:
-  version "3.20.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/core-js-pure/-/core-js-pure-3.20.0.tgz#7253feccf8bb05b72c153ddccdbe391ddbffbe03"
-  integrity sha1-clP+zPi7BbcsFT3czb45Hdv/vgM=
+  version "3.20.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/core-js-pure/-/core-js-pure-3.20.1.tgz#f7a2c62f98de83e4da8fca7b78846d3a2f542145"
+  integrity sha1-96LGL5jeg+Taj8p7eIRtOi9UIUU=
 
 core-js@^2.4.0:
   version "2.6.12"
@@ -5315,9 +5336,9 @@ core-js@^2.4.0:
   integrity sha1-2TM9+nsGXjR8xWgiGdb2kIWcwuw=
 
 core-js@^3.0.4, core-js@^3.6.4, core-js@^3.6.5, core-js@^3.8.2:
-  version "3.20.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/core-js/-/core-js-3.20.0.tgz#1c5ac07986b8d15473ab192e45a2e115a4a95b79"
-  integrity sha1-HFrAeYa40VRzqxkuRaLhFaSpW3k=
+  version "3.20.1"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/core-js/-/core-js-3.20.1.tgz#eb1598047b7813572f1dc24b7c6a95528c99eef3"
+  integrity sha1-6xWYBHt4E1cvHcJLfGqVUoyZ7vM=
 
 core-util-is@1.0.2:
   version "1.0.2"
@@ -6082,9 +6103,9 @@ ee-first@1.1.1:
   integrity sha1-WQxhFWsK4vTwJVcyoViyZrxWsh0=
 
 electron-to-chromium@^1.3.564, electron-to-chromium@^1.4.17:
-  version "1.4.27"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.27.tgz#bfc6e798d8a56a17d658312f4b7ae1a7ca87724f"
-  integrity sha1-v8bnmNilahfWWDEvS3rhp8qHck8=
+  version "1.4.28"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/electron-to-chromium/-/electron-to-chromium-1.4.28.tgz#fef0e92e281df6d568f482d8d53c34ca5374de48"
+  integrity sha1-/vDpLigd9tVo9ILY1Tw0ylN03kg=
 
 element-resize-detector@^1.2.2:
   version "1.2.4"
@@ -8720,9 +8741,9 @@ istanbul-lib-report@^3.0.0:
     supports-color "^7.1.0"
 
 istanbul-reports@^3.0.2:
-  version "3.1.1"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/istanbul-reports/-/istanbul-reports-3.1.1.tgz#7085857f17d2441053c6ce5c3b8fdf6882289397"
-  integrity sha1-cIWFfxfSRBBTxs5cO4/faIIok5c=
+  version "3.1.2"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/istanbul-reports/-/istanbul-reports-3.1.2.tgz#b80e13cbab0120e1c367ebaa099862361aed5ead"
+  integrity sha1-uA4Ty6sBIOHDZ+uqCZhiNhrtXq0=
   dependencies:
     html-escaper "^2.0.0"
     istanbul-lib-report "^3.0.0"
@@ -13420,10 +13441,10 @@ ts-dedent@^2.0.0:
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/ts-dedent/-/ts-dedent-2.2.0.tgz#39e4bd297cd036292ae2394eb3412be63f563bb5"
   integrity sha1-OeS9KXzQNikq4jlOs0Er5j9WO7U=
 
-ts-essentials@^2.0.3:
-  version "2.0.12"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/ts-essentials/-/ts-essentials-2.0.12.tgz#c9303f3d74f75fa7528c3d49b80e089ab09d8745"
-  integrity sha1-yTA/PXT3X6dSjD1JuA4ImrCdh0U=
+ts-essentials@^9.1.0:
+  version "9.1.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/ts-essentials/-/ts-essentials-9.1.0.tgz#0aa567b6b55d3f72afd7a331f3071aa102c58c38"
+  integrity sha1-CqVntrVdP3Kv16Mx8wcaoQLFjDg=
 
 ts-loader-decleration@^0.10.4:
   version "0.10.4"
@@ -13821,11 +13842,11 @@ url@^0.11.0:
     querystring "0.2.0"
 
 use-composed-ref@^1.0.0:
-  version "1.1.0"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/use-composed-ref/-/use-composed-ref-1.1.0.tgz#9220e4e94a97b7b02d7d27eaeab0b37034438bbc"
-  integrity sha1-kiDk6UqXt7AtfSfq6rCzcDRDi7w=
+  version "1.2.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/use-composed-ref/-/use-composed-ref-1.2.0.tgz#b7dd984d92a3fbdab1856e819189831a20e08f32"
+  integrity sha1-t92YTZKj+9qxhW6BkYmDGiDgjzI=
   dependencies:
-    ts-essentials "^2.0.3"
+    ts-essentials "^9.1.0"
 
 use-isomorphic-layout-effect@^1.0.0:
   version "1.1.1"

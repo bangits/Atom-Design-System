@@ -1,7 +1,8 @@
 $data-table-sizes: (
   filters-margin-bottom: calculateRem(32px),
   table-config-select: calculateRem(100px),
-  image-column: 50%,
+  image-column: 4px,
+  image-column-circle: 50%,
   //
   empty-table-min-height: calculateRem(450px),
   data-table-single-item-min-height: calculateRem(190px),
