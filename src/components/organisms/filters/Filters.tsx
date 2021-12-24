@@ -27,6 +27,8 @@ export function Filters<T>({
   defaultFilters,
   showedFilters: showedFiltersProp
 }: FiltersProps<T>) {
+  const firstInitialValues = useMemo(() => initialValues, []);
+
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
   >(
@@ -89,6 +91,7 @@ export function Filters<T>({
 
     onClear(filterValues);
   }, [isOpenedFilterCollapse]);
+
 
   const onDragChange = useCallback(
     ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
