@@ -353,7 +353,6 @@ function DataTable<T extends {}, K>({
         })}
         onSelectedColumnsChange={(columns) => {
           setSelectedRows(columns.map((c) => c.original));
-
           if (tableProps.onSelectedColumnsChange) tableProps.onSelectedColumnsChange(columns);
         }}
         actions={actions}
