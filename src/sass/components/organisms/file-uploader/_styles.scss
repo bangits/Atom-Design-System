@@ -10,7 +10,11 @@
     color: getLabelColors(label-color);
     opacity: getLabelSizes(label-optional-opacity);
     transition: opacity getLabelSizes(file-uploader-tolltip-icon-transition);
-
+    svg {
+      width: getFileUploaderSizes(file-uploader-tolltip-icon-width) !important;
+      fill: currentColor !important;
+      transform: translate(-10px, 0) !important;
+    }
     &:hover {
       opacity: getLabelSizes(file-uploader-tolltip-icon-opacity);
     }

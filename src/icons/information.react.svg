@@ -1,4 +1,1 @@
-<svg id="Icon_ionic-ios-information-circle-outline" data-name="Icon ionic-ios-information-circle-outline" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 14 14">
-  <path id="Path_43291" data-name="Path 43291" d="M16.552,11.506a.826.826,0,1,1,.821.8A.8.8,0,0,1,16.552,11.506Zm.056,1.43h1.53v5.773h-1.53Z" transform="translate(-10.377 -7.708)" fill="currentColor"/>
-  <path id="Path_43292" data-name="Path 43292" d="M10.375,4.317A6.055,6.055,0,1,1,6.091,6.091a6.018,6.018,0,0,1,4.284-1.774m0-.942a7,7,0,1,0,7,7,7,7,0,0,0-7-7Z" transform="translate(-3.375 -3.375)" fill="currentColor"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" style="enable-background:new 0 0 14 14" xml:space="preserve"><path d="M6.2 3.8c0-.5.3-.8.8-.9.5 0 .8.3.9.8s-.4.9-.9.9c-.4 0-.8-.3-.8-.8zm0 1.4h1.5V11H6.2V5.2z"/><path d="M7 .9c3.3 0 6.1 2.7 6.1 6.1 0 3.3-2.7 6.1-6.1 6.1C3.7 13.1.9 10.4.9 7c0-1.6.6-3.1 1.8-4.3C3.8 1.6 5.4.9 7 .9M7 0C3.1 0 0 3.1 0 7s3.1 7 7 7 7-3.1 7-7-3.1-7-7-7z"/></svg>

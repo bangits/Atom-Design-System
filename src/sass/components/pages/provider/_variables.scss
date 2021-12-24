@@ -23,7 +23,9 @@ $provider-in-sizes: (
   provider-back-button-border: 1px,
   provider-back-button-padding: calculateRem(7px),
   provider-button-group-margin-top: auto,
-  provider-back-button-border-radius: 100%
+  provider-back-button-border-radius: 100%,
+  //
+  provider-button-group-width: calculateRem(1.5px)
 );
 
 $provider-in-colors: (

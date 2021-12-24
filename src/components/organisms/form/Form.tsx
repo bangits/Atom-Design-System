@@ -52,7 +52,7 @@ const Form: FC<FormProps> = ({
           <div className={styles.ProviderButtonGroup}>
             {showBackButton && (
               <button type='button' className={styles.ProviderBackButton} onClick={onBackButtonClick}>
-                <svg xmlns='http://www.w3.org/2000/svg' width='10.11' height='10.11' viewBox='0 0 11.207 11.414'>
+                {/* <svg xmlns='http://www.w3.org/2000/svg' width='10.11' height='10.11' viewBox='0 0 11.207 11.414'>
                   <path
                     id='Path_2014'
                     data-name='Path 2014'
@@ -64,6 +64,10 @@ const Form: FC<FormProps> = ({
                     stroke-linejoin='round'
                     stroke-width='1'
                   />
+                </svg> */}
+
+                <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8.1 8.1' fill='#8EA6C1'>
+                  <path d='M4 8.1s-.1 0-.2-.1L.1 4.3 0 4.2V4s0-.1.1-.1L3.8.2c.1-.2.4-.2.5-.1s.1.4 0 .5l-3 3.1h6.5c.2 0 .4.2.4.4s-.3.3-.5.3H1.3l3.1 3.1c.1.1.1.4 0 .5-.2.1-.3.1-.4.1z' />
                 </svg>
               </button>
             )}
