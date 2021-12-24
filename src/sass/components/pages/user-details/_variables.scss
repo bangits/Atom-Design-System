@@ -4,11 +4,13 @@ $user-details-sizes: (
   user-card-aside-left-margin-right: calculateRem(8px),
   user-card-name-height: calculateRem(74px),
   user-card-name-padding: calculateRem(16px),
+  name-description-margin-bottom: calculateRem(8px),
   card-user-main-info-margin: calculateRem(16px),
   card-statusview-height: calculateRem(34.29px),
   card-statusview-margin: calculateRem(8px),
   card-date-content-height: calculateRem(75px),
-  avatar-img-margin-left: calculateRem(16px)
+  avatar-img-margin-left: calculateRem(16px),
+  avatar-sizes: calculateRem(40px)
 );
 
 $user-details-colors: (

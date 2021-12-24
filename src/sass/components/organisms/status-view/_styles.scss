@@ -1,7 +1,8 @@
 @mixin generate-status-view-styles {
   div.StatusView {
     @include flex(space-between, center);
-    width: getStatusViewSizes(status-width);
+    // width: getStatusViewSizes(status-width);
+    width: 100%;
     padding: getStatusViewSizes(status-padding);
     box-sizing: border-box;
     background-color: getStatusViewColors(status-view-background-color);

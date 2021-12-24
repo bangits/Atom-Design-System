@@ -1,6 +1,7 @@
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { NameAndId } from '@/components/molecules/name-and-id';
 import UserProjects from '@/components/organisms/user-projects/UserProjects';
+import { UserMainIcon } from '@/icons';
 import { AvatarCard, Breadcrumb, BreadcrumbProps, Card } from '@my-ui/core';
 import React, { FC, ReactNode } from 'react';
 import styles from './UserDetails.module.scss';
@@ -56,14 +57,20 @@ const UserDetails: FC<UserDetailsProps> = ({
       <div className={styles.UserDetailsWrapper}>
         <div className={styles.AsideLeftContent}>
           <Card borderRadius={1.6} className={styles.CardName}>
-            <AvatarCard avatarImg={userImgUrl} variant='default' imageSize='md' />
+            {userImgUrl ? (
+              <AvatarCard avatarImg={userImgUrl} variant='default' imageSize='md' />
+            ) : (
+              <div className={styles['CardName--avatar']}>
+                <UserMainIcon />
+              </div>
+            )}
             <NameAndId name={userName} id={userId} />
           </Card>
           <div className={styles.StatusViewContainer}>
             <StatusView {...statusInfo} label={translations.status} />
           </div>
           <Card className={styles.CardDateContent}>
-            <div>
+            <div className={styles.NameDescriptionsBlock}>
               <NameDescription
                 data={[
                   {
