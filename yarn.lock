@@ -1504,31 +1504,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-"@my-ui/core@^2.28.19":
-  version "2.28.19"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.19.tgz#67935fb487a56d83f254c6ae5939011b5a7abcce"
-  integrity sha1-Z5NftIelbYPyVMauWTkBG1p6vM4=
-=======
-<<<<<<< HEAD
 "@my-ui/core@^2.28.38":
   version "2.28.38"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.38.tgz#4b204eb2610d5e46496b845aba79fdf5383e6019"
   integrity sha1-SyBOsmENXkZJa4Raunn99Tg+YBk=
-=======
-<<<<<<< HEAD
-"@my-ui/core@^2.28.17":
-  version "2.28.17"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.17.tgz#39d7885693368c5a1741387209573ec343eb5a73"
-  integrity sha1-OdeIVpM2jFoXQThyCVc+w0PrWnM=
-=======
-"@my-ui/core@^2.28.15":
-  version "2.28.15"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-2.28.15.tgz#47e04f6f46c628ca33ec48e11b169bc3c21f2dc2"
-  integrity sha1-R+BPb0bGKMoz7EjhGxabw8IfLcI=
->>>>>>> f9f46626fb74618c08694c9802658a8d1c0c8520
->>>>>>> 1743a24eb23ac955741b69130ec36351e2bba9fc
->>>>>>> fd4fde21288d07b66ab90c9822718eae9b6ff789
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
