@@ -1,4 +1,12 @@
 @mixin generate-data-table-styles {
+  table {
+    section > div > div:last-child {
+      svg {
+        width: 1.4rem;
+      }
+    }
+  }
+
   .TableConfigSelect {
     max-width: getDataTableSizes(table-config-select);
   }
