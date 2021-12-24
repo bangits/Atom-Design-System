@@ -27,19 +27,22 @@ export const Default = () => {
           balance: '150.000.000',
           currency: 'USD',
           id: 1,
-          isDefault: true
+          isDefault: true,
+          currencyId: 1
         },
         {
           balance: '150.000.000',
           currency: 'AMD',
           id: 2,
-          isDefault: false
+          isDefault: false,
+          currencyId: 2
         },
         {
           balance: '150.000.000',
           currency: 'RUB',
           id: 3,
-          isDefault: false
+          isDefault: false,
+          currencyId: 3
         }
       ]}
       renderCurrenciesSelect={(changeOpenedCurrenciesSelect) => (

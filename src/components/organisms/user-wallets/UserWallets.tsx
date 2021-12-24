@@ -6,6 +6,7 @@ import styles from './UserWallets.module.scss';
 
 export interface UserWallet {
   id: number | string;
+  currencyId: number | string;
   currency: string;
   balance: string | number;
   isDefault: boolean;
@@ -13,7 +14,7 @@ export interface UserWallet {
 
 export interface UserWalletsProps {
   wallets: UserWallet[];
-  onDefaultWalletChange: (walletId: number | string) => void;
+  onDefaultWalletChange: (currencyId: number | string) => void;
   tableLoadingRowIds: (number | string)[];
   renderCurrenciesSelect: (changeOpenedCurrenciesSelect: (isOpened: boolean) => void) => ReactNode;
   translations: {
@@ -41,12 +42,13 @@ const UserWallets = ({
           isWithSelection={false}
           actions={[
             {
-              component: () => (
+              component: (props) => (
                 <Tooltip showEvent='hover' text={translations.makeDefault}>
-                  <IconButton icon={<Icons.CheckButtonIcon />} />
+                  <IconButton icon={<Icons.CheckButtonIcon />} {...props} />
                 </Tooltip>
               ),
-              onClick: (column) => onDefaultWalletChange(column.id),
+              onClick: (column) => onDefaultWalletChange(column.currencyId),
+              shouldShow: (column) => !column.isDefault,
               props: {}
             }
           ]}
@@ -60,17 +62,21 @@ const UserWallets = ({
             {
               Header: 'balance',
               accessor: 'balance' as keyof UserWallet,
-              disableSortBy: true
+              disableSortBy: true,
+              renderColumn: (_, value) => value.toString()
             },
             {
               Header: 'account Id',
               accessor: 'id' as keyof UserWallet,
               disableSortBy: true,
-              renderColumn: (value) => (
-                <>
-                  {translations.id} {value}
-                </>
-              )
+              renderColumn: (_, value) =>
+                value ? (
+                  <>
+                    {translations.id} {value}
+                  </>
+                ) : (
+                  '---'
+                )
             },
             {
               Header: 'type',
@@ -82,7 +88,7 @@ const UserWallets = ({
           data={wallets}
           className={styles.UserDetailsTable}
           loadingRowsIds={tableLoadingRowIds}
-          loadingRowColumnProperty='id'
+          loadingRowColumnProperty='currencyId'
         />
         {isOpenedCurrenciesSelect ? (
           <div className={styles.SelectContent}>

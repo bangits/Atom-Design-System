@@ -349,7 +349,8 @@ function DataTable<T extends {}, K>({
         {...tableProps}
         fetch={onTableFetchData}
         className={classNames(styles.Table, tableProps.className, {
-          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage
+          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
+          [styles.TableHaveData]: !!tableProps.data?.length
         })}
         onSelectedColumnsChange={(columns) => {
           setSelectedRows(columns.map((c) => c.original));
