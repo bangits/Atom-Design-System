@@ -15,6 +15,7 @@
   }
 
   .ProviderDetailsBase--leftBlock {
+    width: getProviderDetailsSizes(left-block-width);
     margin-right: getProviderDetailsSizes(provider-left-block-margin);
   }
 
