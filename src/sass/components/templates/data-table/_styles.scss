@@ -15,6 +15,7 @@
     border-radius: getDataTableSizes(image-column);
     object-fit: cover;
   }
+
   .ImageColumnCircle {
     border-radius: getDataTableSizes(image-column-circle);
     object-fit: cover;
@@ -25,7 +26,13 @@
       min-height: getDataTableSizes(empty-table-min-height);
     }
 
-    .TableHaveData.TableHaveHoveredImage {
+    .TableHaveData {
+      table {
+        min-height: getDataTableSizes(data-table-single-item-min-height);
+      }
+    }
+
+    .TableHaveHoveredImage {
       tbody tr {
         -webkit-transition-property: z-index;
         transition-property: z-index;
@@ -54,10 +61,6 @@
         &:first-child img {
           transform-origin: top left;
         }
-      }
-
-      table {
-        min-height: getDataTableSizes(data-table-single-item-min-height);
       }
 
       tr {

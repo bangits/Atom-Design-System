@@ -14,13 +14,16 @@ export const Default = () => {
   return (
     <UserWallets
       onDefaultWalletChange={action('onDefaultWalletChange')}
+      onDefaultBallanceChange={action('onDefaultBallanceChange')}
       tableLoadingRowIds={[2]}
       translations={{
         add: 'Add',
         default: 'Default',
         id: 'ID',
         other: 'Other',
-        makeDefault: 'Make default'
+        makeDefault: 'Make default',
+        balance: 'Balance',
+        correctDefaultBalance: 'Correct Default Balance'
       }}
       wallets={[
         {

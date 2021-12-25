@@ -42,16 +42,16 @@
           align-items: center;
           border-radius: none;
           font-size: 0;
-        }
 
-        svg {
-          transform: translate(0, 0);
-          width: 2.5rem;
-          height: 2.5rem;
-          padding: 0.5rem;
-          fill: currentColor;
-          border-radius: none;
-          box-sizing: border-box;
+          svg {
+            transform: translate(0, 0);
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0.5rem;
+            fill: currentColor;
+            border-radius: none;
+            box-sizing: border-box;
+          }
         }
       }
     }

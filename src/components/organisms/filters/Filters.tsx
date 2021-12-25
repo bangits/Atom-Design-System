@@ -73,8 +73,8 @@ export function Filters<T>({
   const filtersConfigOptions = useMemo(
     () =>
       [...filters, ...checkboxFilters].map((filter) => ({
-        label: filter.label,
-        value: filter.name
+        label: filter?.label,
+        value: filter?.name
       })),
     [filters, checkboxFilters]
   );
@@ -91,7 +91,6 @@ export function Filters<T>({
 
     onClear(filterValues);
   }, [isOpenedFilterCollapse]);
-
 
   const onDragChange = useCallback(
     ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
@@ -121,8 +120,8 @@ export function Filters<T>({
           onFilterChange: (filterName: string, value: FilterValueType) => void;
         }) => (
           <Filter
-            key={filter.name}
-            value={filterValues[filter.name]}
+            key={filter?.name}
+            value={filterValues[filter?.name]}
             filter={filter}
             onFilterChange={onFilterChange}
             filterValues={filterValues}
@@ -146,15 +145,18 @@ export function Filters<T>({
         }) => {
           return (
             <div className={styles.FiltersContainer}>
-              {items.map((filter, index) => (
-                <SortableFilterItem
-                  key={filter.name}
-                  index={index}
-                  filterValues={filterValues}
-                  onFilterChange={onFilterChange}
-                  filter={filter}
-                />
-              ))}
+              {items.map(
+                (filter, index) =>
+                  filter && (
+                    <SortableFilterItem
+                      key={filter?.name}
+                      index={index}
+                      filterValues={filterValues}
+                      onFilterChange={onFilterChange}
+                      filter={filter}
+                    />
+                  )
+              )}
             </div>
           );
         }
