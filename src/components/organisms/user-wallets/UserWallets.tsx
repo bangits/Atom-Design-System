@@ -20,6 +20,7 @@ export interface UserWalletsProps {
   onDefaultBallanceChange: (balance: number) => void;
   tableLoadingRowIds: (number | string)[];
   balanceMaxLength?: number;
+  shouldShowAddWalletButton?: boolean;
   renderCurrenciesSelect: (changeOpenedCurrenciesSelect: (isOpened: boolean) => void) => ReactNode;
   translations: {
     id: string;
@@ -39,7 +40,8 @@ const UserWallets = ({
   renderCurrenciesSelect,
   onDefaultWalletChange,
   onDefaultBallanceChange,
-  balanceMaxLength = 10
+  balanceMaxLength = 10,
+  shouldShowAddWalletButton = true
 }: UserWalletsProps) => {
   const [isOpenedCurrenciesSelect, setOpenedCurrenciesSelect] = useState(false);
   const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
@@ -103,28 +105,32 @@ const UserWallets = ({
           rowUniqueKey='currencyId'
         />
         <div className={styles.WalletActionsContainer}>
-          {isOpenedCurrenciesSelect ? (
-            <div className={styles.SelectContent}>
-              {renderCurrenciesSelect(setOpenedCurrenciesSelect)}
-              <IconButton
-                onClick={() => setOpenedCurrenciesSelect(false)}
-                icon={
-                  <span className={styles.CloseIcon}>
-                    <Icons.CloseIcon />
-                  </span>
-                }
-              />
-            </div>
-          ) : (
-            <Button
-              onClick={() => setOpenedCurrenciesSelect(true)}
-              variant='link'
-              startIcon={<Icons.PlusCircleLarge />}
-              className={styles.AddButton}>
-              {translations.add}
-            </Button>
+          {shouldShowAddWalletButton && (
+            <>
+              {isOpenedCurrenciesSelect ? (
+                <div className={styles.SelectContent}>
+                  {renderCurrenciesSelect(setOpenedCurrenciesSelect)}
+                  <IconButton
+                    onClick={() => setOpenedCurrenciesSelect(false)}
+                    icon={
+                      <span className={styles.CloseIcon}>
+                        <Icons.CloseIcon />
+                      </span>
+                    }
+                  />
+                </div>
+              ) : (
+                <Button
+                  onClick={() => setOpenedCurrenciesSelect(true)}
+                  variant='link'
+                  startIcon={<Icons.PlusCircleLarge />}
+                  className={styles.AddButton}>
+                  {translations.add}
+                </Button>
+              )}
+            </>
           )}
-          <Divider>
+          <Divider showDivider={shouldShowAddWalletButton}>
             {isOpenedDefaultBalanceChangeSelect ? (
               <div className={styles.SelectContent}>
                 <TextInput
@@ -166,7 +172,7 @@ const UserWallets = ({
               <Button
                 onClick={() => setOpenedDefaultBalanceChangeSelect(true)}
                 variant='link'
-                startIcon={<Icons.PlusCircleLarge />}
+                startIcon={<Icons.MoneyIcon />}
                 className={styles.AddButton}>
                 {translations.correctDefaultBalance}
               </Button>

@@ -2,7 +2,8 @@
   .BrowsersCheckboxGroupBase {
     @include flex();
     > div {
-      margin: BrowsersCheckboxGroupSizes(margin);
+      width: getBrowsersCheckboxGroupSizes(browsers-card-width);
+      margin: getBrowsersCheckboxGroupSizes(margin);
     }
   }
 }

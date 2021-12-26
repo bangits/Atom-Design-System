@@ -25,10 +25,9 @@ export function Filters<T>({
   onSaveClick,
   className,
   defaultFilters,
-  showedFilters: showedFiltersProp
+  showedFilters: showedFiltersProp,
+  onFiltersOpenedChange
 }: FiltersProps<T>) {
-  const firstInitialValues = useMemo(() => initialValues, []);
-
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
   >(
@@ -43,10 +42,11 @@ export function Filters<T>({
 
   const [showedCheckboxFilters, setShowedCheckboxFilters] = useState<typeof checkboxFilters>(checkboxFilters);
 
-  const toggleFiltersCollapse = useCallback(
-    () => setIsOpenedFilterCollapse(!isOpenedFilterCollapse),
-    [isOpenedFilterCollapse]
-  );
+  const toggleFiltersCollapse = useCallback(() => {
+    if (onFiltersOpenedChange) onFiltersOpenedChange(!isOpenedFilterCollapse);
+
+    setIsOpenedFilterCollapse(!isOpenedFilterCollapse);
+  }, [isOpenedFilterCollapse, onFiltersOpenedChange]);
 
   const onFilterChange = useCallback((filterName: string, value: FilterValueType) => {
     setFilterValues({ [filterName]: value });
