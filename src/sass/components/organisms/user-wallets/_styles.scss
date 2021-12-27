@@ -1,6 +1,6 @@
 @mixin generate-user-wallets-styles {
   .UserDetailsTableContent {
-    margin-top: getUserDetailsSizes(user-details-table-margin-top);
+    margin-top: getUserWalletsSizes(user-details-table-margin-top);
     width: 100%;
 
     .UserDetailsTable {
@@ -9,16 +9,31 @@
       background-color: transparent;
       border-radius: 0;
     }
+
     .SelectContent {
       @include flex(null);
 
-      .CloseIcon {
-        margin: getUserDetailsSizes(select-content-svg-margin);
+      .CloseIcon,
+      .SaveIcon {
+        width: 100%;
+      }
+
+      .SaveIcon path {
+        fill: #00b21e;
       }
     }
 
-    .AddButton {
-      margin-top: getUserDetailsSizes(user-details-button-margin-top);
+    .BalanceInput {
+      min-width: getUserWalletsSizes(balance-input-min-width);
+    }
+
+    .WalletActionsContainer {
+      @include flex;
+
+      margin-top: getUserWalletsSizes(user-details-button-margin-top);
+      margin-left: getUserWalletsSizes(user-details-button-margin-left);
+
+      max-height: getUserWalletsSizes(actions-container-max-height);
     }
   }
 }

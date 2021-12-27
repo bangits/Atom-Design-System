@@ -21,6 +21,7 @@ export { ReactComponent as InformationIcon } from './information.react.svg';
 export { ReactComponent as LockIcon } from './lock.react.svg';
 export { ReactComponent as LogOutIcon } from './log-out.react.svg';
 export { ReactComponent as MobileIcon } from './mobile.react.svg';
+export { ReactComponent as MoneyIcon } from './money.react.svg';
 export { ReactComponent as NoDataIcon } from './no-data.react.svg';
 export { ReactComponent as OperaIcon } from './opera.react.svg';
 export { ReactComponent as PartnersIcon } from './partners.react.svg';
@@ -37,4 +38,3 @@ export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
-

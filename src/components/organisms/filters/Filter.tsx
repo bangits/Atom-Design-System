@@ -1,6 +1,6 @@
-import { FilterValueType, FromToInput, FromToTimePicker, RadioGroup } from '@/components';
+import { FilterValueType, FromToInput, FromToTimePicker, RadioGroup, Select, TextInput } from '@/components';
 import { typedMemo } from '@/helpers';
-import { DatePicker, DateTimePicker, Select, TextInput } from '@my-ui/core';
+import { DatePicker, DateTimePicker } from '@my-ui/core';
 import classNames from 'classnames';
 import { ReactNode } from 'react';
 import styles from './Filters.module.scss';
@@ -14,6 +14,8 @@ export interface FilterProps<T> extends Omit<React.InputHTMLAttributes<HTMLDivEl
 
 const Filter = <T,>({ filter, value, onFilterChange, filterValues, ...props }: FilterProps<T>) => {
   let filterComponent: ReactNode | null = null;
+
+  if (!filter) return null;
 
   switch (filter.type) {
     case 'radio':

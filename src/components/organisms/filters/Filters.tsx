@@ -25,10 +25,9 @@ export function Filters<T>({
   onSaveClick,
   className,
   defaultFilters,
-  showedFilters: showedFiltersProp
+  showedFilters: showedFiltersProp,
+  onFiltersOpenedChange
 }: FiltersProps<T>) {
-  const firstInitialValues = useMemo(() => initialValues, []);
-
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
   >(
@@ -43,10 +42,11 @@ export function Filters<T>({
 
   const [showedCheckboxFilters, setShowedCheckboxFilters] = useState<typeof checkboxFilters>(checkboxFilters);
 
-  const toggleFiltersCollapse = useCallback(
-    () => setIsOpenedFilterCollapse(!isOpenedFilterCollapse),
-    [isOpenedFilterCollapse]
-  );
+  const toggleFiltersCollapse = useCallback(() => {
+    if (onFiltersOpenedChange) onFiltersOpenedChange(!isOpenedFilterCollapse);
+
+    setIsOpenedFilterCollapse(!isOpenedFilterCollapse);
+  }, [isOpenedFilterCollapse, onFiltersOpenedChange]);
 
   const onFilterChange = useCallback((filterName: string, value: FilterValueType) => {
     setFilterValues({ [filterName]: value });
@@ -73,8 +73,8 @@ export function Filters<T>({
   const filtersConfigOptions = useMemo(
     () =>
       [...filters, ...checkboxFilters].map((filter) => ({
-        label: filter.label,
-        value: filter.name
+        label: filter?.label,
+        value: filter?.name
       })),
     [filters, checkboxFilters]
   );
@@ -91,7 +91,6 @@ export function Filters<T>({
 
     onClear(filterValues);
   }, [isOpenedFilterCollapse]);
-
 
   const onDragChange = useCallback(
     ({ oldIndex, newIndex }: { oldIndex: number; newIndex: number }) => {
@@ -121,8 +120,8 @@ export function Filters<T>({
           onFilterChange: (filterName: string, value: FilterValueType) => void;
         }) => (
           <Filter
-            key={filter.name}
-            value={filterValues[filter.name]}
+            key={filter?.name}
+            value={filterValues[filter?.name]}
             filter={filter}
             onFilterChange={onFilterChange}
             filterValues={filterValues}
@@ -146,15 +145,18 @@ export function Filters<T>({
         }) => {
           return (
             <div className={styles.FiltersContainer}>
-              {items.map((filter, index) => (
-                <SortableFilterItem
-                  key={filter.name}
-                  index={index}
-                  filterValues={filterValues}
-                  onFilterChange={onFilterChange}
-                  filter={filter}
-                />
-              ))}
+              {items.map(
+                (filter, index) =>
+                  filter && (
+                    <SortableFilterItem
+                      key={filter?.name}
+                      index={index}
+                      filterValues={filterValues}
+                      onFilterChange={onFilterChange}
+                      filter={filter}
+                    />
+                  )
+              )}
             </div>
           );
         }

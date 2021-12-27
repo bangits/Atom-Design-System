@@ -44,7 +44,13 @@
       }
 
       .FormWrapper {
+        position: relative;
         margin-bottom: getSignSizes(form-margin);
+      }
+
+      .ErrorMessage{
+        position: absolute;
+        bottom: getSignSizes(error-message-bottom);
       }
 
       .LoginButton {

@@ -67,7 +67,6 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
           'Card__Inner',
           'Card__Inner--Lvl-2'
         )}>
-        {/*  */}
         <div className={classNames(styles['FlexList'], 'FlexList')}>
           <div className={classNames(styles['FlexList__Item'], 'FlexList__Item')}>
             <div className={classNames(styles['CardSubtitle'], 'CardSubtitle')}>{translations.devices}</div>
@@ -137,7 +136,9 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
+                  <></>
+                </Typography>
               )}
             </div>
           </div>
@@ -166,7 +167,9 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
+                  <></>
+                </Typography>
               )}
             </div>
           </div>
