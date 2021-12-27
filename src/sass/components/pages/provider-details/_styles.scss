@@ -32,7 +32,7 @@
   }
 
   .GamesList {
-    padding: getProviderDetailsSizes(games-list-padding);
+    // padding: getProviderDetailsSizes(games-list-padding);
     width: getProviderDetailsSizes(games-list-width);
 
     &__Header {
