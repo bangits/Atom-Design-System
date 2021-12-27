@@ -4,6 +4,7 @@ $data-table-sizes: (
   image-column: 4px,
   image-column-circle: 50%,
   //
+  table-config-wrapper-margin-bottom: calculateRem(20px),
   empty-table-min-height: calculateRem(450px),
   data-table-single-item-min-height: calculateRem(190px),
   data-table-image-hover-column-width: calculateRem(40px),

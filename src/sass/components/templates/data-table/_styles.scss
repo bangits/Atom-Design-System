@@ -114,5 +114,7 @@
 
   .TableConfigsWrapper {
     @include flex(space-between, center);
+
+    margin-bottom: getDataTableSizes(table-config-wrapper-margin-bottom);
   }
 }

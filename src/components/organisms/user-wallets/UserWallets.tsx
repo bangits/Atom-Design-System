@@ -151,7 +151,7 @@ const UserWallets = ({
                     </span>
                   }
                 />
-                {balance && (
+                {balance ? (
                   <IconButton
                     onClick={() => {
                       setOpenedDefaultBalanceChangeSelect(false);
@@ -166,7 +166,7 @@ const UserWallets = ({
                       </span>
                     }
                   />
-                )}
+                ) : null}
               </div>
             ) : (
               <Button

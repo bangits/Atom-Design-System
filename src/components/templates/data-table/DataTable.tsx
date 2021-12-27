@@ -309,11 +309,13 @@ function DataTable<T extends {}, K>({
             color='primary'
             options={dropdownOptions}
             disableSelectedOptions={dropdownValues.length < 4}
-            value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
+            value={dropdownValues}
             onChange={(values) => {
-              setDropdownValues(values);
+              const updatedValues = values.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : values;
 
-              if (onTableConfigChange) onTableConfigChange(dropdownOptions, values);
+              setDropdownValues(updatedValues);
+
+              if (onTableConfigChange) onTableConfigChange(dropdownOptions, updatedValues);
             }}
             className={styles.TableConfigSelect}
           />
