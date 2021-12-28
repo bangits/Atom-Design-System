@@ -1,11 +1,4 @@
-import {
-  Balance,
-  BalanceProps,
-  LabelEndMark,
-  LabelEndMarkProps,
-  SpeedIndicator,
-  SpeedIndicatorProps
-} from '@/components';
+import { Balance, BalanceProps, LabelEndMark, SpeedIndicator, SpeedIndicatorProps } from '@/components';
 import { Header as MyUIHeader, HeaderProps as MyUIHeaderProps } from '@my-ui/core';
 import { useEffect, useMemo, useState } from 'react';
 import styles from './Header.module.scss';
@@ -28,9 +21,8 @@ export const Header = ({
 
   useEffect(() => {
     const timer = setInterval(() => setDate(new Date()), 1000);
-    return function cleanup() {
-      clearInterval(timer);
-    };
+
+    return () => clearInterval(timer);
   });
 
   const headerContent = useMemo(
