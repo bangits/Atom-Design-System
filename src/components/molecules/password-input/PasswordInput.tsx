@@ -14,6 +14,7 @@ const PasswordInput: typeof TextInput = (props) => {
       <TextInput
         {...props}
         type={show ? 'text' : 'password'}
+        fullWidth
         startIcon={
           <>
             <svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 15.1' width='1.4rem' fill='currentColor'>
