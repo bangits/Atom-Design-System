@@ -23,7 +23,8 @@ $colors: (
   abs-black: #000,
   white-opacity: #ffffffb3,
   white-opacity-2: #ffffff80,
-  dark-opacity: #000000cc
+  dark-opacity: #000000cc,
+  sign-in-label-color: #48485d
 );
 
 @function color($property-name) {
