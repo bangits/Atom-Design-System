@@ -39,8 +39,9 @@ $providerdetails-sizes: (
   provider-details-bottom-fading-cell-after-height: calculateRem(32px),
   //
   games-container-width: 100%,
+  // games-container-width: 946px,
   games-container-display: grid,
-  games-container-grid-template-columns: repeat(auto-fill, minmax(14rem, 1fr)),
+  games-container-grid-template-columns: repeat(auto-fill, minmax(14.7rem, 1fr)),
   games-container-grid-template-rows: auto,
   games-container-grid-column-gap: calculateRem(10px),
   games-container-grid-row-gap: calculateRem(10px),
@@ -60,17 +61,18 @@ $providerdetails-sizes: (
   tab-content-two-col-grid-grid-template-areas: '. .' '. .',
   //
   games-container__div__div-first-child-font-size: 0,
-  games-container__div__div-first-child-height: calculateRem(100px),
+  games-container__div__div-first-child-height: calculateRem(96px),
   //
   games-container__div__div-last-child-font-size: 0,
   games-container__div__div-last-child-height: calculateRem(40px),
+  games-container__div__div-last-child-min-width: calculateRem(147px),
   //
   games-container__div__div-padding: calculateRem(20px) 0 calculateRem(20px) 0,
   games-container__div__div-width: auto,
   games-container__div__div-height: auto,
   //
   games-container__div__div__p-font-size: calculateRem(16px),
-  games-container__div__div__p-max-width: calculateRem(130px),
+  games-container__div__div__p-max-width: calculateRem(147px),
   //
   flexible-form-wrapper-box-sizing: border-box,
   //
@@ -122,6 +124,7 @@ $providerdetails-colors: (
   //
   games-container-icon-bg-color: color(alabaster),
   //
+  games-container__div__div-last-child-bg-color: color(alabaster),
 );
 
 @function getProviderDetailsSizes($key) {

@@ -5,7 +5,6 @@ import { Button, TextInput, TextInputProps, Typography } from '@my-ui/core';
 import React, { FC, useCallback, useMemo } from 'react';
 import styles from './SignIn.module.scss';
 
-
 export interface SignInProps {
   renderInputs?: (InputComponent: typeof TextInput, name: string) => JSX.Element;
   title?: string;
@@ -51,9 +50,7 @@ const SignIn: FC<SignInProps> = ({
         createEmailInputRenderer({
           label: usernameInputLabel,
           type: 'text',
-          startIcon: (
-            <Icons.UserIcon />
-          )
+          startIcon: <Icons.UserIcon />
         }),
         usernameInputName
       ),
@@ -89,7 +86,7 @@ const SignIn: FC<SignInProps> = ({
             {passwordInput}
 
             {loginErrorMessage && (
-              <Typography variant='p5' color='danger'>
+              <Typography variant='p5' color='danger' className={styles['ErrorMessage']}>
                 {loginErrorMessage}
               </Typography>
             )}
