@@ -11,11 +11,9 @@ export default {
 export const Default = () => {
   return (
     <Header
+      dateConverter={(date) => date.toLocaleString()}
       speed={2}
-      localTime={{
-        label: 'Local Time',
-        text: '12/27/2021/6:52'
-      }}
+      localTime={'Local Time'}
       money={number('money', 100000)}
       currency={text('currency', 'USD')}
       avatarProps={{

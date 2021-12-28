@@ -7,19 +7,37 @@ import {
   SpeedIndicatorProps
 } from '@/components';
 import { Header as MyUIHeader, HeaderProps as MyUIHeaderProps } from '@my-ui/core';
-import { useMemo } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import styles from './Header.module.scss';
 
 export interface HeaderProps extends MyUIHeaderProps, BalanceProps, SpeedIndicatorProps {
-  localTime: LabelEndMarkProps;
+  localTime: string;
+  dateConverter: (date: Date) => string;
 }
 
-export const Header = ({ money, currency, minimumFractionDigits, localTime, speed, ...props }: HeaderProps) => {
+export const Header = ({
+  money,
+  currency,
+  minimumFractionDigits,
+  speed,
+  localTime,
+  dateConverter,
+  ...props
+}: HeaderProps) => {
+  const [date, setDate] = useState<Date>(new Date());
+
+  useEffect(() => {
+    const timer = setInterval(() => setDate(new Date()), 1000);
+    return function cleanup() {
+      clearInterval(timer);
+    };
+  });
+
   const headerContent = useMemo(
     () => (
       <>
         <div className={styles.LocalTime}>
-          <LabelEndMark {...localTime} />
+          <LabelEndMark label={localTime} text={dateConverter(date)} />
         </div>
         <div className={styles.Balance}>
           <Balance minimumFractionDigits={minimumFractionDigits} money={money} currency={currency} />
@@ -29,7 +47,7 @@ export const Header = ({ money, currency, minimumFractionDigits, localTime, spee
         </div>
       </>
     ),
-    [money, currency, minimumFractionDigits]
+    [money, currency, minimumFractionDigits, speed, localTime, date, dateConverter]
   );
 
   return (
