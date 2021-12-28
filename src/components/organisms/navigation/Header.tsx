@@ -1,12 +1,19 @@
-import { Balance, BalanceProps } from '@/components';
+import { Balance, BalanceProps, LabelEndMark, LabelEndMarkProps } from '@/components';
 import { Header as MyUIHeader, HeaderProps as MyUIHeaderProps } from '@my-ui/core';
 import { useMemo } from 'react';
 
-export interface HeaderProps extends MyUIHeaderProps, BalanceProps {}
+export interface HeaderProps extends MyUIHeaderProps, BalanceProps {
+  localTime: LabelEndMarkProps;
+}
 
-export const Header = ({ money, currency, minimumFractionDigits, ...props }: HeaderProps) => {
+export const Header = ({ money, currency, minimumFractionDigits, localTime, ...props }: HeaderProps) => {
   const headerContent = useMemo(
-    () => <Balance minimumFractionDigits={minimumFractionDigits} money={money} currency={currency} />,
+    () => (
+      <>
+        <LabelEndMark {...localTime} />
+        <Balance minimumFractionDigits={minimumFractionDigits} money={money} currency={currency} />
+      </>
+    ),
     [money, currency, minimumFractionDigits]
   );
 

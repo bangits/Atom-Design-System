@@ -1,0 +1,7 @@
+$header-sizes: (
+    
+);
+
+@function getHeaderSizes($key) {
+  @return map-get($header-sizes, $key);
+}
