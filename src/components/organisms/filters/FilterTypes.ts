@@ -80,6 +80,7 @@ export interface FiltersProps<T> {
   applyLabel?: string;
   saveLabel?: string;
   resultLabel?: string;
+  infoTooltipText?: string;
   defaultOpened?: boolean;
   initialValues: T;
   onFiltersOpenedChange?: (isOpened: boolean) => void;

@@ -10,9 +10,27 @@
       margin-bottom: getPageWrapperSizes(page-title-margin-bottom);
 
       .PageTitle {
+        position: relative;
+
         color: getPageWrapperColors(page-title-color);
         font-weight: getPageWrapperSizes(page-title-font-weigth);
         margin: 0;
+
+        padding-left: getPageWrapperSizes(page-title-padding-left);
+
+        &::before {
+          content: '';
+          display: block;
+
+          position: absolute;
+          left: 0;
+
+          width: getPageWrapperSizes(page-title-border-width);
+          height: 100%;
+
+          background-color: getPageWrapperColors(page-title-border-color);
+          border-radius: getPageWrapperSizes(page-title-border-radius);
+        }
       }
     }
   }
