@@ -13,6 +13,7 @@ $sign-in-sizes: (
   title-margin: calculateRem(4px),
   subtitle-margin: calculateRem(17px),
   form-margin: calculateRem(56px),
+  margin-size-null: 0,
   login-inputs-margin-bottom: calculateRem(2px),
   login-bottom-max-width: calculateRem(324px),
   login-bottom-width: calculateRem(324px),
@@ -34,7 +35,7 @@ $sign-in-sizes: (
   //LoginPageTitle
   login-page-title-margin-bottom: calculateRem(12px),
   //LoginPageSubTitle
-  login-page-subtitle-margin-bottom: calculateRem(49px),
+  login-page-subtitle-margin-bottom: calculateRem(40px),
   //FormWrapper
   form-wrapper-width: calculateRem(324px)
 );

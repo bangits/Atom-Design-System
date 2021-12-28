@@ -88,16 +88,16 @@ const SignIn: FC<SignInProps> = ({
           <Typography variant='p4' component='p' className={styles.LoginPageSubTitle}>
             {subtitle}
           </Typography>
+          {/* {loginErrorMessage && (
+            <Typography variant='p5' color='danger' className={styles.LoginErrorMessage}>
+              {(loginErrorMessage = 'Login Error Message')}
+            </Typography>
+          )} */}
 
           <div className={styles.FormWrapper}>
             {emailInput}
 
             {passwordInput}
-            {loginErrorMessage && (
-              <Typography variant='p5' color='danger'>
-                {loginErrorMessage}
-              </Typography>
-            )}
           </div>
           <div className={styles.LoginButton}>
             <Button type='submit' {...buttonProps}>

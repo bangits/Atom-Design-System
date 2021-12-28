@@ -6,7 +6,16 @@
     width: 100%;
     height: 100vh;
     background: getSignColors(gradient-bg);
-
+    // & > div > div > div > div {
+    //   &:nth-child(2) {
+    //     height: 0px;
+    //     margin-bottom: 50px;
+    //   }
+    //   &:nth-child(3) {
+    //     height: 0px;
+    //     margin-bottom: 50px;
+    //   }
+    // }
     .SignInImage {
       left: 0;
       bottom: 0;
@@ -23,6 +32,7 @@
       position: absolute;
       top: getSignSizes(login-position-top);
       left: getSignSizes(login-position-left);
+      border-radius: 8px;
 
       .LoginComponentsContainer {
         width: getSignSizes(login-components-container-width);
@@ -40,11 +50,13 @@
     .LoginPageTitle {
       color: getSignColors(login-page-title-color);
       margin-bottom: getSignSizes(login-page-title-margin-bottom);
+      margin-top: getSignSizes(margin-size-null);
     }
 
     .LoginPageSubTitle {
       color: getSignColors(login-page-sub-title-color);
       margin-bottom: getSignSizes(login-page-subtitle-margin-bottom);
+      margin-top: getSignSizes(margin-size-null);
     }
 
     .LoginBottom {
