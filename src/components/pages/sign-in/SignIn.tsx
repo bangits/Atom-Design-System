@@ -93,7 +93,6 @@ const SignIn: FC<SignInProps> = ({
             {emailInput}
 
             {passwordInput}
-
             {loginErrorMessage && (
               <Typography variant='p5' color='danger'>
                 {loginErrorMessage}

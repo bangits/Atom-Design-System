@@ -13,7 +13,7 @@
       position: absolute;
       width: 60%;
       max-width: getSignSizes(sign-in-image-max-width);
-      mix-blend-mode: darken;
+      mix-blend-mode: color-dodge;
     }
     .LoginContainer {
       @include flex(center, center, column);
@@ -31,6 +31,7 @@
       }
       .LoginButton {
         width: getSignSizes(login-button-width) !important;
+
         button {
           width: 100% !important;
         }
