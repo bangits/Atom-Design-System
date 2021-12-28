@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <Header
+      speed={2}
       localTime={{
         label: 'Local Time',
         text: '12/27/2021/6:52'

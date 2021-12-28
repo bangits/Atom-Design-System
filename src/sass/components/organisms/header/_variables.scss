@@ -1,5 +1,6 @@
 $header-sizes: (
-    
+    local-time-margin: 0 calculateRem(14px) 0 0,
+    balance-margin: 0 calculateRem(11px) 0 0,
 );
 
 @function getHeaderSizes($key) {

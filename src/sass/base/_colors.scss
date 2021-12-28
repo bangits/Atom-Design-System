@@ -26,7 +26,8 @@ $colors: (
   white-opacity: #ffffffb3,
   white-opacity-2: #ffffff80,
   dark-opacity: #000000cc,
-  quartz: #48485D
+  quartz: #48485D,
+  dark-blue-gray: #6667AB,
 );
 
 @function color($property-name) {

@@ -1,0 +1,9 @@
+@mixin generate-speed-indicator-styles {
+  .SpeedIndicatorBase {
+    fill: color(dark-blue-gray);
+
+    &--opacity {
+      opacity: 0.5;
+    }
+  }
+}
