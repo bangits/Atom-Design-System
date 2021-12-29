@@ -67,7 +67,6 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
           'Card__Inner',
           'Card__Inner--Lvl-2'
         )}>
-        {/*  */}
         <div className={classNames(styles['FlexList'], 'FlexList')}>
           <div className={classNames(styles['FlexList__Item'], 'FlexList__Item')}>
             <div className={classNames(styles['CardSubtitle'], 'CardSubtitle')}>{translations.devices}</div>
@@ -81,7 +80,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   id === 1 ? (
                     <>
                       <span key={id} className={classNames(styles['Device-Tag'], 'Device-Tag')}>
-                        <MobileIcon width='10px' />
+                        <MobileIcon width='1rem' />
                         <span className={classNames(styles['Device-Tag-Label'], 'Device-Tag-Label')}>
                           {translations.mobile}
                         </span>
@@ -90,7 +89,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   ) : id === 2 ? (
                     <>
                       <span key={id} className={classNames(styles['Device-Tag'], 'Device-Tag')}>
-                        <TabletIcon width='20px' />
+                        <TabletIcon width='2rem' />
                         <span className={classNames(styles['Device-Tag-Label'], 'Device-Tag-Label')}>
                           {translations.tablet}
                         </span>
@@ -99,7 +98,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
                   ) : id === 3 ? (
                     <>
                       <span key={id} className={classNames(styles['Device-Tag'], 'Device-Tag')}>
-                        <DesktopIcon width='22px' />
+                        <DesktopIcon width='2.2rem' />
                         <span className={classNames(styles['Device-Tag-Label'], 'Device-Tag-Label')}>
                           {translations.desktop}
                         </span>
@@ -118,7 +117,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
             <div className={classNames(styles['TagsCell'], 'TagsCell')}>
               {mobilePortrait ? (
                 <span className={classNames(styles['Device-Tag'], 'Device-Tag')}>
-                  <MobileIcon width='10px' />
+                  <MobileIcon width='1rem' />
                   <span className={classNames(styles['Device-Tag-Label'], 'Device-Tag-Label')}>
                     {translations.portrait}
                   </span>
@@ -131,13 +130,15 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
 
               {mobileLandscape ? (
                 <span className={classNames(styles['Device-Tag'], 'Device-Tag')}>
-                  <TabletIcon width='20px' />
+                  <TabletIcon width='2rem' />
                   <span className={classNames(styles['Device-Tag-Label'], 'Device-Tag-Label')}>
                     {translations.landscape}
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
+                  <></>
+                </Typography>
               )}
             </div>
           </div>
@@ -147,7 +148,7 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
             <div className={classNames(styles['TagsCell'], 'TagsCell')}>
               {desktopPortrait ? (
                 <span className={classNames(styles['Device-Tag'], 'Device-Tag')}>
-                  <MobileIcon width='10px' />
+                  <MobileIcon width='1rem' />
                   <span className={classNames(styles['Device-Tag-Label'], 'Device-Tag-Label')}>
                     {translations.portrait}
                   </span>
@@ -160,13 +161,15 @@ const GameCompatibility: FC<GameCompatibilityProps> = ({
 
               {desktopLandscape ? (
                 <span className={classNames(styles['Device-Tag'], 'Device-Tag')}>
-                  <TabletIcon width='20px' />
+                  <TabletIcon width='2rem' />
                   <span className={classNames(styles['Device-Tag-Label'], 'Device-Tag-Label')}>
                     {translations.landscape}
                   </span>
                 </span>
               ) : (
-                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}></Typography>
+                <Typography variant='p4' className={styles['GameDetailsBase--notCompleted']}>
+                  <></>
+                </Typography>
               )}
             </div>
           </div>

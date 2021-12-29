@@ -14,7 +14,7 @@
       @include flex(space-between, null, $flex-wrap: wrap);
 
       box-sizing: border-box;
-      padding: 2px;
+      padding: getItemDetailsSizes(forms-padding);
       
       form {
         width: calc(50% - getPartnerDetailsSizes(form-gap));

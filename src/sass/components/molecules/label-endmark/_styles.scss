@@ -1,0 +1,10 @@
+@mixin generate-label-endmark-styles {
+  .LabelEndMarkBase {
+    @include flex();
+
+    &--description {
+      color: getEndMarkColors(description-color);
+      margin: getEndMarkSizes(description-margin);
+    }
+  }
+}

@@ -7,6 +7,12 @@
       .UserMainInfo {
         margin-right: getUserDetailsSizes(card-user-main-info-margin);
       }
+
+      .NameDescriptionsBlock {
+        > * {
+          margin-bottom: getUserDetailsSizes(name-description-margin-bottom);
+        }
+      }
       .CardName {
         @include flex(null, center);
         background-color: getUserDetailsColors(card-background-color);
@@ -14,10 +20,20 @@
         height: getUserDetailsSizes(user-card-name-height);
         padding: getUserDetailsSizes(user-card-name-padding);
         box-sizing: border-box;
+
+        &--avatar {
+          width: getUserDetailsSizes(avatar-sizes);
+          height: getUserDetailsSizes(avatar-sizes);
+        }
         > div {
           &:first-child {
             margin-right: getUserDetailsSizes(avatar-img-margin-left);
           }
+        }
+        svg {
+          margin-right: getUserDetailsSizes(avatar-img-margin-left);
+          width: 100%;
+          height: 100%;
         }
       }
       .StatusViewContainer {
@@ -33,28 +49,6 @@
       width: 100%;
       .CardContent {
         background-color: getUserDetailsColors(card-background-color);
-      }
-      .UserDetailsTableContent {
-        margin-top: getUserDetailsSizes(user-details-table-margin-top);
-        width: 100%;
-
-        .UserDetailsTable {
-          width: 100%;
-          box-shadow: none;
-          background-color: transparent;
-          border-radius: 0;
-        }
-        .SelectContent {
-          @include flex();
-
-          .CloseIcon {
-            margin: getUserDetailsSizes(select-content-svg-margin);
-          }
-        }
-
-        .AddButton {
-          margin-top: getUserDetailsSizes(user-details-button-margin-top);
-        }
       }
     }
   }

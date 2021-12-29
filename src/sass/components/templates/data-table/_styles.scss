@@ -16,7 +16,22 @@
     object-fit: cover;
   }
 
+  .ImageColumnCircle {
+    border-radius: getDataTableSizes(image-column-circle);
+    object-fit: cover;
+  }
+
   .DataTablePageWrapper {
+    table {
+      min-height: getDataTableSizes(empty-table-min-height);
+    }
+
+    .TableHaveData {
+      table {
+        min-height: getDataTableSizes(data-table-single-item-min-height);
+      }
+    }
+
     .TableHaveHoveredImage {
       tbody tr {
         -webkit-transition-property: z-index;
@@ -48,10 +63,6 @@
         }
       }
 
-      table {
-        min-height: getDataTableSizes(data-table-single-item-min-height);
-      }
-
       tr {
         td {
           &:nth-child(2) {
@@ -61,23 +72,40 @@
           }
         }
       }
+    }
+  }
 
-      .ImageHoverColumn {
-        width: getDataTableSizes(data-table-image-hover-column-width);
-        height: getDataTableSizes(data-table-image-hover-column-height);
-        top: 0;
-        left: getDataTableSizes(data-table-image-hover-column-left);
-        border-radius: getDataTableSizes(data-table-image-border-radius);
-        transition: getDataTableSizes(data-table-image-animation);
-        transition: transform getDataTableSizes(data-table-image-animation);
-        transition-delay: getDataTableSizes(data-table-image-animation-delay);
-        object-fit: cover;
-        transform-origin: top left;
-        &:hover {
-          transform: scale(getDataTableSizes(data-table-image-scale));
-          box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
-        }
-      }
+  img.ImageHoverColumn {
+    width: getDataTableSizes(data-table-image-hover-column-width) !important;
+    height: getDataTableSizes(data-table-image-hover-column-height) !important;
+    top: 0;
+    left: getDataTableSizes(data-table-image-hover-column-left);
+    border-radius: getDataTableSizes(data-table-image-border-radius);
+    transition: getDataTableSizes(data-table-image-animation);
+    transition: transform getDataTableSizes(data-table-image-animation);
+    transition-delay: getDataTableSizes(data-table-image-animation-delay);
+    object-fit: cover;
+    transform-origin: top left;
+    &:hover {
+      transform: scale(getDataTableSizes(data-table-image-scale));
+      box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
+    }
+  }
+
+  img.ImageHoverColumnCircle {
+    width: getDataTableSizes(data-table-image-hover-column-width) !important;
+    height: getDataTableSizes(data-table-image-hover-column-height) !important;
+    top: 0;
+    left: getDataTableSizes(data-table-image-hover-column-left);
+    border-radius: getDataTableSizes(data-table-image-border-radius);
+    transition: getDataTableSizes(data-table-image-animation);
+    transition: transform getDataTableSizes(data-table-image-animation);
+    transition-delay: getDataTableSizes(data-table-image-animation-delay);
+    object-fit: cover;
+    transform-origin: top left;
+    &:hover {
+      transform: scale(getDataTableSizes(data-table-image-scale));
+      box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
     }
   }
 
@@ -87,5 +115,7 @@
 
   .TableConfigsWrapper {
     @include flex(space-between, center);
+
+    margin-bottom: getDataTableSizes(table-config-wrapper-margin-bottom);
   }
 }

@@ -1,7 +1,7 @@
 @mixin generate-divider-styles {
   .Divider {
     position: relative;
-    margin-left: 28px;
+    margin-left: 2.8rem;
 
     &::before {
       content: '';
@@ -10,10 +10,10 @@
       top: 50%;
       transform: translate(-50%, -50%);
 
-      height: 9px;
+      height: 1.2rem;
       background: #8ea6c1;
-      width: 2px;
-      left: -14px;
+      width: 0.1rem;
+      left: -1.4rem;
     }
   }
 }

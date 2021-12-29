@@ -25,6 +25,11 @@
       mix-blend-mode: color-dodge;
     }
     .LoginContainer {
+      label {
+        svg {
+          width: getSignSizes(login-page-label-svg) !important;
+        }
+      }
       @include flex(center, center, column);
       background-color: getSignColors(login-container-color);
       width: getSignSizes(login-container-width);
@@ -86,6 +91,7 @@
       }
 
       .FormWrapper {
+        position: relative;
         margin-bottom: getSignSizes(form-margin);
         width: getSignSizes(form-wrapper-width);
       }

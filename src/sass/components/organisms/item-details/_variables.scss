@@ -3,7 +3,8 @@ $item-details-sizes: (
   base-min-height: calculateRem(656px),
   base-min-width: 80%,
   base-padding: calculateRem(16px) calculateRem(16px) calculateRem(16px) calculateRem(16px),
-  subs-margin: calculateRem(8px) calculateRem(16px) calculateRem(8px) calculateRem(16px)
+  subs-margin: calculateRem(8px) calculateRem(16px) calculateRem(8px) calculateRem(16px),
+  forms-padding:calculateRem(2px),
 );
 
 $item-details-colors: (

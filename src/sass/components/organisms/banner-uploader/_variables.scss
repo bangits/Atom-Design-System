@@ -1,10 +1,10 @@
 $banner-uploader-sizes: (
   img-max-height: calculateRem(210px),
-  banner-uploader-min-height: calculateRem(210px)
+  banner-uploader-min-height: calculateRem(300px)
 );
 
 $banner-uploader-colors: (
-  banner-description-color: #fff
+  banner-description-color:color(white)
 );
 
 @function getBannerUploaderColors($key) {
