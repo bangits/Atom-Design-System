@@ -13,7 +13,7 @@ const SpeedIndicator: FC<SpeedIndicatorProps> = ({ speed, isOffline }) => {
       className={classNames(styles.SpeedIndicatorBase, {
         [styles['SpeedIndicatorBase--offline']]: isOffline
       })}>
-      <svg width='22' height='18' viewBox='0 0 22 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
+      <svg width='2.2rem' viewBox='0 0 22 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           className={classNames({
             [styles['SpeedIndicatorBase--opacity']]: speed !== 3 && speed <= 2
@@ -39,6 +39,7 @@ const SpeedIndicator: FC<SpeedIndicatorProps> = ({ speed, isOffline }) => {
           d='M10.9567 17.9999C9.90698 17.996 9.04618 17.1951 9.04834 16.2233C9.04742 15.7454 9.25522 15.2873 9.62509 14.952C9.9948 14.6167 10.4957 14.4324 11.0147 14.4404C12.095 14.4464 12.9248 15.2314 12.9158 16.2424C12.905 17.2263 12.0384 18.0039 10.9568 17.9999H10.9567Z'
           fill='#6667AB'
         />
+
       </svg>
     </div>
   );

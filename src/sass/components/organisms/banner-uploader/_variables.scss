@@ -4,7 +4,7 @@ $banner-uploader-sizes: (
 );
 
 $banner-uploader-colors: (
-  banner-description-color: #fff
+  banner-description-color:color(white)
 );
 
 @function getBannerUploaderColors($key) {

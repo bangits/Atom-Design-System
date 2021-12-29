@@ -21,6 +21,7 @@
 
   .StatusContent {
     margin-bottom: getProviderDetailsSizes(status-content-margin-bottom);
+    height:getProviderDetailsSizes(status-content-height);
   }
 
   .ButtonContent {
