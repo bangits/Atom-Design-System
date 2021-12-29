@@ -55,6 +55,17 @@
       width: getEditedFormSizes(option-width);
       margin: getEditedFormSizes(option-margin);
       height: getEditedFormSizes(option-height);
+
+      &--line-translation {
+        height: getEditedFormSizes(option-line-translation-height);
+
+        .EditedFormBase {
+          &--option-value {
+            white-space: break-spaces;
+            overflow: inherit;
+          }
+        }
+      }
     }
 
     &--option-title {

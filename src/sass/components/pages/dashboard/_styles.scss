@@ -27,18 +27,34 @@
   .DashboardTitle,
   .DashboardTitle span {
     width: 100%;
-    @include flex(center, center, $flex-wrap: wrap);
 
     color: var(--theme-default-avatar-label-color, #505d6e);
 
-    font-size: getDashboardSizes(title-font-size);
     margin: 0;
-
-    margin-top: getDashboardSizes(title-margin-top);
   }
 
-  .DashboardIllustration {
-    width: getDashboardSizes(illustartion-width);
-    height: getDashboardSizes(illustartion-height);
+  .DashboardTitle {
+    font-size: getDashboardSizes(title-font-size);
+    margin-top: getDashboardSizes(title-margin-top);
+
+    @include flex(center, center, $flex-wrap: wrap, $direction: column);
+
+    font-weight: getDashboardSizes(title-font-weight);
+  }
+
+  .DashboardTitle span {
+    font-size: getDashboardSizes(paragraph-font-size);
+    margin-top: getDashboardSizes(paragraph-margin-top);
+
+    max-width: getDashboardSizes(paragraph-max-width);
+    text-align: center;
+    font-weight: getDashboardSizes(paragraph-font-weight);
+
+    line-height: getDashboardSizes(paragraph-line-height);
+
+    strong {
+      font-weight: 700;
+      color: color(primary);
+    }
   }
 }

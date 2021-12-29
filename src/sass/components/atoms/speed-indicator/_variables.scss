@@ -1,0 +1,18 @@
+$speed-indicator-sizes: (
+  offline-border-width: calculateRem(24px),
+  offline-border-height: calculateRem(3px),
+  offline-border-position-top: calculateRem(7px)
+);
+
+$speed-indicator-colors: (
+  indicator-color: color(primary),
+  offline-border-color: color(red-orange)
+);
+
+@function getSpeedIndicatorSizes($key) {
+  @return map-get($speed-indicator-sizes, $key);
+}
+
+@function getSpeedIndicatorColors($key) {
+  @return map-get($speed-indicator-colors, $key);
+}

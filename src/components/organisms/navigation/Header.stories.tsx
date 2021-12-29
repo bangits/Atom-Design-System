@@ -1,6 +1,6 @@
 import { Header } from '@/components';
 import { action } from '@storybook/addon-actions';
-import { number, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
 
 export default {
   component: Header,
@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <Header
+      isOffline={boolean('isOffline', false)}
       dateConverter={(date) => date.toLocaleString()}
       speed={2}
       localTime={'Local Time'}

@@ -41,34 +41,36 @@ export const GameLauncher = ({ iframeUrl, gameBackgroundUrl, onCloseButtonClick 
 
   return (
     <aside className={classNames(styles['GameLauncher'], 'GameLauncher')}>
-      <div className={classNames(styles['GameLauncher__Header'], 'GameLauncher__Header')}>
-        <div className={classNames(styles['GameLauncher__Tools-Cell'], 'GameLauncher__Tools-Cell')}>
-          <span
-            onClick={toggleFullScreen}
-            className={classNames(
-              styles['IconSpace'],
-              styles['GameLauncherIcons'],
-              styles['GameLauncherIcon--Wide'],
-              'IconSpace',
-              'GameLauncherIcons',
-              'GameLauncherIcons--Wide'
-            )}>
-            <FullScreenIcon width='2rem' />
-          </span>
-          <span
-            onClick={onCloseButtonClick}
-            className={classNames(
-              styles['IconSpace'],
-              styles['GameLauncherIcons'],
-              styles['GameLauncherIcons--Close'],
-              'IconSpace',
-              'GameLauncherIcons',
-              'GameLauncherIcons--Close'
-            )}>
-            <CloseWidePopUp width='1rem' />
-          </span>
+      {!isFullScreen && (
+        <div className={classNames(styles['GameLauncher__Header'], 'GameLauncher__Header')}>
+          <div className={classNames(styles['GameLauncher__Tools-Cell'], 'GameLauncher__Tools-Cell')}>
+            <span
+              onClick={toggleFullScreen}
+              className={classNames(
+                styles['IconSpace'],
+                styles['GameLauncherIcons'],
+                styles['GameLauncherIcon--Wide'],
+                'IconSpace',
+                'GameLauncherIcons',
+                'GameLauncherIcons--Wide'
+              )}>
+              <FullScreenIcon width='2rem' />
+            </span>
+            <span
+              onClick={onCloseButtonClick}
+              className={classNames(
+                styles['IconSpace'],
+                styles['GameLauncherIcons'],
+                styles['GameLauncherIcons--Close'],
+                'IconSpace',
+                'GameLauncherIcons',
+                'GameLauncherIcons--Close'
+              )}>
+              <CloseWidePopUp width='1rem' />
+            </span>
+          </div>
         </div>
-      </div>
+      )}
       <div className={classNames(styles['GameLauncher__Body'], 'GameLauncher__Body')}>
         {gameBackgroundUrl && (
           <div className={classNames(styles['ScreenCover'])}>

@@ -4,11 +4,15 @@ import styles from './SpeedIndicator.module.scss';
 
 export interface SpeedIndicatorProps {
   speed: 1 | 2 | 3;
+  isOffline?: boolean;
 }
 
-const SpeedIndicator: FC<SpeedIndicatorProps> = ({ speed }) => {
+const SpeedIndicator: FC<SpeedIndicatorProps> = ({ speed, isOffline }) => {
   return (
-    <div className={styles.SpeedIndicatorBase}>
+    <div
+      className={classNames(styles.SpeedIndicatorBase, {
+        [styles['SpeedIndicatorBase--offline']]: isOffline
+      })}>
       <svg width='22' height='18' viewBox='0 0 22 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           className={classNames({

@@ -3,10 +3,9 @@ import styles from './Dashboard.module.scss';
 
 export interface DashboardProps {
   username: string;
-  logoSrc: string;
 }
 
-export const Dashboard = ({ username, logoSrc }: DashboardProps) => {
+export const Dashboard = ({ username }: DashboardProps) => {
   return (
     <div className={styles.DashboardWrapper}>
       <div className={styles.DashboardIllustration}>
@@ -14,10 +13,9 @@ export const Dashboard = ({ username, logoSrc }: DashboardProps) => {
       </div>
 
       <h1 className={styles.DashboardTitle}>
-        Hello {username}, nice to see you!{' '}
+        Welcome!
         <span>
-          Welcome to <img src={logoSrc} className={styles.DashboardLogo} />
-          construct.com
+          <strong>Dear {username},</strong> we are happy to welcome you in atomconstruct.com.
         </span>
       </h1>
     </div>

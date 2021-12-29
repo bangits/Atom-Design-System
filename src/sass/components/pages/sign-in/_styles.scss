@@ -63,27 +63,15 @@
       }
     }
 
-    .LoginPageBox {
-      @include flex(center, center);
-      background: getSignColors(gradient-bg);
-      width: getSignSizes(login-box-width);
-      border-radius: getSignSizes(login-box-radius);
-      padding-left: getSignSizes(login-box-left-offset);
-      box-sizing: border-box;
+    .FormWrapper {
+      position: relative;
+      margin-bottom: getSignSizes(form-margin);
+      width: getSignSizes(form-wrapper-width);
+    }
 
-      .LoginPageTitle {
-        margin-bottom: getSignSizes(title-margin);
-      }
-
-      .LoginPageSubTitle {
-        margin-bottom: getSignSizes(subtitle-margin);
-      }
-
-      .FormWrapper {
-        position: relative;
-        margin-bottom: getSignSizes(form-margin);
-        width: getSignSizes(form-wrapper-width);
-      }
+    .ErrorMessage {
+      position: absolute;
+      bottom: 2rem;
     }
   }
 }

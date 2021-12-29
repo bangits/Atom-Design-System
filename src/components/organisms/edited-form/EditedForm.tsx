@@ -13,6 +13,7 @@ export interface EditedFormProps {
         title: ReactNode;
         value: ReactNode | string;
         variant: 'default';
+        shouldLineTranslation?: boolean;
       }
     | {
         title: ReactNode | string;
@@ -110,7 +111,11 @@ const EditedForm: FC<EditedFormProps> = ({
               {options &&
                 options?.map((option, index) =>
                   option.variant === 'default' ? (
-                    <div key={index} className={classNames(styles['EditedFormBase--option'])}>
+                    <div
+                      key={index}
+                      className={classNames(styles['EditedFormBase--option'], {
+                        [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation
+                      })}>
                       <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
                       <span className={classNames(styles['EditedFormBase--option-value'])}>
                         {option.value || noDataText}
@@ -142,9 +147,7 @@ const EditedForm: FC<EditedFormProps> = ({
                         {option.value || noDataText}
                       </span>
                     </div>
-                  ) : (
-                    <></>
-                  )
+                  ) : null
                 )}
               {height > 228 && (
                 <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'])}>

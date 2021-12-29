@@ -48,7 +48,7 @@ const SignIn: FC<SignInProps> = ({
     () =>
       renderInputs(
         createEmailInputRenderer({
-          label: usernameInputName,
+          label: usernameInputLabel,
           type: 'text',
           startIcon: <Icons.UserIcon />
         }),
@@ -61,7 +61,7 @@ const SignIn: FC<SignInProps> = ({
     () =>
       renderInputs(
         createPasswordInputRenderer({
-          label: passwordInputName,
+          label: passwordInputLabel,
           type: 'password'
         }),
         passwordInputName
@@ -87,14 +87,14 @@ const SignIn: FC<SignInProps> = ({
             {passwordInput}
 
             {loginErrorMessage && (
-              <Typography variant='p5' color='danger' className={styles['ErrorMessage']}>
+              <Typography variant='p5' color='danger' className={styles.ErrorMessage}>
                 {loginErrorMessage}
               </Typography>
             )}
           </div>
           <div className={styles.LoginButton}>
             <Button type='submit' {...buttonProps}>
-              {(buttonText = 'Sign In')}
+              {buttonText}
             </Button>
           </div>
         </div>

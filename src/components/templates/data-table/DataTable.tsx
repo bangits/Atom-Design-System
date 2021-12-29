@@ -293,7 +293,7 @@ function DataTable<T extends {}, K>({
           selectProps={filtersDropdownProps}
           className={classNames(styles.Filters, filterProps.className)}
           onSubmit={onFiltersChange}
-          onClear={onFiltersChange}
+          onClear={() => onFiltersChange(filterProps.initialValues)}
         />
       )}
 

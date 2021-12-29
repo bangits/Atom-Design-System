@@ -15,6 +15,7 @@ export const Header = ({
   speed,
   localTime,
   dateConverter,
+  isOffline,
   ...props
 }: HeaderProps) => {
   const [date, setDate] = useState<Date>(new Date());
@@ -35,11 +36,11 @@ export const Header = ({
           <Balance minimumFractionDigits={minimumFractionDigits} money={money} currency={currency} />
         </div>
         <div className={styles.InternetSpeed}>
-          <SpeedIndicator speed={speed} />
+          <SpeedIndicator speed={speed} isOffline={isOffline} />
         </div>
       </>
     ),
-    [money, currency, minimumFractionDigits, speed, localTime, date, dateConverter]
+    [money, currency, minimumFractionDigits, speed, localTime, date, dateConverter, isOffline]
   );
 
   return (
