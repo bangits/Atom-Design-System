@@ -47,6 +47,11 @@
     }
     &__Header-2 {
       @include flex(flex-end);
+      button {
+        svg {
+          width: getProviderDetailsSizes(games-list-header-2-btn-svg-width);
+        }
+      }
     }
     &__Add-Game-Btn {
       @include p;

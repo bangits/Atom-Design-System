@@ -25,6 +25,11 @@
       top: getSignSizes(login-position-top);
       left: getSignSizes(login-position-left);
       border-radius: 8px;
+      label {
+        svg {
+          width: getSignSizes(login-container-abel-svg);
+        }
+      }
 
       .LoginComponentsContainer {
         width: getSignSizes(login-components-container-width);
