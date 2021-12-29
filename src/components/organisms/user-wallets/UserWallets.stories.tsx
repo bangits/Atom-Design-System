@@ -14,32 +14,38 @@ export const Default = () => {
   return (
     <UserWallets
       onDefaultWalletChange={action('onDefaultWalletChange')}
+      onDefaultBallanceChange={action('onDefaultBallanceChange')}
       tableLoadingRowIds={[2]}
       translations={{
         add: 'Add',
         default: 'Default',
         id: 'ID',
         other: 'Other',
-        makeDefault: 'Make default'
+        makeDefault: 'Make default',
+        balance: 'Balance',
+        correctDefaultBalance: 'Correct Default Balance'
       }}
       wallets={[
         {
           balance: '150.000.000',
           currency: 'USD',
           id: 1,
-          isDefault: true
+          isDefault: true,
+          currencyId: 1
         },
         {
           balance: '150.000.000',
           currency: 'AMD',
           id: 2,
-          isDefault: false
+          isDefault: false,
+          currencyId: 2
         },
         {
           balance: '150.000.000',
           currency: 'RUB',
           id: 3,
-          isDefault: false
+          isDefault: false,
+          currencyId: 3
         }
       ]}
       renderCurrenciesSelect={(changeOpenedCurrenciesSelect) => (

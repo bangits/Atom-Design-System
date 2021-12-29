@@ -2,12 +2,15 @@ $page-wrapper-sizes: (
   page-wrapper-padding: 0 calculateRem(24px) 0 calculateRem(24px),
   page-wrapper-padding-top: calculateRem(26px),
   page-title-margin-bottom: calculateRem(18px),
-  page-title-font-weigth: 700
+  page-title-padding-left: calculateRem(8px),
+  page-title-border-width: calculateRem(3px),
+  page-title-border-radius: calculateRem(5px)
 );
 
 $page-wrapper-colors: (
   page-background-color: color(alabaster),
-  page-title-color: color(black-color)
+  page-title-color: color(black-color),
+  page-title-border-color: color(primary)
 );
 
 @function getPageWrapperSizes($key) {

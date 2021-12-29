@@ -19,3 +19,4 @@ export * from './profile-block';
 export * from './radio-group';
 export * from './select';
 export * from './text-input';
+export * from './label-endmark';

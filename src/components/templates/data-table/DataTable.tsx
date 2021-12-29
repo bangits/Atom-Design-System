@@ -51,7 +51,7 @@ export interface DataTableProps<T extends {}, K> {
 
   tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
     columns?: (TableProps<T>['columns'][number] & {
-      variant?: 'status' | 'image' | 'hovered-image';
+      variant?: 'status' | 'image' | 'hovered-image' | 'circle-image';
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
@@ -94,6 +94,7 @@ function DataTable<T extends {}, K>({
 
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
   const [isDisabledRefreshButton, setDisabledRefreshButton] = useState(false);
+  const [isFiltersOpened, setFiltersOpened] = useState(false);
 
   const dropdownOptions = useMemo<SelectProps<any, boolean, any>['options']>(
     () =>
@@ -207,14 +208,22 @@ function DataTable<T extends {}, K>({
             ),
             maxWidth: '11rem'
           }
-        : column.variant === 'image'
+        : column.variant === 'circle-image'
         ? {
-            renderColumn: (_, value) => <img className={styles.ImageColumn} src={value || noImage} />
+            renderColumn: (_, value) => <img className={styles.ImageColumnCircle} src={value || noImage} />
           }
         : column.variant === 'hovered-image'
         ? {
             renderColumn: (_, value) => {
-              return <img className={styles.ImageHoverColumn} src={value || noImageGame} />;
+              return (
+                <img className={classNames(styles.ImageHoverColumn, 'ImageHoverColumn')} src={value || noImageGame} />
+              );
+            }
+          }
+        : column.variant === 'image'
+        ? {
+            renderColumn: (_, value) => {
+              return <img className={styles.ImageColumn} src={value || noImageGame} />;
             }
           }
         : {})
@@ -280,6 +289,7 @@ function DataTable<T extends {}, K>({
       {isShowedFilter && (
         <Filters
           {...filterProps}
+          onFiltersOpenedChange={setFiltersOpened}
           selectProps={filtersDropdownProps}
           className={classNames(styles.Filters, filterProps.className)}
           onSubmit={onFiltersChange}
@@ -293,7 +303,7 @@ function DataTable<T extends {}, K>({
             isMulti
             dropdown
             dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
-            dropdownIcon={<SettingsIcon width="1.7rem" />}
+            dropdownIcon={<SettingsIcon width='1.8rem' height='1.8rem' />}
             clearButton
             clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
             selectAll
@@ -301,11 +311,13 @@ function DataTable<T extends {}, K>({
             color='primary'
             options={dropdownOptions}
             disableSelectedOptions={dropdownValues.length < 4}
-            value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
+            value={dropdownValues}
             onChange={(values) => {
-              setDropdownValues(values);
+              const updatedValues = values.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : values;
 
-              if (onTableConfigChange) onTableConfigChange(dropdownOptions, values);
+              setDropdownValues(updatedValues);
+
+              if (onTableConfigChange) onTableConfigChange(dropdownOptions, updatedValues);
             }}
             className={styles.TableConfigSelect}
           />
@@ -323,7 +335,11 @@ function DataTable<T extends {}, K>({
 
                 if (onRefreshButtonClick) onRefreshButtonClick(event);
               }}
-              className={styles.RefreshButton}>
+              className={styles.RefreshButton}
+              iconProps={{
+                width: '1.8rem',
+                height: '1.8rem'
+              }}>
               {refreshLabel}
             </ButtonWithIcon>
           </Divider>
@@ -347,9 +363,11 @@ function DataTable<T extends {}, K>({
 
       <Table
         {...tableProps}
+        height={`calc(100vh - ${isFiltersOpened ? '50rem' : '30rem'})`}
         fetch={onTableFetchData}
         className={classNames(styles.Table, tableProps.className, {
-          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage
+          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
+          [styles.TableHaveData]: !!tableProps.data?.length
         })}
         onSelectedColumnsChange={(columns) => {
           setSelectedRows(columns.map((c) => c.original));

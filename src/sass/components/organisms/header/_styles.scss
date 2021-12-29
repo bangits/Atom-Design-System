@@ -1,0 +1,12 @@
+@mixin generate-header-styles {
+  .LocalTime {
+    margin: getHeaderSizes(local-time-margin);
+  }
+
+  .Balance {
+    margin: getHeaderSizes(balance-margin);
+  }
+
+  .InternetSpeed {
+  }
+}

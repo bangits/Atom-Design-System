@@ -11,6 +11,9 @@ export default {
 export const Default = () => {
   return (
     <Header
+      dateConverter={(date) => date.toLocaleString()}
+      speed={2}
+      localTime={'Local Time'}
       money={number('money', 100000)}
       currency={text('currency', 'USD')}
       avatarProps={{
@@ -19,7 +22,7 @@ export const Default = () => {
         bottomButtonLabel: 'Log Out',
         onBottomButtonClick: action('logOut'),
 
-        avatarLabel: 'User',
+        avatarLabel: 'user_bangits@gmail.com',
         imageSource: 'https://cdn.icon-icons.com/icons2/2643/PNG/512/male_boy_person_people_avatar_icon_159358.png'
       }}
       notificationProps={{

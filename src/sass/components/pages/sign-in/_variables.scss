@@ -9,13 +9,14 @@ $sign-in-sizes: (
   login-box-width: 65%,
   login-box-radius: calculateRem(32px) 0 0 calculateRem(32px),
   login-box-left-offset: calculateRem(117px),
-  gradient-bg: linear-gradient(122deg, #709fb0 6%, #3c54b2 39%, #4a47a3 74%),
+  gradient-bg: linear-gradient(122deg, #709fb0 6%, #6667ab 39%, #4a47a3 74%),
   title-margin: calculateRem(4px),
   subtitle-margin: calculateRem(17px),
   form-margin: calculateRem(56px),
   login-inputs-margin-bottom: calculateRem(2px),
-  login-bottom-max-width:calculateRem(240px),
-  login-bottom-last-child-height:calculateRem(90px),
+  login-bottom-max-width: calculateRem(240px),
+  login-bottom-last-child-height: calculateRem(90px),
+  error-message-bottom: calculateRem(10px)
 );
 
 @function getSignColors($key) {

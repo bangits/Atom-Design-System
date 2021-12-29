@@ -1,8 +1,9 @@
 import { Icons } from '@/atom-design-system';
 import { CheckboxGroup, Filter, FilterValueType } from '@/components';
+import { Divider } from '@/components/atoms';
 import { arrayMoveMutable } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
-import { Button, Card, Select, Typography } from '@my-ui/core';
+import { Button, Card, Select, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
@@ -25,7 +26,9 @@ export function Filters<T>({
   onSaveClick,
   className,
   defaultFilters,
-  showedFilters: showedFiltersProp
+  showedFilters: showedFiltersProp,
+  onFiltersOpenedChange,
+  infoTooltipText
 }: FiltersProps<T>) {
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
@@ -41,10 +44,11 @@ export function Filters<T>({
 
   const [showedCheckboxFilters, setShowedCheckboxFilters] = useState<typeof checkboxFilters>(checkboxFilters);
 
-  const toggleFiltersCollapse = useCallback(
-    () => setIsOpenedFilterCollapse(!isOpenedFilterCollapse),
-    [isOpenedFilterCollapse]
-  );
+  const toggleFiltersCollapse = useCallback(() => {
+    if (onFiltersOpenedChange) onFiltersOpenedChange(!isOpenedFilterCollapse);
+
+    setIsOpenedFilterCollapse(!isOpenedFilterCollapse);
+  }, [isOpenedFilterCollapse, onFiltersOpenedChange]);
 
   const onFilterChange = useCallback((filterName: string, value: FilterValueType) => {
     setFilterValues({ [filterName]: value });
@@ -71,8 +75,8 @@ export function Filters<T>({
   const filtersConfigOptions = useMemo(
     () =>
       [...filters, ...checkboxFilters].map((filter) => ({
-        label: filter.label,
-        value: filter.name
+        label: filter?.label,
+        value: filter?.name
       })),
     [filters, checkboxFilters]
   );
@@ -118,8 +122,8 @@ export function Filters<T>({
           onFilterChange: (filterName: string, value: FilterValueType) => void;
         }) => (
           <Filter
-            key={filter.name}
-            value={filterValues[filter.name]}
+            key={filter?.name}
+            value={filterValues[filter?.name]}
             filter={filter}
             onFilterChange={onFilterChange}
             filterValues={filterValues}
@@ -143,15 +147,18 @@ export function Filters<T>({
         }) => {
           return (
             <div className={styles.FiltersContainer}>
-              {items.map((filter, index) => (
-                <SortableFilterItem
-                  key={filter.name}
-                  index={index}
-                  filterValues={filterValues}
-                  onFilterChange={onFilterChange}
-                  filter={filter}
-                />
-              ))}
+              {items.map(
+                (filter, index) =>
+                  filter && (
+                    <SortableFilterItem
+                      key={filter?.name}
+                      index={index}
+                      filterValues={filterValues}
+                      onFilterChange={onFilterChange}
+                      filter={filter}
+                    />
+                  )
+              )}
             </div>
           );
         }
@@ -198,18 +205,40 @@ export function Filters<T>({
           })}
       </div>
       <div className={styles.ControlContainer}>
-        <Select
-          {...selectProps}
-          dropdown
-          dropdownLabel='Filters'
-          isMulti={true}
-          onChange={onFiltersConfigChange}
-          defaultValue={filtersConfigDefaultValue}
-          options={filtersConfigOptions}
-          dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
-          className={styles.FiltersDropdown}
-          color='primary'
-        />
+        <div className={styles.LeftControlsContainer}>
+          <Select
+            {...selectProps}
+            dropdown
+            dropdownLabel='Filters'
+            isMulti={true}
+            onChange={onFiltersConfigChange}
+            defaultValue={filtersConfigDefaultValue}
+            options={filtersConfigOptions}
+            dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
+            className={styles.FiltersDropdown}
+            color='primary'
+          />
+          <Divider>
+            <Button
+              variant='link'
+              onClick={(event) => {
+                setDisabledSaveButton(true);
+
+                if (onSaveClick) onSaveClick(filters, showedFilters, event);
+              }}
+              disabled={isDisabledSaveButton}
+              className={styles.SaveButton}
+              startIcon={<Icons.SaveIcon />}>
+              {saveLabel}
+            </Button>
+          </Divider>
+
+          <Tooltip showEvent='hover' text={infoTooltipText} disabled={!infoTooltipText}>
+            <div className={styles.InfoIcon}>
+              <Icons.InfoIcon />
+            </div>
+          </Tooltip>
+        </div>
 
         <div className={styles.ToggleContainer}>
           <Typography variant='p4' className={styles.UserFoundLabel}>
@@ -218,17 +247,6 @@ export function Filters<T>({
 
           {isOpenedFilterCollapse && (
             <>
-              <Button
-                variant='link'
-                onClick={(event) => {
-                  setDisabledSaveButton(true);
-
-                  if (onSaveClick) onSaveClick(filters, showedFilters, event);
-                }}
-                disabled={isDisabledSaveButton}
-                className={styles.SaveButton}>
-                {saveLabel}
-              </Button>
               <Button variant='ghost' onClick={onClearClick}>
                 {clearLabel}
               </Button>
@@ -247,7 +265,7 @@ export function Filters<T>({
                   d='M0,5,5,0l5,5M0,12,5,7l5,5'
                   transform='translate(17 18) rotate(180)'
                   fill='none'
-                  stroke='#3c54b2'
+                  stroke='#6667ab'
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'

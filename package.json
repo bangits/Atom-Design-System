@@ -1,6 +1,6 @@
 {
   "name": "@atom/design-system",
-  "version": "2.3.36",
+  "version": "2.4.3",
   "files": [
     "dist"
   ],
@@ -89,7 +89,11 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@my-ui/core": "^2.28.14",
+=======
+    "@my-ui/core": "^3.0.2",
+>>>>>>> 54f6f464b601a1978581fcd74f60fd467b61d95b
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-cropper": "^2.1.8",
