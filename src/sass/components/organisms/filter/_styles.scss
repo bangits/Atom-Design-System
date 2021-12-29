@@ -19,6 +19,12 @@
       .FilterContainer {
         max-height: getFilterSizes(filter-element-max-height);
 
+        label > div {
+          svg {
+            width: 1.7rem
+          }
+        }
+        
         &.FilterContainerFromTo {
           @include flex();
 
