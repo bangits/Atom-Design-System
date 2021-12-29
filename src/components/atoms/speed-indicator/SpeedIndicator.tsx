@@ -8,8 +8,8 @@ export interface SpeedIndicatorProps {
 
 const SpeedIndicator: FC<SpeedIndicatorProps> = ({ speed }) => {
   return (
-    <div className={styles.SpeedIndicatorBase}>
-      <svg width='22' height='18' viewBox='0 0 22 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
+    <div className={styles.SpeedIndicatorBase} style={{border:"solid #ff0000 1px"}}>
+      <svg width='2.2rem' viewBox='0 0 22 18' fill='none' xmlns='http://www.w3.org/2000/svg'>
         <path
           className={classNames({
             [styles['SpeedIndicatorBase--opacity']]: speed !== 3 && speed <= 2
