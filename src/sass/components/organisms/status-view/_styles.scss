@@ -1,7 +1,8 @@
 @mixin generate-status-view-styles {
   div.StatusView {
     @include flex(space-between, center);
-    width: getStatusViewSizes(status-width);
+    // width: getStatusViewSizes(status-width);
+    width: 100%;
     padding: getStatusViewSizes(status-padding);
     box-sizing: border-box;
     background-color: getStatusViewColors(status-view-background-color);
@@ -29,10 +30,9 @@
 
     &--iconButton {
       button {
-        // width: getStatusViewSizes(icon-button-sizes);
-        // height: getStatusViewSizes(icon-button-sizes);
+        width: getStatusViewSizes(icon-button-sizes);
+        height: getStatusViewSizes(icon-button-sizes);
         svg {
-          width: getStatusViewSizes(icon-button-icon-sizes);
           fill: currentColor;
         }
       }

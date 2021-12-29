@@ -1,0 +1,19 @@
+$user-wallets-sizes: (
+  user-details-table-margin-top: calculateRem(27px),
+  user-details-button-margin-top: calculateRem(20px),
+  user-details-button-margin-left: calculateRem(20px),
+  select-content-svg-margin: calculateRem(15px) 0 0 calculateRem(12px),
+  balance-input-min-width: calculateRem(280px),
+  currencies-select-max-height: calculateRem(40px),
+  actions-container-max-height: calculateRem(38px)
+);
+
+$user-wallets-colors: ();
+
+@function getUserWalletsSizes($key) {
+  @return map-get($user-wallets-sizes, $key);
+}
+
+@function getUserWalletsColors($key) {
+  @return map-get($user-wallets-colors, $key);
+}

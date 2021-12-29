@@ -1,21 +1,24 @@
 $colors: (
-  alabaster: #f9f9f9,
+  // alabaster: #f9f9f9,
+  alabaster: #fbfafd,
   white: #fff,
+  white-lilac-2: #ebedf7,
   catskill-white: #e8edf3,
   black-color: #505d6e,
   nepal: #8ea6c1,
   nepal-opacity: #8ea6c133,
   selago: #f6f8fe,
   wild-blue-yonder: #7c83ac,
-  primary: #3c54b2,
+  primary: var(--theme-default-primary, #6667ab),
+  primary-transparent: rgba(150, 164, 218, 0.1),
   white-lilac: #f5f6fb,
   indigo: #4055bb,
   black-transparent: #99555580,
   woodsmoke: #040405,
-  gamboge: #dda213,
+  gamboge: #ffb92d,
   citrine-white: #fcf6e7,
   athens-gray: #e9eaf1,
-  night-in-manchester: #3c54b2,
+  night-in-manchester: var(--theme-default-primary, #6667ab),
   cascading-white: #f6f6f6,
   black-rgba: #00000080,
   box-shadow-image: #00000029,
@@ -24,7 +27,12 @@ $colors: (
   white-opacity: #ffffffb3,
   white-opacity-2: #ffffff80,
   dark-opacity: #000000cc,
+<<<<<<< HEAD
   sign-in-label-color: #48485d
+=======
+  quartz: #48485D,
+  dark-blue-gray: #6667AB,
+>>>>>>> a5a368a34bf4ea64718236c01b1084aecf87fe7e
 );
 
 @function color($property-name) {

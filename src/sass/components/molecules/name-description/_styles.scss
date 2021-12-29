@@ -1,7 +1,8 @@
 @mixin generate-name-description-styles {
   .NameDescriptionBase {
     position: relative;
-    width: getNameDescriptionSizes(base-width);
+    // width: getNameDescriptionSizes(base-width);
+    width: 100%;
     background-color: getNameDescriptionColors(base-bg);
     padding: getNameDescriptionSizes(base-padding);
     box-sizing: border-box;
@@ -37,9 +38,11 @@
     }
 
     &--description {
+      @include dots-after-text();
       height: getNameDescriptionSizes(description-height);
       font-size: getNameDescriptionSizes(description-font-size);
       color: getNameDescriptionColors(description-color);
+      max-width: getNameDescriptionSizes(description-max-width);
     }
 
     &--sub-core {

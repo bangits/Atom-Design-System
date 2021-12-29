@@ -42,14 +42,18 @@
           align-items: center;
           border-radius: none;
           font-size: 0;
-        }
 
-        svg {
-          background: none;
-          transform: translate(0, 0);
-          width: 1.6rem;
-          fill: currentColor;
-          border-radius: none;
+          svg {
+            transform: translate(0, 0);
+            width: 2.5rem;
+            height: 2.5rem;
+            padding: 0.5rem;
+            fill: currentColor;
+            border-radius: none;
+            box-sizing: border-box;
+
+            background-color: getFilterColors(filters-icon-bg);
+          }
         }
       }
     }
@@ -138,9 +142,32 @@
       }
 
       .SaveButton {
-        margin-right: getFilterSizes(control-buttons-margin) - calculateRem(10px);
+        font-size: getFilterSizes(save-button-size);
+        text-decoration: none;
+
+        & > div {
+          width: getFilterSizes(save-button-icon-width);
+        }
+
+        margin-right: getFilterSizes(control-buttons-margin);
 
         background: none !important;
+      }
+
+      .LeftControlsContainer {
+        @include flex(null, center);
+      }
+
+      .InfoIcon {
+        width: getFilterSizes(info-icon-width);
+
+        color: rgba(getFilterColors(info-icon-color), 0.8);
+
+        transition: color 0.3s;
+
+        &:hover {
+          color: getFilterColors(info-icon-color);
+        }
       }
     }
   }

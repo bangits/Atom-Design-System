@@ -10,7 +10,7 @@
     &--tag {
       > span {
         color: getLabelTagColors(tag-color) !important;
-        font-weight: 500;
+        font-weight: getLabelTagSizes(label-font-weight);
       }
     }
   }
