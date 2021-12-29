@@ -93,21 +93,7 @@
       .FormWrapper {
         position: relative;
         margin-bottom: getSignSizes(form-margin);
-<<<<<<< HEAD
         width: getSignSizes(form-wrapper-width);
-=======
-      }
-
-      .ErrorMessage{
-        position: absolute;
-        bottom: getSignSizes(error-message-bottom);
-      }
-
-      .LoginButton {
-        button {
-          width: 100%;
-        }
->>>>>>> a5a368a34bf4ea64718236c01b1084aecf87fe7e
       }
     }
   }
