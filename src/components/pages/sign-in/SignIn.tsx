@@ -1,11 +1,10 @@
 import { Icons } from '@/atom-design-system';
 import { PasswordInput } from '@/components/molecules';
 import { typedMemo } from '@/helpers';
+import { SignInImage } from '@/icons';
 import { Button, TextInput, TextInputProps, Typography } from '@my-ui/core';
 import React, { FC, useCallback, useMemo } from 'react';
 import styles from './SignIn.module.scss';
-
-
 export interface SignInProps {
   renderInputs?: (InputComponent: typeof TextInput, name: string) => JSX.Element;
   title?: string;
@@ -28,13 +27,13 @@ const SignIn: FC<SignInProps> = ({
   passwordInputLabel,
   buttonProps,
   loginErrorMessage,
-  usernameInputName = 'username',
-  passwordInputName = 'password'
+  usernameInputName = 'E-mail',
+  passwordInputName = 'Password'
 }) => {
   const createEmailInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
       (props) =>
-        <TextInput containerClassName={styles.LoginBottom} {...inputProps} {...props} />,
+        <TextInput containerClassName={styles.LoginBottom} {...inputProps} {...props} fullWidth />,
     []
   );
 
@@ -51,9 +50,7 @@ const SignIn: FC<SignInProps> = ({
         createEmailInputRenderer({
           label: usernameInputLabel,
           type: 'text',
-          startIcon: (
-            <Icons.UserIcon />
-          )
+          startIcon: <Icons.UserIcon />
         }),
         usernameInputName
       ),
@@ -74,9 +71,10 @@ const SignIn: FC<SignInProps> = ({
 
   return (
     <div className={styles.LoginPageWrapper}>
-      <div className={styles.LoginPageBox}>
-        <div>
-          <Typography variant='h1' component='h2' className={styles.LoginPageTitle}>
+      <SignInImage className={styles.SignInImage} />
+      <div className={styles.LoginContainer}>
+        <div className={styles.LoginComponentsContainer}>
+          <Typography variant='h3' component='h2' className={styles.LoginPageTitle}>
             {title}
           </Typography>
           <Typography variant='p4' component='p' className={styles.LoginPageSubTitle}>
@@ -89,12 +87,11 @@ const SignIn: FC<SignInProps> = ({
             {passwordInput}
 
             {loginErrorMessage && (
-              <Typography variant='p5' color='danger'>
+              <Typography variant='p5' color='danger' className={styles.ErrorMessage}>
                 {loginErrorMessage}
               </Typography>
             )}
           </div>
-
           <div className={styles.LoginButton}>
             <Button type='submit' {...buttonProps}>
               {buttonText}

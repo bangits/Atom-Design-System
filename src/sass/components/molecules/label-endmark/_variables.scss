@@ -1,0 +1,15 @@
+$end-mark-sizes: (
+  description-margin: 0 0 0 calculateRem(5px)
+);
+
+$end-mark-colors: (
+  description-color: color(quartz)
+);
+
+@function getEndMarkSizes($key) {
+  @return map-get($end-mark-sizes, $key);
+}
+
+@function getEndMarkColors($key) {
+  @return map-get($end-mark-colors, $key);
+}

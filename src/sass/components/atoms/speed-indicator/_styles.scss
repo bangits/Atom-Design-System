@@ -1,0 +1,24 @@
+@mixin generate-speed-indicator-styles {
+  .SpeedIndicatorBase {
+    position: relative;
+    fill: getSpeedIndicatorColors(indicator-color);
+
+    &--offline {
+      &::before {
+        content: '';
+        width: getSpeedIndicatorSizes(offline-border-width);
+        height: getSpeedIndicatorSizes(offline-border-height);
+
+        position: absolute;
+        background-color: getSpeedIndicatorColors(offline-border-color);
+
+        transform: rotate(-45deg);
+        top: getSpeedIndicatorSizes(offline-border-position-top);
+      }
+    }
+
+    &--opacity {
+      opacity: 0.5;
+    }
+  }
+}

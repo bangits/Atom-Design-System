@@ -1,6 +1,58 @@
-$profile-block-sizes: ();
+$profile-block-sizes: (
+ profile-block-width:calculateRem(244px),
+ profile-block-border-radius:16px,
+ profile-block-margin-bottom:calculateRem(10px),
 
-$profile-block-colors: ();
+ cover-photo-icon-cell-sizes:calculateRem(20px),
+ cover-photo-icon-cell-position:calculateRem(12px),
+ cover-photo-icon-cell-border-radius:50%,
+ cover-photo-icon-cell-z-index:10,
+
+ cover-min-height:calculateRem(90px),
+ cover-z-index:100,
+
+ profile-block-cover-photo-icon-cell-z-index:30,
+
+ cover-img-z-index:20,
+
+ img-cell-position-top:calculateRem(45px),
+ img-cell-position-left:calculateRem(16px),
+ img-cell-sizes:calculateRem(64px),
+ img-cell-z-index:10,
+ img-cell-border-radius:8px,
+ img-cell-border:2px,
+
+ photo-cam-icon-z-index:30,
+ photo-cam-icon-position:calculateRem(3px),
+
+ info-padding:calculateRem(26px) calculateRem(16px) calculateRem(10px) calculateRem(16px),
+ info-without-logo-padding-top:calculateRem(10px),
+
+ title-font-size:calculateRem(18px),
+ title-font-weight:700,
+ title-line-height:calculateRem(22px),
+
+ sub-title-font-size:calculateRem(14px),
+ sub-title-padding-top:calculateRem(2px),
+
+ img-z-index:10,
+);
+
+$profile-block-colors: (
+ profile-block-background-color:color(white),
+
+ cover-photo-icon-cell-background-color:color(white),
+ cover-photo-icon-fill:color(black-color),
+ cover-background-color:color(white-lilac-2),
+ 
+ img-cell-background-color:color(black-color),
+ img-cell-border-color:color(white),
+ img-cell-svg-fill:color(white),
+
+ title-color:color(black-color),
+
+ sub-title-color:color(nepal),
+);
 
 @function getProfileBlockSizes($key) {
   @return map-get($profile-block-sizes, $key);

@@ -1,57 +1,82 @@
 @mixin generate-sign-in-styles {
   .LoginPageWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: getSignColors(gradient-bg);
+
+    .SignInImage {
+      left: 0;
+      bottom: 0;
+      position: absolute;
+      width: 60%;
+      max-width: getSignSizes(sign-in-image-max-width);
+      mix-blend-mode: color-dodge;
+    }
+
+    .LoginContainer {
+      @include flex(center, center, column);
+      background-color: getSignColors(login-container-color);
+      width: getSignSizes(login-container-width);
+      height: getSignSizes(login-container-height);
+      position: absolute;
+      top: getSignSizes(login-position-top);
+      left: getSignSizes(login-position-left);
+      border-radius: 8px;
+      label {
+        svg {
+          width: getSignSizes(login-container-abel-svg);
+        }
+      }
+
+      .LoginComponentsContainer {
+        width: getSignSizes(login-components-container-width);
+        height: getSignSizes(login-components-container-width);
+        @include flex(center, center, column);
+      }
+
+      .LoginButton {
+        width: getSignSizes(login-button-width) !important;
+
+        button {
+          width: 100% !important;
+        }
+      }
+    }
+
     .LoginPageTitle {
       color: getSignColors(login-page-title-color);
+      margin-bottom: getSignSizes(login-page-title-margin-bottom);
+      margin-top: getSignSizes(margin-size-null);
     }
 
     .LoginPageSubTitle {
       color: getSignColors(login-page-sub-title-color);
-    }
-
-    .LoginPageTitle,
-    .LoginPageSubTitle {
-      margin: 0;
+      margin-bottom: getSignSizes(login-page-subtitle-margin-bottom);
+      margin-top: getSignSizes(margin-size-null);
     }
 
     .LoginBottom {
       margin-bottom: getSignSizes(login-bottom-margin-bottom);
-      max-width: getSignSizes(login-bottom-max-width);
+      max-width: getSignSizes(login-bottom-max-width) !important;
+      width: getSignSizes(login-button-width);
 
       &:last-child {
         min-height: getSignSizes(login-bottom-last-child-height);
       }
     }
 
-    @include flex(flex-end);
-    width: 100%;
-    height: 100vh;
-    background: getSignSizes(gradient-bg);
+    .FormWrapper {
+      position: relative;
+      margin-bottom: getSignSizes(form-margin);
+      width: getSignSizes(form-wrapper-width);
+    }
 
-    .LoginPageBox {
-      @include flex(center, center);
-      background-color: getSignColors(login-box-bg);
-      width: getSignSizes(login-box-width);
-      border-radius: getSignSizes(login-box-radius);
-      padding-left: getSignSizes(login-box-left-offset);
-      box-sizing: border-box;
-
-      .LoginPageTitle {
-        margin-bottom: getSignSizes(title-margin);
-      }
-
-      .LoginPageSubTitle {
-        margin-bottom: getSignSizes(subtitle-margin);
-      }
-
-      .FormWrapper {
-        margin-bottom: getSignSizes(form-margin);
-      }
-
-      .LoginButton {
-        button {
-          width: 100%;
-        }
-      }
+    .ErrorMessage {
+      position: absolute;
+      bottom: 2rem;
     }
   }
 }

@@ -2,10 +2,14 @@ $dashboard-sizes: (
   dashboard-wrapper-position-top: calculateRem(-100px),
   logo-max-width: calculateRem(70px),
   logo-margin: 0 calculateRem(15px),
-  title-font-size: calculateRem(30px),
-  title-margin-top: calculateRem(10px),
-  illustartion-width: calculateRem(350px),
-  illustartion-height: calculateRem(320px)
+  title-font-size: calculateRem(24px),
+  title-margin-top: calculateRem(24px),
+  title-font-weight: 700,
+  paragraph-font-size: calculateRem(16px),
+  paragraph-margin-top: calculateRem(10px),
+  paragraph-max-width: calculateRem(440px),
+  paragraph-font-weight: 500,
+  paragraph-line-height: 1.8em
 );
 
 $dashboard-colors: ();

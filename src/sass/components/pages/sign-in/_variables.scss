@@ -1,21 +1,44 @@
 $sign-in-colors: (
-  login-box-bg: color(white),
   login-page-title-color: color(primary),
   login-page-sub-title-color: color(nepal),
-  login-bottom-margin-bottom: calculateRem(2px)
+  login-bottom-margin-bottom: calculateRem(2px),
+  login-container-color: color(white),
+  gradient-bg: linear-gradient(107.4deg, rgba(24, 25, 95, 0.8) 0.75%, rgba(47, 82, 220, 0.39) 86%)
 );
 
 $sign-in-sizes: (
   login-box-width: 65%,
   login-box-radius: calculateRem(32px) 0 0 calculateRem(32px),
   login-box-left-offset: calculateRem(117px),
-  gradient-bg: linear-gradient(122deg, #709fb0 6%, #3c54b2 39%, #4a47a3 74%),
   title-margin: calculateRem(4px),
   subtitle-margin: calculateRem(17px),
   form-margin: calculateRem(56px),
+  margin-size-null: 0,
   login-inputs-margin-bottom: calculateRem(2px),
-  login-bottom-max-width:calculateRem(240px),
-  login-bottom-last-child-height:calculateRem(90px),
+  login-bottom-max-width: calculateRem(324px),
+  login-bottom-width: calculateRem(324px),
+  login-bottom-last-child-height: calculateRem(90px),
+  //SignInImage
+  sign-in-image-width: calculateRem(1216.82px),
+  sign-in-image-height: calculateRem(1429.04px),
+  sign-in-image-max-width: calculateRem(981px),
+  //LoginContainer
+  login-container-height: calculateRem(450px),
+  login-container-width: calculateRem(490px),
+  login-position-top: 24.02%,
+  login-position-left: 55.07%,
+  login-container-abel-svg: calculateRem(16px),
+  //LoginComponentsContainer
+  login-components-container-width: calculateRem(324px),
+  login-components-container-height: calculateRem(297),
+  //LoginButton
+  login-button-width: calculateRem(324px),
+  //LoginPageTitle
+  login-page-title-margin-bottom: calculateRem(12px),
+  //LoginPageSubTitle
+  login-page-subtitle-margin-bottom: calculateRem(40px),
+  //FormWrapper
+  form-wrapper-width: calculateRem(324px)
 );
 
 @function getSignColors($key) {

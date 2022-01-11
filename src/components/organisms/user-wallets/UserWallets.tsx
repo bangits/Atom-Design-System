@@ -136,7 +136,7 @@ const UserWallets = ({
                 <TextInput
                   type='number'
                   label={translations.balance}
-                  value={balance}
+                  value={balance?.toString()}
                   onChange={(e) => setBalance(e.target.value && +e.target.value)}
                   isDecimal
                   maxLength={balanceMaxLength}
@@ -151,7 +151,7 @@ const UserWallets = ({
                     </span>
                   }
                 />
-                {balance && (
+                {balance ? (
                   <IconButton
                     onClick={() => {
                       setOpenedDefaultBalanceChangeSelect(false);
@@ -166,7 +166,7 @@ const UserWallets = ({
                       </span>
                     }
                   />
-                )}
+                ) : null}
               </div>
             ) : (
               <Button

@@ -1,8 +1,9 @@
 import { Icons } from '@/atom-design-system';
 import { CheckboxGroup, Filter, FilterValueType } from '@/components';
+import { Divider } from '@/components/atoms';
 import { arrayMoveMutable } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
-import { Button, Card, Select, Typography } from '@my-ui/core';
+import { Button, Card, Select, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
@@ -26,7 +27,8 @@ export function Filters<T>({
   className,
   defaultFilters,
   showedFilters: showedFiltersProp,
-  onFiltersOpenedChange
+  onFiltersOpenedChange,
+  infoTooltipText
 }: FiltersProps<T>) {
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
@@ -203,18 +205,40 @@ export function Filters<T>({
           })}
       </div>
       <div className={styles.ControlContainer}>
-        <Select
-          {...selectProps}
-          dropdown
-          dropdownLabel='Filters'
-          isMulti={true}
-          onChange={onFiltersConfigChange}
-          defaultValue={filtersConfigDefaultValue}
-          options={filtersConfigOptions}
-          dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
-          className={styles.FiltersDropdown}
-          color='primary'
-        />
+        <div className={styles.LeftControlsContainer}>
+          <Select
+            {...selectProps}
+            dropdown
+            dropdownLabel='Filters'
+            isMulti={true}
+            onChange={onFiltersConfigChange}
+            defaultValue={filtersConfigDefaultValue}
+            options={filtersConfigOptions}
+            dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
+            className={styles.FiltersDropdown}
+            color='primary'
+          />
+          <Divider>
+            <Button
+              variant='link'
+              onClick={(event) => {
+                setDisabledSaveButton(true);
+
+                if (onSaveClick) onSaveClick(filters, showedFilters, event);
+              }}
+              disabled={isDisabledSaveButton}
+              className={styles.SaveButton}
+              startIcon={<Icons.SaveIcon />}>
+              {saveLabel}
+            </Button>
+          </Divider>
+
+          <Tooltip showEvent='hover' text={infoTooltipText} disabled={!infoTooltipText}>
+            <div className={styles.InfoIcon}>
+              <Icons.InfoIcon />
+            </div>
+          </Tooltip>
+        </div>
 
         <div className={styles.ToggleContainer}>
           <Typography variant='p4' className={styles.UserFoundLabel}>
@@ -223,17 +247,6 @@ export function Filters<T>({
 
           {isOpenedFilterCollapse && (
             <>
-              <Button
-                variant='link'
-                onClick={(event) => {
-                  setDisabledSaveButton(true);
-
-                  if (onSaveClick) onSaveClick(filters, showedFilters, event);
-                }}
-                disabled={isDisabledSaveButton}
-                className={styles.SaveButton}>
-                {saveLabel}
-              </Button>
               <Button variant='ghost' onClick={onClearClick}>
                 {clearLabel}
               </Button>
@@ -252,7 +265,7 @@ export function Filters<T>({
                   d='M0,5,5,0l5,5M0,12,5,7l5,5'
                   transform='translate(17 18) rotate(180)'
                   fill='none'
-                  stroke='#3c54b2'
+                  stroke='#6667ab'
                   stroke-linecap='round'
                   stroke-linejoin='round'
                   stroke-width='2'

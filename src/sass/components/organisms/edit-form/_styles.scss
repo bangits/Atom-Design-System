@@ -5,8 +5,8 @@
   .EditForm--12 {
     width: 100%;
     .EditFormBase--content {
-      column-gap: 16px;
-      justify-content: flex-start;
+      column-gap: getEditFormInSizes(edit-form-base-content-column-gap);
+      @include flex(flex-start, null);
     }
   }
 
@@ -43,8 +43,7 @@
     }
 
     &--content {
-      @include flex(space-between);
-      flex-wrap: wrap;
+      @include flex(space-between, null, $flex-wrap: wrap);
       align-content: flex-start;
       box-sizing: border-box;
       width: getEditFormInSizes(edit-form-content-width);
@@ -62,7 +61,7 @@
       margin: getEditFormInSizes(field-header-margin);
       height: getEditFormInSizes(field-header-height);
       font-size: getEditFormInSizes(field-header-font-size);
-      font-weight: 500;
+      font-weight: getEditFormInSizes(field-header-font-weight);
       color: getEditFormInColors(field-header-color);
       width: 100%;
     }

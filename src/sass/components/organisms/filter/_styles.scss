@@ -19,6 +19,12 @@
       .FilterContainer {
         max-height: getFilterSizes(filter-element-max-height);
 
+        label > div {
+          svg {
+            width: 1.4rem
+          }
+        }
+
         &.FilterContainerFromTo {
           @include flex();
 
@@ -51,6 +57,8 @@
             fill: currentColor;
             border-radius: none;
             box-sizing: border-box;
+
+            background-color: getFilterColors(filters-icon-bg);
           }
         }
       }
@@ -140,9 +148,32 @@
       }
 
       .SaveButton {
+        font-size: getFilterSizes(save-button-size);
+        text-decoration: none;
+
+        & > div {
+          width: getFilterSizes(save-button-icon-width);
+        }
+
         margin-right: getFilterSizes(control-buttons-margin);
 
         background: none !important;
+      }
+
+      .LeftControlsContainer {
+        @include flex(null, center);
+      }
+
+      .InfoIcon {
+        width: getFilterSizes(info-icon-width);
+
+        color: rgba(getFilterColors(info-icon-color), 0.8);
+
+        transition: color 0.3s;
+
+        &:hover {
+          color: getFilterColors(info-icon-color);
+        }
       }
     }
   }

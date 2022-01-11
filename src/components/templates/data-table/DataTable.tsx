@@ -215,7 +215,9 @@ function DataTable<T extends {}, K>({
         : column.variant === 'hovered-image'
         ? {
             renderColumn: (_, value) => {
-              return <img className={styles.ImageHoverColumn} src={value || noImageGame} />;
+              return (
+                <img className={classNames(styles.ImageHoverColumn, 'ImageHoverColumn')} src={value || noImageGame} />
+              );
             }
           }
         : column.variant === 'image'
@@ -291,7 +293,7 @@ function DataTable<T extends {}, K>({
           selectProps={filtersDropdownProps}
           className={classNames(styles.Filters, filterProps.className)}
           onSubmit={onFiltersChange}
-          onClear={onFiltersChange}
+          onClear={() => onFiltersChange(filterProps.initialValues)}
         />
       )}
 
@@ -309,11 +311,13 @@ function DataTable<T extends {}, K>({
             color='primary'
             options={dropdownOptions}
             disableSelectedOptions={dropdownValues.length < 4}
-            value={dropdownValues.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : dropdownValues}
+            value={dropdownValues}
             onChange={(values) => {
-              setDropdownValues(values);
+              const updatedValues = values.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : values;
 
-              if (onTableConfigChange) onTableConfigChange(dropdownOptions, values);
+              setDropdownValues(updatedValues);
+
+              if (onTableConfigChange) onTableConfigChange(dropdownOptions, updatedValues);
             }}
             className={styles.TableConfigSelect}
           />

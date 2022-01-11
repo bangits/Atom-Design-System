@@ -23,6 +23,7 @@ export const Default = () => {
       }}
       passwordInputLabel='password'
       usernameInputLabel='username'
+      loginErrorMessage='loginErrorMessage'
     />
   );
 };
