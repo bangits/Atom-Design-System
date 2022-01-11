@@ -34,7 +34,7 @@ export const Default = () => {
           }
         ]
       }}
-      restrictedtCountries={{
+      restrictedCountries={{
         title: 'Total Market',
         total: '1 Country',
         countries: [

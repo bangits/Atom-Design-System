@@ -15,7 +15,7 @@ export interface ProvidersGeneralInfoProps {
     total?: string;
     countries: TagCountryProps[];
   };
-  restrictedtCountries: {
+  restrictedCountries: {
     title: string;
     total?: string;
     countries: TagCountryProps[];
@@ -47,7 +47,7 @@ export interface ProvidersGeneralInfoProps {
 const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
   totalMarket,
   certifiedCountries,
-  restrictedtCountries,
+  restrictedCountries,
   supportedCurrencies,
   licenses,
   realURL,
@@ -79,10 +79,10 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
       </LabelGroup>
 
       <LabelGroup
-        title={restrictedtCountries.title}
-        totalLabel={restrictedtCountries.countries.length > 0 ? restrictedtCountries.total : ''}>
-        {restrictedtCountries.countries.length > 0 ? (
-          <Countries tagCountries={restrictedtCountries.countries} />
+        title={restrictedCountries.title}
+        totalLabel={restrictedCountries.countries.length > 0 ? restrictedCountries.total : ''}>
+        {restrictedCountries.countries.length > 0 ? (
+          <Countries tagCountries={restrictedCountries.countries} />
         ) : (
           <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
             {noDataText}
