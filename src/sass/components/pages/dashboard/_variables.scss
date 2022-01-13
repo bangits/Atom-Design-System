@@ -4,11 +4,12 @@ $dashboard-sizes: (
   logo-margin: 0 calculateRem(15px),
   title-font-size: calculateRem(24px),
   title-margin-top: calculateRem(24px),
-  title-font-weight: 700,
+  title-font-weight: 400,
   paragraph-font-size: calculateRem(16px),
   paragraph-margin-top: calculateRem(10px),
   paragraph-max-width: calculateRem(440px),
-  paragraph-font-weight: 500,
+  dashboard-illustration-width: calculateRem(85px),
+  paragraph-font-weight: 400,
   paragraph-line-height: 1.8em
 );
 

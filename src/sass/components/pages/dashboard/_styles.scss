@@ -1,4 +1,10 @@
 @mixin generate-dashboard-styles {
+  .DashboardIllustration {
+    width: getDashboardSizes(dashboard-illustration-width);
+
+    animation: infinite-rotate linear infinite 2s;
+  }
+
   .DashboardWrapper {
     position: fixed;
     width: 100%;
@@ -6,13 +12,6 @@
 
     top: getDashboardSizes(dashboard-wrapper-position-top);
     @include flex(center, center, column);
-  }
-
-  .DashboardLogo {
-    max-width: getDashboardSizes(logo-max-width);
-    margin: getDashboardSizes(logo-margin);
-
-    animation: infinite-rotate linear infinite 2s;
   }
 
   @keyframes infinite-rotate {
@@ -53,7 +52,7 @@
     line-height: getDashboardSizes(paragraph-line-height);
 
     strong {
-      font-weight: 700;
+      font-weight: 400;
       color: color(primary);
     }
   }
