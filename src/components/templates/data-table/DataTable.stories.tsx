@@ -145,21 +145,174 @@ export const Default = () => {
         clearLabel: 'Clear'
       }}
       tableProps={{
-        data: [
-          [
-            {
-              image:
-                'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
-              y: 'ID1234567',
-              z: 'ID1234567',
-              b: '20BurningHot',
-              n: 'EGT',
-              w: '12/07/2021, 12:00:00',
-              e: 'Mobile Desktop',
-              v: 'Mobile, Desktop',
-              c: 'Slots'
+        actions: [
+          {
+            iconName: 'EditIcon',
+            shouldShow: () => true,
+            onClick: () => {
+              return true;
             }
-          ]
+          },
+          {
+            iconName: 'EditIcon',
+            shouldShow: () => true,
+            onClick: () => {
+              return true;
+            }
+          },
+          {
+            iconName: 'EditIcon',
+            shouldShow: () => true,
+            onClick: () => {
+              return true;
+            }
+          }
+        ],
+        data: [
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
+          {
+            image:
+              'https://images.unsplash.com/photo-1553481187-be93c21490a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8Z2FtZXxlbnwwfHwwfHw%3D&w=1000&q=80',
+            y: 'ID1234567',
+            z: 'ID1234567',
+            b: '20BurningHot',
+            n: 'EGT',
+            w: '12/07/2021, 12:00:00',
+            e: 'Mobile Desktop',
+            v: 'Mobile, Desktop',
+            c: 'Slots'
+          },
         ],
         columns: [
           {

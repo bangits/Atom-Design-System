@@ -1,6 +1,7 @@
+import { FlexibleForm } from '@/components';
 import { object, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
-import GameCompatibility from './GameCompatibility';
+import { GameCompatibility } from '.';
 import GameDetails from './GameDetails';
 
 export default {
@@ -25,41 +26,56 @@ export const Default = () => {
       gameId=''
       gameName=''
       generalInformationContext={
-        <>
-          <GameCompatibility
-            devices={[]}
-            mobilePortrait={true}
-            certifiedCountries={[{ tagName: 'Armenia' }, { tagName: 'Armenia' }]}
-            currencies={[{ title: 'USD' }]}
-            uiLanguages={[{ title: 'Armenian' }]}
-            operatingLanguages={[]}
-            restrictedCountries={[]}
-            desktopLandscape={false}
-            desktopPortrait
-            mobileLandscape={false}
-            supportedBrowsers={{
-              browsersEnum: SupportedBrowsersEnum,
-              onChange: (values) => console.log(values)
+        <form>
+          <FlexibleForm
+            title='Compatibility'
+            editFormProps={{
+              fields: [],
+              renderInputs: (Component) => <Component />
             }}
-            translations={{
-              noDataText: 'Not Completed',
-              certifiedCountries: 'Certified Countries',
-              currencies: 'Currencies',
-              desktop: 'Desktop',
-              devices: 'Devices',
-              landscape: 'Landscape',
-              mobile: 'Mobile',
-              mobileScreenMode: 'Mobile Screen Mode',
-              operatingLanguages: 'Operating Languages',
-              portrait: 'Portrait',
-              restrictedCountries: 'RestrictedCountries',
-              supportedBrowsers: 'Supported Browsers',
-              tableScreenMode: 'Tablet Screen Mode',
-              tablet: 'Tablet',
-              uiLanguages: 'Ui Languages'
+            editedFormProps={{
+              options: [],
+              col: 6
             }}
+            editedModeChildren={
+              <>
+                <GameCompatibility
+                  devices={[]}
+                  mobilePortrait={true}
+                  certifiedCountries={[{ tagName: 'Armenia' }, { tagName: 'Armenia' }]}
+                  currencies={[{ title: 'USD' }]}
+                  uiLanguages={[{ title: 'Armenian' }]}
+                  operatingLanguages={[]}
+                  restrictedCountries={[]}
+                  desktopLandscape={false}
+                  desktopPortrait
+                  mobileLandscape={false}
+                  supportedBrowsers={{
+                    browsersEnum: SupportedBrowsersEnum,
+                    onChange: (values) => console.log(values)
+                  }}
+                  translations={{
+                    noDataText: 'Not Completed',
+                    certifiedCountries: 'Certified Countries',
+                    currencies: 'Currencies',
+                    desktop: 'Desktop',
+                    devices: 'Devices',
+                    landscape: 'Landscape',
+                    mobile: 'Mobile',
+                    mobileScreenMode: 'Mobile Screen Mode',
+                    operatingLanguages: 'Operating Languages',
+                    portrait: 'Portrait',
+                    restrictedCountries: 'RestrictedCountries',
+                    supportedBrowsers: 'Supported Browsers',
+                    tableScreenMode: 'Tablet Screen Mode',
+                    tablet: 'Tablet',
+                    uiLanguages: 'Ui Languages'
+                  }}
+                />
+              </>
+            }
           />
-        </>
+        </form>
       }
       noDataText='N/A'
       buttons={{
