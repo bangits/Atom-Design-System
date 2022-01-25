@@ -55,6 +55,7 @@
 
     &--field {
       width: getEditFormInSizes(edit-form-field-width);
+      margin: getEditFormInSizes(edit-form-field-margin);
     }
 
     &--field-header {

@@ -32,7 +32,7 @@
 
     &--content {
       position: relative;
-      @include flex(flex-start, null, $flex-wrap: wrap);
+      @include flex(space-between, null, $flex-wrap: wrap);
       align-content: flex-start;
       padding: getEditedFormSizes(content-padding);
       width: getEditedFormSizes(content-width);
@@ -51,7 +51,7 @@
 
     &--option {
       @include flex(null, flex-start, $direction:column);
-      flex: getEditedFormSizes(option-flex);
+      // flex: getEditedFormSizes(option-flex);
       width: getEditedFormSizes(option-width);
       margin: getEditedFormSizes(option-margin);
       height: getEditedFormSizes(option-height);
