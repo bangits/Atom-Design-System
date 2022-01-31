@@ -13,6 +13,7 @@ RUN yarn
 # Copy all files to working directory
 COPY . .
 
+
 # Exposing application in-browser module port
 EXPOSE 6005
 
