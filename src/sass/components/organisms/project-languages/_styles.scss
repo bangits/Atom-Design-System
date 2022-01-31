@@ -1,0 +1,22 @@
+@mixin generate-project-languages-styles {
+  .ProjectLanguagesTableContent {
+    margin-top: getProjectLanguagesSizes(table-margin-top);
+    width: 100%;
+
+    .ProjectLanguagesTable {
+      width: 100%;
+      box-shadow: none;
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    .LanguagesActionsContainer {
+      @include flex;
+
+      margin-top: getProjectLanguagesSizes(button-margin-top);
+      margin-left: getProjectLanguagesSizes(button-margin-left);
+
+      max-height: getProjectLanguagesSizes(actions-container-max-height);
+    }
+  }
+}

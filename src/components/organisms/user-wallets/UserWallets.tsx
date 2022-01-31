@@ -1,5 +1,5 @@
 import { Icons } from '@/atom-design-system';
-import { TextInput } from '@/components';
+import { HidableSelect, TextInput } from '@/components';
 import { Divider } from '@/components/atoms';
 import { Button, IconButton, Tooltip } from '@my-ui/core';
 import React, { ReactNode, useState } from 'react';
@@ -106,29 +106,7 @@ const UserWallets = ({
         />
         <div className={styles.WalletActionsContainer}>
           {shouldShowAddWalletButton && (
-            <>
-              {isOpenedCurrenciesSelect ? (
-                <div className={styles.SelectContent}>
-                  {renderCurrenciesSelect(setOpenedCurrenciesSelect)}
-                  <IconButton
-                    onClick={() => setOpenedCurrenciesSelect(false)}
-                    icon={
-                      <span className={styles.CloseIcon}>
-                        <Icons.CloseIcon />
-                      </span>
-                    }
-                  />
-                </div>
-              ) : (
-                <Button
-                  onClick={() => setOpenedCurrenciesSelect(true)}
-                  variant='link'
-                  startIcon={<Icons.PlusCircleLarge />}
-                  className={styles.AddButton}>
-                  {translations.add}
-                </Button>
-              )}
-            </>
+            <HidableSelect renderCustomSelect={renderCurrenciesSelect} buttonTitle={translations.add} />
           )}
           <Divider showDivider={shouldShowAddWalletButton}>
             {isOpenedDefaultBalanceChangeSelect ? (

@@ -1,0 +1,10 @@
+$project-languages-sizes: (
+  table-margin-top: calculateRem(27px),
+  button-margin-top: calculateRem(20px),
+  button-margin-left: calculateRem(20px),
+  actions-container-max-height: calculateRem(38px)
+);
+
+@function getProjectLanguagesSizes($key) {
+  @return map-get($project-languages-sizes, $key);
+}

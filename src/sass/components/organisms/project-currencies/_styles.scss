@@ -1,0 +1,22 @@
+@mixin generate-project-currencies-styles {
+  .ProjectCurrenciesTableContent {
+    margin-top: getProjectCurrenciesSizes(table-margin-top);
+    width: 100%;
+
+    .ProjectCurrenciesTable {
+      width: 100%;
+      box-shadow: none;
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    .CurrenciesActionsContainer {
+      @include flex;
+
+      margin-top: getProjectCurrenciesSizes(button-margin-top);
+      margin-left: getProjectCurrenciesSizes(button-margin-left);
+
+      max-height: getProjectCurrenciesSizes(actions-container-max-height);
+    }
+  }
+}
