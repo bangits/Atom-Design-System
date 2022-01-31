@@ -7,6 +7,7 @@ import { Button, Card, Select, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
+import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from './Filters.module.scss';
 import { FilterProp, FiltersProps } from './FilterTypes';
 
@@ -30,6 +31,9 @@ export function Filters<T>({
   onFiltersOpenedChange,
   infoTooltipText
 }: FiltersProps<T>) {
+  const [showButton, setShowButton] = useState(true);
+  const [showMessage, setShowMessage] = useState(false);
+
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
   >(
@@ -48,6 +52,7 @@ export function Filters<T>({
     if (onFiltersOpenedChange) onFiltersOpenedChange(!isOpenedFilterCollapse);
 
     setIsOpenedFilterCollapse(!isOpenedFilterCollapse);
+    setShowMessage((prev) => !prev);
   }, [isOpenedFilterCollapse, onFiltersOpenedChange]);
 
   const onFilterChange = useCallback((filterName: string, value: FilterValueType) => {
@@ -146,20 +151,22 @@ export function Filters<T>({
           items: FilterProp<T>[];
         }) => {
           return (
-            <div className={styles.FiltersContainer}>
+            <TransitionGroup className={`${styles.FiltersContainer}`}>
               {items.map(
                 (filter, index) =>
                   filter && (
-                    <SortableFilterItem
-                      key={filter?.name}
-                      index={index}
-                      filterValues={filterValues}
-                      onFilterChange={onFilterChange}
-                      filter={filter}
-                    />
+                    <CSSTransition key={filter.name} timeout={400} classNames='item'>
+                      <SortableFilterItem
+                        key={filter?.name}
+                        index={index}
+                        filterValues={filterValues}
+                        onFilterChange={onFilterChange}
+                        filter={filter}
+                      />
+                    </CSSTransition>
                   )
               )}
-            </div>
+            </TransitionGroup>
           );
         }
       ),
@@ -170,113 +177,114 @@ export function Filters<T>({
   useEffect(() => setShowedCheckboxFilters(checkboxFilters), [checkboxFilters]);
 
   return (
-    <Card
-      borderRadius={1.6}
-      className={classNames(
-        styles.FiltersBase,
-        {
-          [styles['FiltersBase--closed']]: !isOpenedFilterCollapse
-        },
-        className
-      )}>
-      <SortableFiltersList
-        pressDelay={200}
-        shouldCancelStart={() => false}
-        axis='xy'
-        items={showedFilters}
-        filterValues={filterValues}
-        onFilterChange={onFilterChange}
-        onSortEnd={onDragChange}
-        disableAutoscroll
-      />
-
-      <div className={styles.Checkbox}>
-        {checkboxFilters &&
-          showedCheckboxFilters.map((filter) => {
-            return (
-              <CheckboxGroup
-                key={filter.name}
-                label={filter.label}
-                checkboxes={filter.checkboxProps}
-                value={filterValues[filter.name] as (string | number)[]}
-                onChange={(selectedCheckboxes: string[]) => onFilterChange(filter.name, selectedCheckboxes)}
-              />
-            );
-          })}
-      </div>
-      <div className={styles.ControlContainer}>
-        <div className={styles.LeftControlsContainer}>
-          <Select
-            {...selectProps}
-            dropdown
-            dropdownLabel='Filters'
-            isMulti={true}
-            onChange={onFiltersConfigChange}
-            defaultValue={filtersConfigDefaultValue}
-            options={filtersConfigOptions}
-            dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
-            className={styles.FiltersDropdown}
-            color='primary'
-          />
-          <Divider>
-            <Button
-              variant='link'
-              onClick={(event) => {
-                setDisabledSaveButton(true);
-
-                if (onSaveClick) onSaveClick(filters, showedFilters, event);
-              }}
-              disabled={isDisabledSaveButton}
-              className={styles.SaveButton}
-              startIcon={<Icons.SaveIcon />}>
-              {saveLabel}
-            </Button>
-          </Divider>
-
-          <Tooltip showEvent='hover' text={infoTooltipText} disabled={!infoTooltipText}>
-            <div className={styles.InfoIcon}>
-              <Icons.InfoIcon />
-            </div>
-          </Tooltip>
-        </div>
-
-        <div className={styles.ToggleContainer}>
-          <Typography variant='p4' className={styles.UserFoundLabel}>
-            {resultLabel}
-          </Typography>
-
-          {isOpenedFilterCollapse && (
-            <>
-              <Button variant='ghost' onClick={onClearClick}>
-                {clearLabel}
-              </Button>
-              <Button onClick={() => onSubmit(filterValues)} className={styles.ApplyButton}>
-                {applyLabel}
-              </Button>
-            </>
-          )}
-
-          <div className={styles.ArrowIconContainer}>
-            <span onClick={toggleFiltersCollapse}>
-              <svg id='Arrow' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
-                <path
-                  id='Path_1991'
-                  data-name='Path 1991'
-                  d='M0,5,5,0l5,5M0,12,5,7l5,5'
-                  transform='translate(17 18) rotate(180)'
-                  fill='none'
-                  stroke='#6667ab'
-                  stroke-linecap='round'
-                  stroke-linejoin='round'
-                  stroke-width='2'
+    <>
+      <Card
+        borderRadius={1.6}
+        className={classNames(
+          styles.FiltersBase,
+          {
+            [styles['FiltersBase--closed']]: !isOpenedFilterCollapse
+          },
+          className
+        )}>
+        <SortableFiltersList
+          pressDelay={200}
+          shouldCancelStart={() => false}
+          axis='xy'
+          items={showedFilters}
+          filterValues={filterValues}
+          onFilterChange={onFilterChange}
+          onSortEnd={onDragChange}
+          disableAutoscroll
+        />
+        <div className={styles.Checkbox}>
+          {checkboxFilters &&
+            showedCheckboxFilters.map((filter) => {
+              return (
+                <CheckboxGroup
+                  key={filter.name}
+                  label={filter.label}
+                  checkboxes={filter.checkboxProps}
+                  value={filterValues[filter.name] as (string | number)[]}
+                  onChange={(selectedCheckboxes: string[]) => onFilterChange(filter.name, selectedCheckboxes)}
                 />
-                <rect id='Rectangle_893' data-name='Rectangle 893' width='24' height='24' fill='none' />
-              </svg>
-            </span>
+              );
+            })}
+        </div>
+        <div className={styles.ControlContainer}>
+          <div className={styles.LeftControlsContainer}>
+            <Select
+              {...selectProps}
+              dropdown
+              dropdownLabel='Filters'
+              isMulti={true}
+              onChange={onFiltersConfigChange}
+              defaultValue={filtersConfigDefaultValue}
+              options={filtersConfigOptions}
+              dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
+              className={styles.FiltersDropdown}
+              color='primary'
+            />
+            <Divider>
+              <Button
+                variant='link'
+                onClick={(event) => {
+                  setDisabledSaveButton(true);
+
+                  if (onSaveClick) onSaveClick(filters, showedFilters, event);
+                }}
+                disabled={isDisabledSaveButton}
+                className={styles.SaveButton}
+                startIcon={<Icons.SaveIcon />}>
+                {saveLabel}
+              </Button>
+            </Divider>
+
+            <Tooltip showEvent='hover' text={infoTooltipText} disabled={!infoTooltipText}>
+              <div className={styles.InfoIcon}>
+                <Icons.InfoIcon />
+              </div>
+            </Tooltip>
+          </div>
+
+          <div className={styles.ToggleContainer}>
+            <Typography variant='p4' className={styles.UserFoundLabel}>
+              {resultLabel}
+            </Typography>
+
+            {isOpenedFilterCollapse && (
+              <>
+                <Button variant='ghost' onClick={onClearClick}>
+                  {clearLabel}
+                </Button>
+                <Button onClick={() => onSubmit(filterValues)} className={styles.ApplyButton}>
+                  {applyLabel}
+                </Button>
+              </>
+            )}
+
+            <div className={styles.ArrowIconContainer}>
+              <span onClick={toggleFiltersCollapse}>
+                <svg id='Arrow' xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'>
+                  <path
+                    id='Path_1991'
+                    data-name='Path 1991'
+                    d='M0,5,5,0l5,5M0,12,5,7l5,5'
+                    transform='translate(17 18) rotate(180)'
+                    fill='none'
+                    stroke='#6667ab'
+                    stroke-linecap='round'
+                    stroke-linejoin='round'
+                    stroke-width='2'
+                  />
+                  <rect id='Rectangle_893' data-name='Rectangle 893' width='24' height='24' fill='none' />
+                </svg>
+              </span>
+            </div>
           </div>
         </div>
-      </div>
-    </Card>
+      </Card>
+    </>
   );
 }
 
