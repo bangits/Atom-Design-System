@@ -1,6 +1,6 @@
 $edited-form-sizes: (
   edited-form-width: calculateRem(475px),
-  control-padding: 0 calculateRem(16px),
+  control-padding: 0 calculateRem(8px),
   control-width: 100%,
   control-title-height: calculateRem(19px),
   control-title-width: calculateRem(300px),
@@ -10,7 +10,7 @@ $edited-form-sizes: (
   content-width: 100%,
   content-transition: 0.5s,
   option-flex: 50%,
-  option-width: 100%,
+  option-width: 46%,
   option-margin: 0 0 calculateRem(16px) 0,
   option-title-height: calculateRem(14px),
   option-title-width: calculateRem(212px),
