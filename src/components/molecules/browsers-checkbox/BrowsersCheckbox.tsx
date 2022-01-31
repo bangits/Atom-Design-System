@@ -1,6 +1,6 @@
-import classNames from 'classnames';
 import React, { FC, ReactNode, useCallback, useState } from 'react';
 import styles from './BrowsersCheckbox.module.scss';
+import classNames from 'classnames';
 
 export interface BrowsersCheckboxProps {
   browserIcon?: ReactNode;

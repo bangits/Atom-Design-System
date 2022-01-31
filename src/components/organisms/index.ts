@@ -24,3 +24,4 @@ export * from './tags-view';
 export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-view';
+export * from './radio';

@@ -1,0 +1,74 @@
+@mixin generate-image-checkbox-style {
+  .RadioButton {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    -o-appearance: none;
+    appearance: none;
+    visibility: hidden;
+    display: none;
+  }
+  .RadioButton {
+    &:checked {
+      .drinkcardCC {
+        -webkit-filter: opacity(1);
+        -moz-filter: opacity(1);
+        filter: opacity(1);
+      }
+    }
+  }
+  .ccSelector {
+    input {
+      margin: 0;
+      padding: 0;
+
+      &:checked {
+        + .drinkcard-cc {
+          -webkit-filter: none;
+          -moz-filter: none;
+          filter: none;
+        }
+      }
+    }
+  }
+  .RadioCardActive {
+    -webkit-filter: opacity(1) !important;
+    -moz-filter: opacity(1) !important;
+    filter: opacity(1) !important;
+  }
+
+  .drinkcardCC {
+    cursor: pointer;
+    background-size: contain;
+    background-repeat: no-repeat;
+    display: inline-block;
+    -webkit-transition: all 100ms ease-in;
+    -moz-transition: all 100ms ease-in;
+    transition: all 100ms ease-in;
+    -webkit-filter: opacity(0.5);
+    -moz-filter: opacity(0.5);
+    filter: opacity(0.5);
+    &:hover {
+      -webkit-filter: opacity(1);
+      -moz-filter: opacity(1);
+      filter: opacity(1);
+    }
+    &:active {
+      -webkit-filter: opacity(1);
+      -moz-filter: opacity(1);
+      filter: opacity(1);
+    }
+    &:checked {
+      + .drinkcard-cc {
+        -webkit-filter: opacity(1);
+        -moz-filter: opacity(1);
+        filter: opacity(1);
+      }
+    }
+  }
+}
+.drinkcardCC:active {
+  -webkit-filter: opacity(1);
+  -moz-filter: opacity(1);
+  filter: opacity(1);
+}
