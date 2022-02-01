@@ -1,11 +1,27 @@
 $change-password-sizes: (
+  icon-padding-top:calculateRem(40px),
+
   card-width:calculateRem(524px),
   card-height:calculateRem(474px),
+
+  input-width:calculateRem(280px),
+
+  btn-width:calculateRem(130px),
+  btn-group-margin-top:calculateRem(40px),
+  btn-margin-left:calculateRem(16px),
+
+  text-margin-top:calculateRem(3px),
 );
 
 $change-password-colors: (
   background-wrapper:color(blue-haze),
   background-card:color(white),
+  
+  title-color:color(astronaut),
+  text-color:color(black-color),
+
+  background-btn:color(scampi),
+  btn-border-color:color(bermuda-gray)
 );
 
 @function getChangePasswordColors($key) {

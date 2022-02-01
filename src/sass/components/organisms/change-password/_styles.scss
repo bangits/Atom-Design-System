@@ -11,8 +11,47 @@
       height: getChangePasswordSizes(card-height);
       box-sizing: border-box;
 
-      .ChangeContent{
-         @include flex(center,center,$direction:column);
+      h2 {
+        margin-bottom: 0;
+        color: getChangePasswordColors(title-color);
+      }
+
+      p {
+        color: getChangePasswordColors(text-color);
+        margin-top: getChangePasswordSizes(text-margin-top);
+      }
+
+      .ChangeContent {
+        @include flex(center, center, $direction: column);
+
+        .Icon {
+          padding-top: getChangePasswordSizes(icon-padding-top);
+        }
+
+        .InputsGroup {
+          @include flex(center, center, $direction: column);
+
+          .InputContent {
+            width: getChangePasswordSizes(input-width);
+          }
+        }
+        .BtnGroup {
+          @include flex();
+          margin-top: getChangePasswordSizes(btn-group-margin-top);
+
+          button {
+            width: getChangePasswordSizes(btn-width);
+
+            &:first-child {
+              border-color: getChangePasswordColors(btn-border-color);
+            }
+
+            &:last-child {
+              margin-left: getChangePasswordSizes(btn-margin-left);
+              background-color: getChangePasswordColors(background-btn);
+            }
+          }
+        }
       }
     }
   }

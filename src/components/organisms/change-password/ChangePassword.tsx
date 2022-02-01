@@ -9,14 +9,24 @@ const ChangePassword = () => {
     <div className={styles.ChangePasswordWrapper}>
       <Card className={styles.CardWrapper}>
         <div className={styles.ChangeContent}>
-          <ChangePasswordIcon />
-          <Typography variant="h3" component="h3">Change Password</Typography>
-          <Typography variant="p4" component="p">Please change your password below.</Typography>
-          <PasswordInput/>
-          <PasswordInput/>
-          <div>
-              <Button title="Skip"/>
-              <Button/>
+          <ChangePasswordIcon className={styles.Icon}/>
+          <Typography variant='h2' component='h2'>
+            Change Password
+          </Typography>
+          <Typography variant='p3' component='p'>
+            Please change your password below.
+          </Typography>
+          <div className={styles.InputsGroup}>
+            <div className={styles.InputContent}>
+              <PasswordInput fullWidth startIcon={null} />
+            </div>
+            <div className={styles.InputContent}>
+              <PasswordInput fullWidth startIcon={null} />
+            </div>
+          </div>
+          <div className={styles.BtnGroup}>
+            <Button variant='ghost'>Skip</Button>
+            <Button>Change</Button>
           </div>
         </div>
       </Card>

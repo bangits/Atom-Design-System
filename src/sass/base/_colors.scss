@@ -28,7 +28,10 @@ $colors: (
   white-opacity-2: #ffffff80,
   dark-opacity: #000000cc,
   quartz: #48485d,
-  blue-haze: #c2c2dd
+  blue-haze: #c2c2dd,
+  astronaut: #2b3674,
+  scampi: #6667ab,
+  bermuda-gray: #7d86a9,
 );
 
 @function color($property-name) {
