@@ -33,6 +33,7 @@ export interface UserDetailsProps {
   };
 
   generalInformationContext: ReactNode;
+  settingsContent: ReactNode;
   userWalletsContent: ReactNode;
 }
 
@@ -49,7 +50,8 @@ const UserDetails: FC<UserDetailsProps> = ({
   translations,
   createdBy,
   generalInformationContext,
-  userWalletsContent
+  userWalletsContent,
+  settingsContent
 }) => {
   return (
     <>
@@ -119,6 +121,11 @@ const UserDetails: FC<UserDetailsProps> = ({
                 title: 'Projects',
                 value: 3,
                 content: <UserProjects />
+              },
+              {
+                title: 'Settings',
+                value: 3,
+                content: settingsContent
               }
             ]}
             defaultTabValue={1}
