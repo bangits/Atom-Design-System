@@ -3,7 +3,6 @@ import { NameAndId } from '@/components/molecules/name-and-id';
 import UserProjects from '@/components/organisms/user-projects/UserProjects';
 import { UserMainIcon } from '@/icons';
 import { AvatarCard, Breadcrumb, BreadcrumbProps, Card } from '@my-ui/core';
-import classNames from 'classnames';
 import React, { FC, ReactNode } from 'react';
 import styles from './UserDetails.module.scss';
 
@@ -131,7 +130,7 @@ const UserDetails: FC<UserDetailsProps> = ({
                   {
                     title: translations.settingsContent,
                     value: 1,
-                    content: <div className={classNames(styles['QuadCell'], 'QuadCell')}>{settingsContent}</div>
+                    content: settingsContent
                   }
                 ]
               }
