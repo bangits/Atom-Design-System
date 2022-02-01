@@ -1,0 +1,17 @@
+$change-password-sizes: (
+  card-width:calculateRem(524px),
+  card-height:calculateRem(474px),
+);
+
+$change-password-colors: (
+  background-wrapper:color(blue-haze),
+  background-card:color(white),
+);
+
+@function getChangePasswordColors($key) {
+  @return map-get($change-password-colors, $key);
+}
+
+@function getChangePasswordSizes($key) {
+  @return map-get($change-password-sizes, $key);
+}

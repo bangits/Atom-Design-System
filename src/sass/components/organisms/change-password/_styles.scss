@@ -1,0 +1,19 @@
+@mixin generate-change-password-styles {
+  .ChangePasswordWrapper {
+    width: 100%;
+    height: 100%;
+    background-color: getChangePasswordColors(background-wrapper);
+
+    .CardWrapper {
+      @include center-absolute;
+      background-color: getChangePasswordColors(background-card);
+      width: getChangePasswordSizes(card-width);
+      height: getChangePasswordSizes(card-height);
+      box-sizing: border-box;
+
+      .ChangeContent{
+         @include flex(center,center,$direction:column);
+      }
+    }
+  }
+}
