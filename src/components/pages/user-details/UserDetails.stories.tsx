@@ -10,6 +10,7 @@ export default {
 export const Default = () => {
   return (
     <UserDetails
+      settingsContent='Settings'
       userWalletsContent={<></>}
       createdBy={'11/11/1111'}
       creationDate={'2017-11/11'}
@@ -23,6 +24,7 @@ export const Default = () => {
         }
       ]}
       translations={{
+        settingsContent:'Password Policy',
         generalInformation: 'General Information',
         lastLoginDate: 'Last Login Date',
         lastLoginIp: 'Last Login IP',
