@@ -40,4 +40,5 @@ export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
+export { ReactComponent as ChangePasswordIcon } from './changepass.react.svg';
 
