@@ -1,0 +1,10 @@
+$project-currencies-sizes: (
+  table-margin-top: calculateRem(27px),
+  button-margin-top: calculateRem(20px),
+  button-margin-left: calculateRem(20px),
+  actions-container-max-height: calculateRem(38px)
+);
+
+@function getProjectCurrenciesSizes($key) {
+  @return map-get($project-currencies-sizes, $key);
+}

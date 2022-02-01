@@ -1,0 +1,11 @@
+@mixin generate-hidable-select-styles {
+  .SelectContent {
+    @include flex(null);
+
+    .CloseIcon,
+    .SaveIcon {
+      width: 100%;
+    }
+
+  }
+}

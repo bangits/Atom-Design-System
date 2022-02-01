@@ -89,8 +89,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@my-ui/core": "3.0.13",
-    "@types/react-transition-group": "^4.4.4",
+    "@my-ui/core": "^3.1.0",
     "classnames": "^2.3.1",
     "react": "^17.0.2",
     "react-cropper": "^2.1.8",

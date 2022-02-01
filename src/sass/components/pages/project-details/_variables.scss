@@ -1,0 +1,14 @@
+$project-details-sizes: (
+  project-details-margin-top: calculateRem(11px),
+  left-block-width: calculateRem(340px),
+  info-content-margin-bottom: calculateRem(8px),
+  project-left-block-margin: calculateRem(8px),
+  status-content-margin-bottom: calculateRem(8px),
+  status-content-height: calculateRem(37px),
+  project-details-bottom-fading-cell-width: 100%,
+
+);
+
+@function getProjectDetailsSizes($key) {
+  @return map-get($project-details-sizes, $key);
+}
