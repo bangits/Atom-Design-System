@@ -18,28 +18,28 @@ export interface RadioProps {
 }
 
 const Radio: FC<RadioProps> = ({ checked, radios, ...radioGroupProps }) => {
-  const [selectedDrink, setSelectedDrink] = useState<string>('');
+  const [selectedRadioButton, setSelectedRadioButton] = useState<string>('');
 
-  console.log(selectedDrink);
+  console.log(selectedRadioButton);
 
   return (
-    <div className='container'>
-      <MyUIRadioGroup>
+    <div className={styles.container} >
+      <MyUIRadioGroup {...radioGroupProps}>
         {radios?.map((radio) => (
           <div className={classNames(styles.ccSelector)} key={radio.value}>
             <RadioButton
               className={classNames(styles.RadioButton)}
-              name={'ufgyvu'}
+              name={radioGroupProps.name}
               id={radio.value?.toString()}
               {...radioGroupProps}
-              onClick={() => setSelectedDrink(radio.value)}
+              onClick={() => setSelectedRadioButton(radio.value)}
               value={radio.value?.toString()}
               defaultChecked={checked}
             />
             <label
               className={classNames(
                 {
-                  [styles['RadioCardActive']]: selectedDrink === radio.value
+                  [styles['RadioCardActive']]: selectedRadioButton === radio.value
                 },
                 styles.drinkcardCC
               )}

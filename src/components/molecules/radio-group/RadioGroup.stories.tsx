@@ -14,7 +14,8 @@ export const Default = () => {
       radios={object('radios', [
         {
           label: 'Male',
-          value: 1
+          value: 1,
+          checked: true
         },
         {
           label: 'Female',

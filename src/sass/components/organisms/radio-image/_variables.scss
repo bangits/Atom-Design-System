@@ -1,0 +1,11 @@
+$radio-button-sizes: (
+    radio-button-box-width: calculateRem(280px),
+    radio-button-box-margin: calculateRem(12.35px),
+    radio-button-box-inactive-opacity: 0.5,
+    radio-button-box-active-opacity:1
+);
+
+@function getRadioSizes($key) {
+    @return map-get($radio-button-sizes, $key);
+  }
+  

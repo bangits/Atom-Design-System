@@ -19,6 +19,9 @@ export const Default = () => {
         {
           icon: <SecondCheckboxIcon />,
           value: '2'
+        },{
+          icon: <ViewCardImageIcon />,
+          value: '3'
         }
       ]}
     />
