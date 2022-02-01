@@ -24,6 +24,7 @@ export const Default = () => {
         }
       ]}
       translations={{
+        settingsContent:'Password Policy',
         generalInformation: 'General Information',
         lastLoginDate: 'Last Login Date',
         lastLoginIp: 'Last Login IP',
