@@ -55,7 +55,8 @@ const ProjectLanguages: FC<ProjectLanguagesProps> = ({
               Header: translations.tableHeaders.type,
               accessor: 'isDefault' as keyof ProjectLanguages,
               disableSortBy: true,
-              renderColumn: (_, isDefault) => (isDefault ? translations.default : translations.supported)
+              renderColumn: (_, isDefault) => (isDefault ? translations.default : translations.supported),
+              maxWidth: '10rem'
             }
           ]}
           data={languages}

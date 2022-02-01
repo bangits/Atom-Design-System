@@ -56,7 +56,8 @@ const ProjectCurrencies: FC<ProjectCurrenciesProps> = ({
               Header: translations.tableHeaders.type,
               accessor: 'isDefault' as keyof ProjectCurrencies,
               disableSortBy: true,
-              renderColumn: (_, isDefault) => (isDefault ? translations.default : translations.supported)
+              renderColumn: (_, isDefault) => (isDefault ? translations.default : translations.supported),
+              maxWidth: '10rem'
             }
           ]}
           data={languages}
