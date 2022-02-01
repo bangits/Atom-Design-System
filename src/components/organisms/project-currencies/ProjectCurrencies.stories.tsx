@@ -43,7 +43,7 @@ export const Default = () => {
       }}
       tableLoadingRowIds={['RUB']}
       shouldShowAddWalletButton
-      languages={[
+      currencies={[
         {
           currencyCode: 'AMD',
           currencyName: 'Armenian Dram',
