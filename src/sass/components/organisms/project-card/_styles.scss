@@ -1,0 +1,90 @@
+@mixin generate-project-card-styles {
+  .ProjectCardWrapper {
+    background-color: getProjectCardColors(background-card);
+    border: solid getProjectCardSizes(card-border-solid) getProjectCardColors(card-border-color);
+    border-radius: getProjectCardSizes(card-border-radius);
+    padding: getProjectCardSizes(card-padding);
+    box-sizing: border-box;
+
+    &--12 {
+      width: 100%;
+    }
+
+    &--6 {
+      width: getProjectCardSizes(card-width);
+    }
+
+    .CardHeader {
+      @include flex(space-between, center);
+    }
+    .TitleContent {
+      @include flex(space-between, center);
+      margin-top: getProjectCardSizes(title-content-margin-top);
+
+      h2 {
+        margin: 0;
+        color: getProjectCardColors(title-color);
+        font-weight: getProjectCardSizes(title-font-weight);
+      }
+
+      p {
+        line-height: 0;
+        color: getProjectCardColors(number-color);
+
+        span {
+          font-size: getProjectCardSizes(number-font-size);
+          font-weight: getProjectCardSizes(number-font-weight);
+        }
+      }
+    }
+    .Divider {
+      border: solid getProjectCardSizes(divider) getProjectCardColors(divider-color);
+      margin-top: getProjectCardSizes(divider-margin);
+    }
+
+    .GameWrapper {
+      margin-top: getProjectCardSizes(game-wrapper-margin-top);
+
+      .GamesContent {
+        @include flex(null, center);
+        margin-bottom: getProjectCardSizes(games-content-margin-top);
+
+        .Game {
+          @include flex(null, center);
+          margin: getProjectCardSizes(game-margin);
+
+          .GameImg {
+            width: getProjectCardSizes(game-img-sizes);
+            height: getProjectCardSizes(game-img-sizes);
+
+            img {
+              width: 100%;
+            }
+          }
+          .GameLabel {
+            margin-left: getProjectCardSizes(game-label-margin-left);
+            max-width: getProjectCardSizes(dots-text-max-width);
+            @include dots-after-text();
+
+            span {
+              color: getProjectCardColors(game-label-color);
+              line-height: 0;
+            }
+          }
+        }
+      }
+      .OnlyImg {
+        @include flex(null, null, $flex-wrap: wrap);
+        .ImgContent {
+          width: getProjectCardSizes(img-content-width);
+          height: getProjectCardSizes(img-content-height);
+          margin: getProjectCardSizes(img-content-margin);
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}
