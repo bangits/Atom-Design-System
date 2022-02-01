@@ -41,4 +41,8 @@ export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as ChangePasswordIcon } from './changepass.react.svg';
+export { ReactComponent as ProductsIcon } from './products.react.svg';
+export { ReactComponent as PaymentsIcon } from './payments.react.svg';
+export { ReactComponent as ToolsIcon } from './tools.react.svg';
+export { ReactComponent as ArrowRightIcon } from './arrowright.react.svg';
 

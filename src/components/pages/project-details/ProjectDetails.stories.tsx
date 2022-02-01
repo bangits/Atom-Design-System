@@ -2,6 +2,7 @@ import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import ProjectDetails from './ProjectDetails';
+import ProjectCard from './../../organisms/project-card/ProjectCard';
 
 export default {
   title: 'components/pages/Project Details',
@@ -50,7 +51,7 @@ export const Default = () => {
           }
         ]
       })}
-      generalInformationContent={<>General Information</>}
+      generalInformationContent={<><ProjectCard/><ProjectCard/></>}
       licensesContent={<>Licenses</>}
       languagesContent={<>Languages</>}
       currenciesContent={<>Currencies</>}
