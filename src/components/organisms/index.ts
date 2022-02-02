@@ -16,6 +16,7 @@ export * from './item-details';
 export * from './last-activity-view';
 export * from './navigation';
 export * from './password-generator';
+export * from './project-card';
 export * from './project-currencies';
 export * from './project-languages';
 export * from './provider-info';
