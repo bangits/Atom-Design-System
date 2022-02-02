@@ -99,9 +99,9 @@ const ProjectCard: FC<ProjectCardProps> = ({
 
       <div className={styles.GameWrapper}>
         <div className={styles.GamesContent}>
-          {items.map((item) =>
+          {items.map((item, key) =>
             mode === 'small' ? (
-              <div className={styles.Game}>
+              <div className={styles.Game} key={key}>
                 <div className={styles.GameImg}>
                   <img src={item.imgSrc} />
                 </div>
@@ -112,7 +112,7 @@ const ProjectCard: FC<ProjectCardProps> = ({
                 </div>
               </div>
             ) : (
-              <div className={styles.OnlyImg}>
+              <div className={styles.OnlyImg} key={key}>
                 <div className={styles.ImgContent}>
                   <img src={item.imgSrc} />
                 </div>

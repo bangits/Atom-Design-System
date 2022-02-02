@@ -14,6 +14,7 @@ export * from './game-launcher';
 export * from './hidable-select';
 export * from './item-details';
 export * from './last-activity-view';
+export * from './licenses-card';
 export * from './navigation';
 export * from './password-generator';
 export * from './project-card';
