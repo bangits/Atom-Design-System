@@ -1,2 +1,1 @@
-export { default as ChangePassword } from './ChangePassword';
-
+export { ChangePasswordProps, default as ChangePassword } from './ChangePassword';
