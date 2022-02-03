@@ -1,6 +1,7 @@
 $edit-form-in-sizes: (
   edit-form-width: 100%,
   edit-form-half-width: 50%,
+  min-height: calculateRem(208px),
   edit-form-base-content-column-gap:calculateRem(16px),
   edit-form-padding: calculateRem(24px) calculateRem(8px) calculateRem(16px) calculateRem(8px),
   edit-form-title-height: calculateRem(19px),

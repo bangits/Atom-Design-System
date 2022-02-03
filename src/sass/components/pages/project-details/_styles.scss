@@ -1,31 +1,26 @@
 @mixin generate-project-details-styles {
-    
-    .ProjectDetailsBase form {
-        width: 100%;
-        margin: 0;
-      }
-    
-      .ProjectDetailsBase--container {
-        @include flex(null, flex-start);
-        margin-top: getProjectDetailsSizes(project-details-margin-top);
-      }
-    
-      .ProjectDetailsBase--leftBlock {
-        width: getProjectDetailsSizes(left-block-width);
-        margin-right: getProjectDetailsSizes(project-left-block-margin);
-      }
-    
-      .StatusContent {
-        margin-bottom: getProjectDetailsSizes(status-content-margin-bottom);
-        height:getProjectDetailsSizes(status-content-height);
-      }
-      .InfoContent {
-        margin-bottom: getProjectDetailsSizes(info-content-margin-bottom);
-      }
 
-      .ProjectDetails__Bottom-Fading-Cell {
-        display: block;
-        width: getProjectDetailsSizes(project-details-bottom-fading-cell-width);
-        @include p;
-      }
+  .ProjectDetailsBase--container {
+    @include flex(null, flex-start);
+    margin-top: getProjectDetailsSizes(project-details-margin-top);
+  }
+
+  .ProjectDetailsBase--leftBlock {
+    width: getProjectDetailsSizes(left-block-width);
+    margin-right: getProjectDetailsSizes(project-left-block-margin);
+  }
+
+  .StatusContent {
+    margin-bottom: getProjectDetailsSizes(status-content-margin-bottom);
+    height: getProjectDetailsSizes(status-content-height);
+  }
+  .InfoContent {
+    margin-bottom: getProjectDetailsSizes(info-content-margin-bottom);
+  }
+
+  .ProjectDetails__Bottom-Fading-Cell {
+    display: block;
+    width: getProjectDetailsSizes(project-details-bottom-fading-cell-width);
+    @include p;
+  }
 }
