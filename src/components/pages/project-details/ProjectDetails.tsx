@@ -163,6 +163,7 @@ const ProjectDetails: FC<ProjectDetailsProps> = ({
                 ]
               }
             ]}
+            defaultSubTabValue={1}
             defaultTabValue={1}
           />
         </div>

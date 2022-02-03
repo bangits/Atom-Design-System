@@ -1,6 +1,8 @@
+import { ProductsIcon } from '@/icons';
 import { action } from '@storybook/addon-actions';
 import { object, text, withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
+import ProjectCard from './../../organisms/project-card/ProjectCard';
 import ProjectDetails from './ProjectDetails';
 
 export default {
@@ -50,7 +52,53 @@ export const Default = () => {
           }
         ]
       })}
-      generalInformationContent={<>General Information</>}
+      generalInformationContent={
+        <>
+          <ProjectCard
+            col={6}
+            color='purple'
+            mode='small'
+            title='Products'
+            onArrowClick={action('onArrowClick')}
+            logo={<ProductsIcon />}
+            maxCount={100}
+            viewLessLabel='View Less'
+            viewMoreLabel='View More'
+            items={[
+              {
+                title: 'Game',
+                imgSrc:
+                  'https://ik.imagekit.io/gv8ct9uwhf8/setting_DLmoLdALw.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643722017268&tr=w-360%2Ch-360%2Cfo-center%2Cc-at_max'
+              },
+              {
+                title: 'Game',
+                imgSrc:
+                  'https://ik.imagekit.io/gv8ct9uwhf8/setting_DLmoLdALw.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643722017268&tr=w-360%2Ch-360%2Cfo-center%2Cc-at_max'
+              },
+              {
+                title: 'Game',
+                imgSrc:
+                  'https://ik.imagekit.io/gv8ct9uwhf8/setting_DLmoLdALw.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643722017268&tr=w-360%2Ch-360%2Cfo-center%2Cc-at_max'
+              },
+              {
+                title: 'Game',
+                imgSrc:
+                  'https://ik.imagekit.io/gv8ct9uwhf8/setting_DLmoLdALw.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643722017268&tr=w-360%2Ch-360%2Cfo-center%2Cc-at_max'
+              },
+              {
+                title: 'Game',
+                imgSrc:
+                  'https://ik.imagekit.io/gv8ct9uwhf8/setting_DLmoLdALw.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643722017268&tr=w-360%2Ch-360%2Cfo-center%2Cc-at_max'
+              },
+              {
+                title: 'Game',
+                imgSrc:
+                  'https://ik.imagekit.io/gv8ct9uwhf8/setting_DLmoLdALw.png?ik-sdk-version=javascript-1.4.3&updatedAt=1643722017268&tr=w-360%2Ch-360%2Cfo-center%2Cc-at_max'
+              }
+            ]}
+          />
+        </>
+      }
       licensesContent={<>Licenses</>}
       languagesContent={<>Languages</>}
       currenciesContent={<>Currencies</>}

@@ -10,7 +10,7 @@ export interface ProjectCurrencies {
 }
 
 export interface ProjectCurrenciesProps {
-  languages: ProjectCurrencies[];
+  currencies: ProjectCurrencies[];
   tableLoadingRowIds: (number | string)[];
   shouldShowAddWalletButton: boolean;
   renderLanguagesSelect: HidableSelectProps['renderCustomSelect'];
@@ -27,7 +27,7 @@ export interface ProjectCurrenciesProps {
 }
 
 const ProjectCurrencies: FC<ProjectCurrenciesProps> = ({
-  languages,
+  currencies,
   tableLoadingRowIds,
   shouldShowAddWalletButton,
   renderLanguagesSelect,
@@ -60,7 +60,7 @@ const ProjectCurrencies: FC<ProjectCurrenciesProps> = ({
               maxWidth: '10rem'
             }
           ]}
-          data={languages}
+          data={currencies}
           className={styles.ProjectCurrenciesTable}
           loadingRowsIds={tableLoadingRowIds}
           loadingRowColumnProperty='currencyCode'
