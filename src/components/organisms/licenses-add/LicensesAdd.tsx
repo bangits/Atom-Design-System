@@ -29,7 +29,6 @@ const LicensesAdd: FC<LicensesAddProps> = ({
 
   const onToggle = useCallback(() => {
     if (toggle && onClose) onClose();
-
     setToggle(!toggle);
   }, [toggle, onClose]);
 

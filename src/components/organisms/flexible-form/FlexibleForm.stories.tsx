@@ -114,6 +114,10 @@ export const Default = () => {
       }}
       editedFormProps={{
         noDataText: 'N/A',
+        showDeleteButton: true,
+        onDelete: () => {
+          alert('The item was deleted...');
+        },
         editButtonTooltipText: 'Edit form',
         viewLessLabel: 'View Less Info',
         options: [
