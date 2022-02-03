@@ -8,12 +8,12 @@ export interface ChangePasswordProps {
   renderInputs?: (InputComponent: typeof TextInput, name: string) => JSX.Element;
   title: string;
   subTitle: string;
-  skipButton: string;
-  changeButton: string;
-  newPasswordInputLabel: string;
-  confirmPasswordInputLabel: string;
-  newPasswordInputName: string;
-  confirmPasswordInputName: string;
+  skipButton?: string;
+  changeButton?: string;
+  newPasswordInputLabel?: string;
+  confirmPasswordInputLabel?: string;
+  newPasswordInputName?: string;
+  confirmPasswordInputName?: string;
   buttonProps?: string;
 }
 
