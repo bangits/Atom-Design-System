@@ -1,5 +1,6 @@
 export * from './banner-uploader';
 export * from './browsers-group';
+export * from './change-password';
 export * from './count-view';
 export * from './details-main-info';
 export * from './dialog';
@@ -20,6 +21,7 @@ export * from './project-currencies';
 export * from './project-languages';
 export * from './provider-info';
 export * from './providers-general-info';
+export * from './session-expiring';
 export * from './status-view';
 export * from './stepper';
 export * from './table';

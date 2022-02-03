@@ -2,6 +2,7 @@ export { ReactComponent as ApplyIcon } from './apply.react.svg';
 export { ReactComponent as IconButtonLeft } from './arrow-left.react.svg';
 export { ReactComponent as BalanceIcon } from './balance.react.svg';
 export { ReactComponent as UnBlockPopupIcon } from './block.react.svg';
+export { ReactComponent as ChangePasswordIcon } from './changepass.react.svg';
 export { ReactComponent as CheckPopupIcon } from './check-popup.react.svg';
 export { ReactComponent as ChromeIcon } from './chrome.react.svg';
 export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg';
@@ -40,5 +41,5 @@ export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
-export { ReactComponent as ChangePasswordIcon } from './changepass.react.svg';
+export { ReactComponent as WarningIcon } from './warning.react.svg';
 

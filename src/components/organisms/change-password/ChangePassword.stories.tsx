@@ -1,5 +1,5 @@
-import { action } from '@storybook/addon-actions';
-import { withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
+import React from 'react';
 import ChangePassword from './ChangePassword';
 
 export default {
@@ -9,5 +9,26 @@ export default {
 };
 
 export const Default = () => {
-  return <ChangePassword />;
+  return (
+    <>
+      <ChangePassword
+        title={text('title', 'Change Password')}
+        subTitle={text('subTitle', '  Please change your password below.')}
+        skipButton={text('skipButton', 'Skip')}
+        changeButton={text('changeButton', 'Change')}
+        confirmPasswordInputName={text('confirmPasswordInputName', 'confirmPasswordInputName')}
+        newPasswordInputName={text('newPasswordInputName', 'newPasswordInputName')}
+        newPasswordInputLabel='New Password'
+        confirmPasswordInputLabel='Confirm Password'
+        renderInputs={(InputComponent, name) => {
+          return (
+            <React.Fragment>
+              <InputComponent />
+            </React.Fragment>
+          );
+        }}
+       
+      />
+    </>
+  );
 };

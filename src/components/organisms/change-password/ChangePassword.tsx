@@ -1,32 +1,84 @@
-import React from 'react';
-import styles from './ChangePassword.module.scss';
-import { Card, Typography, Button } from '@my-ui/core';
-import { ChangePasswordIcon } from '@/icons';
 import { PasswordInput } from '@/components/molecules';
+import { ChangePasswordIcon } from '@/icons';
+import { Button, Card, TextInput, TextInputProps, Typography } from '@my-ui/core';
+import React, { FC, useCallback, useMemo } from 'react';
+import styles from './ChangePassword.module.scss';
 
-const ChangePassword = () => {
+export interface ChangePasswordProps {
+  renderInputs?: (InputComponent: typeof TextInput, name: string) => JSX.Element;
+  title: string;
+  subTitle: string;
+  skipButton: string;
+  changeButton: string;
+  newPasswordInputLabel: string;
+  confirmPasswordInputLabel: string;
+  newPasswordInputName: string;
+  confirmPasswordInputName: string;
+  buttonProps?: string;
+}
+
+const ChangePassword: FC<ChangePasswordProps> = ({
+  title,
+  subTitle,
+  changeButton,
+  skipButton,
+  newPasswordInputName = 'New Password',
+  confirmPasswordInputName = 'Confirm Password',
+  buttonProps,
+  renderInputs,
+  newPasswordInputLabel,
+  confirmPasswordInputLabel
+}) => {
+  const createPasswordInputRenderer = useCallback(
+    (inputProps: TextInputProps): typeof TextInput =>
+      (props) =>
+        <PasswordInput {...inputProps} {...props} />,
+    []
+  );
+
+  const newPasswordInput = useMemo(
+    () =>
+      renderInputs(
+        createPasswordInputRenderer({
+          label: newPasswordInputLabel,
+          type: 'password'
+        }),
+        newPasswordInputName
+      ),
+    [renderInputs, newPasswordInputLabel, newPasswordInputName]
+  );
+  const confirmPasswordInput = useMemo(
+    () =>
+      renderInputs(
+        createPasswordInputRenderer({
+          label: confirmPasswordInputLabel,
+          type: 'password'
+        }),
+        confirmPasswordInputName
+      ),
+    [renderInputs, confirmPasswordInputLabel, confirmPasswordInputName]
+  );
+
   return (
     <div className={styles.ChangePasswordWrapper}>
       <Card className={styles.CardWrapper}>
         <div className={styles.ChangeContent}>
-          <ChangePasswordIcon className={styles.Icon}/>
+          <ChangePasswordIcon className={styles.Icon} />
           <Typography variant='h2' component='h2'>
-            Change Password
+            {title}
           </Typography>
           <Typography variant='p3' component='p'>
-            Please change your password below.
+            {subTitle}
           </Typography>
           <div className={styles.InputsGroup}>
-            <div className={styles.InputContent}>
-              <PasswordInput fullWidth startIcon={null} />
-            </div>
-            <div className={styles.InputContent}>
-              <PasswordInput fullWidth startIcon={null} />
-            </div>
+            <div className={styles.InputContent}>{newPasswordInput}</div>
+            <div className={styles.InputContent}>{confirmPasswordInput}</div>
           </div>
           <div className={styles.BtnGroup}>
-            <Button variant='ghost'>Skip</Button>
-            <Button>Change</Button>
+            <Button variant='ghost'>{skipButton}</Button>
+            <Button type='submit' {...buttonProps}>
+              {changeButton}
+            </Button>
           </div>
         </div>
       </Card>
