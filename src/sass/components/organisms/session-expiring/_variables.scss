@@ -1,5 +1,6 @@
 $session-expiring-sizes: (
   icon-padding-top:calculateRem(40px),
+  icon-width:calculateRem(80px),
 
   card-width:calculateRem(524px),
   card-height:calculateRem(474px),
@@ -11,6 +12,22 @@ $session-expiring-sizes: (
   btn-margin-left:calculateRem(16px),
 
   text-margin-top:calculateRem(3px),
+
+  time-label-font-size:calculateRem(14px),
+  time-label-margin-top:calculateRem(29px),
+
+  dotted-cell-padding:0 calculateRem(8px),
+  dotted-font-size:calculateRem(25px),
+  dotted-line-height:calculateRem(20px),
+
+  expire-timer-height:calculateRem(105px),
+  expire-timer--numbers-padding-top:calculateRem(10px),
+  expire-timer--title-padding-top:calculateRem(36px),
+  expire-timer--title-font-size:calculateRem(14px),
+
+  num-cell-border:1px,
+  num-cell-font-size:calculateRem(20px),
+  
 );
 
 $session-expiring-colors: (
@@ -21,7 +38,14 @@ $session-expiring-colors: (
   text-color:color(black-color),
 
   background-btn:color(scampi),
-  btn-border-color:color(bermuda-gray)
+  btn-border-color:color(bermuda-gray),
+
+  time-label-color:color(nepal),
+
+  expire-timer-color:color(nepal),
+
+  num-cell-border-color:color(black-color),
+  num-cell-color:color(black-color)
 );
 
 @function getSessionExpiringColors($key) {

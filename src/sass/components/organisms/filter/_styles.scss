@@ -63,9 +63,7 @@
 
       & > div > div {
         span:first-child {
-          display: flex;
-          justify-content: flex-end;
-          align-items: center;
+          @include flex(flex-end,center);
           border-radius: none;
           font-size: 0;
 
