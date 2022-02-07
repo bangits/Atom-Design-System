@@ -5,7 +5,7 @@ import ChangePassword from './ChangePassword';
 export default {
   component: ChangePassword,
   decorators: [withKnobs],
-  title: 'components/organisms/ChangePassword'
+  title: 'components/organisms/Change Password'
 };
 
 export const Default = () => {
@@ -13,13 +13,10 @@ export const Default = () => {
     <>
       <ChangePassword
         title={text('title', 'Change Password')}
+        skipOnSubmit={() => {}}
         subTitle={text('subTitle', '  Please change your password below.')}
         skipButton={text('skipButton', 'Skip')}
         changeButton={text('changeButton', 'Change')}
-        confirmPasswordInputName={text('confirmPasswordInputName', 'confirmPasswordInputName')}
-        newPasswordInputName={text('newPasswordInputName', 'newPasswordInputName')}
-        newPasswordInputLabel='New Password'
-        confirmPasswordInputLabel='Confirm Password'
         renderInputs={(InputComponent, name) => {
           return (
             <React.Fragment>
@@ -27,7 +24,10 @@ export const Default = () => {
             </React.Fragment>
           );
         }}
-       
+        confirmPasswordInputName={text('confirmPasswordInputName', 'confirmPasswordInputName')}
+        newPasswordInputName={text('newPasswordInputName', 'newPasswordInputName')}
+        newPasswordInputLabel='newPassword'
+        confirmPasswordInputLabel='confirmPassword'
       />
     </>
   );
