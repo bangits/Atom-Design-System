@@ -6,7 +6,7 @@
 
     label > div {
       svg {
-        width: 1.4rem
+        width: getFromToTimepickerSizes(svg-width);
       }
     }
 
@@ -18,7 +18,7 @@
   }
 
   .ToPicker {
-    flex-grow: getFromToTimepickerSizes(to-picker-flex-grow);
+    flex-grow: getFromToTimepickerSizes(picker-flex-grow);
 
     &::before {
       content: '';
@@ -34,7 +34,7 @@
   }
 
   .FromPicker {
-    flex-grow: 1;
+    flex-grow: getFromToTimepickerSizes(picker-flex-grow);
     margin-right: getFromToTimepickerSizes(from-to-picker-input-offset);
   }
 }

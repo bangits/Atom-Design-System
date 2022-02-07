@@ -11,7 +11,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from './Filters.module.scss';
 import { FilterProp, FiltersProps } from './FilterTypes';
 
-export function Filters<T>({
+function Filters<T>({
   filters,
   onFiltersViewChange,
   selectProps,

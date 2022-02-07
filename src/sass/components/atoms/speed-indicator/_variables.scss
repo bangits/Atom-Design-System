@@ -1,7 +1,8 @@
 $speed-indicator-sizes: (
   offline-border-width: calculateRem(24px),
   offline-border-height: calculateRem(3px),
-  offline-border-position-top: calculateRem(7px)
+  offline-border-position-top: calculateRem(7px),
+  offline-opacity: 0.5,
 );
 
 $speed-indicator-colors: (

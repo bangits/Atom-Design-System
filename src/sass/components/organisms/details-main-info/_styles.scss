@@ -18,12 +18,12 @@
     }
     .BrandTitle {
       color: getDetailsMainInfoColors(brand-title-color);
-      padding-top: 5px;
+      padding-top: getDetailsMainInfoSizes(brand-title-padding-top);
       margin: 0;
     }
     .IdNumbers {
       color: getDetailsMainInfoColors(id-numbers-color);
-      padding: 3px 10px 0 10px;
+      padding: getDetailsMainInfoSizes(id-number-padding);
       margin: 0;
       display: block;
     }
