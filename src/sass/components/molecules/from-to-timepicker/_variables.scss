@@ -5,8 +5,8 @@ $from-to-timepicker-sizes: (
   from-to-picker-icon-top: calculateRem(25px),
   from-to-picker-icon-left: 50%,
   from-to-picker-input-offset: calculateRem(16px),
-
-  to-picker-flex-grow:1,
+  picker-flex-grow: 1,
+  svg-width: calculateRem(14px),
 );
 
 @function getFromToTimepickerSizes($key) {

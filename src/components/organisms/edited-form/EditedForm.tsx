@@ -63,10 +63,10 @@ const EditedForm: FC<EditedFormProps> = ({
       open: {
         paddingBottom: '24px',
         height: (data) => data.height + 24,
-        minHeight: 228
+        minHeight: 248
       },
       closed: {
-        height: 228
+        height: 248
       },
       iconTransform: {
         transform: 'rotate(180deg)',
@@ -164,7 +164,7 @@ const EditedForm: FC<EditedFormProps> = ({
                 )}
             </>
           )}
-          {height > 228 && (
+          {height > 248 && (
             <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'], 'HELLLO WORLD')}>
               <div
                 className={classNames({

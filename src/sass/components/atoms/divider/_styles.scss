@@ -1,19 +1,15 @@
 @mixin generate-divider-styles {
   .Divider {
     position: relative;
-    margin-left: 2.8rem;
+    margin-left: getDividerSizes(divider-marin-left);
 
     &::before {
       content: '';
-
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-
-      height: 1.2rem;
-      background: #8ea6c1;
-      width: 0.1rem;
-      left: -1.4rem;
+      @include center-absolute();
+      height: getDividerSizes(divider-before-height);
+      background-color: getDividerColors(divider-background-color);
+      width: getDividerSizes(divider-before-width);
+      left: getDividerSizes(divider-before-position-left);
     }
   }
 }

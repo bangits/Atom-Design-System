@@ -19,7 +19,6 @@
       p {
         color: getSessionExpiringColors(text-color);
         margin-top: getSessionExpiringSizes(text-margin-top);
-        width: 8;
         max-width: 34rem;
         margin: 0.3rem auto;
         text-align: center;
@@ -30,6 +29,7 @@
 
         .Icon {
           padding-top: getSessionExpiringSizes(icon-padding-top);
+          width: getSessionExpiringSizes(icon-width);
         }
 
         .InputsGroup {
@@ -37,6 +37,13 @@
 
           .InputContent {
             width: getSessionExpiringSizes(input-width);
+          }
+        }
+        .TimeLabel {
+          margin-top: getSessionExpiringSizes(time-label-margin-top);
+          span {
+            font-size: getSessionExpiringSizes(time-label-font-size);
+            color: getSessionExpiringColors(time-label-color);
           }
         }
         .BtnGroup {
@@ -60,16 +67,14 @@
     }
     .Timer {
       .dotted-cell {
-        display: flex;
-        align-items: flex-start;
-        padding: 0 8px;
-        font-size: 25px;
-        line-height: 20px;
+        @include flex(null, flex-start);
+        padding: getSessionExpiringSizes(dotted-cell-padding);
+        font-size: getSessionExpiringSizes(dotted-font-size);
+        line-height: getSessionExpiringSizes(dotted-line-height);
       }
 
       .timer-group {
-        display: flex;
-        flex-wrap: wrap;
+        @include flex(null, null, $flex-wrap: wrap);
 
         .expire-timer__numbers:last-child {
           .dotted-cell {
@@ -79,35 +84,32 @@
       }
 
       .expire-timer {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
+        @include flex(center, null, $flex-wrap: wrap);
+
         margin: 0 auto;
         width: 100%;
-        height: 105px;
+        height: getSessionExpiringSizes(expire-timer-height);
 
         &__numbers {
-          display: flex;
-          align-items: flex-start;
-          justify-content: center;
-          padding-top: 10px;
+          @include flex(center, flex-start);
+          padding-top: getSessionExpiringSizes(expire-timer--numbers-padding-top);
         }
 
         &__title {
           display: block;
-          padding-top: 36px;
+          padding-top: getSessionExpiringSizes(expire-timer--title-padding-top);
           font-family: 'Roboto', sans-serif;
-          font-size: 14px;
+          font-size: getSessionExpiringSizes(expire-timer--title-font-size);
           text-align: center;
-          color: #8ea6c1;
+          color: getSessionExpiringColors(expire-timer-color);
         }
       }
 
       .num-cell {
-        border-bottom: solid #505d6e 1px;
+        border-bottom: solid getSessionExpiringColors(num-cell-border-color) getSessionExpiringSizes(num-cell-border);
         font-family: 'Roboto', sans-serif;
-        font-size: 20px;
-        color: #505d6e;
+        font-size: getSessionExpiringSizes(num-cell-font-size);
+        color: getSessionExpiringColors(num-cell-color);
       }
     }
   }

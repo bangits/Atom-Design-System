@@ -5,7 +5,9 @@ $details-main-info-sizes: (
   details-logo-height: calculateRem(60px),
   details-logo-margin: calculateRem(16px),
   details-main-info-margin-bottom: calculateRem(8px),
-  brand-title-margin: calculateRem(8px) calculateRem(0) calculateRem(0) calculateRem(0)
+  brand-title-margin: calculateRem(8px) calculateRem(0) calculateRem(0) calculateRem(0),
+  brand-title-padding-top:calculateRem(5px),
+  id-number-padding:calculateRem(3px) calculateRem(10px) 0 calculateRem(10px)
 );
 
 $details-main-info-colors: (

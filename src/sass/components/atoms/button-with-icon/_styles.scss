@@ -1,22 +1,17 @@
 @mixin generate-button-with-icon-styles {
   .ButtonWithIcon {
     @include button-reset;
-
     @include flex(null, center);
-
     font-family: inherit;
-    letter-spacing: 0.14rem;
-
+    letter-spacing: getButtonWithIconSizes(button-letter-spacing);
     color: getBaseColors(accent-color);
-    font-weight: 500;
+    font-weight: getButtonWithIconSizes(button-font-weight);
     font-size: getButtonWithIconSizes(button-font-size);
-    line-height: 1em;
-
+    line-height: getButtonWithIconSizes(button-line-height);
     transition: color getButtonWithIconSizes(hover-transition);
 
     &:disabled {
-      opacity: 0.4;
-
+      opacity: getButtonWithIconSizes(button-disabled);
       cursor: default;
     }
     // &:hover {

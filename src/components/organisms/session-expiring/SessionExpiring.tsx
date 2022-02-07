@@ -26,14 +26,16 @@ const ChangePassword: FC<SessionExpiringProps> = ({
     <div className={styles.SessionExpiringWrapper}>
       <Card className={styles.CardWrapper}>
         <div className={styles.ChangeContent}>
-          <WarningIcon className={styles.Icon} width='8rem' />
+          <WarningIcon className={styles.Icon}  />
           <Typography variant='h2' component='h2'>
             {title}
           </Typography>
           <Typography variant='p3' component='p'>
             {subTitle}
           </Typography>
-          <div>{timeRemaining}</div>
+          <div className={styles.TimeLabel}>
+            <span>{timeRemaining}</span>
+          </div>
           <div className={styles.InputsGroup}>
             <div className={styles.Timer}>
               <Timer />
