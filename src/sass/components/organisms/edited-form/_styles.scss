@@ -50,7 +50,7 @@
     }
 
     &--option {
-      @include flex(null, flex-start, $direction:column);
+      @include flex(null, flex-start, $direction: column);
       // flex: getEditedFormSizes(option-flex);
       width: getEditedFormSizes(option-width);
       margin: getEditedFormSizes(option-margin);
@@ -66,6 +66,10 @@
           }
         }
       }
+    }
+
+    &--control-button {
+      @include flex();
     }
 
     &--option-title {

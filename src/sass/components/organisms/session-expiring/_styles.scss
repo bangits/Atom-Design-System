@@ -1,0 +1,114 @@
+@mixin generate-session-expiring-styles {
+  .SessionExpiringWrapper {
+    width: 100%;
+    height: 100%;
+    background-color: getSessionExpiringColors(background-wrapper);
+
+    .CardWrapper {
+      @include center-absolute;
+      background-color: getSessionExpiringColors(background-card);
+      width: getSessionExpiringSizes(card-width);
+      height: getSessionExpiringSizes(card-height);
+      box-sizing: border-box;
+
+      h2 {
+        margin-bottom: 0;
+        color: getSessionExpiringColors(title-color);
+      }
+
+      p {
+        color: getSessionExpiringColors(text-color);
+        margin-top: getSessionExpiringSizes(text-margin-top);
+        width: 8;
+        max-width: 34rem;
+        margin: 0.3rem auto;
+        text-align: center;
+      }
+
+      .ChangeContent {
+        @include flex(center, center, $direction: column);
+
+        .Icon {
+          padding-top: getSessionExpiringSizes(icon-padding-top);
+        }
+
+        .InputsGroup {
+          @include flex(center, center, $direction: column);
+
+          .InputContent {
+            width: getSessionExpiringSizes(input-width);
+          }
+        }
+        .BtnGroup {
+          @include flex();
+          margin-top: getSessionExpiringSizes(btn-group-margin-top);
+
+          button {
+            width: getSessionExpiringSizes(btn-width);
+
+            &:first-child {
+              border-color: getSessionExpiringColors(btn-border-color);
+            }
+
+            &:last-child {
+              margin-left: getSessionExpiringSizes(btn-margin-left);
+              background-color: getSessionExpiringColors(background-btn);
+            }
+          }
+        }
+      }
+    }
+    .Timer {
+      .dotted-cell {
+        display: flex;
+        align-items: flex-start;
+        padding: 0 8px;
+        font-size: 25px;
+        line-height: 20px;
+      }
+
+      .timer-group {
+        display: flex;
+        flex-wrap: wrap;
+
+        .expire-timer__numbers:last-child {
+          .dotted-cell {
+            display: none;
+          }
+        }
+      }
+
+      .expire-timer {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin: 0 auto;
+        width: 100%;
+        height: 105px;
+
+        &__numbers {
+          display: flex;
+          align-items: flex-start;
+          justify-content: center;
+          padding-top: 10px;
+        }
+
+        &__title {
+          display: block;
+          padding-top: 36px;
+          font-family: 'Roboto', sans-serif;
+          font-size: 14px;
+          text-align: center;
+          color: #8ea6c1;
+        }
+      }
+
+      .num-cell {
+        border-bottom: solid #505d6e 1px;
+        font-family: 'Roboto', sans-serif;
+        font-size: 20px;
+        color: #505d6e;
+      }
+    }
+  }
+}

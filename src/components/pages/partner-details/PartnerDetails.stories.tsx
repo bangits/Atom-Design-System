@@ -46,6 +46,7 @@ export const Default = () => {
           }
         ]
       })}
+      projectInformation='project'
       docInfo={object('docInfo', {
         documentID: 5461213584,
         type: 'Partnership Agreement',

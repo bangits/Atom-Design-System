@@ -1,6 +1,6 @@
 import { typedMemo } from '@/helpers';
 import { useStyles } from '@/helpers/useStyles';
-import { PenIcon } from '@/icons';
+import { DustbinIcon, PenIcon } from '@/icons';
 import { Card, IconButton, Tag, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
@@ -8,6 +8,7 @@ import styles from './EditedForm.module.scss';
 
 export interface EditedFormProps {
   editButtonTooltipText?: string;
+  deleteButtonTooltipText?: string;
   options?: (
     | {
         title: ReactNode;
@@ -36,6 +37,8 @@ export interface EditedFormProps {
   viewLessLabel?: string;
   onToggle?: () => void;
   col?: 6 | 12;
+  showDeleteButton?: boolean;
+  onDelete?: () => void;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -47,7 +50,10 @@ const EditedForm: FC<EditedFormProps> = ({
   onToggle,
   editButtonTooltipText,
   children,
-  col
+  col,
+  showDeleteButton,
+  deleteButtonTooltipText,
+  onDelete
 }) => {
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
   const [height, setHeight] = useState<number>();
@@ -57,10 +63,10 @@ const EditedForm: FC<EditedFormProps> = ({
       open: {
         paddingBottom: '24px',
         height: (data) => data.height + 24,
-        minHeight: 228
+        minHeight: 248
       },
       closed: {
-        height: 228
+        height: 248
       },
       iconTransform: {
         transform: 'rotate(180deg)',
@@ -96,6 +102,11 @@ const EditedForm: FC<EditedFormProps> = ({
           <Tooltip showEvent='hover' text={editButtonTooltipText}>
             <IconButton icon={<PenIcon />} onClick={onToggle} />
           </Tooltip>
+          {showDeleteButton && (
+            <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
+              <IconButton icon={<DustbinIcon />} onClick={onDelete} />
+            </Tooltip>
+          )}
         </div>
       </div>
       <Card borderRadius={1.6} className={classNames(styles['EditedFormBase--card-content'])}>
@@ -106,7 +117,9 @@ const EditedForm: FC<EditedFormProps> = ({
             [styles[`EditedFormBase--content-children`]]: children
           })}
           ref={containerRef}>
-          {children ? <div>{children}</div>: (
+          {children ? (
+            <div>{children}</div>
+          ) : (
             <>
               {options &&
                 options?.map((option, index) =>
@@ -151,7 +164,7 @@ const EditedForm: FC<EditedFormProps> = ({
                 )}
             </>
           )}
-          {height > 228 && (
+          {height > 248 && (
             <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'], 'HELLLO WORLD')}>
               <div
                 className={classNames({

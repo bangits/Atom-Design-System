@@ -1,0 +1,22 @@
+$license-card-sizes: (
+  container-height: calculateRem(247px),
+  border-radius: calculateRem(16px),
+  icon-sizes: calculateRem(32px),
+  icon-margin-bottom: calculateRem(16px),
+  title-margin-bottom: calculateRem(8px),
+  click-fc: calculateRem(14px)
+);
+
+$license-card-colors: (
+  border-color: color(catskill-white),
+  bg: color(white),
+  title-color: color(black-color),
+  click-here: color(d-blue-x)
+);
+
+@function getLicenseCardSizes($key) {
+  @return map-get($license-card-sizes, $key);
+}
+@function getLicenseCardColors($key) {
+  @return map-get($license-card-colors, $key);
+}

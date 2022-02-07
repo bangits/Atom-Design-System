@@ -8,6 +8,7 @@ export * from './datepickers';
 export * from './from-to-input';
 export * from './from-to-timepicker';
 export * from './input-with-dropdown';
+export * from './label-endmark';
 export * from './label-group';
 export * from './label-tag';
 export * from './languages-group';
@@ -19,4 +20,4 @@ export * from './profile-block';
 export * from './radio-group';
 export * from './select';
 export * from './text-input';
-export * from './label-endmark';
+

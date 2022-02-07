@@ -4,14 +4,14 @@
   }
   .EditForm--12 {
     width: 100%;
-    .EditFormBase--content {
+    /* .EditFormBase--content {
       column-gap: getEditFormInSizes(edit-form-base-content-column-gap);
       @include flex(flex-start, null);
-    }
+    } */
   }
 
   .EditForm--6 {
-    width: getEditFormInSizes(edit-form-width);
+    width: getEditFormInSizes(edit-form-half-width);
   }
 
   .EditFormBase {
@@ -47,7 +47,7 @@
       align-content: flex-start;
       box-sizing: border-box;
       width: getEditFormInSizes(edit-form-content-width);
-      height: auto;
+      min-height: getEditFormInSizes(min-height);
       form {
         width: 100%;
       }

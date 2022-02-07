@@ -1,10 +1,13 @@
 @mixin generate-project-card-styles {
   .ProjectCardWrapper {
+    position: relative;
     background-color: getProjectCardColors(background-card);
     border: solid getProjectCardSizes(card-border-solid) getProjectCardColors(card-border-color);
     border-radius: getProjectCardSizes(card-border-radius);
     padding: getProjectCardSizes(card-padding);
     box-sizing: border-box;
+    transition: height getProjectCardSizes(content-transition);
+    overflow: hidden;
 
     &--12 {
       width: 100%;
@@ -14,12 +17,48 @@
       width: getProjectCardSizes(card-width);
     }
 
+    &--viewMore {
+      @include flex(center, center);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: getProjectCardColors(view-more-borderRadius);
+      width: 100%;
+      height: getProjectCardSizes(view-more-height);
+      background-color: getProjectCardColors(view-bg);
+      cursor: pointer;
+
+      > div {
+        @include flex(center, center);
+        color: getEditedFormColors(view-colors);
+        width: getProjectCardSizes(view-icon-width);
+        width: getProjectCardSizes(view-icon-height);
+        transition: getProjectCardSizes(content-transition);
+      }
+
+      > span {
+        color: getProjectCardColors(view-colors);
+        font-size: getProjectCardSizes(view-font-size);
+        height: getProjectCardSizes(view-label-height);
+      }
+    }
+
     .CardHeader {
       @include flex(space-between, center);
     }
     .TitleContent {
       @include flex(space-between, center);
       margin-top: getProjectCardSizes(title-content-margin-top);
+
+      &--purple-color {
+        color: getProjectCardColors(number-color-purple);
+      }
+      &--orange-color {
+        color: getProjectCardColors(number-color-orange);
+      }
+      &--lime-color {
+        color: getProjectCardColors(number-color-lime);
+      }
 
       h2 {
         margin: 0;
@@ -29,7 +68,6 @@
 
       p {
         line-height: 0;
-        color: getProjectCardColors(number-color);
 
         span {
           font-size: getProjectCardSizes(number-font-size);
@@ -46,7 +84,7 @@
       margin-top: getProjectCardSizes(game-wrapper-margin-top);
 
       .GamesContent {
-        @include flex(null, center);
+        @include flex(null, center, $flex-wrap: wrap);
         margin-bottom: getProjectCardSizes(games-content-margin-top);
 
         .Game {

@@ -39,6 +39,7 @@ export interface PartnerDetailsProps {
 
   organizationDataMainInformationForms: ReactNode;
   organizationDataProviderInformation: ReactNode;
+  projectInformation: ReactNode;
 
   showProviderInformation?: boolean;
 }
@@ -57,7 +58,8 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
   backgroundImgUrl,
   onBackgroundImgClick,
   partnerId,
-  partnerName
+  partnerName,
+  projectInformation
 }) => {
   return (
     <div className={styles.PartnerDetailsBase}>
@@ -144,15 +146,16 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
                       ]
                     : [])
                 ]
-              }
-              /*  {
-                title: 'Projects',
-                value: 2
               },
               {
-                title: 'Documents',
-                value: 3
-              } */
+                title: 'Projects',
+                value: 2,
+                content: projectInformation
+              }
+              // {
+              //   title: 'Documents',
+              //   value: 3
+              // }
             ]}
             defaultTabValue={1}
             defaultSubTabValue={1}

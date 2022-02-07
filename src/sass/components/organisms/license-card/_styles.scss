@@ -1,0 +1,40 @@
+@mixin generate-license-card-styles {
+  .LicensesCard {
+    @include flex(center, center, $direction: column);
+    @include generateBorderWithBoxShadow(getLicenseCardColors(border-color), 0.1rem);
+    border-radius: getLicenseCardSizes(border-radius);
+    height: getLicenseCardSizes(container-height);
+    background-color: getLicenseCardColors(bg);
+
+    &--col-6 {
+      width: 50%;
+    }
+    &--col-12 {
+      width: 100%;
+    }
+
+    &--icon {
+      width: getLicenseCardSizes(icon-sizes);
+      height: getLicenseCardSizes(icon-sizes);
+      margin-bottom: getLicenseCardSizes(icon-margin-bottom);
+    }
+
+    &--title {
+      color: getLicenseCardColors(title-color);
+      font-weight: 500;
+      margin-bottom: getLicenseCardSizes(title-margin-bottom);
+    }
+
+    &--click {
+      font-size: getLicenseCardSizes(click-fc);
+      cursor: pointer;
+      color: getLicenseCardColors(title-color);
+
+      span {
+        font-size: getLicenseCardSizes(click-fc);
+        color: getLicenseCardColors(click-here);
+        text-decoration: underline;
+      }
+    }
+  }
+}
