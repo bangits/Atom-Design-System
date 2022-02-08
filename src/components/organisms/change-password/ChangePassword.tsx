@@ -6,8 +6,8 @@ import styles from './ChangePassword.module.scss';
 
 export interface ChangePasswordProps {
   renderInputs?: (InputComponent: typeof TextInput, name: string) => JSX.Element;
-  title: string;
-  subTitle: string;
+  title?: string;
+  subTitle?: string;
   skipButton?: string;
   changeButton?: string;
   newPasswordInputLabel?: string;
@@ -15,6 +15,8 @@ export interface ChangePasswordProps {
   newPasswordInputName?: string;
   confirmPasswordInputName?: string;
   buttonProps?: string;
+  changePasswordErrorMessageName?: string;
+  skipOnSubmit: () => void;
 }
 
 const ChangePassword: FC<ChangePasswordProps> = ({
@@ -26,8 +28,10 @@ const ChangePassword: FC<ChangePasswordProps> = ({
   confirmPasswordInputName = 'Confirm Password',
   buttonProps,
   renderInputs,
+  changePasswordErrorMessageName,
   newPasswordInputLabel,
-  confirmPasswordInputLabel
+  confirmPasswordInputLabel,
+  skipOnSubmit
 }) => {
   const createPasswordInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
@@ -47,6 +51,7 @@ const ChangePassword: FC<ChangePasswordProps> = ({
       ),
     [renderInputs, newPasswordInputLabel, newPasswordInputName]
   );
+
   const confirmPasswordInput = useMemo(
     () =>
       renderInputs(
@@ -72,10 +77,20 @@ const ChangePassword: FC<ChangePasswordProps> = ({
           </Typography>
           <div className={styles.InputsGroup}>
             <div className={styles.InputContent}>{newPasswordInput}</div>
-            <div className={styles.InputContent}>{confirmPasswordInput}</div>
+            <div className={styles.InputContent}>
+              {confirmPasswordInput}
+
+              {changePasswordErrorMessageName && (
+                <Typography variant='p5' color='danger' className={styles.ErrorMessage}>
+                  {changePasswordErrorMessageName}
+                </Typography>
+              )}
+            </div>
           </div>
           <div className={styles.BtnGroup}>
-            <Button variant='ghost'>{skipButton}</Button>
+            <Button type='button' variant='ghost' onClick={skipOnSubmit}>
+              {skipButton}
+            </Button>
             <Button type='submit' {...buttonProps}>
               {changeButton}
             </Button>
