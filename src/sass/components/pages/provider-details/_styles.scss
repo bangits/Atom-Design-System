@@ -21,7 +21,7 @@
 
   .StatusContent {
     margin-bottom: getProviderDetailsSizes(status-content-margin-bottom);
-    height:getProviderDetailsSizes(status-content-height);
+    height: getProviderDetailsSizes(status-content-height);
   }
 
   .ButtonContent {
@@ -104,7 +104,7 @@
       }
 
       & > div > div {
-        padding: 20px ​0 !important;
+        padding: getProviderDetailsSizes(games-container__div__div-padding) !important;
       }
       & > div > div > p {
         font-size: getProviderDetailsSizes(games-container__div__div__p-font-size) !important;
@@ -198,9 +198,8 @@
 }
 
 .GamesContainer__Loader {
-  display: flex;
-  justify-content: center;
-  padding: 10px 0 0 0;
+  @include flex(center, null);
+  padding: getProviderDetailsSizes(game-tag-padding);
 }
 
 .HoverBox {
@@ -211,7 +210,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  transition: all 0.16s linear;
+  transition: all getProviderDetailsSizes(hover-box-button-animation) linear;
 
   button {
     cursor: pointer;
@@ -220,18 +219,18 @@
   }
 
   &:hover {
-    opacity: 1;
+    opacity: getProviderDetailsSizes(hover-box-button-opacity);
     .HoverBox-Link {
-      opacity: 1;
+      opacity: getProviderDetailsSizes(hover-box-button-opacity);
       bottom: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
     }
     .HoverBox-PlayBtn {
-      opacity: 1;
+      opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
       margin-top: getProviderDetailsSizes(hoverbox-playbtn-view-icon-margin-top);
     }
     .HoverBox-ViewIcon {
       top: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
-      opacity: 1;
+      opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
     }
   }
 }
@@ -242,9 +241,10 @@
   display: block;
   width: getProviderDetailsSizes(hoverbox-playbtn-sizes);
   height: getProviderDetailsSizes(hoverbox-playbtn-sizes);
-  border: solid #fff 1px;
+  border: solid getProviderDetailsColors(hoverbox-play-btn-border-color)
+    getProviderDetailsSizes(hover-box-play-button-border);
   @include center-absolute();
-  padding: 1px;
+  padding: getProviderDetailsSizes(hover-box-play-button-padding);
   z-index: getProviderDetailsSizes(hoverbox-playbtn-z-index);
   border-radius: getProviderDetailsSizes(hoverbox-playbtn-border-radius);
   margin-top: getProviderDetailsSizes(hoverbox-playbtn-margin-top);
@@ -252,8 +252,8 @@
   transition: all getProviderDetailsSizes(hoverbox-playbtn-transition) linear;
   &:hover {
     .HoverBox-PlayBtnInner {
-      background-color: #ffffff;
-      opacity: 1;
+      background-color: getProviderDetailsColors(hover-box-play-btn-inner-background);
+      opacity: getProviderDetailsSizes(hover-box-play-btn-inner-opacity);
     }
   }
 }
@@ -263,7 +263,7 @@
   background-color: getProviderDetailsColors(hoverbox-playbtn-background-color);
   z-index: getProviderDetailsSizes(hoverbox-playbtn-inner-z-index);
   border-radius: getProviderDetailsSizes(hoverbox-playbtn-border-radius);
-  transition: background 0.16s linear;
+  transition: background getProviderDetailsSizes(hover-box-button-animation) linear;
   @include flex(center, center);
 }
 
@@ -280,7 +280,7 @@
 
 .HoverBox-PlayBtnIcon {
   display: block;
-  height: 20px;
+  height: getProviderDetailsSizes(hover-box-play-btn-icon-height);
   width: getProviderDetailsSizes(hoverbox-play-btn-icon-width);
   @include flex(center, center);
   transform: translate(getProviderDetailsSizes(hoverbox-play-btn-icon-transform), 0);
@@ -299,11 +299,11 @@
   z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
   position: absolute;
   top: 0;
-  right: 10px;
+  right: getProviderDetailsSizes(hover-box-view-icon-position-right);
   width: getProviderDetailsSizes(hoverbox-view-icon-width);
   transition: all getProviderDetailsSizes(hoverbox-view-icon-transition) linear;
   border: 0;
-  transition: all linear 0.16s;
+  transition: all linear getProviderDetailsSizes(hover-box-button-animation);
   svg {
     width: getProviderDetailsSizes(hoverbox-view-icon-width);
     fill: getProviderDetailsColors(hoverbox-view-icon-color);
@@ -333,14 +333,14 @@
     left: 0;
     color: getProviderDetailsColors(hoverbox-view-icon-color);
     font-size: getProviderDetailsSizes(hoverbox-link-text-font-size);
-    opacity: 0.7;
-    transition: all 0.16s linear;
+    opacity: getProviderDetailsSizes(hover-box-link--text-opacity);
+    transition: all getProviderDetailsSizes(hover-box-button-animation) linear;
     padding-left: 0;
     padding-right: 0;
     border: 0;
-    font-weight: 400;
+    font-weight: getProviderDetailsSizes(hover-box-link--text-font-weight);
     &:hover {
-      opacity: 1;
+      opacity: getProviderDetailsSizes(hover-box-link--text-hover-opacity);
     }
     &:after {
       content: '';
@@ -349,7 +349,7 @@
       bottom: 0;
       left: 0;
       width: 100%;
-      height: 1px;
+      height: getProviderDetailsSizes(hover-box-link--text-after-height);
       background-color: getProviderDetailsColors(hover-box-link-text-after-backgroud-color);
     }
   }

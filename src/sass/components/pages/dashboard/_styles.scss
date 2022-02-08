@@ -52,7 +52,7 @@
     line-height: getDashboardSizes(paragraph-line-height);
 
     strong {
-      font-weight: 400;
+      font-weight: getDashboardSizes(strong-font-weight);
       color: color(primary);
     }
   }

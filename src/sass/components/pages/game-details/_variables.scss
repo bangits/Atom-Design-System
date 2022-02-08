@@ -77,7 +77,11 @@ $game-details-sizes: (
   device-tag-padding: calculateRem(3px) calculateRem(16px) calculateRem(7px) calculateRem(0px),
   device-tag-border-radius: calculateRem(6px),
   //
-  card-wrapper-change-update__div__div__span-font-size: calculateRem(11.5px)
+  card-wrapper-change-update__div__div__span-font-size: calculateRem(11.5px),
+  //
+  two-cols-column-gap:calculateRem(7px),
+  //
+  sidebar-widget-padding-top:calculateRem(10px)
 );
 
 $game-details-colors: (

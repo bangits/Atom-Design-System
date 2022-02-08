@@ -16,7 +16,7 @@
         .ProviderTitle {
           font-weight: getProviderSizes(provider-title-fontWeight);
           text-align: getProviderSizes(provider-title-align);
-          padding-top: 2rem;
+          padding-top: getProviderSizes(provider-title-padding-top);
         }
 
         .ProviderContainerWrapper {
@@ -50,7 +50,7 @@
         margin-top: getProviderSizes(provider-button-group-margin-top);
         position: relative;
         svg {
-          width: 1.4rem !important;
+          width: getProviderSizes(provider-button-group-svg-width) !important;
         }
         .ProviderCloseButton {
           margin-right: getProviderSizes(provider-button-closeMargin);

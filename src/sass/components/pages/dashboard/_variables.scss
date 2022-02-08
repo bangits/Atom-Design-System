@@ -10,7 +10,8 @@ $dashboard-sizes: (
   paragraph-max-width: calculateRem(440px),
   dashboard-illustration-width: calculateRem(85px),
   paragraph-font-weight: 400,
-  paragraph-line-height: 1.8em
+  paragraph-line-height: 1.8em,
+  strong-font-weight: 400,
 );
 
 $dashboard-colors: ();

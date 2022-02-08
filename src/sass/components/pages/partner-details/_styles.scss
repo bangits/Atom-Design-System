@@ -7,7 +7,7 @@
 
     &--leftBlock {
       margin: getPartnerDetailsSizes(leftBlock-margin);
-      min-width: 244px;
+      min-width: getPartnerDetailsSizes(partner-details-base--leftBlock-width);
       > * {
         margin-bottom: getPartnerDetailsSizes(left-block-all-blocks-margin);
       }
@@ -29,7 +29,7 @@
     &__Sidebar {
       & > div {
         width: 100%;
-        margin-bottom: 10px;
+        margin-bottom: getPartnerDetailsSizes(sidebar-margin-bottom);
       }
     }
     &__Sidebar-Widget {

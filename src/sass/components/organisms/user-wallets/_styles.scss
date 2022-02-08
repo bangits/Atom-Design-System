@@ -19,7 +19,7 @@
       }
 
       .SaveIcon path {
-        fill: #00b21e;
+        fill: getUserWalletsColors(icon-path-color);
       }
     }
 
@@ -29,10 +29,8 @@
 
     .WalletActionsContainer {
       @include flex;
-
       margin-top: getUserWalletsSizes(user-details-button-margin-top);
       margin-left: getUserWalletsSizes(user-details-button-margin-left);
-
       max-height: getUserWalletsSizes(actions-container-max-height);
     }
   }
