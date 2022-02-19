@@ -5,13 +5,13 @@ import { Table, TableProps } from '..';
 import styles from './CollapsableTable.module.scss';
 
 export interface BaseCollapsableTableProps {
-  refreshButtonLabel: ReactNode;
-  onRefreshButtonClick(event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>): void;
+  refreshButtonLabel?: ReactNode;
+  onRefreshButtonClick?(event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>): void;
 }
 
 export interface CollapsableTableProps extends BaseCollapsableTableProps {
   dialogViewProps: DialogViewProps;
-  tableProps: TableProps<any>;
+  tableProps?: TableProps<any>;
 }
 
 const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) => {
