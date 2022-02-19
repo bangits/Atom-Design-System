@@ -1,6 +1,7 @@
 export * from './banner-uploader';
 export * from './browsers-group';
 export * from './change-password';
+export * from './collapsable-table';
 export * from './count-view';
 export * from './details-main-info';
 export * from './dialog';
@@ -32,4 +33,3 @@ export * from './tags-view';
 export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-view';
-

@@ -1,4 +1,4 @@
-import { Filters, FiltersProps, Table, TableProps } from '@/components';
+import { CollapsableTable, CollapsableTableProps, Filters, FiltersProps, Table, TableProps } from '@/components';
 import { ButtonWithIcon, Divider } from '@/components/atoms';
 import { SettingsIcon } from '@/icons';
 import { noImage, noImageGame } from '@/img';
@@ -14,7 +14,7 @@ import {
   Tooltip
 } from '@my-ui/core';
 import classNames from 'classnames';
-import { MouseEvent, useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { MouseEvent, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import styles from './DataTable.module.scss';
 export interface Pagination {
   page: number;
@@ -23,6 +23,18 @@ export interface Pagination {
 export interface FetchDataParameters<T, K> {
   filters: K | null;
   sortedBy: { id: string; desc: boolean } | null;
+}
+
+export interface TableAction<T> {
+  iconName?: keyof typeof Icons;
+  shouldShow?: TableProps<T>['actions'][number]['shouldShow'];
+  shouldShowBulkAction?: (rows: T[]) => boolean;
+  onClick: (columns: T | T[], e: any) => void;
+  tooltipText?: string;
+}
+
+export interface TableCollapse<T> extends Omit<TableAction<T>, 'onClick' | 'shouldShowBulkAction'> {
+  id: number | string;
 }
 export interface DataTableProps<T extends {}, K> {
   columnDropdownTranslations?: {
@@ -55,20 +67,18 @@ export interface DataTableProps<T extends {}, K> {
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
-    actions?: {
-      iconName?: keyof typeof Icons;
-      shouldShow?: TableProps<T>['actions'][number]['shouldShow'];
-      shouldShowBulkAction?: (rows: T[]) => true;
-      onClick: (columns: T | T[]) => void;
-      tooltipText?: string;
-    }[];
+    actions?: TableAction<T>[];
   };
+
+  tableCollapseActions?: TableCollapse<T>[];
 
   onTableConfigChange?: (columns: SelectProps<any, boolean, any>['options'], selectedColumns: string[]) => void;
   columnsConfigDefaultValue?: string[];
 
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
+
+  getCollapsableTableProps?(row: T): Omit<CollapsableTableProps, 'dialogViewProps'>;
 }
 
 function DataTable<T extends {}, K>({
@@ -87,14 +97,24 @@ function DataTable<T extends {}, K>({
   onRefreshButtonClick,
   actionsButtonDisabledTime = 2,
   onTableConfigChange,
-  columnsConfigDefaultValue: columnsConfigDefaultValueProp
+  columnsConfigDefaultValue: columnsConfigDefaultValueProp,
+  tableCollapseActions,
+  getCollapsableTableProps
 }: DataTableProps<T, K>) {
+  const tableContainerRef = useRef<HTMLDivElement>(null);
+
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
 
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
   const [isDisabledRefreshButton, setDisabledRefreshButton] = useState(false);
   const [isFiltersOpened, setFiltersOpened] = useState(false);
+  const [openedCollapseInfo, setOpenedCollapseInfo] = useState<{
+    id: number | string;
+    yPosition: number;
+    row: T;
+    collapsableTableProps: Omit<CollapsableTableProps, 'dialogViewProps'>;
+  }>(null);
 
   const dropdownOptions = useMemo<SelectProps<any, boolean, any>['options']>(
     () =>
@@ -110,6 +130,7 @@ function DataTable<T extends {}, K>({
     () => columnsConfigDefaultValueProp || dropdownOptions.map((value) => value.value),
     [dropdownOptions, columnsConfigDefaultValueProp]
   );
+
   const [dropdownValues, setDropdownValues] = useState<string[]>(columnsConfigDefaultValue);
 
   const configColumns = useMemo(
@@ -198,6 +219,8 @@ function DataTable<T extends {}, K>({
     });
   }, []);
 
+  const onCollapsableTableClose = useCallback(() => setOpenedCollapseInfo(null), []);
+
   const tableColumns = useMemo(() => {
     return (configColumns || []).map((column) => ({
       ...column,
@@ -243,7 +266,29 @@ function DataTable<T extends {}, K>({
     (DataTableProps<T, {}>['tableProps']['actions'][number] & TableProps<T>['actions'][number])[]
   >(
     () => [
-      ...(tableProps.actions?.map((action) => {
+      ...([
+        ...(tableProps.actions || []),
+        ...(tableCollapseActions || []).map(
+          (collapse): TableAction<T> => ({
+            onClick: (row, e) => {
+              if (!getCollapsableTableProps) return;
+
+              const tableRow = e.target.closest('tr');
+
+              const clickedRow = Array.isArray(row) ? row[0] : row;
+
+              setOpenedCollapseInfo({
+                id: collapse.id,
+                yPosition: tableRow.getBoundingClientRect().y + tableRow.offsetHeight,
+                row: clickedRow,
+                collapsableTableProps: getCollapsableTableProps(clickedRow)
+              });
+            },
+            ...collapse,
+            shouldShowBulkAction: () => false
+          })
+        )
+      ]?.map((action) => {
         const IconComponent = Icons[action.iconName];
 
         return {
@@ -262,7 +307,7 @@ function DataTable<T extends {}, K>({
         };
       }) || [])
     ],
-    [tableProps.actions]
+    [tableProps.actions, getCollapsableTableProps]
   );
 
   const tableBulkActions = useMemo(
@@ -271,12 +316,24 @@ function DataTable<T extends {}, K>({
         ? actions.map(
             ({ component: Component, onClick, shouldShow, props }) =>
               (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
-                <Component onClick={() => onClick(selectedRows)} {...props} />
+                <Component onClick={(e) => onClick(selectedRows, e)} {...props} />
               )
           )
         : null,
     [actions, selectedRows]
   );
+
+  const collapseTableProps = useMemo<CollapsableTableProps>(() => {
+    return {
+      dialogViewProps: {
+        yPosition: openedCollapseInfo?.yPosition,
+        containerWidth: tableContainerRef.current?.offsetWidth,
+        onClose: onCollapsableTableClose,
+        isOpened: !!openedCollapseInfo?.row
+      },
+      ...(openedCollapseInfo?.collapsableTableProps ? openedCollapseInfo?.collapsableTableProps : {})
+    };
+  }, [openedCollapseInfo]);
 
   useEffect(() => {
     if (pagination === initialPagination) return;
@@ -363,12 +420,18 @@ function DataTable<T extends {}, K>({
 
       <Table
         {...tableProps}
+        tableContainerRef={tableContainerRef}
         height={`calc(100vh - ${isFiltersOpened ? '50rem' : '30rem'})`}
         fetch={onTableFetchData}
-        className={classNames(styles.Table, tableProps.className, {
-          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
-          [styles.TableHaveData]: !!tableProps.data?.length
-        })}
+        className={classNames(
+          styles.Table,
+          tableProps.className,
+          {
+            [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
+            [styles.TableHaveData]: !!tableProps.data?.length
+          },
+          'testclassname'
+        )}
         onSelectedColumnsChange={(columns) => {
           setSelectedRows(columns.map((c) => c.original));
           if (tableProps.onSelectedColumnsChange) tableProps.onSelectedColumnsChange(columns);
@@ -376,6 +439,8 @@ function DataTable<T extends {}, K>({
         actions={actions}
         columns={tableColumns}
       />
+
+      <CollapsableTable {...collapseTableProps} />
     </div>
   );
 }

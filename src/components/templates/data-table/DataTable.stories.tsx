@@ -11,6 +11,64 @@ export default {
 export const Default = () => {
   return (
     <DataTable
+      tableCollapseActions={[
+        {
+          id: 1,
+          iconName: 'EditIcon'
+        }
+      ]}
+      getCollapsableTableProps={(row) => ({
+        onRefreshButtonClick: action('collapsableTableRefreshButtonClicked'),
+        refreshButtonLabel: 'Transactions',
+        tableProps: {
+          data: [
+            {
+              y: 'ID1234567',
+              z: 'ID1234567',
+              b: '20BurningHot',
+              n: 'EGT',
+              w: '12/07/2021, 12:00:00',
+              e: 'Mobile Desktop',
+              v: 'Mobile, Desktop',
+              c: 'Slots'
+            }
+          ],
+          columns: [
+            {
+              Header: 'Game Id',
+              accessor: 'y'
+            },
+            {
+              Header: 'External Id',
+              accessor: 'z'
+            },
+            {
+              Header: 'Game Name',
+              accessor: 'b'
+            },
+            {
+              Header: 'Provider Id',
+              accessor: 'n'
+            },
+            {
+              Header: 'Category',
+              accessor: 'c'
+            },
+            {
+              Header: 'Version',
+              accessor: 'v',
+              maxWidth: '10rem'
+            },
+            {
+              Header: 'Release date and time',
+              accessor: 'w',
+              align: 'right',
+              sortingId: 'release'
+            }
+          ],
+          actions: []
+        }
+      })}
       rowCount={365}
       paginationProps={{
         pageSizeSelect: {
@@ -145,29 +203,7 @@ export const Default = () => {
         clearLabel: 'Clear'
       }}
       tableProps={{
-        actions: [
-          {
-            iconName: 'EditIcon',
-            shouldShow: () => true,
-            onClick: () => {
-              return true;
-            }
-          },
-          {
-            iconName: 'EditIcon',
-            shouldShow: () => true,
-            onClick: () => {
-              return true;
-            }
-          },
-          {
-            iconName: 'EditIcon',
-            shouldShow: () => true,
-            onClick: () => {
-              return true;
-            }
-          }
-        ],
+        actions: [],
         data: [
           {
             image:
@@ -312,7 +348,7 @@ export const Default = () => {
             e: 'Mobile Desktop',
             v: 'Mobile, Desktop',
             c: 'Slots'
-          },
+          }
         ],
         columns: [
           {
