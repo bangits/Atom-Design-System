@@ -4,7 +4,7 @@ import BrowsersCheckboxGroup from './BrowsersCheckboxGroup';
 export default {
   component: BrowsersCheckboxGroup,
   decorators: [withKnobs],
-  title: 'components/molecules/BrowsersCheckboxGroup'
+  title: 'components/organisms/BrowsersCheckboxGroup'
 };
 
 export const Default = () => {

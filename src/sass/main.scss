@@ -1,22 +1,6 @@
-// Abstracts
-@import './abstracts/variables';
-@import './abstracts/mixins';
-@import './abstracts/functions';
-
-// Base
-@import './base/variables';
-@import './base/functions';
 @import './base/mixins';
 @import './base/reset';
 @import './base/helpers';
 
-// Layout
 @import './layout/main';
 @import './layout/navigation';
-
-// Components
-@import './components/atoms/main';
-@import './components/molecules/main';
-@import './components/organisms/main';
-@import './components/pages/main';
-@import './components/templates/main';

@@ -5,6 +5,7 @@ export * from './copy-field';
 export * from './countries-group';
 export * from './currency-group';
 export * from './datepickers';
+export * from './dialog-view';
 export * from './from-to-input';
 export * from './from-to-timepicker';
 export * from './input-with-dropdown';
@@ -20,4 +21,3 @@ export * from './profile-block';
 export * from './radio-group';
 export * from './select';
 export * from './text-input';
-

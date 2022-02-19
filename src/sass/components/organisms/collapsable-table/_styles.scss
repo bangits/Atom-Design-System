@@ -1,0 +1,9 @@
+@mixin generate-collapsable-table {
+  .CollapsableTableWrapper {
+    padding: getCollapsableTableSizes(wrapper-padding);
+
+    .RefreshButton {
+      margin: getCollapsableTableSizes(refresh-button-margin);
+    }
+  }
+}
