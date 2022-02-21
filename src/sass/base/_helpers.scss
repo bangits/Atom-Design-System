@@ -1,27 +1,25 @@
 @import '../layout/variables';
 
-:global {
-  .min-height-inherit {
-    min-height: inherit;
-  }
+.min-height-inherit {
+  min-height: inherit;
+}
 
-  .min-height-content-wrapper {
-    min-height: calc(100vh - getLayoutSizes(content-header-margin));
-  }
+.min-height-content-wrapper {
+  min-height: calc(100vh - getLayoutSizes(content-header-margin));
+}
 
-  .cursor-pointer {
-    cursor: pointer;
-  }
+.cursor-pointer {
+  cursor: pointer;
+}
 
-  .d-flex {
-    @include flex;
-  }
+.d-flex {
+  @include flex;
+}
 
-  .details-form-wrapper {
-    @include flex(null, center, $flex-wrap: wrap);
-    width: fit-content;
-    width: -moz-fit-content;
-    grid-gap: calculateRem(16px);
-    align-content: flex-start;
-  }
+.details-form-wrapper {
+  @include flex(null, center, $flex-wrap: wrap);
+  width: fit-content;
+  width: -moz-fit-content;
+  grid-gap: calculateRem(16px);
+  align-content: flex-start;
 }

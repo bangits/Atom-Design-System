@@ -423,15 +423,10 @@ function DataTable<T extends {}, K>({
         tableContainerRef={tableContainerRef}
         height={`calc(100vh - ${isFiltersOpened ? '50rem' : '30rem'})`}
         fetch={onTableFetchData}
-        className={classNames(
-          styles.Table,
-          tableProps.className,
-          {
-            [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
-            [styles.TableHaveData]: !!tableProps.data?.length
-          },
-          'testclassname'
-        )}
+        className={classNames(styles.Table, tableProps.className, {
+          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
+          [styles.TableHaveData]: !!tableProps.data?.length
+        })}
         onSelectedColumnsChange={(columns) => {
           setSelectedRows(columns.map((c) => c.original));
           if (tableProps.onSelectedColumnsChange) tableProps.onSelectedColumnsChange(columns);

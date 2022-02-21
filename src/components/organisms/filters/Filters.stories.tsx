@@ -3,7 +3,7 @@ import { boolean, object, text, withKnobs } from '@storybook/addon-knobs';
 import Filters from './Filters';
 
 export default {
-  component: Filters,
+  // component: Filters,
   decorators: [withKnobs],
   title: 'components/organisms/Filters'
 };

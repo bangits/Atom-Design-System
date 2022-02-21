@@ -8,7 +8,7 @@ export interface DialogViewProps extends DialogProps {
 }
 
 const DialogView: FC<DialogViewProps> = ({ children, containerWidth, yPosition, ...dialogProps }) => {
-  const containerHeight = 174;
+  const containerHeight = 205;
 
   const memoizedYPosition = useRef<number>(null);
 
