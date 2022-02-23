@@ -5,10 +5,12 @@ $user-wallets-sizes: (
   select-content-svg-margin: calculateRem(15px) 0 0 calculateRem(12px),
   balance-input-min-width: calculateRem(280px),
   currencies-select-max-height: calculateRem(40px),
-  actions-container-max-height: calculateRem(38px)
+  actions-container-max-height: calculateRem(38px),
 );
 
-$user-wallets-colors: ();
+$user-wallets-colors: (
+  icon-path-color: color(lime-c)
+);
 
 @function getUserWalletsSizes($key) {
   @return map-get($user-wallets-sizes, $key);

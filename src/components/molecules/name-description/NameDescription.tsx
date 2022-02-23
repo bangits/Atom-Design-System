@@ -28,8 +28,8 @@ const NameDescription: FC<NameDescriptionProps> = ({ data, title, children, noDa
             <span className={styles['NameDescriptionBase--description']}>{d.description || noDataText}</span>
           </div>
           {d.subNameDescription &&
-            d.subNameDescription?.map((sub) => (
-              <div className={styles['NameDescriptionBase--sub-core']}>
+            d.subNameDescription?.map((sub, index) => (
+              <div className={styles['NameDescriptionBase--sub-core']} key={index}>
                 <span className={styles['NameDescriptionBase--sub-core__name']}>{sub.name || noDataText}</span>
                 <span className={styles['NameDescriptionBase--sub-core__description']}>
                   {sub.description || noDataText}

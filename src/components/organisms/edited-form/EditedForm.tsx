@@ -1,7 +1,6 @@
 import { typedMemo } from '@/helpers';
-import { useStyles } from '@/helpers/useStyles';
 import { DustbinIcon, PenIcon } from '@/icons';
-import { Card, IconButton, Tag, Tooltip } from '@my-ui/core';
+import { Card, IconButton, Tag, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
@@ -145,7 +144,7 @@ const EditedForm: FC<EditedFormProps> = ({
                         {option.value.length === 0 ? (
                           <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
                         ) : (
-                          option.value?.map((o) => <Tag title={o} />)
+                          option.value?.map((o, index) => <Tag title={o} key={index} />)
                         )}
                       </div>
                     </div>

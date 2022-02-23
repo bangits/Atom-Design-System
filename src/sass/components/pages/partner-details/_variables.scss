@@ -5,7 +5,9 @@ $partner-details-sizes: (
   left-block-all-blocks-margin: calculateRem(8px),
   breadCrumb-margin: calculateRem(8.5px) 0 0 0,
   tab-padding-top: calculateRem(16px),
-  form-gap: calculateRem(5px)
+  form-gap: calculateRem(5px),
+  sidebar-margin-bottom:calculateRem(10px),
+  partner-details-base--leftBlock-width: calculateRem(244px),
 );
 $partner-details-colors: ();
 

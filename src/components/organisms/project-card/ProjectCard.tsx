@@ -1,6 +1,5 @@
-import { useStyles } from '@/helpers/useStyles';
 import { ArrowRightIcon } from '@/icons';
-import { Typography } from '@my-ui/core';
+import { Typography, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './ProjectCard.module.scss';

@@ -28,7 +28,7 @@ const configureSass = (isDevelopment = true) => [
       {
         loader: 'sass-resources-loader',
         options: {
-          resources: path.resolve(__dirname, './src/sass/main.scss')
+          resources: path.resolve(__dirname, './src/sass/resources.scss')
         }
       }
     ]

@@ -83,7 +83,7 @@
       &--Two-Cols {
         display: grid;
         grid-template: auto / repeat(2, 1fr);
-        grid-column-gap: 7px;
+        grid-column-gap: getGameDetailsSizes(two-cols-column-gap);
       }
 
       button {
@@ -195,7 +195,7 @@
   }
 
   .GameDetails__Sidebar-Widget {
-    padding-bottom: 10px;
+    padding-bottom: getGameDetailsSizes(sidebar-widget-padding-top);
     & > div {
       width: auto !important;
     }
