@@ -29,12 +29,16 @@ export interface ProviderDetailsProps {
     editButton: string;
     lastUpdatedDate: string;
     lastUpdatedBy: string;
+    partnerName: string;
+    integrationType: string;
   };
 
   totalGameCount: string;
   creationDate: string;
   createdBy: string;
   providerName: string;
+  partnerName: string;
+  integrationType: string;
   backgroundImgUrl: string;
   providerId: number | string;
   lastUpdatedDate: string;
@@ -58,6 +62,8 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
   gamesTabContent,
   onBackgroundImgClick,
   providerName,
+  partnerName,
+  integrationType,
   providerId,
   backgroundImgUrl,
   lastUpdatedBy,
@@ -74,7 +80,31 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
             itemName={providerName}
             onBackgroundImgClick={onBackgroundImgClick}
           />
+          {partnerName && (
+            <div className={styles.StatusContent}>
+              <NameDescription
+                noDataText={noDataText}
+                data={[
+                  {
+                    name: translations.partnerName,
+                    description: partnerName
+                  }
+                ]}
+              />
+            </div>
+          )}
 
+          <div className={styles.StatusContent}>
+            <NameDescription
+              noDataText={noDataText}
+              data={[
+                {
+                  name: translations.integrationType,
+                  description: integrationType
+                }
+              ]}
+            />
+          </div>
           <CountView noDataText={noDataText} title={translations.totalGameCount} count={totalGameCount} />
 
           <div className={styles.StatusContent}>
