@@ -72,11 +72,16 @@
       position: relative;
       margin-bottom: getSignSizes(form-margin);
       width: getSignSizes(form-wrapper-width);
+
+       > div > span {
+        position: absolute;
+      }
+      //Because the validation text is coming from different position 
     }
 
     .ErrorMessage {
       position: absolute;
-      bottom: 2rem;
+      bottom: 0rem;
     }
   }
 }

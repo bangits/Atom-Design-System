@@ -17,8 +17,12 @@ export const Default = () => {
       totalGameCount={text('totalGameCount', '1024')}
       creationDate={text('creationDate', '09/05/2021 12:00:00')}
       createdBy={text('createdBy', 'email@gmail.com')}
+      integrationType='Integration Type'
+      partnerName='Partner Name'
       generalInformationContext={<></>}
       translations={{
+        integrationType: 'Integration Type',
+        partnerName: 'Partner Name',
         totalGameCount: 'Total Game Count',
         status: 'Status',
         creationDate: 'Created Date',
