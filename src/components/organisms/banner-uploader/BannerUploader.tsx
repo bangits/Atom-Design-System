@@ -116,7 +116,7 @@ export const BannerUploader = ({
                 icon: <Icons.CheckIcon width='1.6rem' />,
                 label: translations.save,
                 onClick: () => {
-                  const imageBase64Source = cropper.getCroppedCanvas().toDataURL();
+                  const imageBase64Source = cropper.getCroppedCanvas().toDataURL('image/gif');
 
                   setUploadedImage(imageBase64Source);
 
