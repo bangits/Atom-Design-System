@@ -1,6 +1,5 @@
 import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/components';
 import { NameAndId } from '@/components/molecules/name-and-id';
-import UserProjects from '@/components/organisms/user-projects/UserProjects';
 import { UserMainIcon } from '@/icons';
 import { AvatarCard, Breadcrumb, BreadcrumbProps, Card } from '@my-ui/core';
 import React, { FC, ReactNode } from 'react';
@@ -117,25 +116,25 @@ const UserDetails: FC<UserDetailsProps> = ({
                 title: translations.wallet,
                 value: 2,
                 content: userWalletsContent
-              },
-              {
-                title: 'Projects',
-                value: 3,
-                content: <UserProjects />
-              },
-              {
-                title: 'Settings',
-                value: 4,
-                subTabs: [
-                  {
-                    title: translations.settingsContent,
-                    value: 1,
-                    content: settingsContent
-                  }
-                ]
               }
+              // {
+              //   title: 'Projects',
+              //   value: 3,
+              //   content: <UserProjects />
+              // },
+              // {
+              //   title: 'Settings',
+              //   value: 4,
+              //   subTabs: [
+              //     {
+              //       title: translations.settingsContent,
+              //       value: 1,
+              //       content: settingsContent
+              //     }
+              //   ]
+              // }
             ]}
-            defaultTabValue={4}
+            defaultTabValue={1}
             defaultSubTabValue={1}
           />
         </div>
