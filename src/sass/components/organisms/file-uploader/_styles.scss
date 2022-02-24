@@ -2,6 +2,8 @@
   .FileUploaderLabelContainer {
     @include flex(space-between, center);
     max-width: getFileUploaderSizes(label-container-max-width);
+
+    margin-top: getFileUploaderSizes(container-margin-top);
   }
 
   .FileUploaderTooltipIcon {

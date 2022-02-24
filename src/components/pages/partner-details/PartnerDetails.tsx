@@ -146,15 +146,11 @@ const PartnerDetails: FC<PartnerDetailsProps> = ({
                       ]
                     : [])
                 ]
-              },
-              {
-                title: 'Projects',
-                value: 2,
-                content: projectInformation
               }
               // {
-              //   title: 'Documents',
-              //   value: 3
+              //   title: 'Projects',
+              //   value: 2,
+              //   content: projectInformation
               // }
             ]}
             defaultTabValue={1}
