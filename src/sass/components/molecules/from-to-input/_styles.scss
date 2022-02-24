@@ -12,8 +12,8 @@
   .ToInput {
     &::before {
       content: '';
-      background-image: svgToDataUrl(
-        '<svg xmlns="http://www.w3.org/2000/svg"  viewBox="0 0 5.914 10.414"> <path id="Path_43206" data-name="Path 43206" d="M101,656.5m0,0L96.5,661m4.5-4.5L96.5,652" transform="translate(-95.793 -651.293)" fill="none" stroke="#f00f11" stroke-linecap="round" stroke-linejoin="round" stroke-width="1"/> </svg>'
+      background-image: svg-url(
+        '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 5 8"><path d="M4.86,3.69,1.08.13A.51.51,0,0,0,.75,0,.51.51,0,0,0,.42.13L.14.39A.41.41,0,0,0,.13,1V1L3.32,4,.14,7a.41.41,0,0,0,0,.58l0,0,.27.26A.5.5,0,0,0,.74,8a.51.51,0,0,0,.33-.13L4.86,4.31a.41.41,0,0,0,0-.58Z" fill="#8ea6c1" /></svg>'
       );
       background-repeat: no-repeat;
       background-size: 100%;

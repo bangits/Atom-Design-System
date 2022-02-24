@@ -1,6 +1,7 @@
 import { ButtonWithIcon, DialogView, DialogViewProps } from '@/components';
 import { typedMemo } from '@/helpers';
-import { MouseEvent, ReactNode, useEffect, useRef } from 'react';
+import { Status, StatusProps } from '@my-ui/core';
+import { MouseEvent, ReactNode, useEffect, useMemo, useRef } from 'react';
 import { Table, TableProps } from '..';
 import styles from './CollapsableTable.module.scss';
 
@@ -11,7 +12,13 @@ export interface BaseCollapsableTableProps {
 
 export interface CollapsableTableProps extends BaseCollapsableTableProps {
   dialogViewProps: DialogViewProps;
-  tableProps?: TableProps<any>;
+  tableProps?: Omit<TableProps<any>, 'columns'> & {
+    columns: (TableProps<any>['columns'][number] & {
+      variant?: 'status' | 'image' | 'hovered-image' | 'circle-image';
+      getVariant?: (value: string | number) => StatusProps['variant'];
+      getVariantName?: (value: string | number) => string;
+    })[];
+  };
 }
 
 const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) => {
@@ -22,6 +29,21 @@ const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) 
   useEffect(() => {
     if (props.tableProps) memoizedProps.current = props;
   }, [props]);
+
+  // TODO:
+  const tableColumns = useMemo(() => {
+    return (tableProps?.columns || []).map((column) => ({
+      ...column,
+      ...(column.variant === 'status'
+        ? {
+            renderColumn: (_, value) => (
+              <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>
+            ),
+            maxWidth: '11rem'
+          }
+        : {})
+    }));
+  }, [tableProps?.columns]);
 
   return (
     <DialogView {...dialogViewProps}>
@@ -37,7 +59,7 @@ const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) 
           {refreshButtonLabel}
         </ButtonWithIcon>
 
-        <Table {...tableProps} />
+        <Table {...tableProps} columns={tableColumns} />
       </div>
     </DialogView>
   );

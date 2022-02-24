@@ -30,6 +30,7 @@ export const Default = () => {
           label: 'First Name',
           col: 4
         },
+
         {
           type: 'input',
           name: 'lastName',
@@ -222,6 +223,12 @@ export const Default = () => {
               }
             ]
           }
+        },
+        {
+          type: 'from-to-input',
+          name: 'firstName',
+          label: 'First Name',
+          col: 12
         }
       ])}
     />

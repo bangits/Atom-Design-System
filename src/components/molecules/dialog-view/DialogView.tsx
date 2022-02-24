@@ -22,7 +22,8 @@ const DialogView: FC<DialogViewProps> = ({ children, containerWidth, yPosition, 
         textAlign: 'left',
         padding: 0,
         transform: 'translate(-50%, 0)',
-        minHeight: 'initial'
+        minHeight: 'initial',
+        marginLeft: '4rem'
       }
     },
     { containerWidth, yPosition: yPosition || memoizedYPosition.current, containerHeight }

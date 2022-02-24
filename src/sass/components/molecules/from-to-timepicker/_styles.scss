@@ -9,7 +9,6 @@
         width: getFromToTimepickerSizes(svg-width);
       }
     }
-
   }
 
   .FromPicker,
@@ -23,12 +22,15 @@
     &::before {
       content: '';
       display: block;
-      background-image: svgToDataUrl('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.914 10.414"> <path id="Path_43206" data-name="Path 43206" d="M101,656.5m0,0L96.5,661m4.5-4.5L96.5,652" transform="translate(-95.793 -651.293)" fill="none" stroke="#8ea6c1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" /> </svg>'); background-repeat: no-repeat;
+      background-image: svg-url(
+        '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5.914 10.414"> <path id="Path_43206" data-name="Path 43206" d="M101,656.5m0,0L96.5,661m4.5-4.5L96.5,652" transform="translate(-95.793 -651.293)" fill="none" stroke="#8ea6c1" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" /> </svg>'
+      );
+      background-repeat: no-repeat;
       width: getFromToTimepickerSizes(from-to-picker-icon-width);
       height: getFromToTimepickerSizes(from-to-picker-icon-height);
       position: absolute;
       top: getFromToTimepickerSizes(from-to-picker-icon-top);
-      left:  getFromToTimepickerSizes(from-to-picker-icon-left);
+      left: getFromToTimepickerSizes(from-to-picker-icon-left);
       transform: translate(-50%, -50%);
     }
   }
