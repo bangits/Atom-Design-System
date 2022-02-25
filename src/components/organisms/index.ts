@@ -24,6 +24,7 @@ export * from './project-card';
 export * from './project-currencies';
 export * from './project-languages';
 export * from './provider-info';
+export * from './provider-name-id-add';
 export * from './providers-general-info';
 export * from './session-expiring';
 export * from './status-view';

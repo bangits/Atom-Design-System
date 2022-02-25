@@ -1,0 +1,33 @@
+@mixin generate-add-provider-name-id-styles {
+  .AddProviderNameIdContainer {
+    @include flex($direction: column);
+    max-width: getAddProviderNameIdSizes(max-width);
+
+    &--inputs {
+      position: relative;
+      > svg > path {
+        fill: getAddProviderNameIdColors(svg-fill);
+      }
+
+      > svg {
+        position: absolute;
+        cursor: pointer;
+        right: getAddProviderNameIdSizes(svg-right);
+        top: getAddProviderNameIdSizes(svg-top);
+        width: getAddProviderNameIdSizes(svg-width);
+      }
+    }
+
+    &--button-disabled {
+      > path {
+        fill: getAddProviderNameIdColors(svg-fill-disabled) !important;
+      }
+    }
+  }
+
+  .TagsContainer {
+    @include flex($flex-wrap: wrap);
+    gap: getAddProviderNameIdSizes(tags-gap);
+    max-height: getAddProviderNameIdSizes(tags-max-height);
+  }
+}

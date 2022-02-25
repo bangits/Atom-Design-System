@@ -1,0 +1,21 @@
+$add-provider-name-id-colors: (
+  svg-fill: color(black-color),
+  svg-fill-disabled: color(nepal-opacity)
+);
+
+$add-provider-name-id-sizes: (
+  svg-width: calculateRem(16px),
+  max-width: calculateRem(584px),
+  svg-right: calculateRem(-28.4px),
+  svg-top: calculateRem(15px),
+  tags-gap: calculateRem(8px),
+  tags-max-height: calculateRem(152px)
+);
+
+@function getAddProviderNameIdColors($key) {
+  @return map-get($add-provider-name-id-colors, $key);
+}
+
+@function getAddProviderNameIdSizes($key) {
+  @return map-get($add-provider-name-id-sizes, $key);
+}

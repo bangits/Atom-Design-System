@@ -203,7 +203,29 @@ export const Default = () => {
         clearLabel: 'Clear'
       }}
       tableProps={{
-        actions: [],
+        actions: [
+          {
+            iconName: 'EditIcon',
+            shouldShow: () => true,
+            onClick: () => {
+              return true;
+            }
+          },
+          {
+            iconName: 'EditIcon',
+            shouldShow: () => true,
+            onClick: () => {
+              return true;
+            }
+          },
+          {
+            iconName: 'EditIcon',
+            shouldShow: () => true,
+            onClick: () => {
+              return true;
+            }
+          }
+        ],
         data: [
           {
             image:

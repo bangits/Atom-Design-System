@@ -1,4 +1,11 @@
-import { CheckboxGroup, CheckboxGroupProps, RadioGroup, RadioGroupProps } from '@/components';
+import {
+  AddProviderNameId,
+  AddProviderNameIdProps,
+  CheckboxGroup,
+  CheckboxGroupProps,
+  RadioGroup,
+  RadioGroupProps
+} from '@/components';
 import {
   DatePicker,
   DatepickerProps,
@@ -37,6 +44,9 @@ const getFormField = (field: FormFieldProp) => {
       fieldComponent = (props: TextInputProps) => (
         <TextInput {...field.props} {...props} label={field.label} fullWidth />
       );
+      break;
+    case 'from-to-input':
+      fieldComponent = (props: AddProviderNameIdProps) => <AddProviderNameId {...field.props} {...props} />;
       break;
     case 'select':
       fieldComponent = (props: SelectProps<any, boolean, any>) => (

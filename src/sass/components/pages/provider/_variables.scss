@@ -1,13 +1,13 @@
 $provider-in-sizes: (
-  provider-wrapper: calculateRem(630px),
+  provider-wrapper: calculateRem(728px),
   provider-container: calculateRem(584px),
   provider-container-wrapper: calculateRem(40px),
-  provider-card-padding: 0 calculateRem(20px) calculateRem(20px) calculateRem(20px),
+  provider-card-padding: 0 calculateRem(70px) calculateRem(20px) calculateRem(70px),
   provider-card-min-height: calculateRem(540px),
   provider-title-fontWeight: 700,
   provider-title-align: center,
   // provider-title-padding: calculateRem(15px),
-  provider-title-padding-top:calculateRem(20px),
+  provider-title-padding-top: calculateRem(20px),
   provider-form-groupMarginRigth: calculateRem(24px),
   provider-form-marginBottom: calculateRem(18px),
   provider-form: calculateRem(280px),
@@ -23,11 +23,11 @@ $provider-in-sizes: (
   provider-col-6-width: calculateRem(284px),
   provider-back-button-border: 1px,
   provider-back-button-padding: calculateRem(7px),
-  provider-button-group-margin-top: auto,
+  provider-button-group-margin-top: calculateRem(84px),
   provider-back-button-border-radius: 100%,
   //
   provider-button-group-width: calculateRem(1.5px),
-  provider-button-group-svg-width:calculateRem(14px),
+  provider-button-group-svg-width: calculateRem(14px)
 );
 
 $provider-in-colors: (

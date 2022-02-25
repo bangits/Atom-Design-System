@@ -1,4 +1,4 @@
-import { CheckboxGroupProps, RadioGroupProps } from '@/components';
+import { AddProviderNameIdProps, CheckboxGroupProps, RadioGroupProps } from '@/components';
 import { DatepickerProps, DateTimePickerProps, SelectProps, TextInputProps } from '@my-ui/core';
 import { ReactNode } from 'react';
 
@@ -10,7 +10,8 @@ export type FormFieldTypes =
   | 'timepicker'
   | 'checkbox'
   | 'radio'
-  | 'header';
+  | 'header'
+  | 'from-to-input';
 export type FormFieldValueType = string | number | string[] | number[] | Date;
 
 export type FormFieldProp = {
@@ -23,6 +24,12 @@ export type FormFieldProp = {
       type: 'input';
       props?: TextInputProps;
       component?: (props: TextInputProps) => JSX.Element;
+    }
+  | {
+      label?: string;
+      type: 'from-to-input';
+      props?: AddProviderNameIdProps;
+      component?: (props: AddProviderNameIdProps) => JSX.Element;
     }
   | {
       label?: string;
