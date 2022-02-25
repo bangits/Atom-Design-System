@@ -23,10 +23,9 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
     from: '',
     to: ''
   });
+  const isValid = inputValues.from && inputValues.to;
 
   const onApplyHandler = useCallback(() => {
-    const isValid = inputValues.from && inputValues.to;
-
     if (isValid) {
       const updatedValues = [
         ...values,
@@ -47,7 +46,9 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
 
   const onDeleteTagHandler = useCallback(
     (id) => {
-      setValues([...values.filter((value) => value.id !== id)]);
+      const updatedValues = [...values.filter((value) => value.id !== id)];
+      setValues(updatedValues);
+      onChange?.(updatedValues, !!isValid);
     },
     [values]
   );
