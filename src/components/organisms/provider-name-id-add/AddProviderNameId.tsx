@@ -8,7 +8,7 @@ import styles from './AddProviderNameId.module.scss';
 export type ValueType = {
   id: number;
   providerName: TextInputProps['value'];
-  providerExternalId: TextInputProps['value'];
+  externalId: TextInputProps['value'];
 };
 
 export interface AddProviderNameIdProps {
@@ -29,7 +29,7 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
     if (isValid) {
       const updatedValues = [
         ...values,
-        { id: values.length + 1, providerName: inputValues.from, providerExternalId: inputValues.to }
+        { id: values.length + 1, providerName: inputValues.from, externalId: inputValues.to }
       ];
       setValues(updatedValues);
 
@@ -82,7 +82,7 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
           {values.map((value) => (
             <Tag
               key={value.id}
-              title={`${value.providerName} - ${value.providerExternalId}`}
+              title={`${value.providerName} - ${value.externalId}`}
               closeIcon
               color={'primary'}
               onClose={() => onDeleteTagHandler(value.id)}
