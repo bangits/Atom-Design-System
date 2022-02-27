@@ -40,6 +40,7 @@ export interface TableCollapse<T> extends Omit<TableAction<T>, 'onClick' | 'shou
 export interface DataTableProps<T extends {}, K> {
   currencySelect?: FC<SelectProps<any, any, any>>;
   currencyProperty?: keyof K;
+  exchangeCurrencyProperty?: keyof K;
   defaultCurrency?: {
     label: string;
     value: SelectValueType;
@@ -117,6 +118,7 @@ function DataTable<T extends {}, K>({
   currencySelect: CurrencySelect,
   defaultCurrency,
   currencyProperty,
+  exchangeCurrencyProperty,
   currencyTranslations
 }: DataTableProps<T, K>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
@@ -421,7 +423,7 @@ function DataTable<T extends {}, K>({
             </ButtonWithIcon>
           </Divider>
 
-          {CurrencySelect && currencyProperty && (
+          {CurrencySelect && (currencyProperty || exchangeCurrencyProperty) && (
             <Divider className={classNames(styles.TableConfigSelect, styles['TableConfigSelect--exchange'])}>
               <CurrencySelect
                 dropdown
@@ -437,9 +439,15 @@ function DataTable<T extends {}, K>({
                 defaultValue={defaultCurrency?.value}
                 fullWidth
                 onChange={(value, _, options) => {
-                  setSelectedExchangeCurrency(options.find((o) => o.value === value));
+                  const selectedExchangeCurrency = options.find((o) => o.value === value);
 
-                  const changedFilters = { ...(filters || {}), [currencyProperty]: value } as K;
+                  setSelectedExchangeCurrency(selectedExchangeCurrency);
+
+                  const changedFilters = {
+                    ...(filters || {}),
+                    ...(currencyProperty ? { [currencyProperty]: value } : {}),
+                    ...(exchangeCurrencyProperty ? { [exchangeCurrencyProperty]: selectedExchangeCurrency?.label } : {})
+                  } as K;
 
                   setFilters(changedFilters);
 
