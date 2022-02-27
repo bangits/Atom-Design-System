@@ -11,7 +11,8 @@ export default {
 export const Default = () => {
   return (
     <AddProviderNameId
-      toolTipTitle='Add Provider'
+      tooltipTitle='Add Provider'
+      invalidTooltipTitle='Please fill fields'
       onChange={action('onChange')}
       fromToProps={{
         toInputProps: {
