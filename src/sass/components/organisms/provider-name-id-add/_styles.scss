@@ -1,7 +1,6 @@
 @mixin generate-add-provider-name-id-styles {
   .AddProviderNameIdContainer {
     @include flex($direction: column);
-    max-width: getAddProviderNameIdSizes(max-width);
 
     &--inputs {
       position: relative;
