@@ -1,9 +1,9 @@
 import { Icons } from '@/atom-design-system';
 import { CheckboxGroup, Filter, FilterValueType } from '@/components';
-import { Divider } from '@/components/atoms';
+import { Divider, InfoTooltip } from '@/components/atoms';
 import { arrayMoveMutable } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
-import { Button, Card, Select, Tooltip, Typography } from '@my-ui/core';
+import { Button, Card, Select, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
@@ -31,9 +31,6 @@ function Filters<T>({
   onFiltersOpenedChange,
   infoTooltipText
 }: FiltersProps<T>) {
-  const [showButton, setShowButton] = useState(true);
-  const [showMessage, setShowMessage] = useState(false);
-
   const [filterValues, setFilterValues] = useReducer<
     (prev: T, updated: Record<string, FilterValueType> | 'clear') => T
   >(
@@ -52,7 +49,6 @@ function Filters<T>({
     if (onFiltersOpenedChange) onFiltersOpenedChange(!isOpenedFilterCollapse);
 
     setIsOpenedFilterCollapse(!isOpenedFilterCollapse);
-    setShowMessage((prev) => !prev);
   }, [isOpenedFilterCollapse, onFiltersOpenedChange]);
 
   const onFilterChange = useCallback((filterName: string, value: FilterValueType) => {
@@ -240,11 +236,7 @@ function Filters<T>({
               </Button>
             </Divider>
 
-            <Tooltip showEvent='hover' text={infoTooltipText} disabled={!infoTooltipText}>
-              <div className={styles.InfoIcon}>
-                <Icons.InfoIcon />
-              </div>
-            </Tooltip>
+            <InfoTooltip infoTooltipText={infoTooltipText} />
           </div>
 
           <div className={styles.ToggleContainer}>

@@ -1,6 +1,6 @@
 import { CollapsableTable, CollapsableTableProps, Filters, FiltersProps, Table, TableProps } from '@/components';
-import { ButtonWithIcon, Divider } from '@/components/atoms';
-import { SettingsIcon } from '@/icons';
+import { ButtonWithIcon, Divider, InfoTooltip } from '@/components/atoms';
+import { ExchangeIcon, SettingsIcon } from '@/icons';
 import { noImage, noImageGame } from '@/img';
 import {
   IconButton,
@@ -9,12 +9,13 @@ import {
   PaginationProps,
   Select,
   SelectProps,
+  SelectValueType,
   Status,
   StatusProps,
   Tooltip
 } from '@my-ui/core';
 import classNames from 'classnames';
-import { MouseEvent, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { FC, MouseEvent, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import styles from './DataTable.module.scss';
 export interface Pagination {
   page: number;
@@ -37,6 +38,19 @@ export interface TableCollapse<T> extends Omit<TableAction<T>, 'onClick' | 'shou
   id: number | string;
 }
 export interface DataTableProps<T extends {}, K> {
+  currencySelect?: FC<SelectProps<any, any, any>>;
+  currencyProperty?: keyof K;
+  defaultCurrency?: {
+    label: string;
+    value: SelectValueType;
+  };
+  currencyTranslations?: {
+    exchange?: string;
+    selected?: string;
+    infoTooltipText?: string;
+    search?: string;
+  };
+
   columnDropdownTranslations?: {
     selectAllLabel: string;
     clearButtonLabel: string;
@@ -99,12 +113,18 @@ function DataTable<T extends {}, K>({
   onTableConfigChange,
   columnsConfigDefaultValue: columnsConfigDefaultValueProp,
   tableCollapseActions,
-  getCollapsableTableProps
+  getCollapsableTableProps,
+  currencySelect: CurrencySelect,
+  defaultCurrency,
+  currencyProperty,
+  currencyTranslations
 }: DataTableProps<T, K>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
+
+  const [selectedExchangeCurrency, setSelectedExchangeCurrency] = useState(defaultCurrency);
 
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
   const [isDisabledRefreshButton, setDisabledRefreshButton] = useState(false);
@@ -400,6 +420,38 @@ function DataTable<T extends {}, K>({
               {refreshLabel}
             </ButtonWithIcon>
           </Divider>
+
+          {CurrencySelect && currencyProperty && (
+            <Divider className={classNames(styles.TableConfigSelect, styles['TableConfigSelect--exchange'])}>
+              <CurrencySelect
+                dropdown
+                dropdownLabel={`${currencyTranslations?.exchange || 'Exchange'}${
+                  selectedExchangeCurrency
+                    ? `(${currencyTranslations?.selected || 'selected'}: ${selectedExchangeCurrency.label})`
+                    : ''
+                }`}
+                dropdownIcon={<ExchangeIcon width='1.8rem' height='1.8rem' />}
+                color='primary'
+                options={dropdownOptions}
+                dropdownSearchPlaceholder={currencyTranslations?.search || 'Search'}
+                defaultValue={defaultCurrency?.value}
+                fullWidth
+                onChange={(value, _, options) => {
+                  setSelectedExchangeCurrency(options.find((o) => o.value === value));
+
+                  const changedFilters = { ...(filters || {}), [currencyProperty]: value } as K;
+
+                  setFilters(changedFilters);
+
+                  onDataChange(changedFilters, sortedBy, pagination);
+                }}
+              />
+
+              {currencyTranslations?.infoTooltipText && (
+                <InfoTooltip infoTooltipText={currencyTranslations?.infoTooltipText} />
+              )}
+            </Divider>
+          )}
 
           <div className={styles.TableActionsWrapper}>{tableBulkActions}</div>
         </div>
