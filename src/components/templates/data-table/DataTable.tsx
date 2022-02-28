@@ -30,7 +30,7 @@ export interface TableAction<T> {
   iconName?: keyof typeof Icons;
   shouldShow?: TableProps<T>['actions'][number]['shouldShow'];
   shouldShowBulkAction?: (rows: T[]) => boolean;
-  onClick: (columns: T | T[], e: any) => void;
+  onClick: (columns: T | T[], e: any, rowIndex: number) => void;
   tooltipText?: string;
 }
 
@@ -135,8 +135,16 @@ function DataTable<T extends {}, K>({
     id: number | string;
     yPosition: number;
     row: T;
-    collapsableTableProps: Omit<CollapsableTableProps, 'dialogViewProps'>;
+    rowIndex: number;
   }>(null);
+
+  const collapsableTableProps = useMemo<Omit<CollapsableTableProps, 'dialogViewProps'>>(
+    () =>
+      openedCollapseInfo &&
+      getCollapsableTableProps &&
+      getCollapsableTableProps(tableProps.data[openedCollapseInfo.rowIndex]),
+    [openedCollapseInfo, tableProps.data]
+  );
 
   const dropdownOptions = useMemo<SelectProps<any, boolean, any>['options']>(
     () =>
@@ -292,9 +300,7 @@ function DataTable<T extends {}, K>({
         ...(tableProps.actions || []),
         ...(tableCollapseActions || []).map(
           (collapse): TableAction<T> => ({
-            onClick: (row, e) => {
-              if (!getCollapsableTableProps) return;
-
+            onClick: (row, e, rowIndex) => {
               const tableRow = e.target.closest('tr');
 
               const clickedRow = Array.isArray(row) ? row[0] : row;
@@ -303,7 +309,7 @@ function DataTable<T extends {}, K>({
                 id: collapse.id,
                 yPosition: tableRow.getBoundingClientRect().y + tableRow.offsetHeight,
                 row: clickedRow,
-                collapsableTableProps: getCollapsableTableProps(clickedRow)
+                rowIndex
               });
             },
             ...collapse,
@@ -321,7 +327,7 @@ function DataTable<T extends {}, K>({
               </Tooltip>
             );
           },
-          onClick: action.onClick,
+          onClick: (row, e, rowIndex) => action.onClick(row, e, rowIndex),
           shouldShow: action.shouldShow,
           props: {
             icon: <IconComponent />
@@ -329,16 +335,16 @@ function DataTable<T extends {}, K>({
         };
       }) || [])
     ],
-    [tableProps.actions, getCollapsableTableProps]
+    [tableProps.actions]
   );
 
   const tableBulkActions = useMemo(
     () =>
       actions && selectedRows.length > 1
         ? actions.map(
-            ({ component: Component, onClick, shouldShow, props }) =>
+            ({ component: Component, onClick, shouldShow, props }, rowIndex) =>
               (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
-                <Component onClick={(e) => onClick(selectedRows, e)} {...props} />
+                <Component onClick={(e) => onClick(selectedRows, e, rowIndex)} {...props} />
               )
           )
         : null,
@@ -353,9 +359,9 @@ function DataTable<T extends {}, K>({
         onClose: onCollapsableTableClose,
         isOpened: !!openedCollapseInfo?.row
       },
-      ...(openedCollapseInfo?.collapsableTableProps ? openedCollapseInfo?.collapsableTableProps : {})
+      ...(collapsableTableProps || {})
     };
-  }, [openedCollapseInfo]);
+  }, [openedCollapseInfo, collapsableTableProps]);
 
   useEffect(() => {
     if (pagination === initialPagination) return;

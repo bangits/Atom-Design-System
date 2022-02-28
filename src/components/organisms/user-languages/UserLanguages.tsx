@@ -4,7 +4,7 @@ import { Divider } from '@/components/atoms';
 import { Button, IconButton, Tooltip } from '@my-ui/core';
 import React, { ReactNode, useState } from 'react';
 import { Table } from '..';
-import styles from './UserWallets.module.scss';
+import styles from './UserLanguages.module.scss';
 
 export interface UserWallet {
   id: number | string;
@@ -14,14 +14,14 @@ export interface UserWallet {
   isDefault: boolean;
 }
 
-export interface UserWalletsProps {
+export interface UserLanguagesProps {
   wallets: UserWallet[];
   onDefaultWalletChange: (currencyId: number | string) => void;
   onDefaultBallanceChange: (balance: number) => void;
   tableLoadingRowIds: (number | string)[];
   balanceMaxLength?: number;
   shouldShowAddWalletButton?: boolean;
-  renderCurrenciesSelect: (changeOpenedCurrenciesSelect: (isOpened: boolean) => void) => ReactNode;
+  renderLanguagesSelect: (changeOpenedLanguagesSelect: (isOpened: boolean) => void) => ReactNode;
   translations: {
     id: string;
     other: string;
@@ -33,17 +33,16 @@ export interface UserWalletsProps {
   };
 }
 
-const UserWallets = ({
+const UserLanguages = ({
   wallets,
   translations,
   tableLoadingRowIds,
-  renderCurrenciesSelect,
+  renderLanguagesSelect,
   onDefaultWalletChange,
   onDefaultBallanceChange,
   balanceMaxLength = 10,
   shouldShowAddWalletButton = true
-}: UserWalletsProps) => {
-  const [isOpenedCurrenciesSelect, setOpenedCurrenciesSelect] = useState(false);
+}: UserLanguagesProps) => {
   const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
   const [balance, setBalance] = useState(null);
 
@@ -106,7 +105,7 @@ const UserWallets = ({
         />
         <div className={styles.WalletActionsContainer}>
           {shouldShowAddWalletButton && (
-            <HidableSelect renderCustomSelect={renderCurrenciesSelect} buttonTitle={translations.add} />
+            <HidableSelect renderCustomSelect={renderLanguagesSelect} buttonTitle={translations.add} />
           )}
           <Divider showDivider={shouldShowAddWalletButton}>
             {isOpenedDefaultBalanceChangeSelect ? (
@@ -151,7 +150,7 @@ const UserWallets = ({
                 onClick={() => setOpenedDefaultBalanceChangeSelect(true)}
                 variant='link'
                 startIcon={<Icons.MoneyIcon />}
-                className={styles.AddButton}> 
+                className={styles.AddButton}>
                 {translations.correctDefaultBalance}
               </Button>
             )}
@@ -162,4 +161,4 @@ const UserWallets = ({
   );
 };
 
-export default UserWallets;
+export default UserLanguages;

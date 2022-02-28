@@ -4,10 +4,13 @@
 
     &--inputs {
       position: relative;
+
       > svg > path {
         fill: getAddProviderNameIdColors(svg-fill);
       }
-
+      >div > div {
+        min-height: 6rem;
+      }
       > svg {
         position: absolute;
         cursor: pointer;
