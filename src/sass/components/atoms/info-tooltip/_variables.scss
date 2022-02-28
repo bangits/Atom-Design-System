@@ -1,0 +1,15 @@
+$info-icon-sizes: (
+  info-icon-width: calculateRem(16px)
+);
+
+$info-icon-colors: (
+  info-icon-color: color(gamboge)
+);
+
+@function getInfoTooltipSizes($key) {
+  @return map-get($info-icon-sizes, $key);
+}
+
+@function getInfoTooltipColors($key) {
+  @return map-get($info-icon-colors, $key);
+}

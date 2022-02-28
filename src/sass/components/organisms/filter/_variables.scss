@@ -29,7 +29,6 @@ $filter-sizes: (
   control-buttons-margin: calculateRem(16px),
   save-button-size: calculateRem(14px),
   save-button-icon-width: calculateRem(16px),
-  info-icon-width: calculateRem(16px),
   filter-icon-border-radius: 4px
 );
 
@@ -40,7 +39,6 @@ $filter-colors: (
   clear-label-active-color: color(primary),
   user-found-label-color: color(black-color),
   divider-checkbox-color: color(alabaster),
-  info-icon-color: color(gamboge),
   filters-icon-bg: color(primary-transparent)
 );
 
