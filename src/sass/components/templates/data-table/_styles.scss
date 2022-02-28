@@ -1,6 +1,16 @@
 @mixin generate-data-table-styles {
   .TableConfigSelect {
     max-width: getDataTableSizes(table-config-select);
+
+    &--exchange {
+      @include flex(null, center);
+
+      max-width: getDataTableSizes(table-config-exchange-select);
+
+      & > div {
+        margin-right: getDataTableSizes(exchange-select-tooltip-margin);
+      }
+    }
   }
 
   .TableLeftSideWrapper {

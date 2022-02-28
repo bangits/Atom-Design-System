@@ -31,6 +31,7 @@ export interface ProviderDetailsProps {
     lastUpdatedBy: string;
     partnerName: string;
     integrationType: string;
+    
   };
 
   totalGameCount: string;

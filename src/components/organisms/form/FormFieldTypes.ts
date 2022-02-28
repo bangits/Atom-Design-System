@@ -28,7 +28,7 @@ export type FormFieldProp = {
   | {
       label?: string;
       type: 'from-to-input';
-      props?: AddProviderNameIdProps;
+      props?: Omit<AddProviderNameIdProps, 'onChange'>;
       component?: (props: AddProviderNameIdProps) => JSX.Element;
     }
   | {

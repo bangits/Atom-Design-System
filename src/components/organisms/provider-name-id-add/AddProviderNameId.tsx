@@ -1,6 +1,7 @@
 import { FromToInput, FromToInputProps, FromToValues } from '@/components';
+import { trim } from '@/helpers';
 import { ApplyIcon } from '@/icons';
-import { Scroll, Tag, TextInputProps, Tooltip } from '@my-ui/core';
+import { Scroll, Tag, TextInputProps, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, useCallback, useState } from 'react';
 import styles from './AddProviderNameId.module.scss';
@@ -8,29 +9,43 @@ import styles from './AddProviderNameId.module.scss';
 export type ValueType = {
   id: number;
   providerName: TextInputProps['value'];
-  providerExternalId: TextInputProps['value'];
+  externalId: TextInputProps['value'];
 };
 
 export interface AddProviderNameIdProps {
   onChange: (value: ValueType[], isAdded?: boolean) => void;
   fromToProps?: FromToInputProps;
-  toolTipTitle?: string;
+  tooltipTitle?: string;
+  invalidTooltipTitle?: string;
+  explanation?: string;
 }
 
-const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, toolTipTitle }) => {
+const AddProviderNameId: FC<AddProviderNameIdProps> = ({
+  fromToProps,
+  onChange,
+  tooltipTitle,
+  invalidTooltipTitle,
+  explanation
+}) => {
   const [values, setValues] = useState<ValueType[]>([]);
   const [inputValues, setInputValues] = useState<FromToValues>({
     from: '',
     to: ''
   });
-  const isValid = inputValues.from && inputValues.to;
+
+  const isValid = trim(inputValues.from) && trim(inputValues.to);
 
   const onApplyHandler = useCallback(() => {
-    if (isValid) {
+    const isFieldExist = values.find(
+      (v) => trim(v.providerName) === trim(inputValues.from) && trim(v.externalId) === trim(inputValues.to)
+    );
+
+    if (isValid && !isFieldExist) {
       const updatedValues = [
         ...values,
-        { id: values.length + 1, providerName: inputValues.from, providerExternalId: inputValues.to }
+        { id: values.length + 1, providerName: inputValues.from, externalId: inputValues.to }
       ];
+
       setValues(updatedValues);
 
       setInputValues({
@@ -47,6 +62,7 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
   const onDeleteTagHandler = useCallback(
     (id) => {
       const updatedValues = [...values.filter((value) => value.id !== id)];
+
       setValues(updatedValues);
       onChange?.(updatedValues, !!isValid);
     },
@@ -68,11 +84,11 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
           }}
           onChange={(value) => setInputValues(value)}
         />
-        <Tooltip showEvent='hover' text={toolTipTitle}>
+        <Tooltip showEvent='hover' text={isValid ? tooltipTitle : invalidTooltipTitle}>
           <ApplyIcon
             onClick={onApplyHandler}
             className={classNames({
-              [styles['AddProviderNameIdContainer--button-disabled']]: !(inputValues.from && inputValues.to)
+              [styles['AddProviderNameIdContainer--button-disabled']]: !isValid
             })}
           />
         </Tooltip>
@@ -82,7 +98,7 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
           {values.map((value) => (
             <Tag
               key={value.id}
-              title={`${value.providerName} - ${value.providerExternalId}`}
+              title={`${value.providerName} - ${value.externalId}`}
               closeIcon
               color={'primary'}
               onClose={() => onDeleteTagHandler(value.id)}
@@ -90,6 +106,12 @@ const AddProviderNameId: FC<AddProviderNameIdProps> = ({ fromToProps, onChange, 
           ))}
         </div>
       </Scroll>
+
+      {explanation && (
+        <Typography variant='p5' component='span' color='danger'>
+          {explanation}
+        </Typography>
+      )}
     </div>
   );
 };

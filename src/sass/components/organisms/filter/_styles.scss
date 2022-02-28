@@ -17,11 +17,10 @@
       grid-template-columns: 1fr;
       grid-template-columns: repeat(auto-fill, minmax(getFilterSizes(filter-container-width), 1fr));
       grid-gap: getFilterSizes(filter-base-container-margin);
-      
+
       :global {
         .item-enter {
           opacity: 0;
-
         }
         .item-enter-active {
           opacity: 1;
@@ -63,7 +62,7 @@
 
       & > div > div {
         span:first-child {
-          @include flex(flex-end,center);
+          @include flex(flex-end, center);
           border-radius: none;
           font-size: 0;
 
@@ -181,18 +180,6 @@
 
       .LeftControlsContainer {
         @include flex(null, center);
-      }
-
-      .InfoIcon {
-        width: getFilterSizes(info-icon-width);
-
-        color: rgba(getFilterColors(info-icon-color), 0.8);
-
-        transition: color 0.3s;
-
-        &:hover {
-          color: getFilterColors(info-icon-color);
-        }
       }
     }
   }

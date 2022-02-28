@@ -1,14 +1,16 @@
 @mixin generate-add-provider-name-id-styles {
   .AddProviderNameIdContainer {
     @include flex($direction: column);
-    max-width: getAddProviderNameIdSizes(max-width);
 
     &--inputs {
       position: relative;
+
       > svg > path {
         fill: getAddProviderNameIdColors(svg-fill);
       }
-
+      >div > div {
+        min-height: 6rem;
+      }
       > svg {
         position: absolute;
         cursor: pointer;

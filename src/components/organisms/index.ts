@@ -33,4 +33,5 @@ export * from './table';
 export * from './tags-view';
 export * from './user-view';
 export * from './user-wallets';
+export * from './user-languages';
 export * from './wallet-view';

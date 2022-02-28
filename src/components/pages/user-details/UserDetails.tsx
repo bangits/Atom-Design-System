@@ -29,11 +29,13 @@ export interface UserDetailsProps {
     projects: string;
     creationDate: string;
     createdBy: string;
-    settingsContent: string;
+    passwordContext: string;
+    languagesContent: string;
   };
 
   generalInformationContext: ReactNode;
-  settingsContent: ReactNode;
+  passwordContext: ReactNode;
+  languagesContent: ReactNode;
   userWalletsContent: ReactNode;
 }
 
@@ -51,7 +53,8 @@ const UserDetails: FC<UserDetailsProps> = ({
   createdBy,
   generalInformationContext,
   userWalletsContent,
-  settingsContent
+  passwordContext,
+  languagesContent,
 }) => {
   return (
     <>
@@ -116,23 +119,28 @@ const UserDetails: FC<UserDetailsProps> = ({
                 title: translations.wallet,
                 value: 2,
                 content: userWalletsContent
-              }
+              },
               // {
               //   title: 'Projects',
               //   value: 3,
               //   content: <UserProjects />
               // },
-              // {
-              //   title: 'Settings',
-              //   value: 4,
-              //   subTabs: [
-              //     {
-              //       title: translations.settingsContent,
-              //       value: 1,
-              //       content: settingsContent
-              //     }
-              //   ]
-              // }
+              {
+                title: 'Settings',
+                value: 3,
+                subTabs: [
+                  {
+                    title: translations.passwordContext,
+                    value: 3,
+                    content: passwordContext
+                  },
+                  {
+                    title: translations.languagesContent,
+                    value: 4,
+                    content: languagesContent
+                  }
+                ]
+              }
             ]}
             defaultTabValue={1}
             defaultSubTabValue={1}
