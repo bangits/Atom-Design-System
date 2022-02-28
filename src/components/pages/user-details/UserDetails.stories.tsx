@@ -12,7 +12,8 @@ export default {
 export const Default = () => {
   return (
     <UserDetails
-      settingsContent={null}
+      passwordContext={'Password Policy'}
+      languagesContent={'Languages'}
       userWalletsContent={
         <UserWallets
           onDefaultWalletChange={action('onDefaultWalletChange')}
@@ -79,7 +80,8 @@ export const Default = () => {
         }
       ]}
       translations={{
-        settingsContent: 'Password Policy',
+        passwordContext: 'Password Policy',
+        languagesContent: 'Languages',
         generalInformation: 'General Information',
         lastLoginDate: 'Last Login Date',
         lastLoginIp: 'Last Login IP',
