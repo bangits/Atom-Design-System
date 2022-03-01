@@ -25,6 +25,7 @@ export interface UserDetailsProps {
     lastLoginIp: string;
     registeredFormIp: string;
     generalInformation: string;
+    settings: string;
     wallet: string;
     projects: string;
     creationDate: string;
@@ -53,8 +54,7 @@ const UserDetails: FC<UserDetailsProps> = ({
   createdBy,
   generalInformationContext,
   userWalletsContent,
-  passwordContext,
-  languagesContent,
+  languagesContent
 }) => {
   return (
     <>
@@ -120,27 +120,27 @@ const UserDetails: FC<UserDetailsProps> = ({
                 value: 2,
                 content: userWalletsContent
               },
+              {
+                title: translations.settings,
+                value: 3,
+                subTabs: [
+                  {
+                    title: translations.languagesContent,
+                    value: 1,
+                    content: languagesContent
+                  }
+                  // {
+                  //   title: translations.passwordContext,
+                  //   value: 3,
+                  //   content: passwordContext
+                  // },
+                ]
+              }
               // {
               //   title: 'Projects',
               //   value: 3,
               //   content: <UserProjects />
               // },
-              {
-                title: 'Settings',
-                value: 3,
-                subTabs: [
-                  {
-                    title: translations.passwordContext,
-                    value: 3,
-                    content: passwordContext
-                  },
-                  {
-                    title: translations.languagesContent,
-                    value: 4,
-                    content: languagesContent
-                  }
-                ]
-              }
             ]}
             defaultTabValue={1}
             defaultSubTabValue={1}

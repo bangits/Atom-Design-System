@@ -80,6 +80,7 @@ export const Default = () => {
         }
       ]}
       translations={{
+        settings: 'Settings',
         passwordContext: 'Password Policy',
         languagesContent: 'Languages',
         generalInformation: 'General Information',
