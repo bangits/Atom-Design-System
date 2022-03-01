@@ -59,7 +59,7 @@ const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) 
           {refreshButtonLabel}
         </ButtonWithIcon>
 
-        <Table {...tableProps} columns={tableColumns} />
+        <Table {...tableProps} hideBoxShadow columns={tableColumns} />
       </div>
     </DialogView>
   );
