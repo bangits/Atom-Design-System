@@ -364,7 +364,7 @@ function DataTable<T extends {}, K>({
   }, [openedCollapseInfo, collapsableTableProps]);
 
   useEffect(() => {
-    if (pagination === initialPagination) return;
+    if (pagination?.page === initialPagination?.page && pagination?.pageSize === initialPagination?.pageSize) return;
 
     onDataChange(null);
   }, [pagination]);
