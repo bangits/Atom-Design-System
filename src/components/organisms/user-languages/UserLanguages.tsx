@@ -39,12 +39,8 @@ const UserLanguages = ({
   tableLoadingRowIds,
   renderLanguagesSelect,
   onDefaultLanguageChange,
-  balanceMaxLength = 10,
   shouldShowAddLanguageButton = true
 }: UserLanguagesProps) => {
-  const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
-  const [balance, setBalance] = useState(null);
-
   return (
     <>
       <div className={styles.UserDetailsTableContent}>
@@ -73,7 +69,7 @@ const UserLanguages = ({
               Header: 'language',
               accessor: 'name' as keyof UserLanguage,
               disableSortBy: true,
-              renderColumn: (_, value) => value.toString(),
+              renderColumn: (_, value) => value.toString()
             },
 
             {
@@ -93,44 +89,6 @@ const UserLanguages = ({
           {shouldShowAddLanguageButton && (
             <HidableSelect renderCustomSelect={renderLanguagesSelect} buttonTitle={translations.add} />
           )}
-          {/* <Divider showDivider={shouldShowAddLanguageButton}>
-            <div className={styles.SelectContent}>
-              <TextInput
-                type='number'
-                label={translations.code}
-                value={balance?.toString()}
-                onChange={(e) => setBalance(e.target.value && +e.target.value)}
-                isDecimal
-                maxLength={balanceMaxLength}
-                fullWidth
-                containerClassName={styles.BalanceInput}
-              />
-              <IconButton
-                onClick={() => setOpenedDefaultBalanceChangeSelect(false)}
-                icon={
-                  <span className={styles.CloseIcon}>
-                    <Icons.CloseIcon />
-                  </span>
-                }
-              /> */}
-              {/* {balance ? (
-                  <IconButton
-                    onClick={() => {
-                      setOpenedDefaultBalanceChangeSelect(false);
-
-                      onDefaultBallanceChange(balance);
-
-                      setBalance(null);
-                    }}
-                    icon={
-                      <span className={styles.SaveIcon}>
-                        <Icons.CheckIcon />
-                      </span>
-                    }
-                  />
-                ) : null} */}
-            {/* </div> */}
-          {/* </Divider> */}
         </div>
       </div>
     </>
