@@ -5,7 +5,7 @@ import React from 'react';
 import UserLanguages from './UserLanguages';
 
 export default {
-  title: 'components/organisms/User Wallets',
+  title: 'components/organisms/User Languages',
   component: UserLanguages,
   decorators: [withKnobs]
 };
@@ -13,50 +13,50 @@ export default {
 export const Default = () => {
   return (
     <UserLanguages
-      onDefaultWalletChange={action('onDefaultWalletChange')}
-      onDefaultBallanceChange={action('onDefaultBallanceChange')}
+      onDefaultLanguageChange={action('onDefaultLanguageChange')}
+      // onDefaultBallanceChange={action('onDefaultBallanceChange')}
       tableLoadingRowIds={[2]}
       translations={{
         add: 'Add',
-        default: 'Default',
         id: 'ID',
         other: 'Other',
-        makeDefault: 'Make default',
-        balance: 'Balance',
-        correctDefaultBalance: 'Correct Default Balance'
+        code: 'code',
+        isDefault: 'default',
+        languageTag: 'Language ID',
+        name: 'Language Name'
       }}
-      wallets={[
+      languages={[
         {
-          balance: '150.000.000',
-          currency: 'USD',
           id: 1,
           isDefault: true,
-          currencyId: 1
+          languageId: 1,
+          code: 'ENG',
+          name: 'English'
         },
         {
-          balance: '150.000.000',
-          currency: 'AMD',
           id: 2,
           isDefault: false,
-          currencyId: 2
+          languageId: 1,
+          code: 'ARM',
+          name: 'Armenian',
         },
         {
-          balance: '150.000.000',
-          currency: 'RUB',
           id: 3,
           isDefault: false,
-          currencyId: 3
+          languageId: 3,
+          code: 'RUS',
+          name: 'Russian',
         }
       ]}
       renderLanguagesSelect={(changeOpenedLanguagesSelect) => (
         <Select
           options={[
             {
-              label: 'USD',
+              label: 'English',
               value: 1
             },
             {
-              label: 'RUB',
+              label: 'Russian',
               value: 2
             }
           ]}

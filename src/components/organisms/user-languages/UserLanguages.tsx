@@ -6,42 +6,41 @@ import React, { ReactNode, useState } from 'react';
 import { Table } from '..';
 import styles from './UserLanguages.module.scss';
 
-export interface UserWallet {
+export interface UserLanguage {
+  code: string;
   id: number | string;
-  currencyId: number | string;
-  currency: string;
-  balance: string | number;
   isDefault: boolean;
+  languageId: number;
+  name: string;
 }
 
 export interface UserLanguagesProps {
-  wallets: UserWallet[];
-  onDefaultWalletChange: (currencyId: number | string) => void;
-  onDefaultBallanceChange: (balance: number) => void;
+  languages: UserLanguage[];
+  onDefaultLanguageChange: (currencyId: number | string) => void;
+  // onDefaultBallanceChange: (balance: number) => void;
   tableLoadingRowIds: (number | string)[];
   balanceMaxLength?: number;
-  shouldShowAddWalletButton?: boolean;
+  shouldShowAddLanguageButton?: boolean;
   renderLanguagesSelect: (changeOpenedLanguagesSelect: (isOpened: boolean) => void) => ReactNode;
   translations: {
     id: string;
-    other: string;
-    default: string;
+    languageTag: string;
     add: string;
-    makeDefault: string;
-    balance: string;
-    correctDefaultBalance: string;
+    isDefault: string;
+    code: string;
+    name: string;
+    other: string;
   };
 }
 
 const UserLanguages = ({
-  wallets,
+  languages,
   translations,
   tableLoadingRowIds,
   renderLanguagesSelect,
-  onDefaultWalletChange,
-  onDefaultBallanceChange,
+  onDefaultLanguageChange,
   balanceMaxLength = 10,
-  shouldShowAddWalletButton = true
+  shouldShowAddLanguageButton = true
 }: UserLanguagesProps) => {
   const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
   const [balance, setBalance] = useState(null);
@@ -54,11 +53,11 @@ const UserLanguages = ({
           actions={[
             {
               component: (props) => (
-                <Tooltip showEvent='hover' text={translations.makeDefault}>
+                <Tooltip showEvent='hover' text={translations.isDefault}>
                   <IconButton icon={<Icons.CheckButtonIcon />} {...props} />
                 </Tooltip>
               ),
-              onClick: (column) => onDefaultWalletChange(column.currencyId),
+              onClick: (column) => onDefaultLanguageChange(column.id),
               shouldShow: (column) => !column.isDefault,
               props: {}
             }
@@ -66,69 +65,55 @@ const UserLanguages = ({
           checkIsRowActive={(row) => row.isDefault}
           columns={[
             {
-              Header: 'currency',
-              accessor: 'currency' as keyof UserWallet,
+              Header: 'Language Tag',
+              accessor: 'code' as keyof UserLanguage,
               disableSortBy: true
             },
             {
-              Header: 'balance',
-              accessor: 'balance' as keyof UserWallet,
+              Header: 'language',
+              accessor: 'name' as keyof UserLanguage,
               disableSortBy: true,
               renderColumn: (_, value) => value.toString(),
-              maxWidth: '20rem'
             },
-            {
-              Header: 'account Id',
-              accessor: 'id' as keyof UserWallet,
-              disableSortBy: true,
-              renderColumn: (_, value) =>
-                value ? (
-                  <>
-                    {translations.id} {value}
-                  </>
-                ) : (
-                  '---'
-                )
-            },
+
             {
               Header: 'type',
-              accessor: 'isDefault' as keyof UserWallet,
+              accessor: 'isDefault' as keyof UserLanguage,
               disableSortBy: true,
-              renderColumn: (_, isDefault) => (isDefault ? translations.default : translations.other)
+              renderColumn: (_, isDefault) => (isDefault ? translations.isDefault : translations.other)
             }
           ]}
-          data={wallets}
+          data={languages}
           className={styles.UserDetailsTable}
           loadingRowsIds={tableLoadingRowIds}
-          loadingRowColumnProperty='currencyId'
-          rowUniqueKey='currencyId'
+          loadingRowColumnProperty='languageId'
+          rowUniqueKey='languageId'
         />
-        <div className={styles.WalletActionsContainer}>
-          {shouldShowAddWalletButton && (
+        <div className={styles.LanguageActionsContainer}>
+          {shouldShowAddLanguageButton && (
             <HidableSelect renderCustomSelect={renderLanguagesSelect} buttonTitle={translations.add} />
           )}
-          <Divider showDivider={shouldShowAddWalletButton}>
-            {isOpenedDefaultBalanceChangeSelect ? (
-              <div className={styles.SelectContent}>
-                <TextInput
-                  type='number'
-                  label={translations.balance}
-                  value={balance?.toString()}
-                  onChange={(e) => setBalance(e.target.value && +e.target.value)}
-                  isDecimal
-                  maxLength={balanceMaxLength}
-                  fullWidth
-                  containerClassName={styles.BalanceInput}
-                />
-                <IconButton
-                  onClick={() => setOpenedDefaultBalanceChangeSelect(false)}
-                  icon={
-                    <span className={styles.CloseIcon}>
-                      <Icons.CloseIcon />
-                    </span>
-                  }
-                />
-                {balance ? (
+          {/* <Divider showDivider={shouldShowAddLanguageButton}>
+            <div className={styles.SelectContent}>
+              <TextInput
+                type='number'
+                label={translations.code}
+                value={balance?.toString()}
+                onChange={(e) => setBalance(e.target.value && +e.target.value)}
+                isDecimal
+                maxLength={balanceMaxLength}
+                fullWidth
+                containerClassName={styles.BalanceInput}
+              />
+              <IconButton
+                onClick={() => setOpenedDefaultBalanceChangeSelect(false)}
+                icon={
+                  <span className={styles.CloseIcon}>
+                    <Icons.CloseIcon />
+                  </span>
+                }
+              /> */}
+              {/* {balance ? (
                   <IconButton
                     onClick={() => {
                       setOpenedDefaultBalanceChangeSelect(false);
@@ -143,18 +128,9 @@ const UserLanguages = ({
                       </span>
                     }
                   />
-                ) : null}
-              </div>
-            ) : (
-              <Button
-                onClick={() => setOpenedDefaultBalanceChangeSelect(true)}
-                variant='link'
-                startIcon={<Icons.MoneyIcon />}
-                className={styles.AddButton}>
-                {translations.correctDefaultBalance}
-              </Button>
-            )}
-          </Divider>
+                ) : null} */}
+            {/* </div> */}
+          {/* </Divider> */}
         </div>
       </div>
     </>
