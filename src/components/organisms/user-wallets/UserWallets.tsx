@@ -151,7 +151,7 @@ const UserWallets = ({
                 onClick={() => setOpenedDefaultBalanceChangeSelect(true)}
                 variant='link'
                 startIcon={<Icons.MoneyIcon />}
-                className={styles.AddButton}> 
+                className={styles.AddButton}>
                 {translations.correctDefaultBalance}
               </Button>
             )}
