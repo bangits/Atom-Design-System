@@ -1,0 +1,24 @@
+$sidebar-sizes: (
+  bt-bottom: calculateRem(32px),
+  img-sizes: calculateRem(50px),
+  img-sizes-closed: calculateRem(24px),
+  container-padding-top: calculateRem(24px),
+  title-font-size: calculateRem(16px),
+  title-line-height: calculateRem(19px),
+  img-border-radius: calculateRem(8px),
+  img-padding-left: calculateRem(8px),
+  title-margin: calculateRem(14px),
+  left-right: calculateRem(16px)
+);
+
+$sidebar-colors: (
+  title-color: color(white)
+);
+
+@function getSidebarSizes($key) {
+  @return map-get($sidebar-sizes, $key);
+}
+
+@function getSidebarColors($key) {
+  @return map-get($sidebar-colors, $key);
+}
