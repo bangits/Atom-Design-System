@@ -1,0 +1,50 @@
+@mixin generate-sidebar-styles {
+  .BottomContainer {
+    @include flex(null, center);
+    position: absolute;
+    bottom: getSidebarSizes(bt-bottom);
+    left: getSidebarSizes(left-right);
+    right: getSidebarSizes(left-right);
+    padding-top: getSidebarSizes(container-padding-top);
+    border-top: 1px solid rgba(142, 166, 193, 0.2);
+    padding-left: getSidebarSizes(img-padding-left);
+
+    &--img {
+      width: getSidebarSizes(img-sizes);
+      height: getSidebarSizes(img-sizes);
+      border: 1px solid #ffffff;
+      border-radius: getSidebarSizes(img-border-radius);
+      transition: all 0.5s;
+
+      > img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: getSidebarSizes(img-border-radius);
+        transition: all 0.5s;
+      }
+    }
+
+    &--title {
+      display: inline-block;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: getSidebarSizes(title-font-size);
+      line-height: getSidebarSizes(title-line-height);
+      color: getSidebarColors(title-color);
+      margin-left: getSidebarSizes(title-margin);
+    }
+  }
+
+  .BottomContainer--closed {
+    padding-left: 0;
+    justify-content: center;
+  }
+
+  .BottomContainer--img-closed {
+    transition: all 0.5s;
+    width: getSidebarSizes(img-sizes-closed);
+    height: getSidebarSizes(img-sizes-closed);
+  }
+}

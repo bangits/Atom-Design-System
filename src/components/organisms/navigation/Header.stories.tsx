@@ -1,6 +1,7 @@
 import { Header } from '@/components';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, text, withKnobs } from '@storybook/addon-knobs';
+import { Sidebar } from './Sidebar';
 
 export default {
   component: Header,
@@ -29,6 +30,25 @@ export const Default = () => {
       notificationProps={{
         quantity: 0
       }}
+    />
+  );
+};
+export const DefaultSidebar = () => {
+  return (
+    <Sidebar
+      menuItems={[
+        {
+          label: 'Dashboard',
+          isActive: true,
+          subItems: [
+            { label: 'Sub Menu Item', isActive: true },
+            { label: 'Sub Menu Item' },
+            { label: 'Sub Menu Item' },
+            { label: 'Sub Menu Item' }
+          ],
+          icon: <></>
+        }
+      ]}
     />
   );
 };
