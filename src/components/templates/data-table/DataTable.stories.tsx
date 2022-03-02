@@ -413,8 +413,10 @@ export const Default = () => {
             Header: 'Status',
             accessor: 'r',
             disableSortBy: true,
-            maxWidth: '8rem',
-            dataMaxWidth: '9rem'
+            variant: 'status',
+            getVariant: () => 'active',
+            getVariantName: () => 'Active',
+            align: 'center'
           }
         ]
       }}
