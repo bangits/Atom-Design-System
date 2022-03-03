@@ -97,15 +97,17 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
               />
             </div>
           ) : (
-            <NameDescription
-              noDataText={noDataText}
-              data={[
-                {
-                  name: translations.integrationType,
-                  description: integrationType
-                }
-              ]}
-            />
+            <div className={styles['ProviderDetailsBase--doubleBlock']}>
+              <NameDescription
+                noDataText={noDataText}
+                data={[
+                  {
+                    name: translations.integrationType,
+                    description: integrationType
+                  }
+                ]}
+              />
+            </div>
           )}
 
           {/* <div className={styles.StatusContent}>
