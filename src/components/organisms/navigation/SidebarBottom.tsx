@@ -10,7 +10,7 @@ export interface SidebarBottomProps {
 
 const SidebarBottom: FC<SidebarBottomProps> = ({
   title = 'BangIts',
-  logoSrc = 'https://i.ytimg.com/vi/piu9Klg_Tpk/maxresdefault.jpg',
+  logoSrc = 'https://res.cloudinary.com/dheh8nj2p/image/upload/v1646312342/bangits_cuajrn.png',
   isSidebarClosed
 }) => {
   return (
