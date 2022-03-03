@@ -259,7 +259,8 @@ function DataTable<T extends {}, K>({
             renderColumn: (_, value) => (
               <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>
             ),
-            maxWidth: '11rem'
+            maxWidth: '12rem',
+            dataMaxWidth: '12rem'
           }
         : column.variant === 'circle-image'
         ? {
@@ -364,7 +365,7 @@ function DataTable<T extends {}, K>({
   }, [openedCollapseInfo, collapsableTableProps]);
 
   useEffect(() => {
-    if (pagination === initialPagination) return;
+    if (pagination?.page === initialPagination?.page && pagination?.pageSize === initialPagination?.pageSize) return;
 
     onDataChange(null);
   }, [pagination]);
