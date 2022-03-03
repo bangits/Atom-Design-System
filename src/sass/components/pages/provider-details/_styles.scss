@@ -19,6 +19,10 @@
     margin-right: getProviderDetailsSizes(provider-left-block-margin);
   }
 
+  .ProviderDetailsBase--doubleBlock{
+    margin-bottom: getProviderDetailsSizes(double-block-top-margin);
+  }
+
   .StatusContent {
     margin-bottom: getProviderDetailsSizes(status-content-margin-bottom);
     height: getProviderDetailsSizes(status-content-height);

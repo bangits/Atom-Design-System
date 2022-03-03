@@ -42,6 +42,10 @@ const FromToInput: FC<FromToInputProps> = ({
     (name: 'from' | 'to'): TextInputProps['onChange'] =>
       (e) => {
         setInputValues({ [name]: e.target.value });
+
+        if (name === 'from') fromInputProps.onChange?.(e);
+
+        toInputProps.onChange?.(e)
       },
     []
   );
