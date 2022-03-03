@@ -80,30 +80,33 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
             itemName={providerName}
             onBackgroundImgClick={onBackgroundImgClick}
           />
-          {
+          {partnerName ? (
+            <div className={styles['ProviderDetailsBase--doubleBlock']}>
               <NameDescription
                 noDataText={noDataText}
-                data={
-                  partnerName
-                    ? [
-                        {
-                          name: translations.integrationType,
-                          description: integrationType
-                        },
-                        {
-                          name: translations.partnerName,
-                          description: partnerName
-                        }
-                      ]
-                    : [
-                        {
-                          name: translations.integrationType,
-                          description: integrationType
-                        }
-                      ]
-                }
+                data={[
+                  {
+                    name: translations.integrationType,
+                    description: integrationType
+                  },
+                  {
+                    name: translations.partnerName,
+                    description: partnerName
+                  }
+                ]}
               />
-          }
+            </div>
+          ) : (
+            <NameDescription
+              noDataText={noDataText}
+              data={[
+                {
+                  name: translations.integrationType,
+                  description: integrationType
+                }
+              ]}
+            />
+          )}
 
           {/* <div className={styles.StatusContent}>
             <NameDescription
