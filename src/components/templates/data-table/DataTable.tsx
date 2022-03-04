@@ -500,6 +500,27 @@ function DataTable<T extends {}, K>({
         }}
         actions={actions}
         columns={tableColumns}
+        onColumnsChange={(columns) => {
+          const columnsHashMap = columns.reduce<Record<string, typeof columns[0] & { index: number }>>(
+            (acc, column, index) => ({ ...acc, [column.accessor]: { ...column, index: index + 1 } }),
+            {}
+          );
+
+          let latestColumnOrder = columns.length + 1;
+
+          if (onTableConfigChange)
+            onTableConfigChange(
+              dropdownOptions.map((column) => {
+                const hashMapColumn = columnsHashMap[column.value];
+
+                return {
+                  ...column,
+                  index: hashMapColumn?.index || latestColumnOrder++
+                };
+              }),
+              dropdownValues
+            );
+        }}
       />
 
       <CollapsableTable {...collapseTableProps} />
