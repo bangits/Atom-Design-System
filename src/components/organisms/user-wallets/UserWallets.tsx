@@ -43,7 +43,6 @@ const UserWallets = ({
   balanceMaxLength = 10,
   shouldShowAddWalletButton = true
 }: UserWalletsProps) => {
-  const [isOpenedCurrenciesSelect, setOpenedCurrenciesSelect] = useState(false);
   const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
   const [balance, setBalance] = useState(null);
 
@@ -95,7 +94,8 @@ const UserWallets = ({
               Header: 'type',
               accessor: 'isDefault' as keyof UserWallet,
               disableSortBy: true,
-              renderColumn: (_, isDefault) => (isDefault ? translations.default : translations.other)
+              renderColumn: (_, isDefault) => (isDefault ? translations.default : translations.other),
+              maxWidth: '11rem'
             }
           ]}
           data={wallets}

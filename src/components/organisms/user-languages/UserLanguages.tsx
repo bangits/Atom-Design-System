@@ -1,8 +1,7 @@
 import { Icons } from '@/atom-design-system';
-import { HidableSelect, TextInput } from '@/components';
-import { Divider } from '@/components/atoms';
-import { Button, IconButton, Tooltip } from '@my-ui/core';
-import React, { ReactNode, useState } from 'react';
+import { HidableSelect } from '@/components';
+import { IconButton, Tooltip } from '@my-ui/core';
+import React, { ReactNode } from 'react';
 import { Table } from '..';
 import styles from './UserLanguages.module.scss';
 
@@ -71,12 +70,12 @@ const UserLanguages = ({
               disableSortBy: true,
               renderColumn: (_, value) => value.toString()
             },
-
             {
               Header: 'type',
               accessor: 'isDefault' as keyof UserLanguage,
               disableSortBy: true,
-              renderColumn: (_, isDefault) => (isDefault ? translations.isDefault : translations.other)
+              renderColumn: (_, isDefault) => (isDefault ? translations.isDefault : translations.other),
+              maxWidth: '11rem'
             }
           ]}
           data={languages}

@@ -259,26 +259,27 @@ function DataTable<T extends {}, K>({
             renderColumn: (_, value) => (
               <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>
             ),
-            maxWidth: '12rem',
-            dataMaxWidth: '12rem'
+            maxWidth: '12.5rem',
+            dataMaxWidth: '12.5rem'
           }
         : column.variant === 'circle-image'
         ? {
-            renderColumn: (_, value) => <img className={styles.ImageColumnCircle} src={value || noImage} />
+            renderColumn: (_, value) => <img src={value || noImage} />,
+            className: styles.ImageColumnCircle
           }
         : column.variant === 'hovered-image'
         ? {
             renderColumn: (_, value) => {
-              return (
-                <img className={classNames(styles.ImageHoverColumn, 'ImageHoverColumn')} src={value || noImageGame} />
-              );
-            }
+              return <img src={value || noImageGame} />;
+            },
+            className: classNames(styles.ImageHoverColumn, 'ImageHoverColumn')
           }
         : column.variant === 'image'
         ? {
             renderColumn: (_, value) => {
-              return <img className={styles.ImageColumn} src={value || noImageGame} />;
-            }
+              return <img src={value || noImageGame} />;
+            },
+            className: styles.ImageColumn
           }
         : {})
     }));
@@ -365,7 +366,7 @@ function DataTable<T extends {}, K>({
   }, [openedCollapseInfo, collapsableTableProps]);
 
   useEffect(() => {
-    if (pagination?.page === initialPagination?.page && pagination?.pageSize === initialPagination?.pageSize) return;
+    if (pagination === initialPagination) return;
 
     onDataChange(null);
   }, [pagination]);
