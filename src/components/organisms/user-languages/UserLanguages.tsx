@@ -62,7 +62,8 @@ const UserLanguages = ({
             {
               Header: 'Language Tag',
               accessor: 'code' as keyof UserLanguage,
-              disableSortBy: true
+              disableSortBy: true,
+              renderColumn: (_, value) => value?.toUpperCase()
             },
             {
               Header: 'language',
