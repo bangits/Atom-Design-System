@@ -179,7 +179,6 @@ function DataTable<T extends {}, K>({
     []
   );
 
-
   const [pagination, setPagination] = useReducer(
     (prevPagination: Pagination, updatedPagination: Partial<Pagination>): Pagination => ({
       ...prevPagination,
@@ -187,7 +186,6 @@ function DataTable<T extends {}, K>({
     }),
     initialPagination
   );
-  console.log('pagination', pagination);
 
   const onDataChange = useCallback(
     (

@@ -1,15 +1,16 @@
 import { typedMemo } from '@/helpers/typedMemo';
 import { Button, ButtonProps, Typography } from '@my-ui/core';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './PageWrapper.module.scss';
 
 export interface PageWrapperProps {
   title?: string;
   showButton?: boolean;
   buttonProps?: ButtonProps;
+  buttonElement?: ReactNode;
 }
 
-const PageWrapper: FC<PageWrapperProps> = ({ children, title, showButton, buttonProps = {} }) => {
+const PageWrapper: FC<PageWrapperProps> = ({ children, title, showButton, buttonElement, buttonProps = {} }) => {
   return (
     <div className={styles.PageWrapper}>
       {(title || showButton) && (
@@ -17,7 +18,7 @@ const PageWrapper: FC<PageWrapperProps> = ({ children, title, showButton, button
           <Typography component='h2' variant='h3' className={styles.PageTitle}>
             {title}
           </Typography>
-          {showButton && <Button {...buttonProps} type='button' />}
+          {showButton && (buttonElement || <Button {...buttonProps} type='button' />)}
         </div>
       )}
 
