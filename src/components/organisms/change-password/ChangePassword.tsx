@@ -1,6 +1,7 @@
+import { TextInput, TextInputProps } from '@/components';
 import { PasswordInput } from '@/components/molecules';
 import { ChangePasswordIcon } from '@/icons';
-import { Button, Card, TextInput, TextInputProps, Typography } from '@my-ui/core';
+import { Button, Card, Typography } from '@my-ui/core';
 import React, { FC, useCallback, useMemo } from 'react';
 import styles from './ChangePassword.module.scss';
 

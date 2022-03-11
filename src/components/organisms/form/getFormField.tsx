@@ -4,18 +4,11 @@ import {
   CheckboxGroup,
   CheckboxGroupProps,
   RadioGroup,
-  RadioGroupProps
-} from '@/components';
-import {
-  DatePicker,
-  DatepickerProps,
-  DateTimePicker,
-  DateTimePickerProps,
-  Select,
-  SelectProps,
+  RadioGroupProps,
   TextInput,
   TextInputProps
-} from '@my-ui/core';
+} from '@/components';
+import { DatePicker, DatepickerProps, DateTimePicker, DateTimePickerProps, Select, SelectProps } from '@my-ui/core';
 import { FormFieldProp } from './FormFieldTypes';
 
 const getFormField = (field: FormFieldProp) => {

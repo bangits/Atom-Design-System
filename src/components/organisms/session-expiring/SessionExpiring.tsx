@@ -1,5 +1,6 @@
+import { TextInput } from '@/components';
 import { WarningIcon } from '@/icons';
-import { Button, Card, TextInput, Typography } from '@my-ui/core';
+import { Button, Card, Typography } from '@my-ui/core';
 import React, { FC } from 'react';
 import styles from './SessionExpiring.module.scss';
 import Timer from './Timer';
@@ -26,7 +27,7 @@ const ChangePassword: FC<SessionExpiringProps> = ({
     <div className={styles.SessionExpiringWrapper}>
       <Card className={styles.CardWrapper}>
         <div className={styles.ChangeContent}>
-          <WarningIcon className={styles.Icon}  />
+          <WarningIcon className={styles.Icon} />
           <Typography variant='h2' component='h2'>
             {title}
           </Typography>

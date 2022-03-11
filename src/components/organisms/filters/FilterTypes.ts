@@ -1,5 +1,5 @@
-import { FromToValues } from '@/components';
-import { CheckboxProps, DatepickerProps, DateTimePickerProps, SelectProps, TextInputProps } from '@my-ui/core';
+import { FromToValues, TextInputProps } from '@/components';
+import { CheckboxProps, DatepickerProps, DateTimePickerProps, SelectProps } from '@my-ui/core';
 import { RadioButtonProps } from '@my-ui/core/dist/components/checkbox-and-radio-button/RadioButton/RadioButton';
 
 export type FilterType = 'select' | 'checkbox' | 'radio' | 'input' | 'dropdown' | 'from-to' | 'datepicker';

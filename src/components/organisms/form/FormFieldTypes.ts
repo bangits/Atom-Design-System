@@ -1,5 +1,5 @@
-import { AddProviderNameIdProps, CheckboxGroupProps, RadioGroupProps } from '@/components';
-import { DatepickerProps, DateTimePickerProps, SelectProps, TextInputProps } from '@my-ui/core';
+import { AddProviderNameIdProps, CheckboxGroupProps, RadioGroupProps, TextInputProps } from '@/components';
+import { DatepickerProps, DateTimePickerProps, SelectProps } from '@my-ui/core';
 import { ReactNode } from 'react';
 
 export type FormFieldTypes =
