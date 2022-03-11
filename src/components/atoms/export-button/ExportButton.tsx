@@ -1,8 +1,9 @@
+import { ExportIcon } from '@/icons';
 import { Button, ButtonProps } from '@my-ui/core';
-import React from 'react';
+import { FC } from 'react';
 
 export type ExportButtonProps = Omit<ButtonProps, 'startIcon' | 'variant'>;
 
-export const ExportButton = (props: ExportButtonProps) => {
-  return <Button {...props} startIcon={<div>Export</div>} variant='ghost' />;
+export const ExportButton: FC<ExportButtonProps> = (props) => {
+  return <Button {...props} startIcon={<ExportIcon />} variant='ghost' />;
 };

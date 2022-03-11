@@ -52,3 +52,4 @@ export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.reac
 export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as ApplySuccess } from './apply-success.react.svg';
 export { ReactComponent as ApplyError } from './apply-error.react.svg';
+export { ReactComponent as ExportIcon } from './export.react.svg';
