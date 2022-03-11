@@ -1,5 +1,5 @@
+import { TextInput, TextInputProps } from '@/components';
 import { typedMemo } from '@/helpers';
-import { TextInput, TextInputProps } from '@my-ui/core';
 import React, { FC, useCallback, useEffect, useReducer } from 'react';
 import styles from './FromToInput.module.scss';
 
@@ -45,7 +45,7 @@ const FromToInput: FC<FromToInputProps> = ({
 
         if (name === 'from') fromInputProps.onChange?.(e);
 
-        toInputProps.onChange?.(e)
+        toInputProps.onChange?.(e);
       },
     []
   );

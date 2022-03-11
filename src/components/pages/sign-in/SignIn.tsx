@@ -1,10 +1,12 @@
 import { Icons } from '@/atom-design-system';
+import { TextInput, TextInputProps } from '@/components';
 import { PasswordInput } from '@/components/molecules';
 import { typedMemo } from '@/helpers';
 import { SignInImage } from '@/icons';
-import { Button, TextInput, TextInputProps, Typography } from '@my-ui/core';
+import { Button, Typography } from '@my-ui/core';
 import React, { FC, useCallback, useMemo } from 'react';
 import styles from './SignIn.module.scss';
+
 export interface SignInProps {
   renderInputs?: (InputComponent: typeof TextInput, name: string) => JSX.Element;
   title?: string;

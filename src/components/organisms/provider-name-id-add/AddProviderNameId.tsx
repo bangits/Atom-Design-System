@@ -1,7 +1,7 @@
-import { FromToInput, FromToInputProps, FromToValues } from '@/components';
+import { FromToInput, FromToInputProps, FromToValues, TextInputProps } from '@/components';
 import { trim } from '@/helpers';
 import { ApplySuccess } from '@/icons';
-import { Scroll, Tag, TextInputProps, Tooltip } from '@my-ui/core';
+import { Scroll, Tag, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, useCallback, useMemo, useState } from 'react';
 import styles from './AddProviderNameId.module.scss';

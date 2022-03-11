@@ -1,6 +1,7 @@
 import { Icons } from '@/atom-design-system';
+import { TextInput } from '@/components';
 import { EmptyGameListIcon, PlayArrowIcon, ViewCardImageIcon } from '@/icons';
-import { Button, CardImg, Loader, Scroll, Tag, TextInput, Typography } from '@my-ui/core';
+import { Button, CardImg, Loader, Scroll, Tag, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
 import styles from './ProviderDetails.module.scss';
