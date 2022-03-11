@@ -5,7 +5,7 @@ $label-sizes: (
 );
 
 $label-colors: (
-  label-color: color(nepal)
+  label-color: color(nepal),
 );
 
 @function getLabelSizes($key) {

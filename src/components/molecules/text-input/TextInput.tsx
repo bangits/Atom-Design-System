@@ -1,3 +1,4 @@
+import { Label } from '@/components';
 import { TextInput as MYUITextInput, TextInputProps } from '@my-ui/core';
 import { ReactNode } from 'react';
 export { TextInputProps } from '@my-ui/core';
@@ -8,8 +9,7 @@ export const TextInput = (props: TextInputProps & { optionalText?: ReactNode }) 
       {...props}
       label={
         <>
-          {props.label}
-          {props.optionalText && <span>{props.optionalText}</span>}
+          <Label isForInput text={props.label} optional={!!props.optionalText} optionalText={`(${props.optionalText})`} />
         </>
       }
     />
