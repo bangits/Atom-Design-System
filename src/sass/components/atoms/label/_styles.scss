@@ -2,6 +2,12 @@
   .Label {
     color: getLabelColors(label-color);
     margin-bottom: getLabelSizes(label-margin-bottom);
+
+    &#{&}--for-input {
+      color: inherit;
+      display: inline-block;
+      line-height: inherit;
+    }
   }
 
   .LabelOptional {
