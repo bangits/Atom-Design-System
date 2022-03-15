@@ -39,8 +39,8 @@ const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) 
             renderColumn: (_, value) => (
               <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>
             ),
-            maxWidth: '12.5rem',
-            dataMaxWidth: '12.5rem'
+            maxWidth: '14.5rem',
+            dataMaxWidth: '14.5rem'
           }
         : {})
     }));

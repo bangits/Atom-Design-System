@@ -82,8 +82,11 @@ const UserLanguages = ({
           data={languages}
           className={styles.UserDetailsTable}
           loadingRowsIds={tableLoadingRowIds}
-          loadingRowColumnProperty='languageId'
+          loadingRowColumnProperty='id'
           rowUniqueKey='languageId'
+          scrollProps={{
+            showHorizontalScroll: false
+          }}
         />
         <div className={styles.LanguageActionsContainer}>
           {shouldShowAddLanguageButton && (

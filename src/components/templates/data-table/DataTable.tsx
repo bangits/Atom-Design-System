@@ -15,7 +15,7 @@ import {
   Tooltip
 } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, MouseEvent, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
+import { FC, MouseEvent, ReactNode, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import styles from './DataTable.module.scss';
 export interface Pagination {
   page: number;
@@ -73,7 +73,6 @@ export interface DataTableProps<T extends {}, K> {
   } & Pick<PaginationProps, 'jumpToPage'>;
 
   rowCount: number;
-  refreshLabel?: string;
   onRefreshButtonClick?: (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
 
   tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
@@ -86,6 +85,7 @@ export interface DataTableProps<T extends {}, K> {
   };
 
   tableCollapseActions?: TableCollapse<T>[];
+  exportButton?: ReactNode;
 
   onTableConfigChange?: (columns: SelectProps<any, boolean, any>['options'], selectedColumns: string[]) => void;
   columnsConfigDefaultValue?: string[];
@@ -108,7 +108,6 @@ function DataTable<T extends {}, K>({
   paginationProps,
   columnDropdownTranslations,
   rowCount,
-  refreshLabel = 'Refresh',
   onRefreshButtonClick,
   actionsButtonDisabledTime = 2,
   onTableConfigChange,
@@ -119,7 +118,8 @@ function DataTable<T extends {}, K>({
   defaultCurrency,
   currencyProperty,
   exchangeCurrencyProperty,
-  currencyTranslations
+  currencyTranslations,
+  exportButton
 }: DataTableProps<T, K>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
@@ -134,6 +134,7 @@ function DataTable<T extends {}, K>({
   const [openedCollapseInfo, setOpenedCollapseInfo] = useState<{
     id: number | string;
     yPosition: number;
+    xPosition: number;
     row: T;
     rowIndex: number;
   }>(null);
@@ -259,8 +260,8 @@ function DataTable<T extends {}, K>({
             renderColumn: (_, value) => (
               <Status variant={column.getVariant(value)}>{column.getVariantName(value)}</Status>
             ),
-            maxWidth: '12.5rem',
-            dataMaxWidth: '12.5rem'
+            maxWidth: '14.5rem',
+            dataMaxWidth: '14.5rem'
           }
         : column.variant === 'circle-image'
         ? {
@@ -303,13 +304,14 @@ function DataTable<T extends {}, K>({
         ...(tableCollapseActions || []).map(
           (collapse): TableAction<T> => ({
             onClick: (row, e, rowIndex) => {
-              const tableRow = e.target.closest('tr');
+              const tableRow = e.target.closest('tr') as HTMLElement;
 
               const clickedRow = Array.isArray(row) ? row[0] : row;
 
               setOpenedCollapseInfo({
                 id: collapse.id,
                 yPosition: tableRow.getBoundingClientRect().y + tableRow.offsetHeight,
+                xPosition: tableRow.getBoundingClientRect().x,
                 row: clickedRow,
                 rowIndex
               });
@@ -357,6 +359,7 @@ function DataTable<T extends {}, K>({
     return {
       dialogViewProps: {
         yPosition: openedCollapseInfo?.yPosition,
+        xPosition: openedCollapseInfo?.xPosition,
         containerWidth: tableContainerRef.current?.offsetWidth,
         onClose: onCollapsableTableClose,
         isOpened: !!openedCollapseInfo?.row
@@ -389,8 +392,11 @@ function DataTable<T extends {}, K>({
           <Select
             isMulti
             dropdown
-            dropdownLabel={columnDropdownTranslations?.dropdownLabel || 'Columns'}
-            dropdownIcon={<SettingsIcon width='1.8rem' height='1.8rem' />}
+            dropdownIcon={
+              <Tooltip text='Columns'>
+                <SettingsIcon width='1.8rem' height='1.8rem' />
+              </Tooltip>
+            }
             clearButton
             clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
             selectAll
@@ -410,26 +416,29 @@ function DataTable<T extends {}, K>({
           />
 
           <Divider>
-            <ButtonWithIcon
-              icon='RotateIcon'
-              disabled={isDisabledRefreshButton}
-              onClick={(event) => {
-                if (actionsButtonDisabledTime) {
-                  setDisabledRefreshButton(true);
+            <Tooltip text='Refresh'>
+              <ButtonWithIcon
+                icon='RotateIcon'
+                disabled={isDisabledRefreshButton}
+                onClick={(event) => {
+                  if (actionsButtonDisabledTime) {
+                    setDisabledRefreshButton(true);
 
-                  setTimeout(() => setDisabledRefreshButton(false), actionsButtonDisabledTime * 1000);
-                }
+                    setTimeout(() => setDisabledRefreshButton(false), actionsButtonDisabledTime * 1000);
+                  }
 
-                if (onRefreshButtonClick) onRefreshButtonClick(event);
-              }}
-              className={styles.RefreshButton}
-              iconProps={{
-                width: '1.8rem',
-                height: '1.8rem'
-              }}>
-              {refreshLabel}
-            </ButtonWithIcon>
+                  if (onRefreshButtonClick) onRefreshButtonClick(event);
+                }}
+                className={styles.RefreshButton}
+                iconProps={{
+                  width: '1.8rem',
+                  height: '1.8rem'
+                }}
+              />
+            </Tooltip>
           </Divider>
+
+          {exportButton && tableProps.data?.length ? <Divider>{exportButton}</Divider> : null}
 
           {CurrencySelect && (currencyProperty || exchangeCurrencyProperty) && (
             <Divider className={classNames(styles.TableConfigSelect, styles['TableConfigSelect--exchange'])}>

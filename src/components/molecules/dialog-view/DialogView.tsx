@@ -5,12 +5,13 @@ import { FC, useEffect, useRef } from 'react';
 export interface DialogViewProps extends DialogProps {
   containerWidth: number;
   yPosition: number;
+  xPosition: number;
 }
 
-const DialogView: FC<DialogViewProps> = ({ children, containerWidth, yPosition, ...dialogProps }) => {
+const DialogView: FC<DialogViewProps> = ({ children, containerWidth, yPosition, xPosition, ...dialogProps }) => {
   const containerHeight = 205;
 
-  const memoizedYPosition = useRef<number>(null);
+  const memoizedPositions = useRef<{ x: number; y: number }>(null);
 
   const dialogViewClasses = useStyles(
     {
@@ -21,17 +22,26 @@ const DialogView: FC<DialogViewProps> = ({ children, containerWidth, yPosition, 
         maxWidth: (data) => data.containerWidth,
         textAlign: 'left',
         padding: 0,
-        transform: 'translate(-50%, 0)',
+        transform: 'translateY(0)',
         minHeight: 'initial',
-        marginLeft: '4rem'
+        left: (data) => data.xPosition
       }
     },
-    { containerWidth, yPosition: yPosition || memoizedYPosition.current, containerHeight }
+    {
+      containerWidth,
+      yPosition: yPosition || memoizedPositions.current?.y,
+      xPosition: xPosition || memoizedPositions.current?.x,
+      containerHeight
+    }
   );
 
   useEffect(() => {
-    if (yPosition) memoizedYPosition.current = yPosition;
-  }, [yPosition]);
+    if (yPosition || xPosition)
+      memoizedPositions.current = {
+        y: yPosition,
+        x: xPosition
+      };
+  }, [yPosition, xPosition]);
 
   return (
     <Dialog {...dialogProps} className={dialogViewClasses.root}>

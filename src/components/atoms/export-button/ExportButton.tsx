@@ -1,9 +1,23 @@
 import { ExportIcon } from '@/icons';
-import { Button, ButtonProps } from '@my-ui/core';
-import { FC } from 'react';
+import { Tooltip } from '@my-ui/core';
 
-export type ExportButtonProps = Omit<ButtonProps, 'startIcon' | 'variant'>;
+export interface ExportButtonProps extends React.SVGProps<SVGSVGElement> {
+  tooltipText?: string;
+  disabled?: boolean;
+}
 
-export const ExportButton: FC<ExportButtonProps> = (props) => {
-  return <Button {...props} startIcon={<ExportIcon width='15px' height='15px' />} variant='ghost' />;
+export const ExportButton = ({ disabled, tooltipText, ...props }: ExportButtonProps) => {
+  return (
+    <Tooltip text={tooltipText}>
+      <ExportIcon
+        {...props}
+        width='1.5rem'
+        height='1.5rem'
+        style={{ opacity: disabled ? 0.4 : 1, cursor: 'pointer' }}
+        onClick={(...args) => {
+          if (!disabled) props.onClick(...args);
+        }}
+      />
+    </Tooltip>
+  );
 };
