@@ -15,6 +15,7 @@
       border: 1px solid #ffffff;
       border-radius: getSidebarSizes(img-border-radius);
       transition: all 0.5s;
+      background-color: #fff;
 
       > img {
         width: 100%;
@@ -46,5 +47,6 @@
     transition: all 0.5s;
     width: getSidebarSizes(img-sizes-closed);
     height: getSidebarSizes(img-sizes-closed);
+    background-color: #fff;
   }
 }

@@ -435,9 +435,9 @@ function DataTable<T extends {}, K>({
             <Divider className={classNames(styles.TableConfigSelect, styles['TableConfigSelect--exchange'])}>
               <CurrencySelect
                 dropdown
-                dropdownLabel={`${currencyTranslations?.exchange || 'Exchange'}${
+                dropdownLabel={`${currencyTranslations?.exchange}${
                   selectedExchangeCurrency
-                    ? `(${currencyTranslations?.selected || 'selected'}: ${selectedExchangeCurrency.label})`
+                    ? `(${currencyTranslations?.selected || 'Selected'}: ${selectedExchangeCurrency.label})`
                     : ''
                 }`}
                 dropdownIcon={<ExchangeIcon width='1.8rem' height='1.8rem' />}
