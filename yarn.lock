@@ -1544,10 +1544,17 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+<<<<<<< HEAD
 "@my-ui/core@^0.6.0":
   version "0.6.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.6.0.tgz#ceb69b8231766fda94979337f9c0bb21fb785394"
   integrity sha1-zrabgjF2b9qUl5M3+cC7Ift4U5Q=
+=======
+"@my-ui/core@^0.5.11":
+  version "0.5.11"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.5.11.tgz#044256feb132eefc9e48d515727b6c3064533482"
+  integrity sha1-BEJW/rEy7vyeSNUVcntsMGRTNII=
+>>>>>>> 30d76aa0644242bee77d07fcc9a41b8ce02c650d
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
@@ -11734,7 +11741,11 @@ regenerator-runtime@^0.13.4, regenerator-runtime@^0.13.7:
 
 regenerator-transform@^0.14.2:
   version "0.14.5"
+<<<<<<< HEAD
   resolved "https://registry.npmjs.org/regenerator-transform/-/regenerator-transform-0.14.5.tgz#c98da154683671c9c4dcb16ece736517e1b7feb4"
+=======
+  resolved "https://registry.yarnpkg.com/regenerator-transform/-/regenerator-transform-0.14.5.tgz#c98da154683671c9c4dcb16ece736517e1b7feb4"
+>>>>>>> 30d76aa0644242bee77d07fcc9a41b8ce02c650d
   integrity sha512-eOf6vka5IO151Jfsw2NO9WpGX58W6wWmefK3I1zEGr0lOD0u8rwPaNqQL1aRxUaxLeKO3ArNh3VYg1KbaD+FFw==
   dependencies:
     "@babel/runtime" "^7.8.4"
