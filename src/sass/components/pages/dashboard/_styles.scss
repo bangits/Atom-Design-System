@@ -2,7 +2,9 @@
   .DashboardIllustration {
     width: getDashboardSizes(dashboard-illustration-width);
 
-    animation: infinite-rotate linear infinite 2s;
+    img {
+      width: 100%;
+    }
   }
 
   .DashboardWrapper {

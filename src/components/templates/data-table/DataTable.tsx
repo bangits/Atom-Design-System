@@ -1,5 +1,5 @@
 import { CollapsableTable, CollapsableTableProps, Filters, FiltersProps, Table, TableProps } from '@/components';
-import { ButtonWithIcon, Divider, InfoTooltip } from '@/components/atoms';
+import { ButtonWithIcon, Divider } from '@/components/atoms';
 import { ExchangeIcon, SettingsIcon } from '@/icons';
 import { noImage, noImageGame } from '@/img';
 import {
@@ -444,12 +444,12 @@ function DataTable<T extends {}, K>({
             <Divider className={classNames(styles.TableConfigSelect, styles['TableConfigSelect--exchange'])}>
               <CurrencySelect
                 dropdown
-                dropdownLabel={`${currencyTranslations?.exchange}${
-                  selectedExchangeCurrency
-                    ? `(${currencyTranslations?.selected || 'Selected'}: ${selectedExchangeCurrency.label})`
-                    : ''
-                }`}
-                dropdownIcon={<ExchangeIcon width='1.8rem' height='1.8rem' />}
+                dropdownLabel={selectedExchangeCurrency?.label || ''}
+                dropdownIcon={
+                  <Tooltip text={currencyTranslations?.infoTooltipText}>
+                    <ExchangeIcon width='1.8rem' height='1.8rem' />
+                  </Tooltip>
+                }
                 color='primary'
                 options={dropdownOptions}
                 dropdownSearchPlaceholder={currencyTranslations?.search || 'Search'}
@@ -471,10 +471,6 @@ function DataTable<T extends {}, K>({
                   onDataChange(changedFilters, sortedBy, pagination);
                 }}
               />
-
-              {currencyTranslations?.infoTooltipText && (
-                <InfoTooltip infoTooltipText={currencyTranslations?.infoTooltipText} />
-              )}
             </Divider>
           )}
 

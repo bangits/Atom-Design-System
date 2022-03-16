@@ -1,4 +1,3 @@
-import { DashboardIllustration } from '@/icons';
 import styles from './Dashboard.module.scss';
 
 export interface DashboardProps {
@@ -9,7 +8,7 @@ export const Dashboard = ({ username }: DashboardProps) => {
   return (
     <div className={styles.DashboardWrapper}>
       <div className={styles.DashboardIllustration}>
-        <DashboardIllustration />
+        <img src='https://storageaccountatom.blob.core.windows.net/mfe/logo-black.svg' alt='Logo' />
       </div>
 
       <h1 className={styles.DashboardTitle}>
