@@ -14,7 +14,7 @@ export const Dashboard = ({ username }: DashboardProps) => {
       <h1 className={styles.DashboardTitle}>
         Welcome!
         <span>
-          <strong>Dear {username},</strong> we are happy to welcome you in backoffice.atomconstruct.com.
+          Dear <strong>{username},</strong> we are happy to welcome you in backoffice.atomconstruct.com.
         </span>
       </h1>
     </div>

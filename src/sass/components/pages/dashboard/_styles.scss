@@ -1,6 +1,7 @@
 @mixin generate-dashboard-styles {
   .DashboardIllustration {
     width: getDashboardSizes(dashboard-illustration-width);
+    margin-left: -0.5rem;
 
     img {
       width: 100%;
@@ -29,7 +30,7 @@
   .DashboardTitle span {
     width: 100%;
 
-    color: var(--theme-default-avatar-label-color, #505d6e);
+    color: #000;
 
     margin: 0;
   }
@@ -55,7 +56,7 @@
 
     strong {
       font-weight: getDashboardSizes(strong-font-weight);
-      color: color(primary);
+      color: #5c5db7;
     }
   }
 }
