@@ -304,6 +304,7 @@ function DataTable<T extends {}, K>({
         ...(tableCollapseActions || []).map(
           (collapse): TableAction<T> => ({
             onClick: (row, e, rowIndex) => {
+              const table = e.target.closest(`.${styles.DataTablePageWrapper}`) as HTMLElement;
               const tableRow = e.target.closest('tr') as HTMLElement;
 
               const clickedRow = Array.isArray(row) ? row[0] : row;
@@ -311,7 +312,7 @@ function DataTable<T extends {}, K>({
               setOpenedCollapseInfo({
                 id: collapse.id,
                 yPosition: tableRow.getBoundingClientRect().y + tableRow.offsetHeight,
-                xPosition: tableRow.getBoundingClientRect().x,
+                xPosition: table.getBoundingClientRect().x,
                 row: clickedRow,
                 rowIndex
               });
