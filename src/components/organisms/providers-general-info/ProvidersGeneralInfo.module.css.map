@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kCAAkC,CAAC;EACjC,KAAK,EAAE,kBAAkB;CAC1B;;AAED,AAEI,2BAFuB,GACvB,GAAG,AACF,YAAY,CAAC;EACZ,UAAU,EAAE,CAAC;CACd",
+    "sources": [
+        "ProvidersGeneralInfo.module.scss"
+    ],
+    "names": [],
+    "file": "ProvidersGeneralInfo.module.css"
+}

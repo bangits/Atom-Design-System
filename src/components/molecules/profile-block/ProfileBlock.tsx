@@ -11,6 +11,7 @@ export interface ProfileBlockProps {
   mainImgUrl?: string;
   itemName: string;
   itemId: number | string;
+  isLoadingImage?: boolean;
 }
 
 const ProfileBlock = ({
@@ -19,7 +20,8 @@ const ProfileBlock = ({
   backgroundImgUrl,
   mainImgUrl,
   itemId,
-  itemName
+  itemName,
+  isLoadingImage
 }: ProfileBlockProps) => {
   return (
     <>
@@ -34,11 +36,13 @@ const ProfileBlock = ({
               <img className={classNames(styles['ProfileBlock__Img'], 'ProfileBlock__Img')} src={mainImgUrl} />
             )}
 
-            <PhotoCamIcon
-              onClick={!mainImgUrl ? undefined : onMainImgClick}
-              width='2.1rem'
-              className={classNames(styles['ProfileBlock__PhotoCamIcon'], 'ProfileBlock__PhotoCamIcon')}
-            />
+            {!isLoadingImage && (
+              <PhotoCamIcon
+                onClick={!mainImgUrl ? undefined : onMainImgClick}
+                width='2.1rem'
+                className={classNames(styles['ProfileBlock__PhotoCamIcon'], 'ProfileBlock__PhotoCamIcon')}
+              />
+            )}
           </div>
         )}
         <div
@@ -55,10 +59,12 @@ const ProfileBlock = ({
           <div
             className={classNames(styles['ProfileBlock__CoverPhotoIconCell'], 'ProfileBlock__CoverPhotoIconCell')}
             onClick={!backgroundImgUrl ? undefined : onBackgroundImgClick}>
-            <PhotoCamIcon
-              width='1rem'
-              className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
-            />
+            {!isLoadingImage && (
+              <PhotoCamIcon
+                width='1rem'
+                className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
+              />
+            )}
           </div>
         </div>
         <div

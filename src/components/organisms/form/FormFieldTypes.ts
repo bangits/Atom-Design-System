@@ -75,4 +75,7 @@ export type FormFieldProp = {
 export interface FormFieldProps {
   filters: FormFieldProp[];
   className?: string;
+  type: string;
+  name: string;
+  col?: number;
 }

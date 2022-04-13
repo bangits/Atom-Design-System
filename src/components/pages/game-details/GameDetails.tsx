@@ -14,7 +14,7 @@ export interface GameDetailsProps {
   noDataText: string;
   gameName: string;
   gameId: string;
-
+  isLoadingImage?: boolean;
   backgroundImgUrl: string;
   mainImgUrl: string;
 
@@ -56,7 +56,8 @@ const GameDetails: FC<GameDetailsProps> = ({
   backgroundImgUrl,
   mainImgUrl,
   onMainImgClick,
-  onBackgroundImgClick
+  onBackgroundImgClick,
+  isLoadingImage
 }) => {
   return (
     <div className={classNames(styles.GameDetailsBase)}>
@@ -66,6 +67,7 @@ const GameDetails: FC<GameDetailsProps> = ({
       <div className={classNames(styles['MainCarcass'], 'MainCarcass')}>
         <div className={classNames(styles['MainCarcass__Sidebar'], 'MainCarcass__Sidebar')}>
           <ProfileBlock
+            isLoadingImage={isLoadingImage}
             backgroundImgUrl={backgroundImgUrl}
             itemId={gameId}
             itemName={gameName}
