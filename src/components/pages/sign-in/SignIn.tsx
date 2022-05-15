@@ -35,16 +35,17 @@ const SignIn: FC<SignInProps> = ({
   const createEmailInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
       (props) =>
-        <TextInput containerClassName={styles.LoginBottom} {...inputProps} {...props} fullWidth />,
+        <TextInput id='email' containerClassName={styles.LoginBottom} {...inputProps} {...props} fullWidth />,
     []
   );
 
   const createPasswordInputRenderer = useCallback(
     (inputProps: TextInputProps): typeof TextInput =>
       (props) =>
-        <PasswordInput containerClassName={styles.LoginBottom} {...inputProps} {...props} />,
+        <PasswordInput id='password' containerClassName={styles.LoginBottom} {...inputProps} {...props} />,
     []
   );
+  
 
   const emailInput = useMemo(
     () =>

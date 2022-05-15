@@ -33,8 +33,8 @@ const UserView: FC<UserViewProps> = ({ userInfo }) => {
         </div>
       </div>
       <div className={classNames(styles['UserView--user-info'])}>
-        <span>{userInfo.regInfo}</span>
-        <span>{userInfo.userName}</span>
+        {/* <span>{userInfo.regInfo}</span> */}
+        {/* <span>{userInfo.userName}</span> */}
       </div>
     </Card>
   );

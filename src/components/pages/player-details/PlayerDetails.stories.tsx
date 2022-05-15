@@ -11,6 +11,8 @@ export default {
 export const Default = () => {
   return (
     <PlayerDetails
+      createdBy='Admin'
+      creationDate='11,26,5662'
       title=''
       userInfo={object('userInfo', {
         title: 'Username Ines254',
@@ -55,16 +57,30 @@ export const Default = () => {
           }
         ]
       })}
-      breadCrumb={{
-        links: [
-          {
-            label: 'Player Management',
-            isRedirect: true
-          },
-          {
-            label: 'Player Details'
-          }
-        ]
+      breadCrumbs={[
+        {
+          label: 'Player Management',
+          isRedirect: true
+        },
+        {
+          label: 'Player Details'
+        }
+      ]}
+      lastLoginDate={'12321313'}
+      lastLoginSession={'123123'}
+      translations={{
+        status: 'Status',
+        lastLoginDate: '',
+        lastLoginSession: '',
+        registeredFormIp: '',
+        generalInformation: '',
+        settings: '',
+        wallet: '',
+        projects: '',
+        creationDate: '',
+        createdBy: '',
+        passwordContext: '',
+        languagesContent: ''
       }}
     />
   );

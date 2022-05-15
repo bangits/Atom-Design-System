@@ -41,7 +41,7 @@
     &--user-info {
       @include flex(space-between, center);
       padding: getUserViewSizes(user-info-container-padding);
-      margin: getUserViewSizes(user-info-container-margin);
+      // margin: getUserViewSizes(user-info-container-margin);
 
       > span {
         height: getUserViewSizes(user-info-height);

@@ -91,7 +91,7 @@ const EditedForm: FC<EditedFormProps> = ({
   return (
     <div
       className={classNames(styles.EditedFormBase, {
-        [styles[`EditedFormBase--${col}`]]: col,
+         [styles[`EditedFormBase--${col}`]]: col,
         [styles[`EditedFormBase--${col}`]]: col
       })}
       style={{ opacity: height ? 1 : 0 }}>

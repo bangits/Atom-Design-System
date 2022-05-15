@@ -35,7 +35,7 @@ const getFormField = (field: FormFieldProp) => {
       break;
     case 'input':
       fieldComponent = (props: TextInputProps) => (
-        <TextInput {...field.props} {...props} label={field.label} fullWidth />
+        <TextInput autoComplete='off' {...field.props} {...props} label={field.label} fullWidth />
       );
       break;
     case 'from-to-input':

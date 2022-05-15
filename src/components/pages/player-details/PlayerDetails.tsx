@@ -1,26 +1,35 @@
-import {
-  FlexibleForm,
-  FlexibleFormProps,
-  LastActivityView,
-  LastActivityViewProps,
-  StatusView,
-  StatusViewProps,
-  TagsView,
-  UserView
-} from '@/components';
+import { FlexibleFormProps, LastActivityViewProps, StatusView, StatusViewProps, TagsView } from '@/components';
 import { IconsGroup } from '@/components/molecules/icons-group';
 import { UserViewProps } from '@/components/organisms/user-view/UserView';
-import WalletView, { WalletViewProps } from '@/components/organisms/wallet-view/WalletView';
+import { WalletViewProps } from '@/components/organisms/wallet-view/WalletView';
 import { typedMemo } from '@/helpers';
-import { Breadcrumb, Card, SubTab, SubTabProps, Tab } from '@my-ui/core';
-import { BreadcrumbProps } from '@my-ui/core/dist/components/navigation/breadcrumb/Breadcrumb';
+import { Breadcrumb, BreadcrumbProps, Card, SubTab, SubTabProps, Tab } from '@my-ui/core';
 import { TabProps } from '@my-ui/core/dist/components/tab/Tab';
 import classNames from 'classnames';
 import React, { FC, useState } from 'react';
 import styles from './PlayerDetails.module.scss';
 
 export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, LastActivityViewProps, FlexibleFormProps {
-  breadCrumb?: BreadcrumbProps;
+  breadCrumbs: BreadcrumbProps['links'];
+  createdBy: string;
+  creationDate: string;
+  lastLoginDate: string;
+  lastLoginSession: string;
+
+  translations: {
+    status: string;
+    lastLoginDate: string;
+    lastLoginSession: string;
+    registeredFormIp: string;
+    generalInformation: string;
+    settings: string;
+    wallet: string;
+    projects: string;
+    creationDate: string;
+    createdBy: string;
+    passwordContext: string;
+    languagesContent: string;
+  };
   tabs?: {
     tab?: TabProps & {
       whichSubs: number;
@@ -40,7 +49,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   walletInfo,
   statusInfo,
   lastActivity,
-  breadCrumb,
+  breadCrumbs,
   tabs
 }) => {
   const [tabValue, setTabValue] = useState(1);
@@ -52,19 +61,19 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   return (
     <div className={classNames(styles.PlayerDetailsBase)}>
       <div className={classNames(styles['PlayerDetailsBase--breadCrumb'])}>
-        <Breadcrumb links={breadCrumb.links} />
+        <Breadcrumb links={breadCrumbs} />
       </div>
       <div className={classNames(styles['PlayerDetailsBase--content'])}>
         <div className={classNames(styles['PlayerDetailsUserInfo--content-info'])}>
-          <UserView userInfo={userInfo} />
+          {/* <UserView userInfo={userInfo} /> */}
 
-          <WalletView walletInfo={walletInfo} />
+          {/* <WalletView walletInfo={walletInfo} /> */}
 
           <StatusView {...statusInfo} />
 
-          <div className={styles.LastActivityViewWrapper}>
+          {/* <div className={styles.LastActivityViewWrapper}>
             <LastActivityView lastActivity={lastActivity} />
-          </div>
+          </div> */}
 
           <TagsView />
         </div>
@@ -108,9 +117,9 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
               {tabValue === 1 && (
                 <SubTab
                   options={[
-                    { title: 'Player Details', value: 1, badgeCount: 0 },
-                    { title: 'Player KPIs', value: 2, badgeCount: 0 },
-                    { title: 'Documents', value: 3, badgeCount: 0 },
+                    { title: 'Player Details', value: 1 },
+                    { title: 'Player KPIs', value: 2 },
+                    { title: 'Documents', value: 3 },
                     { title: 'Messages', value: 4, badgeCount: 130 },
                     { title: 'Notes', value: 5, badgeCount: 32 }
                   ]}
@@ -178,308 +187,6 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                   ]}
                 />
               </div>
-
-              <FlexibleForm
-                title='Account Information'
-                editFormProps={{
-                  title: 'Account Information',
-
-                  renderInputs: (Component, name) => {
-                    return <Component />;
-                  },
-                  fields: [
-                    {
-                      type: 'input',
-                      name: 'email',
-                      props: {
-                        label: 'Email',
-                        defaultValue: 'Antonian.evgenia@gmail.com'
-                      }
-                    },
-                    {
-                      type: 'input',
-                      name: 'username',
-                      props: {
-                        label: 'Username',
-                        defaultValue: 'Eva12345'
-                      }
-                    },
-                    {
-                      type: 'select',
-                      name: 'currency',
-                      props: {
-                        inputLabel: 'Currency',
-                        options: [
-                          { label: 'AMD', value: 1 },
-                          { label: 'USD', value: 2 },
-                          { label: 'EUR', value: 3 }
-                        ],
-                        isSearchable: true,
-                        isMulti: true,
-                        defaultValue: [1],
-                        disabled: true
-                      }
-                    },
-                    {
-                      type: 'input',
-                      name: 'status',
-                      props: {
-                        label: 'Status',
-                        defaultValue: 'Active',
-                        disabled: true
-                      }
-                    },
-                    {
-                      type: 'input',
-                      name: 'segments',
-                      props: {
-                        label: 'Segments',
-                        defaultValue: 'Forever'
-                      }
-                    },
-                    {
-                      type: 'input',
-                      name: 'btag',
-                      props: {
-                        label: 'Btag',
-                        defaultValue: '111.123.56.85',
-                        disabled: true
-                      }
-                    },
-                    {
-                      type: 'input',
-                      name: 'regSRC',
-                      props: {
-                        label: 'Registration Source',
-                        defaultValue: 'Forever',
-                        disabled: true
-                      }
-                    },
-                    {
-                      type: 'input',
-                      name: 'created',
-                      props: {
-                        label: 'Created By',
-                        defaultValue: 'Inesa Khachatryan',
-                        disabled: true
-                      }
-                    },
-                    {
-                      type: 'input',
-                      name: 'form',
-                      props: {
-                        label: 'Registration Form IP',
-                        defaultValue: 'No',
-                        disabled: true
-                      }
-                    }
-                  ]
-                }}
-                editedFormProps={{
-                  options: [
-                    { title: 'Owner', variant: 'label' },
-                    { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
-                    {
-                      title: 'Username',
-                      value: 'Eva123456',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Currency',
-                      value: 'USD',
-                      variant: 'bold'
-                    },
-
-                    {
-                      title: 'Created By',
-                      value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
-                      variant: 'tag'
-                    },
-                    {
-                      title: 'Status',
-                      value: 'Active',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Segment',
-                      value: 'Vip Players',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Btag',
-                      value: '111.123.56.85',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Registration Source',
-                      value: '09/05/2021 12:00:00',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Created By',
-                      value: 'Inesa Khachatryan',
-                      variant: 'default'
-                    }
-                  ],
-                  title: 'Account Information'
-                }}
-                isEdit={edit}
-              />
-
-              <FlexibleForm
-                title='Account Information'
-                editedFormProps={{
-                  options: [
-                    { title: 'Owner', variant: 'label' },
-                    { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
-                    {
-                      title: 'Username',
-                      value: 'Eva123456',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Currency',
-                      value: 'USD',
-                      variant: 'bold'
-                    },
-
-                    {
-                      title: 'Created By',
-                      value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
-                      variant: 'tag'
-                    },
-                    {
-                      title: 'Status',
-                      value: 'Active',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Segment',
-                      value: 'Vip Players',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Btag',
-                      value: '111.123.56.85',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Registration Source',
-                      value: '09/05/2021 12:00:00',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Created By',
-                      value: 'Inesa Khachatryan',
-                      variant: 'default'
-                    }
-                  ],
-                  title: 'Personal Information'
-                }}
-              />
-
-              <FlexibleForm
-                title='Account Information'
-                editedFormProps={{
-                  options: [
-                    { title: 'Owner', variant: 'label' },
-                    { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
-                    {
-                      title: 'Username',
-                      value: 'Eva123456',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Currency',
-                      value: 'USD',
-                      variant: 'bold'
-                    },
-
-                    {
-                      title: 'Created By',
-                      value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
-                      variant: 'tag'
-                    },
-                    {
-                      title: 'Status',
-                      value: 'Active',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Segment',
-                      value: 'Vip Players',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Btag',
-                      value: '111.123.56.85',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Registration Source',
-                      value: '09/05/2021 12:00:00',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Created By',
-                      value: 'Inesa Khachatryan',
-                      variant: 'default'
-                    }
-                  ],
-                  title: 'Contacts'
-                }}
-              />
-              <FlexibleForm
-                title='Account Information'
-                editedFormProps={{
-                  options: [
-                    { title: 'Owner', variant: 'label' },
-                    { title: 'Email', value: 'antonian.evgenia@gmail.com', variant: 'default' },
-                    {
-                      title: 'Username',
-                      value: 'Eva123456',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Currency',
-                      value: 'USD',
-                      variant: 'bold'
-                    },
-
-                    {
-                      title: 'Created By',
-                      value: ['Jackpot Support', 'Jewels and Gems', 'Jewels'],
-                      variant: 'tag'
-                    },
-                    {
-                      title: 'Status',
-                      value: 'Active',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Segment',
-                      value: 'Vip Players',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Btag',
-                      value: '111.123.56.85',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Registration Source',
-                      value: '09/05/2021 12:00:00',
-                      variant: 'default'
-                    },
-                    {
-                      title: 'Created By',
-                      value: 'Inesa Khachatryan',
-                      variant: 'default'
-                    }
-                  ],
-                  title: 'Verifications'
-                }}
-              />
             </div>
           )}
         </Card>
