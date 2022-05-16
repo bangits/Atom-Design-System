@@ -1,0 +1,4 @@
+$game-list-sizes: ( gap: calculateRem(20px), card-width: 10%, card-max-height: calculateRem(85px), card-bottom-gap: calculateRem(40px));
+@function getGamesListSizes($key) {
+    @return map-get($game-list-sizes, $key);
+}

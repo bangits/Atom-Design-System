@@ -1,0 +1,9 @@
+$game-card-sizes: ();
+$game-card-colors: ();
+@function getGameCardSizes($key) {
+    @return map-get($game-card-sizes, $key);
+}
+
+@function getGameCardColors($key) {
+    @return map-get($game-card-colors, $key);
+}
