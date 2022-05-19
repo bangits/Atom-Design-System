@@ -13,7 +13,7 @@ export interface TranslationGroupProps {
     subCategories: TranslationGroupInterface[];
   } & TranslationGroupInterface)[];
   selectedSubCategory: number;
-  onTranslationGroupSelect(translationGroupId: number): void;
+  onTranslationGroupSelect(translationGroup: TranslationGroupInterface): void;
 }
 
 const TranslationGroup = ({
@@ -81,7 +81,7 @@ const TranslationGroup = ({
                     <div
                       key={category.id}
                       onClick={() => {
-                        if (selectedSubCategory !== category.id) onTranslationGroupSelect(category.id);
+                        if (selectedSubCategory !== category.id) onTranslationGroupSelect(category);
                       }}
                       className={styles.TranslationCategoryName}>
                       {category.name}
