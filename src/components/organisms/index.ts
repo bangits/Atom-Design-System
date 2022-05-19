@@ -35,3 +35,5 @@ export * from './user-view';
 export * from './user-wallets';
 export * from './user-languages';
 export * from './wallet-view';
+export * from './translation-groups';
+export * from './translations-form';

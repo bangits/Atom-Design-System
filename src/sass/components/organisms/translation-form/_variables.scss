@@ -1,0 +1,11 @@
+$translation-form-sizes: ();
+
+$translation-form-colors: ();
+
+@function getTranslationFormSizes($key) {
+  @return map-get($translation-form-sizes, $key);
+}
+
+@function getTranslationFormColors($key) {
+  @return map-get($translation-form-colors, $key);
+}

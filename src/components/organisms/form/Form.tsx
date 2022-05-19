@@ -3,6 +3,7 @@ import { Button, ButtonProps, Card, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC } from 'react';
 import styles from './Form.module.scss';
+import FormFields from './FormFields';
 import { FormFieldProp, FormFieldTypes } from './FormFieldTypes';
 import getFormField from './getFormField';
 
@@ -33,21 +34,7 @@ const Form: FC<FormProps> = ({
             <Typography variant='h3' color='primary' className={styles.ProviderTitle}>
               {title}
             </Typography>
-            <div className={styles.ProviderContainerWrapper}>
-              <div className={styles.ProviderFormGroup}>
-                {fields?.map((field) => (
-                  <div
-                    key={field.name}
-                    className={classNames(styles.ProviderForm, {
-                      [styles[`ProviderForm--col-${field.col || 6}`]]: field.col || 6
-                    })}>
-                    {field.type === 'custom'
-                      ? field.component()
-                      : renderInputs(getFormField(field), field.name, field.type, field.additionalProps)}
-                  </div>
-                ))}
-              </div>
-            </div>
+            <FormFields fields={fields} renderInputs={renderInputs} />
           </div>
           <div className={styles.ProviderButtonGroup}>
             {showBackButton && (

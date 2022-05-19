@@ -1,0 +1,34 @@
+@mixin generate-translation-page-styles {
+  .TranslationCard {
+    background-color: getTranslationColors(card-color);
+    padding: getTranslationSizes(translation-card-padding);
+
+    box-sizing: border-box;
+  }
+
+  .TranslationActions {
+    @include flex(flex-end);
+
+    column-gap: getTranslationSizes(actions-column-gap);
+  }
+
+  .Collections {
+    width: fit-content;
+    min-width: getTranslationSizes(collections-min-width);
+  }
+
+  .TranslationContents {
+    @include flex;
+
+    column-gap: getTranslationSizes(translation-contents-gap);
+
+    .TranslationLeftContent {
+      padding: getTranslationSizes(translation-left-content-padding);
+      width: 284px;
+    }
+
+    .TranslationRightContent {
+      padding: getTranslationSizes(translation-right-content-padding);
+    }
+  }
+}

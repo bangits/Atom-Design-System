@@ -18,31 +18,6 @@
           text-align: getProviderSizes(provider-title-align);
           padding-top: getProviderSizes(provider-title-padding-top);
         }
-
-        .ProviderContainerWrapper {
-          margin-top: getProviderSizes(provider-container-wrapper);
-
-          .ProviderFormGroup {
-            @include flex(null, null, $flex-wrap: wrap);
-            column-gap: getProviderSizes(provider-column-gap);
-            margin-bottom: getProviderSizes(provider-form-groupMarginTop);
-
-            .ProviderForm {
-              width: 100%;
-              min-height: getProviderSizes(provider-form-height);
-              margin-bottom: getProviderSizes(provider-field-margin-bottom);
-              flex-grow: getProviderSizes(provider-form-flex-grow);
-
-              &--col-4 {
-                max-width: getProviderSizes(provider-col-4-width);
-              }
-
-              &--col-6 {
-                max-width: getProviderSizes(provider-col-6-width);
-              }
-            }
-          }
-        }
       }
 
       .ProviderButtonGroup {
@@ -69,6 +44,31 @@
         }
         .ProviderButtons {
           @include flex(center, center);
+        }
+      }
+    }
+  }
+
+  .ProviderContainerWrapper {
+    margin-top: getProviderSizes(provider-container-wrapper);
+
+    .ProviderFormGroup {
+      @include flex(null, null, $flex-wrap: wrap);
+      column-gap: getProviderSizes(provider-column-gap);
+      margin-bottom: getProviderSizes(provider-form-groupMarginTop);
+
+      .ProviderForm {
+        width: 100%;
+        min-height: getProviderSizes(provider-form-height);
+        margin-bottom: getProviderSizes(provider-field-margin-bottom);
+        flex-grow: getProviderSizes(provider-form-flex-grow);
+
+        &--col-4 {
+          max-width: getProviderSizes(provider-col-4-width);
+        }
+
+        &--col-6 {
+          max-width: getProviderSizes(provider-col-6-width);
         }
       }
     }

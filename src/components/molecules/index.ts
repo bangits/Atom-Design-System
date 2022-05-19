@@ -1,6 +1,6 @@
 export * from './balance';
 export * from './browsers-checkbox';
-export * from './checkbox-group';
+export * from './search-input';
 export * from './copy-field';
 export * from './countries-group';
 export * from './currency-group';
@@ -21,3 +21,7 @@ export * from './profile-block';
 export * from './radio-group';
 export * from './select';
 export * from './text-input';
+export * from './checkbox-group';
+export * from './translation-group';
+export * from './search-input';
+export * from './translation-form';

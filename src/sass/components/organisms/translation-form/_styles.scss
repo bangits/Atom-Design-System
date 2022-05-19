@@ -1,0 +1,8 @@
+@mixin generate-translation-form-styles {
+  .TranslationForm {
+    @include flex(space-between);
+  }
+  .TranslationFormsCards {
+    @include flex();
+  }
+}
