@@ -66,12 +66,14 @@ export const Default = () => {
           label: 'Player Details'
         }
       ]}
-      lastLoginDate={'12321313'}
-      lastLoginSession={'123123'}
       translations={{
+        documents: '',
+        finances: '',
+        games: '',
+        general: '',
+        playerDetails: '',
+        playerKPI: '',
         status: 'Status',
-        lastLoginDate: '',
-        lastLoginSession: '',
         registeredFormIp: '',
         generalInformation: '',
         settings: '',
@@ -82,6 +84,16 @@ export const Default = () => {
         passwordContext: '',
         languagesContent: ''
       }}
+      userImgUrl={''}
+      userName={''}
+      userId={0}
+      usedDevice={object('statusInfo', {
+        label: 'Status',
+        icon: 'active'
+      })}
+      playerDetails={''}
+      playerKPI={''}
+      documents={'Documents'}
     />
   );
 };

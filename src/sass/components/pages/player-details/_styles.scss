@@ -1,5 +1,29 @@
 @mixin generate-player-details-styles {
   .PlayerDetailsBase {
+    .CardName {
+      margin-bottom: 10px;
+      @include flex(null, center);
+      background-color: getUserDetailsColors(card-background-color);
+      width: getUserDetailsSizes(user-details-card-width);
+      height: getUserDetailsSizes(user-card-name-height);
+      padding: getUserDetailsSizes(user-card-name-padding);
+      box-sizing: border-box;
+
+      &--avatar {
+        width: getUserDetailsSizes(avatar-sizes);
+        height: getUserDetailsSizes(avatar-sizes);
+      }
+      > div {
+        &:first-child {
+          margin-right: getUserDetailsSizes(avatar-img-margin-left);
+        }
+      }
+      svg {
+        margin-right: getUserDetailsSizes(avatar-img-margin-left);
+        width: 100%;
+        height: 100%;
+      }
+    }
     background-color: getPlayerDetailsColors(player-details-base-background);
     &--breadCrumb {
       margin-bottom: getPlayerDetailsSizes(player-details-base-margin);

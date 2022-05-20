@@ -1,11 +1,12 @@
-$project-card-sizes: (
+$document-card-sizes: (
   card-width: calculateRem(477px),
+  card-width-sm: calculateRem(315px),
   card-border-radius: 16px,
   card-border-solid: calculateRem(1px),
-  card-padding: calculateRem(16px) calculateRem(27px) calculateRem(20px) calculateRem(16px),
+  card-padding: calculateRem(10px) calculateRem(15px) calculateRem(14px) calculateRem(15px),
   title-content-margin-top: calculateRem(24px),
-  title-color: color(quartz),
-  title-font-weight: 500,
+  title-color: color('#48485D'),
+  title-font-weight: 300,
   number-font-size: calculateRem(24px),
   number-font-weight: 600,
   divider: 1px,
@@ -28,7 +29,7 @@ $project-card-sizes: (
   content-transition: 0.5s
 );
 
-$project-card-colors: (
+$document-card-colors: (
   background-card: color(white),
   card-border-color: color(card-border-color),
   number-color-purple: color(cornflower-blue),
@@ -41,9 +42,9 @@ $project-card-colors: (
 );
 
 @function getProjectCardColors($key) {
-  @return map-get($project-card-colors, $key);
+  @return map-get($document-card-colors, $key);
 }
 
 @function getProjectCardSizes($key) {
-  @return map-get($project-card-sizes, $key);
+  @return map-get($document-card-sizes, $key);
 }

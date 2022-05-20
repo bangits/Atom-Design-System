@@ -1,0 +1,142 @@
+@mixin generate-document-card-styles {
+  .DocumentCardWrapper {
+    height: 155px;
+    width: 315px;
+    position: relative;
+    background-color: getProjectCardColors(background-card);
+    border: solid getProjectCardSizes(card-border-solid) getProjectCardColors(card-border-color);
+    border-top-left-radius: getProjectCardSizes(card-border-radius);
+    border-top-right-radius: getProjectCardSizes(card-border-radius);
+    padding: getProjectCardSizes(card-padding);
+    box-sizing: border-box;
+    transition: height getProjectCardSizes(content-transition);
+    overflow: hidden;
+
+    &--12 {
+      width: 100%;
+    }
+
+    &--4 {
+      width: getProjectCardSizes(card-width-sm);
+    }
+
+    &--6 {
+      width: getProjectCardSizes(card-width);
+    }
+
+    &--menu_button {
+      cursor: pointer;
+    }
+    &--menu_button:hover {
+      rect {
+        fill: black;
+      }
+    }
+
+    &--viewMore {
+      @include flex(center, center);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: getProjectCardColors(view-more-borderRadius);
+      width: 100%;
+      height: getProjectCardSizes(view-more-height);
+      background-color: getProjectCardColors(view-bg);
+      cursor: pointer;
+
+      > div {
+        @include flex(center, center);
+        color: getEditedFormColors(view-colors);
+        width: getProjectCardSizes(view-icon-width);
+        width: getProjectCardSizes(view-icon-height);
+        transition: getProjectCardSizes(content-transition);
+      }
+
+      > span {
+        color: getProjectCardColors(view-colors);
+        font-size: getProjectCardSizes(view-font-size);
+        height: getProjectCardSizes(view-label-height);
+      }
+    }
+
+    .CardHeader {
+      @include flex(space-between, center);
+    }
+    .TitleContent {
+      @include flex(center, center);
+      margin-top: getProjectCardSizes(title-content-margin-top);
+
+      &--purple-color {
+        color: getProjectCardColors(number-color-purple);
+      }
+      &--orange-color {
+        color: getProjectCardColors(number-color-orange);
+      }
+      &--lime-color {
+        color: getProjectCardColors(number-color-lime);
+      }
+
+      p {
+        margin-top: 1rem;
+        line-height: 0;
+        span {
+          font-size: getProjectCardSizes(number-font-size);
+          font-weight: getProjectCardSizes(number-font-weight);
+        }
+      }
+    }
+
+    .GameWrapper {
+      margin-top: getProjectCardSizes(game-wrapper-margin-top);
+
+      .GamesContent {
+        @include flex(null, center, $flex-wrap: wrap);
+        margin-bottom: getProjectCardSizes(games-content-margin-top);
+
+        .Game {
+          @include flex(null, center);
+          margin: getProjectCardSizes(game-margin);
+
+          .GameImg {
+            width: getProjectCardSizes(game-img-sizes);
+            height: getProjectCardSizes(game-img-sizes);
+
+            img {
+              width: 100%;
+            }
+          }
+          .GameLabel {
+            margin-left: getProjectCardSizes(game-label-margin-left);
+            max-width: getProjectCardSizes(dots-text-max-width);
+            @include dots-after-text();
+
+            span {
+              color: getProjectCardColors(game-label-color);
+              line-height: 0;
+            }
+          }
+        }
+      }
+      .OnlyImg {
+        @include flex(null, null, $flex-wrap: wrap);
+        .ImgContent {
+          width: getProjectCardSizes(img-content-width);
+          height: getProjectCardSizes(img-content-height);
+          margin: getProjectCardSizes(img-content-margin);
+
+          img {
+            width: 100%;
+          }
+        }
+      }
+    }
+    &--footer {
+      height: 45px;
+      width: 313px;
+      background-color: getProjectCardColors(#f0f0f7);
+      border: solid getProjectCardSizes(card-border-solid) getProjectCardColors(card-border-color);
+      border-bottom-left-radius: getProjectCardSizes(card-border-radius);
+      border-bottom-right-radius: getProjectCardSizes(card-border-radius);
+    }
+  }
+}

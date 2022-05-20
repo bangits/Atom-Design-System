@@ -1,12 +1,13 @@
 $divider-sizes: (
-  divider-marin-left:calculateRem(28px),
-  divider-before-height:calculateRem(12px),
-  divider-before-width:calculateRem(1px),
-  divider-before-position-left:calculateRem(-14px),
+  divider-marin-left: calculateRem(28px),
+  divider-before-height: calculateRem(12px),
+  divider-before-width: calculateRem(1px),
+  divider-before-position-left: calculateRem(-14px)
 );
 
 $divider-colors: (
-  divider-background-color:color(nepal),
+  divider-background-color: color(nepal),
+  vertical-divider-background-color: color(#f2f2f2)
 );
 
 @function getDividerSizes($key) {

@@ -12,4 +12,15 @@
       left: getDividerSizes(divider-before-position-left);
     }
   }
+  .VerticalDivider {
+    &::before {
+      position: absolute;
+      content: '';
+      height: 1px;
+      width: 95%;
+      top: 100%;
+      left: 2%;
+      background-color: #f2f2f2;
+    }
+  }
 }

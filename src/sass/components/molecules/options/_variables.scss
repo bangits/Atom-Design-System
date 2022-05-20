@@ -1,0 +1,37 @@
+$option-sizes: (
+  base-width: calculateRem(244px),
+  base-padding: calculateRem(8px) calculateRem(16px) calculateRem(8px) calculateRem(16px),
+  title-width: calculateRem(180px),
+  title-height: calculateRem(14px),
+  title-font-size: calculateRem(12px),
+  title-position-top: calculateRem(-6px),
+  name-max-width: calculateRem(130px),
+  description-max-width: calculateRem(140px),
+  core-margin: 0 0 calculateRem(4px) 0,
+  core-name-border-radius: 50%,
+  core-last-child-margin-bottom: calculateRem(0.06px),
+  description-height: calculateRem(17px),
+  description-font-size: calculateRem(14px),
+  dot-width-height: calculateRem(3px),
+  dot-margin: 0 calculateRem(4px) 0 calculateRem(1px),
+  children-border: calculateRem(0.5px),
+  children-margin-top: calculateRem(4px),
+  children-padding-top: calculateRem(4.5px),
+  item-padding: calculateRem(10px) calculateRem(12px) calculateRem(8px) calculateRem(6px) calculateRem(12px)
+);
+
+$option-colors: (
+  base-bg: color(white),
+  title-color: color(primary),
+  name-color: color(nepal),
+  description-color: color(black-color),
+  children-border-color: rgba(color(nepal), 0.1)
+);
+
+@function getOptionsSizes($key) {
+  @return map-get($option-sizes, $key);
+}
+
+@function getOptionsSizes($key) {
+  @return map-get($option-colors, $key);
+}
