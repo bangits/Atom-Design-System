@@ -39,6 +39,8 @@
         height: getStatusViewSizes(icon-button-sizes);
         svg {
           fill: currentColor;
+          min-width: 2rem;
+          min-height: 2rem;
         }
         span {
           height: 1.6rem;

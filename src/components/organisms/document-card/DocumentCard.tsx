@@ -58,7 +58,7 @@ const DocumentCard: FC<DocumentCardProps> = ({
         e.stopPropagation();
         setIsOpenMenu(false);
       }}
-      style={{ position: 'relative', width: '315px' }}>
+      style={{ position: 'relative' }}>
       <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1, right: '-15px', top: '55px' }}>
         {isOpenMenu && <Options data={menuItems} />}
       </div>

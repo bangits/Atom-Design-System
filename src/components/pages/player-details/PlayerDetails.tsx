@@ -10,6 +10,7 @@ import {
 } from '@/components';
 import { NameAndId } from '@/components/molecules/name-and-id';
 import { LastActivityView } from '@/components/organisms/last-activity-view';
+import { UserViewProps } from '@/components/organisms/user-view/UserView';
 import { WalletView } from '@/components/organisms/wallet-view';
 import { WalletViewProps } from '@/components/organisms/wallet-view/WalletView';
 import { typedMemo } from '@/helpers';
@@ -20,7 +21,7 @@ import classNames from 'classnames';
 import React, { FC, ReactNode, useState } from 'react';
 import styles from './PlayerDetails.module.scss';
 
-export interface PlayerDetailsProps extends WalletViewProps, LastActivityViewProps, FlexibleFormProps {
+export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, LastActivityViewProps, FlexibleFormProps {
   breadCrumbs: BreadcrumbProps['links'];
   createdBy: string;
   creationDate: string;

@@ -5,6 +5,8 @@ export * from './collapsable-table';
 export * from './count-view';
 export * from './details-main-info';
 export * from './dialog';
+export * from './document-card';
+export * from './document-cards';
 export * from './edit-form';
 export * from './edited-form';
 export * from './file-uploader';
