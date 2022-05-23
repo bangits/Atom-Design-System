@@ -1,0 +1,9 @@
+@mixin generate-organism-translation-group-styles {
+  .translationGroups {
+    width: getTranslationFormSizes(translation-group--width);
+    min-width: getTranslationFormSizes(translation-group--minWidth);
+  }
+  input {
+    width: getTranslationFormSizes(translation-group-input--width);
+  }
+}

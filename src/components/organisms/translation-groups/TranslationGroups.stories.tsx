@@ -43,6 +43,7 @@ export const Default = () => {
         }
       ]}
       onTranslationGroupSelect={action('onTranslationGroupSelect')}
+      searchValue=""
     />
   );
 };

@@ -51,9 +51,7 @@ const Translation = ({
       </div>
 
       <div className={styles.TranslationContents}>
-        <Card className={styles.TranslationLeftContent}>
-          {translationLeftContent}
-        </Card>
+        <Card className={styles.TranslationLeftContent}>{translationLeftContent}</Card>
         <Card className={styles.TranslationRightContent}>{translationRightContent}</Card>
       </div>
     </Card>

@@ -20,14 +20,15 @@ const TranslationForms = ({
   return (
     <Card>
       <div className={styles.TranslationForm}>
-        <Typography>{title}</Typography>
-
-        <SearchInput {...searchInputProps} />
+        <Typography className={styles.TranslationFormTitle}>{title}</Typography>
+        <div className={styles.TranslationFormSearchInputContainer}>
+          <SearchInput className={styles.TranslationFormSearchInput} {...searchInputProps} />
+        </div>
       </div>
 
       <div className={styles.TranslationFormsCards}>
-        <TranslationForm {...firstTranslationFormProps} />
-        <TranslationForm {...secondTranslationFormProps} />
+        <TranslationForm className={styles.FirstTranslationFormProps} {...firstTranslationFormProps} />
+        <TranslationForm className={styles.SecondTranslationFormProps} {...secondTranslationFormProps} />
       </div>
     </Card>
   );

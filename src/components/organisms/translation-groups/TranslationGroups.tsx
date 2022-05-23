@@ -1,24 +1,45 @@
-import { SearchInput, TranslationGroup, TranslationGroupProps } from '@/atom-design-system';
+import { SearchInput, SearchInputProps, TranslationGroup, TranslationGroupProps } from '../../';
 import { TextInput, Typography } from '@my-ui/core';
-import React from 'react';
+import React, { useMemo, useState } from 'react';
+import styles from './TranslationGroups.module.scss';
 
-export type TranslationGroupsProps = TranslationGroupProps
+export interface TranslationGroupsProps extends TranslationGroupProps {
+  searchInputProps?: SearchInputProps;
+}
 
 const TranslationGroups = ({
   translationsGroups,
   onTranslationGroupSelect,
-  selectedSubCategory
+  selectedSubCategory,
+  searchInputProps
 }: TranslationGroupsProps) => {
+  const [searchValue, setSearchValue] = useState('');
+
+  const translationGroupsSearched = useMemo(
+    () =>
+      searchValue.trim()
+        ? translationsGroups.filter(
+            (group) =>
+              group.name.includes(searchValue.trim()) ||
+              group.subCategories.find((subCategory) => subCategory.name.includes(searchValue.trim()))
+          )
+        : translationsGroups,
+    [translationsGroups, searchValue]
+  );
+
   return (
-    <>
-      {translationsGroups && translationsGroups.length ? <SearchInput /> : null}
+    <div className={styles.translationGroups}>
+      {translationsGroups && translationsGroups.length ? (
+        <SearchInput {...searchInputProps} onChange={(e) => setSearchValue(e.target.value)} />
+      ) : null}
 
       <TranslationGroup
         selectedSubCategory={selectedSubCategory}
         onTranslationGroupSelect={onTranslationGroupSelect}
-        translationsGroups={translationsGroups}
+        translationsGroups={translationGroupsSearched}
+        searchValue={searchValue}
       />
-    </>
+    </div>
   );
 };
 

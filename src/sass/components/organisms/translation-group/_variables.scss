@@ -1,5 +1,8 @@
 $translation-form-sizes: (
-  translation-form-search-input--container:calculateRem(252px)
+  translation-group--width: calculateRem(284px),
+  translation-group-input--width: calculateRem(284px),
+  translation-group--minWidth: calculateRem(284px)
+
 );
 
 $translation-form-colors: ();

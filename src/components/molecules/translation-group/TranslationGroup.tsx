@@ -13,19 +13,25 @@ export interface TranslationGroupProps {
     subCategories: TranslationGroupInterface[];
   } & TranslationGroupInterface)[];
   selectedSubCategory: number;
+  searchValue: string;
   onTranslationGroupSelect(translationGroup: TranslationGroupInterface): void;
 }
 
 const TranslationGroup = ({
   translationsGroups,
   onTranslationGroupSelect,
-  selectedSubCategory
+  selectedSubCategory,
+  searchValue
 }: TranslationGroupProps) => {
   const [selectedTranslationGroups, setSelectedTranslationGroups] = useState([]);
 
   useEffect(() => {
     if (!selectedSubCategory) setSelectedTranslationGroups([]);
   }, [selectedSubCategory]);
+
+  useEffect(() => {
+    if (searchValue.trim()) setSelectedTranslationGroups(translationsGroups.map((group) => group.id));
+  }, [searchValue]);
 
   return (
     <div className={classNames(styles.TranslationGroupContainer)}>
@@ -34,16 +40,26 @@ const TranslationGroup = ({
 
         return (
           <div className={classNames(styles.TranslationGroupName)} key={translationGroup.id}>
-            <div className={classNames(styles.TranslationGroupButtonContainer)}>{translationGroup.name}</div>
-            <button
-              className={classNames(styles.TranslationGroupButton)}
+            <div
               onClick={() =>
                 setSelectedTranslationGroups(
                   !isTranslationGroupSelected
                     ? [...selectedTranslationGroups, translationGroup.id]
                     : selectedTranslationGroups.filter((groupId) => groupId !== translationGroup.id)
                 )
-              }>
+              }
+              className={classNames(styles.TranslationGroupButtonContainer)}>
+              {translationGroup.name}
+            </div>
+            <button
+              onClick={() =>
+                setSelectedTranslationGroups(
+                  !isTranslationGroupSelected
+                    ? [...selectedTranslationGroups, translationGroup.id]
+                    : selectedTranslationGroups.filter((groupId) => groupId !== translationGroup.id)
+                )
+              }
+              className={classNames(styles.TranslationGroupButton)}>
               {isTranslationGroupSelected ? (
                 <svg viewBox='0 0 8 2' fill='none' xmlns='http://www.w3.org/2000/svg'>
                   <path
@@ -60,23 +76,16 @@ const TranslationGroup = ({
                 </svg>
               )}
             </button>
-
             {isTranslationGroupSelected && (
               <div className={styles.TranslationSubCategories}>
                 {translationGroup.subCategories.map((category) => (
                   <div
-                    // className={classNames(styles.Translation, {
-                    //   ['TranslationGroupCategories--selected']: selectedSubCategory === category.id
-                    // })}
+                    className={classNames(styles.Translation, {
+                      ['Translation--selected']: selectedSubCategory === category.id
+                    })}
                     style={{
-                      color: selectedSubCategory === category.id ? '#505D64' : '#C2C2DD',
-                      background: selectedSubCategory === category.id ? '#C4C4C4' : 'none',
-                      height: selectedSubCategory === category.id ? '21px' : '14px',
-                      display: 'flex',
-                      alignItems: 'center',
-                      borderRadius: '4px',
-                      fontSize: '14px',
-                      marginBottom: '10px'
+                      color: selectedSubCategory === category.id ? '#48485D' : '#8ea6c1',
+                      backgroundColor: selectedSubCategory === category.id ? '#EBEBF4' : 'white'
                     }}>
                     <div
                       key={category.id}

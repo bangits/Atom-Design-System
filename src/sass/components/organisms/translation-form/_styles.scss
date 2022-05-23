@@ -1,8 +1,36 @@
 @mixin generate-translation-form-styles {
   .TranslationForm {
     @include flex(space-between);
+    padding-left: 10px;
+  }
+  .TranslationFormTitle {
+    color: #48485d;
+    margin-top: 16px;
+    margin-left: 14px;
   }
   .TranslationFormsCards {
-    @include flex();
+    @include flex(center);
+  }
+  
+  .FirstTranslationFormProps {
+    margin-right: 6px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+  .SecondTranslationFormProps {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-left: 6px;
+  }
+  .TranslationFormSearchInputContainer {
+    width: getTranslationFormSizes(translation-form-search-input--container);
+    margin-right: 14px;
+    margin-top: 9px;
   }
 }

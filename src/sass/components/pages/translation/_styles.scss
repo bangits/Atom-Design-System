@@ -2,7 +2,6 @@
   .TranslationCard {
     background-color: getTranslationColors(card-color);
     padding: getTranslationSizes(translation-card-padding);
-
     box-sizing: border-box;
   }
 
@@ -13,19 +12,17 @@
   }
 
   .Collections {
-    width: fit-content;
     min-width: getTranslationSizes(collections-min-width);
   }
-
+  .TranslationLeftContent {
+    padding: getTranslationSizes(translation-left-content-padding);
+    min-width: getTranslationSizes(TranslationLeftContent-min-width);
+    width: getTranslationSizes(TranslationLeftContent-width);
+  }
   .TranslationContents {
     @include flex;
 
     column-gap: getTranslationSizes(translation-contents-gap);
-
-    .TranslationLeftContent {
-      padding: getTranslationSizes(translation-left-content-padding);
-      width: 284px;
-    }
 
     .TranslationRightContent {
       padding: getTranslationSizes(translation-right-content-padding);

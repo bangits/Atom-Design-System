@@ -8,9 +8,7 @@ export const TextInput = (props: TextInputProps & { optionalText?: ReactNode }) 
     <MYUITextInput
       {...props}
       label={
-        <>
-          <Label isForInput text={props.label} optional={!!props.optionalText} optionalText={`(${props.optionalText})`} />
-        </>
+        <Label isForInput text={props.label} optional={!!props.optionalText} optionalText={`(${props.optionalText})`} />
       }
     />
   );
