@@ -10,6 +10,7 @@ export default {
 export const Default = () => {
   return (
     <RadioGroup
+      disabled={false}
       label={text('label', 'Radio Group')}
       radios={object('radios', [
         {

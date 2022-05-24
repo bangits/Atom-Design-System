@@ -53,7 +53,7 @@ Default.args = {
       variant: 'active',
       statusLabel: 'Validate',
       document: {
-        value: '',
+        value: 'N/A',
         label: 'Document ID'
       },
       verifiedDate: {

@@ -15,19 +15,8 @@ export const Default = () => {
         title: 'Wallet',
         realBalance: {
           label: 'Real Balance',
-          balance: '21 300 AMD',
-          subBalance: [
-            { label: 'Casino', balance: '10 300 AMD' },
-            { label: 'Sport', balance: '11 000 AMD' }
-          ]
-        },
-        bonusBalance: {
-          label: 'Bonus Balance',
-          balance: '123 AMD'
-        },
-        totalBalance: {
-          label: 'Total Balance',
-          balance: '21 423 AMD'
+          balance: '21 300',
+          currencyLabel: 'USD'
         }
       })}
     />

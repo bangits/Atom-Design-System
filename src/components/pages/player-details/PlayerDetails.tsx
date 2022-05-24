@@ -1,10 +1,10 @@
+import { Icons } from '@/atom-design-system';
 import {
   FlexibleFormProps,
   ItemDetails,
   LastActivityViewProps,
   StatusView,
   StatusViewProps,
-  TagsView,
   UsedDevice,
   UsedDeviceProps
 } from '@/components';
@@ -28,6 +28,7 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
   usedDevice: UsedDeviceProps;
   playerDetails: ReactNode;
   playerKPI: ReactNode;
+  verifiedIcon?: boolean;
 
   translations: {
     status: string;
@@ -78,7 +79,8 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   userId,
   usedDevice,
   translations,
-  documents
+  documents,
+  verifiedIcon
 }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
@@ -102,6 +104,11 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
               </div>
             )}
             <NameAndId name={userName} id={userId} />
+            {verifiedIcon && (
+              <div className={styles['CardName--verified']}>
+                <Icons.PlayerVerifiedIcon />
+              </div>
+            )}
           </Card>
 
           <WalletView walletInfo={walletInfo} />
@@ -112,7 +119,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
             <LastActivityView lastActivity={lastActivity} />
           </div>
 
-          <TagsView />
+          {/* <TagsView /> */}
         </div>
         <Card className={classNames(styles['PlayerDetailsBase--content-control'])} borderRadius={1.6}>
           <div className={styles['PartnerDetailsBase__Main-Content']}>

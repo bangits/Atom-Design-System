@@ -8,29 +8,41 @@ export interface DocumentCardsProps {
 }
 
 const DocumentCards: FC<DocumentCardsProps> = ({ documents }) => {
-  return documents.map((document) => (
-    <>
-      <DocumentCard
-        noDataText={document.noDataText}
-        documentId={{
-          label: document.document.label,
-          value: document.document.value
-        }}
-        verifiedDate={{
-          label: document.verifiedDate.label,
-          value: document.verifiedDate.value
-        }}
-        col={4}
-        title={document.title}
-        logo={document.logo}
-        onArrowClick={() => {}}
-        icon={document.icon}
-        variant={document.variant}
-        statusLabel={document.statusLabel}
-        menuItems={document.menuItems}
-      />
-    </>
-  ));
+  return (
+    <div
+      style={{
+        marginRight: '35px',
+        display: 'flex',
+        width: '100%',
+        justifyContent: 'flex-start',
+        flexWrap: 'wrap',
+        gap: '20px'
+      }}>
+      {documents.map((document) => (
+        <>
+          <DocumentCard
+            noDataText={document.noDataText}
+            documentId={{
+              label: document.document.label,
+              value: document.document.value || document.noDataText
+            }}
+            verifiedDate={{
+              label: document.verifiedDate.label,
+              value: document.verifiedDate.value || document.noDataText
+            }}
+            col={4}
+            title={document.title}
+            logo={document.logo}
+            onArrowClick={() => {}}
+            icon={document.icon}
+            variant={document.variant}
+            statusLabel={document.statusLabel}
+            menuItems={document.menuItems}
+          />
+        </>
+      ))}
+    </div>
+  );
 };
 
 export default DocumentCards;

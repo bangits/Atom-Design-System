@@ -1,6 +1,7 @@
 @mixin generate-player-details-styles {
   .PlayerDetailsBase {
     .CardName {
+      position: relative;
       margin-bottom: 10px;
       @include flex(null, center);
       background-color: getUserDetailsColors(card-background-color);
@@ -12,6 +13,13 @@
       &--avatar {
         width: getUserDetailsSizes(avatar-sizes);
         height: getUserDetailsSizes(avatar-sizes);
+      }
+
+      &--verified {
+        position: absolute;
+        right: -5px;
+        z-index: 10000;
+        top: 10px;
       }
       > div {
         &:first-child {

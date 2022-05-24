@@ -61,6 +61,7 @@ export { ReactComponent as UnLockIcon } from './unlock.react.svg';
 export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
+export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.svg';
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';

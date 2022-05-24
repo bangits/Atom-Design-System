@@ -9,19 +9,20 @@ export interface WalletViewProps {
     realBalance: {
       label: string;
       balance: number | string;
-      subBalance: {
-        label: string;
-        balance: number | string;
-      }[];
+      currencyLabel: string;
+      // subBalance: {
+      //   label: string;
+      //   balance: number | string;
+      // }[];
     };
-    bonusBalance: {
-      label: string;
-      balance: number | string;
-    };
-    totalBalance: {
-      label: string;
-      balance: number | string;
-    };
+    // bonusBalance: {
+    //   label: string;
+    //   balance: number | string;
+    // };
+    // totalBalance: {
+    //   label: string;
+    //   balance: number | string;
+    // };
   };
 }
 
@@ -31,25 +32,28 @@ const WalletView: FC<WalletViewProps> = ({ walletInfo }) => {
       <div className={classNames(styles['WalletView--title'])}>{walletInfo.title}</div>
       <div className={classNames(styles['WalletView--realBalance'])}>
         <div>
-          <span>{walletInfo.realBalance.label}</span> <span>{walletInfo.realBalance.balance}</span>
+          <span>{walletInfo.realBalance.label}</span>{' '}
+          <span>
+            {walletInfo.realBalance.balance} {walletInfo.realBalance.currencyLabel}
+          </span>{' '}
         </div>
-        <ul>
+        {/* <ul>
           {walletInfo.realBalance.subBalance.map((sub) => (
             <li key={sub.label}>
               <span>{sub.label}</span>
               <span>{sub.balance}</span>
             </li>
           ))}
-        </ul>
+        </ul> */}
       </div>
-      <div className={classNames(styles['WalletView--bonusBalance'])}>
+      {/* <div className={classNames(styles['WalletView--bonusBalance'])}>
         <span>{walletInfo.bonusBalance.label}</span>
         <span>{walletInfo.bonusBalance.balance}</span>
       </div>
       <div className={classNames(styles['WalletView--totalBalance'])}>
         <span>{walletInfo.totalBalance.label}</span>
         <span>{walletInfo.totalBalance.balance}</span>
-      </div>
+      </div> */}
     </Card>
   );
 };
