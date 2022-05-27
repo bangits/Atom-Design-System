@@ -1,31 +1,26 @@
 @mixin generate-translation-page-styles {
-  .TranslationCard {
-    background-color: getTranslationColors(card-color);
-    padding: getTranslationSizes(translation-card-padding);
-    box-sizing: border-box;
-  }
-
-  .TranslationActions {
-    @include flex(flex-end);
-
-    column-gap: getTranslationSizes(actions-column-gap);
-  }
-
-  .Collections {
-    min-width: getTranslationSizes(collections-min-width);
-  }
-  .TranslationLeftContent {
-    padding: getTranslationSizes(translation-left-content-padding);
-    min-width: getTranslationSizes(TranslationLeftContent-min-width);
-    width: getTranslationSizes(TranslationLeftContent-width);
-  }
-  .TranslationContents {
-    @include flex;
-
-    column-gap: getTranslationSizes(translation-contents-gap);
-
-    .TranslationRightContent {
-      padding: getTranslationSizes(translation-right-content-padding);
+    .TranslationCard {
+        background-color: getTranslationColors(card-color);
+        padding: getTranslationSizes(translation-card-padding);
+        box-sizing: border-box;
     }
-  }
+    .TranslationActions {
+        @include flex(flex-end);
+        column-gap: getTranslationSizes(actions-column-gap);
+    }
+    .Collections {
+        max-width: 250px;
+    }
+    .TranslationLeftContent {
+        padding: getTranslationSizes(translation-left-content-padding);
+        min-width: getTranslationSizes(TranslationLeftContent-min-width);
+        width: getTranslationSizes(TranslationLeftContent-width);
+    }
+    .TranslationContents {
+        @include flex;
+        column-gap: getTranslationSizes(translation-contents-gap);
+        .TranslationRightContent {
+            padding: getTranslationSizes(translation-right-content-padding);
+        }
+    }
 }

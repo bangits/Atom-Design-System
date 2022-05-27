@@ -46,6 +46,7 @@ export { ReactComponent as SettingsIcon } from './setting.react.svg';
 export { ReactComponent as SignInImage } from './SignIn.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as ToolsIcon } from './tools.react.svg';
+export { ReactComponent as TranslationIcon } from './translation.react.svg';
 export { ReactComponent as DustbinIcon } from './trash-indicator.react.svg';
 export { ReactComponent as BlockPopupIcon } from './unblock.react.svg';
 export { ReactComponent as UnLockIcon } from './unlock.react.svg';
