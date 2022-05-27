@@ -1,6 +1,7 @@
 $name-and-id-styles: (
   base-font-size: calculateRem(14px),
   base-label-width: calculateRem(160px),
+  default-base-label-width: calculateRem(130px),
   base-label-height: calculateRem(17px),
   name-margin: 0 0 calculateRem(8px) 0,
   name-font-weight: 700
@@ -8,7 +9,9 @@ $name-and-id-styles: (
 
 $name-and-id-colors: (
   name-color: color(primary),
-  id-color: color(nepal)
+  name-color-default: color(primary),
+  id-color: color(nepal),
+  id-color-default: color(#48485d)
 );
 
 @function getGameAndIdSizes($key) {

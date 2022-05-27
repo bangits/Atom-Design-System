@@ -20,7 +20,6 @@
         height: getUserDetailsSizes(user-card-name-height);
         padding: getUserDetailsSizes(user-card-name-padding);
         box-sizing: border-box;
-
         &--avatar {
           width: getUserDetailsSizes(avatar-sizes);
           height: getUserDetailsSizes(avatar-sizes);

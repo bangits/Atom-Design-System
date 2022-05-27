@@ -1,0 +1,51 @@
+@mixin generate-document-status-styles {
+  div.DocumentStatus {
+    @include flex(space-between, center);
+    // width: getStatusViewSizes(status-width);
+    width: 100%;
+    padding: getStatusViewSizes(status-padding);
+    box-sizing: border-box;
+    background-color: getStatusViewColors(status-view-background-color);
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    > span {
+      span {
+        height: 1.7rem;
+      }
+      &:first-child {
+        padding: getStatusViewSizes(status-label-padding);
+        font-size: getStatusViewSizes(status-label-font-size);
+        text-align: left;
+        color: getStatusViewColors(status-label-color);
+        word-break: break-all;
+        width: getStatusViewSizes(wallet-balance-width);
+        @include dots-after-text();
+      }
+    }
+
+    &--container {
+      @include flex(null, center);
+    }
+
+    &--status {
+      margin: getStatusViewSizes(st-label-margin);
+    }
+
+    &--iconButton {
+      button {
+        width: getStatusViewSizes(icon-button-sizes);
+        height: getStatusViewSizes(icon-button-sizes);
+        svg {
+          fill: currentColor;
+          min-width: 2rem;
+          min-height: 2rem;
+        }
+        span {
+          height: 1.6rem;
+        }
+      }
+    }
+  }
+}

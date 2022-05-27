@@ -1,0 +1,116 @@
+@mixin generate-options-styles {
+  .OptionsBase {
+    position: relative;
+    // width: getOptionsSizes(base-width);
+    width: 110px;
+    height: 97px;
+    background-color: white;
+    padding: getOptionsSizes(base-padding);
+    box-sizing: border-box;
+
+    &--title {
+      position: relative;
+      top: getOptionsSizes(title-position-top);
+      display: inline-block;
+      width: getOptionsSizes(title-width);
+      height: getOptionsSizes(title-height);
+      font-size: getOptionsSizes(title-font-size);
+      color: getOptionsColors(title-color);
+      @include dots-after-text();
+      text-align: left;
+      word-break: break-word;
+    }
+    .OptionsBase--core:first-child {
+      border-top-left-radius: 8px;
+      border-top-right-radius: 8px;
+      border-bottom-right-radius: 0px;
+      border-bottom-left-radius: 0;
+    }
+
+    .OptionsBase--core:last-child {
+      div:nth-child(1) {
+        display: none;
+      }
+    }
+
+    .OptionsBase--core:last-child:hover {
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 8px;
+      border-bottom-left-radius: 8px;
+    }
+
+    .OptionsBase--core:last-child:first-child {
+      opacity: 0;
+    }
+
+    .OptionsBase--core:hover {
+      background-color: #f7f7fb;
+      cursor: pointer;
+    }
+
+    &--core {
+      padding: 10px 12px 10px 13px;
+      @include flex(initial, center);
+      margin: getOptionsSizes(core-margin);
+      color: #505d6e;
+      position: relative;
+      span:last-child {
+        margin-left: 10px;
+      }
+    }
+
+    &--name {
+      @include dots-after-text();
+      height: getOptionsSizes(title-height);
+      font-size: getOptionsSizes(title-font-size);
+      color: getOptionsColors(name-color);
+      max-width: getOptionsSizes(name-max-width);
+    }
+
+    &--description {
+      @include dots-after-text();
+      height: getOptionsSizes(description-height);
+      font-size: getOptionsSizes(description-font-size);
+      color: getOptionsColors(description-color);
+      max-width: getOptionsSizes(description-max-width);
+    }
+
+    &--sub-core {
+      @include flex(space-between, center);
+      margin: getOptionsSizes(core-margin);
+      height: getOptionsSizes(description-height);
+      font-size: getOptionsSizes(description-font-size);
+      color: getOptionsColors(description-color);
+    }
+
+    &--sub-core__name {
+      @include flex(null, center);
+      height: getOptionsSizes(title-height);
+      font-size: getOptionsSizes(title-font-size);
+      color: getOptionsColors(name-color);
+
+      &:before {
+        content: '';
+        width: getOptionsSizes(dot-width-height);
+        height: getOptionsSizes(dot-width-height);
+        border-radius: getOptionsSizes(core-name-border-radius);
+        background-color: getOptionsColors(name-color);
+        margin: getOptionsSizes(dot-margin);
+      }
+    }
+
+    &--children {
+      @include flex(space-between, center);
+      border-top: getOptionsSizes(children-border) solid getOptionsColors(children-border-color);
+      margin-top: getOptionsSizes(children-margin-top);
+      padding-top: getOptionsSizes(children-padding-top);
+
+      > span {
+        height: getOptionsSizes(title-height);
+        font-size: getOptionsSizes(title-font-size);
+        color: getOptionsColors(name-color);
+      }
+    }
+  }
+}

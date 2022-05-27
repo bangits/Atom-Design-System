@@ -2,6 +2,25 @@
   .NameAndIdBase {
     @include flex(null, null, column);
 
+    &--default_name {
+      @include dots-after-text();
+      width: getGameAndIdSizes(default-base-label-width);
+      height: getGameAndIdSizes(base-label-height);
+      font-size: getGameAndIdSizes(base-font-size);
+      font-weight: getGameAndIdSizes(300);
+      color: getGameAndIdColors(id-color);
+      margin: getGameAndIdSizes(name-margin);
+    }
+    &--default_id {
+      @include dots-after-text();
+      width: getGameAndIdSizes(default-base-label-width);
+      height: getGameAndIdSizes(base-label-height);
+      font-size: getGameAndIdSizes(base-font-size);
+      font-weight: getGameAndIdSizes(300);
+      color: getGameAndIdColors(id-color-default);
+      margin: getGameAndIdSizes(name-margin);
+    }
+
     &--name {
       @include dots-after-text();
       width: getGameAndIdSizes(base-label-width);

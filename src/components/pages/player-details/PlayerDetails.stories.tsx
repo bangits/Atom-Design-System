@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <PlayerDetails
+      verifiedIcon={true}
       createdBy='Admin'
       creationDate='11,26,5662'
       title=''
@@ -24,19 +25,8 @@ export const Default = () => {
         title: 'Wallet',
         realBalance: {
           label: 'Real Balance',
-          balance: '21 300 AMD',
-          subBalance: [
-            { label: 'Casino', balance: '10 300 AMD' },
-            { label: 'Sport', balance: '11 000 AMD' }
-          ]
-        },
-        bonusBalance: {
-          label: 'Bonus Balance',
-          balance: '123 AMD'
-        },
-        totalBalance: {
-          label: 'Total Balance',
-          balance: '21 423 AMD'
+          balance: '21 300',
+          currencyLabel: 'USD'
         }
       })}
       statusInfo={object('statusInfo', {
@@ -66,12 +56,14 @@ export const Default = () => {
           label: 'Player Details'
         }
       ]}
-      lastLoginDate={'12321313'}
-      lastLoginSession={'123123'}
       translations={{
+        documents: '',
+        finances: '',
+        games: '',
+        general: '',
+        playerDetails: '',
+        playerKPI: '',
         status: 'Status',
-        lastLoginDate: '',
-        lastLoginSession: '',
         registeredFormIp: '',
         generalInformation: '',
         settings: '',
@@ -82,6 +74,16 @@ export const Default = () => {
         passwordContext: '',
         languagesContent: ''
       }}
+      userImgUrl={''}
+      userName={''}
+      userId={0}
+      usedDevice={object('statusInfo', {
+        label: 'Status',
+        icon: 'active'
+      })}
+      playerDetails={''}
+      playerKPI={''}
+      documents={'Documents'}
     />
   );
 };
