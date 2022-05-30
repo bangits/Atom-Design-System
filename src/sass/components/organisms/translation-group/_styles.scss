@@ -1,9 +1,14 @@
 @mixin generate-organism-translation-group-styles {
-  .translationGroups {
-    width: getTranslationFormSizes(translation-group--width);
-    min-width: getTranslationFormSizes(translation-group--minWidth);
-  }
-  input {
-    width: getTranslationFormSizes(translation-group-input--width);
-  }
+    .SelectContainer {
+        margin-left: 1rem;
+        margin-top: 1rem;
+        max-height: 5.5rem;
+    }
+    .translationGroups {
+        width: getTranslationFormSizes(translation-group--width);
+        min-width: getTranslationFormSizes(translation-group--minWidth);
+    }
+    input {
+        width: getTranslationFormSizes(translation-group-input--width);
+    }
 }

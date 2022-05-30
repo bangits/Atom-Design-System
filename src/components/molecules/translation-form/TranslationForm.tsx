@@ -1,5 +1,4 @@
-import { Form } from '@/atom-design-system';
-import { Card } from '@my-ui/core';
+import { Card, Scroll } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { ReactNode } from 'react';
 import { Select, SelectProps } from '../select';
@@ -21,8 +20,9 @@ const TranslationForm = ({
   return (
     <Card className={(classNames(styles.TranslationFormCard), className)}>
       <LanguageSelect {...languageSelectProps} />
-
-      {formContent}
+      <Scroll>
+        <div className={styles.TranslationFormContent}>{formContent}</div>
+      </Scroll>
     </Card>
   );
 };

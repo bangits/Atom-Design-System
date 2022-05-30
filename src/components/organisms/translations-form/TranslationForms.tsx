@@ -1,8 +1,7 @@
 import { SearchInput, SearchInputProps, TranslationForm, TranslationFormProps } from '@/atom-design-system';
-import { Card, Typography } from '@my-ui/core';
-import classNames from 'classnames';
-import styles from './TranslationForms.module.scss';
+import { Typography } from '@my-ui/core';
 import React from 'react';
+import styles from './TranslationForms.module.scss';
 
 export interface TranslationFormsProps {
   title: string;
@@ -18,9 +17,9 @@ const TranslationForms = ({
   secondTranslationFormProps
 }: TranslationFormsProps) => {
   return (
-    <Card>
+    <>
       <div className={styles.TranslationForm}>
-        <Typography className={styles.TranslationFormTitle}>{title}</Typography>
+        <Typography className={styles.TranslationFormTitle}>{/* {title} */}</Typography>
         <div className={styles.TranslationFormSearchInputContainer}>
           <SearchInput className={styles.TranslationFormSearchInput} {...searchInputProps} />
         </div>
@@ -30,7 +29,7 @@ const TranslationForms = ({
         <TranslationForm className={styles.FirstTranslationFormProps} {...firstTranslationFormProps} />
         <TranslationForm className={styles.SecondTranslationFormProps} {...secondTranslationFormProps} />
       </div>
-    </Card>
+    </>
   );
 };
 
