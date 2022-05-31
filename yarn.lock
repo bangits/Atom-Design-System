@@ -1539,10 +1539,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/core@^0.7.1":
-  version "0.7.1"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.7.1.tgz#81e573f51578d453de5bde9fb45e8c9788a4f5fd"
-  integrity sha1-geVz9RV41FPeW96ftF6Ml4ik9f0=
+"@my-ui/core@^0.6.11":
+  version "0.6.11"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.6.11.tgz#db6028ed243e98c8803386f4302e697d959296c0"
+  integrity sha1-22Ao7SQ+mMiAM4b0MC5pfZWSlsA=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"

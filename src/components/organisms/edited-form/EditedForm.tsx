@@ -38,6 +38,7 @@ export interface EditedFormProps {
   col?: 6 | 12;
   showDeleteButton?: boolean;
   onDelete?: () => void;
+  showEditIcons?: boolean;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -52,7 +53,8 @@ const EditedForm: FC<EditedFormProps> = ({
   col,
   showDeleteButton,
   deleteButtonTooltipText,
-  onDelete
+  onDelete,
+  showEditIcons = true
 }) => {
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
   const [height, setHeight] = useState<number>();
@@ -97,16 +99,18 @@ const EditedForm: FC<EditedFormProps> = ({
       style={{ opacity: height ? 1 : 0 }}>
       <div className={classNames(styles['EditedFormBase--control'])}>
         <span className={classNames(styles['EditedFormBase--control-title'])}>{title}</span>
-        <div className={classNames(styles['EditedFormBase--control-button'])}>
-          <Tooltip showEvent='hover' text={editButtonTooltipText}>
-            <IconButton icon={<PenIcon />} onClick={onToggle} />
-          </Tooltip>
-          {showDeleteButton && (
-            <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
-              <IconButton icon={<DustbinIcon />} onClick={onDelete} />
+        {showEditIcons && (
+          <div className={classNames(styles['EditedFormBase--control-button'])}>
+            <Tooltip showEvent='hover' text={editButtonTooltipText}>
+              <IconButton icon={<PenIcon />} onClick={onToggle} />
             </Tooltip>
-          )}
-        </div>
+            {showDeleteButton && (
+              <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
+                <IconButton icon={<DustbinIcon />} onClick={onDelete} />
+              </Tooltip>
+            )}
+          </div>
+        )}
       </div>
       <Card borderRadius={1.6} className={classNames(styles['EditedFormBase--card-content'])}>
         <div
