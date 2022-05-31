@@ -10,6 +10,7 @@ export default {
 export const Default = () => {
   return (
     <GameList
+      onGameDetailsClick={() => {}}
       games={[
         {
           id: 1,
@@ -18,6 +19,11 @@ export const Default = () => {
         }
       ]}
       playDemo='Play Demo'
+      isAllGamesLoaded={false}
+      isLoadingGames={false}
+      onChange={function (page: number): void {
+        throw new Error('Function not implemented.');
+      }}
     />
   );
 };

@@ -1,43 +1,70 @@
 import { GameCard, GameCardProps } from '@/atom-design-system';
 import { Loader, Scroll } from '@my-ui/core';
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './GameList.module.scss';
 
 export interface GameListProps {
   games: GameCardProps[];
   playDemo?: string;
+  isAllGamesLoaded: boolean;
+  isLoadingGames: boolean;
+  onChange(page: number): void;
+  onGameDetailsClick(id: number): void;
+  onActivateClick?({ id: number, name: string }): void;
+  onDeActivateClick?({ id: number, name: string }): void;
 }
 
-const GameList = ({ games, playDemo }: GameListProps) => {
+const GameList = ({
+  games,
+  playDemo,
+  isLoadingGames,
+  isAllGamesLoaded,
+  onChange,
+  onGameDetailsClick,
+  onDeActivateClick,
+  onActivateClick
+}: GameListProps) => {
+  const [currentPage, setCurrentPage] = useState<number>(1);
+
+  // getEditUrl={(column) =>
+  //   ROUTES.baseUrl + ROUTES.players + ROUTES.playerDetails.replace(':id', column.id.toString()) + '/?isEdit=true'
+  // }
+  // getViewUrl={(column) =>
+  //   ROUTES.baseUrl + ROUTES.players + ROUTES.playerDetails.replace(':id', column.id.toString())
+  // }
+
   return (
     <Scroll
-      height='55rem'
+      height='60rem'
       autoHide
       onScroll={(e) => {
-        // if (isAllGamesLoaded || isLoadingGames) return;
+        if (isAllGamesLoaded || isLoadingGames) return;
         const isScrolledToBottom =
           (e.target as HTMLDivElement).offsetHeight + (e.target as HTMLDivElement).scrollTop >=
           (e.target as HTMLDivElement).scrollHeight;
 
-        console.log(isScrolledToBottom);
-
-        // if (isScrolledToBottom) {
-        //   onChange(selectedGameType, searchValue, currentPage + 1);
-        //   setCurrentPage(currentPage + 1);
-        // }
+        if (isScrolledToBottom) {
+          onChange(currentPage + 1);
+          setCurrentPage(currentPage + 1);
+        }
       }}
       className={styles.GamesScroll}>
       <div className={styles.GamesContainer}>
         {games.map((game) => (
           <div className={styles.GameCard} key={game.id}>
-            <GameCard {...game} playDemo={playDemo} />
+            <GameCard
+              onActivateClick={onActivateClick}
+              onDeActivateClick={onDeActivateClick}
+              onGameDetailsClick={onGameDetailsClick}
+              {...game}
+              isPlayIconShow={!!playDemo}
+              playDemo={playDemo}
+            />
           </div>
         ))}
       </div>
 
-      <div className={styles.LoaderContainer}>
-        <Loader />
-      </div>
+      <div className={styles.LoaderContainer}>{isLoadingGames && <Loader />}</div>
     </Scroll>
   );
 };
