@@ -1,0 +1,16 @@
+$translation-form-sizes: (
+  translation-group--width: calculateRem(284px),
+  translation-group-input--width: calculateRem(284px),
+  translation-group--minWidth: calculateRem(284px)
+
+);
+
+$translation-form-colors: ();
+
+@function getTranslationFormSizes($key) {
+  @return map-get($translation-form-sizes, $key);
+}
+
+@function getTranslationFormColors($key) {
+  @return map-get($translation-form-colors, $key);
+}

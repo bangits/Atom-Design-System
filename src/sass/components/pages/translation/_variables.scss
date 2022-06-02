@@ -1,0 +1,22 @@
+$translation-sizes: (
+  translation-card-padding: calculateRem(4px) calculateRem(23px) calculateRem(11px) calculateRem(11px),
+  actions-column-gap: calculateRem(10px),
+  collections-min-width: calculateRem(284px),
+  translation-left-content-padding: calculateRem(10px) calculateRem(16px),
+  translation-right-content-padding: calculateRem(9px) calculateRem(3px),
+  translation-contents-gap: calculateRem(10px),
+  TranslationLeftContent-min-width: calculateRem(284px),
+  TranslationLeftContent-width: calculateRem(284px)
+);
+
+$translation-colors: (
+  card-color: color(white)
+);
+
+@function getTranslationColors($key) {
+  @return map-get($translation-colors, $key);
+}
+
+@function getTranslationSizes($key) {
+  @return map-get($translation-sizes, $key);
+}

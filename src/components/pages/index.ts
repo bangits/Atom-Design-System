@@ -7,4 +7,4 @@ export * from './project-details';
 export * from './provider-details';
 export * from './sign-in';
 export * from './user-details';
-
+export * from './translation';

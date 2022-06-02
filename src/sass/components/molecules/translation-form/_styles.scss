@@ -1,0 +1,9 @@
+@mixin generate-molecules-translation-form-styles {
+  .TranslationFormCard {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 9px;
+    width: getTranslationGroupSizes(translation-form-card--width);
+    @include flex(null, center, column);
+  }
+}

@@ -1,0 +1,14 @@
+$translation-group-sizes: (
+  tag-country-gap: calculateRem(8px),
+  translation-form-card--width: calculateRem(363px)
+);
+
+$translation-group-colors: ();
+
+@function getTranslationGroupSizes($key) {
+  @return map-get($translation-group-sizes, $key);
+}
+
+@function getTranslationGroupColors($key) {
+  @return map-get($translation-group-colors, $key);
+}
