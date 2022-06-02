@@ -12,6 +12,7 @@ export interface GameListProps {
   onGameDetailsClick(id: number): void;
   onActivateClick?({ id: number, name: string }): void;
   onDeActivateClick?({ id: number, name: string }): void;
+  onGameClick?(gameId: string | number, isDemo: boolean): void;
 }
 
 const GameList = ({
@@ -22,7 +23,8 @@ const GameList = ({
   onChange,
   onGameDetailsClick,
   onDeActivateClick,
-  onActivateClick
+  onActivateClick,
+  onGameClick
 }: GameListProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -53,6 +55,7 @@ const GameList = ({
         {games.map((game) => (
           <div className={styles.GameCard} key={game.id}>
             <GameCard
+              onGameClick={onGameClick}
               onActivateClick={onActivateClick}
               onDeActivateClick={onDeActivateClick}
               onGameDetailsClick={onGameDetailsClick}
