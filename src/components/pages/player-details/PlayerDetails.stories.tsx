@@ -48,43 +48,15 @@ export const Default = () => {
           }
         ]
       })}
-      // breadCrumbs={[
-      //   {
-      //     label: 'Player Management',
-      //     isRedirect: true
-      //   },
-      //   {
-      //     label: 'Player Details'
-      //   }
-      // ]}
-      // translations={{
-      //   documents: '',
-      //   finances: '',
-      //   games: '',
-      //   general: '',
-      //   playerDetails: '',
-      //   playerKPI: '',
-      //   status: 'Status',
-      //   registeredFormIp: '',
-      //   generalInformation: '',
-      //   settings: '',
-      //   wallet: '',
-      //   projects: '',
-      //   creationDate: '',
-      //   createdBy: '',
-      //   passwordContext: '',
-      //   languagesContent: ''
-      // }}
-      // userImgUrl={''}
-      // userName={''}
-      // userId={0}
-      // usedDevice={object('statusInfo', {
-      //   label: 'Status',
-      //   icon: 'active'
-      // })}
-      // playerDetails={''}
-      // playerKPI={''}
-      // documents={'Documents'}
+      breadCrumbs={[
+        {
+          label: 'Player Management',
+          isRedirect: true
+        },
+        {
+          label: 'Player Details'
+        }
+      ]}
     />
   );
 };

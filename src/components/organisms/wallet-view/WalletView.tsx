@@ -9,7 +9,10 @@ export interface WalletViewProps {
     realBalance: {
       label: string;
       balance: number | string;
+<<<<<<< Updated upstream
       currencyLabel: string;
+=======
+>>>>>>> Stashed changes
     };
     // bonusBalance: {
     //   label: string;

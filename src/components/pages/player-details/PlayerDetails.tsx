@@ -40,19 +40,21 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   walletInfo,
   statusInfo,
   lastActivity,
-  breadCrumb,
+  breadCrumbs,
   tabs
 }) => {
   const [tabValue, setTabValue] = useState(1);
   const [subTabValue, setSubTabValue] = useState(1);
   const [edit, setEdit] = useState(false);
 
-  const [date, setDate] = useState<Date | null>(null);
-
   return (
     <div className={classNames(styles.PlayerDetailsBase)}>
       <div className={classNames(styles['PlayerDetailsBase--breadCrumb'])}>
+<<<<<<< Updated upstream
         <Breadcrumb links={breadCrumb} />
+=======
+        <Breadcrumb links={breadCrumbs} />
+>>>>>>> Stashed changes
       </div>
       <div className={classNames(styles['PlayerDetailsBase--content'])}>
         <div className={classNames(styles['PlayerDetailsUserInfo--content-info'])}>
