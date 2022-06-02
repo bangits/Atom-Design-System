@@ -48,7 +48,7 @@ export const Default = () => {
           }
         ]
       })}
-      breadCrumbs={[
+      breadCrumb={[
         {
           label: 'Player Management',
           isRedirect: true
