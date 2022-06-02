@@ -20,7 +20,7 @@ import React, { FC, useState } from 'react';
 import styles from './PlayerDetails.module.scss';
 
 export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, LastActivityViewProps, FlexibleFormProps {
-  breadCrumb?: BreadcrumbProps;
+  breadCrumb?: BreadcrumbProps['links'];
   tabs?: {
     tab?: TabProps & {
       whichSubs: number;
@@ -52,7 +52,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   return (
     <div className={classNames(styles.PlayerDetailsBase)}>
       <div className={classNames(styles['PlayerDetailsBase--breadCrumb'])}>
-        <Breadcrumb links={breadCrumb.links} />
+        <Breadcrumb links={breadCrumb} />
       </div>
       <div className={classNames(styles['PlayerDetailsBase--content'])}>
         <div className={classNames(styles['PlayerDetailsUserInfo--content-info'])}>

@@ -9,6 +9,7 @@ export interface WalletViewProps {
     realBalance: {
       label: string;
       balance: number | string;
+      currencyLabel: string;
     };
     // bonusBalance: {
     //   label: string;
