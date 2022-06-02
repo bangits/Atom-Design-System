@@ -9,11 +9,6 @@ export interface WalletViewProps {
     realBalance: {
       label: string;
       balance: number | string;
-      currencyLabel: string;
-      // subBalance: {
-      //   label: string;
-      //   balance: number | string;
-      // }[];
     };
     // bonusBalance: {
     //   label: string;
@@ -39,6 +34,7 @@ const WalletView: FC<WalletViewProps> = ({ walletInfo }) => {
         </div>
         {/* <ul>
           {walletInfo.realBalance.subBalance.map((sub) => (
+          {walletInfo.realBalance.map((sub) => (
             <li key={sub.label}>
               <span>{sub.label}</span>
               <span>{sub.balance}</span>

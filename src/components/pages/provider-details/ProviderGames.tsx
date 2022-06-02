@@ -30,6 +30,7 @@ export interface ProviderGamesProps {
   isTabLoading: boolean;
   hasGames: boolean;
   shouldShowAddGameButton?: boolean;
+  isShowActivateOrDeactivateButton?: boolean;
 
   onChange(gameTypeId: number, search: string, page: number): void;
   onGameClick(gameId: number, isDemo: boolean): void;
@@ -50,7 +51,8 @@ export const ProviderGames = ({
   isTabLoading,
   hasGames,
   shouldShowAddGameButton = true,
-  onGameDetailsClick
+  onGameDetailsClick,
+  isShowActivateOrDeactivateButton
 }: ProviderGamesProps) => {
   const [searchValue, setSearchValue] = useState('');
   const latestSearchValue = useRef('');

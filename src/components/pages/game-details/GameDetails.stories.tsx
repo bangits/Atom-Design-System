@@ -12,11 +12,11 @@ export default {
 
 export const Default = () => {
   enum SupportedBrowsersEnum {
-    SAFARI = 1,
-    CHROME = 2,
-    FIREFOX = 3,
-    EDGE = 4,
-    OPERA = 5
+    SAFARI = 'Safari',
+    CHROME = 'Chrome',
+    FIREFOX = 'Mozilla Firefox',
+    EDGE = 'Edge',
+    OPERA = 'Opera'
   }
 
   return (
