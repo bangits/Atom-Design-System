@@ -11,6 +11,7 @@ export { ReactComponent as CheckPopupIcon } from './check-popup.react.svg';
 export { ReactComponent as ChromeIcon } from './chrome.react.svg';
 export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg';
 export { ReactComponent as CloseIcon } from './close.react.svg';
+export { ReactComponent as CMSIcon } from './cms.react.svg';
 export { ReactComponent as DashboardIllustration } from './dashboard-illustartion.react.svg';
 export { ReactComponent as DesktopIcon } from './desktop.react.svg';
 export { ReactComponent as DownloadIcon } from './download.react.svg';
