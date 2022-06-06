@@ -128,35 +128,37 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
               ]}
             />
           </div> */}
+
           {!isCmsUser && (
-            <>
-              {' '}
-              <CountView noDataText={noDataText} title={translations.totalGameCount} count={totalGameCount} />
-              <div className={styles.StatusContent}>
-                <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
-              </div>
-              <NameDescription
-                noDataText={noDataText}
-                data={[
-                  {
-                    name: translations.creationDate,
-                    description: creationDate
-                  },
-                  {
-                    name: translations.createdBy,
-                    description: createdBy
-                  },
-                  {
-                    name: translations.lastUpdatedDate,
-                    description: lastUpdatedDate
-                  },
-                  {
-                    name: translations.lastUpdatedBy,
-                    description: lastUpdatedBy
-                  }
-                ]}
-              />
-            </>
+            <CountView noDataText={noDataText} title={translations.totalGameCount} count={totalGameCount} />
+          )}
+          {isCmsUser && (
+            <div className={styles.StatusContent}>
+              <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
+            </div>
+          )}
+          {!isCmsUser && (
+            <NameDescription
+              noDataText={noDataText}
+              data={[
+                {
+                  name: translations.creationDate,
+                  description: creationDate
+                },
+                {
+                  name: translations.createdBy,
+                  description: createdBy
+                },
+                {
+                  name: translations.lastUpdatedDate,
+                  description: lastUpdatedDate
+                },
+                {
+                  name: translations.lastUpdatedBy,
+                  description: lastUpdatedBy
+                }
+              ]}
+            />
           )}
         </div>
         <div

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { GameCard, GameCardProps } from '@/atom-design-system';
 import { Loader, Scroll } from '@my-ui/core';
 import React, { useState } from 'react';
@@ -10,9 +11,9 @@ export interface GameListProps {
   isLoadingGames: boolean;
   onChange(page: number): void;
   onGameDetailsClick(id: number): void;
-  onActivateClick?({ id: number, name: string }): void;
-  onDeActivateClick?({ id: number, name: string }): void;
+  onActivateOrDeactivateClick?({ id, name, status }): void;
   onGameClick?(gameId: string | number, isDemo: boolean): void;
+  isShowActivateOrDeactivateButton?: boolean;
 }
 
 const GameList = ({
@@ -22,9 +23,9 @@ const GameList = ({
   isAllGamesLoaded,
   onChange,
   onGameDetailsClick,
-  onDeActivateClick,
-  onActivateClick,
-  onGameClick
+  onActivateOrDeactivateClick,
+  onGameClick,
+  isShowActivateOrDeactivateButton
 }: GameListProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -55,9 +56,11 @@ const GameList = ({
         {games.map((game) => (
           <div className={styles.GameCard} key={game.id}>
             <GameCard
+              isShowActivateOrDeactivateButton={isShowActivateOrDeactivateButton}
+              isActivate={game.status === 'Inactive' ? true : false}
               onGameClick={onGameClick}
-              onActivateClick={onActivateClick}
-              onDeActivateClick={onDeActivateClick}
+              //@ts-ignore
+              onActivateOrDeactivateClick={onActivateOrDeactivateClick}
               onGameDetailsClick={onGameDetailsClick}
               {...game}
               isPlayIconShow={!!playDemo}

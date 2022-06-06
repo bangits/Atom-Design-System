@@ -16,8 +16,7 @@ export interface GameCardProps {
   isShowActivateOrDeactivateButton?: boolean;
   onGameClick?(gameId: string | number, isDemo: boolean): void;
   onGameDetailsClick?(gameId: string | number): void;
-  onActivateClick?(game: { id: number | string; name: string }): void;
-  onDeActivateClick?(game: { id: number | string; name: string }): void;
+  onActivateOrDeactivateClick?(game: { id: number | string; name: string; status: string }): void;
   hasDemo?: boolean;
   mobileScreenModeIsPortrait?: boolean;
   mobileScreenModeIsLandscape?: boolean;
@@ -31,17 +30,18 @@ export interface GameCardProps {
     isDefault: boolean;
     path: string;
   };
+  status?: string;
 }
 
 const GameCard = ({
   id,
   name,
+  status,
   icon,
   onGameClick,
   onGameDetailsClick,
   playDemo,
-  onActivateClick,
-  onDeActivateClick,
+  onActivateOrDeactivateClick,
   isShowActivateOrDeactivateButton = true,
   isActivate = true,
   isPlayIconShow = true
@@ -71,7 +71,11 @@ const GameCard = ({
               role='button'
               style={{ marginTop: '20px' }}
               className={classNames(styles['HoverBox-ActivateIcon'], styles['HoverBox-ViewIcon'], 'HoverBox-ViewIcon')}
-              onClick={() => (isActivate ? onActivateClick?.({ id, name }) : onDeActivateClick?.({ id, name }))}>
+              onClick={() =>
+                isActivate
+                  ? onActivateOrDeactivateClick?.({ id, name, status })
+                  : onActivateOrDeactivateClick?.({ id, name, status })
+              }>
               {isActivate ? <Icons.ActivateIcon width={'100%'} /> : <Icons.DeActivateIcon width={'100%'} />}
             </button>
           )}
