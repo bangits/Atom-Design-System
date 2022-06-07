@@ -1,7 +1,7 @@
-import { Options } from '@/atom-design-system';
+import { Icons, Options } from '@/atom-design-system';
 import { NameAndId } from '@/components/molecules/name-and-id';
 import { OptionsIcon } from '@/icons';
-import { StatusProps, Typography } from '@my-ui/core';
+import { StatusProps } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, ReactNode, useLayoutEffect, useRef, useState } from 'react';
 import { DocumentStatus } from '../document-status';
@@ -11,35 +11,37 @@ export interface DocumentCardProps extends StatusProps {
   col: 4;
   title: string;
   logo: ReactNode;
-  onArrowClick: () => void;
   icon: string;
+  id: string;
   verifiedDate: {
     label: string;
     value: string;
   };
-  documentId: {
+  createdDate: {
     label: string;
     value: string;
   };
   noDataText: string;
   statusLabel: string;
-  menuItems: any;
+  menuItems?: any;
+  pageQuantity?: number;
+  pageLabel?: string;
 }
 
 const DocumentCard: FC<DocumentCardProps> = ({
-  documentId,
+  createdDate,
   verifiedDate,
   title,
   col,
   noDataText,
-  onArrowClick,
   icon,
   logo,
   statusLabel,
   variant,
-  menuItems
+  id,
+  pageQuantity,
+  pageLabel
 }) => {
-  const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
   const [height, setHeight] = useState<number>();
 
   const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
@@ -59,8 +61,33 @@ const DocumentCard: FC<DocumentCardProps> = ({
         setIsOpenMenu(false);
       }}
       style={{ position: 'relative' }}>
-      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1, right: '-15px', top: '55px' }}>
-        {isOpenMenu && <Options data={menuItems} />}
+      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, right: '-15px', top: '55px' }}>
+        {isOpenMenu && (
+          <Options
+            data={[
+              {
+                icon: <Icons.VerifiedIcon />,
+                name: 'Verify',
+                onClick: () => console.log('Verify')
+              },
+              {
+                icon: <Icons.RejectIcon />,
+                name: 'Reject',
+                onClick: () => console.log('Reject')
+              },
+              {
+                icon: <Icons.EyeIcon />,
+                name: 'Preview',
+                onClick: () => console.log('Preview')
+              },
+              {
+                icon: <Icons.DownloadIcon />,
+                name: 'Download',
+                onClick: () => console.log('Download')
+              }
+            ]}
+          />
+        )}
       </div>
       <div
         ref={containerRef}
@@ -70,9 +97,9 @@ const DocumentCard: FC<DocumentCardProps> = ({
         <div className={styles.CardHeader}>
           <div style={{ display: 'flex' }}>
             <div style={{ marginRight: '10px', marginTop: '0.5rem' }}>{logo}</div>
-            <Typography variant='p4' component='p'>
-              {title}
-            </Typography>
+            <div>
+              <NameAndId name={title || noDataText} id={id || noDataText} />
+            </div>
           </div>
           <div>
             <OptionsIcon
@@ -85,7 +112,7 @@ const DocumentCard: FC<DocumentCardProps> = ({
           </div>
         </div>
         <div className={styles.TitleContent}>
-          <NameAndId defaultColors name={documentId.label || noDataText} id={documentId.value || noDataText} />
+          <NameAndId defaultColors name={createdDate.label || noDataText} id={createdDate.value || noDataText} />
           <NameAndId defaultColors name={verifiedDate.label || noDataText} id={verifiedDate.value || noDataText} />
         </div>
         <div className={styles.GameWrapper}>
@@ -94,16 +121,11 @@ const DocumentCard: FC<DocumentCardProps> = ({
       </div>
       <div ref={containerRef} className={styles[`DocumentCardWrapper--footer`]}>
         <DocumentStatus
+          pageQuantity={pageQuantity}
+          pageLabel={pageLabel}
           startIcon='MessageIcon'
           variant={variant}
           statusLabel={statusLabel}
-          actions={[
-            {
-              onClick: onArrowClick,
-              buttonVariant: 'dark',
-              iconName: 'TimeIcon'
-            }
-          ]}
         />
       </div>
     </div>

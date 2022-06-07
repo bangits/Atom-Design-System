@@ -12,8 +12,6 @@ export const Default = () => {
   return (
     <PlayerDetails
       verifiedIcon={true}
-      createdBy='Admin'
-      creationDate='11,26,5662'
       title=''
       userInfo={object('userInfo', {
         title: 'Username Ines254',
@@ -69,8 +67,6 @@ export const Default = () => {
         settings: '',
         wallet: '',
         projects: '',
-        creationDate: '',
-        createdBy: '',
         passwordContext: '',
         languagesContent: ''
       }}
