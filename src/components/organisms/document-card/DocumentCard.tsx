@@ -1,4 +1,4 @@
-import { Icons, Options } from '@/atom-design-system';
+import { Options } from '@/atom-design-system';
 import { NameAndId } from '@/components/molecules/name-and-id';
 import { OptionsIcon } from '@/icons';
 import { StatusProps } from '@my-ui/core';
@@ -40,7 +40,8 @@ const DocumentCard: FC<DocumentCardProps> = ({
   variant,
   id,
   pageQuantity,
-  pageLabel
+  pageLabel,
+  menuItems
 }) => {
   const [height, setHeight] = useState<number>();
 
@@ -62,32 +63,7 @@ const DocumentCard: FC<DocumentCardProps> = ({
       }}
       style={{ position: 'relative' }}>
       <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, right: '-15px', top: '55px' }}>
-        {isOpenMenu && (
-          <Options
-            data={[
-              {
-                icon: <Icons.VerifiedIcon />,
-                name: 'Verify',
-                onClick: () => console.log('Verify')
-              },
-              {
-                icon: <Icons.RejectIcon />,
-                name: 'Reject',
-                onClick: () => console.log('Reject')
-              },
-              {
-                icon: <Icons.EyeIcon />,
-                name: 'Preview',
-                onClick: () => console.log('Preview')
-              },
-              {
-                icon: <Icons.DownloadIcon />,
-                name: 'Download',
-                onClick: () => console.log('Download')
-              }
-            ]}
-          />
-        )}
+        {isOpenMenu && <Options data={menuItems} />}
       </div>
       <div
         ref={containerRef}

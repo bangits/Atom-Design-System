@@ -5,11 +5,11 @@ import styles from './DocumentCards.module.scss';
 export interface DocumentCardsProps {
   noDataText: string;
   documents: any;
-  onArrowClick: () => void;
   title: string;
+  menuItems: any;
 }
 
-const DocumentCards: FC<DocumentCardsProps> = ({ documents, title }) => {
+const DocumentCards: FC<DocumentCardsProps> = ({ documents, title, menuItems }) => {
   return (
     <div className={styles['DocumentCards']}>
       <div className={styles['DocumentCards--title']}>{title}</div>
@@ -43,6 +43,7 @@ const DocumentCards: FC<DocumentCardsProps> = ({ documents, title }) => {
               statusLabel={document.statusLabel}
               pageLabel={document.pageLabel}
               pageQuantity={document.pageQuantity}
+              menuItems={menuItems}
             />
           </>
         ))}

@@ -1,3 +1,4 @@
+import { Icons } from '@/atom-design-system';
 import { IdCardIcon, PassportIcon } from '@/icons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import DocumentCard from './DocumentCards';
@@ -29,10 +30,26 @@ Default.args = {
         label: 'Verified Date'
       },
       icon: 'IdCardIcon',
-      onArrowClick: () => console.log('onArrowClick'),
       logo: <IdCardIcon />,
       pageLabel: 'page',
-      pageQuantity: 3
+      pageQuantity: 3,
+      menuItems: [
+        {
+          icon: <Icons.VerifiedIcon />,
+          name: 'Verify',
+          onClick: console.log('Verify')
+        },
+        {
+          icon: <Icons.EyeIcon />,
+          name: 'Preview',
+          onClick: () => console.log('Preview')
+        },
+        {
+          icon: <Icons.DownloadIcon />,
+          name: 'Download',
+          onClick: () => console.log('Download')
+        }
+      ]
     },
     {
       id: 'ID56454',
@@ -48,10 +65,26 @@ Default.args = {
       },
       icon: 'IdCardIcon',
       title: 'Passport',
-      onArrowClick: () => console.log('onArrowClick'),
       logo: <PassportIcon />,
       pageLabel: 'page',
-      pageQuantity: 3
+      pageQuantity: 3,
+      menuItems: [
+        {
+          icon: <Icons.VerifiedIcon />,
+          name: 'Verify',
+          onClick: console.log('Verify')
+        },
+        {
+          icon: <Icons.EyeIcon />,
+          name: 'Preview',
+          onClick: () => console.log('Preview')
+        },
+        {
+          icon: <Icons.DownloadIcon />,
+          name: 'Download',
+          onClick: () => console.log('Download')
+        }
+      ]
     },
     {
       id: 'ID56454',
@@ -69,7 +102,24 @@ Default.args = {
       title: 'Drive License',
       logo: <PassportIcon />,
       pageLabel: 'page',
-      pageQuantity: 1
+      pageQuantity: 1,
+      menuItems: [
+        {
+          icon: <Icons.VerifiedIcon />,
+          name: 'Verify',
+          onClick: console.log('Verify')
+        },
+        {
+          icon: <Icons.EyeIcon />,
+          name: 'Preview',
+          onClick: () => console.log('Preview')
+        },
+        {
+          icon: <Icons.DownloadIcon />,
+          name: 'Download',
+          onClick: () => console.log('Download')
+        }
+      ]
     }
   ]
 };

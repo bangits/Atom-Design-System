@@ -1,6 +1,6 @@
 @mixin generate-document-card-styles {
   .DocumentCardWrapper {
-    height: 155px;
+    height: 15.5rem;
     // width: 315px;
     position: relative;
     background-color: getProjectCardColors(background-card);
@@ -105,8 +105,7 @@
       }
     }
     &--footer {
-      height: 45px;
-      width: 313px;
+      height: 4.5rem;
       background-color: getProjectCardColors(#f0f0f7);
       border: solid getProjectCardSizes(card-border-solid) getProjectCardColors(card-border-color);
       border-bottom-left-radius: getProjectCardSizes(card-border-radius);
