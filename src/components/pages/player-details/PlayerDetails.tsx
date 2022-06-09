@@ -60,6 +60,7 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
   userName: string;
   userId: number;
   documents: ReactNode;
+  wallet: ReactNode;
 }
 
 const PlayerDetails: FC<PlayerDetailsProps> = ({
@@ -76,6 +77,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   usedDevice,
   translations,
   documents,
+  wallet,
   verifiedIcon
 }) => {
   const [tabValue, setTabValue] = useState(1);
@@ -138,9 +140,14 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                   ]
                 },
                 {
-                  title: translations.games,
+                  title: translations.documents,
                   value: 2,
                   content: documents
+                },
+                {
+                  title: translations.wallet,
+                  value: 3,
+                  content: wallet
                 }
               ]}
               defaultTabValue={1}
