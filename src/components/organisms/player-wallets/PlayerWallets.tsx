@@ -1,6 +1,5 @@
 import { Icons } from '@/atom-design-system';
-import { HidableSelect, TextInput } from '@/components';
-import { Divider } from '@/components/atoms';
+import { TextInput } from '@/components';
 import { Button, IconButton, Tooltip } from '@my-ui/core';
 import React, { ReactNode, useState } from 'react';
 import { Table } from '..';
@@ -47,6 +46,7 @@ export interface PlayerWalletsProps {
       id: string;
     };
   };
+  title?: string;
 }
 
 const PlayerWallets = ({
@@ -57,7 +57,7 @@ const PlayerWallets = ({
   onDefaultWalletChange,
   onDefaultBallanceChange,
   balanceMaxLength = 10,
-  shouldShowAddWalletButton = true,
+  title,
   cardProps
 }: PlayerWalletsProps) => {
   const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
@@ -65,10 +65,64 @@ const PlayerWallets = ({
 
   return (
     <>
-      <div className={styles.UserDetailsTableContent}>
+      <div className={styles.PlayerDetailsTableContent}>
         <div>
           <WalletCard {...cardProps} />
         </div>
+        <div className={styles.WalletActionsContainer}>
+          {/* {shouldShowAddWalletButton && (
+            <HidableSelect renderCustomSelect={renderCurrenciesSelect} buttonTitle={translations.add} />
+          )} */}
+          {/* <Divider showDivider={shouldShowAddWalletButton}> */}
+          {isOpenedDefaultBalanceChangeSelect ? (
+            <div className={styles.SelectContent}>
+              <TextInput
+                type='number'
+                label={translations.balance}
+                value={balance?.toString()}
+                onChange={(e) => setBalance(e.target.value && +e.target.value)}
+                isDecimal
+                maxLength={balanceMaxLength}
+                fullWidth
+                containerClassName={styles.BalanceInput}
+              />
+              <IconButton
+                onClick={() => setOpenedDefaultBalanceChangeSelect(false)}
+                icon={
+                  <span className={styles.CloseIcon}>
+                    <Icons.CloseIcon />
+                  </span>
+                }
+              />
+              {balance ? (
+                <IconButton
+                  onClick={() => {
+                    setOpenedDefaultBalanceChangeSelect(false);
+
+                    onDefaultBallanceChange(balance);
+
+                    setBalance(null);
+                  }}
+                  icon={
+                    <span className={styles.SaveIcon}>
+                      <Icons.CheckIcon />
+                    </span>
+                  }
+                />
+              ) : null}
+            </div>
+          ) : (
+            <Button
+              onClick={() => setOpenedDefaultBalanceChangeSelect(true)}
+              variant='link'
+              startIcon={<Icons.MoneyIcon />}
+              className={styles.AddButton}>
+              {translations.correctDefaultBalance}
+            </Button>
+          )}
+          {/* </Divider> */}
+        </div>
+        <div className={styles['PlayerDetailsTableContent--title']}>{title}</div>
         <Table
           isWithSelection={false}
           actions={[
@@ -128,59 +182,6 @@ const PlayerWallets = ({
           // loadingRowColumnProperty='currencyId'
           rowUniqueKey='currencyId'
         />
-        <div className={styles.WalletActionsContainer}>
-          {shouldShowAddWalletButton && (
-            <HidableSelect renderCustomSelect={renderCurrenciesSelect} buttonTitle={translations.add} />
-          )}
-          <Divider showDivider={shouldShowAddWalletButton}>
-            {isOpenedDefaultBalanceChangeSelect ? (
-              <div className={styles.SelectContent}>
-                <TextInput
-                  type='number'
-                  label={translations.balance}
-                  value={balance?.toString()}
-                  onChange={(e) => setBalance(e.target.value && +e.target.value)}
-                  isDecimal
-                  maxLength={balanceMaxLength}
-                  fullWidth
-                  containerClassName={styles.BalanceInput}
-                />
-                <IconButton
-                  onClick={() => setOpenedDefaultBalanceChangeSelect(false)}
-                  icon={
-                    <span className={styles.CloseIcon}>
-                      <Icons.CloseIcon />
-                    </span>
-                  }
-                />
-                {balance ? (
-                  <IconButton
-                    onClick={() => {
-                      setOpenedDefaultBalanceChangeSelect(false);
-
-                      onDefaultBallanceChange(balance);
-
-                      setBalance(null);
-                    }}
-                    icon={
-                      <span className={styles.SaveIcon}>
-                        <Icons.CheckIcon />
-                      </span>
-                    }
-                  />
-                ) : null}
-              </div>
-            ) : (
-              <Button
-                onClick={() => setOpenedDefaultBalanceChangeSelect(true)}
-                variant='link'
-                startIcon={<Icons.MoneyIcon />}
-                className={styles.AddButton}>
-                {translations.correctDefaultBalance}
-              </Button>
-            )}
-          </Divider>
-        </div>
       </div>
     </>
   );

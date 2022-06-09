@@ -1,7 +1,7 @@
 @mixin generate-wallet-card-styles {
   .WalletCardWrapper {
     height: 8.7rem;
-    margin: 0 0 1rem 2rem;
+    margin: 0 0 1rem 0;
     position: relative;
     background-color: getProjectCardColors(background-card);
     border: solid getProjectCardSizes(card-border-solid) getProjectCardColors(card-border-color);
@@ -28,7 +28,7 @@
 
     .MainContent {
       .ContentType {
-        font-size: 16px;
+        font-size: calculateRem(16px);
       }
       .Label {
         color: #48485d;

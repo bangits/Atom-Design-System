@@ -1,0 +1,45 @@
+@mixin generate-player-wallets-styles {
+  .PlayerDetailsTableContent {
+    margin-top: getUserWalletsSizes(user-details-table-margin-top);
+    width: 100%;
+
+    .UserDetailsTable {
+      width: 100%;
+      box-shadow: none;
+      background-color: transparent;
+      border-radius: 0;
+    }
+
+    .SelectContent {
+      @include flex(null);
+
+      .CloseIcon,
+      .SaveIcon {
+        width: 100%;
+      }
+
+      .SaveIcon path {
+        fill: getUserWalletsColors(icon-path-color);
+      }
+    }
+
+    .BalanceInput {
+      min-width: getUserWalletsSizes(balance-input-min-width);
+    }
+
+    &--title {
+      font-size: calculateRem(20px);
+      color: #6667ab;
+      margin-top: calculateRem(10px);
+      margin-bottom: calculateRem(10px);
+    }
+
+    .WalletActionsContainer {
+      @include flex;
+      margin-top: getUserWalletsSizes(user-details-button-margin-top);
+      margin-bottom: getUserWalletsSizes(user-details-button-margin-top);
+      // margin-left: getUserWalletsSizes(user-details-button-margin-left);
+      max-height: getUserWalletsSizes(actions-container-max-height);
+    }
+  }
+}

@@ -13,6 +13,7 @@ export default {
 export const Default = () => {
   return (
     <PlayerWallets
+      title='Correction History'
       onDefaultWalletChange={action('onDefaultWalletChange')}
       onDefaultBallanceChange={action('onDefaultBallanceChange')}
       tableLoadingRowIds={[2]}
