@@ -47,5 +47,15 @@
         }
       }
     }
+    &--icon-button {
+      font-size: 1.5rem;
+      color: #48485d;
+    }
+    &--svg {
+      padding-left: 1rem;
+      padding-right: 1rem;
+      align-items: center;
+      display: flex;
+    }
   }
 }

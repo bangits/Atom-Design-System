@@ -1,0 +1,49 @@
+@mixin generate-wallet-card-styles {
+  .WalletCardWrapper {
+    height: 8.7rem;
+    margin: 0 0 1rem 0;
+    position: relative;
+    background-color: getProjectCardColors(background-card);
+    border: solid getProjectCardSizes(card-border-solid) getProjectCardColors(card-border-color);
+    border-radius: getProjectCardSizes(card-border-radius);
+
+    padding: getProjectCardSizes(card-padding);
+    box-sizing: border-box;
+
+    &--12 {
+      width: 100%;
+    }
+
+    &--4 {
+      width: 25rem;
+    }
+
+    &--6 {
+      width: getProjectCardSizes(card-width);
+    }
+
+    .CardHeader {
+      @include flex(space-between, center);
+    }
+
+    .MainContent {
+      .ContentType {
+        font-size: calculateRem(16px);
+      }
+      .Label {
+        color: #48485d;
+        font-size: calculateRem(14px);
+
+        span {
+          color: #6667ab;
+          opacity: 0.8;
+        }
+      }
+    }
+
+    .WalletCardWrapper > svg {
+      min-width: 2rem;
+      min-height: 2rem;
+    }
+  }
+}

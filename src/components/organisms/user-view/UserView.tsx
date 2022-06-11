@@ -9,10 +9,10 @@ export interface UserViewProps {
       imageSrc: string;
       status: 'online' | 'offline';
     };
-    title: string;
-    id: string | number;
-    userName: string;
-    regInfo: string;
+    title?: string;
+    id?: string | number;
+    // userName: string;
+    // regInfo: string;
   };
 }
 

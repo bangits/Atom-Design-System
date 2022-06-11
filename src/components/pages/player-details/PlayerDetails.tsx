@@ -23,8 +23,6 @@ import styles from './PlayerDetails.module.scss';
 
 export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, LastActivityViewProps, FlexibleFormProps {
   breadCrumbs: BreadcrumbProps['links'];
-  createdBy: string;
-  creationDate: string;
   usedDevice: UsedDeviceProps;
   playerDetails: ReactNode;
   playerKPI: ReactNode;
@@ -37,8 +35,6 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
     settings: string;
     wallet: string;
     projects: string;
-    creationDate: string;
-    createdBy: string;
     passwordContext: string;
     languagesContent: string;
     general: string;
@@ -64,6 +60,7 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
   userName: string;
   userId: number;
   documents: ReactNode;
+  wallet: ReactNode;
 }
 
 const PlayerDetails: FC<PlayerDetailsProps> = ({
@@ -80,6 +77,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   usedDevice,
   translations,
   documents,
+  wallet,
   verifiedIcon
 }) => {
   const [tabValue, setTabValue] = useState(1);
@@ -142,9 +140,14 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                   ]
                 },
                 {
-                  title: translations.games,
+                  title: translations.documents,
                   value: 2,
                   content: documents
+                },
+                {
+                  title: translations.wallet,
+                  value: 3,
+                  content: wallet
                 }
               ]}
               defaultTabValue={1}

@@ -15,10 +15,11 @@ export const Default = Template.bind({});
 
 Default.args = {
   noDataText: 'N/A',
-  documentId: {
-    label: 'Document ID',
-    value: 'ID12345678'
+  createdDate: {
+    label: 'Created Date',
+    value: '10/11/2021, 12:00:00'
   },
+  id: 'ID564645',
   verifiedDate: {
     label: 'Verified Date',
     value: '10/11/2021, 12:00:00'
@@ -46,5 +47,7 @@ Default.args = {
       name: 'Download',
       onClick: () => console.log('Download')
     }
-  ]
+  ],
+  pageQuantity: 3,
+  pageLabel: 'pages'
 };

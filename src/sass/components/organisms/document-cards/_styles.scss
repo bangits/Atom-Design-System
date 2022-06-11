@@ -1,0 +1,10 @@
+@mixin generate-document-cards-styles {
+  .DocumentCards {
+    &--title {
+      font-size: 18px;
+      color: #6667ab;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+  }
+}

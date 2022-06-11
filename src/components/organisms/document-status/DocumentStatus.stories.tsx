@@ -14,6 +14,8 @@ export const Default = () => {
       startIcon='CircleIcon'
       variant='active'
       statusLabel='Validated'
+      pageLabel='page'
+      pageQuantity={3}
       actions={[
         {
           onClick: () => {

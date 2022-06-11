@@ -14,105 +14,110 @@ export const Default = Template.bind({});
 
 Default.args = {
   noDataText: 'N/A',
+  title: 'Passports',
   documents: [
     {
+      id: 'ID56454',
       variant: 'inactive',
       statusLabel: 'NoValidate',
-      document: {
-        value: 'ID12345678',
-        label: 'Document ID'
+      title: 'Document ID',
+      createdDate: {
+        value: '10/11/2021, 12:00:00',
+        label: 'Created Date'
       },
       verifiedDate: {
         value: '10/11/2021, 12:00:00',
         label: 'Verified Date'
       },
-      col: 4,
       icon: 'IdCardIcon',
-      title: 'ID Card',
-      onArrowClick: () => console.log('onArrowClick'),
       logo: <IdCardIcon />,
+      pageLabel: 'page',
+      pageQuantity: 3,
       menuItems: [
         {
           icon: <Icons.VerifiedIcon />,
           name: 'Verify',
-          onclick: () => console.log('verify')
+          onClick: console.log('Verify')
         },
         {
           icon: <Icons.EyeIcon />,
           name: 'Preview',
-          onclick: () => console.log('Preview')
+          onClick: () => console.log('Preview')
         },
         {
           icon: <Icons.DownloadIcon />,
           name: 'Download',
-          onclick: () => console.log('Preview')
+          onClick: () => console.log('Download')
         }
       ]
     },
     {
+      id: 'ID56454',
       variant: 'active',
       statusLabel: 'Validate',
-      document: {
-        value: 'N/A',
-        label: 'Document ID'
+      createdDate: {
+        value: '10/11/2021, 12:00:00',
+        label: 'Created Date'
       },
       verifiedDate: {
         value: '10/11/2021, 12:00:00',
         label: 'Verified Date'
       },
-      col: 4,
       icon: 'IdCardIcon',
       title: 'Passport',
-      onArrowClick: () => console.log('onArrowClick'),
       logo: <PassportIcon />,
+      pageLabel: 'page',
+      pageQuantity: 3,
       menuItems: [
         {
           icon: <Icons.VerifiedIcon />,
           name: 'Verify',
-          onclick: () => console.log('verify')
+          onClick: console.log('Verify')
         },
         {
           icon: <Icons.EyeIcon />,
           name: 'Preview',
-          onclick: () => console.log('Preview')
+          onClick: () => console.log('Preview')
         },
         {
           icon: <Icons.DownloadIcon />,
           name: 'Download',
-          onclick: () => console.log('Preview')
+          onClick: () => console.log('Download')
         }
       ]
     },
     {
+      id: 'ID56454',
       variant: 'active',
       statusLabel: 'Validate',
-      document: {
-        value: '',
-        label: 'Document ID'
+      createdDate: {
+        value: '10/11/2021, 12:00:00',
+        label: 'Created Date'
       },
       verifiedDate: {
         value: '10/11/2021, 12:00:00',
         label: 'Verified Date'
       },
-      col: 4,
       icon: 'IdCardIcon',
-      title: 'Passport',
+      title: 'Drive License',
       logo: <PassportIcon />,
+      pageLabel: 'page',
+      pageQuantity: 1,
       menuItems: [
         {
           icon: <Icons.VerifiedIcon />,
           name: 'Verify',
-          onclick: () => console.log('verify')
+          onClick: console.log('Verify')
         },
         {
           icon: <Icons.EyeIcon />,
           name: 'Preview',
-          onclick: () => console.log('Preview')
+          onClick: () => console.log('Preview')
         },
         {
           icon: <Icons.DownloadIcon />,
           name: 'Download',
-          onclick: () => console.log('Preview')
+          onClick: () => console.log('Download')
         }
       ]
     }
