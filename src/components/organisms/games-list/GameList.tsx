@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { GameCard, GameCardProps } from '@/atom-design-system';
-import { Loader, Scroll } from '@my-ui/core';
-import React, { useState } from 'react';
+import { GameCard, GameCardProps, Icons } from '@/atom-design-system';
+import { Button, Loader, Scroll } from '@my-ui/core';
+import { useState } from 'react';
 import styles from './GameList.module.scss';
 
 export interface GameListProps {
@@ -14,6 +14,10 @@ export interface GameListProps {
   onActivateOrDeactivateClick?({ id, name, status }): void;
   onGameClick?(gameId: string | number, isDemo: boolean): void;
   isShowActivateOrDeactivateButton?: boolean;
+  updateWebText?: string;
+  updateText?: string;
+  updateWebContentButtonClick: () => void;
+  updateContentButtonClick: () => void;
 }
 
 const GameList = ({
@@ -25,7 +29,11 @@ const GameList = ({
   onGameDetailsClick,
   onActivateOrDeactivateClick,
   onGameClick,
-  isShowActivateOrDeactivateButton
+  updateWebText,
+  updateText,
+  isShowActivateOrDeactivateButton,
+  updateWebContentButtonClick,
+  updateContentButtonClick
 }: GameListProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -52,6 +60,14 @@ const GameList = ({
         }
       }}
       className={styles.GamesScroll}>
+      <div style={{ display: 'flex', gap: 20 }}>
+        <Button onClick={updateWebContentButtonClick} variant='link' startIcon={<Icons.ExchangeIcon />}>
+          {updateWebText}
+        </Button>
+        <Button onClick={updateContentButtonClick} variant='link' startIcon={<Icons.ExchangeIcon />}>
+          {updateText}
+        </Button>
+      </div>
       <div className={styles.GamesContainer}>
         {games.map((game) => (
           <div className={styles.GameCard} key={game.id}>
@@ -59,7 +75,6 @@ const GameList = ({
               isShowActivateOrDeactivateButton={isShowActivateOrDeactivateButton}
               isActivate={game.status === 'Inactive' ? true : false}
               onGameClick={onGameClick}
-              //@ts-ignore
               onActivateOrDeactivateClick={onActivateOrDeactivateClick}
               onGameDetailsClick={onGameDetailsClick}
               {...game}
