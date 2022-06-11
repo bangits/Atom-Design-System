@@ -1,7 +1,7 @@
 import { Icons } from '@/atom-design-system';
 import { TextInput } from '@/components';
 import { Button, IconButton, Pagination, PaginationProps, Tooltip } from '@my-ui/core';
-import React, { ReactNode, useState } from 'react';
+import { ReactNode, useState } from 'react';
 import { Table } from '..';
 import { WalletCard } from '../wallet-card';
 import styles from './PlayerWallets.module.scss';
@@ -47,7 +47,7 @@ export interface PlayerWalletsProps {
     };
   };
   title: string;
-  onPaginationChange: () => void;
+  onPaginationChange: (updatedPage: number) => void;
   page: number;
   paginationProps: {
     pageSizeSelect: Omit<PaginationProps['pageSizeSelect'], 'onChange'>;
