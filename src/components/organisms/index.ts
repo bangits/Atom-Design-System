@@ -15,6 +15,7 @@ export * from './flexible-form';
 export * from './form';
 export * from './game-compatibility-checkboxes';
 export * from './game-launcher';
+export * from './games-list';
 export * from './hidable-select';
 export * from './item-details';
 export * from './last-activity-view';

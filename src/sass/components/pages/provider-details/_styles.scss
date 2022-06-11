@@ -1,360 +1,183 @@
 @mixin generate-providerdetails-styles {
-  .GamesLoading {
-    @include flex(center);
-    margin-top: getProviderDetailsSizes(provider-games-margin-top);
-  }
-
-  .ProviderDetailsBase form {
-    width: 100%;
-    margin: 0;
-  }
-
-  .ProviderDetailsBase--container {
-    @include flex(null, flex-start);
-    margin-top: getProviderDetailsSizes(provider-details-margin-top);
-  }
-
-  .ProviderDetailsBase--leftBlock {
-    width: getProviderDetailsSizes(left-block-width);
-    margin-right: getProviderDetailsSizes(provider-left-block-margin);
-  }
-
-  .ProviderDetailsBase--doubleBlock{
-    margin-bottom: getProviderDetailsSizes(double-block-top-margin);
-  }
-
-  .StatusContent {
-    margin-bottom: getProviderDetailsSizes(status-content-margin-bottom);
-    height: getProviderDetailsSizes(status-content-height);
-  }
-
-  .ButtonContent {
-    @include flex(flex-end, center);
-    margin-top: getProviderDetailsSizes(button-content-margin-top);
-    button {
-      width: getProviderDetailsSizes(button-content-width);
+    .GamesLoading {
+        @include flex(center);
+        margin-top: getProviderDetailsSizes(provider-games-margin-top);
     }
-  }
-
-  .GamesList {
-    // padding: getProviderDetailsSizes(games-list-padding);
-    width: getProviderDetailsSizes(games-list-width);
-
-    &__Header {
-      @include flex(space-between);
-    }
-    &__Header-1 {
-      @include flex(flex-start);
-      > div {
-        width: getProviderDetailsSizes(games-list-header-1-div);
-      }
-    }
-    &__Header-2 {
-      @include flex(flex-end);
-      button {
-        svg {
-          width: getProviderDetailsSizes(games-list-header-2-btn-svg-width);
-        }
-      }
-    }
-    &__Add-Game-Btn {
-      @include p;
-      &-Label {
-        @include flex($justify-content: center, $align-items: center);
-        @include p;
-        display: inline-flex;
-      }
-      &--Icon {
-        @include flex($justify-content: center, $align-items: center);
-        width: getProviderDetailsSizes(games-list-add-game-btn-icon-width);
-        height: getProviderDetailsSizes(games-list-add-game-btn-icon-height);
-        background: getProviderDetailsColors(games-list-add-game-btn-icon-bg-color);
-        color: getProviderDetailsColors(games-list-add-game-btn-icon-color);
-        font-size: getProviderDetailsSizes(games-list-add-game-btn-icon-font-size);
-        border-radius: getProviderDetailsSizes(games-list-add-game-btn-icon-border-radius);
-        font-weight: getProviderDetailsSizes(games-list-add-game-btn-icon-font-weight);
-        transform: getProviderDetailsSizes(games-list-add-game-btn-icon-transform);
-        font-style: getProviderDetailsSizes(games-list-add-game-btn-icon-font-style);
-      }
-    }
-  }
-
-  .GamesContainer {
-    // padding-right: 30px;
-    // border: solid #ff0000 1px;
-    // margin-right: 60px;
-    width: getProviderDetailsSizes(games-container-width);
-    display: getProviderDetailsSizes(games-container-display);
-    grid-template-columns: getProviderDetailsSizes(games-container-grid-template-columns);
-    grid-template-rows: auto;
-    grid-column-gap: getProviderDetailsSizes(games-container-grid-column-gap);
-    grid-row-gap: getProviderDetailsSizes(games-container-grid-row-gap);
-    & > div {
-      & > div > div:first-child {
-        font-size: getProviderDetailsSizes(games-container__div__div-first-child-font-size);
-        min-width: getProviderDetailsSizes(games-container__div__div-last-child-min-width);
-        height: getProviderDetailsSizes(games-container__div__div-first-child-height) !important;
-        background-image: url("data:image/svg+xml,%3Csvg width='55rem' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' x='0' y='0' viewBox='0 0 53.2 40.7' xml:space='preserve'%3E%3Cstyle%3E.st0%7Bfill:%23f9f9f9%7D.st1%7Bfill:%23d1dae5%7D%3C/style%3E%3Cpath class='st0' d='M13.1 39.5c-4.3 0-8.1-3.1-8.9-7.3l-3-15.3C.2 12 3.4 7.2 8.3 6.2l25.3-5c.6-.1 1.2-.2 1.8-.2 4.3 0 8.1 3.1 8.9 7.3l3 15.3c.5 2.4 0 4.8-1.4 6.8s-3.4 3.4-5.8 3.9l-25.3 5c-.5.1-1.1.2-1.7.2z'/%3E%3Cpath class='st1' d='M35.4 2c3.8 0 7.2 2.7 7.9 6.5l3 15.3c.4 2.1 0 4.3-1.2 6.1-1.2 1.8-3 3-5.2 3.4l-25.3 5c-.5.1-1.1.2-1.6.2-3.8 0-7.2-2.7-7.9-6.5l-3-15.3c-.4-2.1 0-4.3 1.2-6.1 1.2-1.8 3-3 5.2-3.4l25.3-5c.6-.1 1.1-.2 1.6-.2m0-2c-.6 0-1.3.1-2 .2l-25.3 5C2.6 6.3-.9 11.6.2 17.1l3 15.3c1 4.8 5.2 8.1 9.9 8.1.6 0 1.3-.1 2-.2l25.3-5c5.5-1.1 9-6.4 7.9-11.9l-3-15.3C44.4 3.3 40.1 0 35.4 0z'/%3E%3Cpath class='st0' d='M18.3 39.7c-5 0-9.1-4.1-9.1-9.1V15.8c0-5 4.1-9.1 9.1-9.1h24.8c5 0 9.1 4.1 9.1 9.1v14.8c0 5-4.1 9.1-9.1 9.1H18.3z'/%3E%3Cpath class='st1' d='M43.1 7.7c4.5 0 8.1 3.6 8.1 8.1v14.8c0 4.5-3.6 8.1-8.1 8.1H18.3c-4.5 0-8.1-3.6-8.1-8.1V15.8c0-4.5 3.6-8.1 8.1-8.1h24.8m0-2H18.3c-5.6 0-10.1 4.5-10.1 10.1v14.8c0 5.6 4.5 10.1 10.1 10.1h24.8c5.6 0 10.1-4.5 10.1-10.1V15.8c0-5.6-4.5-10.1-10.1-10.1z'/%3E%3Cpath class='st1' d='M30.7 12.7c-5.8 0-10.5 4.7-10.5 10.5s4.7 10.5 10.5 10.5S41.2 29 41.2 23.2s-4.7-10.5-10.5-10.5zm5.3 2.8-.7 1c-.9-.6-1.9-1-3-1.2l.2-1.2c1.3.2 2.4.7 3.5 1.4zm-4.7 12.4v1.2h-1v-1.2c-.7-.1-1.4-.3-1.9-.8s-.7-1.1-.7-2h1.8c0 .6.1.9.4 1.2.3.2.6.4 1 .4s.7-.1.9-.3c.2-.2.3-.5.3-.8 0-.3-.1-.6-.3-.8-.2-.2-.5-.4-1-.6-.9-.3-1.6-.7-2-1.1-.4-.4-.7-1-.7-1.7s.2-1.3.6-1.7c.4-.4 1.1-.7 1.8-.8v-1.3h1v1.3c.7.1 1.3.4 1.7.9.4.5.6 1.1.6 1.9H32c0-.5-.1-.8-.3-1.1-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.8.3-.2.2-.3.5-.3.8 0 .3.1.6.3.8.2.2.5.4 1 .6.9.4 1.6.7 2 1.1.4.4.7 1 .7 1.7s-.2 1.3-.7 1.7c-.4.4-1 .6-1.8.7zM28.9 14l.2 1.2c-1.1.2-2.1.6-3 1.2l-.7-1c1.2-.6 2.3-1.1 3.5-1.4zM23 18l1 .7c-.6.9-1 1.9-1.2 3l-1.2-.2c.2-1.3.7-2.5 1.4-3.5zm0 10.5c-.7-1-1.2-2.2-1.4-3.4l1.2-.2c.2 1.1.6 2.1 1.2 3l-1 .6zm2.5 2.5.7-1c.9.6 1.9 1 3 1.2l-.2 1.2c-1.3-.2-2.4-.7-3.5-1.4zm7 1.4-.2-1.2c1.1-.2 2.1-.6 3-1.2l.7 1c-1.1.7-2.2 1.2-3.5 1.4zm6-3.9-1-.7c.6-.9 1-1.9 1.2-3l1.2.2c-.2 1.3-.7 2.4-1.4 3.5zm.3-6.8c-.2-1.1-.6-2.1-1.2-3l1-.7c.7 1 1.2 2.2 1.4 3.4l-1.2.3z'/%3E%3C/svg%3E");
-        background-color: color(alabaster);
-        background-repeat: no-repeat;
-        background-position: center center;
-        background-size: getProviderDetailsSizes(games-container-icon-size);
-      }
-
-      & > div > div:last-child {
-        font-size: getProviderDetailsSizes(games-container__div__div-last-child-font-size);
-        height: getProviderDetailsSizes(games-container__div__div-last-child-height) !important;
-        border: solid transparent 0px;
-      }
-
-      & > div > div {
-        padding: getProviderDetailsSizes(games-container__div__div-padding) !important;
-      }
-      & > div > div > p {
-        font-size: getProviderDetailsSizes(games-container__div__div__p-font-size) !important;
-        max-width: getProviderDetailsSizes(games-container__div__div__p-max-width) !important;
-      }
-
-      & > div > div {
-        width: getProviderDetailsSizes(games-container__div__div-width) !important;
-        height: getProviderDetailsSizes(games-container__div__div-height) !important;
-      }
-    }
-  }
-
-  .GamesList__Empty {
-    margin-top: getProviderDetailsSizes(provider-games-empty-margin-top);
-  }
-
-  .Empty-Page-Cell {
-    @include flex(center);
-  }
-
-  .Empty-Page-Title {
-    margin: 0;
-    margin-top: getProviderDetailsSizes(provider-games-empty-text-margin-top);
-
-    text-align: center;
-  }
-
-  .GamesList__Fill {
-    width: 100%;
-    padding-bottom: getProviderDetailsSizes(providers-games-padding-bottom);
-
-    &:after {
-      display: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-display);
-      content: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-content);
-      position: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-position);
-      bottom: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-bottom);
-      left: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-left);
-      z-index: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-z-index);
-      width: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-width);
-      height: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-height);
-      background: getProviderDetailsColors(provider-details-bottom-fading-cell-after-bg-color);
-    }
-  }
-
-  .TagsCell {
-    @include flex;
-    padding: getProviderDetailsSizes(tags-cell-padding);
-    & > svg {
-      margin-right: getProviderDetailsSizes(tags-cell__svg-margin-right);
-    }
-    & > div {
-      margin-right: getProviderDetailsSizes(tags-cell__svg-margin-right);
-    }
-  }
-
-  .TabContent {
-    @include flex;
-    box-sizing: getProviderDetailsSizes(tab-content-box-sizing);
-    &--TwoColGrid {
-      display: getProviderDetailsSizes(tab-content-two-col-grid-display);
-      grid-template-columns: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-columns);
-      grid-template-rows: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-rows);
-      grid-column-gap: getProviderDetailsSizes(tab-content-two-col-grid-grid-column-gap);
-      grid-row-gap: getProviderDetailsSizes(tab-content-two-col-grid-grid-row-gap);
-      grid-template-areas: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-areas);
-    }
-    .FlexibleFormWrapper {
-      box-sizing: getProviderDetailsSizes(flexible-form-wrapper-box-sizing);
-      & > div,
-      & > div > div {
+    .ProviderDetailsBase form {
         width: 100%;
-        box-sizing: getProviderDetailsSizes(flexible-form-wrapper-box-sizing);
-      }
-      &--3 {
-        width: getProviderDetailsSizes(flexible-form-wrapper--3-width);
-        grid-area: getProviderDetailsSizes(flexible-form-wrapper--3-grid-area);
-      }
+        margin: 0;
     }
-  }
-
-  .ProviderDetails__Bottom-Fading-Cell {
-    display: block;
-    width: getProviderDetailsSizes(provider-details-bottom-fading-cell-width);
-    @include p;
-  }
-
-  .GameDetailsBase__GameTag {
-    cursor: getProviderDetailsSizes(game-tag-cursor);
-  }
+    .ProviderDetailsBase--container {
+        @include flex(null, flex-start);
+        margin-top: getProviderDetailsSizes(provider-details-margin-top);
+    }
+    .ProviderDetailsBase--leftBlock {
+        width: getProviderDetailsSizes(left-block-width);
+        margin-right: getProviderDetailsSizes(provider-left-block-margin);
+    }
+    .ProviderDetailsBase--doubleBlock {
+        margin-bottom: getProviderDetailsSizes(double-block-top-margin);
+    }
+    .StatusContent {
+        margin-bottom: getProviderDetailsSizes(status-content-margin-bottom);
+        height: getProviderDetailsSizes(status-content-height);
+    }
+    .ButtonContent {
+        @include flex(flex-end, center);
+        margin-top: getProviderDetailsSizes(button-content-margin-top);
+        button {
+            width: getProviderDetailsSizes(button-content-width);
+        }
+    }
+    .GamesList {
+        // padding: getProviderDetailsSizes(games-list-padding);
+        width: getProviderDetailsSizes(games-list-width);
+        &__Header {
+            @include flex(space-between);
+        }
+        &__Header-1 {
+            @include flex(flex-start);
+            >div {
+                width: getProviderDetailsSizes(games-list-header-1-div);
+            }
+        }
+        &__Header-2 {
+            @include flex(flex-end);
+            button {
+                svg {
+                    width: getProviderDetailsSizes(games-list-header-2-btn-svg-width);
+                }
+            }
+        }
+        &__Add-Game-Btn {
+            @include p;
+            &-Label {
+                @include flex($justify-content: center, $align-items: center);
+                @include p;
+                display: inline-flex;
+            }
+            &--Icon {
+                @include flex($justify-content: center, $align-items: center);
+                width: getProviderDetailsSizes(games-list-add-game-btn-icon-width);
+                height: getProviderDetailsSizes(games-list-add-game-btn-icon-height);
+                background: getProviderDetailsColors(games-list-add-game-btn-icon-bg-color);
+                color: getProviderDetailsColors(games-list-add-game-btn-icon-color);
+                font-size: getProviderDetailsSizes(games-list-add-game-btn-icon-font-size);
+                border-radius: getProviderDetailsSizes(games-list-add-game-btn-icon-border-radius);
+                font-weight: getProviderDetailsSizes(games-list-add-game-btn-icon-font-weight);
+                transform: getProviderDetailsSizes(games-list-add-game-btn-icon-transform);
+                font-style: getProviderDetailsSizes(games-list-add-game-btn-icon-font-style);
+            }
+        }
+    }
+    .GamesContainer {
+        width: getProviderDetailsSizes(games-container-width);
+        display: getProviderDetailsSizes(games-container-display);
+        grid-template-columns: getProviderDetailsSizes(games-container-grid-template-columns);
+        grid-template-rows: auto;
+        grid-column-gap: getProviderDetailsSizes(games-container-grid-column-gap);
+        grid-row-gap: getProviderDetailsSizes(games-container-grid-row-gap);
+        &>div {
+            &>div>div:first-child {
+                font-size: getProviderDetailsSizes(games-container__div__div-first-child-font-size);
+                min-width: getProviderDetailsSizes(games-container__div__div-last-child-min-width);
+                height: getProviderDetailsSizes(games-container__div__div-first-child-height) !important;
+                background-image: url("data:image/svg+xml,%3Csvg width='55rem' version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' x='0' y='0' viewBox='0 0 53.2 40.7' xml:space='preserve'%3E%3Cstyle%3E.st0%7Bfill:%23f9f9f9%7D.st1%7Bfill:%23d1dae5%7D%3C/style%3E%3Cpath class='st0' d='M13.1 39.5c-4.3 0-8.1-3.1-8.9-7.3l-3-15.3C.2 12 3.4 7.2 8.3 6.2l25.3-5c.6-.1 1.2-.2 1.8-.2 4.3 0 8.1 3.1 8.9 7.3l3 15.3c.5 2.4 0 4.8-1.4 6.8s-3.4 3.4-5.8 3.9l-25.3 5c-.5.1-1.1.2-1.7.2z'/%3E%3Cpath class='st1' d='M35.4 2c3.8 0 7.2 2.7 7.9 6.5l3 15.3c.4 2.1 0 4.3-1.2 6.1-1.2 1.8-3 3-5.2 3.4l-25.3 5c-.5.1-1.1.2-1.6.2-3.8 0-7.2-2.7-7.9-6.5l-3-15.3c-.4-2.1 0-4.3 1.2-6.1 1.2-1.8 3-3 5.2-3.4l25.3-5c.6-.1 1.1-.2 1.6-.2m0-2c-.6 0-1.3.1-2 .2l-25.3 5C2.6 6.3-.9 11.6.2 17.1l3 15.3c1 4.8 5.2 8.1 9.9 8.1.6 0 1.3-.1 2-.2l25.3-5c5.5-1.1 9-6.4 7.9-11.9l-3-15.3C44.4 3.3 40.1 0 35.4 0z'/%3E%3Cpath class='st0' d='M18.3 39.7c-5 0-9.1-4.1-9.1-9.1V15.8c0-5 4.1-9.1 9.1-9.1h24.8c5 0 9.1 4.1 9.1 9.1v14.8c0 5-4.1 9.1-9.1 9.1H18.3z'/%3E%3Cpath class='st1' d='M43.1 7.7c4.5 0 8.1 3.6 8.1 8.1v14.8c0 4.5-3.6 8.1-8.1 8.1H18.3c-4.5 0-8.1-3.6-8.1-8.1V15.8c0-4.5 3.6-8.1 8.1-8.1h24.8m0-2H18.3c-5.6 0-10.1 4.5-10.1 10.1v14.8c0 5.6 4.5 10.1 10.1 10.1h24.8c5.6 0 10.1-4.5 10.1-10.1V15.8c0-5.6-4.5-10.1-10.1-10.1z'/%3E%3Cpath class='st1' d='M30.7 12.7c-5.8 0-10.5 4.7-10.5 10.5s4.7 10.5 10.5 10.5S41.2 29 41.2 23.2s-4.7-10.5-10.5-10.5zm5.3 2.8-.7 1c-.9-.6-1.9-1-3-1.2l.2-1.2c1.3.2 2.4.7 3.5 1.4zm-4.7 12.4v1.2h-1v-1.2c-.7-.1-1.4-.3-1.9-.8s-.7-1.1-.7-2h1.8c0 .6.1.9.4 1.2.3.2.6.4 1 .4s.7-.1.9-.3c.2-.2.3-.5.3-.8 0-.3-.1-.6-.3-.8-.2-.2-.5-.4-1-.6-.9-.3-1.6-.7-2-1.1-.4-.4-.7-1-.7-1.7s.2-1.3.6-1.7c.4-.4 1.1-.7 1.8-.8v-1.3h1v1.3c.7.1 1.3.4 1.7.9.4.5.6 1.1.6 1.9H32c0-.5-.1-.8-.3-1.1-.2-.3-.5-.4-.8-.4-.4 0-.6.1-.8.3-.2.2-.3.5-.3.8 0 .3.1.6.3.8.2.2.5.4 1 .6.9.4 1.6.7 2 1.1.4.4.7 1 .7 1.7s-.2 1.3-.7 1.7c-.4.4-1 .6-1.8.7zM28.9 14l.2 1.2c-1.1.2-2.1.6-3 1.2l-.7-1c1.2-.6 2.3-1.1 3.5-1.4zM23 18l1 .7c-.6.9-1 1.9-1.2 3l-1.2-.2c.2-1.3.7-2.5 1.4-3.5zm0 10.5c-.7-1-1.2-2.2-1.4-3.4l1.2-.2c.2 1.1.6 2.1 1.2 3l-1 .6zm2.5 2.5.7-1c.9.6 1.9 1 3 1.2l-.2 1.2c-1.3-.2-2.4-.7-3.5-1.4zm7 1.4-.2-1.2c1.1-.2 2.1-.6 3-1.2l.7 1c-1.1.7-2.2 1.2-3.5 1.4zm6-3.9-1-.7c.6-.9 1-1.9 1.2-3l1.2.2c-.2 1.3-.7 2.4-1.4 3.5zm.3-6.8c-.2-1.1-.6-2.1-1.2-3l1-.7c.7 1 1.2 2.2 1.4 3.4l-1.2.3z'/%3E%3C/svg%3E");
+                background-color: color(alabaster);
+                background-repeat: no-repeat;
+                background-position: center center;
+                background-size: getProviderDetailsSizes(games-container-icon-size);
+            }
+            &>div>div:last-child {
+                font-size: getProviderDetailsSizes(games-container__div__div-last-child-font-size);
+                height: getProviderDetailsSizes(games-container__div__div-last-child-height) !important;
+                border: solid transparent 0px;
+            }
+            // & > div > div {
+            //   padding: getProviderDetailsSizes(games-container__div__div-padding) !important;
+            // }
+            &>div>div>p {
+                font-size: getProviderDetailsSizes(games-container__div__div__p-font-size) !important;
+                max-width: getProviderDetailsSizes(games-container__div__div__p-max-width) !important;
+            }
+            &>div>div {
+                width: getProviderDetailsSizes(games-container__div__div-width) !important;
+                height: getProviderDetailsSizes(games-container__div__div-height) !important;
+            }
+        }
+    }
+    .GamesList__Empty {
+        margin-top: getProviderDetailsSizes(provider-games-empty-margin-top);
+    }
+    .Empty-Page-Cell {
+        @include flex(center);
+    }
+    .Empty-Page-Title {
+        margin: 0;
+        margin-top: getProviderDetailsSizes(provider-games-empty-text-margin-top);
+        text-align: center;
+    }
+    .GamesList__Fill {
+        width: 100%;
+        padding-bottom: getProviderDetailsSizes(providers-games-padding-bottom);
+        &:after {
+            display: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-display);
+            content: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-content);
+            position: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-position);
+            bottom: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-bottom);
+            left: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-left);
+            z-index: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-z-index);
+            width: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-width);
+            height: getProviderDetailsSizes(provider-details-bottom-fading-cell-after-height);
+            background: getProviderDetailsColors(provider-details-bottom-fading-cell-after-bg-color);
+        }
+    }
+    .TagsCell {
+        @include flex;
+        padding: getProviderDetailsSizes(tags-cell-padding);
+        &>svg {
+            margin-right: getProviderDetailsSizes(tags-cell__svg-margin-right);
+        }
+        &>div {
+            margin-right: getProviderDetailsSizes(tags-cell__svg-margin-right);
+        }
+    }
+    .TabContent {
+        @include flex;
+        box-sizing: getProviderDetailsSizes(tab-content-box-sizing);
+        &--TwoColGrid {
+            display: getProviderDetailsSizes(tab-content-two-col-grid-display);
+            grid-template-columns: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-columns);
+            grid-template-rows: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-rows);
+            grid-column-gap: getProviderDetailsSizes(tab-content-two-col-grid-grid-column-gap);
+            grid-row-gap: getProviderDetailsSizes(tab-content-two-col-grid-grid-row-gap);
+            grid-template-areas: getProviderDetailsSizes(tab-content-two-col-grid-grid-template-areas);
+        }
+        .FlexibleFormWrapper {
+            box-sizing: getProviderDetailsSizes(flexible-form-wrapper-box-sizing);
+            &>div,
+            &>div>div {
+                width: 100%;
+                box-sizing: getProviderDetailsSizes(flexible-form-wrapper-box-sizing);
+            }
+            &--3 {
+                width: getProviderDetailsSizes(flexible-form-wrapper--3-width);
+                grid-area: getProviderDetailsSizes(flexible-form-wrapper--3-grid-area);
+            }
+        }
+    }
+    .ProviderDetails__Bottom-Fading-Cell {
+        display: block;
+        width: getProviderDetailsSizes(provider-details-bottom-fading-cell-width);
+        @include p;
+    }
+    .GameDetailsBase__GameTag {
+        cursor: getProviderDetailsSizes(game-tag-cursor);
+    }
 }
 
 .GamesContainer__Loader {
-  @include flex(center, null);
-  padding: getProviderDetailsSizes(game-tag-padding);
-}
-
-.HoverBox {
-  opacity: 0;
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  transition: all getProviderDetailsSizes(hover-box-button-animation) linear;
-
-  button {
-    cursor: pointer;
-    background-color: transparent;
-    margin: 0;
-  }
-
-  &:hover {
-    opacity: getProviderDetailsSizes(hover-box-button-opacity);
-    .HoverBox-Link {
-      opacity: getProviderDetailsSizes(hover-box-button-opacity);
-      bottom: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
-    }
-    .HoverBox-PlayBtn {
-      opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
-      margin-top: getProviderDetailsSizes(hoverbox-playbtn-view-icon-margin-top);
-    }
-    .HoverBox-ViewIcon {
-      top: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
-      opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
-    }
-  }
-}
-.HoverBox-PlayBtn {
-  border: solid transparent 0;
-  background-color: transparent;
-  cursor: pointer;
-  display: block;
-  width: getProviderDetailsSizes(hoverbox-playbtn-sizes);
-  height: getProviderDetailsSizes(hoverbox-playbtn-sizes);
-  border: solid getProviderDetailsColors(hoverbox-play-btn-border-color)
-    getProviderDetailsSizes(hover-box-play-button-border);
-  @include center-absolute();
-  padding: getProviderDetailsSizes(hover-box-play-button-padding);
-  z-index: getProviderDetailsSizes(hoverbox-playbtn-z-index);
-  border-radius: getProviderDetailsSizes(hoverbox-playbtn-border-radius);
-  margin-top: getProviderDetailsSizes(hoverbox-playbtn-margin-top);
-  opacity: 0;
-  transition: all getProviderDetailsSizes(hoverbox-playbtn-transition) linear;
-  &:hover {
-    .HoverBox-PlayBtnInner {
-      background-color: getProviderDetailsColors(hover-box-play-btn-inner-background);
-      opacity: getProviderDetailsSizes(hover-box-play-btn-inner-opacity);
-    }
-  }
-}
-.HoverBox-PlayBtnInner {
-  width: 100%;
-  height: 100%;
-  background-color: getProviderDetailsColors(hoverbox-playbtn-background-color);
-  z-index: getProviderDetailsSizes(hoverbox-playbtn-inner-z-index);
-  border-radius: getProviderDetailsSizes(hoverbox-playbtn-border-radius);
-  transition: background getProviderDetailsSizes(hover-box-button-animation) linear;
-  @include flex(center, center);
-}
-
-.HoverBox-OpacityLayer {
-  display: block;
-  z-index: getProviderDetailsSizes(hoverbox-opacity-layer-z-index);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: getProviderDetailsColors(hoverbox-opacity-layer-background-color);
-}
-
-.HoverBox-PlayBtnIcon {
-  display: block;
-  height: getProviderDetailsSizes(hover-box-play-btn-icon-height);
-  width: getProviderDetailsSizes(hoverbox-play-btn-icon-width);
-  @include flex(center, center);
-  transform: translate(getProviderDetailsSizes(hoverbox-play-btn-icon-transform), 0);
-  svg {
-    fill: getProviderDetailsColors(play-icon-fill);
-  }
-}
-
-.HoverBox-ViewIcon {
-  background-color: transparent;
-  opacity: 0;
-  display: block;
-  padding: 0;
-  margin: 0;
-  font-size: 0;
-  z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
-  position: absolute;
-  top: 0;
-  right: getProviderDetailsSizes(hover-box-view-icon-position-right);
-  width: getProviderDetailsSizes(hoverbox-view-icon-width);
-  transition: all getProviderDetailsSizes(hoverbox-view-icon-transition) linear;
-  border: 0;
-  transition: all linear getProviderDetailsSizes(hover-box-button-animation);
-  svg {
-    width: getProviderDetailsSizes(hoverbox-view-icon-width);
-    fill: getProviderDetailsColors(hoverbox-view-icon-color);
-  }
-}
-
-.HoverBox-Link {
-  cursor: pointer;
-  border: solid transparent 0 !important;
-  background-color: transparent !important;
-  width: 100%;
-  opacity: 0;
-  display: block;
-  text-align: center;
-  position: absolute;
-  bottom: 0;
-  padding-left: 0;
-  padding-right: 0;
-  right: getProviderDetailsSizes(hoverbox-link-text-position-right);
-  transform: translate(getProviderDetailsSizes(hoverbox-link-text-position-right), 0);
-  z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
-  transition: all linear getProviderDetailsSizes(hoverbox-playbtn-transition);
-
-  &__Text {
-    position: relative;
-    top: 0;
-    left: 0;
-    color: getProviderDetailsColors(hoverbox-view-icon-color);
-    font-size: getProviderDetailsSizes(hoverbox-link-text-font-size);
-    opacity: getProviderDetailsSizes(hover-box-link--text-opacity);
-    transition: all getProviderDetailsSizes(hover-box-button-animation) linear;
-    padding-left: 0;
-    padding-right: 0;
-    border: 0;
-    font-weight: getProviderDetailsSizes(hover-box-link--text-font-weight);
-    &:hover {
-      opacity: getProviderDetailsSizes(hover-box-link--text-hover-opacity);
-    }
-    &:after {
-      content: '';
-      display: block;
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: getProviderDetailsSizes(hover-box-link--text-after-height);
-      background-color: getProviderDetailsColors(hover-box-link-text-after-backgroud-color);
-    }
-  }
+    @include flex(center,
+    null);
+    padding: getProviderDetailsSizes(game-tag-padding);
 }

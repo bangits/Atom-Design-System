@@ -5,6 +5,7 @@ import styles from './ProvidersGeneralInfo.module.scss';
 
 export interface ProvidersGeneralInfoProps {
   noDataText?: string;
+  isCmsUser?: boolean;
   totalMarket: {
     title: string;
     total?: string;
@@ -30,13 +31,13 @@ export interface ProvidersGeneralInfoProps {
     total?: string;
     licenses: TagProps[];
   };
-  realURL: {
+  realURL?: {
     title: string;
     URL: string;
     tooltip?: Omit<TooltipProps, 'children'>;
     onClick: () => void;
   };
-  demoURL: {
+  demoURL?: {
     title: string;
     URL: string;
     tooltip?: Omit<TooltipProps, 'children'>;
@@ -52,7 +53,8 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
   licenses,
   realURL,
   demoURL,
-  noDataText
+  noDataText,
+  isCmsUser = false
 }) => {
   return (
     <div className={styles['ProviderGeneralInfo--items']}>
@@ -112,25 +114,29 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
         )}
       </LabelGroup>
 
-      <LabelGroup title={realURL.title}>
-        {realURL.URL ? (
-          <CopyField label={realURL.URL} tooltip={realURL.tooltip} onClick={realURL.onClick} />
-        ) : (
-          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
-            {noDataText}
-          </Typography>
-        )}
-      </LabelGroup>
+      {realURL && (
+        <LabelGroup title={realURL.title}>
+          {realURL.URL ? (
+            <CopyField label={realURL.URL} tooltip={realURL.tooltip} onClick={realURL.onClick} />
+          ) : (
+            <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+              {noDataText}
+            </Typography>
+          )}
+        </LabelGroup>
+      )}
 
-      <LabelGroup title={demoURL.title}>
-        {demoURL.URL ? (
-          <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} onClick={demoURL.onClick} />
-        ) : (
-          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
-            {noDataText}
-          </Typography>
-        )}
-      </LabelGroup>
+      {demoURL && (
+        <LabelGroup title={demoURL.title}>
+          {demoURL.URL ? (
+            <CopyField label={demoURL.URL} tooltip={demoURL.tooltip} onClick={demoURL.onClick} />
+          ) : (
+            <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+              {noDataText}
+            </Typography>
+          )}
+        </LabelGroup>
+      )}
     </div>
   );
 };

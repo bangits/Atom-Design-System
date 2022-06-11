@@ -2,7 +2,7 @@ import { ItemDetails, NameDescription, ProfileBlock, StatusView, StatusViewProps
 import { typedMemo } from '@/helpers';
 import { Breadcrumb, BreadcrumbProps, Button, ButtonProps } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './GameDetails.module.scss';
 export interface GameDetailsProps {
   statusInfo: Omit<StatusViewProps, 'label'>;
@@ -39,6 +39,8 @@ export interface GameDetailsProps {
     playButton: string;
     playDemoButton: string;
   };
+  isShowEditIcons?: boolean;
+  rgsInfo?: boolean;
 }
 const GameDetails: FC<GameDetailsProps> = ({
   breadCrumbs,
@@ -57,7 +59,9 @@ const GameDetails: FC<GameDetailsProps> = ({
   mainImgUrl,
   onMainImgClick,
   onBackgroundImgClick,
-  isLoadingImage
+  isLoadingImage,
+  isShowEditIcons = true,
+  rgsInfo = true
 }) => {
   return (
     <div className={classNames(styles.GameDetailsBase)}>
@@ -68,6 +72,7 @@ const GameDetails: FC<GameDetailsProps> = ({
         <div className={classNames(styles['MainCarcass__Sidebar'], 'MainCarcass__Sidebar')}>
           <ProfileBlock
             isLoadingImage={isLoadingImage}
+            isShowEditIcons={isShowEditIcons}
             backgroundImgUrl={backgroundImgUrl}
             itemId={gameId}
             itemName={gameName}
@@ -80,35 +85,37 @@ const GameDetails: FC<GameDetailsProps> = ({
             <StatusView {...statusInfo} label={translations.status} />
           </div>
 
-          <div
-            className={classNames(
-              styles['CardWrapper'],
-              styles['CardWrapper--Change-Update'],
-              'CardWrapper',
-              'CardWrapper--Change-Update'
-            )}>
-            <NameDescription
-              data={[
-                {
-                  name: translations.creationDate,
-                  description: creationDate
-                },
-                {
-                  name: translations.createdBy,
-                  description: createdBy
-                },
-                {
-                  name: translations.lastUpdateDate,
-                  description: lastUpdateDate
-                },
-                {
-                  name: translations.lastUpdateBy,
-                  description: lastUpdateBy
-                }
-              ]}
-              noDataText={noDataText}
-            />
-          </div>
+          {rgsInfo && (
+            <div
+              className={classNames(
+                styles['CardWrapper'],
+                styles['CardWrapper--Change-Update'],
+                'CardWrapper',
+                'CardWrapper--Change-Update'
+              )}>
+              <NameDescription
+                data={[
+                  {
+                    name: translations.creationDate,
+                    description: creationDate
+                  },
+                  {
+                    name: translations.createdBy,
+                    description: createdBy
+                  },
+                  {
+                    name: translations.lastUpdateDate,
+                    description: lastUpdateDate
+                  },
+                  {
+                    name: translations.lastUpdateBy,
+                    description: lastUpdateBy
+                  }
+                ]}
+                noDataText={noDataText}
+              />
+            </div>
+          )}
 
           <div
             className={classNames(

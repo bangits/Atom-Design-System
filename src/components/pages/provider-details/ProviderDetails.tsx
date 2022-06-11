@@ -45,6 +45,7 @@ export interface ProviderDetailsProps {
   lastUpdatedBy: string;
   generalInformationContext: ReactNode;
   gamesTabContent: ReactNode;
+  isCmsUser: boolean;
 
   onBackgroundImgClick: () => void;
 }
@@ -67,7 +68,8 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
   providerId,
   backgroundImgUrl,
   lastUpdatedBy,
-  lastUpdatedDate
+  lastUpdatedDate,
+  isCmsUser = false
 }) => {
   return (
     <div className={styles.ProviderDetailsBase}>
@@ -75,39 +77,44 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
       <div className={styles['ProviderDetailsBase--container']}>
         <div className={styles['ProviderDetailsBase--leftBlock']}>
           <ProfileBlock
+            isShowEditIcons={!isCmsUser}
             backgroundImgUrl={backgroundImgUrl}
             itemId={providerId}
             itemName={providerName}
             onBackgroundImgClick={onBackgroundImgClick}
           />
-          {partnerName ? (
-            <div className={styles['ProviderDetailsBase--doubleBlock']}>
-              <NameDescription
-                noDataText={noDataText}
-                data={[
-                  {
-                    name: translations.integrationType,
-                    description: integrationType
-                  },
-                  {
-                    name: translations.partnerName,
-                    description: partnerName
-                  }
-                ]}
-              />
-            </div>
-          ) : (
-            <div className={styles['ProviderDetailsBase--doubleBlock']}>
-              <NameDescription
-                noDataText={noDataText}
-                data={[
-                  {
-                    name: translations.integrationType,
-                    description: integrationType
-                  }
-                ]}
-              />
-            </div>
+          {!isCmsUser && (
+            <>
+              {partnerName ? (
+                <div className={styles['ProviderDetailsBase--doubleBlock']}>
+                  <NameDescription
+                    noDataText={noDataText}
+                    data={[
+                      {
+                        name: translations.integrationType,
+                        description: integrationType
+                      },
+                      {
+                        name: translations.partnerName,
+                        description: partnerName
+                      }
+                    ]}
+                  />
+                </div>
+              ) : (
+                <div className={styles['ProviderDetailsBase--doubleBlock']}>
+                  <NameDescription
+                    noDataText={noDataText}
+                    data={[
+                      {
+                        name: translations.integrationType,
+                        description: integrationType
+                      }
+                    ]}
+                  />
+                </div>
+              )}
+            </>
           )}
 
           {/* <div className={styles.StatusContent}>
@@ -121,33 +128,38 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
               ]}
             />
           </div> */}
-          <CountView noDataText={noDataText} title={translations.totalGameCount} count={totalGameCount} />
 
-          <div className={styles.StatusContent}>
-            <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
-          </div>
-
-          <NameDescription
-            noDataText={noDataText}
-            data={[
-              {
-                name: translations.creationDate,
-                description: creationDate
-              },
-              {
-                name: translations.createdBy,
-                description: createdBy
-              },
-              {
-                name: translations.lastUpdatedDate,
-                description: lastUpdatedDate
-              },
-              {
-                name: translations.lastUpdatedBy,
-                description: lastUpdatedBy
-              }
-            ]}
-          />
+          {!isCmsUser && (
+            <CountView noDataText={noDataText} title={translations.totalGameCount} count={totalGameCount} />
+          )}
+          {isCmsUser && (
+            <div className={styles.StatusContent}>
+              <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
+            </div>
+          )}
+          {!isCmsUser && (
+            <NameDescription
+              noDataText={noDataText}
+              data={[
+                {
+                  name: translations.creationDate,
+                  description: creationDate
+                },
+                {
+                  name: translations.createdBy,
+                  description: createdBy
+                },
+                {
+                  name: translations.lastUpdatedDate,
+                  description: lastUpdatedDate
+                },
+                {
+                  name: translations.lastUpdatedBy,
+                  description: lastUpdatedBy
+                }
+              ]}
+            />
+          )}
         </div>
         <div
           className={classNames(styles['ProviderDetails__Bottom-Fading-Cell'], 'ProviderDetails__Bottom-Fading-Cell')}>

@@ -12,6 +12,7 @@ export interface ProfileBlockProps {
   itemName: string;
   itemId: number | string;
   isLoadingImage?: boolean;
+  isShowEditIcons?: boolean;
 }
 
 const ProfileBlock = ({
@@ -21,7 +22,8 @@ const ProfileBlock = ({
   mainImgUrl,
   itemId,
   itemName,
-  isLoadingImage
+  isLoadingImage,
+  isShowEditIcons = true
 }: ProfileBlockProps) => {
   return (
     <>

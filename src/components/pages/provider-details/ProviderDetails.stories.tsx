@@ -12,6 +12,7 @@ export default {
 export const Default = () => {
   return (
     <ProviderDetails
+      isCmsUser={true}
       lastUpdatedBy=''
       lastUpdatedDate=''
       totalGameCount={text('totalGameCount', '1024')}

@@ -1,7 +1,7 @@
-import { Icons } from '@/atom-design-system';
+import { GameCard, Icons } from '@/atom-design-system';
 import { TextInput } from '@/components';
-import { EmptyGameListIcon, PlayArrowIcon, ViewCardImageIcon } from '@/icons';
-import { Button, CardImg, Loader, Scroll, Tag, Typography } from '@my-ui/core';
+import { EmptyGameListIcon } from '@/icons';
+import { Button, Loader, Scroll, Tag, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { useRef, useState } from 'react';
 import styles from './ProviderDetails.module.scss';
@@ -158,43 +158,12 @@ export const ProviderGames = ({
             <div className={classNames(styles['GamesContainer'], 'GamesContainer')}>
               {games.map((game) => (
                 <div className={classNames(styles['HoverContainer'], 'HoverContainer')}>
-                  <CardImg
-                    className={styles.CardImg}
-                    title={game.name}
-                    image={game.icon}
+                  <GameCard
+                    {...game}
                     key={game.id}
-                    hoverComponent={
-                      <span className={classNames(styles['HoverBox'], 'HoverBox')}>
-                        <button
-                          type='button'
-                          role='button'
-                          className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}
-                          onClick={() => onGameClick(game.id, false)}>
-                          <span className={classNames(styles['HoverBox-PlayBtnInner'], 'HoverBox-PlayBtnInner')}>
-                            <span className={classNames(styles['HoverBox-PlayBtnIcon'], 'HoverBox-PlayBtnIcon')}>
-                              <PlayArrowIcon width={'100%'} />
-                            </span>
-                          </span>
-                        </button>
-                        <button
-                          type='button'
-                          role='button'
-                          className={classNames(styles['HoverBox-ViewIcon'], 'HoverBox-ViewIcon')}
-                          onClick={() => onGameDetailsClick(game.id)}>
-                          <ViewCardImageIcon width={'100%'} />
-                        </button>
-
-                        <span className={classNames(styles['HoverBox-Link'], 'HoverBox-Link')}>
-                          <button
-                            role='button'
-                            onClick={() => onGameClick(game.id, true)}
-                            className={classNames(styles['HoverBox-Link__Text'], 'HoverBox-Link__Text')}>
-                            {translations.playDemo}
-                          </button>
-                        </span>
-                        <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
-                      </span>
-                    }
+                    onGameClick={onGameClick}
+                    onGameDetailsClick={onGameDetailsClick}
+                    playDemo={translations.playDemo}
                   />
                 </div>
               ))}

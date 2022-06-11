@@ -210,9 +210,9 @@ function Filters<T>({
         <div className={styles.ControlContainer}>
           <div className={styles.LeftControlsContainer}>
             <Select
+              dropdownLabel='Filters'
               {...selectProps}
               dropdown
-              dropdownLabel='Filters'
               isMulti={true}
               onChange={onFiltersConfigChange}
               defaultValue={filtersConfigDefaultValue}
