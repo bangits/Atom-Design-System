@@ -1,6 +1,6 @@
 import { Icons } from '@/atom-design-system';
 import { TextInput } from '@/components';
-import { Button, IconButton, Tooltip } from '@my-ui/core';
+import { Button, IconButton, Pagination, PaginationProps, Tooltip } from '@my-ui/core';
 import React, { ReactNode, useState } from 'react';
 import { Table } from '..';
 import { WalletCard } from '../wallet-card';
@@ -46,10 +46,25 @@ export interface PlayerWalletsProps {
       id: string;
     };
   };
-  title?: string;
+  title: string;
+  onPaginationChange: () => void;
+  page: number;
+  paginationProps: {
+    pageSizeSelect: Omit<PaginationProps['pageSizeSelect'], 'onChange'>;
+    getTotalCountInfo(pagination: typeof Pagination): string;
+  } & Pick<PaginationProps, 'jumpToPage'>;
+  totalPagesCount: number;
+  totalCountInfo: string;
+  onPaginationSizeChange: () => void;
 }
 
 const PlayerWallets = ({
+  onPaginationChange,
+  paginationProps,
+  totalPagesCount,
+  totalCountInfo,
+  page,
+  onPaginationSizeChange,
   wallets,
   translations,
   tableLoadingRowIds,
@@ -63,6 +78,31 @@ const PlayerWallets = ({
   const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
   const [balance, setBalance] = useState(null);
 
+  // const onPaginationSizeChange = useCallback((value: number) => {
+  //   if (!value) return;
+
+  //   setPagination({
+  //     page: 1,
+  //     pageSize: value
+  //   });
+  // }, []);
+
+  // const paginationProps = {
+  //   pageSizeSelect: {
+  //     dropdownLabel: 'Row per page: ',
+  //     options: [
+  //       {
+  //         value: 20,
+  //         label: '20'
+  //       }
+  //     ],
+  //     defaultValue: 20
+  //   },
+  //   jumpToPage: {
+  //     inputTitle: 'Jump to page'
+  //   },
+  //   getTotalCountInfo: () => '1-20 of 365'
+  // };
   return (
     <>
       <div className={styles.PlayerDetailsTableContent}>
@@ -123,6 +163,19 @@ const PlayerWallets = ({
           {/* </Divider> */}
         </div>
         <div className={styles['PlayerDetailsTableContent--title']}>{title}</div>
+        <Pagination
+          style={{ justifyContent: 'end' }}
+          onChange={onPaginationChange}
+          page={page}
+          {...paginationProps}
+          totalPagesCount={totalPagesCount}
+          pageSizeSelect={{
+            ...paginationProps?.pageSizeSelect,
+            onChange: onPaginationSizeChange
+          }}
+          totalCountInfo={totalCountInfo}
+        />
+
         <Table
           isWithSelection={false}
           actions={[

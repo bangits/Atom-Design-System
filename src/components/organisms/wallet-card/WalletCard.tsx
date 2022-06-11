@@ -34,7 +34,7 @@ const WalletCard: FC<WalletCardProps> = ({ walletType, col = 4, noDataText, acco
                 {walletType || noDataText}
               </Typography>
               <Typography className={styles.Label} variant='p4'>
-                {balance.label}: <span>{balance.value || noDataText}</span>
+                {balance.label}: <span>{balance.value || 0}</span>
               </Typography>
               <Typography className={styles.Label} variant='p4'>
                 {account.label}: <span>{account.id || noDataText}</span>

@@ -83,6 +83,27 @@ export const Default = () => {
           id: '654989985'
         }
       }}
+      onPaginationChange={() => console.log('onPaginationChange')}
+      page={0}
+      paginationProps={{
+        pageSizeSelect: {
+          dropdownLabel: 'Row per page: ',
+          options: [
+            {
+              value: 20,
+              label: '20'
+            }
+          ],
+          defaultValue: 20
+        },
+        jumpToPage: {
+          inputTitle: 'Jump to page'
+        },
+        getTotalCountInfo: () => '1-20 of 365'
+      }}
+      totalPagesCount={5}
+      totalCountInfo={'2000'}
+      onPaginationSizeChange={() => console.log('onPaginationSizeChange')}
     />
   );
 };
