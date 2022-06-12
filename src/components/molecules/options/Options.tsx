@@ -18,11 +18,13 @@ const Options: FC<OptionsProps> = ({ data, children }) => {
     <Card borderRadius={1.6} className={classNames(styles.OptionsBase)}>
       {data.map((d, index) => (
         <React.Fragment key={index}>
-          <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
-            <Divider variant='horizontal' />
-            <span className={styles['OptionsBase--description']}>{d.icon}</span>
-            <span className={styles['OptionsBase--name']}>{d.name}</span>
-          </div>
+          {d.icon && (
+            <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
+              <Divider variant='horizontal' />
+              <span className={styles['OptionsBase--description']}>{d.icon}</span>
+              <span className={styles['OptionsBase--name']}>{d.name}</span>
+            </div>
+          )}
         </React.Fragment>
       ))}
       {children && <div className={styles['OptionsBase--children']}>{children}</div>}

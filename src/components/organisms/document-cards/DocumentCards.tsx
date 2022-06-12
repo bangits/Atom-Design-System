@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 import { DocumentCard } from '../document-card';
 import styles from './DocumentCards.module.scss';
 
@@ -6,12 +6,12 @@ export interface DocumentCardsProps {
   noDataText: string;
   documents: any;
   title: string;
-  menuItems: any;
+  menuItems?: any;
 }
 
 const DocumentCards: FC<DocumentCardsProps> = ({ documents, title, menuItems }) => {
   return (
-    <div className={styles['DocumentCards']}>
+    <div style={{ display: 'block' }} className={styles['DocumentCards']}>
       <div className={styles['DocumentCards--title']}>{title}</div>
       <div
         style={{
@@ -43,7 +43,7 @@ const DocumentCards: FC<DocumentCardsProps> = ({ documents, title, menuItems }) 
               statusLabel={document.statusLabel}
               pageLabel={document.pageLabel}
               pageQuantity={document.pageQuantity}
-              menuItems={menuItems}
+              menuItems={document.menuItems}
             />
           </>
         ))}
