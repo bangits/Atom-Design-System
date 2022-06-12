@@ -229,7 +229,7 @@ const PlayerWallets = ({
               disableSortBy: true
             }
           ]}
-          data={wallets}
+          data={wallets || []}
           className={styles.UserDetailsTable}
           loadingRowsIds={tableLoadingRowIds}
           // loadingRowColumnProperty='currencyId'
