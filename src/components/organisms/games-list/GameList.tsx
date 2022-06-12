@@ -18,6 +18,7 @@ export interface GameListProps {
   updateText?: string;
   updateWebContentButtonClick: () => void;
   updateContentButtonClick: () => void;
+  isDisabled?: boolean;
 }
 
 const GameList = ({
@@ -33,7 +34,8 @@ const GameList = ({
   updateText,
   isShowActivateOrDeactivateButton,
   updateWebContentButtonClick,
-  updateContentButtonClick
+  updateContentButtonClick,
+  isDisabled
 }: GameListProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -61,12 +63,21 @@ const GameList = ({
       }}
       className={styles.GamesScroll}>
       <div style={{ display: 'flex', gap: 20 }}>
-        <Button onClick={updateWebContentButtonClick} variant='link' startIcon={<Icons.ExchangeIcon />}>
-          {updateWebText}
-        </Button>
-        <Button onClick={updateContentButtonClick} variant='link' startIcon={<Icons.ExchangeIcon />}>
-          {updateText}
-        </Button>
+        {updateWebText && (
+          <Button onClick={updateWebContentButtonClick} variant='link' startIcon={<Icons.ExchangeIcon />}>
+            {updateWebText}
+          </Button>
+        )}
+        {updateText && (
+          <Button
+            className={isDisabled && styles.UpdateButton}
+            disabled={isDisabled}
+            onClick={updateContentButtonClick}
+            variant='link'
+            startIcon={<Icons.ExchangeIcon />}>
+            {updateText}
+          </Button>
+        )}
       </div>
       <div className={styles.GamesContainer}>
         {games.map((game) => (
