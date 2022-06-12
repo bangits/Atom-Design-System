@@ -13,6 +13,7 @@
       background-color: transparent;
       margin: 0;
     }
+
     &:hover {
       opacity: getProviderDetailsSizes(hover-box-button-opacity);
       .HoverBox-Link {
@@ -28,6 +29,16 @@
         opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
       }
     }
+  }
+  .HoverBox-Indicator {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: #20df20;
+    border-radius: 50%;
+    z-index: 100;
+    top: 5px;
+    left: 5px;
   }
   .HoverBox-PlayBtn {
     border: solid transparent 0;
@@ -141,6 +152,13 @@
         width: 100%;
         height: getProviderDetailsSizes(hover-box-link--text-after-height);
         background-color: getProviderDetailsColors(hover-box-link-text-after-backgroud-color);
+      }
+    }
+  }
+  .HoverBox-Main {
+    &:hover {
+      .HoverBox-Indicator {
+        opacity: 0;
       }
     }
   }

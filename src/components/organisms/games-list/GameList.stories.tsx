@@ -10,6 +10,8 @@ export default {
 export const Default = () => {
   return (
     <GameList
+      updateContentButtonClick={() => {}}
+      updateWebContentButtonClick={() => {}}
       updateWebText='Update Web Content'
       updateText='Update Game Content'
       onGameDetailsClick={() => {}}
