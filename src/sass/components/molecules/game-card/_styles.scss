@@ -155,6 +155,18 @@
       }
     }
   }
+
+  .HoverBox-Main-Provider {
+    img {
+      object-fit: contain !important;
+      background: black;
+    }
+    &:hover {
+      .HoverBox-Indicator {
+        opacity: 0;
+      }
+    }
+  }
   .HoverBox-Main {
     &:hover {
       .HoverBox-Indicator {

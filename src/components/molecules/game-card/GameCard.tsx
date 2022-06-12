@@ -11,6 +11,7 @@ export interface GameCardProps {
   icon?: string;
   playDemo?: string;
   isPlayIconShow?: boolean;
+  isProvider?: boolean;
   isActivate?: boolean;
   isShowActivateOrDeactivateButton?: boolean;
   onGameClick?(gameId: string | number, isDemo: boolean): void;
@@ -43,10 +44,11 @@ const GameCard = ({
   onActivateOrDeactivateClick,
   isShowActivateOrDeactivateButton = true,
   isActivate = true,
-  isPlayIconShow = true
+  isPlayIconShow = true,
+  isProvider = false
 }: GameCardProps) => {
   return (
-    <span className={classNames(styles['HoverBox-Main'])}>
+    <span className={classNames(isProvider ? styles['HoverBox-Main-Provider'] : styles['HoverBox-Main'])}>
       {!isActivate && <div className={classNames(styles['HoverBox-Indicator'])}></div>}
       <CardImg
         title={name}

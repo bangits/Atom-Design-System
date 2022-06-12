@@ -9,6 +9,7 @@ export interface GameListProps {
   playDemo?: string;
   isAllGamesLoaded: boolean;
   isLoadingGames: boolean;
+  isProvider?: boolean;
   onChange(page: number): void;
   onGameDetailsClick(id: number): void;
   onActivateOrDeactivateClick?({ id, name, status }): void;
@@ -35,7 +36,8 @@ const GameList = ({
   isShowActivateOrDeactivateButton,
   updateWebContentButtonClick,
   updateContentButtonClick,
-  isDisabled
+  isDisabled,
+  isProvider
 }: GameListProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
@@ -83,6 +85,7 @@ const GameList = ({
         {games.map((game) => (
           <div className={styles.GameCard} key={game.id}>
             <GameCard
+              isProvider={isProvider}
               isShowActivateOrDeactivateButton={isShowActivateOrDeactivateButton}
               isActivate={game.status === 'Inactive' ? true : false}
               onGameClick={onGameClick}
