@@ -1,3 +1,4 @@
+export { ReactComponent as ActivatePopupIcon } from './activate-icon.react.svg';
 export { ReactComponent as ActivateIcon } from './activate.react.svg';
 export { ReactComponent as AddCircleIcon } from './addCircle.react.svg';
 export { ReactComponent as ApplyError } from './apply-error.react.svg';
@@ -14,6 +15,7 @@ export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg'
 export { ReactComponent as CloseIcon } from './close.react.svg';
 export { ReactComponent as CMSIcon } from './cms.react.svg';
 export { ReactComponent as DashboardIllustration } from './dashboard-illustartion.react.svg';
+export { ReactComponent as InActivatePopupIcon } from './deactivate-icon.react.svg';
 export { ReactComponent as DeActivateIcon } from './deactivate.react.svg';
 export { ReactComponent as DesktopIcon } from './desktop.react.svg';
 export { ReactComponent as DownloadIcon } from './download.react.svg';
