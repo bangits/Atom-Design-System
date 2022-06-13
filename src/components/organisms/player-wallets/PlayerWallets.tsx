@@ -32,6 +32,13 @@ export interface PlayerWalletsProps {
     makeDefault: string;
     balance: string;
     correctDefaultBalance: string;
+    correctedBy: string;
+    account: string;
+    type: string;
+    date: string;
+    balanceBefore: string;
+    amount: string;
+    balanceAfter: string;
   };
   cardProps: {
     col: number;
@@ -193,38 +200,38 @@ const PlayerWallets = ({
           // checkIsRowActive={(row) => row.isDefault}
           columns={[
             {
-              Header: 'account',
+              Header: translations.account,
               accessor: 'account' as keyof PlayerWallet,
               disableSortBy: true
             },
 
             {
-              Header: 'correctedBy',
+              Header: translations.correctedBy,
               accessor: 'correctedBy' as keyof PlayerWallet,
               disableSortBy: true
             },
             {
-              Header: 'type',
+              Header: translations.type,
               accessor: 'type' as keyof PlayerWallet,
               disableSortBy: true
             },
             {
-              Header: 'date',
+              Header: translations.date,
               accessor: 'date' as keyof PlayerWallet,
               disableSortBy: true
             },
             {
-              Header: 'balanceBefore',
+              Header: translations.balanceBefore,
               accessor: 'balanceBefore' as keyof PlayerWallet,
               disableSortBy: true
             },
             {
-              Header: 'amount',
+              Header: translations.amount,
               accessor: 'amount' as keyof PlayerWallet,
               disableSortBy: true
             },
             {
-              Header: 'balanceAfter',
+              Header: translations.balanceAfter,
               accessor: 'balanceAfter' as keyof PlayerWallet,
               disableSortBy: true
             }

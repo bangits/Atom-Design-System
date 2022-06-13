@@ -130,12 +130,12 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                       title: translations.playerDetails,
                       value: 1,
                       content: playerDetails
-                    },
-                    {
-                      title: translations.playerKPI,
-                      value: 2,
-                      content: playerKPI
                     }
+                    // {
+                    //   title: translations.playerKPI,
+                    //   value: 2,
+                    //   content: playerKPI
+                    // }
                   ]
                 },
                 {

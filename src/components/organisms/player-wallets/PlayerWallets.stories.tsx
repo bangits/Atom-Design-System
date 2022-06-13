@@ -1,7 +1,6 @@
 import { Select } from '@my-ui/core';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
 import PlayerWallets from './PlayerWallets';
 
 export default {
@@ -18,6 +17,13 @@ export const Default = () => {
       onDefaultBallanceChange={action('onDefaultBallanceChange')}
       tableLoadingRowIds={[2]}
       translations={{
+        account: 'Account',
+        amount: 'Amount',
+        balanceAfter: 'Balance After',
+        balanceBefore: 'Balance Before',
+        correctedBy: 'Corrected By',
+        date: 'Date',
+        type: 'Type',
         add: 'Add',
         default: 'Default',
         id: 'ID',
