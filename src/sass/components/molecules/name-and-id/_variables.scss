@@ -1,22 +1,21 @@
 $name-and-id-styles: (
-  base-font-size: calculateRem(14px),
+  base-font-size: calculateRem(13px),
   base-label-width: calculateRem(160px),
   default-base-label-width: calculateRem(130px),
   base-label-height: calculateRem(17px),
   name-margin: 0 0 calculateRem(8px) 0,
   name-font-weight: 700
 );
-
 $name-and-id-colors: (
   name-color: color(primary),
   name-color-default: color(primary),
   id-color: color(nepal),
   id-color-default: color(#48485d)
 );
-
 @function getGameAndIdSizes($key) {
   @return map-get($name-and-id-styles, $key);
 }
+
 @function getGameAndIdColors($key) {
   @return map-get($name-and-id-colors, $key);
 } ;
