@@ -47,7 +47,8 @@ Default.args = {
         {
           icon: <Icons.DownloadIcon />,
           name: 'Download',
-          onClick: () => console.log('Download')
+          link: '/',
+          download: true
         }
       ]
     },
