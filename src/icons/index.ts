@@ -18,6 +18,7 @@ export { ReactComponent as DashboardIllustration } from './dashboard-illustartio
 export { ReactComponent as InActivatePopupIcon } from './deactivate-icon.react.svg';
 export { ReactComponent as DeActivateIcon } from './deactivate.react.svg';
 export { ReactComponent as DesktopIcon } from './desktop.react.svg';
+export { ReactComponent as EmptyFormIcon } from './document-empty-state.react.svg';
 export { ReactComponent as DownloadIcon } from './download.react.svg';
 export { ReactComponent as EdgeIcon } from './edge.react.svg';
 export { ReactComponent as EmptyCardImagePokerToken } from './empty-card-image-poker-token.react.svg';
