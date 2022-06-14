@@ -31,6 +31,7 @@ export interface GameCardProps {
     path: string;
   };
   status?: string;
+  providerName?: string;
 }
 
 const GameCard = ({
@@ -45,14 +46,23 @@ const GameCard = ({
   isShowActivateOrDeactivateButton = true,
   isActivate = true,
   isPlayIconShow = true,
-  isProvider = false
+  isProvider = false,
+  providerName
 }: GameCardProps) => {
   return (
     <span className={classNames(isProvider ? styles['HoverBox-Main-Provider'] : styles['HoverBox-Main'])}>
       {!isActivate && <div className={classNames(styles['HoverBox-Indicator'])}></div>}
       <CardImg
-        title={name}
+        title={
+          <>
+            {name}
+            {providerName && <span className={styles['ProviderName']}>{providerName}</span>}
+          </>
+        }
         image={icon || 'https://i.ibb.co/c2yqT5q/image.png'}
+        className={classNames(styles['CardContainer'], {
+          [styles['CardContainer--with-provider']]: providerName
+        })}
         hoverComponent={
           <span className={classNames(styles['HoverBox'], 'HoverBox')}>
             {isPlayIconShow && (
