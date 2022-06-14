@@ -2,7 +2,7 @@ import { typedMemo } from '@/helpers';
 import { DustbinIcon, PenIcon } from '@/icons';
 import { Card, IconButton, Tag, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
 
 export interface EditedFormProps {

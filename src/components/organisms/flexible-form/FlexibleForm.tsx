@@ -1,5 +1,5 @@
 import { EditedForm, EditedFormProps, EditForm, EditFormProps } from '@/components';
-import React, { FC, ReactNode, useCallback, useState } from 'react';
+import { FC, ReactNode, useCallback, useState } from 'react';
 
 export interface FlexibleFormProps {
   editedFormProps?: EditedFormProps;
@@ -12,7 +12,6 @@ export interface FlexibleFormProps {
   editedModeChildren?: ReactNode;
   col?: 6 | 12;
   onClose?: () => void;
-  showEditIcons?: boolean;
 }
 
 const FlexibleForm: FC<FlexibleFormProps> = ({
@@ -25,8 +24,7 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
   editModeChildren,
   editedModeChildren,
   col,
-  onClose,
-  showEditIcons = true
+  onClose
 }) => {
   const [toggle, setToggle] = useState<boolean>(isEdit);
 
@@ -50,7 +48,6 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
       ) : (
         <EditedForm
           {...editedFormProps}
-          showEditIcons={showEditIcons}
           onToggle={onToggle}
           title={title}
           noDataText={noDataText}
