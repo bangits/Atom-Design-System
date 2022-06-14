@@ -41,13 +41,6 @@ const GameList = ({
 }: GameListProps) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
-  // getEditUrl={(column) =>
-  //   ROUTES.baseUrl + ROUTES.players + ROUTES.playerDetails.replace(':id', column.id.toString()) + '/?isEdit=true'
-  // }
-  // getViewUrl={(column) =>
-  //   ROUTES.baseUrl + ROUTES.players + ROUTES.playerDetails.replace(':id', column.id.toString())
-  // }
-
   return (
     <Scroll
       height='60rem'
@@ -94,6 +87,7 @@ const GameList = ({
               {...game}
               isPlayIconShow={!!playDemo}
               playDemo={playDemo}
+              providerName={game.providerName}
             />
           </div>
         ))}
