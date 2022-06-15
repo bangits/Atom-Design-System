@@ -17,7 +17,7 @@ import { UserMainIcon } from '@/icons';
 import { AvatarCard, Breadcrumb, BreadcrumbProps, Card, SubTabProps } from '@my-ui/core';
 import { TabProps } from '@my-ui/core/dist/components/tab/Tab';
 import classNames from 'classnames';
-import { FC, ReactNode, useState } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './PlayerDetails.module.scss';
 
 export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, LastActivityViewProps, FlexibleFormProps {
@@ -79,12 +79,6 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   wallet,
   verifiedIcon
 }) => {
-  const [tabValue, setTabValue] = useState(1);
-  const [subTabValue, setSubTabValue] = useState(1);
-  const [edit, setEdit] = useState(false);
-
-  const [date, setDate] = useState<Date | null>(null);
-
   return (
     <div className={classNames(styles.PlayerDetailsBase)}>
       <div className={classNames(styles['PlayerDetailsBase--breadCrumb'])}>
