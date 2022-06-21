@@ -58,11 +58,15 @@ export interface PlayerWalletsProps {
   page: number;
   paginationProps: {
     pageSizeSelect: Omit<PaginationProps['pageSizeSelect'], 'onChange'>;
-    getTotalCountInfo(pagination: typeof Pagination): string;
+    getTotalCountInfo(pagination: Pagination): string;
   } & Pick<PaginationProps, 'jumpToPage'>;
   totalPagesCount: number;
   totalCountInfo: string;
-  onPaginationSizeChange: () => void;
+  onPaginationSizeChange;
+}
+export interface Pagination {
+  page: number;
+  pageSize: number;
 }
 
 const PlayerWallets = ({
@@ -84,15 +88,6 @@ const PlayerWallets = ({
 }: PlayerWalletsProps) => {
   const [isOpenedDefaultBalanceChangeSelect, setOpenedDefaultBalanceChangeSelect] = useState(false);
   const [balance, setBalance] = useState(null);
-
-  // const onPaginationSizeChange = useCallback((value: number) => {
-  //   if (!value) return;
-
-  //   setPagination({
-  //     page: 1,
-  //     pageSize: value
-  //   });
-  // }, []);
 
   // const paginationProps = {
   //   pageSizeSelect: {
@@ -197,7 +192,6 @@ const PlayerWallets = ({
               props: {}
             }
           ]}
-          // checkIsRowActive={(row) => row.isDefault}
           columns={[
             {
               Header: translations.account,
@@ -239,7 +233,6 @@ const PlayerWallets = ({
           data={wallets || []}
           className={styles.UserDetailsTable}
           loadingRowsIds={tableLoadingRowIds}
-          // loadingRowColumnProperty='currencyId'
           rowUniqueKey='currencyId'
         />
       </div>
