@@ -1539,7 +1539,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/core@^0.7.5":
+"@my-ui/core@^0.7.4":
   version "0.7.5"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.7.5.tgz#751e71e282ac97822691e5fd71217e6005a04c54"
   integrity sha1-dR5x4oKsl4ImkeX9cSF+YAWgTFQ=

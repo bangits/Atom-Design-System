@@ -43,7 +43,7 @@ $providerdetails-sizes: (
   games-container-width: 100%,
   // games-container-width: 946px,
   games-container-display: grid,
-  games-container-grid-template-columns: repeat(auto-fill, minmax(14.7rem, 1fr)),
+  games-container-grid-template-columns: repeat(auto-fill, minmax(10.7rem, 1fr)),
   games-container-grid-template-rows: auto,
   games-container-grid-column-gap: calculateRem(10px),
   games-container-grid-row-gap: calculateRem(10px),

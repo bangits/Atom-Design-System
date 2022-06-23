@@ -167,6 +167,7 @@ export const ProviderGames = ({
                   <GameCard
                     {...game}
                     key={game.id}
+                    isShowActivateOrDeactivateButton={false}
                     onGameClick={onGameClick}
                     onGameDetailsClick={onGameDetailsClick}
                     playDemo={translations.playDemo}
