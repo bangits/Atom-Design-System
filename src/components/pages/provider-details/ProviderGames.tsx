@@ -14,7 +14,7 @@ export interface ProviderGamesProps {
     playDemo: string;
   };
   gameTypes: {
-    id: number;
+    id?: number;
     name: string;
     gameCount: number;
   }[];
@@ -31,7 +31,7 @@ export interface ProviderGamesProps {
   hasGames: boolean;
   shouldShowAddGameButton?: boolean;
 
-  onChange(gameTypeId: number, search: string, page: number): void;
+  onChange(gameType: number | string, search: string, page: number): void;
   onGameClick(gameId: number, isDemo: boolean): void;
   onGameDetailsClick(gameId: number): void;
   onAddGameClick(): void;
@@ -55,7 +55,7 @@ export const ProviderGames = ({
   const [searchValue, setSearchValue] = useState('');
   const latestSearchValue = useRef('');
 
-  const [selectedGameType, setSelectedGameType] = useState<number>(null);
+  const [selectedGameType, setSelectedGameType] = useState<number | string>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   return (
@@ -125,14 +125,20 @@ export const ProviderGames = ({
                 className={classNames(styles['GameDetailsBase__GameTag'], 'GameDetailsBase__GameTag')}
                 title={`${type.name}(${type.gameCount})`}
                 closeIcon={false}
-                inactive={selectedGameType !== type.id}
+                inactive={selectedGameType !== (type.id || type.name)}
                 key={type.id}
                 onClick={() => {
-                  setSelectedGameType((prevTypeId) => {
-                    onChange(prevTypeId === type.id ? null : type.id, searchValue, 1);
+                  type.id
+                    ? setSelectedGameType((prevTypeId) => {
+                        onChange(prevTypeId === type.id ? null : type.id, searchValue, 1);
 
-                    return prevTypeId === type.id ? null : type.id;
-                  });
+                        return prevTypeId === type.id ? null : type.id;
+                      })
+                    : setSelectedGameType((prevTypeId) => {
+                        onChange(prevTypeId === type.name ? null : type.name, searchValue, 1);
+
+                        return prevTypeId === type.name ? null : type.name;
+                      });
 
                   setCurrentPage(1);
                 }}
