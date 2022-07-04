@@ -45,7 +45,7 @@ const DocumentCard: FC<DocumentCardProps> = ({
 }) => {
   const [height, setHeight] = useState<number>();
 
-  const [isOpenMenu, setIsOpenMenu] = useState<boolean>(false);
+  const [isOpenMenu, setIsOpenMenu] = useState(false);
   const containerRef = useRef<HTMLDivElement>();
 
   useLayoutEffect(() => {
@@ -63,7 +63,7 @@ const DocumentCard: FC<DocumentCardProps> = ({
       }}
       style={{ position: 'relative' }}>
       <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, right: '-15px', top: '55px' }}>
-        {isOpenMenu && <Options data={menuItems} />}
+        {isOpenMenu && <Options onOutsideClick={() => setIsOpenMenu(false)} data={menuItems} />}
       </div>
       <div
         ref={containerRef}

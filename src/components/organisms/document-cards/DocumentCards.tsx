@@ -6,10 +6,9 @@ export interface DocumentCardsProps {
   noDataText: string;
   documents: any;
   title: string;
-  menuItems?: any;
 }
 
-const DocumentCards: FC<DocumentCardsProps> = ({ documents, title, menuItems }) => {
+const DocumentCards: FC<DocumentCardsProps> = ({ documents, title }) => {
   return (
     <div style={{ display: 'block' }} className={styles['DocumentCards']}>
       <div className={styles['DocumentCards--title']}>{title}</div>

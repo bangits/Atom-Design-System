@@ -1,7 +1,7 @@
 import { Divider } from '@/atom-design-system';
-import { Card } from '@my-ui/core';
+import { Card, useOutsideClickEvent } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import React, { FC, ReactNode, useEffect } from 'react';
 import styles from './Options.module.scss';
 
 export interface OptionsProps {
@@ -13,9 +13,18 @@ export interface OptionsProps {
     link?: string;
     onClick: () => void;
   }[];
+  onOutsideClick?(): void;
 }
 
-const Options: FC<OptionsProps> = ({ data, children }) => {
+const Options: FC<OptionsProps> = ({ data, children, onOutsideClick }) => {
+  const { subscribe, unsubscribe } = useOutsideClickEvent(`.${styles.OptionsBase}`);
+
+  useEffect(() => {
+    subscribe(() => onOutsideClick?.());
+
+    return unsubscribe;
+  }, [onOutsideClick]);
+
   return (
     <Card borderRadius={1.6} className={classNames(styles.OptionsBase)}>
       {data.map(
