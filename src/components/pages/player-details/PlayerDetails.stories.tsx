@@ -55,6 +55,8 @@ export const Default = () => {
         }
       ]}
       translations={{
+        noDataText: 'N/A',
+        usedDeviceLabel: 'Used-Devices',
         documents: '',
         finances: '',
         games: '',
@@ -73,10 +75,14 @@ export const Default = () => {
       userImgUrl={''}
       userName={''}
       userId={0}
-      usedDevice={object('statusInfo', {
-        label: 'Status',
-        icon: 'active'
-      })}
+      usedDevices={[
+        {
+          icon: 'active'
+        },
+        {
+          icon: 'active'
+        }
+      ]}
       playerDetails={''}
       playerKPI={''}
       documents={'Documents'}
