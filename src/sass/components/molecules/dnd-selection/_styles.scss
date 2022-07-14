@@ -1,11 +1,37 @@
 @mixin generate-dnd-selection-styles {
     .DnDSelection {
         display: flex;
+        &__right-arrow {
+            @include flex(null, center);
+            margin-right: calculateRem(20px);
+            svg {
+                transform: scale(1.5);
+            }
+        }
+        &__title {
+            padding-left: calculateRem(15px);
+            margin-bottom: calculateRem(10px);
+            &,
+            &>*:first-child {
+                font-size: calculateRem(16px);
+                line-height: calculateRem(19px);
+            }
+            &>*:first-child {
+                font-weight: 400;
+                margin: 0;
+            }
+        }
+        &__buttons {
+            display: flex;
+            justify-content: flex-end;
+        }
         &__card {
-            width: 50%;
             padding: calculateRem(15px);
-            min-height: calculateRem(500px);
             box-sizing: border-box;
+        }
+        &__card-container {
+            width: 50%;
+            min-height: calculateRem(500px);
             &--draggable {
                 margin-right: calculateRem(20px);
             }

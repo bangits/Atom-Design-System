@@ -1,4 +1,5 @@
-import { withKnobs } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import DnDSelection from './DnDSelection';
 
 export default {
@@ -47,23 +48,17 @@ export const Default = () => {
           children: 'Dnd Item 8'
         }
       ]}
-      initialSortableItems={
-        [
-          {
-            imgSrc:
-              'https://thumbs.dreamstime.com/b/playing-video-game-close-up-child-hands-th-late-night-54233429.jpg',
-            indexValue: 1,
-            children: 'Dnd Item 1'
-          }
-        ]
-        // [
-        //   // {
-        //   //   imgSrc: 'https://thumbs.dreamstime.com/b/playing-video-game-close-up-child-hands-th-late-night-54233429.jpg',
-        //   //   indexValue: 1,
-        //   //   children: 'Dnd Item 1'
-        //   // }
-        // ]
-      }
+      initialSortableItems={[
+        {
+          imgSrc: 'https://thumbs.dreamstime.com/b/playing-video-game-close-up-child-hands-th-late-night-54233429.jpg',
+          indexValue: 1,
+          children: 'Dnd Item 1'
+        }
+      ]}
+      onApplyButtonClick={action('onApplyButtonClick')}
+      onCloseButtonClick={action('onCloseButtonClick')}
+      draggableSectionTitle={text('draggableSectionTitle', 'Section 1')}
+      sortableSectionTitle={text('sortableSectionTitleSectionTitle', 'Section 2')}
     />
   );
 };
