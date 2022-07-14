@@ -22,11 +22,12 @@ import styles from './PlayerDetails.module.scss';
 
 export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, LastActivityViewProps, FlexibleFormProps {
   breadCrumbs: BreadcrumbProps['links'];
-  usedDevice: UsedDeviceProps;
+  usedDevices: UsedDeviceProps[];
   playerDetails: ReactNode;
   playerKPI: ReactNode;
   verifiedIcon?: boolean;
-
+  usedDeviceLabel?: string;
+  noDataText?: string;
   translations: {
     status: string;
     registeredFormIp: string;
@@ -42,6 +43,8 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
     documents: string;
     games: string;
     finances: string;
+    usedDeviceLabel: string;
+    noDataText: string;
   };
   tabs?: {
     tab?: TabProps & {
@@ -73,11 +76,13 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   tabs,
   userName,
   userId,
-  usedDevice,
+  usedDevices,
   translations,
   documents,
   wallet,
-  verifiedIcon
+  verifiedIcon,
+  usedDeviceLabel,
+  noDataText
 }) => {
   return (
     <div className={classNames(styles.PlayerDetailsBase)}>
@@ -105,7 +110,7 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
           {/* <WalletView walletInfo={walletInfo} /> */}
 
           <StatusView {...statusInfo} />
-          <UsedDevice {...usedDevice} />
+          <UsedDevice noDataText={noDataText} label={usedDeviceLabel} usedDevices={usedDevices} />
           <div className={styles.LastActivityViewWrapper}>
             <LastActivityView lastActivity={lastActivity} />
           </div>

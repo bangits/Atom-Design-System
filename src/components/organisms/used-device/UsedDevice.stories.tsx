@@ -9,5 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return <StatusView label='Used Device' icon={<></>} />;
+  return <StatusView usedDevices={[]} label={''} noDataText={''} />;
 };
