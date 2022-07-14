@@ -1,11 +1,13 @@
+import { Icons } from '@/atom-design-system';
 import { Balance, BalanceProps, LabelEndMark, SpeedIndicator, SpeedIndicatorProps } from '@/components';
-import { Header as MyUIHeader, HeaderProps as MyUIHeaderProps } from '@my-ui/core';
+import { Button, Header as MyUIHeader, HeaderProps as MyUIHeaderProps } from '@my-ui/core';
 import { useEffect, useMemo, useState } from 'react';
 import styles from './Header.module.scss';
 
 export interface HeaderProps extends MyUIHeaderProps, BalanceProps, SpeedIndicatorProps {
   localTime: string;
   dateConverter: (date: Date) => string;
+  onCorrectBalanceClick?(): void;
 }
 
 export const Header = ({
@@ -16,6 +18,7 @@ export const Header = ({
   localTime,
   dateConverter,
   isOffline,
+  onCorrectBalanceClick,
   ...props
 }: HeaderProps) => {
   const [date, setDate] = useState<Date>(new Date());
@@ -29,6 +32,9 @@ export const Header = ({
   const headerContent = useMemo(
     () => (
       <>
+        <Button variant='ghost' style={{ marginRight: 10 }} onClick={onCorrectBalanceClick}>
+          <Icons.BalanceIcon width='1.5rem' style={{ marginRight: 10 }} /> Correct Balance
+        </Button>
         <div className={styles.LocalTime}>
           <LabelEndMark label={localTime} text={dateConverter(date)} />
         </div>

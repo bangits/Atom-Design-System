@@ -5,6 +5,24 @@ import './sass/main.scss';
 
 export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
 
+export {
+  AcceptionDialog,
+  AcceptionDialogProps,
+  Dialog,
+  DialogActions,
+  DialogBody,
+  DialogBodyProps,
+  DialogConfig,
+  DialogFooter,
+  DialogFooterProps,
+  DialogHeader,
+  DialogHeaderProps,
+  DialogProps,
+  DialogProvider,
+  DialogTypes,
+  DialogWithActions,
+  DialogWithActionsProps
+} from '@my-ui/core';
 export * from './components';
 export * from './services';
 
