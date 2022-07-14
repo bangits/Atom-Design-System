@@ -495,7 +495,7 @@ function DataTable<T extends {}, K>({
       <Table
         {...tableProps}
         tableContainerRef={tableContainerRef}
-        height={`calc(100vh - ${isFiltersOpened ? '50rem' : '30rem'})`}
+        height={`calc(100vh - ${isFiltersOpened ? '50rem' : '35rem'})`}
         fetch={onTableFetchData}
         className={classNames(styles.Table, tableProps.className, {
           [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,

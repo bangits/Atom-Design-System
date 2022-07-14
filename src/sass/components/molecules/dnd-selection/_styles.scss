@@ -1,0 +1,21 @@
+@mixin generate-dnd-selection-styles {
+    .DnDSelection {
+        display: flex;
+        &__card {
+            width: 50%;
+            padding: calculateRem(15px);
+            min-height: calculateRem(500px);
+            box-sizing: border-box;
+            &--draggable {
+                margin-right: calculateRem(20px);
+            }
+        }
+        &__draggable-container {
+            padding-top: calculateRem(10px);
+            padding-right: calculateRem(10px);
+        }
+        &__droppable-container {
+            padding-right: calculateRem(25px);
+        }
+    }
+}
