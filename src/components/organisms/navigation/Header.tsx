@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/member-ordering */
 import { Icons } from '@/atom-design-system';
 import { Balance, BalanceProps, LabelEndMark, SpeedIndicator, SpeedIndicatorProps } from '@/components';
 import { Button, Header as MyUIHeader, HeaderProps as MyUIHeaderProps } from '@my-ui/core';
@@ -8,6 +9,7 @@ export interface HeaderProps extends MyUIHeaderProps, BalanceProps, SpeedIndicat
   localTime: string;
   dateConverter: (date: Date) => string;
   onCorrectBalanceClick?(): void;
+  correctBalanceLabel?: string;
 }
 
 export const Header = ({
@@ -19,6 +21,7 @@ export const Header = ({
   dateConverter,
   isOffline,
   onCorrectBalanceClick,
+  correctBalanceLabel,
   ...props
 }: HeaderProps) => {
   const [date, setDate] = useState<Date>(new Date());
@@ -32,9 +35,11 @@ export const Header = ({
   const headerContent = useMemo(
     () => (
       <>
-        <Button variant='ghost' style={{ marginRight: 10 }} onClick={onCorrectBalanceClick}>
-          <Icons.BalanceIcon width='1.5rem' style={{ marginRight: 10 }} /> Correct Balance
-        </Button>
+        {onCorrectBalanceClick && (
+          <Button variant='ghost' style={{ marginRight: 10 }} onClick={onCorrectBalanceClick}>
+            <Icons.BalanceIcon width='1.5rem' style={{ marginRight: 10 }} /> {correctBalanceLabel}
+          </Button>
+        )}
         <div className={styles.LocalTime}>
           <LabelEndMark label={localTime} text={dateConverter(date)} />
         </div>
