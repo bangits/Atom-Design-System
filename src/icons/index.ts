@@ -1,6 +1,7 @@
 export { ReactComponent as ActivatePopupIcon } from './activate-icon.react.svg';
 export { ReactComponent as ActivateIcon } from './activate.react.svg';
 export { ReactComponent as AddCircleIcon } from './addCircle.react.svg';
+export { ReactComponent as AffilateIcon } from './affilate.react.svg';
 export { ReactComponent as ApplyError } from './apply-error.react.svg';
 export { ReactComponent as ApplySuccess } from './apply-success.react.svg';
 export { ReactComponent as ApplyIcon } from './apply.react.svg';
@@ -53,8 +54,10 @@ export { ReactComponent as PhotoCamIcon } from './photo-cam-icon.react.svg';
 export { ReactComponent as PlayArrowIcon } from './play-arrow-icon.react.svg';
 export { ReactComponent as PlayersIcon } from './players.react.svg';
 export { ReactComponent as ProductsIcon } from './products.react.svg';
+export { ReactComponent as PromotionalIcon } from './promotional.react.svg';
 export { ReactComponent as RejectIcon } from './reject.react.svg';
 export { ReactComponent as ReportsIcon } from './reports.react.svg';
+export { ReactComponent as RiskIcon } from './risk.react.svg';
 export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as Safari2Icon } from './safari2.react.svg';
 export { ReactComponent as SelfieIcon } from './selfie.react.svg';
