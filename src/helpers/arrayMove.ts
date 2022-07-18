@@ -1,14 +1,16 @@
+import { arrayMove } from 'react-sortable-hoc';
+
 export function arrayMoveMutable<ValueType>(array: ValueType[], fromIndex: number, toIndex: number): ValueType[] {
-  const startIndex = fromIndex < 0 ? array.length + fromIndex : fromIndex;
+  // const startIndex = fromIndex < 0 ? array.length + fromIndex : fromIndex;
 
-  if (startIndex >= 0 && startIndex < array.length) {
-    const endIndex = toIndex < 0 ? array.length + toIndex : toIndex;
+  // if (startIndex >= 0 && startIndex < array.length) {
+  //   const endIndex = toIndex < 0 ? array.length + toIndex : toIndex;
 
-    const [item] = array.splice(fromIndex, 1);
-    array.splice(endIndex, 0, item);
-  }
+  //   const [item] = array.splice(fromIndex, 1);
+  //   array.splice(endIndex, 0, item);
+  // }
 
-  return array;
+  return arrayMove(array, fromIndex, toIndex);
 }
 
 export function arrayMoveImmutable(array: unknown[], fromIndex: number, toIndex: number): void {

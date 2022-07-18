@@ -60,6 +60,7 @@ export { ReactComponent as Safari2Icon } from './safari2.react.svg';
 export { ReactComponent as SelfieIcon } from './selfie.react.svg';
 export { ReactComponent as SettingsIcon } from './setting.react.svg';
 export { ReactComponent as SignInImage } from './SignIn.react.svg';
+export { ReactComponent as SortIcon } from './sort.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as TimeIcon } from './time.react.svg';
 export { ReactComponent as ToolsIcon } from './tools.react.svg';

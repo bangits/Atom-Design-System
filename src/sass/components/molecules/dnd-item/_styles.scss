@@ -1,0 +1,94 @@
+@mixin generate-dnd-item-styles {
+    .DnDItem {
+        $this: #{&};
+        @include flex(null, center);
+        font-size: calculateRem(16px);
+        margin-bottom: calculateRem(12px);
+        &--draggable {
+            cursor: grab;
+        }
+        &__content {
+            position: relative;
+            @include flex(null, center);
+            flex-grow: 1;
+            border: calculateRem(1px) solid rgb(142, 166, 193, 0.3);
+            border-radius: calculateRem(4px);
+            padding: calculateRem(10px);
+            box-sizing: border-box;
+        }
+        &__children {
+            @include flex(null, center);
+            flex-grow: 1;
+            &>div {
+                width: 100%;
+            }
+        }
+        &__img {
+            max-width: calculateRem(60px);
+            border-radius: calculateRem(4px);
+            margin-right: calculateRem(10px);
+        }
+        &__index {
+            margin-right: calculateRem(10px);
+        }
+        &__badge {
+            position: absolute;
+            @include flex(center, center);
+            right: calculateRem(-10px);
+            top: calculateRem(-10px);
+            background-color: color(primary);
+            width: calculateRem(24px);
+            height: calculateRem(24px);
+            color: color(white);
+            border-radius: 50%;
+        }
+        &__remove {
+            opacity: 0;
+            padding: 0;
+            height: 100%;
+            position: absolute;
+            top: 50%;
+            right: calculateRem(-18px);
+            transform: translateY(-50%);
+            border: none;
+            background: none;
+            width: calculateRem(14px);
+            margin-top: calculateRem(1px);
+            color: color(black-color);
+            cursor: pointer;
+            &:hover {
+                color: color(woodsmoke);
+            }
+        }
+        &__sort {
+            display: flex;
+            width: calculateRem(10px);
+            cursor: grab;
+            margin-left: calculateRem(10px);
+            color: color(primary);
+        }
+        &__drop-place {
+            width: calc(100% - calculateRem(22px));
+            height: calculateRem(54px);
+            border: calculateRem(2px) dashed color(nepal);
+            border-radius: calculateRem(4px);
+            margin-bottom: calculateRem(12px);
+            margin-left: auto;
+        }
+        &__text {
+            white-space: nowrap;
+            max-width: calculateRem(300px);
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &:hover,
+        &--selected-and-dragged {
+            #{$this}__remove {
+                opacity: 1;
+            }
+            #{$this}__content {
+                background: rgba(102, 103, 171, 0.05);
+            }
+        }
+    }
+}
