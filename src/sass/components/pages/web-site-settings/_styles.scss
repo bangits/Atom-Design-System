@@ -1,0 +1,29 @@
+@mixin generate-web-site-settings-styles {
+ 
+  .WebSiteBase form {
+    width: 100%;
+  }
+  .WebSiteDetailsBase--container {
+    @include flex(null, flex-start);
+    margin-top: getWebSiteDetailsSizes(web-site-details-margin-top);
+  }
+
+  .WebSiteDetailsBase--leftBlock {
+    width: getWebSiteDetailsSizes(left-block-width);
+    margin-right: getWebSiteDetailsSizes(web-site-left-block-margin);
+  }
+
+  .StatusContent {
+    margin-bottom: getWebSiteDetailsSizes(status-content-margin-bottom);
+    height: getWebSiteDetailsSizes(status-content-height);
+  }
+  .InfoContent {
+    margin-bottom: getWebSiteDetailsSizes(info-content-margin-bottom);
+  }
+
+  .WebSiteDetails__Bottom-Fading-Cell {
+    display: block;
+    width: getWebSiteDetailsSizes(web-site-details-bottom-fading-cell-width);
+    @include p;
+  }
+}
