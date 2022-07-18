@@ -4,6 +4,7 @@ export * from './change-password';
 export * from './collapsable-table';
 export * from './count-view';
 export * from './details-main-info';
+export * from './details-page';
 export * from './dialog';
 export * from './document-card';
 export * from './document-cards';
