@@ -29,6 +29,11 @@ export interface EditedFormProps {
         value: string[];
         variant: 'tag';
       }
+    | {
+        title: ReactNode | string;
+        value: ReactNode;
+        variant: 'custom';
+      }
   )[];
   noDataText?: ReactNode;
   title?: ReactNode;
@@ -125,46 +130,59 @@ const EditedForm: FC<EditedFormProps> = ({
           ) : (
             <>
               {options &&
-                options?.map((option, index) =>
-                  option.variant === 'default' ? (
-                    <div
-                      key={index}
-                      className={classNames(styles['EditedFormBase--option'], {
-                        [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation
-                      })}>
-                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                      <span className={classNames(styles['EditedFormBase--option-value'])}>
-                        {option.value || noDataText}
-                      </span>
-                    </div>
-                  ) : option.variant === 'label' ? (
-                    <div key={index} className={classNames(styles['EditedFormBase--option-label'])}>
-                      <span>{option.title}</span>
-                    </div>
-                  ) : option.variant === 'tag' ? (
-                    <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
-                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                      <div>
-                        {option.value.length === 0 ? (
-                          <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
-                        ) : (
-                          option.value?.map((o, index) => <Tag title={o} key={index} />)
-                        )}
-                      </div>
-                    </div>
-                  ) : option.variant === 'bold' ? (
-                    <div key={index} className={classNames(styles['EditedFormBase--option'])}>
-                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                      <span
-                        className={classNames(
-                          styles['EditedFormBase--option-value'],
-                          styles['EditedFormBase--option-value-bold']
-                        )}>
-                        {option.value || noDataText}
-                      </span>
-                    </div>
-                  ) : null
-                )}
+                options?.map((option, index) => {
+                  switch (option.variant) {
+                    case 'default':
+                      return (
+                        <div
+                          key={index}
+                          className={classNames(styles['EditedFormBase--option'], {
+                            [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation
+                          })}>
+                          <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                          <span className={classNames(styles['EditedFormBase--option-value'])}>
+                            {option.value || noDataText}
+                          </span>
+                        </div>
+                      );
+                    case 'label':
+                      return (
+                        <div key={index} className={classNames(styles['EditedFormBase--option-label'])}>
+                          <span>{option.title}</span>
+                        </div>
+                      );
+                    case 'custom':
+                      return option.value;
+                    case 'tag':
+                      return (
+                        <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
+                          <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                          <div>
+                            {option.value.length === 0 ? (
+                              <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
+                            ) : (
+                              option.value?.map((o, index) => <Tag title={o} key={index} />)
+                            )}
+                          </div>
+                        </div>
+                      );
+                    case 'bold':
+                      return (
+                        <div key={index} className={classNames(styles['EditedFormBase--option'])}>
+                          <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                          <span
+                            className={classNames(
+                              styles['EditedFormBase--option-value'],
+                              styles['EditedFormBase--option-value-bold']
+                            )}>
+                            {option.value || noDataText}
+                          </span>
+                        </div>
+                      );
+                  }
+
+                  return null;
+                })}
             </>
           )}
           {height > 248 && (

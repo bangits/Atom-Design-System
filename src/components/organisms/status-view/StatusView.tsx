@@ -2,7 +2,7 @@ import { Icons } from '@/atom-design-system';
 import { Card, IconButton, Status, StatusProps, Tooltip } from '@my-ui/core';
 import { IconButtonProps } from '@my-ui/core/dist/components/inputs-and-elements/IconButton/IconButton';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './StatusView.module.scss';
 
 export interface StatusViewProps extends StatusProps {
@@ -15,11 +15,16 @@ export interface StatusViewProps extends StatusProps {
     tooltipText?: string;
     buttonVariant?: IconButtonProps['variant'];
   }[];
+  addSpacings?: boolean;
 }
 
-const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, variant, actions }) => {
+const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, variant, actions, addSpacings }) => {
   return (
-    <Card borderRadius={1.6} className={classNames(styles.StatusView)}>
+    <Card
+      borderRadius={1.6}
+      className={classNames(styles.StatusView, {
+        [styles['StatusView--with-spacings']]: addSpacings
+      })}>
       <span>{label || noDataText}</span>
       <div className={styles['StatusView--container']}>
         <div className={styles['StatusView--status']}>
