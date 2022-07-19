@@ -17,6 +17,7 @@ export { ReactComponent as CloseIcon } from './close.react.svg';
 export { ReactComponent as CMSIcon } from './cms.react.svg';
 export { ReactComponent as CRMIcon } from './crm.react.svg';
 export { ReactComponent as DashboardIllustration } from './dashboard-illustartion.react.svg';
+export { ReactComponent as DashboardIcon } from './dashboard.react.svg';
 export { ReactComponent as InActivatePopupIcon } from './deactivate-icon.react.svg';
 export { ReactComponent as DeActivateIcon } from './deactivate.react.svg';
 export { ReactComponent as DesktopIcon } from './desktop.react.svg';
