@@ -4,16 +4,24 @@ import styles from './EditForm.module.scss';
 
 const EditFormFields = ({
   fields,
-  renderInputs
+  renderInputs,
+  fullWidth
 }: {
   renderInputs: EditFormProps['renderInputs'];
   fields: EditFormProps['fields'];
+  fullWidth?: boolean;
 }) => {
   return (
     <>
       {fields.map((field, idx) => (
         <div
-          className={field.type === 'header' ? styles['EditFormBase--field-header'] : styles['EditFormBase--field']}
+          className={
+            field.type === 'header'
+              ? styles['EditFormBase--field-header']
+              : fullWidth
+              ? styles['EditFormBase--field--full-width']
+              : styles['EditFormBase--field']
+          }
           key={idx}>
           {field.type === 'custom' ? (
             field.component()

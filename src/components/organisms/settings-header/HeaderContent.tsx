@@ -1,15 +1,7 @@
-import { Countries, CurrencyGroup, LabelGroup, LicenseGroup } from '@/components';
-import { CopyField, TagCountryProps, TagProps, TooltipProps, Typography } from '@my-ui/core';
-import React, { FC, ReactNode } from 'react';
+import { CurrencyGroup, LabelGroup } from '@/components';
+import { Typography } from '@my-ui/core';
+import { FC, ReactNode } from 'react';
 import styles from './HeaderContent.module.scss';
-
-export interface SettingsProps {
-  navBarProps: {
-    title: string;
-    total?: string;
-    currencies: SettingsProps['navBarProps'][];
-  };
-}
 
 export interface HeaderContentProps {
   noDataText?: string;
@@ -31,7 +23,7 @@ export interface HeaderContentProps {
 
 const HeaderContent: FC<HeaderContentProps> = ({ navBarProps, noDataText }) => {
   return (
-    <div className={styles['HeaderContent--items']}>
+    <div className={styles.HeaderContent}>
       <LabelGroup title={navBarProps?.title} totalLabel={navBarProps?.currencies?.length > 0 ? navBarProps?.total : ''}>
         {navBarProps?.currencies?.length > 0 ? (
           <CurrencyGroup currencies={navBarProps?.currencies} />

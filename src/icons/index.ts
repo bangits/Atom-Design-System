@@ -75,3 +75,4 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
+export { ReactComponent as DndIcon } from './dnd.react.svg';

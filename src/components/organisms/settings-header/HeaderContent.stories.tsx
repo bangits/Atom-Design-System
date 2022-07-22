@@ -4,7 +4,7 @@ import React from 'react';
 import HeaderContent from './HeaderContent';
 
 export default {
-  title: 'components/organisms/ Header Content',
+  title: 'components/organisms/Header Content',
   component: HeaderContent,
   decorators: [withKnobs]
 };

@@ -4,7 +4,7 @@ import React, { FC } from 'react';
 import styles from './Currency.module.scss';
 
 export interface CurrencyGroupProps {
-  currencies: (TagProps & { tooltipText?: string })[];
+  currencies: TagProps[];
 }
 
 const CurrencyGroup: FC<CurrencyGroupProps> = ({ currencies }) => {
@@ -13,17 +13,7 @@ const CurrencyGroup: FC<CurrencyGroupProps> = ({ currencies }) => {
       {currencies &&
         currencies.map((currency, idx) => (
           <div style={{ display: 'flex' }}>
-            <Tag
-              {...currency}
-              endIcon={
-                <Tooltip text={currency.tooltipText}>
-                  <>{currency.endIcon}</>
-                </Tooltip>
-              }
-              inactive
-              key={idx}
-              className={styles.Currency}
-            />
+            <Tag {...currency} endIcon={currency.endIcon} inactive key={idx} className={styles.Currency} />
           </div>
         ))}
     </div>
