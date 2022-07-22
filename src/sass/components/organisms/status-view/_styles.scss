@@ -1,41 +1,40 @@
 @mixin generate-status-view-styles {
-  div.StatusView {
-    @include flex(space-between, center);
-    // width: getStatusViewSizes(status-width);
-    width: 100%;
-    padding: getStatusViewSizes(status-padding);
-    box-sizing: border-box;
-    background-color: getStatusViewColors(status-view-background-color);
-
-    > span {
-      &:first-child {
-        padding: getStatusViewSizes(status-label-padding);
-        height: getStatusViewSizes(status-label-height);
-        font-size: getStatusViewSizes(status-label-font-size);
-        text-align: left;
-        color: getStatusViewColors(status-label-color);
-        word-break: break-all;
-        width: getStatusViewSizes(wallet-balance-width);
-        @include dots-after-text();
-      }
-    }
-
-    &--container {
-      @include flex(null, center);
-    }
-
-    &--status {
-      margin: getStatusViewSizes(st-label-margin);
-    }
-
-    &--iconButton {
-      button {
-        width: getStatusViewSizes(icon-button-sizes);
-        height: getStatusViewSizes(icon-button-sizes);
-        svg {
-          fill: currentColor;
+    div.StatusView {
+        @include flex(space-between, center);
+        // width: getStatusViewSizes(status-width);
+        width: 100%;
+        padding: getStatusViewSizes(status-padding);
+        box-sizing: border-box;
+        background-color: getStatusViewColors(status-view-background-color);
+        >span {
+            &:first-child {
+                padding: getStatusViewSizes(status-label-padding);
+                height: getStatusViewSizes(status-label-height);
+                font-size: getStatusViewSizes(status-label-font-size);
+                text-align: left;
+                color: getStatusViewColors(status-label-color);
+                word-break: break-all;
+                width: getStatusViewSizes(wallet-balance-width);
+                @include dots-after-text();
+            }
         }
-      }
+        &--container {
+            @include flex(null, center);
+        }
+        &--status {
+            margin: getStatusViewSizes(st-label-margin);
+        }
+        &--iconButton {
+            button {
+                width: getStatusViewSizes(icon-button-sizes);
+                height: getStatusViewSizes(icon-button-sizes);
+                svg {
+                    fill: currentColor;
+                }
+            }
+        }
+        &--with-spacings {
+            margin-bottom: calculateRem(8px);
+        }
     }
-  }
 }

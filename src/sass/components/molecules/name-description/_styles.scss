@@ -1,85 +1,78 @@
 @mixin generate-name-description-styles {
-  .NameDescriptionBase {
-    position: relative;
-    // width: getNameDescriptionSizes(base-width);
-    width: 100%;
-    background-color: getNameDescriptionColors(base-bg);
-    padding: getNameDescriptionSizes(base-padding);
-    box-sizing: border-box;
-
-    &--title {
-      position: relative;
-      top: getNameDescriptionSizes(title-position-top);
-      display: inline-block;
-      width: getNameDescriptionSizes(title-width);
-      height: getNameDescriptionSizes(title-height);
-      font-size: getNameDescriptionSizes(title-font-size);
-      color: getNameDescriptionColors(title-color);
-      @include dots-after-text();
-      text-align: left;
-      word-break: break-word;
+    .NameDescriptionBase {
+        position: relative;
+        // width: getNameDescriptionSizes(base-width);
+        width: 100%;
+        background-color: getNameDescriptionColors(base-bg);
+        padding: getNameDescriptionSizes(base-padding);
+        box-sizing: border-box;
+        &--title {
+            position: relative;
+            top: getNameDescriptionSizes(title-position-top);
+            display: inline-block;
+            width: getNameDescriptionSizes(title-width);
+            height: getNameDescriptionSizes(title-height);
+            font-size: getNameDescriptionSizes(title-font-size);
+            color: getNameDescriptionColors(title-color);
+            @include dots-after-text();
+            text-align: left;
+            word-break: break-word;
+        }
+        &--core {
+            @include flex(space-between, center);
+            margin: getNameDescriptionSizes(core-margin);
+            &:last-child {
+                margin-bottom: getNameDescriptionSizes(core-last-child-margin-bottom);
+            }
+        }
+        &--name {
+            @include dots-after-text();
+            height: getNameDescriptionSizes(title-height);
+            font-size: getNameDescriptionSizes(title-font-size);
+            color: getNameDescriptionColors(name-color);
+            max-width: getNameDescriptionSizes(name-max-width);
+        }
+        &--description {
+            @include dots-after-text();
+            height: getNameDescriptionSizes(description-height);
+            font-size: getNameDescriptionSizes(description-font-size);
+            color: getNameDescriptionColors(description-color);
+            max-width: getNameDescriptionSizes(description-max-width);
+        }
+        &--sub-core {
+            @include flex(space-between, center);
+            margin: getNameDescriptionSizes(core-margin);
+            height: getNameDescriptionSizes(description-height);
+            font-size: getNameDescriptionSizes(description-font-size);
+            color: getNameDescriptionColors(description-color);
+        }
+        &--sub-core__name {
+            @include flex(null, center);
+            height: getNameDescriptionSizes(title-height);
+            font-size: getNameDescriptionSizes(title-font-size);
+            color: getNameDescriptionColors(name-color);
+            &:before {
+                content: '';
+                width: getNameDescriptionSizes(dot-width-height);
+                height: getNameDescriptionSizes(dot-width-height);
+                border-radius: getNameDescriptionSizes(core-name-border-radius);
+                background-color: getNameDescriptionColors(name-color);
+                margin: getNameDescriptionSizes(dot-margin);
+            }
+        }
+        &--children {
+            @include flex(space-between, center);
+            border-top: getNameDescriptionSizes(children-border) solid getNameDescriptionColors(children-border-color);
+            margin-top: getNameDescriptionSizes(children-margin-top);
+            padding-top: getNameDescriptionSizes(children-padding-top);
+            >span {
+                height: getNameDescriptionSizes(title-height);
+                font-size: getNameDescriptionSizes(title-font-size);
+                color: getNameDescriptionColors(name-color);
+            }
+        }
+        &--with-spacings {
+            margin-bottom: calculateRem(8px);
+        }
     }
-
-    &--core {
-      @include flex(space-between, center);
-      margin: getNameDescriptionSizes(core-margin);
-
-      &:last-child {
-        margin-bottom: getNameDescriptionSizes(core-last-child-margin-bottom);
-      }
-    }
-
-    &--name {
-      @include dots-after-text();
-      height: getNameDescriptionSizes(title-height);
-      font-size: getNameDescriptionSizes(title-font-size);
-      color: getNameDescriptionColors(name-color);
-      max-width: getNameDescriptionSizes(name-max-width);
-    }
-
-    &--description {
-      @include dots-after-text();
-      height: getNameDescriptionSizes(description-height);
-      font-size: getNameDescriptionSizes(description-font-size);
-      color: getNameDescriptionColors(description-color);
-      max-width: getNameDescriptionSizes(description-max-width);
-    }
-
-    &--sub-core {
-      @include flex(space-between, center);
-      margin: getNameDescriptionSizes(core-margin);
-      height: getNameDescriptionSizes(description-height);
-      font-size: getNameDescriptionSizes(description-font-size);
-      color: getNameDescriptionColors(description-color);
-    }
-
-    &--sub-core__name {
-      @include flex(null, center);
-      height: getNameDescriptionSizes(title-height);
-      font-size: getNameDescriptionSizes(title-font-size);
-      color: getNameDescriptionColors(name-color);
-
-      &:before {
-        content: '';
-        width: getNameDescriptionSizes(dot-width-height);
-        height: getNameDescriptionSizes(dot-width-height);
-        border-radius: getNameDescriptionSizes(core-name-border-radius);
-        background-color: getNameDescriptionColors(name-color);
-        margin: getNameDescriptionSizes(dot-margin);
-      }
-    }
-
-    &--children {
-      @include flex(space-between, center);
-      border-top: getNameDescriptionSizes(children-border) solid getNameDescriptionColors(children-border-color);
-      margin-top: getNameDescriptionSizes(children-margin-top);
-      padding-top: getNameDescriptionSizes(children-padding-top);
-
-      > span {
-        height: getNameDescriptionSizes(title-height);
-        font-size: getNameDescriptionSizes(title-font-size);
-        color: getNameDescriptionColors(name-color);
-      }
-    }
-  }
 }

@@ -16,6 +16,7 @@ export * from './label-group';
 export * from './label-tag';
 export * from './languages-group';
 export * from './license-group';
+export * from './name-and-id';
 export * from './name-description';
 export * from './options';
 export * from './page-wrapper';
