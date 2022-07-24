@@ -32,6 +32,7 @@ export interface EditedFormProps {
     | {
         title: ReactNode | string;
         value: ReactNode;
+        shouldLineTranslation?: boolean;
         variant: 'custom';
       }
   )[];
@@ -152,7 +153,16 @@ const EditedForm: FC<EditedFormProps> = ({
                         </div>
                       );
                     case 'custom':
-                      return option.value;
+                      return (
+                        <div
+                          key={index}
+                          className={classNames(styles['EditedFormBase--option'], styles['EditedFormBase--custom'], {
+                            [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation
+                          })}>
+                          <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                          {option.value}
+                        </div>
+                      );
                     case 'tag':
                       return (
                         <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
