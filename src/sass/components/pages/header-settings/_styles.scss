@@ -1,0 +1,32 @@
+@mixin generate-header-settings-styles {
+  .HeaderBase form {
+    width: 100%;
+  }
+  .HeaderContent {
+    width: 100%;
+  }
+  .HeaderDetailsBase--container {
+    @include flex(null, flex-start);
+    margin-top: getHeaderDetailsSizes(header-details-margin-top);
+    width: 100%;
+  }
+
+  .HeaderDetailsBase--leftBlock {
+    width: getHeaderDetailsSizes(left-block-width);
+    margin-right: getHeaderDetailsSizes(header-left-block-margin);
+  }
+
+  .StatusContent {
+    margin-bottom: getHeaderDetailsSizes(status-content-margin-bottom);
+    height: getHeaderDetailsSizes(status-content-height);
+  }
+  .InfoContent {
+    margin-bottom: getHeaderDetailsSizes(info-content-margin-bottom);
+  }
+
+  .HeaderDetails__Bottom-Fading-Cell {
+    display: block;
+    width: getHeaderDetailsSizes(header-details-bottom-fading-cell-width);
+    @include p;
+  }
+}

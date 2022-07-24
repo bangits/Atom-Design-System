@@ -46,3 +46,5 @@ export * from './wallet-card';
 export * from './wallet-view';
 export * from './settings-general-info';
 export * from './settings-header';
+export * from './dnd-selection';
+export * from './settings-footer';

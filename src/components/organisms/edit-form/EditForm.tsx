@@ -17,6 +17,7 @@ export interface EditFormProps {
   renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;
   fields: FormFieldProp[];
   col?: 6 | 12;
+  fullWidth?: boolean;
 }
 
 const EditForm: FC<EditFormProps> = ({
@@ -28,7 +29,8 @@ const EditForm: FC<EditFormProps> = ({
   applyButtonTooltipText,
   closeButtonTooltipText,
   children,
-  col
+  col,
+  fullWidth
 }) => {
   return (
     <div
@@ -49,7 +51,7 @@ const EditForm: FC<EditFormProps> = ({
       <Card borderRadius={1.6} className={classNames(styles.EditFormBase)}>
         {children || (
           <div className={classNames(styles['EditFormBase--content'])}>
-            <EditFormFields fields={fields} renderInputs={renderInputs} />
+            <EditFormFields fullWidth={fullWidth} fields={fields} renderInputs={renderInputs} />
           </div>
         )}
       </Card>

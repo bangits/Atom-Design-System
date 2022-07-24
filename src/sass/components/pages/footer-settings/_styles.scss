@@ -1,0 +1,71 @@
+@mixin generate-footer-settings-styles {
+  .FooterContentMain {
+    position: relative;
+    &--draggable {
+      cursor: grab;
+    }
+    &--selected-and-dragged {
+      #{$this}__remove {
+        opacity: 1;
+      }
+      #{$this}__content {
+        background: rgba(102, 103, 171, 0.05);
+      }
+    }
+    &__drop-place {
+      width: calc(100% - calculateRem(22px));
+      height: calculateRem(54px);
+      border: calculateRem(2px) dashed color(nepal);
+      border-radius: calculateRem(4px);
+      margin-bottom: calculateRem(12px);
+      margin-left: auto;
+    }
+  }
+
+  .FooterContent {
+    border: 1px solid #e0e0e0;
+    border-radius: 2rem;
+    padding: 0.8rem 1rem 1rem 2.1rem;
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    width: 95%;
+    margin-left: 2rem;
+
+    :first-child {
+      margin: 0.5rem 0 0em;
+    }
+    :last-child {
+      margin: 0.5rem 0 0em;
+    }
+
+    .ActionGroupIcons {
+      :first-child {
+        margin-left: 0.5rem;
+      }
+      svg {
+        height: calculateRem(18px);
+        width: calculateRem(18px);
+        opacity: 0;
+        transition: all 0.16s linear;
+      }
+    }
+  }
+  .FooterContent:hover {
+    border-color: #6667ab;
+    .ActionGroupIcons {
+      svg {
+        opacity: 1;
+        cursor: pointer;
+        color: #505d6e;
+        :hover {
+          color: #2c3138;
+        }
+      }
+    }
+  }
+  .FooterContentIndex {
+    position: absolute;
+    font-size: calculateRem(14px);
+  }
+}
