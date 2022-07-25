@@ -830,6 +830,9 @@
   version "7.16.7"
   resolved "https://registry.npmjs.org/@babel/plugin-transform-object-super/-/plugin-transform-object-super-7.16.7.tgz#ac359cf8d32cf4354d27a46867999490b6c32a94"
   integrity sha512-14J1feiQVWaGvRxj2WjyMuXS2jsBkgB3MdSN5HuC2G5nRspa5RK9COcs82Pwy5BuGcjb+fYaUj94mYcOj7rCvw==
+  dependencies:
+    "@babel/helper-plugin-utils" "^7.16.7"
+    "@babel/helper-replace-supers" "^7.16.7"
 
 "@babel/plugin-transform-parameters@^7.12.1", "@babel/plugin-transform-parameters@^7.16.7":
   version "7.16.7"
@@ -889,6 +892,8 @@
   version "7.16.7"
   resolved "https://registry.npmjs.org/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.16.7.tgz#9e7576dc476cb89ccc5096fff7af659243b4adeb"
   integrity sha512-mF7jOgGYCkSJagJ6XCujSQg+6xC1M77/03K2oBmVJWoFGNUtnVJO4WHKJk3dnPC8HCcj4xBQP1Egm8DWh3Pb3Q==
+  dependencies:
+    regenerator-transform "^0.14.2"
 
 "@babel/plugin-transform-reserved-words@^7.16.7":
   version "7.16.7"
@@ -1116,6 +1121,7 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+<<<<<<< HEAD
 "@babel/runtime@^7.8.4":
   version "7.18.9"
   resolved "https://registry.yarnpkg.com/@babel/runtime/-/runtime-7.18.9.tgz#b4fcfce55db3d2e5e080d2490f608a3b9f407f4a"
@@ -1123,6 +1129,8 @@
   dependencies:
     regenerator-runtime "^0.13.4"
 
+=======
+>>>>>>> e4f5e8c5589cb4e8646fb3b8202b292fb14b8ffa
 "@babel/runtime@^7.9.2":
   version "7.18.6"
   resolved "https://registry.npmjs.org/@babel/runtime/-/runtime-7.18.6.tgz#6a1ef59f838debd670421f8c7f2cbb8da9751580"
@@ -1553,6 +1561,7 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+<<<<<<< HEAD
 "@my-ui/core@^0.8.3":
   version "0.8.3"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.3.tgz#f1c66b8bf9bdc67109d48ae0a5afcefa402e1cdb"
@@ -1562,6 +1571,17 @@
     "@my-ui/react-select" "1.1.6"
     "@my-ui/react-table" "1.3.0"
     "@my-ui/scrollbar" "^1.0.2"
+=======
+"@my-ui/core@^0.9.0":
+  version "0.9.0"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.9.0.tgz#58d77dbd31381139d524151e7c6d158595ee43bc"
+  integrity sha1-WNd9vTE4ETnVJBUefG0VhZXuQ7w=
+  dependencies:
+    "@my-ui/react-datepicker" "^0.1.0"
+    "@my-ui/react-select" "0.1.0"
+    "@my-ui/react-table" "0.1.0"
+    "@my-ui/scrollbar" "^0.1.0"
+>>>>>>> e4f5e8c5589cb4e8646fb3b8202b292fb14b8ffa
     classnames "^2.3.1"
     react-flip-move "^3.0.4"
     react-jss "^10.8.0"
@@ -1569,7 +1589,7 @@
     react-transition-group "^4.4.2"
     throttle-debounce "^3.0.1"
 
-"@my-ui/react-datepicker@^1.5.0":
+"@my-ui/react-datepicker@^0.1.0":
   version "0.1.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/react-datepicker/-/react-datepicker-0.1.0.tgz#37620758055e36e426e4732cf8035fef87157cca"
   integrity sha1-N2IHWAVeNuQm5HMs+ANf74cVfMo=
@@ -1581,7 +1601,7 @@
     react-onclickoutside "^6.10.0"
     react-popper "^2.2.5"
 
-"@my-ui/react-select@1.1.6":
+"@my-ui/react-select@0.1.0":
   version "0.1.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/react-select/-/react-select-0.1.0.tgz#03da220c23d143e8d26df1984cd8fadab5f66452"
   integrity sha1-A9oiDCPRQ+jSbfGYTNj62rX2ZFI=
@@ -1594,12 +1614,12 @@
     prop-types "^15.6.0"
     react-transition-group "^4.3.0"
 
-"@my-ui/react-table@1.3.0":
+"@my-ui/react-table@0.1.0":
   version "0.1.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/react-table/-/react-table-0.1.0.tgz#bdfdfc84623485909d5501d1e7bec4657acf16a1"
   integrity sha1-vf38hGI0hZCdVQHR577EZXrPFqE=
 
-"@my-ui/scrollbar@^1.0.2":
+"@my-ui/scrollbar@^0.1.0":
   version "0.1.0"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/scrollbar/-/scrollbar-0.1.0.tgz#a08d8d9e1407566562ddfd82ec68740a2464fe8b"
   integrity sha1-oI2NnhQHVmVi3f2C7Gh0CiRk/os=

@@ -1,7 +1,7 @@
 @mixin generate-footer-settings-styles {
   .FooterContentMain {
-    $this: #{&};
     position: relative;
+    $this: #{&};
     &--draggable {
       cursor: grab;
     }
@@ -22,7 +22,6 @@
       margin-left: auto;
     }
   }
-
   .FooterContent {
     border: 1px solid #e0e0e0;
     border-radius: 2rem;
@@ -32,14 +31,12 @@
     justify-content: space-between;
     width: 95%;
     margin-left: 2rem;
-
     :first-child {
       margin: 0.5rem 0 0em;
     }
     :last-child {
       margin: 0.5rem 0 0em;
     }
-
     .ActionGroupIcons {
       :first-child {
         margin-left: 0.5rem;

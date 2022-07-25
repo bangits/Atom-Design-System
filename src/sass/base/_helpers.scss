@@ -1,29 +1,32 @@
 @import '../layout/variables';
-
 .mt-3 {
-  margin-top: 1rem;
+    margin-top: 1rem;
 }
 
 .min-height-inherit {
-  min-height: inherit;
+    min-height: inherit;
 }
 
 .min-height-content-wrapper {
-  min-height: calc(100vh - getLayoutSizes(content-header-margin));
+    min-height: calc(100vh - getLayoutSizes(content-header-margin));
 }
 
 .cursor-pointer {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .d-flex {
-  @include flex;
+    @include flex;
+}
+
+.fullwidth-form.fullwidth-form {
+    width: 100%;
 }
 
 .details-form-wrapper {
-  @include flex(null, center, $flex-wrap: wrap);
-  width: fit-content;
-  width: -moz-fit-content;
-  grid-gap: calculateRem(16px);
-  align-content: flex-start;
+    @include flex(null, center, $flex-wrap: wrap);
+    width: fit-content;
+    width: -moz-fit-content;
+    grid-gap: calculateRem(16px);
+    align-content: flex-start;
 }
