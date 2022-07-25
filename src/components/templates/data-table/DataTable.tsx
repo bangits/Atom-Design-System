@@ -4,7 +4,6 @@ import { ExchangeIcon, SettingsIcon } from '@/icons';
 import { noImage, noImageGame } from '@/img';
 import {
   IconButton,
-  Icons,
   Pagination,
   PaginationProps,
   Select,
@@ -17,6 +16,7 @@ import {
 import classNames from 'classnames';
 import { FC, MouseEvent, ReactNode, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import styles from './DataTable.module.scss';
+import { Icons } from '@/atom-design-system';
 export interface Pagination {
   page: number;
   pageSize: number;

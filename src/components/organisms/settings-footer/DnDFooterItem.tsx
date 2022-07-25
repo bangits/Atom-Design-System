@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { Icons } from '@/atom-design-system';
 import { CurrencyGroup, LabelGroup } from '@/components/molecules';
 import { DndIcon, EditIcon } from '@/icons';
 import { Typography } from '@my-ui/core';
 import classNames from 'classnames';
+import React from 'react';
 import { FC, ReactNode, useState } from 'react';
 import { useDrag } from 'react-dnd';
 import styles from './DnDFooterItem.module.scss';

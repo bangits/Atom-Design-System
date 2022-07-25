@@ -1,5 +1,6 @@
 @mixin generate-footer-settings-styles {
   .FooterContentMain {
+    $this: #{&};
     position: relative;
     &--draggable {
       cursor: grab;

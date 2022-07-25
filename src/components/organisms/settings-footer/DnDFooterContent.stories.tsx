@@ -2,7 +2,6 @@ import { Icons, Tooltip } from '@my-ui/core';
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import DnDFooterContent from './DnDFooterContent';
-
 export default {
   title: 'components/organisms/FooterContent',
   component: DnDFooterContent,

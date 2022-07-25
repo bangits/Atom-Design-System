@@ -2,6 +2,7 @@
 import { Icons } from '@/atom-design-system';
 import { PassportIcon } from '@/icons';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
+import React from 'react';
 import DocumentCard from './DocumentCard';
 
 export default {

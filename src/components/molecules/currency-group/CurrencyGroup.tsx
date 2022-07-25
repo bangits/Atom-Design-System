@@ -1,4 +1,3 @@
-import { Icons } from '@/atom-design-system';
 import { Tag, TagProps, Tooltip } from '@my-ui/core';
 import React, { FC } from 'react';
 import styles from './Currency.module.scss';

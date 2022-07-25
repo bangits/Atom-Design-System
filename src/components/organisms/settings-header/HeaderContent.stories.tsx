@@ -23,7 +23,7 @@ export const Default = () => {
             closeIcon: true,
             endIcon: (
               <Tooltip text='tooltip Text'>
-                <Icons.LinkIcon />
+                <Icons.ViewIcon />
               </Tooltip>
             ),
             value: 1
@@ -35,7 +35,7 @@ export const Default = () => {
             closeIcon: true,
             endIcon: (
               <Tooltip text='tooltip Text 2'>
-                <Icons.LinkIcon />
+                <Icons.ViewIcon />
               </Tooltip>
             ),
             value: 2,
