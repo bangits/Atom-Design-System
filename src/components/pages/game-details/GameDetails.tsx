@@ -72,7 +72,6 @@ const GameDetails: FC<GameDetailsProps> = ({
         <div className={classNames(styles['MainCarcass__Sidebar'], 'MainCarcass__Sidebar')}>
           <ProfileBlock
             isLoadingImage={isLoadingImage}
-            isShowEditIcons={isShowEditIcons}
             backgroundImgUrl={backgroundImgUrl}
             itemId={gameId}
             itemName={gameName}

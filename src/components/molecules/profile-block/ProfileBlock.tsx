@@ -5,14 +5,14 @@ import classNames from 'classnames';
 import styles from './ProfileBlock.module.scss';
 
 export interface ProfileBlockProps {
-  onBackgroundImgClick: () => void;
+  onBackgroundImgClick?: () => void;
   onMainImgClick?: () => void;
   backgroundImgUrl: string;
   mainImgUrl?: string;
   itemName: string;
   itemId: number | string;
   isLoadingImage?: boolean;
-  isShowEditIcons?: boolean;
+  viewMode?: boolean;
 }
 
 const ProfileBlock = ({
@@ -23,7 +23,7 @@ const ProfileBlock = ({
   itemId,
   itemName,
   isLoadingImage,
-  isShowEditIcons = true
+  viewMode = false
 }: ProfileBlockProps) => {
   return (
     <>
@@ -38,7 +38,7 @@ const ProfileBlock = ({
               <img className={classNames(styles['ProfileBlock__Img'], 'ProfileBlock__Img')} src={mainImgUrl} />
             )}
 
-            {!isLoadingImage && (
+            {!isLoadingImage && !viewMode && (
               <PhotoCamIcon
                 onClick={!mainImgUrl ? undefined : onMainImgClick}
                 width='2.1rem'
@@ -58,16 +58,18 @@ const ProfileBlock = ({
               src={backgroundImgUrl}
             />
           )}
-          <div
-            className={classNames(styles['ProfileBlock__CoverPhotoIconCell'], 'ProfileBlock__CoverPhotoIconCell')}
-            onClick={!backgroundImgUrl ? undefined : onBackgroundImgClick}>
-            {!isLoadingImage && (
-              <PhotoCamIcon
-                width='1rem'
-                className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
-              />
-            )}
-          </div>
+          {!viewMode && (
+            <div
+              className={classNames(styles['ProfileBlock__CoverPhotoIconCell'], 'ProfileBlock__CoverPhotoIconCell')}
+              onClick={!backgroundImgUrl ? undefined : onBackgroundImgClick}>
+              {!isLoadingImage && (
+                <PhotoCamIcon
+                  width='1rem'
+                  className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
+                />
+              )}
+            </div>
+          )}
         </div>
         <div
           className={classNames(styles['ProfileBlock__Info'], 'ProfileBlock__Info', {

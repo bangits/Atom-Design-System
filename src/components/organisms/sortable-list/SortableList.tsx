@@ -1,16 +1,17 @@
-import { DnDItem } from '@/atom-design-system';
+import { DnDItem } from '@/components';
 import { FC, PropsWithChildren } from 'react';
 import { SortableContainer, SortableContainerProps, SortableElement } from 'react-sortable-hoc';
 
 export const SortableDnDItem = SortableElement(DnDItem);
 
 const SortableListComponent: FC = ({ children }) => {
-  return <div>{children}</div>;
+  // TODO: Must be removed to css
+  return <div style={{ display: 'flex', flexDirection: 'column' }}>{children}</div>;
 };
 
-export default function SortableList(props: PropsWithChildren<Omit<SortableContainerProps, 'shouldCancelStart'>>) {
-  const SortableComponent = SortableContainer(SortableListComponent);
+const SortableComponent = SortableContainer(SortableListComponent);
 
+export default function SortableList(props: PropsWithChildren<Omit<SortableContainerProps, 'shouldCancelStart'>>) {
   return (
     <SortableComponent
       {...props}

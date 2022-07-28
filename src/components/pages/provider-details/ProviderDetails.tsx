@@ -9,7 +9,7 @@ import {
 import CountView from '@/components/organisms/count-view/CountView';
 import { Breadcrumb, BreadcrumbProps } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './ProviderDetails.module.scss';
 
 export interface ProviderDetailsProps {
@@ -77,7 +77,6 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
       <div className={styles['ProviderDetailsBase--container']}>
         <div className={styles['ProviderDetailsBase--leftBlock']}>
           <ProfileBlock
-            isShowEditIcons={!isCmsUser}
             backgroundImgUrl={backgroundImgUrl}
             itemId={providerId}
             itemName={providerName}

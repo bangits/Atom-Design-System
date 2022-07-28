@@ -1,4 +1,4 @@
-import { DnDItem, DnDItemProps } from '@/atom-design-system';
+import { DnDItem, DnDItemProps } from '@/components';
 import { FC } from 'react';
 import { useDrag } from 'react-dnd';
 

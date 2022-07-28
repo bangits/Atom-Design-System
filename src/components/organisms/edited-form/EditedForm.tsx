@@ -160,7 +160,7 @@ const EditedForm: FC<EditedFormProps> = ({
                             [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation
                           })}>
                           <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                          {option.value}
+                          {option.value || <span className={styles['EditedFormBase--option-value']}>{noDataText}</span>}
                         </div>
                       );
                     case 'tag':

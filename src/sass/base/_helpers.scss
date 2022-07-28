@@ -19,8 +19,16 @@
     @include flex;
 }
 
+.align-items-center {
+    align-items: center;
+}
+
 .fullwidth-form.fullwidth-form {
     width: 100%;
+}
+
+.input-sortable-item {
+    transform: translateY(calculateRem(10px));
 }
 
 .details-form-wrapper {
@@ -29,4 +37,14 @@
     width: -moz-fit-content;
     grid-gap: calculateRem(16px);
     align-content: flex-start;
+}
+
+.mb-2 {
+    margin-bottom: calculateRem(20px);
+}
+
+.edited-form-img {
+    max-width: calculateRem(60px);
+    height: 100%;
+    object-fit: contain;
 }

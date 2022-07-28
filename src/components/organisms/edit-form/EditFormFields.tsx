@@ -1,5 +1,6 @@
 import { EditFormProps, getFormField } from '@/components';
 import { typedMemo } from '@/helpers';
+import classNames from 'classnames';
 import styles from './EditForm.module.scss';
 
 const EditFormFields = ({
@@ -15,13 +16,14 @@ const EditFormFields = ({
     <>
       {fields.map((field, idx) => (
         <div
-          className={
+          className={classNames(
             field.type === 'header'
               ? styles['EditFormBase--field-header']
               : fullWidth
               ? styles['EditFormBase--field--full-width']
-              : styles['EditFormBase--field']
-          }
+              : styles['EditFormBase--field'],
+            styles[`EditFormBase--${field.col || 6}`]
+          )}
           key={idx}>
           {field.type === 'custom' ? (
             field.component()
