@@ -1,4 +1,5 @@
-import { DnDItemProps, Icons, SearchInput } from '@/atom-design-system';
+import { Icons, SearchInput } from '@/atom-design-system';
+import { DnDItemProps } from '@/components';
 import { arrayMoveMutable } from '@/helpers';
 import { Card, IconButton, Scroll, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';

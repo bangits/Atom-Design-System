@@ -1,7 +1,7 @@
 import { ItemDetails, NameDescription, ProfileBlock, StatusView, StatusViewProps } from '@/components';
 import { Breadcrumb, BreadcrumbProps } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './WebSite.module.scss';
 
 export interface WebSiteProps {
@@ -16,7 +16,7 @@ export interface WebSiteProps {
     projectType: string;
     createdBy: string;
     creationDate: string;
-    lastUpdatedBy: string;
+    // lastUpdatedBy: string;
     lastUpdateDate: string;
     generalInformation: string;
     header: string;
@@ -31,7 +31,7 @@ export interface WebSiteProps {
   additionalProps: {
     createdBy: string;
     createdDate: string;
-    lastUpdatedBy: string;
+    // lastUpdatedBy: string;
     lastUpdateDate: string;
   };
 
@@ -64,12 +64,7 @@ const WebSite: FC<WebSiteProps> = ({
       <Breadcrumb links={breadCrumb} />
       <div className={styles['WebSiteDetailsBase--container']}>
         <div className={styles['WebSiteDetailsBase--leftBlock']}>
-          <ProfileBlock
-            backgroundImgUrl={backgroundImgUrl}
-            itemId={domain}
-            itemName={sliderName}
-            onBackgroundImgClick={onBackgroundImgClick}
-          />
+          <ProfileBlock viewMode backgroundImgUrl={backgroundImgUrl} itemId={domain} itemName={sliderName} />
 
           <div className={styles.StatusContent}>
             <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
@@ -87,10 +82,10 @@ const WebSite: FC<WebSiteProps> = ({
                   name: translations.creationDate,
                   description: additionalProps.createdDate
                 },
-                {
-                  name: translations.lastUpdatedBy,
-                  description: additionalProps.lastUpdatedBy
-                },
+                // {
+                //   name: translations.lastUpdatedBy,
+                //   description: additionalProps.lastUpdatedBy
+                // },
                 {
                   name: translations.lastUpdateDate,
                   description: additionalProps.lastUpdateDate
