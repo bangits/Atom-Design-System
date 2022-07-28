@@ -80,6 +80,6 @@ export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as DndIcon } from './dnd.react.svg';
 export { ReactComponent as DuplicateIcon } from './copy.react.svg';
 export { ReactComponent as DuplicatePopUpIcon } from './dublicate.react.svg';
-
 export { ReactComponent as BannerAddIcon } from './banner.react.svg';
 export { ReactComponent as SliderAddIcon } from './slider.react.svg';
+export { ReactComponent as InfoTooltipIcon } from './info-icon.react.svg';

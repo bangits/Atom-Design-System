@@ -1,6 +1,6 @@
 {
   "name": "@atom/design-system",
-  "version": "3.9.10",
+  "version": "3.9.12",
   "files": [
     "dist"
   ],
@@ -103,5 +103,9 @@
     "react-sortable-hoc": "^2.0.0",
     "react-transition-group": "^4.4.2",
     "regenerator-transform": "^0.14.5"
+  },
+  "resolutions": {
+    "@types/react": "^17.0.27",
+    "@types/react-dom": "^17.0.8"
   }
 }

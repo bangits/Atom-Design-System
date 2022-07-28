@@ -7,7 +7,7 @@ export const InfoTooltip: FC<{ infoTooltipText?: string }> = ({ infoTooltipText 
   return (
     <Tooltip showEvent='hover' text={infoTooltipText} disabled={!infoTooltipText}>
       <div className={styles.InfoIcon}>
-        <Icons.InfoIcon />
+        <Icons.InfoTooltipIcon />
       </div>
     </Tooltip>
   );
