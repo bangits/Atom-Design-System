@@ -40,6 +40,7 @@ export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as GamesIcon } from './games.react.svg';
 export { ReactComponent as IdCardIcon } from './id-card.react.svg';
 export { ReactComponent as IEIcon } from './ie.react.svg';
+export { ReactComponent as InfoTooltipIcon } from './info-icon.react.svg';
 export { ReactComponent as InformationIcon } from './information.react.svg';
 export { ReactComponent as LeaveIcon } from './leave_icon.react.svg';
 export { ReactComponent as LockIcon } from './lock.react.svg';
