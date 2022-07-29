@@ -11,6 +11,13 @@
     min-height: calc(100vh - getLayoutSizes(content-header-margin));
 }
 
+.popup-add {
+    @include flex(center, $direction: column);
+    min-height: calculateRem(240px);
+    text-align: left;
+    margin-top: calculateRem(-10px);
+}
+
 .cursor-pointer {
     cursor: pointer;
 }
