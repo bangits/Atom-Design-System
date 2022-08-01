@@ -830,9 +830,6 @@
   version "7.16.7"
   resolved "https://registry.npmjs.org/@babel/plugin-transform-object-super/-/plugin-transform-object-super-7.16.7.tgz#ac359cf8d32cf4354d27a46867999490b6c32a94"
   integrity sha512-14J1feiQVWaGvRxj2WjyMuXS2jsBkgB3MdSN5HuC2G5nRspa5RK9COcs82Pwy5BuGcjb+fYaUj94mYcOj7rCvw==
-  dependencies:
-    "@babel/helper-plugin-utils" "^7.16.7"
-    "@babel/helper-replace-supers" "^7.16.7"
 
 "@babel/plugin-transform-parameters@^7.12.1", "@babel/plugin-transform-parameters@^7.16.7":
   version "7.16.7"
@@ -892,8 +889,6 @@
   version "7.16.7"
   resolved "https://registry.npmjs.org/@babel/plugin-transform-regenerator/-/plugin-transform-regenerator-7.16.7.tgz#9e7576dc476cb89ccc5096fff7af659243b4adeb"
   integrity sha512-mF7jOgGYCkSJagJ6XCujSQg+6xC1M77/03K2oBmVJWoFGNUtnVJO4WHKJk3dnPC8HCcj4xBQP1Egm8DWh3Pb3Q==
-  dependencies:
-    regenerator-transform "^0.14.2"
 
 "@babel/plugin-transform-reserved-words@^7.16.7":
   version "7.16.7"
@@ -1558,10 +1553,31 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
+<<<<<<< HEAD
 "@my-ui/core@^0.8.8":
   version "0.8.8"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.8.tgz#8855c227354cdcc2239ed93032e5183b2f9c211e"
   integrity sha1-iFXCJzVM3MIjntkwMuUYOy+cIR4=
+=======
+<<<<<<< HEAD
+"@my-ui/core@^0.8.7":
+  version "0.8.7"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.7.tgz#1d79f31de146f0abaca1603a6126b40eb395fdff"
+  integrity sha1-HXnzHeFG8KusoWA6YSa0DrOV/f8=
+=======
+<<<<<<< HEAD
+"@my-ui/core@^0.8.6":
+  version "0.8.6"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.6.tgz#c56b9d035df633fe819a05c2059cf68a74611420"
+  integrity sha1-xWudA132M/6BmgXCBZz2inRhFCA=
+=======
+"@my-ui/core@^0.8.3":
+  version "0.8.3"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.3.tgz#f1c66b8bf9bdc67109d48ae0a5afcefa402e1cdb"
+  integrity sha1-8cZri/m9xnEJ1Irgpa/O+kAuHNs=
+>>>>>>> 8303ad64cae88c1b51dcca8b1099d29c90ee8fb3
+>>>>>>> 506a31400af3141437d430723de614486c1c9ba8
+>>>>>>> aa5696fabdc3df5feaa74b5bfda7c0c91643150d
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
