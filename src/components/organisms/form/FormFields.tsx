@@ -8,11 +8,15 @@ import getFormField from './getFormField';
 export interface FormFieldsProps {
   renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;
   fields: FormFieldProp[];
+  removeMargin?: boolean;
 }
 
-const FormFields = ({ fields, renderInputs }: FormFieldsProps) => {
+const FormFields = ({ fields, renderInputs, removeMargin = false }: FormFieldsProps) => {
   return (
-    <div className={styles.ProviderContainerWrapper}>
+    <div
+      className={classNames(styles.ProviderContainerWrapper, {
+        [styles['ProviderContainerWrapper--removeMargin']]: removeMargin
+      })}>
       <div className={styles.ProviderFormGroup}>
         {fields?.map((field) => (
           <div

@@ -1,0 +1,19 @@
+@mixin generate-empty-form-styles {
+    .EmptyForm {
+        position: relative;
+        @include flex(center, center, $direction: column);
+        min-height: calculateRem(140px);
+        &__ImgContent {
+            width: calculateRem(50px);
+            margin-bottom: calculateRem(5px);
+        }
+        &__ButtonContainer {
+            position: absolute;
+            top: calculateRem(16px);
+            right: calculateRem(16px);
+        }
+        &__Content {
+            font-size: calculateRem(14px);
+        }
+    }
+}

@@ -49,6 +49,9 @@
     }
     .ProviderContainerWrapper {
         margin-top: getProviderSizes(provider-container-wrapper);
+        &--removeMargin {
+            margin-top: 0;
+        }
         .ProviderFormGroup {
             @include flex(null, null, $flex-wrap: wrap);
             column-gap: getProviderSizes(provider-column-gap);

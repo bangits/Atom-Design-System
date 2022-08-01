@@ -2,7 +2,7 @@ import { Icons } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
 import { Checkbox, TextWithTooltip, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
-import { forwardRef, PropsWithChildren, useRef, useState } from 'react';
+import { forwardRef, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import styles from './DnDItem.module.scss';
 
 export interface DnDItemProps {
@@ -49,9 +49,17 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
     ref
   ) => {
     const [isDropped, setDropped] = useState(false);
+    console.log('🚀 ~ file: DnDItem.tsx ~ line 52 ~ isDropped', isDropped);
     const [isDragged, setDragged] = useState(false);
 
     const timerRef = useRef<NodeJS.Timeout>(null);
+
+    useEffect(
+      () => () => {
+        if (timerRef.current) clearTimeout(timerRef.current);
+      },
+      [timerRef.current]
+    );
 
     return (
       <>
@@ -78,18 +86,25 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
           {...(droppable
             ? {
                 onDragOver: () => {
+                  console.log('🚀 ~ file: DnDItem.tsx ~ line 82 ~ onDragOver', 'onDragOver');
+
                   if (timerRef.current) clearTimeout(timerRef.current);
 
                   onDropChange?.(true);
                   setDropped(true);
                 },
                 onDragLeave: () => {
+                  console.log('🚀 ~ file: DnDItem.tsx ~ line 90 ~ onDragLeave', 'onDragLeave');
+
                   timerRef.current = setTimeout(() => {
+                    console.log('🚀 ~ file: DnDItem.tsx ~ line 93 ~ onDragOver', 'onDragOver');
+
                     onDropChange?.(false);
                     setDropped(false);
                   }, 100);
                 },
                 onDragExit: () => {
+                  console.log('🚀 ~ file: DnDItem.tsx ~ line 99 ~ onDragExit', 'onDragExit');
                   onDropChange?.(false);
                   setDropped(false);
                 }
@@ -101,7 +116,9 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
             <div className={styles['DnDItem__children']}>
               {imgSrc && <img className={styles['DnDItem__img']} src={imgSrc} alt={children?.toString() || ''} />}
 
-              <TextWithTooltip displayText={children} className={styles['DnDItem__text']}>{children}</TextWithTooltip>
+              <TextWithTooltip displayText={children} className={styles['DnDItem__text']}>
+                {children}
+              </TextWithTooltip>
             </div>
 
             {isDragged && badgeQuantity > 1 && <span className={styles['DnDItem__badge']}>{badgeQuantity}</span>}

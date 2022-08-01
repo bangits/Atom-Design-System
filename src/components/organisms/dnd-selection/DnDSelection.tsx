@@ -3,7 +3,7 @@ import { DnDItemProps } from '@/components';
 import { arrayMoveMutable } from '@/helpers';
 import { Card, IconButton, Scroll, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, PropsWithChildren, ReactNode, useMemo, useRef, useState } from 'react';
+import { Dispatch, FC, PropsWithChildren, ReactNode, SetStateAction, useMemo, useRef, useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
 import { SortableDnDItem, SortableList } from '../sortable-list';
@@ -18,6 +18,12 @@ export interface DnDSelectionProps {
   initialSortableItems?: DnDSelectionItem[];
   draggableSectionTitle?: ReactNode;
   sortableSectionTitle?: ReactNode;
+  emptyDroppableText?: ReactNode;
+  emptyDroppableIcon?: ReactNode;
+  showButtons?: boolean;
+  renderDroppableTopContent?: (renderDroppableArguments: {
+    setSortableItems: Dispatch<SetStateAction<DnDSelectionItem[]>>;
+  }) => ReactNode;
   onCloseButtonClick?(): void;
   onApplyButtonClick?(draggableItems: DnDSelectionItem[], sortableItems: DnDSelectionItem[]): void;
 }
@@ -28,7 +34,11 @@ const DnDSelection: FC<DnDSelectionProps> = ({
   onApplyButtonClick,
   onCloseButtonClick,
   draggableSectionTitle,
-  sortableSectionTitle
+  sortableSectionTitle,
+  showButtons,
+  renderDroppableTopContent,
+  emptyDroppableIcon = <Icons.EmptyFormIcon />,
+  emptyDroppableText
 }) => {
   const [selectedDraggableItems, setSelectedDraggableItems] = useState<DnDSelectionProps['draggableItems']>([]);
 
@@ -60,18 +70,20 @@ const DnDSelection: FC<DnDSelectionProps> = ({
 
   return (
     <DndProvider backend={HTML5Backend}>
-      <div className={styles['DnDSelection__buttons']}>
-        <Tooltip showEvent='hover'>
-          <IconButton
-            onClick={() => onApplyButtonClick?.(draggableItems, sortableItems)}
-            icon={<Icons.ApplyIcon />}
-            type='button'
-          />
-        </Tooltip>
-        <Tooltip showEvent='hover'>
-          <IconButton onClick={onCloseButtonClick} icon={<Icons.CloseIcon />} type='button' />
-        </Tooltip>
-      </div>
+      {showButtons && (
+        <div className={styles['DnDSelection__buttons']}>
+          <Tooltip showEvent='hover'>
+            <IconButton
+              onClick={() => onApplyButtonClick?.(draggableItems, sortableItems)}
+              icon={<Icons.ApplyIcon />}
+              type='button'
+            />
+          </Tooltip>
+          <Tooltip showEvent='hover'>
+            <IconButton onClick={onCloseButtonClick} icon={<Icons.CloseIcon />} type='button' />
+          </Tooltip>
+        </div>
+      )}
 
       <div className={styles['DnDSelection']}>
         <div
@@ -127,6 +139,14 @@ const DnDSelection: FC<DnDSelectionProps> = ({
           {sortableSectionTitle && <div className={styles['DnDSelection__title']}>{sortableSectionTitle}</div>}
 
           <Card className={styles['DnDSelection__card']}>
+            {renderDroppableTopContent && (
+              <div className={styles['DnDSelection__droppable-top-content']}>
+                {renderDroppableTopContent({
+                  setSortableItems
+                })}
+              </div>
+            )}
+
             <DropPlace
               onDropChange={(isDropped) => {
                 if (!isDropped) return;
@@ -171,38 +191,45 @@ const DnDSelection: FC<DnDSelectionProps> = ({
                   )
                 );
               }}>
-              <Scroll autoHeightMin={400} showHorizontalScroll={false}>
-                <div className={styles['DnDSelection__droppable-container']}>
-                  <SortableList
-                    onSortEnd={({ oldIndex, newIndex }) => {
-                      setSortableItems((prevItems) => [...arrayMoveMutable(prevItems, oldIndex, newIndex)]);
-                    }}>
-                    {sortableItems.map((sortableItem, index) => (
-                      <SortableDnDItem
-                        key={sortableItem.indexValue}
-                        {...sortableItem}
-                        indexValue={index + 1}
-                        dragged={isDragged}
-                        index={index}
-                        droppable
-                        showRemoveButton
-                        sortTooltipText='Drag and Drop Banner Position'
-                        sortable
-                        onDropChange={(isDropped) => {
-                          if (isDropped) droppedItem.current = sortableItem;
-                        }}
-                        onRemoveButtonClick={() => {
-                          setSortableItems((prevSortableItems) =>
-                            prevSortableItems.filter((item) => item.indexValue !== sortableItem.indexValue)
-                          );
+              {sortableItems.length ? (
+                <Scroll autoHeightMin={400} showHorizontalScroll={false}>
+                  <div className={styles['DnDSelection__droppable-container']}>
+                    <SortableList
+                      onSortEnd={({ oldIndex, newIndex }) => {
+                        setSortableItems((prevItems) => [...arrayMoveMutable(prevItems, oldIndex, newIndex)]);
+                      }}>
+                      {sortableItems.map((sortableItem, index) => (
+                        <SortableDnDItem
+                          key={sortableItem.indexValue}
+                          {...sortableItem}
+                          indexValue={index + 1}
+                          dragged={isDragged}
+                          index={index}
+                          droppable
+                          showRemoveButton
+                          sortTooltipText='Drag and Drop Banner Position'
+                          sortable
+                          onDropChange={(isDropped) => {
+                            if (isDropped) droppedItem.current = sortableItem;
+                          }}
+                          onRemoveButtonClick={() => {
+                            setSortableItems((prevSortableItems) =>
+                              prevSortableItems.filter((item) => item.indexValue !== sortableItem.indexValue)
+                            );
 
-                          setDraggableItems((prevDraggableItems) => [sortableItem, ...prevDraggableItems]);
-                        }}
-                      />
-                    ))}
-                  </SortableList>
+                            setDraggableItems((prevDraggableItems) => [sortableItem, ...prevDraggableItems]);
+                          }}
+                        />
+                      ))}
+                    </SortableList>
+                  </div>
+                </Scroll>
+              ) : (
+                <div className={styles['DnDSelection__empty']}>
+                  <div className={styles['DnDSelection__emptyIcon']}>{emptyDroppableIcon}</div>
+                  <p className={styles['DnDSelection__emptyText']}>{emptyDroppableText}</p>
                 </div>
-              </Scroll>
+              )}
             </DropPlace>
           </Card>
         </div>

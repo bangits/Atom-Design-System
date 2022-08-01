@@ -1,5 +1,6 @@
 export * from './banner-uploader';
 export * from './browsers-group';
+export * from './button-form';
 export * from './change-password';
 export * from './collapsable-table';
 export * from './count-view';

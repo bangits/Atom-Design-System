@@ -1558,17 +1558,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-<<<<<<< HEAD
-"@my-ui/core@^0.8.6":
-  version "0.8.6"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.6.tgz#c56b9d035df633fe819a05c2059cf68a74611420"
-  integrity sha1-xWudA132M/6BmgXCBZz2inRhFCA=
-=======
-"@my-ui/core@^0.8.3":
-  version "0.8.3"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.3.tgz#f1c66b8bf9bdc67109d48ae0a5afcefa402e1cdb"
-  integrity sha1-8cZri/m9xnEJ1Irgpa/O+kAuHNs=
->>>>>>> 8303ad64cae88c1b51dcca8b1099d29c90ee8fb3
+"@my-ui/core@^0.8.8":
+  version "0.8.8"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.8.8.tgz#8855c227354cdcc2239ed93032e5183b2f9c211e"
+  integrity sha1-iFXCJzVM3MIjntkwMuUYOy+cIR4=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
@@ -10045,11 +10038,6 @@ multimatch@^4.0.0:
     array-union "^2.1.0"
     arrify "^2.0.1"
     minimatch "^3.0.4"
-
-my-ui@^1.0.1:
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/my-ui/-/my-ui-1.0.1.tgz#c19ba31b937ee6fa3bc60eb7bfc7921f0f5ce8b7"
-  integrity sha512-8nBhjWkUYgetO1pyGlm9fo1Y4rc/jppJ/3LSF3/Oqow2oazNqwc3wUus8UxB9Q4H7YKCi3Mo3rQmm3vTK/GVTw==
 
 nan@^2.12.1, nan@^2.13.2:
   version "2.15.0"
