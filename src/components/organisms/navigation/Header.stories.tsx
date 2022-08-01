@@ -12,6 +12,7 @@ export default {
 export const Default = () => {
   return (
     <Header
+      correctBalanceLabel='Correction Balance'
       isOffline={boolean('isOffline', false)}
       dateConverter={(date) => date.toLocaleString()}
       speed={2}
