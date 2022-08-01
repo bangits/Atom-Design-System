@@ -28,8 +28,12 @@
             width: 100%;
         }
         &__card {
+            position: relative;
             padding: calculateRem(15px);
             box-sizing: border-box;
+            &--with-top-content {
+                padding-top: calculateRem(60px);
+            }
         }
         &__card-container {
             width: 50%;
@@ -47,6 +51,7 @@
         }
         &__droppable-top-content {
             position: absolute;
+            top: calculateRem(10px);
             right: calculateRem(24px);
         }
         &__empty {

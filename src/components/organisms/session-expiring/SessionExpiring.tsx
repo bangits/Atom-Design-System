@@ -1,7 +1,7 @@
 import { TextInput } from '@/components';
 import { WarningIcon } from '@/icons';
-import { Button, Card, Typography } from '@my-ui/core';
-import React, { FC } from 'react';
+import { Button, ButtonProps, Card, Typography } from '@my-ui/core';
+import { FC } from 'react';
 import styles from './SessionExpiring.module.scss';
 import Timer from './Timer';
 
@@ -12,7 +12,7 @@ export interface SessionExpiringProps {
   logOutButton: string;
   extend: string;
   timeRemaining: string;
-  buttonProps?: string;
+  buttonProps?: ButtonProps;
 }
 
 const ChangePassword: FC<SessionExpiringProps> = ({

@@ -13,9 +13,13 @@ import DropPlace from './DropPlace';
 
 export type DnDSelectionItem = PropsWithChildren<Pick<DnDItemProps, 'imgSrc' | 'indexValue'>>;
 
+export type SortableDndItem = DnDSelectionItem & {
+  notAddToDraggableItems?: boolean;
+};
+
 export interface DnDSelectionProps {
   draggableItems: DnDSelectionItem[];
-  initialSortableItems?: DnDSelectionItem[];
+  initialSortableItems?: SortableDndItem[];
   draggableSectionTitle?: ReactNode;
   sortableSectionTitle?: ReactNode;
   emptyDroppableText?: ReactNode;
@@ -138,7 +142,10 @@ const DnDSelection: FC<DnDSelectionProps> = ({
         <div className={styles['DnDSelection__card-container']}>
           {sortableSectionTitle && <div className={styles['DnDSelection__title']}>{sortableSectionTitle}</div>}
 
-          <Card className={styles['DnDSelection__card']}>
+          <Card
+            className={classNames(styles['DnDSelection__card'], {
+              [styles['DnDSelection__card--with-top-content']]: !!renderDroppableTopContent
+            })}>
             {renderDroppableTopContent && (
               <div className={styles['DnDSelection__droppable-top-content']}>
                 {renderDroppableTopContent({
@@ -217,7 +224,8 @@ const DnDSelection: FC<DnDSelectionProps> = ({
                               prevSortableItems.filter((item) => item.indexValue !== sortableItem.indexValue)
                             );
 
-                            setDraggableItems((prevDraggableItems) => [sortableItem, ...prevDraggableItems]);
+                            if (!sortableItem.notAddToDraggableItems)
+                              setDraggableItems((prevDraggableItems) => [sortableItem, ...prevDraggableItems]);
                           }}
                         />
                       ))}

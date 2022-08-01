@@ -4,11 +4,14 @@
         &__content {
             height: auto;
             position: absolute;
+            z-index: 1;
             bottom: 0;
             transform: translateY(100%);
             opacity: 1;
             transition: opacity 0.3s;
             padding: calculateRem(14px);
+            box-sizing: border-box;
+            background-color: #fff;
             &--close {
                 opacity: 0;
             }

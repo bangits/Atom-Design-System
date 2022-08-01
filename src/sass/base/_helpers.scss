@@ -26,6 +26,10 @@
     @include flex;
 }
 
+.justify-content-end {
+    justify-content: flex-end;
+}
+
 .align-items-center {
     align-items: center;
 }
@@ -54,4 +58,12 @@
     max-width: calculateRem(60px);
     height: 100%;
     object-fit: contain;
+}
+
+.ml-auto {
+    margin-left: auto;
+}
+
+.button-form-min-width {
+    min-width: calculateRem(300px) !important;
 }
