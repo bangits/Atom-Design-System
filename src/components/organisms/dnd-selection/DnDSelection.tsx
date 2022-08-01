@@ -25,6 +25,9 @@ export interface DnDSelectionProps {
   emptyDroppableText?: ReactNode;
   emptyDroppableIcon?: ReactNode;
   showButtons?: boolean;
+  sortTooltipText?: string;
+  applyButtonTooltipText?: string;
+  closeButtonTooltipText?: string;
   renderDroppableTopContent?: (renderDroppableArguments: {
     setSortableItems: Dispatch<SetStateAction<DnDSelectionItem[]>>;
   }) => ReactNode;
@@ -42,7 +45,10 @@ const DnDSelection: FC<DnDSelectionProps> = ({
   showButtons,
   renderDroppableTopContent,
   emptyDroppableIcon = <Icons.EmptyFormIcon />,
-  emptyDroppableText
+  emptyDroppableText,
+  sortTooltipText,
+  applyButtonTooltipText,
+  closeButtonTooltipText
 }) => {
   const [selectedDraggableItems, setSelectedDraggableItems] = useState<DnDSelectionProps['draggableItems']>([]);
 
@@ -76,14 +82,14 @@ const DnDSelection: FC<DnDSelectionProps> = ({
     <DndProvider backend={HTML5Backend}>
       {showButtons && (
         <div className={styles['DnDSelection__buttons']}>
-          <Tooltip showEvent='hover'>
+          <Tooltip text={applyButtonTooltipText} showEvent='hover'>
             <IconButton
               onClick={() => onApplyButtonClick?.(draggableItems, sortableItems)}
               icon={<Icons.ApplyIcon />}
               type='button'
             />
           </Tooltip>
-          <Tooltip showEvent='hover'>
+          <Tooltip text={closeButtonTooltipText} showEvent='hover'>
             <IconButton onClick={onCloseButtonClick} icon={<Icons.CloseIcon />} type='button' />
           </Tooltip>
         </div>
@@ -214,7 +220,7 @@ const DnDSelection: FC<DnDSelectionProps> = ({
                           index={index}
                           droppable
                           showRemoveButton
-                          sortTooltipText='Drag and Drop Banner Position'
+                          sortTooltipText={sortTooltipText}
                           sortable
                           onDropChange={(isDropped) => {
                             if (isDropped) droppedItem.current = sortableItem;

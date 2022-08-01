@@ -1,37 +1,38 @@
+import { Icons } from '@/atom-design-system';
 import { CurrencyGroup, LabelGroup } from '@/components';
-import { Typography } from '@my-ui/core';
-import { FC, ReactNode } from 'react';
+import { Tooltip } from '@my-ui/core';
+import { FC } from 'react';
 import styles from './HeaderContent.module.scss';
 
 export interface HeaderContentProps {
-  noDataText?: string;
-  isCmsUser?: boolean;
-
-  navBarProps: {
-    title: string;
-    total?: string;
-    currencies: {
-      title: string;
-      id: string | number;
-      closeIcon?: boolean;
-      endIcon?: ReactNode;
-      value?: number | string;
-      tooltipText?: string;
-    }[];
-  };
+  title: string;
+  links: {
+    url: string;
+    name: string;
+    isLink?: boolean;
+  }[];
 }
 
-const HeaderContent: FC<HeaderContentProps> = ({ navBarProps, noDataText }) => {
+const HeaderContent: FC<HeaderContentProps> = ({ links, title }) => {
   return (
     <div className={styles.HeaderContent}>
-      <LabelGroup title={navBarProps?.title} totalLabel={navBarProps?.currencies?.length > 0 ? navBarProps?.total : ''}>
-        {navBarProps?.currencies?.length > 0 ? (
-          <CurrencyGroup currencies={navBarProps?.currencies} />
-        ) : (
-          <Typography variant='p4' className={styles['HeaderContent--notCompleted']}>
-            {noDataText}
-          </Typography>
-        )}
+      <LabelGroup title={title} totalLabel={links.length.toString()}>
+        <CurrencyGroup
+          currencies={links.map((l, index) => ({
+            title: l.name,
+            value: index + 1,
+            ...(l.isLink
+              ? {
+                  closeIcon: true,
+                  endIcon: (
+                    <Tooltip text={l.url}>
+                      <Icons.LinkIcon onClick={() => window.open(l.url, '_blank')} />
+                    </Tooltip>
+                  )
+                }
+              : {})
+          }))}
+        />
       </LabelGroup>
     </div>
   );

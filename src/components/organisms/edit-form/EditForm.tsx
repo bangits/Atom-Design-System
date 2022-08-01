@@ -14,10 +14,17 @@ export interface EditFormProps {
   title?: ReactNode;
   onToggle?: () => void;
   onSubmit?: (onToggle: () => void) => void;
-  renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;
-  fields: FormFieldProp[];
+  renderInputs?: (
+    InputComponent: React.ElementType,
+    name: string,
+    fieldType: FormFieldTypes,
+    props: any
+  ) => JSX.Element;
+  fields?: FormFieldProp[];
   col?: 6 | 12;
   fullWidth?: boolean;
+  showActions?: boolean;
+  removeCard?: boolean;
 }
 
 const EditForm: FC<EditFormProps> = ({
@@ -30,31 +37,42 @@ const EditForm: FC<EditFormProps> = ({
   closeButtonTooltipText,
   children,
   col,
-  fullWidth
+  fullWidth,
+  showActions = true,
+  removeCard
 }) => {
+  const content = children || (
+    <div className={classNames(styles['EditFormBase--content'])}>
+      <EditFormFields fullWidth={fullWidth} fields={fields} renderInputs={renderInputs} />
+    </div>
+  );
+
   return (
     <div
       className={classNames(styles.EditForm, {
         [styles[`EditForm--${col}`]]: col
       })}>
-      <div className={classNames(styles['EditFormBase--header'])}>
-        <span>{title}</span>
-        <div className={classNames(styles['EditFormBase--buttons'])}>
-          <Tooltip showEvent='hover' text={applyButtonTooltipText}>
-            <IconButton icon={<ApplyIcon />} type='button' onClick={() => onSubmit(onToggle)} />
-          </Tooltip>
-          <Tooltip showEvent='hover' text={closeButtonTooltipText}>
-            <IconButton icon={<CloseIcon />} type='button' onClick={onToggle} />
-          </Tooltip>
-        </div>
-      </div>
-      <Card borderRadius={1.6} className={classNames(styles.EditFormBase)}>
-        {children || (
-          <div className={classNames(styles['EditFormBase--content'])}>
-            <EditFormFields fullWidth={fullWidth} fields={fields} renderInputs={renderInputs} />
+      {showActions && (
+        <div className={classNames(styles['EditFormBase--header'])}>
+          <span>{title}</span>
+          <div className={classNames(styles['EditFormBase--buttons'])}>
+            <Tooltip showEvent='hover' text={applyButtonTooltipText}>
+              <IconButton icon={<ApplyIcon />} type='button' onClick={() => onSubmit(onToggle)} />
+            </Tooltip>
+            <Tooltip showEvent='hover' text={closeButtonTooltipText}>
+              <IconButton icon={<CloseIcon />} type='button' onClick={onToggle} />
+            </Tooltip>
           </div>
-        )}
-      </Card>
+        </div>
+      )}
+
+      {removeCard ? (
+        content
+      ) : (
+        <Card borderRadius={1.6} className={classNames(styles.EditFormBase)}>
+          {content}
+        </Card>
+      )}
     </div>
   );
 };
