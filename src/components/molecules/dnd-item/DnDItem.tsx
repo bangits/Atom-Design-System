@@ -86,25 +86,19 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
           {...(droppable
             ? {
                 onDragOver: () => {
-                  console.log('🚀 ~ file: DnDItem.tsx ~ line 82 ~ onDragOver', 'onDragOver');
-
                   if (timerRef.current) clearTimeout(timerRef.current);
 
                   onDropChange?.(true);
                   setDropped(true);
                 },
                 onDragLeave: () => {
-                  console.log('🚀 ~ file: DnDItem.tsx ~ line 90 ~ onDragLeave', 'onDragLeave');
-
                   timerRef.current = setTimeout(() => {
-                    console.log('🚀 ~ file: DnDItem.tsx ~ line 93 ~ onDragOver', 'onDragOver');
-
                     onDropChange?.(false);
                     setDropped(false);
                   }, 100);
                 },
-                onDragExit: () => {
-                  console.log('🚀 ~ file: DnDItem.tsx ~ line 99 ~ onDragExit', 'onDragExit');
+
+                onDrop: () => {
                   onDropChange?.(false);
                   setDropped(false);
                 }
