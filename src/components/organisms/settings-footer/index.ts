@@ -1,1 +1,1 @@
-export { default as DnDFooterItem, DnDFooterItemProps } from './DnDFooterItem';
+export { default as SettingsFooter, SettingsFooterProps } from './SettingsFooter';

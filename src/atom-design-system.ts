@@ -23,7 +23,8 @@ export {
   DialogProvider,
   DialogTypes,
   DialogWithActions,
-  DialogWithActionsProps
+  DialogWithActionsProps,
+  Tooltip
 } from '@my-ui/core';
 export * from './components';
 export * from './helpers/arrayMove';

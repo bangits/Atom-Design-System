@@ -34,6 +34,7 @@ export * from './provider-info';
 export * from './provider-name-id-add';
 export * from './providers-general-info';
 export * from './session-expiring';
+export * from './settings-footer';
 export * from './settings-general-info';
 export * from './settings-header';
 export * from './sortable-list';
