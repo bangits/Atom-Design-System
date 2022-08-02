@@ -1,6 +1,4 @@
-import { Icons, Tooltip } from '@my-ui/core';
 import { withKnobs } from '@storybook/addon-knobs';
-import React from 'react';
 import HeaderContent from './HeaderContent';
 
 export default {
@@ -12,37 +10,18 @@ export default {
 export const Default = () => {
   return (
     <HeaderContent
-      noDataText='Not Completed'
-      navBarProps={{
-        title: 'Navbar Pages',
-        total: '',
-        currencies: [
-          {
-            id: '1',
-            title: 'Casino',
-            closeIcon: true,
-            endIcon: (
-              <Tooltip text='tooltip Text'>
-                <Icons.ViewIcon />
-              </Tooltip>
-            ),
-            value: 1
-          },
-
-          {
-            id: '3',
-            title: 'Live Casino',
-            closeIcon: true,
-            endIcon: (
-              <Tooltip text='tooltip Text 2'>
-                <Icons.ViewIcon />
-              </Tooltip>
-            ),
-            value: 2,
-            tooltipText: 'asd'
-          }
-        ]
-      }}
+      title='Navbar Pages'
+      links={[
+        {
+          name: 'Page 1',
+          url: 'http://website.com'
+        },
+        {
+          name: 'Link 1',
+          url: 'http://website.com',
+          isLink: true
+        }
+      ]}
     />
   );
 };

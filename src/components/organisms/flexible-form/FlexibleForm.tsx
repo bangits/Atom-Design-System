@@ -11,7 +11,9 @@ export interface FlexibleFormProps {
   editModeChildren?: ReactNode;
   editedModeChildren?: ReactNode;
   col?: 6 | 12;
+  showEditForm?: boolean;
   onClose?: () => void;
+  onToggle?(): void;
 }
 
 const FlexibleForm: FC<FlexibleFormProps> = ({
@@ -24,15 +26,22 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
   editModeChildren,
   editedModeChildren,
   col,
-  onClose
+  onClose,
+  showEditForm,
+  onToggle: onToggleProp
 }) => {
-  const [toggle, setToggle] = useState<boolean>(isEdit);
+  // eslint-disable-next-line prefer-const
+  let [toggle, setToggle] = useState<boolean>(isEdit);
+
+  if (showEditForm !== undefined) toggle = showEditForm;
 
   const onToggle = useCallback(() => {
+    onToggleProp?.();
+
     if (toggle && onClose) onClose();
 
     setToggle(!toggle);
-  }, [toggle, onClose]);
+  }, [toggle, onClose, onToggleProp]);
 
   return (
     <>

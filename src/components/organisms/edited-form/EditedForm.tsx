@@ -45,6 +45,7 @@ export interface EditedFormProps {
   showDeleteButton?: boolean;
   onDelete?: () => void;
   showEditIcons?: boolean;
+  removeCard?: boolean;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -60,7 +61,8 @@ const EditedForm: FC<EditedFormProps> = ({
   showDeleteButton,
   deleteButtonTooltipText,
   onDelete,
-  showEditIcons = true
+  showEditIcons = true,
+  removeCard
 }) => {
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
   const [height, setHeight] = useState<number>();
@@ -90,11 +92,13 @@ const EditedForm: FC<EditedFormProps> = ({
   const containerRef = useRef<HTMLDivElement>();
 
   useLayoutEffect(() => {
-    const height = containerRef.current.scrollHeight;
+    const height = containerRef.current?.scrollHeight;
 
     // Using setTimeout for setting the height after first render
-    setHeight(height);
+    if (height !== undefined) setHeight(height);
   }, [containerRef]);
+
+  if (removeCard) return <>{children}</>;
 
   return (
     <div
