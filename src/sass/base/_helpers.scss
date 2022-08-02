@@ -67,3 +67,23 @@
 .button-form-min-width {
     min-width: calculateRem(300px) !important;
 }
+
+.outlined-text-input {
+    min-height: auto;
+    label {
+        padding-top: 0;
+        span {
+            display: none;
+        }
+    }
+    input {
+        height: auto !important;
+        border: none !important;
+        border-bottom: 1px solid !important;
+        border-radius: 0;
+        padding-left: 0;
+        min-height: auto;
+        font-size: calculateRem(16px);
+        padding-bottom: calculateRem(5px);
+    }
+}

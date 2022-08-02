@@ -49,7 +49,6 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
     ref
   ) => {
     const [isDropped, setDropped] = useState(false);
-    console.log('🚀 ~ file: DnDItem.tsx ~ line 52 ~ isDropped', isDropped);
     const [isDragged, setDragged] = useState(false);
 
     const timerRef = useRef<NodeJS.Timeout>(null);
