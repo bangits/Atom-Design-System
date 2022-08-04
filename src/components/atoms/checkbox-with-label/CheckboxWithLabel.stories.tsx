@@ -9,23 +9,5 @@ export default {
 };
 
 export const Default = () => {
-  return (
-    <CheckboxWithLabel
-      label='Checkbox Group'
-      onChange={action('onChange')}
-      checkboxes={[
-        {
-          label: 'Checkbox1',
-          value: 1,
-          name: 'checkbox1',
-          defaultChecked: true
-        },
-        {
-          label: 'Checkbox2',
-          value: 2,
-          name: 'checkbox2'
-        }
-      ]}
-    />
-  );
+  return <CheckboxWithLabel />;
 };

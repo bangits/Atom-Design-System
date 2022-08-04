@@ -6,9 +6,11 @@ import {
   RadioGroup,
   RadioGroupProps,
   TextInput,
-  TextInputProps
+  TextInputProps,
+  CheckboxWithLabel,
+  CheckboxWithLabelProps
 } from '@/components';
-import { Checkbox, CheckboxProps, DatePicker, DatepickerProps, DateTimePicker, DateTimePickerProps, Select, SelectProps } from '@my-ui/core';
+import { DatePicker, DatepickerProps, DateTimePicker, DateTimePickerProps, Select, SelectProps } from '@my-ui/core';
 import { FormFieldProp } from './FormFieldTypes';
 
 const getFormField = (field: FormFieldProp) => {
@@ -33,8 +35,8 @@ const getFormField = (field: FormFieldProp) => {
     case 'checkbox':
       fieldComponent = (props: CheckboxGroupProps) => <CheckboxGroup label={field.label} {...field.props} {...props} />;
       break;
-      case 'single-checkbox':
-      fieldComponent = (props: CheckboxProps) => <Checkbox {...field.props} {...props} />;
+    case 'single-checkbox':
+      fieldComponent = (props: CheckboxWithLabelProps) => <CheckboxWithLabel label={field.label} {...props} />;
       break;
     case 'input':
       fieldComponent = (props: TextInputProps) => (

@@ -53,6 +53,7 @@ export type FormFieldProp = {
   | {
       type: 'single-checkbox';
       props?: CheckboxProps;
+      label?: string;
       component?: (props: CheckboxProps) => JSX.Element;
     }
   | {
