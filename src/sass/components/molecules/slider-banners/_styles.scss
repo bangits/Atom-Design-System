@@ -1,0 +1,23 @@
+@mixin generate-slider-banners-styles {
+    .SliderBanners {
+        display: flex;
+        flex-wrap: wrap;
+        @include list-reset;
+        gap: calculateRem(23px);
+        &__item {
+            width: calculateRem(160px);
+        }
+    }
+    .SliderBannersItem {
+        font-size: calculateRem(14px);
+        &__name {
+            display: block;
+            margin-bottom: calculateRem(5px);
+            word-break: break-word;
+        }
+        &__img {
+            width: 100%;
+            object-fit: contain;
+        }
+    }
+}

@@ -28,6 +28,7 @@ export * from './profile-block';
 export * from './radio-group';
 export * from './search-input';
 export * from './select';
+export * from './slider-banners';
 export * from './sortable-item';
 export * from './tab';
 export * from './text-input';
