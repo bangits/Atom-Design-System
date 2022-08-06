@@ -11,7 +11,7 @@ export interface DnDItemProps {
   badgeQuantity?: number;
   checkboxChecked?: boolean;
   showCheckbox?: boolean;
-  indexValue?: number;
+  indexValue?: number | string;
   droppable?: boolean;
   draggable?: boolean;
   sortable?: boolean;

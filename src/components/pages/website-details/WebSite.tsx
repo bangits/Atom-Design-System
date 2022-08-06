@@ -115,12 +115,14 @@ const WebSite: FC<WebSiteProps> = ({
               {
                 title: translations.header,
                 value: 2,
-                content: headerContent
+                content: headerContent,
+                disableScroll: true
               },
               {
                 title: translations.footer,
                 value: 3,
-                content: footerContent
+                content: footerContent,
+                disableScroll: true
               },
               {
                 title: translations.socialMedia,

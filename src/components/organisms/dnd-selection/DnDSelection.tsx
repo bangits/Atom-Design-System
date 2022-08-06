@@ -213,7 +213,7 @@ const DnDSelection: FC<DnDSelectionProps> = ({
                       }}>
                       {sortableItems.map((sortableItem, index) => (
                         <SortableDnDItem
-                          key={index}
+                          key={sortableItem.indexValue}
                           {...sortableItem}
                           indexValue={index + 1}
                           dragged={isDragged}
