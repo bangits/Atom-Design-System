@@ -1,3 +1,4 @@
+import { TextWithTooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './SliderBanners.module.scss';
@@ -17,9 +18,9 @@ const SliderBanners: FC<SliderBannersProps> = ({ banners }) => {
     <ul className={styles.SliderBanners}>
       {banners.map((b, index) => (
         <li key={b.id} className={classNames(styles['SliderBanners__item'], styles['SliderBannersItem'])}>
-          <span className={styles['SliderBannersItem__name']}>
+          <TextWithTooltip className={styles['SliderBannersItem__name']}>
             {index + 1}. {b.name}
-          </span>
+          </TextWithTooltip>
           <img className={styles['SliderBannersItem__img']} alt={b.name} src={b.img} />
         </li>
       ))}
