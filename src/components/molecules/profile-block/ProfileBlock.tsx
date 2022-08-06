@@ -2,6 +2,7 @@ import { typedMemo } from '@/helpers/typedMemo';
 import { PhotoCamIcon } from '@/icons';
 import { Card } from '@my-ui/core';
 import classNames from 'classnames';
+import { ReactNode } from 'react';
 import styles from './ProfileBlock.module.scss';
 
 export interface ProfileBlockProps {
@@ -10,7 +11,7 @@ export interface ProfileBlockProps {
   backgroundImgUrl: string;
   mainImgUrl?: string;
   itemName: string;
-  itemId: number | string;
+  itemId: ReactNode;
   isLoadingImage?: boolean;
   viewMode?: boolean;
 }

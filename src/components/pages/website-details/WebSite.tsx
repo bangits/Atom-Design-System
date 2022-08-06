@@ -1,5 +1,5 @@
 import { ItemDetails, NameDescription, ProfileBlock, StatusView, StatusViewProps } from '@/components';
-import { Breadcrumb, BreadcrumbProps } from '@my-ui/core';
+import { Breadcrumb, BreadcrumbProps, Button } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
 import styles from './WebSite.module.scss';
@@ -26,7 +26,7 @@ export interface WebSiteProps {
 
   sliderName: string;
   backgroundImgUrl: string;
-  domain: number | string;
+  domain: string;
 
   additionalProps: {
     createdBy: string;
@@ -64,7 +64,16 @@ const WebSite: FC<WebSiteProps> = ({
       <Breadcrumb links={breadCrumb} />
       <div className={styles['WebSiteDetailsBase--container']}>
         <div className={styles['WebSiteDetailsBase--leftBlock']}>
-          <ProfileBlock viewMode backgroundImgUrl={backgroundImgUrl} itemId={domain} itemName={sliderName} />
+          <ProfileBlock
+            viewMode
+            backgroundImgUrl={backgroundImgUrl}
+            itemId={
+              <Button variant='link' onClick={() => window.open(domain, '_blank')}>
+                {domain}
+              </Button>
+            }
+            itemName={sliderName}
+          />
 
           <div className={styles.StatusContent}>
             <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
