@@ -3,6 +3,7 @@ import { PhotoCamIcon } from '@/icons';
 import { Card } from '@my-ui/core';
 import classNames from 'classnames';
 import styles from './ProfileBlock.module.scss';
+import { CopyButton } from '@/components/atoms/copy-button';
 
 export interface ProfileBlockProps {
   onBackgroundImgClick?: () => void;
@@ -13,6 +14,7 @@ export interface ProfileBlockProps {
   itemId: number | string;
   isLoadingImage?: boolean;
   viewMode?: boolean;
+  addCopyButton?: boolean;
 }
 
 const ProfileBlock = ({
@@ -23,7 +25,8 @@ const ProfileBlock = ({
   itemId,
   itemName,
   isLoadingImage,
-  viewMode = false
+  viewMode = false,
+  addCopyButton
 }: ProfileBlockProps) => {
   return (
     <>
@@ -76,7 +79,9 @@ const ProfileBlock = ({
             [styles['ProfileBlock__Info--without-logo']]: onMainImgClick === undefined
           })}>
           <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>{itemName}</div>
-          <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>{itemId}</div>
+          <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>
+            {itemId} {addCopyButton && <CopyButton copyText={itemId} />}
+          </div>
         </div>
       </Card>
     </>
