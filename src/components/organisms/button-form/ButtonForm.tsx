@@ -1,9 +1,11 @@
-import { Card } from '@my-ui/core';
-import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useMemo, useState } from 'react';
+import { Card, useOutsideClickEvent } from '@my-ui/core';
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ButtonForm.module.scss';
 
 export interface ButtonFormRenderArguments {
+  opened: boolean;
+
   open(): void;
   close(): void;
 }
@@ -17,18 +19,32 @@ export interface ButtonFormProps {
 }
 
 const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getContainerProps }) => {
+  const buttonFormContainerRef = useRef<HTMLDivElement>(null);
+
   const [isOpenedForm, setOpenedForm] = useState(false);
 
   const buttonFormRenderArguments = useMemo<ButtonFormRenderArguments>(
     () => ({
       open: () => setOpenedForm(true),
-      close: () => setOpenedForm(false)
+      close: () => setOpenedForm(false),
+      opened: isOpenedForm
     }),
     [setOpenedForm]
   );
 
+  const { subscribe, unsubscribe } = useOutsideClickEvent(`.${styles.ButtonForm}`);
+
+  useEffect(() => {
+    subscribe(() => setOpenedForm(false));
+
+    return () => unsubscribe();
+  }, [subscribe, unsubscribe]);
+
   return (
-    <div {...(getContainerProps?.(buttonFormRenderArguments) || {})} className={styles.ButtonForm}>
+    <div
+      {...(getContainerProps?.(buttonFormRenderArguments) || {})}
+      className={styles.ButtonForm}
+      ref={buttonFormContainerRef}>
       {renderOpenElement(buttonFormRenderArguments)}
 
       <CSSTransition

@@ -65,8 +65,15 @@ const EditedForm: FC<EditedFormProps> = ({
   showEditIcons = true,
   removeCard
 }) => {
+  const containerRef = useRef<HTMLDivElement>();
+
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
-  const [height, setHeight] = useState<number>();
+  // eslint-disable-next-line prefer-const
+  let [height, setHeight] = useState<number>();
+
+  const containerHeight = containerRef.current?.scrollHeight;
+
+  if (height !== containerHeight) height = containerHeight;
 
   const viewMoreClassNames = useStyles(
     {
@@ -90,14 +97,11 @@ const EditedForm: FC<EditedFormProps> = ({
     setOpenedCollapse(!isOpenedCollapse);
   }, [isOpenedCollapse]);
 
-  const containerRef = useRef<HTMLDivElement>();
-
   useLayoutEffect(() => {
     const height = containerRef.current?.scrollHeight;
 
-    // Using setTimeout for setting the height after first render
     if (height !== undefined) setHeight(height);
-  }, [containerRef]);
+  }, [containerRef, children]);
 
   if (removeCard) return <>{children}</>;
 

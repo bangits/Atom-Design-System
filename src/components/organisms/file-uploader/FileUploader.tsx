@@ -45,7 +45,7 @@ export const FileUploader: FC<FileUploaderProps> = ({
       <MyUIFileUploader {...fileUploaderProps} />
 
       {errorMessage && (
-        <Typography color='danger' variant='p5'>
+        <Typography className={styles.FileUploaderErrorMessage} color='danger' variant='p5'>
           {errorMessage}
         </Typography>
       )}
