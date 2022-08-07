@@ -1,0 +1,28 @@
+@mixin generate-game-categories-card-styles {
+    .GameCategoriesCard {
+        position: relative;
+        &__top-part {
+            display: none;
+        }
+        &__actions {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+        }
+        &__play {}
+        &__actions {
+            @include list-reset;
+            @include flex(null, center);
+        }
+        &__play {}
+        &__action {}
+        &__img {
+            width: 100%;
+            object-fit: contain;
+        }
+        &__name {}
+    }
+}
