@@ -16,7 +16,8 @@ $name-description-sizes: (
   dot-margin: 0 calculateRem(4px) 0 calculateRem(1px),
   children-border: calculateRem(0.5px),
   children-margin-top: calculateRem(4px),
-  children-padding-top: calculateRem(4.5px)
+  children-padding-top: calculateRem(4.5px),
+  children-padding-left: calculateRem(5px)
 );
 
 $name-description-colors: (

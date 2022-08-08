@@ -12,7 +12,8 @@ export interface ProfileBlockProps {
   backgroundImgUrl: string;
   mainImgUrl?: string;
   itemName: string;
-  itemId: ReactNode;
+  //speed fix
+  itemId: any;
   isLoadingImage?: boolean;
   viewMode?: boolean;
   addCopyButton?: boolean;
