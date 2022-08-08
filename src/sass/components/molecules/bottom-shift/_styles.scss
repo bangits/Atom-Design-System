@@ -1,0 +1,37 @@
+@mixin generate-bottom-shift-styles {
+    .BottomShift {
+        background: #fff;
+        transition: height 0.3s, padding 0.3s;
+        box-sizing: border-box;
+        height: 0;
+        padding: 0 calculateRem(22px);
+        &--open {
+            height: calc(100% - calculateRem(30px));
+            padding-top: calculateRem(52px);
+        }
+        &__close {
+            position: fixed;
+            top: calculateRem(50px);
+            right: calculateRem(10px);
+        }
+        &__blur,
+        & {
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            z-index: 9999;
+        }
+        &__blur {
+            transition: opacity 0.3s;
+            background: #0000003d;
+            border-radius: 0 0 26px 26px;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+            &--open {
+                opacity: 1;
+            }
+        }
+    }
+}
