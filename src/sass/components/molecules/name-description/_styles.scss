@@ -38,7 +38,7 @@
       font-size: getNameDescriptionSizes(description-font-size);
       color: getNameDescriptionColors(description-color);
       max-width: getNameDescriptionSizes(description-max-width);
-      padding-left: calculateRem(5px);
+      padding-left: calculateRem(2px);
     }
     &--sub-core {
       @include flex(space-between, center);
