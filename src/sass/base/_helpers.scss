@@ -7,6 +7,10 @@
     min-height: inherit;
 }
 
+.height-auto {
+    height: auto !important;
+}
+
 .min-height-content-wrapper {
     min-height: calc(100vh - getLayoutSizes(content-header-margin));
 }

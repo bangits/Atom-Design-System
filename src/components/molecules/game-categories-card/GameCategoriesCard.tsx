@@ -1,40 +1,111 @@
-import { Icons } from '@/atom-design-system';
-import { Checkbox, IconButton } from '@my-ui/core';
+import { ButtonForm, Icons } from '@/atom-design-system';
+import { Button, Checkbox, CheckboxProps, IconButton, TextInput } from '@my-ui/core';
+import { FC, useState } from 'react';
 import styles from './GameCategoriesCard.module.scss';
 
-const GameCategoriesCard = () => {
+export interface GameCategoriesCardProps {
+  checkboxProps?: CheckboxProps;
+  showActions?: boolean;
+  index?: number;
+  imgSrc: string;
+  name: string;
+
+  positionChangeProps?: {
+    title: string;
+    totalCount: string;
+    buttonLabel: string;
+    initialPosition?: number;
+    onPositionChange?(position: number): void;
+  };
+
+  onViewButtonClick?(): void;
+  onDeleteButtonClick?(): void;
+  onPlayButtonClick?(): void;
+}
+
+const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
+  imgSrc,
+  name,
+  checkboxProps,
+  index,
+  onDeleteButtonClick,
+  onPlayButtonClick,
+  positionChangeProps,
+  onViewButtonClick,
+  showActions
+}) => {
+  const [positionInputValue, setPositionInputValue] = useState<number | string>(
+    positionChangeProps?.initialPosition || ''
+  );
+
   return (
     <div className={styles.GameCategoriesCard}>
-      <div className={styles['GameCategoriesCard__top-part']}>
-        <Checkbox />
+      {(checkboxProps || index) && (
+        <div className={styles['GameCategoriesCard__top-part']}>
+          {checkboxProps && <Checkbox {...checkboxProps} />}
 
-        <span>1</span>
-      </div>
+          {index ? <span className={styles['GameCategoriesCard__index']}>{index}</span> : null}
+        </div>
+      )}
 
-      <div className={styles['GameCategoriesCard__actions']}>
-        <IconButton className={styles['GameCategoriesCard__play']} icon={<Icons.PlayArrowIcon width='100%' />} />
+      {showActions && (
+        <div className={styles['GameCategoriesCard__actions']}>
+          <IconButton
+            onClick={onPlayButtonClick}
+            className={styles['GameCategoriesCard__play']}
+            icon={<Icons.PlayArrowIcon width='100%' />}
+          />
 
-        <ul className={styles['GameCategoriesCard__bottom-part']}>
-          <li>
-            <IconButton className={styles['GameCategoriesCard__action']} icon={<Icons.ViewIcon width='100%' />} />
-          </li>
-          <li>
-            <IconButton
-              className={styles['GameCategoriesCard__action']}
-              icon={<Icons.RecalculateIcon width='100%' />}
-            />
-          </li>
-          <li>
-            <IconButton className={styles['GameCategoriesCard__action']} icon={<Icons.TrashIndicator width='100%' />} />
-          </li>
-        </ul>
-      </div>
-      <img
-        className={styles['GameCategoriesCard__img']}
-        src='https://i.ibb.co/LYJf14x/27Wins-1.png'
-        alt='27 Wins Pragmatic'
-      />
-      <span className={styles['GameCategoriesCard__name']}>27 Wins Pragmatic </span>
+          <ul className={styles['GameCategoriesCard__bottom-part']}>
+            <li>
+              <IconButton
+                onClick={onViewButtonClick}
+                className={styles['GameCategoriesCard__action']}
+                icon={<Icons.ViewIcon width='100%' />}
+              />
+            </li>
+            {positionChangeProps && (
+              <li className={styles['PositionChange']}>
+                <ButtonForm
+                  renderOpenElement={({ open }) => (
+                    <IconButton
+                      className={styles['GameCategoriesCard__action']}
+                      icon={<Icons.RecalculateIcon width='100%' />}
+                      onClick={open}
+                    />
+                  )}>
+                  <div>
+                    <p className={styles['PositionChange__name']}>{positionChangeProps.title}</p>
+                    <p className={styles['PositionChange__total']}>{positionChangeProps.totalCount}</p>
+                    <TextInput
+                      onChange={(e) => setPositionInputValue(e.target.value)}
+                      value={positionInputValue}
+                      type='number'
+                      maxLength={6}
+                      containerClassName={styles['PositionChange__input']}
+                    />
+                    <Button
+                      onClick={() => positionInputValue && positionChangeProps.onPositionChange(+positionInputValue)}
+                      className={styles['PositionChange__button']}
+                      variant='link'>
+                      {positionChangeProps.buttonLabel}
+                    </Button>
+                  </div>
+                </ButtonForm>
+              </li>
+            )}
+            <li>
+              <IconButton
+                onClick={onDeleteButtonClick}
+                className={styles['GameCategoriesCard__action']}
+                icon={<Icons.TrashIndicator width='100%' />}
+              />
+            </li>
+          </ul>
+        </div>
+      )}
+      <img className={styles['GameCategoriesCard__img']} src={imgSrc} alt={name} />
+      <span className={styles['GameCategoriesCard__name']}>{name}</span>
     </div>
   );
 };

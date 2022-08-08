@@ -2,6 +2,7 @@
     .ButtonForm {
         position: relative;
         &__content {
+            width: fit-content;
             height: auto;
             position: absolute;
             z-index: 1;

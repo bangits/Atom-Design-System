@@ -12,6 +12,7 @@ export * from './empty-form';
 export * from './from-to-input';
 export * from './from-to-timepicker';
 export * from './game-card';
+export * from './game-categories-card';
 export * from './input-with-dropdown';
 export * from './label-endmark';
 export * from './label-group';

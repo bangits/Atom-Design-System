@@ -10,9 +10,9 @@
             padding-top: calculateRem(52px);
         }
         &__close {
-            position: absolute;
-            right: 0;
-            top: calculateRem(-55px);
+            position: fixed;
+            top: calculateRem(50px);
+            right: calculateRem(10px);
         }
         &__blur,
         & {
