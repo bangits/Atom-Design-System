@@ -1,0 +1,56 @@
+@mixin generate-category-games-styles {
+    .CheckboxWithLabel {
+        margin-bottom: calculateRem(10px);
+    }
+    .CategoryGames {
+        $this: #{&};
+        width: 100%;
+        height: 70%;
+        &__button {
+            margin-left: auto;
+            margin-bottom: calculateRem(12px);
+        }
+        &__buttons {
+            @include flex(flex-end);
+            column-gap: calculateRem(10px);
+            margin-top: calculateRem(10px);
+        }
+        &__card {
+            padding: calculateRem(40px) calculateRem(62px);
+            padding-bottom: 0;
+            box-sizing: border-box;
+        }
+        &__list {
+            @include flex;
+            height: 100%;
+            flex-wrap: wrap;
+            column-gap: calculateRem(14px);
+            row-gap: calculateRem(20px);
+            padding-bottom: calculateRem(50px);
+        }
+        &__loader {
+            @include flex(center);
+        }
+        &--filter {
+            #{$this}__card {
+                padding: 0;
+                box-shadow: none;
+            }
+        }
+        &--results {
+            height: calculateRem(500px);
+            #{$this}__card {
+                display: flex;
+                flex-direction: column;
+            }
+            #{$this}__list {
+                height: auto;
+            }
+            #{$this}__pagination {
+                @include flex(center);
+                margin-top: auto;
+                padding-right: calculateRem(62px);
+            }
+        }
+    }
+}

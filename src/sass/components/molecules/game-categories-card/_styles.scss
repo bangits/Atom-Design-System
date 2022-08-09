@@ -2,10 +2,14 @@
     .GameCategoriesCard {
         $this: #{&};
         position: relative;
-        height: 100%;
-        border-radius: calculateRem(2px);
-        width: calculateRem(100px);
+        height: fit-content;
+        width: calculateRem(110px);
         min-height: calculateRem(100px);
+        border: calculateRem(1px) solid rgba(43, 54, 116, 0.1);
+        &,
+        &__img {
+            border-radius: calculateRem(2px);
+        }
         &__top-part {
             position: absolute;
             @include flex(space-between, center);
@@ -14,9 +18,12 @@
             padding: calculateRem(4px);
             padding-bottom: calculateRem(4px);
             box-sizing: border-box;
-            z-index: 2;
+            z-index: 0;
             input {
                 border-color: #fff !important;
+            }
+            &--with-checkbox {
+                z-index: 2;
             }
         }
         &__index {
@@ -43,6 +50,7 @@
         &__play {
             margin: auto;
             transition: background-color 0.3s;
+            margin-top: calculateRem(25px);
             path {
                 fill: color(primary);
             }
@@ -77,13 +85,17 @@
             object-fit: contain;
         }
         &__name {
-            @include flex(null, center);
+            display: block;
             background-color: #fff;
             min-height: calculateRem(25px);
             color: #2b3674;
             padding-left: calculateRem(4px);
             font-size: calculateRem(14px);
             padding-bottom: calculateRem(6px);
+            &--provider {
+                display: block;
+                color: color(primary);
+            }
         }
         &:hover {
             #{$this}__actions {

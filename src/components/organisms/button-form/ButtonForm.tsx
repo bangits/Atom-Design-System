@@ -50,7 +50,11 @@ const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getConta
       <CSSTransition
         in={isOpenedForm}
         timeout={300}
-        classNames={{ enter: styles['ButtonForm__content--close'], exit: styles['ButtonForm__content--close'] }}
+        classNames={{
+          enter: styles['ButtonForm__content--open'],
+          enterActive: styles['ButtonForm__content--open'],
+          enterDone: styles['ButtonForm__content--open']
+        }}
         unmountOnExit>
         <Card className={styles['ButtonForm__content']}>
           {typeof children === 'function' ? children(buttonFormRenderArguments) : children}

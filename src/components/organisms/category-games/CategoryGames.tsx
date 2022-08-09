@@ -1,0 +1,87 @@
+import { CheckboxWithLabel, CheckboxWithLabelProps, Icons } from '@/atom-design-system';
+import { Button, ButtonProps, Card, Loader, Scroll } from '@my-ui/core';
+import classNames from 'classnames';
+import { FC, PropsWithChildren, ReactNode, useRef } from 'react';
+import styles from './CategoryGames.module.scss';
+
+export interface CategoryGamesProps {
+  buttonProps?: ButtonProps;
+  checkboxWithLabelProps?: CheckboxWithLabelProps;
+  isFilter?: boolean;
+  isFilterOpened?: boolean;
+  isAllGamesLoaded?: boolean;
+  isLoadingGames?: boolean;
+  pagination?: ReactNode;
+  buttons?: ReactNode[];
+
+  onPageChange?(page: number): void;
+}
+
+const CategoryGames: FC<PropsWithChildren<CategoryGamesProps>> = ({
+  children,
+  isFilter,
+  isFilterOpened,
+  buttonProps,
+  checkboxWithLabelProps,
+  onPageChange,
+  isAllGamesLoaded,
+  isLoadingGames,
+  pagination,
+  buttons
+}) => {
+  const currentPageRef = useRef(1);
+
+  return (
+    <>
+      {checkboxWithLabelProps && <CheckboxWithLabel className={styles.CheckboxWithLabel} {...checkboxWithLabelProps} />}
+
+      <div
+        className={classNames(styles.CategoryGames, {
+          [styles['CategoryGames--filter']]: isFilter,
+          [styles['CategoryGames--results']]: !isFilter
+        })}>
+        {buttonProps && (
+          <Button
+            className={styles['CategoryGames__button']}
+            variant='link'
+            startIcon={<Icons.PlusCircleLarge />}
+            {...buttonProps}
+          />
+        )}
+
+        <Card className={styles['CategoryGames__card']}>
+          <Scroll
+            autoHeight={false}
+            height='100%'
+            onScroll={(e) => {
+              if (isAllGamesLoaded || isLoadingGames) return;
+
+              const isScrolledToBottom =
+                (e.target as HTMLDivElement).offsetHeight + (e.target as HTMLDivElement).scrollTop >=
+                (e.target as HTMLDivElement).scrollHeight;
+
+              if (isScrolledToBottom) {
+                onPageChange?.(currentPageRef.current + 1);
+
+                currentPageRef.current = currentPageRef.current + 1;
+              }
+            }}>
+            <div className={styles['CategoryGames__list']}>{children}</div>
+
+            {isLoadingGames && (
+              <div className={styles['CategoryGames__loader']}>
+                <Loader />
+              </div>
+            )}
+          </Scroll>
+
+          {buttons?.length && <div className={styles['CategoryGames__buttons']}>{buttons}</div>}
+
+          {pagination && <div className={styles['CategoryGames__pagination']}>{pagination}</div>}
+        </Card>
+      </div>
+    </>
+  );
+};
+
+export default CategoryGames;

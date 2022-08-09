@@ -8,13 +8,13 @@
             z-index: 1;
             bottom: 0;
             transform: translateY(100%);
-            opacity: 1;
+            opacity: 0;
             transition: opacity 0.3s;
             padding: calculateRem(14px);
             box-sizing: border-box;
             background-color: #fff;
-            &--close {
-                opacity: 0;
+            &--open {
+                opacity: 1;
             }
         }
     }

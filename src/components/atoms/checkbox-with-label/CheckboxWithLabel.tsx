@@ -1,26 +1,21 @@
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps } from '@my-ui/core';
-import React, { FC, useCallback, useState } from 'react';
+import classNames from 'classnames';
+import { FC } from 'react';
 import styles from './CheckboxWithLabel.module.scss';
 
 export interface CheckboxWithLabelProps extends CheckboxProps {
   label?: string;
 }
 
-const CheckboxWithLabel: FC<CheckboxWithLabelProps> = ({ label, ...checkboxProps }) => {
+const CheckboxWithLabel: FC<CheckboxWithLabelProps> = ({ label, className, ...checkboxProps }) => {
   return (
-    <div className={styles.Checkbox}>
-      <div className={styles.CheckboxLabel}>
-        <span>{label}</span>
-      </div>
-      <div className={styles.CheckboxContainer}>
-        <div className={styles.CheckboxWrapper}>
-          <div className={styles.CheckboxContainer}>
-            <Checkbox onChange={(e) => console.log(e.target.value)} {...checkboxProps} />
-          </div>
-        </div>
-      </div>
-    </div>
+    <label className={classNames(styles.Checkbox, className)}>
+      <span className={styles.CheckboxLabel}>{label}</span>
+      <span className={styles.CheckboxContainer}>
+        <Checkbox {...checkboxProps} />
+      </span>
+    </label>
   );
 };
 
