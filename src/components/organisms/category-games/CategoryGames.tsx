@@ -12,6 +12,7 @@ export interface CategoryGamesProps {
   isLoadingGames?: boolean;
   pagination?: ReactNode;
   buttons?: ReactNode[];
+  isFilterOpened?: boolean;
 
   onPageChange?(page: number): void;
 }
@@ -25,7 +26,8 @@ const CategoryGames: FC<PropsWithChildren<CategoryGamesProps>> = ({
   isAllGamesLoaded,
   isLoadingGames,
   pagination,
-  buttons
+  buttons,
+  isFilterOpened
 }) => {
   const currentPageRef = useRef(1);
 
@@ -36,7 +38,8 @@ const CategoryGames: FC<PropsWithChildren<CategoryGamesProps>> = ({
       <div
         className={classNames(styles.CategoryGames, {
           [styles['CategoryGames--filter']]: isFilter,
-          [styles['CategoryGames--results']]: !isFilter
+          [styles['CategoryGames--results']]: !isFilter,
+          [styles['CategoryGames--filter-opened']]: isFilterOpened
         })}>
         {buttonProps && (
           <Button

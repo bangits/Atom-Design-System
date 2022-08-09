@@ -53,5 +53,14 @@
                 padding-right: calculateRem(62px);
             }
         }
+        @media screen and (max-height: 650px) {
+            height: 40%;
+        }
+        &--filter-opened {
+            height: 50%;
+            @media screen and (max-height: 650px) {
+                height: 16%;
+            }
+        }
     }
 }
