@@ -38,7 +38,7 @@
       font-size: getNameDescriptionSizes(description-font-size);
       color: getNameDescriptionColors(description-color);
       max-width: getNameDescriptionSizes(description-max-width);
-      padding-left: calculateRem(2px);
+      padding-left: calculateRem(4px);
     }
     &--sub-core {
       @include flex(space-between, center);
@@ -70,7 +70,6 @@
       > span {
         height: getNameDescriptionSizes(title-height);
         font-size: getNameDescriptionSizes(title-font-size);
-        // padding-left: getNameDescriptionSizes(children-padding-left);
         border: 2px solid red;
         color: getNameDescriptionColors(name-color);
       }
