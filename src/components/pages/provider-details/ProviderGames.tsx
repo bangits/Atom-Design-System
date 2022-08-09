@@ -14,12 +14,12 @@ export interface ProviderGamesProps {
     playDemo: string;
   };
   gameTypes: {
-    id?: number;
+    id?: string | number;
     name: string;
     gameCount: number;
   }[];
   games: {
-    id: number;
+    id: string | number;
     name: string;
     icon: string;
     hasDemo: boolean;

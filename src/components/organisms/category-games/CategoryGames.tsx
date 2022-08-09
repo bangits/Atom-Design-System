@@ -8,7 +8,6 @@ export interface CategoryGamesProps {
   buttonProps?: ButtonProps;
   checkboxWithLabelProps?: CheckboxWithLabelProps;
   isFilter?: boolean;
-  isFilterOpened?: boolean;
   isAllGamesLoaded?: boolean;
   isLoadingGames?: boolean;
   pagination?: ReactNode;
@@ -20,7 +19,6 @@ export interface CategoryGamesProps {
 const CategoryGames: FC<PropsWithChildren<CategoryGamesProps>> = ({
   children,
   isFilter,
-  isFilterOpened,
   buttonProps,
   checkboxWithLabelProps,
   onPageChange,
@@ -66,13 +64,14 @@ const CategoryGames: FC<PropsWithChildren<CategoryGamesProps>> = ({
                 currentPageRef.current = currentPageRef.current + 1;
               }
             }}>
-            <div className={styles['CategoryGames__list']}>{children}</div>
-
-            {isLoadingGames && (
-              <div className={styles['CategoryGames__loader']}>
-                <Loader />
-              </div>
-            )}
+            <div className={styles['CategoryGames__list']}>
+              {children}
+              {isLoadingGames && (
+                <div className={styles['CategoryGames__loader']}>
+                  <Loader />
+                </div>
+              )}
+            </div>
           </Scroll>
 
           {buttons?.length && <div className={styles['CategoryGames__buttons']}>{buttons}</div>}
