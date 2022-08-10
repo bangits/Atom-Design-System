@@ -17,6 +17,7 @@ export interface ProfileBlockProps {
   isLoadingImage?: boolean;
   viewMode?: boolean;
   addCopyButton?: boolean;
+  itemLabel?: string;
 }
 
 const ProfileBlock = ({
@@ -28,7 +29,8 @@ const ProfileBlock = ({
   itemName,
   isLoadingImage,
   viewMode = false,
-  addCopyButton
+  addCopyButton,
+  itemLabel
 }: ProfileBlockProps) => {
   return (
     <>
@@ -82,7 +84,7 @@ const ProfileBlock = ({
           })}>
           <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>{itemName}</div>
           <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>
-            {itemId} {addCopyButton && <CopyButton copyText={itemId} />}
+            {itemLabel} {itemId} {addCopyButton && <CopyButton copyText={itemId} />}
           </div>
         </div>
       </Card>
