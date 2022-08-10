@@ -15,6 +15,7 @@
             border-radius: calculateRem(4px);
             padding: calculateRem(10px);
             box-sizing: border-box;
+            min-height: calculateRem(54px);
         }
         &__children {
             @include flex(null, center);

@@ -2,6 +2,8 @@
     .DnDSelection {
         display: flex;
         width: 100%;
+        max-width: calculateRem(770px);
+        margin: auto;
         &__right-arrow {
             @include flex(null, center);
             margin-right: calculateRem(20px);
@@ -32,7 +34,7 @@
             padding: calculateRem(15px);
             box-sizing: border-box;
             &--with-top-content {
-                padding-top: calculateRem(60px);
+                padding-top: calculateRem(93.5px);
             }
         }
         &__card-container {

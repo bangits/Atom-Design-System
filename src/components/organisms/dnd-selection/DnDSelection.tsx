@@ -146,7 +146,11 @@ const DnDSelection: FC<DnDSelectionProps> = ({
         </div>
 
         <div className={styles['DnDSelection__card-container']}>
-          {sortableSectionTitle && <div className={styles['DnDSelection__title']}>{sortableSectionTitle}</div>}
+          {typeof sortableSectionTitle === 'string' ? (
+            <div className={styles['DnDSelection__title']}>{sortableSectionTitle}</div>
+          ) : (
+            sortableSectionTitle
+          )}
 
           <Card
             className={classNames(styles['DnDSelection__card'], {

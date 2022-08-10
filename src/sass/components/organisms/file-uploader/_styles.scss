@@ -2,6 +2,9 @@
     .FileUploaderErrorMessage,
     .FileUploaderLabelContainer {
         max-width: getFileUploaderSizes(label-container-max-width);
+        &--fullWidth {
+            max-width: none;
+        }
     }
     .FileUploaderLabelContainer {
         @include flex(space-between, center);

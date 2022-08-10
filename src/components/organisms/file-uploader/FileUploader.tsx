@@ -6,6 +6,7 @@ import {
   Tooltip,
   Typography
 } from '@my-ui/core';
+import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './FileUploader.module.scss';
 
@@ -26,11 +27,16 @@ export const FileUploader: FC<FileUploaderProps> = ({
   tooltipProps,
   ...fileUploaderProps
 }) => {
+  const { fullWidth } = fileUploaderProps;
+
   const TooltipIcon = tooltipProps && Icons[tooltipProps.icon || 'InformationIcon'];
 
   return (
     <>
-      <div className={styles.FileUploaderLabelContainer}>
+      <div
+        className={classNames(styles.FileUploaderLabelContainer, {
+          [styles['FileUploaderLabelContainer--fullWidth']]: fullWidth
+        })}>
         {labelProps && <Label {...labelProps} />}
 
         {tooltipProps && (
@@ -45,7 +51,12 @@ export const FileUploader: FC<FileUploaderProps> = ({
       <MyUIFileUploader {...fileUploaderProps} />
 
       {errorMessage && (
-        <Typography className={styles.FileUploaderErrorMessage} color='danger' variant='p5'>
+        <Typography
+          className={classNames(styles.FileUploaderErrorMessage, {
+            [styles['FileUploaderErrorMessage--fullWidth']]: fullWidth
+          })}
+          color='danger'
+          variant='p5'>
           {errorMessage}
         </Typography>
       )}
