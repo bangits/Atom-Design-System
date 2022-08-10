@@ -23,9 +23,8 @@ const MainInformation: FC<MainInformationProps> = ({ addSpacings = true, name, i
         <span className={styles['MainInformation__name']}>{name}</span>
         <div className={styles['MainInformation__id_block']}>
           <div className={styles['MainInformation__id']}>
-            {idLabel} {id}
+            {idLabel} {id} {addCopyButton && <CopyButton copyText={id} />}
           </div>
-          {addCopyButton && <CopyButton copyText={id} />}
         </div>
       </div>
     </div>
