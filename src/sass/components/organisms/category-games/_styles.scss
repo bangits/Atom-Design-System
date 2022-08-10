@@ -28,6 +28,9 @@
             row-gap: calculateRem(20px);
             padding-bottom: calculateRem(50px);
         }
+        &__item {
+            width: 12.5%;
+        }
         &__loader {
             @include flex(center);
             width: 100%;
@@ -36,6 +39,9 @@
             #{$this}__card {
                 padding: 0;
                 box-shadow: none;
+            }
+            #{$this}__item {
+                width: 10%;
             }
         }
         &--results {
@@ -54,12 +60,12 @@
             }
         }
         @media screen and (max-height: 650px) {
-            height: 40%;
+            height: 50vh;
         }
         &--filter-opened {
-            height: 50%;
+            height: 30vh;
             @media screen and (max-height: 650px) {
-                height: 16%;
+                height: 5vh;
             }
         }
     }

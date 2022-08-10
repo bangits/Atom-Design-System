@@ -1,7 +1,7 @@
 import { CheckboxWithLabel, CheckboxWithLabelProps, Icons } from '@/atom-design-system';
 import { Button, ButtonProps, Card, Loader, Scroll } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, PropsWithChildren, ReactNode, useRef } from 'react';
+import { Children, FC, PropsWithChildren, ReactNode, useMemo, useRef } from 'react';
 import styles from './CategoryGames.module.scss';
 
 export interface CategoryGamesProps {
@@ -30,6 +30,8 @@ const CategoryGames: FC<PropsWithChildren<CategoryGamesProps>> = ({
   isFilterOpened
 }) => {
   const currentPageRef = useRef(1);
+
+  const childrenArray = useMemo(() => Children.toArray(children), [children]);
 
   return (
     <>
@@ -68,7 +70,9 @@ const CategoryGames: FC<PropsWithChildren<CategoryGamesProps>> = ({
               }
             }}>
             <div className={styles['CategoryGames__list']}>
-              {children}
+              {childrenArray.map((c) => (
+                <div className={styles['CategoryGames__item']}>{c}</div>
+              ))}
               {isLoadingGames && (
                 <div className={styles['CategoryGames__loader']}>
                   <Loader />
