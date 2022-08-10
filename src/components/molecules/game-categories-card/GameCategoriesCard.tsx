@@ -1,5 +1,7 @@
 import { ButtonForm, Icons } from '@/atom-design-system';
+import { typedMemo } from '@/helpers';
 import { Button, Checkbox, CheckboxProps, IconButton, TextInput } from '@my-ui/core';
+import classNames from 'classnames';
 import { FC, useState } from 'react';
 import styles from './GameCategoriesCard.module.scss';
 
@@ -9,6 +11,7 @@ export interface GameCategoriesCardProps {
   index?: number;
   imgSrc: string;
   name: string;
+  providerName: string;
 
   positionChangeProps?: {
     title: string;
@@ -26,6 +29,7 @@ export interface GameCategoriesCardProps {
 const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
   imgSrc,
   name,
+  providerName,
   checkboxProps,
   index,
   onDeleteButtonClick,
@@ -41,7 +45,10 @@ const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
   return (
     <div className={styles.GameCategoriesCard}>
       {(checkboxProps || index) && (
-        <div className={styles['GameCategoriesCard__top-part']}>
+        <div
+          className={classNames(styles['GameCategoriesCard__top-part'], {
+            [styles['GameCategoriesCard__top-part--with-checkbox']]: !!checkboxProps
+          })}>
           {checkboxProps && <Checkbox {...checkboxProps} />}
 
           {index ? <span className={styles['GameCategoriesCard__index']}>{index}</span> : null}
@@ -105,9 +112,11 @@ const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
         </div>
       )}
       <img className={styles['GameCategoriesCard__img']} src={imgSrc} alt={name} />
-      <span className={styles['GameCategoriesCard__name']}>{name}</span>
+      <span className={styles['GameCategoriesCard__name']}>
+        {name} {providerName && <span className={styles['GameCategoriesCard__name--provider']}>{providerName}</span>}
+      </span>
     </div>
   );
 };
 
-export default GameCategoriesCard;
+export default typedMemo(GameCategoriesCard);

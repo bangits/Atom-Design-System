@@ -28,7 +28,8 @@ export const Default = () => {
         onViewButtonClick={action('onViewButtonClick')}
         showActions
         imgSrc='https://i.ibb.co/LYJf14x/27Wins-1.png'
-        name='Burning Hot Pragmatic'
+        name='Burning Hot'
+        providerName='Pragmatic'
       />
     </div>
   );

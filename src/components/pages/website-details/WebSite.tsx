@@ -16,7 +16,7 @@ export interface WebSiteProps {
     projectType: string;
     createdBy: string;
     creationDate: string;
-    // lastUpdatedBy: string;
+    lastUpdatedBy: string;
     lastUpdateDate: string;
     generalInformation: string;
     header: string;
@@ -31,7 +31,7 @@ export interface WebSiteProps {
   additionalProps: {
     createdBy: string;
     createdDate: string;
-    // lastUpdatedBy: string;
+    lastUpdatedBy: string;
     lastUpdateDate: string;
   };
 
@@ -91,10 +91,10 @@ const WebSite: FC<WebSiteProps> = ({
                   name: translations.creationDate,
                   description: additionalProps.createdDate
                 },
-                // {
-                //   name: translations.lastUpdatedBy,
-                //   description: additionalProps.lastUpdatedBy
-                // },
+                {
+                  name: translations.lastUpdatedBy,
+                  description: additionalProps.lastUpdatedBy
+                },
                 {
                   name: translations.lastUpdateDate,
                   description: additionalProps.lastUpdateDate

@@ -24,6 +24,7 @@ export {
   DialogTypes,
   DialogWithActions,
   DialogWithActionsProps,
+  Pagination,
   Tooltip,
   typedMemo
 } from '@my-ui/core';
