@@ -3,7 +3,7 @@
         $this: #{&};
         position: relative;
         height: fit-content;
-        width: calculateRem(110px);
+        width: 100%;
         min-height: calculateRem(100px);
         border: calculateRem(1px) solid rgba(43, 54, 116, 0.1);
         &,
