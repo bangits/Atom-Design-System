@@ -33,20 +33,21 @@
       font-size: calculateRem(14px);
       color: #6667ab;
     }
-    // &__id_block {
-    //   display: flex;
-    //   button {
-    //     margin-top: -0.8rem;
-    //   }
-    // }
     &__id {
       @include flex(null, center);
       overflow: hidden;
       text-overflow: ellipsis;
-      white-space: nowrap;
+      // white-space: nowrap;
       width: calculateRem(135px);
       font-size: calculateRem(13px);
       color: #8ea6c1;
+      position: relative;
+      word-break: break-all;
+      button {
+        left: 45%;
+        position: absolute;
+        top: 1.2rem;
+      }
     }
   }
 }
