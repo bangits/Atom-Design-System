@@ -32,14 +32,14 @@
       font-size: calculateRem(14px);
       color: #6667ab;
     }
-    &__id_block {
-      display: flex;
-      button {
-        margin-top: -0.8rem;
-      }
-    }
+    // &__id_block {
+    //   display: flex;
+    //   button {
+    //     margin-top: -0.8rem;
+    //   }
+    // }
     &__id {
-      // @include flex(null, center);
+      @include flex(null, center);
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;

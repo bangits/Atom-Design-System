@@ -24,7 +24,8 @@ export {
   DialogTypes,
   DialogWithActions,
   DialogWithActionsProps,
-  Tooltip
+  Tooltip,
+  typedMemo
 } from '@my-ui/core';
 export * from './components';
 export * from './helpers/arrayMove';
