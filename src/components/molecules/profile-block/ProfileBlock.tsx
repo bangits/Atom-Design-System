@@ -1,8 +1,8 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { PhotoCamIcon } from '@/icons';
+import { AssignToIcon, PhotoCamIcon } from '@/icons';
 import { Card } from '@my-ui/core';
 import classNames from 'classnames';
-import { ReactNode } from 'react';
+import { ReactNode, useState } from 'react';
 import styles from './ProfileBlock.module.scss';
 import { CopyButton } from '@/components/atoms/copy-button';
 
@@ -18,6 +18,8 @@ export interface ProfileBlockProps {
   viewMode?: boolean;
   addCopyButton?: boolean;
   itemLabel?: string;
+  assignTo?: boolean;
+  selectContent?: ReactNode;
 }
 
 const ProfileBlock = ({
@@ -30,8 +32,12 @@ const ProfileBlock = ({
   isLoadingImage,
   viewMode = false,
   addCopyButton,
-  itemLabel
+  itemLabel,
+  assignTo,
+  selectContent = <></>
 }: ProfileBlockProps) => {
+  const [showSelect, setShowSelect] = useState<boolean>(false);
+
   return (
     <>
       <Card className={classNames(styles['ProfileBlock'], 'ProfileBlock')} borderRadius={1.6}>
@@ -82,7 +88,19 @@ const ProfileBlock = ({
           className={classNames(styles['ProfileBlock__Info'], 'ProfileBlock__Info', {
             [styles['ProfileBlock__Info--without-logo']]: onMainImgClick === undefined
           })}>
-          <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>{itemName}</div>
+          <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>
+            {itemName}
+            {assignTo && (
+              <span className={styles['ProfileBlock__assign_icon']}>
+                <AssignToIcon
+                  onClick={() => {
+                    setShowSelect((prev) => !prev);
+                  }}
+                />
+                {showSelect && <div className={styles['ProfileBlock__assign_content']}>{selectContent}</div>}
+              </span>
+            )}
+          </div>
           <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>
             {itemLabel} {itemId} {addCopyButton && <CopyButton copyText={itemId} />}
           </div>

@@ -33,6 +33,21 @@
       font-size: calculateRem(14px);
       color: #6667ab;
     }
+    &__assign_icon {
+      margin-left: 10%;
+      cursor: pointer;
+      svg {
+        width: calculateRem(16px);
+      }
+    }
+    &__assign_content {
+      left: 18%;
+      z-index: 10000;
+      position: absolute;
+      background: white;
+      // height: 100px;
+      // width: 100px;
+    }
     &__id {
       @include flex(null, center);
       overflow: hidden;
@@ -46,7 +61,7 @@
       button {
         left: 45%;
         position: absolute;
-        top: 1.2rem;
+        top: calculateRem(14px);
       }
     }
   }
