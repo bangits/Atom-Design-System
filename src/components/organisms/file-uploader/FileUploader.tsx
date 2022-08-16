@@ -40,7 +40,7 @@ export const FileUploader: FC<FileUploaderProps> = ({
         {labelProps && <Label {...labelProps} />}
 
         {tooltipProps && (
-          <Tooltip showEvent='click' text={tooltipProps.tooltipText} placement='top'>
+          <Tooltip showEvent='hover' text={tooltipProps.tooltipText} placement='top'>
             <div className={styles.FileUploaderTooltipIcon}>
               <TooltipIcon />
             </div>
