@@ -15,6 +15,7 @@ export interface SettingsFooterGroupProps {
     pages: string;
   };
   onEdit?(): void;
+  onRemove?(): void;
 }
 
 const SettingsFooterGroup: FC<SettingsFooterGroupProps> = ({
@@ -23,7 +24,8 @@ const SettingsFooterGroup: FC<SettingsFooterGroupProps> = ({
   groupTitle,
   pages,
   noDataText,
-  onEdit
+  onEdit,
+  onRemove
 }) => {
   return (
     <div className={styles.SettingsFooterGroup}>
@@ -45,6 +47,9 @@ const SettingsFooterGroup: FC<SettingsFooterGroupProps> = ({
       />
 
       <div className={styles['SettingsFooterGroup__Actions']}>
+        {onRemove && (
+          <IconButton onClick={onRemove} className={styles['SettingsFooterGroup__Remove']} icon={<Icons.CloseIcon />} />
+        )}
         {onEdit && (
           <IconButton onClick={onEdit} className={styles['SettingsFooterGroup__Edit']} icon={<Icons.EditIcon />} />
         )}

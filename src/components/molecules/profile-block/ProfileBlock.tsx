@@ -1,10 +1,11 @@
+import { IconDropdown } from '@/atom-design-system';
+import { CopyButton } from '@/components/atoms/copy-button';
 import { typedMemo } from '@/helpers/typedMemo';
-import { AssignToIcon, PhotoCamIcon } from '@/icons';
+import { PhotoCamIcon } from '@/icons';
 import { Card } from '@my-ui/core';
 import classNames from 'classnames';
-import { ReactNode, useState } from 'react';
+import { ReactNode } from 'react';
 import styles from './ProfileBlock.module.scss';
-import { CopyButton } from '@/components/atoms/copy-button';
 
 export interface ProfileBlockProps {
   onBackgroundImgClick?: () => void;
@@ -12,8 +13,7 @@ export interface ProfileBlockProps {
   backgroundImgUrl: string;
   mainImgUrl?: string;
   itemName: string;
-  //speed fix
-  itemId: any;
+  itemId?: ReactNode;
   isLoadingImage?: boolean;
   viewMode?: boolean;
   addCopyButton?: boolean;
@@ -33,11 +33,8 @@ const ProfileBlock = ({
   viewMode = false,
   addCopyButton,
   itemLabel,
-  assignTo,
-  selectContent = <></>
+  selectContent
 }: ProfileBlockProps) => {
-  const [showSelect, setShowSelect] = useState<boolean>(false);
-
   return (
     <>
       <Card className={classNames(styles['ProfileBlock'], 'ProfileBlock')} borderRadius={1.6}>
@@ -90,16 +87,8 @@ const ProfileBlock = ({
           })}>
           <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>
             {itemName}
-            {assignTo && (
-              <span className={styles['ProfileBlock__assign_icon']}>
-                <AssignToIcon
-                  onClick={() => {
-                    setShowSelect((prev) => !prev);
-                  }}
-                />
-                {showSelect && <div className={styles['ProfileBlock__assign_content']}>{selectContent}</div>}
-              </span>
-            )}
+
+            {selectContent && <IconDropdown>{selectContent}</IconDropdown>}
           </div>
           <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>
             {itemLabel} {itemId} {addCopyButton && <CopyButton copyText={itemId} />}

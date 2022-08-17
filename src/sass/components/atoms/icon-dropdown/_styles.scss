@@ -1,0 +1,13 @@
+@mixin generate-icon-dropdown-styles {
+    .IconDropdown {
+        width: calculateRem(20px);
+         :global {
+            .react-select__control {
+                svg {
+                    width: calculateRem(20px);
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+}

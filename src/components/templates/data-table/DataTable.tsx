@@ -1,3 +1,4 @@
+import { Icons } from '@/atom-design-system';
 import { CollapsableTable, CollapsableTableProps, Filters, FiltersProps, Table, TableProps } from '@/components';
 import { ButtonWithIcon, Divider } from '@/components/atoms';
 import { ExchangeIcon, SettingsIcon } from '@/icons';
@@ -16,7 +17,6 @@ import {
 import classNames from 'classnames';
 import { FC, MouseEvent, ReactNode, useCallback, useEffect, useMemo, useReducer, useRef, useState } from 'react';
 import styles from './DataTable.module.scss';
-import { Icons } from '@/atom-design-system';
 export interface Pagination {
   page: number;
   pageSize: number;
@@ -72,6 +72,11 @@ export interface DataTableProps<T extends {}, K> {
     getTotalCountInfo(pagination: Pagination): string;
   } & Pick<PaginationProps, 'jumpToPage'>;
 
+  tableBulkActions?: {
+    component: (columns: T[]) => ReactNode;
+    shouldShow(columns: T[]): boolean;
+  }[];
+
   rowCount: number;
   onRefreshButtonClick?: (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
 
@@ -119,7 +124,8 @@ function DataTable<T extends {}, K>({
   currencyProperty,
   exchangeCurrencyProperty,
   currencyTranslations,
-  exportButton
+  exportButton,
+  tableBulkActions: tableBulkActionsProps
 }: DataTableProps<T, K>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
@@ -345,13 +351,18 @@ function DataTable<T extends {}, K>({
 
   const tableBulkActions = useMemo(
     () =>
-      actions && selectedRows.length > 1
-        ? actions.map(
-            ({ component: Component, onClick, shouldShow, props }, rowIndex) =>
-              (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
-                <Component onClick={(e) => onClick(selectedRows, e, rowIndex)} {...props} />
-              )
-          )
+      (actions || tableBulkActionsProps) && selectedRows.length > 1
+        ? [
+            ...actions.map(
+              ({ component: Component, onClick, shouldShow, props }, rowIndex) =>
+                (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
+                  <Component onClick={(e) => onClick(selectedRows, e, rowIndex)} {...props} />
+                )
+            ),
+            ...tableBulkActionsProps.map(
+              ({ component, shouldShow }) => shouldShow(selectedRows) && component(selectedRows)
+            )
+          ]
         : null,
     [actions, selectedRows]
   );

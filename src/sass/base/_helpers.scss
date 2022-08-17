@@ -46,6 +46,10 @@
     transform: translateY(calculateRem(10px));
 }
 
+.input-top-label {
+    transform: translateY(calculateRem(11px));
+}
+
 .details-form-wrapper {
     @include flex(null, center, $flex-wrap: wrap);
     width: fit-content;

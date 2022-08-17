@@ -1,138 +1,126 @@
 @mixin generate-profile-block-styles {
-  .ProfileBlock {
-    // position: relative;
-    top: 0;
-    left: 0;
-    display: block;
-    width: getProfileBlockSizes(profile-block-width);
-    height: initial;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: getProfileBlockSizes(profile-block-border-radius);
-    overflow: hidden;
-    background-color: getProfileBlockColors(profile-block-background-color);
-    margin-bottom: getProfileBlockSizes(profile-block-margin-bottom);
-    &__CoverPhotoIconCell {
-      display: block;
-      width: getProfileBlockSizes(cover-photo-icon-cell-sizes);
-      height: getProfileBlockSizes(cover-photo-icon-cell-sizes);
-      background-color: getProfileBlockColors(cover-photo-icon-cell-background-color);
-      position: absolute;
-      top: getProfileBlockSizes(cover-photo-icon-cell-position);
-      right: getProfileBlockSizes(cover-photo-icon-cell-position);
-      border-radius: getProfileBlockSizes(cover-photo-icon-cell-border-radius);
-      z-index: getProfileBlockSizes(cover-photo-icon-cell-z-index);
-      @include flex(center, center);
-    }
-    &__CoverPhotoIcon {
-      fill: getProfileBlockColors(cover-photo-icon-fill);
-    }
-    &__Cover {
-      text-decoration: none;
-      min-height: getProfileBlockSizes(cover-min-height);
-      position: relative;
-      top: 0;
-      left: 0;
-      background-color: getProfileBlockColors(cover-background-color);
-      overflow: hidden;
-      z-index: getProfileBlockSizes(cover-z-index);
-      cursor: pointer;
-      &--uploaded {
-        cursor: default;
-        .ProfileBlock__CoverPhotoIconCell {
-          cursor: pointer;
-          z-index: getProfileBlockSizes(profile-block-cover-photo-icon-cell-z-index);
+    .ProfileBlock {
+        // position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        width: getProfileBlockSizes(profile-block-width);
+        height: initial;
+        width: 100%;
+        margin: 0 auto;
+        border-radius: getProfileBlockSizes(profile-block-border-radius);
+        overflow: hidden;
+        background-color: getProfileBlockColors(profile-block-background-color);
+        margin-bottom: getProfileBlockSizes(profile-block-margin-bottom);
+        &__CoverPhotoIconCell {
+            display: block;
+            width: getProfileBlockSizes(cover-photo-icon-cell-sizes);
+            height: getProfileBlockSizes(cover-photo-icon-cell-sizes);
+            background-color: getProfileBlockColors(cover-photo-icon-cell-background-color);
+            position: absolute;
+            top: getProfileBlockSizes(cover-photo-icon-cell-position);
+            right: getProfileBlockSizes(cover-photo-icon-cell-position);
+            border-radius: getProfileBlockSizes(cover-photo-icon-cell-border-radius);
+            z-index: getProfileBlockSizes(cover-photo-icon-cell-z-index);
+            @include flex(center, center);
         }
-      }
-    }
-    &__CoverImg {
-      display: block;
-      width: 100%;
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      object-fit: scale-down;
-      z-index: getProfileBlockSizes(cover-img-z-index);
-    }
-    &__ImgCell {
-      text-decoration: none;
-      position: absolute;
-      top: getProfileBlockSizes(img-cell-position-top);
-      left: getProfileBlockSizes(img-cell-position-left);
-      width: getProfileBlockSizes(img-cell-sizes);
-      height: getProfileBlockSizes(img-cell-sizes);
-      background-color: getProfileBlockColors(img-cell-background-color);
-      z-index: getProfileBlockSizes(img-cell-z-index);
-      border-radius: getProfileBlockSizes(img-cell-border-radius);
-      border: solid getProfileBlockColors(img-cell-border-color) getProfileBlockSizes(img-cell-border);
-      @include flex(center, center);
-      overflow: hidden;
-      // z-index: 101;
-      cursor: pointer;
-      &--uploaded {
-        cursor: default;
-        .ProfileBlock__PhotoCamIcon {
-          cursor: pointer;
-          z-index: getProfileBlockSizes(photo-cam-icon-z-index);
-          right: getProfileBlockSizes(photo-cam-icon-position);
-          bottom: getProfileBlockSizes(photo-cam-icon-position);
-          transform: initial;
-          top: initial;
-          left: initial;
+        &__CoverPhotoIcon {
+            fill: getProfileBlockColors(cover-photo-icon-fill);
         }
-      }
-      svg {
-        fill: getProfileBlockColors(img-cell-svg-fill);
-      }
+        &__Cover {
+            text-decoration: none;
+            min-height: getProfileBlockSizes(cover-min-height);
+            position: relative;
+            top: 0;
+            left: 0;
+            background-color: getProfileBlockColors(cover-background-color);
+            overflow: hidden;
+            z-index: getProfileBlockSizes(cover-z-index);
+            cursor: pointer;
+            &--uploaded {
+                cursor: default;
+                .ProfileBlock__CoverPhotoIconCell {
+                    cursor: pointer;
+                    z-index: getProfileBlockSizes(profile-block-cover-photo-icon-cell-z-index);
+                }
+            }
+        }
+        &__CoverImg {
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            object-fit: scale-down;
+            z-index: getProfileBlockSizes(cover-img-z-index);
+        }
+        &__ImgCell {
+            text-decoration: none;
+            position: absolute;
+            top: getProfileBlockSizes(img-cell-position-top);
+            left: getProfileBlockSizes(img-cell-position-left);
+            width: getProfileBlockSizes(img-cell-sizes);
+            height: getProfileBlockSizes(img-cell-sizes);
+            background-color: getProfileBlockColors(img-cell-background-color);
+            z-index: getProfileBlockSizes(img-cell-z-index);
+            border-radius: getProfileBlockSizes(img-cell-border-radius);
+            border: solid getProfileBlockColors(img-cell-border-color) getProfileBlockSizes(img-cell-border);
+            @include flex(center, center);
+            overflow: hidden;
+            // z-index: 101;
+            cursor: pointer;
+            &--uploaded {
+                cursor: default;
+                .ProfileBlock__PhotoCamIcon {
+                    cursor: pointer;
+                    z-index: getProfileBlockSizes(photo-cam-icon-z-index);
+                    right: getProfileBlockSizes(photo-cam-icon-position);
+                    bottom: getProfileBlockSizes(photo-cam-icon-position);
+                    transform: initial;
+                    top: initial;
+                    left: initial;
+                }
+            }
+            svg {
+                fill: getProfileBlockColors(img-cell-svg-fill);
+            }
+        }
+        &__Info {
+            padding: getProfileBlockSizes(info-padding);
+            &--without-logo {
+                padding-top: getProfileBlockSizes(info-without-logo-padding-top);
+            }
+        }
+        &__Title {
+            font-size: getProfileBlockSizes(title-font-size);
+            font-weight: getProfileBlockSizes(title-font-weight);
+            word-break: break-word;
+            line-height: getProfileBlockSizes(title-line-height);
+            color: getProfileBlockColors(title-color);
+            display: flex;
+            justify-content: space-between;
+        }
+        &__SubTitle {
+            display: block;
+            font-size: getProfileBlockSizes(sub-title-font-size);
+            line-height: getProfileBlockSizes(sub-title-line-height);
+            color: getProfileBlockColors(sub-title-color);
+            padding-top: getProfileBlockSizes(sub-title-padding-top);
+            word-break: break-word;
+        }
+        &__PhotoCamIcon {
+            display: block;
+            @include center-absolute();
+        }
+        &__Img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: getProfileBlockSizes(img-z-index);
+        }
     }
-    &__Info {
-      padding: getProfileBlockSizes(info-padding);
-      &--without-logo {
-        padding-top: getProfileBlockSizes(info-without-logo-padding-top);
-      }
-    }
-    &__Title {
-      font-size: getProfileBlockSizes(title-font-size);
-      font-weight: getProfileBlockSizes(title-font-weight);
-      word-break: break-word;
-      line-height: getProfileBlockSizes(title-line-height);
-      color: getProfileBlockColors(title-color);
-      display: block;
-    }
-    &__assign_icon {
-      margin-left: 10%;
-      cursor: pointer;
-      svg {
-        width: calculateRem(16px);
-      }
-    }
-    &__assign_content {
-      left: 18%;
-      z-index: 10000;
-      position: absolute;
-      background: white;
-    }
-    &__SubTitle {
-      display: block;
-      font-size: getProfileBlockSizes(sub-title-font-size);
-      line-height: getProfileBlockSizes(sub-title-line-height);
-      color: getProfileBlockColors(sub-title-color);
-      padding-top: getProfileBlockSizes(sub-title-padding-top);
-      word-break: break-word;
-    }
-    &__PhotoCamIcon {
-      display: block;
-      @include center-absolute();
-    }
-    &__Img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: getProfileBlockSizes(img-z-index);
-    }
-  }
 }
