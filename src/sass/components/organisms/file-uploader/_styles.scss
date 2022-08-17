@@ -11,7 +11,6 @@
         margin-top: getFileUploaderSizes(container-margin-top);
     }
     .FileUploaderTooltipIcon {
-        cursor: pointer;
         @include flex(flex-end);
         color: getLabelColors(label-color);
         opacity: getLabelSizes(label-optional-opacity);

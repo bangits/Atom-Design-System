@@ -7,7 +7,7 @@ import styles from './MainInformation.module.scss';
 export interface MainInformationProps {
   icon?: ReactNode;
   name?: ReactNode;
-  id?: string;
+  id?: string | number;
   idLabel?: string;
   addCopyButton?: boolean;
   addSpacings?: boolean;

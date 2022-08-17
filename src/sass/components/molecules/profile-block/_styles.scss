@@ -9,7 +9,6 @@
         width: 100%;
         margin: 0 auto;
         border-radius: getProfileBlockSizes(profile-block-border-radius);
-        overflow: hidden;
         background-color: getProfileBlockColors(profile-block-background-color);
         margin-bottom: getProfileBlockSizes(profile-block-margin-bottom);
         &__CoverPhotoIconCell {
