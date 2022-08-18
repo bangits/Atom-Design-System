@@ -359,9 +359,9 @@ function DataTable<T extends {}, K>({
                   <Component onClick={(e) => onClick(selectedRows, e, rowIndex)} {...props} />
                 )
             ),
-            ...tableBulkActionsProps.map(
+            ...(tableBulkActionsProps?.map(
               ({ component, shouldShow }) => shouldShow(selectedRows) && component(selectedRows)
-            )
+            ) || [])
           ]
         : null,
     [actions, selectedRows]
