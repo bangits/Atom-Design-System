@@ -1,4 +1,5 @@
 import { Card, useOutsideClickEvent } from '@my-ui/core';
+import classNames from 'classnames';
 import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ButtonForm.module.scss';
@@ -11,6 +12,7 @@ export interface ButtonFormRenderArguments {
 }
 
 export interface ButtonFormProps {
+  showPosition?: 'left' | 'right';
   children: ReactNode | ((buttonFormRenderArguments: ButtonFormRenderArguments) => ReactNode);
   getContainerProps?(
     buttonFormRenderArguments: ButtonFormRenderArguments
@@ -18,7 +20,7 @@ export interface ButtonFormProps {
   renderOpenElement(buttonFormRenderArguments: ButtonFormRenderArguments): ReactNode;
 }
 
-const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getContainerProps }) => {
+const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getContainerProps, showPosition }) => {
   const buttonFormContainerRef = useRef<HTMLDivElement>(null);
 
   const [isOpenedForm, setOpenedForm] = useState(false);
@@ -56,7 +58,10 @@ const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getConta
           enterDone: styles['ButtonForm__content--open']
         }}
         unmountOnExit>
-        <Card className={styles['ButtonForm__content']}>
+        <Card
+          className={classNames(styles['ButtonForm__content'], {
+            [styles[`ButtonForm__content--${showPosition}`]]: showPosition
+          })}>
           {typeof children === 'function' ? children(buttonFormRenderArguments) : children}
         </Card>
       </CSSTransition>

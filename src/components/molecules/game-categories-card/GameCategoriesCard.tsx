@@ -1,4 +1,4 @@
-import { ButtonForm, Icons } from '@/atom-design-system';
+import { ButtonForm, ButtonFormProps, Icons } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
 import { Button, Checkbox, CheckboxProps, IconButton, TextInput } from '@my-ui/core';
 import classNames from 'classnames';
@@ -18,6 +18,7 @@ export interface GameCategoriesCardProps {
     totalCount: string;
     buttonLabel: string;
     initialPosition?: number;
+    showPosition?: ButtonFormProps['showPosition'];
     onPositionChange?(position: number): void;
   };
 
@@ -74,6 +75,7 @@ const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
             {positionChangeProps && (
               <li className={styles['PositionChange']}>
                 <ButtonForm
+                  showPosition={positionChangeProps.showPosition}
                   renderOpenElement={({ open }) => (
                     <IconButton
                       className={styles['GameCategoriesCard__action']}
