@@ -8,8 +8,10 @@ export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
 export {
   AcceptionDialog,
   AcceptionDialogProps,
+  Breadcrumb,
   Button,
   ButtonProps,
+  Collapse,
   Dialog,
   DialogActions,
   DialogBody,

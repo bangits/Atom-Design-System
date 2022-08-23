@@ -27,7 +27,7 @@ export const FileUploader: FC<FileUploaderProps> = ({
   tooltipProps,
   ...fileUploaderProps
 }) => {
-  const { fullWidth } = fileUploaderProps;
+  const { fullWidth, disabled } = fileUploaderProps;
 
   const TooltipIcon = tooltipProps && Icons[tooltipProps.icon || 'InformationIcon'];
 
@@ -35,7 +35,8 @@ export const FileUploader: FC<FileUploaderProps> = ({
     <>
       <div
         className={classNames(styles.FileUploaderLabelContainer, {
-          [styles['FileUploaderLabelContainer--fullWidth']]: fullWidth
+          [styles['FileUploaderLabelContainer--fullWidth']]: fullWidth,
+          [styles['FileUploaderLabelContainer--disabled']]: disabled
         })}>
         {labelProps && <Label {...labelProps} />}
 
@@ -53,7 +54,8 @@ export const FileUploader: FC<FileUploaderProps> = ({
       {errorMessage && (
         <Typography
           className={classNames(styles.FileUploaderErrorMessage, {
-            [styles['FileUploaderErrorMessage--fullWidth']]: fullWidth
+            [styles['FileUploaderErrorMessage--fullWidth']]: fullWidth,
+            [styles['FileUploaderErrorMessage--disabled']]: disabled
           })}
           color='danger'
           variant='p5'>

@@ -99,3 +99,7 @@
 .background-color-initial {
     background-color: initial !important;
 }
+
+.uploader-min-height {
+    min-height: calculateRem(80px);
+}
