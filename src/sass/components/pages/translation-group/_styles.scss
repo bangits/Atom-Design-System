@@ -45,6 +45,7 @@
                 min-height: calculateRem(100px);
                 &--after-scroll {
                     padding-right: calculateRem(20px);
+                    padding-top: calculateRem(10px);
                 }
             }
             &:first-child {
