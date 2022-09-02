@@ -43,6 +43,7 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
     setToggle(!toggle);
   }, [toggle, onClose, onToggleProp]);
 
+  console.log(toggle);
   return (
     <>
       {toggle ? (
