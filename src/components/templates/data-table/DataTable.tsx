@@ -57,7 +57,6 @@ export interface DataTableProps<T extends {}, K> {
     clearButtonLabel: string;
     dropdownLabel: string;
   };
-  filtersDropdownProps?: SelectProps<any, boolean, any>;
   isShowedFilter?: boolean;
   defaultSorted?: {
     id: string;
@@ -99,13 +98,14 @@ export interface DataTableProps<T extends {}, K> {
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
 
   getCollapsableTableProps?(row: T): Omit<CollapsableTableProps, 'dialogViewProps'>;
+
+  renderFilter?(filterProps: Omit<FiltersProps<K>, 'filters' | 'initialValues'>): ReactNode;
 }
 
 function DataTable<T extends {}, K>({
   tableProps,
   filterProps,
   defaultSorted,
-  filtersDropdownProps,
   fetchData,
   isShowedFilter = true,
   defaultPaginationPage = 1,
@@ -125,7 +125,8 @@ function DataTable<T extends {}, K>({
   exchangeCurrencyProperty,
   currencyTranslations,
   exportButton,
-  tableBulkActions: tableBulkActionsProps
+  tableBulkActions: tableBulkActionsProps,
+  renderFilter
 }: DataTableProps<T, K>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
@@ -380,6 +381,16 @@ function DataTable<T extends {}, K>({
     };
   }, [openedCollapseInfo, collapsableTableProps]);
 
+  const dataTableFilterProps = useMemo<Omit<FiltersProps<K>, 'filters' | 'initialValues'>>(
+    () => ({
+      onFiltersOpenedChange: setFiltersOpened,
+      className: classNames(styles.Filters, filterProps.className),
+      onSubmit: onFiltersChange,
+      onClear: () => onFiltersChange(filterProps.initialValues)
+    }),
+    []
+  );
+
   useEffect(() => {
     if (pagination === initialPagination) return;
 
@@ -388,16 +399,8 @@ function DataTable<T extends {}, K>({
 
   return (
     <div className={styles.DataTablePageWrapper}>
-      {isShowedFilter && (
-        <Filters
-          {...filterProps}
-          onFiltersOpenedChange={setFiltersOpened}
-          selectProps={filtersDropdownProps}
-          className={classNames(styles.Filters, filterProps.className)}
-          onSubmit={onFiltersChange}
-          onClear={() => onFiltersChange(filterProps.initialValues)}
-        />
-      )}
+      {isShowedFilter &&
+        (renderFilter ? renderFilter(dataTableFilterProps) : <Filters {...filterProps} {...dataTableFilterProps} />)}
 
       <div className={styles.TableConfigsWrapper}>
         <div className={styles.TableLeftSideWrapper}>
