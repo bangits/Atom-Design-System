@@ -22,6 +22,9 @@ export interface WebSiteProps {
     header: string;
     footer: string;
     socialMedia: string;
+    desktop: string;
+    tablet: string;
+    mobile: string;
   };
 
   sliderName: string;
@@ -39,9 +42,13 @@ export interface WebSiteProps {
 
   //Contents
   settingsContent: ReactNode;
-  headerContent: ReactNode;
-  footerContent: ReactNode;
   socialMediaContent: ReactNode;
+  footerContentDesktop: ReactNode;
+  footerContentTablet: ReactNode;
+  footerContentMobile: ReactNode;
+  headerContentDesktop: ReactNode;
+  headerContentTablet: ReactNode;
+  headerContentMobile: ReactNode;
 }
 
 const WebSite: FC<WebSiteProps> = ({
@@ -55,9 +62,13 @@ const WebSite: FC<WebSiteProps> = ({
   translations,
   additionalProps,
   settingsContent,
-  headerContent,
-  footerContent,
-  socialMediaContent
+  socialMediaContent,
+  footerContentDesktop,
+  footerContentTablet,
+  footerContentMobile,
+  headerContentDesktop,
+  headerContentTablet,
+  headerContentMobile
 }) => {
   return (
     <div className={styles.WebSiteBase}>
@@ -115,14 +126,46 @@ const WebSite: FC<WebSiteProps> = ({
               {
                 title: translations.header,
                 value: 2,
-                content: headerContent,
-                disableScroll: true
+                disableScroll: true,
+                subTabs: [
+                  {
+                    title: translations.desktop,
+                    value: 1,
+                    content: headerContentDesktop
+                  },
+                  {
+                    title: translations.tablet,
+                    value: 2,
+                    content: headerContentTablet
+                  },
+                  {
+                    title: translations.mobile,
+                    value: 3,
+                    content: headerContentMobile
+                  }
+                ]
               },
               {
                 title: translations.footer,
                 value: 3,
-                content: footerContent,
-                disableScroll: true
+                disableScroll: true,
+                subTabs: [
+                  {
+                    title: translations.desktop,
+                    value: 1,
+                    content: footerContentDesktop
+                  },
+                  {
+                    title: translations.tablet,
+                    value: 2,
+                    content: footerContentTablet
+                  },
+                  {
+                    title: translations.mobile,
+                    value: 3,
+                    content: footerContentMobile
+                  }
+                ]
               },
               {
                 title: translations.socialMedia,

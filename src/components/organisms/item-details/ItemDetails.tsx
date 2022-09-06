@@ -37,6 +37,7 @@ const ItemDetails: FC<ItemDetailsProps> = ({
     () => currentTabInfo?.subTabs?.find((sub) => sub.value === currentSubTab),
     [currentTabInfo, currentSubTab]
   );
+  // useEffect(() => {}, [currentTabInfo?.subTabs]);
 
   return (
     <Card borderRadius={1.6} className={styles.ItemDetailsBase}>
