@@ -43,8 +43,6 @@ export * from './status-view';
 export * from './stepper';
 export * from './table';
 export * from './tags-view';
-export * from './translation-groups';
-export * from './translations-form';
 export * from './used-device';
 export * from './user-languages';
 export * from './user-view';

@@ -1,0 +1,7 @@
+@mixin generate-elements-group-styles {
+    .ElementsGroup {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calculateRem(10px);
+    }
+}

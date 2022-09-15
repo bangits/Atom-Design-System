@@ -9,6 +9,11 @@ export interface StatusViewProps extends StatusProps {
   label: string;
   statusLabel: string;
   noDataText?: ReactNode;
+  icon?: {
+    tooltipText: string;
+    value: ReactNode | any;
+    label: string | number;
+  };
   actions?: {
     iconName?: keyof typeof Icons;
     onClick: IconButtonProps['onClick'];
@@ -18,7 +23,7 @@ export interface StatusViewProps extends StatusProps {
   addSpacings?: boolean;
 }
 
-const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, variant, actions, addSpacings }) => {
+const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, variant, actions, addSpacings, icon }) => {
   return (
     <Card
       borderRadius={1.6}
@@ -28,23 +33,34 @@ const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, varia
       <span>{label || noDataText}</span>
       <div className={styles['StatusView--container']}>
         <div className={styles['StatusView--status']}>
-          <Status variant={variant}>{statusLabel || noDataText}</Status>
+          {!icon ? <Status variant={variant}>{statusLabel || noDataText}</Status> : null}
         </div>
-        {actions?.map((action, idx) => {
-          const IconComponent = Icons[action.iconName];
-
-          return (
-            <div className={styles['StatusView--iconButton']} key={idx}>
-              <Tooltip showEvent='hover' text={action.tooltipText}>
-                <IconButton
-                  icon={<IconComponent />}
-                  onClick={action.onClick}
-                  variant={action.buttonVariant ?? 'dark'}
-                />
+        {icon && (
+          <div className={styles['StatusView--iconButton']}>
+            <div style={{ display: 'flex' }}>
+              <div style={{ marginRight: '1rem' }}>{icon.label}</div>
+              <Tooltip showEvent='hover' text={icon.tooltipText}>
+                {icon.value}
               </Tooltip>
             </div>
-          );
-        })}
+          </div>
+        )}
+        {!icon &&
+          actions?.map((action, idx) => {
+            const IconComponent = Icons[action.iconName];
+
+            return (
+              <div className={styles['StatusView--iconButton']} key={idx}>
+                <Tooltip showEvent='hover' text={action.tooltipText}>
+                  <IconButton
+                    icon={<IconComponent />}
+                    onClick={action.onClick}
+                    variant={action.buttonVariant ?? 'dark'}
+                  />
+                </Tooltip>
+              </div>
+            );
+          })}
       </div>
     </Card>
   );

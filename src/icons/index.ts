@@ -90,3 +90,4 @@ export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.reac
 export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as CategoryIcon } from './category.react.svg';
 export { ReactComponent as AssignToIcon } from './assign-to.react.svg';
+export { ReactComponent as PlayersSearch } from './player-search.react.svg';

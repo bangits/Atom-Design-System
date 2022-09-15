@@ -99,3 +99,12 @@
 .background-color-initial {
     background-color: initial !important;
 }
+
+.uploader-min-height {
+    min-height: calculateRem(80px);
+}
+
+.dialog-note {
+    display: inline-block;
+    margin-top: calculateRem(10px);
+}

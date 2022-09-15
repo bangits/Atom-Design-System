@@ -1,3 +1,4 @@
+import { PlayersIcon } from '@/icons';
 import { withKnobs } from '@storybook/addon-knobs';
 import React from 'react';
 import StatusView from './StatusView';
@@ -14,15 +15,8 @@ export const Default = () => {
       label='Status'
       variant='active'
       statusLabel='Validated'
-      actions={[
-        {
-          onClick: () => {
-            console.log;
-          },
-          buttonVariant: 'dark',
-          iconName: 'ClearIcon'
-        }
-      ]}
+      icon={{ tooltipText: 'asd', value: <PlayersIcon />, label: 'Players' }}
+      noDataText='asdad'
     />
   );
 };
