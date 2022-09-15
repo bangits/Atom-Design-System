@@ -19,9 +19,14 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
               return (
                 <div
                   key={index}
-                  className={classNames(styles['EditedFormBase--option'], styles[`EditedFormBase--option--${option.col || 6}`], {
-                    [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation
-                  })}>
+                  className={classNames(
+                    styles['EditedFormBase--option'],
+                    styles[`EditedFormBase--option--${option.col || 6}`],
+                    {
+                      [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation,
+                      [styles['EditedFormBase--option--overflow--none']]: option.overflow === 'none'
+                    }
+                  )}>
                   <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
                   <span className={classNames(styles['EditedFormBase--option-value'])}>
                     {option.value || noDataText}

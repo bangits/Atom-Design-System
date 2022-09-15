@@ -69,6 +69,16 @@
       &--12 {
         width: getEditedFormSizes(option-width--12);
       }
+      &--overflow--none {
+        height: initial;
+        .EditedFormBase--option-value {
+          white-space: initial;
+          word-break: initial;
+          overflow: initial;
+          height: initial;
+          width: 100%;
+        }
+      }
     }
     &--control-button {
       @include flex();
