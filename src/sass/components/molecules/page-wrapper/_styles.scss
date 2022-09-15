@@ -10,6 +10,10 @@
       margin-bottom: getPageWrapperSizes(page-title-margin-bottom);
 
       .PageTitle {
+        display: flex;
+        div {
+          margin-left: calculateRem(8px);
+        }
         position: relative;
 
         color: getPageWrapperColors(page-title-color);

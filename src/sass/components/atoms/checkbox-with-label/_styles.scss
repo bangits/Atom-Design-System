@@ -1,11 +1,12 @@
 @mixin generate-checkbox-with-label-styles {
-    .Checkbox {
-        display: inline-flex;
-        flex-direction: row-reverse;
-        align-items: center;
-    }
-    .CheckboxLabel {
-        font-size: 14px;
-        margin-left: 5px;
-    }
+  .Checkbox {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+  }
+  .CheckboxLabel {
+    font-size: calculateRem(14px);
+    margin-left: calculateRem(5px);
+    color: #48485d;
+  }
 }

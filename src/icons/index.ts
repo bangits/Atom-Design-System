@@ -91,3 +91,4 @@ export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as CategoryIcon } from './category.react.svg';
 export { ReactComponent as AssignToIcon } from './assign-to.react.svg';
 export { ReactComponent as PlayersSearch } from './player-search.react.svg';
+export { ReactComponent as QuestionIcon } from './question-icon.react.svg';
