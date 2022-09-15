@@ -15,6 +15,7 @@ export interface EditedFormProps {
         value: ReactNode | string;
         variant: 'default';
         shouldLineTranslation?: boolean;
+        col?: 4 | 6 | 12;
       }
     | {
         title: ReactNode | string;
@@ -46,6 +47,7 @@ export interface EditedFormProps {
   showDeleteButton?: boolean;
   onDelete?: () => void;
   showEditIcons?: boolean;
+  startJustify?: boolean;
   removeCard?: boolean;
 }
 
@@ -63,7 +65,8 @@ const EditedForm: FC<EditedFormProps> = ({
   deleteButtonTooltipText,
   onDelete,
   showEditIcons = true,
-  removeCard
+  removeCard,
+  startJustify
 }) => {
   const containerRef = useRef<HTMLDivElement>();
 
@@ -132,7 +135,8 @@ const EditedForm: FC<EditedFormProps> = ({
           className={classNames(styles['EditedFormBase--content'], {
             [viewMoreClassNames.closed]: !isOpenedCollapse,
             [viewMoreClassNames.open]: isOpenedCollapse,
-            [styles[`EditedFormBase--content-children`]]: children
+            [styles['EditedFormBase--content-children']]: children,
+            [styles['EditedFormBase--content-start-justify']]: startJustify
           })}
           ref={containerRef}>
           {children ? (
