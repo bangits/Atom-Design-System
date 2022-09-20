@@ -19,6 +19,7 @@ export type FormFieldProp = {
   name: string;
   col?: number;
   additionalProps?: any;
+  justifyContent?: 'flex-end';
 } & (
   | {
       label?: string;

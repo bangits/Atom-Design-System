@@ -25,6 +25,7 @@ export interface EditFormProps {
   fullWidth?: boolean;
   showActions?: boolean;
   removeCard?: boolean;
+  justifyContent?: 'flex-end';
 }
 
 const EditForm: FC<EditFormProps> = ({
@@ -39,11 +40,20 @@ const EditForm: FC<EditFormProps> = ({
   col,
   fullWidth,
   showActions = true,
-  removeCard
+  removeCard,
+  justifyContent
 }) => {
   const content = children || (
-    <div className={classNames(styles['EditFormBase--content'])}>
-      <EditFormFields fullWidth={fullWidth} fields={fields} renderInputs={renderInputs} />
+    <div
+      className={classNames(styles['EditFormBase--content'], {
+        [styles[`EditFormBase--field--${justifyContent}`]]: justifyContent
+      })}>
+      <EditFormFields
+        fullWidth={fullWidth}
+        justifyContent={justifyContent}
+        fields={fields}
+        renderInputs={renderInputs}
+      />
     </div>
   );
 

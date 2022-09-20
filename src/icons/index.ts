@@ -29,7 +29,7 @@ export { ReactComponent as DndIcon } from './dnd.react.svg';
 export { ReactComponent as DownloadIcon } from './download.react.svg';
 export { ReactComponent as DuplicatePopUpIcon } from './dublicate.react.svg';
 export { ReactComponent as EdgeIcon } from './edge.react.svg';
-export { ReactComponent as EmailReact } from './email.react.svg';
+export { ReactComponent as EmailIcon } from './email.react.svg';
 export { ReactComponent as EmptyCardImagePokerToken } from './empty-card-image-poker-token.react.svg';
 export { ReactComponent as EmptyFormIcon } from './empty-form.react.svg';
 export { ReactComponent as EmptyGameListIcon } from './empty-game-list.react.svg';

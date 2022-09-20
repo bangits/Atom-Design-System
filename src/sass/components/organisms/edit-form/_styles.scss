@@ -1,4 +1,8 @@
 @mixin generate-edit-form-styles {
+  .EditFormBase--field--flex-end {
+    display: flex;
+    justify-content: flex-end;
+  }
   .EditForm {
     width: getEditFormInSizes(edit-form-width);
   }
@@ -39,6 +43,7 @@
       @include flex();
       margin: getEditFormInSizes(edit-form-buttons-margin);
     }
+
     &--content {
       @include flex($flex-wrap: wrap);
       align-content: flex-start;
@@ -49,6 +54,7 @@
         width: 100%;
       }
     }
+
     &--field {
       width: getEditFormInSizes(edit-form-field-width);
       margin-left: getEditFormInSizes(edit-form-field-margin);
@@ -64,6 +70,7 @@
       color: getEditFormInColors(field-header-color);
       width: 100%;
     }
+
     &--3 {
       width: calc(33% - #{getEditFormInSizes(edit-form-field-margin)}) !important;
       min-height: calculateRem(69px);
@@ -72,7 +79,7 @@
       width: 100%;
     }
     &--6 {
-      width: 48% !important;
+      width: getEditFormInSizes(edit-form-field-width) !important;
     }
   }
 }
