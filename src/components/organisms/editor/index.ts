@@ -1,2 +1,2 @@
-export * from './CustomEditor';
+export { CustomEditorProps, default as CustomEditor } from './CustomEditor';
 

@@ -6,13 +6,13 @@ import { Editor } from 'react-draft-wysiwyg';
 import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import styles from './CustomEditor.module.scss';
 
-export interface EditorProps {
+export interface CustomEditorProps {
   variables: string[];
   title?: string;
   variant?: 'default' | 'onlyVariable';
 }
 
-const CustomEditor: FC<EditorProps> = ({ title, variant = 'default', variables }) => {
+const CustomEditor: FC<CustomEditorProps> = ({ title, variant = 'default', variables }) => {
   const [editorState, setEditorState] = useState('');
   const [openDropdown, setDropdown] = useState(false);
 
@@ -25,7 +25,9 @@ const CustomEditor: FC<EditorProps> = ({ title, variant = 'default', variables }
       <Editor
         toolbar={{
           options:
-            variant === 'default' ? ['inline', 'fontFamily', 'blockType', 'textAlign', 'list', 'emoji', 'history'] : [],
+            variant === 'default'
+              ? ['inline', 'fontFamily', 'fontSize', 'blockType', 'textAlign', 'list', 'emoji', 'history']
+              : [],
 
           list: {
             options: ['unordered', 'ordered']
