@@ -1,0 +1,21 @@
+@mixin generate-variable-styles {
+  .container {
+    .button.button {
+      color: #4b5767;
+    }
+    .button-active {
+      color: #6667ab !important;
+    }
+    .button.button:hover {
+      color: #6667ab;
+    }
+
+    .typography {
+      cursor: pointer;
+    }
+    .typography-container {
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+  }
+}

@@ -1,0 +1,16 @@
+$editor-sizes: (
+  wrapper-border-width: 1px,
+  editor-min-height: 224px
+);
+
+$editor-colors: (
+  wrapper-border-color: color(nepal)
+);
+
+@function getEditorSizes($key) {
+  @return map-get($editor-sizes, $key);
+}
+
+@function getEditorColors($key) {
+  @return map-get($editor-colors, $key);
+}

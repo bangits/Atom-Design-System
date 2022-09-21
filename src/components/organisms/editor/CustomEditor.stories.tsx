@@ -8,5 +8,5 @@ export default {
 };
 
 export const Default = () => {
-  return <CustomEditor variables={[]} />;
+  return <CustomEditor variables={['@id', '@userName']} title='Send Email' />;
 };
