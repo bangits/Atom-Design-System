@@ -1,0 +1,30 @@
+@mixin generate-add-activity-styles {
+  .ActivityBox {
+    &--box {
+      // display: flex;
+      padding: calculateRem(24px) calculateRem(108px) calculateRem(24px) calculateRem(108px);
+      // gap: calculateRem(15px);
+
+      button {
+        margin-top: calculateRem(5px);
+      }
+      > div {
+        display: flex;
+        gap: calculateRem(15px);
+      }
+    }
+    &--empty-box {
+      margin: calculateRem(48px) calculateRem(124px) 0 calculateRem(124px);
+    }
+    justify-content: start;
+    @include generateBorderWithBoxShadow(getConditionCardColors(border-color), 0.1rem);
+    border-radius: getConditionCardSizes(border-radius);
+    background-color: getConditionCardColors(bg);
+    // height: calculateRem(407px);
+  }
+  .CriteriaCard {
+    width: calculateRem(746px);
+    border: 2px solid red;
+    height: 40px;
+  }
+}

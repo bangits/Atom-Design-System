@@ -1,0 +1,33 @@
+@mixin generate-condition-card-styles {
+  .ConditionCard {
+    @include flex(center, center);
+    @include generateBorderWithBoxShadow(getConditionCardColors(border-color), 0.1rem);
+    border-radius: getConditionCardSizes(border-radius);
+    height: getConditionCardSizes(container-height);
+    background-color: getConditionCardColors(bg);
+    border: dashed calculateRem(2px);
+    border-color: #77797c;
+    height: calculateRem(80px);
+    display: flex;
+    gap: calculateRem(10px);
+    cursor: pointer;
+    &--col-6 {
+      width: 50%;
+    }
+    &--col-12 {
+      width: 100%;
+    }
+    svg {
+      height: calculateRem(24px);
+      width: calculateRem(24px);
+    }
+
+    &--title {
+      color: getConditionCardColors(title-color);
+    }
+    &--disabled {
+      opacity: 0.5;
+      cursor: default;
+    }
+  }
+}

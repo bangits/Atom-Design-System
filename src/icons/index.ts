@@ -93,3 +93,6 @@ export { ReactComponent as AssignToIcon } from './assign-to.react.svg';
 export { ReactComponent as PlayersSearch } from './player-search.react.svg';
 export { ReactComponent as QuestionIcon } from './question-icon.react.svg';
 export { ReactComponent as SegmentIcon } from './segment-icon.react.svg';
+export { ReactComponent as PlusIcon } from './plus.react.svg';
+export { ReactComponent as AddIcon } from './add-icon.react.svg';
+export { ReactComponent as RuleIcon } from './rule.react.svg';
