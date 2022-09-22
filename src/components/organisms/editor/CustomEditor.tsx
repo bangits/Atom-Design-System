@@ -14,9 +14,17 @@ export interface CustomEditorProps {
   title?: string;
   variant?: 'default' | 'onlyVariable';
   htmlValue?: string;
+  onChange?: () => void;
 }
 
-const CustomEditor: FC<CustomEditorProps> = ({ title, variant = 'default', variables, htmlValue, ...props }) => {
+const CustomEditor: FC<CustomEditorProps> = ({
+  title,
+  onChange,
+  variant = 'default',
+  variables,
+  htmlValue,
+  ...props
+}) => {
   const initialEditorState = useMemo(() => {
     if (!htmlValue) return EditorState.createEmpty();
 
@@ -30,12 +38,14 @@ const CustomEditor: FC<CustomEditorProps> = ({ title, variant = 'default', varia
   const [editorState, setEditorState] = useState(initialEditorState);
   const [openDropdown, setDropdown] = useState(false);
 
-  const onEditorStateChange = useCallback((editorState) => {
-    const z = draftToHtml(convertToRaw(editorState.getCurrentContent()));
-    console.log('🚀 ~ file: CustomEditor.tsx ~ line 30 ~ CustomEditor:FC<CustomEditorProps> ~ z', z);
+  const onEditorStateChange = useCallback(
+    (editorState) => {
+      const z = draftToHtml(convertToRaw(editorState.getCurrentContent()));
 
-    setEditorState(editorState);
-  }, [editorState]);
+      setEditorState(editorState);
+    },
+    [editorState]
+  );
 
   return (
     <div className={classNames(styles.container)}>
@@ -78,6 +88,7 @@ const CustomEditor: FC<CustomEditorProps> = ({ title, variant = 'default', varia
         editorClassName={styles.editor}
         onEditorStateChange={onEditorStateChange}
         toolbarCustomButtons={[<Variables variables={variables} />]}
+        // onChange={onChange}
       />
       {title && (
         <Typography variant='p4' color='primary' className={styles.typography}>
