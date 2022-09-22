@@ -1,0 +1,11 @@
+$variable-sizes: ();
+
+$variable-colors: ();
+
+@function getVariablesSizes($key) {
+  @return map-get($variable-sizes, $key);
+}
+
+@function getVariablesColors($key) {
+  @return map-get($variable-colors, $key);
+}

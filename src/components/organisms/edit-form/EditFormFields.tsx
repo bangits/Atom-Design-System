@@ -6,11 +6,13 @@ import styles from './EditForm.module.scss';
 const EditFormFields = ({
   fields,
   renderInputs,
-  fullWidth
+  fullWidth,
+  justifyContent
 }: {
   renderInputs: EditFormProps['renderInputs'];
   fields: EditFormProps['fields'];
   fullWidth?: boolean;
+  justifyContent?: 'flex-end';
 }) => {
   return (
     <>
@@ -22,7 +24,9 @@ const EditFormFields = ({
               : fullWidth
               ? styles['EditFormBase--field--full-width']
               : styles['EditFormBase--field'],
-            styles[`EditFormBase--${field.col || 6}`]
+
+            styles[`EditFormBase--${field.col || 6}`],
+            styles[`EditFormBase--field--${field.justifyContent}`]
           )}
           key={idx}>
           {field.type === 'custom' ? (

@@ -13,6 +13,7 @@ export * from './document-card';
 export * from './document-cards';
 export * from './edit-form';
 export * from './edited-form';
+export * from './editor';
 export * from './file-uploader';
 export * from './filters';
 export * from './flexible-form';
@@ -51,3 +52,4 @@ export * from './wallet-card';
 export * from './wallet-view';
 export * from './add-condition-card';
 export * from './add-activity';
+

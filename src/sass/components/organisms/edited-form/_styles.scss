@@ -1,11 +1,17 @@
 @mixin generate-edited-form-styles {
   .EditedFormBase {
     $this: #{&};
+
+    &--custom {
+      width: 100%;
+      height: auto;
+    }
+    
     &--12 {
       width: 100%;
     }
     &--6 {
-      width: getEditedFormSizes(edited-form-width);
+      width: getEditedFormSizes(edited-form-width) !important;
     }
     &--control {
       @include flex(space-between, center);
@@ -150,10 +156,6 @@
           }
         }
       }
-    }
-    &--custom {
-      width: 100%;
-      height: auto;
     }
   }
 }
