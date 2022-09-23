@@ -42,7 +42,14 @@ const Variables: FC<VariablesProps> = ({ variables, editorState, onChange }) => 
         startIcon={<Icons.VariableIcon />}
       />
       <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '70px' }}>
-        {isOpenMenu && <Options click={addVariable} onOutsideClick={() => setIsOpenMenu(false)} data={variables} />}
+        {isOpenMenu && (
+          <Options
+            outsideClickClassName={`.${styles.container}`}
+            click={addVariable}
+            onOutsideClick={() => setIsOpenMenu(false)}
+            data={variables}
+          />
+        )}
       </div>
     </div>
   );

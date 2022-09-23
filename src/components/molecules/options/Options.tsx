@@ -15,12 +15,15 @@ export interface OptionsProps {
         onClick: () => void;
       }[]
     | string[];
+
+  outsideClickClassName?: string;
+
   click?: () => void;
   onOutsideClick?(): void;
 }
 
-const Options: FC<OptionsProps> = ({ data, children, onOutsideClick, click }) => {
-  const { subscribe, unsubscribe } = useOutsideClickEvent(`.${styles.OptionsBase}`);
+const Options: FC<OptionsProps> = ({ data, children, onOutsideClick, click, outsideClickClassName }) => {
+  const { subscribe, unsubscribe } = useOutsideClickEvent(outsideClickClassName || `.${styles.OptionsBase}`);
 
   useEffect(() => {
     subscribe(() => onOutsideClick?.());
