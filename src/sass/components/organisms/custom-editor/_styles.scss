@@ -2,8 +2,7 @@
   .container {
     :global(.rdw-editor-wrapper) {
     }
-    .wrapper-lg {
-    }
+ 
     .wrapper {
       margin-bottom: 40px;
       border-radius: 4px;
@@ -13,7 +12,7 @@
       border-color: getEditorColors(wrapper-border-color);
       border-width: getEditorSizes(wrapper-border-width);
     }
-    .editor-bg {
+    .editor-lg {
       min-height: getEditorSizes(editor-min-height);
     }
     .editor-sm {
