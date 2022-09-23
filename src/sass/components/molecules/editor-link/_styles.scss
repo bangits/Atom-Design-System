@@ -1,0 +1,14 @@
+@mixin generate-editor-link-form-styles {
+  .input-container {
+    min-height: 38px;
+    max-height: 38px;
+  }
+  .link-input {
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .button-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+}

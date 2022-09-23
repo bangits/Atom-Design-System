@@ -14,15 +14,16 @@ export interface OptionsProps {
         link?: string;
         onClick: () => void;
       }[]
-    | string[];
+    | string[]
+    | string;
 
   outsideClickClassName?: string;
-
+  emptyValue?: string;
   click?: () => void;
   onOutsideClick?(): void;
 }
 
-const Options: FC<OptionsProps> = ({ data, children, onOutsideClick, click, outsideClickClassName }) => {
+const Options: FC<OptionsProps> = ({ data, emptyValue, children, onOutsideClick, click, outsideClickClassName }) => {
   const { subscribe, unsubscribe } = useOutsideClickEvent(outsideClickClassName || `.${styles.OptionsBase}`);
 
   useEffect(() => {
@@ -33,35 +34,42 @@ const Options: FC<OptionsProps> = ({ data, children, onOutsideClick, click, outs
 
   return (
     <Card borderRadius={1.6} className={classNames(styles.OptionsBase)}>
-      {data.map((d, index) => (
-        <>
-          <React.Fragment key={index}>
-            {d.download ? (
-              <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
-                <a
-                  style={{ color: '#505d6e', textDecoration: 'none', width: '100%' }}
-                  download='foo.png'
-                  href={d.download ? d.link : ''}>
+      {Array.isArray(data) ? (
+        data.map((d, index) => (
+          <>
+            <React.Fragment key={index}>
+              {d.download ? (
+                <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
+                  <a
+                    style={{ color: '#505d6e', textDecoration: 'none', width: '100%' }}
+                    download='foo.png'
+                    href={d.download ? d.link : ''}>
+                    <Divider variant='horizontal' />
+                    {d.icon && <span className={styles['OptionsBase--description']}>{d.icon}</span>}
+                    <span className={styles['OptionsBase--name']}>{d.name}</span>
+                  </a>
+                </div>
+              ) : !d.name ? (
+                <div onClick={click} className={classNames(styles['OptionsBase--core'])}>
                   <Divider variant='horizontal' />
-                  {d.icon && <span className={styles['OptionsBase--description']}>{d.icon}</span>}
+                  <span className={styles['OptionsBase--name']}>{d}</span>
+                </div>
+              ) : (
+                <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
+                  <Divider variant='horizontal' />
+                  <span className={styles['OptionsBase--description']}>{d.icon}</span>
                   <span className={styles['OptionsBase--name']}>{d.name}</span>
-                </a>
-              </div>
-            ) : !d.name ? (
-              <div onClick={click} className={classNames(styles['OptionsBase--core'])}>
-                <Divider variant='horizontal' />
-                <span className={styles['OptionsBase--name']}>{d}</span>
-              </div>
-            ) : (
-              <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
-                <Divider variant='horizontal' />
-                <span className={styles['OptionsBase--description']}>{d.icon}</span>
-                <span className={styles['OptionsBase--name']}>{d.name}</span>
-              </div>
-            )}
-          </React.Fragment>
-        </>
-      ))}
+                </div>
+              )}
+            </React.Fragment>
+          </>
+        ))
+      ) : (
+        <div className={classNames(styles['OptionsBase--core'])}>
+          <Divider variant='horizontal' />
+          <span className={styles['OptionsBase--name']}>{emptyValue}</span>
+        </div>
+      )}
       {children && <div className={styles['OptionsBase--children']}>{children}</div>}
     </Card>
   );

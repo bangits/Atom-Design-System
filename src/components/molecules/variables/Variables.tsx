@@ -12,9 +12,10 @@ export interface VariablesProps {
     getSelection: () => void;
     getCurrentInlineStyle: () => void;
   };
+  emptyValue?: string;
 }
 
-const Variables: FC<VariablesProps> = ({ variables, editorState, onChange }) => {
+const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onChange }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const addVariable = () => {
@@ -48,6 +49,7 @@ const Variables: FC<VariablesProps> = ({ variables, editorState, onChange }) => 
             click={addVariable}
             onOutsideClick={() => setIsOpenMenu(false)}
             data={variables}
+            emptyValue={emptyValue}
           />
         )}
       </div>
