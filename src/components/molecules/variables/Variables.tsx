@@ -29,17 +29,19 @@ const Variables: FC<VariablesProps> = ({ variables, editorState, onChange }) => 
     onChange(EditorState.push(editorState, contentState, 'insert-characters'));
   };
 
+  // useEffect(() => {}, [isOpenMenu]);
   return (
     <div className={classNames(styles.container)}>
       <Button
-        onClick={() => setIsOpenMenu(!isOpenMenu)}
+        type='button'
+        onClick={() => setIsOpenMenu((prev) => !prev)}
         className={classNames(styles.button, {
           [styles['button-active']]: isOpenMenu
         })}
         variant='link'
         startIcon={<Icons.VariableIcon />}
       />
-      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000,  top: '70px' }}>
+      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '70px' }}>
         {isOpenMenu && <Options click={addVariable} onOutsideClick={() => setIsOpenMenu(false)} data={variables} />}
       </div>
     </div>

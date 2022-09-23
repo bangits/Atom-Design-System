@@ -10,11 +10,12 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import styles from './CustomEditor.module.scss';
 
 export interface CustomEditorProps {
+  size?: 'sm' | 'lg';
   variables: string[];
   title?: string;
   variant?: 'default' | 'onlyVariable';
   htmlValue?: string;
-  onChange?: () => void;
+  onChange?(htmlValue: string): void;
 }
 
 const CustomEditor: FC<CustomEditorProps> = ({
@@ -22,6 +23,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
   onChange,
   variant = 'default',
   variables,
+  size,
   htmlValue,
   ...props
 }) => {
@@ -40,8 +42,9 @@ const CustomEditor: FC<CustomEditorProps> = ({
 
   const onEditorStateChange = useCallback(
     (editorState) => {
-      const z = draftToHtml(convertToRaw(editorState.getCurrentContent()));
+      const htmlValue = draftToHtml(convertToRaw(editorState.getCurrentContent()));
 
+      onChange(htmlValue);
       setEditorState(editorState);
     },
     [editorState]
@@ -85,10 +88,11 @@ const CustomEditor: FC<CustomEditorProps> = ({
         }}
         toolbarClassName={styles.toolbar}
         wrapperClassName={styles.wrapper}
-        editorClassName={styles.editor}
+        editorClassName={classNames(styles.editor, {
+          [styles[`editor-${size}`]]: size
+        })}
         onEditorStateChange={onEditorStateChange}
         toolbarCustomButtons={[<Variables variables={variables} />]}
-        // onChange={onChange}
       />
       {title && (
         <Typography variant='p4' color='primary' className={styles.typography}>
