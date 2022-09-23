@@ -15,7 +15,7 @@ export interface OptionsProps {
         onClick: () => void;
       }[]
     | string[];
-  click: () => void;
+  click?: () => void;
   onOutsideClick?(): void;
 }
 
