@@ -50,6 +50,7 @@ export interface EditedFormProps {
   showEditIcons?: boolean;
   startJustify?: boolean;
   removeCard?: boolean;
+  disableEditButton?: boolean;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -67,7 +68,8 @@ const EditedForm: FC<EditedFormProps> = ({
   onDelete,
   showEditIcons = true,
   removeCard,
-  startJustify
+  startJustify,
+  disableEditButton = false
 }) => {
   const containerRef = useRef<HTMLDivElement>();
 
@@ -121,7 +123,7 @@ const EditedForm: FC<EditedFormProps> = ({
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             <Tooltip showEvent='hover' text={editButtonTooltipText}>
-              <IconButton icon={<PenIcon />} onClick={onToggle} />
+              <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
             </Tooltip>
             {showDeleteButton && (
               <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
