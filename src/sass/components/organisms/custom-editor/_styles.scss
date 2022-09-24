@@ -1,8 +1,14 @@
 @mixin generate-custom-editor-styles {
   .container {
-    :global(.rdw-editor-wrapper) {
+    :global {
+      .rdw-right-aligned-block {
+        text-align: right !important;
+      }
+
+      .public-DraftStyleDefault-ltr {
+        text-align: inherit;
+      }
     }
- 
     .wrapper {
       margin-bottom: 40px;
       border-radius: 4px;
