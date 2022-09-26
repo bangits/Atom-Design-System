@@ -51,5 +51,4 @@ export * from './user-wallets';
 export * from './wallet-card';
 export * from './wallet-view';
 export * from './add-condition-card';
-export * from './add-activity';
-
+export * from './add-criteria';
