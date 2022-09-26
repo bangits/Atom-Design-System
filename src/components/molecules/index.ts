@@ -9,6 +9,7 @@ export * from './currency-group';
 export * from './datepickers';
 export * from './dialog-view';
 export * from './dnd-item';
+export * from './editor-link-form';
 export * from './elements-group';
 export * from './empty-form';
 export * from './from-to-input';

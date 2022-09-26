@@ -57,11 +57,20 @@ const CustomEditor: FC<CustomEditorProps> = ({
         toolbar={{
           options:
             variant === 'default'
-              ? ['inline', 'fontFamily', 'fontSize', 'blockType', 'textAlign', 'list', 'emoji', 'history']
+              ? ['link', 'inline', 'fontFamily', 'fontSize', 'blockType', 'textAlign', 'list', 'emoji', 'history']
               : [],
 
           list: {
             options: ['unordered', 'ordered']
+          },
+          link: {
+            // component: () => <div
+            // style={{ width: '50px', height: '50px', background: 'red' }}></div>
+          },
+          textAlign: {
+            right: {
+              className: styles['text-right']
+            }
           },
           inline: {
             inDropdown: openDropdown,
@@ -92,7 +101,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
           [styles[`editor-${size}`]]: size
         })}
         onEditorStateChange={onEditorStateChange}
-        toolbarCustomButtons={[<Variables variables={variables} />]}
+        toolbarCustomButtons={[<Variables variables={variables} emptyValue='there is no value' />]}
       />
       {title && (
         <Typography variant='p4' color='primary' className={styles.typography}>
