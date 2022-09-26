@@ -39,12 +39,13 @@ const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onC
         className={classNames(styles.button, {
           [styles['button-active']]: isOpenMenu
         })}
-        variant='link'
-        startIcon={<Icons.VariableIcon />}
-      />
-      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '70px' }}>
+        variant='link'>
+        <Icons.VariableIcon />
+      </Button>
+      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '42px' }}>
         {isOpenMenu && (
           <Options
+            opacity={false}
             outsideClickClassName={`.${styles.container}`}
             click={addVariable}
             onOutsideClick={() => setIsOpenMenu(false)}

@@ -20,10 +20,19 @@ export interface OptionsProps {
   outsideClickClassName?: string;
   emptyValue?: string;
   click?: () => void;
+  opacity?: boolean;
   onOutsideClick?(): void;
 }
 
-const Options: FC<OptionsProps> = ({ data, emptyValue, children, onOutsideClick, click, outsideClickClassName }) => {
+const Options: FC<OptionsProps> = ({
+  data,
+  opacity = true,
+  emptyValue,
+  children,
+  onOutsideClick,
+  click,
+  outsideClickClassName
+}) => {
   const { subscribe, unsubscribe } = useOutsideClickEvent(outsideClickClassName || `.${styles.OptionsBase}`);
 
   useEffect(() => {
@@ -39,7 +48,11 @@ const Options: FC<OptionsProps> = ({ data, emptyValue, children, onOutsideClick,
           <>
             <React.Fragment key={index}>
               {d.download ? (
-                <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
+                <div
+                  onClick={d.onClick}
+                  className={classNames(styles['OptionsBase--core'], {
+                    [styles['OptionsBase--core-opacity']]: opacity
+                  })}>
                   <a
                     style={{ color: '#505d6e', textDecoration: 'none', width: '100%' }}
                     download='foo.png'
