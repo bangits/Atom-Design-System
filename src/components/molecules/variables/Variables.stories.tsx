@@ -8,5 +8,5 @@ export default {
 };
 
 export const Default = () => {
-  return <Variables variables={['Verify', 'Preview', 'Download']} />;
+  return <Variables variables={['Verify']} />;
 };

@@ -1,5 +1,9 @@
 @mixin generate-variable-styles {
   .container {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    padding-bottom: 10px;
     .button.button {
       color: #4b5767;
     }
@@ -9,7 +13,10 @@
     .button.button:hover {
       color: #6667ab;
     }
-
+    .button {
+      width: 15px;
+      height: 15px;
+    }
     .typography {
       cursor: pointer;
     }
