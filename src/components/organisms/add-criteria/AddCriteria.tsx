@@ -1,4 +1,4 @@
-import { AddIcon } from '@/icons';
+import { AddIcon, RuleIcon } from '@/icons';
 import { Button, Icons, Select } from '@my-ui/core';
 import React, { FC, ReactNode, useState } from 'react';
 import { AddConditionCard } from '../add-condition-card';
@@ -21,6 +21,7 @@ const AddCriteria: FC<AddCriteriaProps> = ({ renderCustomSelect, buttonTitle, cr
       {criteryList.map(({ activities }) => (
         <CriteriaForm activities={activities} buttonTitle={buttonTitle} renderCustomSelect={renderCustomSelect} />
       ))}
+      <RuleIcon />
 
       <div className={styles['ActivityBox--empty-box']}>
         <AddConditionCard
