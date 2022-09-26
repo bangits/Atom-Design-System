@@ -14,8 +14,10 @@
       color: #6667ab;
     }
     .button {
-      width: 15px;
-      height: 15px;
+      svg {
+        width: 20px;
+        height: 18px;
+      }
     }
     .typography {
       cursor: pointer;

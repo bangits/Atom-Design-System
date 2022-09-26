@@ -42,7 +42,7 @@ const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onC
         variant='link'>
         <Icons.VariableIcon />
       </Button>
-      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '42px' }}>
+      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '48px' }}>
         {isOpenMenu && (
           <Options
             opacity={false}
