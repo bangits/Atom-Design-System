@@ -27,7 +27,7 @@ const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onC
       `${value}`,
       editorState.getCurrentInlineStyle()
     );
-    onChange(EditorState.push(editorState, contentState, 'insert-characters'));
+    onChange(EditorState.push(editorState, contentState, 'variables'));
   };
 
   // useEffect(() => {}, [isOpenMenu]);

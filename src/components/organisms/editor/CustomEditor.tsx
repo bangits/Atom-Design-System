@@ -10,6 +10,7 @@ import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
 import styles from './CustomEditor.module.scss';
 
 export interface CustomEditorProps {
+  errorText?: string;
   size?: 'sm' | 'lg';
   variables: string[];
   title?: string;
@@ -25,6 +26,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
   variables,
   size,
   htmlValue,
+  errorText,
   ...props
 }) => {
   const initialEditorState = useMemo(() => {
@@ -55,33 +57,30 @@ const CustomEditor: FC<CustomEditorProps> = ({
       <Editor
         {...props}
         toolbar={{
-          options:
-            variant === 'default'
-              ? ['link', 'inline', 'fontFamily', 'fontSize', 'blockType', 'textAlign', 'list', 'emoji', 'history']
-              : [],
+          options: variant === 'default' ? ['link', 'history'] : [],
 
-          list: {
-            options: ['unordered', 'ordered']
-          },
-          link: {
-            // component: () => <div
-            // style={{ width: '50px', height: '50px', background: 'red' }}></div>
-          },
-          textAlign: {
-            right: {
-              className: styles['text-right']
-            }
-          },
-          inline: {
-            inDropdown: openDropdown,
-            options: ['bold', 'italic', 'underline', 'strikethrough']
-          },
-          fontFamily: {
-            options: ['Roboto', 'Arial', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana']
-          },
-          embedded: {
-            popUpClassName: styles.popUpClassName
-          },
+          // list: {
+          //   options: ['unordered', 'ordered']
+          // },
+          // link: {
+          //   // component: () => <div
+          //   // style={{ width: '50px', height: '50px', background: 'red' }}></div>
+          // },
+          // textAlign: {
+          //   right: {
+          //     className: styles['text-right']
+          //   }
+          // },
+          // inline: {
+          //   inDropdown: openDropdown,
+          //   options: ['bold', 'italic', 'underline', 'strikethrough']
+          // },
+          // fontFamily: {
+          //   options: ['Roboto', 'Arial', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana']
+          // },
+          // embedded: {
+          //   popUpClassName: styles.popUpClassName
+          // },
           history: {
             undo: {
               icon: 'https://storageaccountatom.blob.core.windows.net/staging-storage/866c5057-6c6a-40f9-b862-ef94edfe3fdf_undo.react.svg'
@@ -101,13 +100,16 @@ const CustomEditor: FC<CustomEditorProps> = ({
           [styles[`editor-${size}`]]: size
         })}
         onEditorStateChange={onEditorStateChange}
-        toolbarCustomButtons={[<Variables variables={variables} emptyValue='there is no value' />]}
+        toolbarCustomButtons={[<Variables key='variables' variables={variables} emptyValue='there is no value' />]}
       />
       {title && (
         <Typography variant='p4' color='primary' className={styles.typography}>
           {title}
         </Typography>
       )}
+      <Typography variant='p5' color='danger'>
+        {errorText}
+      </Typography>
     </div>
   );
 };
