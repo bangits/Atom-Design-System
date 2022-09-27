@@ -10,7 +10,19 @@
       margin-bottom: getPageWrapperSizes(page-title-margin-bottom);
 
       .PageTitle {
-        display: flex;
+        &--span {
+          &--span {
+            font-size: calculateRem(14px);
+            margin-left: calculateRem(10px);
+            font-weight: 400;
+            color: #9b9cc8;
+          }
+          // display: flex;
+          align-items: center;
+          svg {
+            margin-left: calculateRem(10px);
+          }
+        }
         div {
           margin-left: calculateRem(8px);
         }

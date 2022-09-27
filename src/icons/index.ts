@@ -102,3 +102,4 @@ export { ReactComponent as RuleIcon } from './rule.react.svg';
 export { ReactComponent as TopBottomArrowsIcon } from './top-bottom-arrows.react.svg';
 export { ReactComponent as BonusIcon } from './bonus.react.svg';
 export { ReactComponent as BonusDetailsIcon } from './bonus-details.react.svg';
+export { ReactComponent as LargeArrowIcon } from './large-arrow.react.svg';

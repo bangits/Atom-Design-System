@@ -1,5 +1,6 @@
 import { InfoTooltip, LabelEndMark } from '@/atom-design-system';
 import { typedMemo } from '@/helpers/typedMemo';
+import { LargeArrowIcon } from '@/icons';
 import { Button, ButtonProps, Typography } from '@my-ui/core';
 import { FC, ReactNode } from 'react';
 import styles from './PageWrapper.module.scss';
@@ -13,6 +14,7 @@ export interface PageWrapperProps {
   infoTooltipText?: string;
   id?: string | number;
   subText?: string;
+  subTitle?: string;
 }
 
 const PageWrapper: FC<PageWrapperProps> = ({
@@ -24,7 +26,8 @@ const PageWrapper: FC<PageWrapperProps> = ({
   infoTooltipText,
   infoIcon,
   id,
-  subText
+  subText,
+  subTitle
 }) => {
   return (
     <div className={styles.PageWrapper}>
@@ -34,6 +37,12 @@ const PageWrapper: FC<PageWrapperProps> = ({
             {title}
             {infoIcon && <InfoTooltip isQuestion={infoIcon} infoTooltipText={infoTooltipText} />}
             {subText && <LabelEndMark label={subText} text={id?.toString()} />}
+            {subTitle && (
+              <span className={styles['PageTitle--span']}>
+                <LargeArrowIcon height='0.8rem' width='2.4rem' />
+                <span className={styles['PageTitle--span--span']}>{subTitle}</span>
+              </span>
+            )}
           </Typography>
 
           {showButton && (buttonElement || <Button {...buttonProps} type='button' />)}
