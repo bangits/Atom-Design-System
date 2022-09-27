@@ -1,5 +1,7 @@
 @mixin generate-custom-editor-styles {
   .container {
+    position: relative;
+    margin-bottom: 4rem;
     max-width: getEditorSizes(container-max-width);
     :global {
       .rdw-right-aligned-block {
@@ -10,6 +12,16 @@
         text-align: inherit;
       }
     }
+    :global(.public-DraftStyleDefault-block) {
+      margin-top: calculateRem(5px);
+      margin-bottom: calculateRem(5px);
+    }
+    :global(.rdw-editor-toolbar) {
+      padding: 0;
+      padding-top:2px;
+      padding-left: 6px;
+    }
+
     .wrapper {
       margin-bottom: getEditorSizes(wrapper-margin-bottom);
       max-width: getEditorSizes(wrapper-max-width);
@@ -63,6 +75,9 @@
         border-radius: getEditorSizes(editor-border-radius);
       }
     }
+    :global(.rdw-editor-wrapper) {
+      margin-bottom: 0px;
+    }
     .popUpClassName {
       display: none;
     }
@@ -72,7 +87,7 @@
       box-sizing: content-box;
       width: fit-content;
       left: getEditorSizes(typography-left);
-      top: 0px;
+      top: -10px;
       padding-left: getEditorSizes(typography-padding-left-right);
       padding-right: getEditorSizes(typography-padding-left-right);
     }
