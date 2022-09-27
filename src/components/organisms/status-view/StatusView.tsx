@@ -13,6 +13,7 @@ export interface StatusViewProps extends StatusProps {
     tooltipText: string;
     value: ReactNode | any;
     label: string | number;
+    onIconClick?: () => void;
   };
   actions?: {
     iconName?: keyof typeof Icons;
@@ -40,7 +41,9 @@ const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, varia
             <div style={{ display: 'flex' }}>
               <div style={{ marginRight: '1rem' }}>{icon.label}</div>
               <Tooltip showEvent='hover' text={icon.tooltipText}>
-                {icon.value}
+                <span onClick={icon.onIconClick} style={{ cursor: 'pointer' }}>
+                  {icon.value}
+                </span>
               </Tooltip>
             </div>
           </div>
