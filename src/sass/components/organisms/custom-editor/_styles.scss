@@ -18,7 +18,7 @@
     }
     :global(.rdw-editor-toolbar) {
       padding: 0;
-      padding-top:2px;
+      padding-top: 2px;
       padding-left: 6px;
     }
 
@@ -34,6 +34,7 @@
     }
     .editor-lg {
       min-height: getEditorSizes(editor-min-height);
+      font-size: getEditorSizes(editor-sm-font-size);
     }
     .editor-sm {
       max-height: getEditorSizes(editor-sm-max-height);
