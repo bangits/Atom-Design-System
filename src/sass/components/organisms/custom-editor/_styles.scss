@@ -15,6 +15,7 @@
     :global(.public-DraftStyleDefault-block) {
       margin-top: calculateRem(5px);
       margin-bottom: calculateRem(10px);
+      height: calculateRem(25px);
     }
     :global(.rdw-editor-toolbar) {
       padding: 0;
