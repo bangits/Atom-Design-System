@@ -14,11 +14,12 @@
     }
     :global(.public-DraftStyleDefault-block) {
       margin-top: calculateRem(5px);
-      margin-bottom: calculateRem(5px);
+      margin-bottom: calculateRem(10px);
+      height: calculateRem(25px);
     }
     :global(.rdw-editor-toolbar) {
       padding: 0;
-      padding-top:2px;
+      padding-top: 4px;
       padding-left: 6px;
     }
 
@@ -34,6 +35,7 @@
     }
     .editor-lg {
       min-height: getEditorSizes(editor-min-height);
+      font-size: getEditorSizes(editor-sm-font-size);
     }
     .editor-sm {
       max-height: getEditorSizes(editor-sm-max-height);

@@ -38,6 +38,8 @@ export interface TableCollapse<T> extends Omit<TableAction<T>, 'onClick' | 'shou
   id: number | string;
 }
 export interface DataTableProps<T extends {}, K> {
+  isSynchronizeShown?: boolean;
+  isSynchronize?: boolean;
   currencySelect?: FC<SelectProps<any, any, any>>;
   currencyProperty?: keyof K;
   exchangeCurrencyProperty?: keyof K;
@@ -78,6 +80,8 @@ export interface DataTableProps<T extends {}, K> {
 
   rowCount: number;
   onRefreshButtonClick?: (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
+
+  onSynchronizeButtonClick?: (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
 
   tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
     columns?: (TableProps<T>['columns'][number] & {
@@ -125,6 +129,9 @@ function DataTable<T extends {}, K>({
   exchangeCurrencyProperty,
   currencyTranslations,
   exportButton,
+  isSynchronizeShown = false,
+  isSynchronize,
+  onSynchronizeButtonClick,
   tableBulkActions: tableBulkActionsProps,
   renderFilter
 }: DataTableProps<T, K>) {
@@ -137,6 +144,7 @@ function DataTable<T extends {}, K>({
 
   const [selectedRows, setSelectedRows] = useState<T[]>([]);
   const [isDisabledRefreshButton, setDisabledRefreshButton] = useState(false);
+  const [isDisabledSynchronizeButton, setDisabledSynchronizeButton] = useState(false);
   const [isFiltersOpened, setFiltersOpened] = useState(false);
   const [openedCollapseInfo, setOpenedCollapseInfo] = useState<{
     id: number | string;
@@ -452,6 +460,31 @@ function DataTable<T extends {}, K>({
               />
             </Tooltip>
           </Divider>
+
+          {isSynchronizeShown && (
+            <Divider>
+              <Tooltip text='Synchronize'>
+                <ButtonWithIcon
+                  icon='SynchronizeIcon'
+                  disabled={isDisabledSynchronizeButton}
+                  onClick={(event) => {
+                    if (actionsButtonDisabledTime) {
+                      setDisabledSynchronizeButton(true);
+
+                      setTimeout(() => setDisabledSynchronizeButton(false), actionsButtonDisabledTime * 1000);
+                    }
+
+                    if (onSynchronizeButtonClick) onSynchronizeButtonClick(event);
+                  }}
+                  className={styles.RefreshButton}
+                  iconProps={{
+                    width: '1.8rem',
+                    height: '1.8rem'
+                  }}
+                />
+              </Tooltip>
+            </Divider>
+          )}
 
           {exportButton && tableProps.data?.length ? <Divider>{exportButton}</Divider> : null}
 
