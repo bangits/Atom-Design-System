@@ -40,6 +40,7 @@ export { ReactComponent as EmptyGameListIcon } from './empty-game-list.react.svg
 export { ReactComponent as EmptyDataIcon } from './empty-ilustration.react.svg';
 export { ReactComponent as EmptyImg } from './empty-img.react.svg';
 export { ReactComponent as ExchangeIcon } from './exchange.react.svg';
+export { ReactComponent as Exclude } from './exclude.react.svg';
 export { ReactComponent as ExportIcon } from './export.react.svg';
 export { ReactComponent as EyeIcon } from './eye.react.svg';
 export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
@@ -89,6 +90,7 @@ export { ReactComponent as SliderAddIcon } from './slider-add.react.svg';
 export { ReactComponent as SliderIcon } from './slider.react.svg';
 export { ReactComponent as SortIcon } from './sort.react.svg';
 export { ReactComponent as SwitchIcon } from './switch.react.svg';
+export { ReactComponent as SynchronizeIcon } from './synchronize.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as TimeIcon } from './time.react.svg';
 export { ReactComponent as ToolsIcon } from './tools.react.svg';
