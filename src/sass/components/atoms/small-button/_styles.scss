@@ -1,0 +1,17 @@
+@mixin generate-small-button-styles {
+    // This needs for priority
+    button.SmallButton {
+        // This needs for priority
+        &.SmallButton {
+            text-decoration: none;
+            color: color(black-color);
+            font-size: calculateRem(14px);
+            div {
+                color: color(primary);
+                min-height: auto;
+                margin-right: calculateRem(8px);
+                min-width: calculateRem(14px);
+            }
+        }
+    }
+}
