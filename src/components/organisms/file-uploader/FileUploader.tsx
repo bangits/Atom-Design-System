@@ -7,7 +7,7 @@ import {
   Typography
 } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './FileUploader.module.scss';
 
 export { FileUploaderErrors } from '@my-ui/core';
@@ -17,7 +17,7 @@ export interface FileUploaderProps extends MyUIFileUploaderProps {
   labelProps?: LabelProps;
   tooltipProps?: {
     icon?: keyof typeof Icons;
-    tooltipText: string;
+    tooltipText: string | ReactNode;
   };
 }
 
@@ -65,5 +65,3 @@ export const FileUploader: FC<FileUploaderProps> = ({
     </>
   );
 };
-
-

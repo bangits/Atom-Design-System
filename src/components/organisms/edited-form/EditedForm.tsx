@@ -36,6 +36,7 @@ export interface EditedFormProps {
         title: ReactNode | string;
         value: ReactNode;
         shouldLineTranslation?: boolean;
+        fullWidth?: boolean;
         variant: 'custom';
       }
   )[];

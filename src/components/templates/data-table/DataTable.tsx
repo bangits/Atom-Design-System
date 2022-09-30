@@ -463,7 +463,7 @@ function DataTable<T extends {}, K>({
 
           {isSynchronizeShown && (
             <Divider>
-              <Tooltip text='Synchronize'>
+              <Tooltip text='Synchronize - automatically updates System Notifications'>
                 <ButtonWithIcon
                   icon='SynchronizeIcon'
                   disabled={isDisabledSynchronizeButton}

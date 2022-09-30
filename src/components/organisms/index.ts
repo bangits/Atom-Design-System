@@ -1,3 +1,4 @@
+export * from './add-condition-card';
 export * from './banner-uploader';
 export * from './browsers-group';
 export * from './button-form';
@@ -5,6 +6,7 @@ export * from './category-games';
 export * from './change-password';
 export * from './collapsable-table';
 export * from './count-view';
+export * from './criteria-form';
 export * from './details-main-info';
 export * from './details-page';
 export * from './dialog';
@@ -50,5 +52,3 @@ export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-card';
 export * from './wallet-view';
-export * from './add-condition-card';
-export * from './add-criteria';

@@ -16,6 +16,7 @@ export { ReactComponent as BonusDetailsIcon } from './bonus-details.react.svg';
 export { ReactComponent as BonusIcon } from './bonus.react.svg';
 export { ReactComponent as CategoryIcon } from './category.react.svg';
 export { ReactComponent as ChangePasswordIcon } from './changepass.react.svg';
+export { ReactComponent as CheckFilledIcon } from './check-filled.react.svg';
 export { ReactComponent as CheckPopupIcon } from './check-popup.react.svg';
 export { ReactComponent as ChromeIcon } from './chrome.react.svg';
 export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg';
@@ -70,6 +71,7 @@ export { ReactComponent as PhotoCamIcon } from './photo-cam-icon.react.svg';
 export { ReactComponent as PlayArrowIcon } from './play-arrow-icon.react.svg';
 export { ReactComponent as PlayersSearch } from './player-search.react.svg';
 export { ReactComponent as PlayersIcon } from './players.react.svg';
+export { ReactComponent as PlusCircleOutlinedIcon } from './plus-circle-outlined.react.svg';
 export { ReactComponent as PlusIcon } from './plus.react.svg';
 export { ReactComponent as ProductsIcon } from './products.react.svg';
 export { ReactComponent as PromotionalIcon } from './promotional.react.svg';
@@ -87,6 +89,7 @@ export { ReactComponent as SignInImage } from './SignIn.react.svg';
 export { ReactComponent as SliderAddIcon } from './slider-add.react.svg';
 export { ReactComponent as SliderIcon } from './slider.react.svg';
 export { ReactComponent as SortIcon } from './sort.react.svg';
+export { ReactComponent as SwitchIcon } from './switch.react.svg';
 export { ReactComponent as SynchronizeIcon } from './synchronize.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as TimeIcon } from './time.react.svg';
@@ -105,4 +108,3 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
-

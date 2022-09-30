@@ -13,9 +13,10 @@
       }
     }
     :global(.public-DraftStyleDefault-block) {
-      margin-top: calculateRem(5px);
+      /* margin-top: calculateRem(5px);
       margin-bottom: calculateRem(10px);
-      height: calculateRem(25px);
+      height: calculateRem(25px); */
+      margin: 0 !important;
     }
     :global(.rdw-editor-toolbar) {
       padding: 0;
@@ -42,6 +43,8 @@
       font-size: getEditorSizes(editor-sm-font-size);
     }
     .editor {
+      padding-top: 6px;
+      padding-bottom: 10px;
       padding-left: getEditorSizes(editor-padding-left-right);
       max-width: getEditorSizes(editor-max-width);
       padding-right: getEditorSizes(editor-padding-left-right);

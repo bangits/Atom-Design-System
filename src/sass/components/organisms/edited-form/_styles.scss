@@ -6,7 +6,7 @@
       width: 100%;
       height: auto;
     }
-    
+
     &--12 {
       width: 100%;
     }
@@ -58,7 +58,12 @@
       // flex: getEditedFormSizes(option-flex);
       width: getEditedFormSizes(option-width);
       margin: getEditedFormSizes(option-margin);
-      height: getEditedFormSizes(option-height);
+      min-height: getEditedFormSizes(option-height);
+
+      &--full-width {
+        width: 100%;
+      }
+
       &--line-translation {
         height: getEditedFormSizes(option-line-translation-height);
         .EditedFormBase {
