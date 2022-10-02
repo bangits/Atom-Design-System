@@ -87,6 +87,7 @@ export const Default = () => {
       playerKPI={''}
       documents={'Documents'}
       wallet={''}
+      selectContent={''}
     />
   );
 };

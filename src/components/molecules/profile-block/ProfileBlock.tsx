@@ -64,7 +64,12 @@ const ProfileBlock = ({
           onClick={backgroundImgUrl ? undefined : onBackgroundImgClick}>
           {backgroundImgUrl && (
             <img
-              className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg')}
+              className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg', {
+                [styles['ProfileBlock__Image']]:
+                  backgroundImgUrl === 'https://nid.com.ua/wp-content/themes/realestate-7/images/no-image.png' ||
+                  backgroundImgUrl === 'https://i.ibb.co/dMQPWnZ/no-image.png' ||
+                  backgroundImgUrl === 'https://i.ibb.co/c2yqT5q/image.png'
+              })}
               src={backgroundImgUrl}
             />
           )}
