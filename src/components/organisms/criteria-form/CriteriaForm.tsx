@@ -14,6 +14,8 @@ export interface CriteriaFormProps {
 
   viewModeElement?: ReactNode;
 
+  showCondition?: boolean;
+
   onCriteriaFieldRemove?(index: number): void;
 }
 
@@ -24,7 +26,8 @@ const CriteriaForm: FC<PropsWithChildren<CriteriaFormProps>> = ({
   criteriaConditionProps,
   criteriaFieldConditionProps,
   viewModeElement,
-  onCriteriaFieldRemove
+  onCriteriaFieldRemove,
+  showCondition: showConditionProp
 }) => {
   const showCondition = fields.length > 1;
 
@@ -35,6 +38,7 @@ const CriteriaForm: FC<PropsWithChildren<CriteriaFormProps>> = ({
           <div className={styles.CriteriaForm__Field} key={index}>
             {showCondition && criteriaFieldConditionProps && (
               <Button
+                type='button'
                 disabled={!!index}
                 {...criteriaFieldConditionProps}
                 variant='ghost'
@@ -51,7 +55,7 @@ const CriteriaForm: FC<PropsWithChildren<CriteriaFormProps>> = ({
 
             {field}
 
-            {onCriteriaFieldRemove && (
+            {onCriteriaFieldRemove && fields.length > 1 && (
               <div className={styles['CriteriaForm__Field-Remove']}>
                 <IconButton onClick={() => onCriteriaFieldRemove(index)} icon={<Icons.CloseIcon />} />
               </div>
@@ -73,11 +77,12 @@ const CriteriaForm: FC<PropsWithChildren<CriteriaFormProps>> = ({
     <Card
       borderRadius={viewModeElement ? 2.4 : 0.8}
       className={classNames(styles.CriteriaForm, {
-        [styles['CriteriaForm--ShowedCondition']]: showCondition,
+        [styles['CriteriaForm--ShowedCondition']]: showConditionProp || showCondition,
         [styles['CriteriaForm--ViewMode']]: viewModeElement
       })}>
       {criteriaConditionProps && (
         <Button
+          type='button'
           {...criteriaConditionProps}
           className={classNames(
             styles.CriteriaForm__Condition,

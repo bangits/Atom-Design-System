@@ -143,13 +143,8 @@ const EditedForm: FC<EditedFormProps> = ({
             [styles['EditedFormBase--content-start-justify']]: startJustify
           })}
           ref={containerRef}>
-          {children ? (
-            <div>{children}</div>
-          ) : (
-            <>
-              <EditedFormOptions options={options} noDataText={noDataText} />
-            </>
-          )}
+          {children || <EditedFormOptions options={options} noDataText={noDataText} />}
+
           {height > 248 && (
             <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'], 'HELLLO WORLD')}>
               <div
