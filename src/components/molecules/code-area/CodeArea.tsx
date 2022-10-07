@@ -63,7 +63,11 @@ const CodeArea: FC<CodeAreaProps> = ({ title, errorText, headline, variables, on
         <legend className={styles.legend}>{title}</legend>
         <textarea ref={textareaRef} onChange={onCodeChange} value={codeState} className={styles.textarea} />
       </fieldset>
-      {errorText && <Typography variant='p4'>{errorText}</Typography>}
+      {errorText && (
+        <Typography color='danger' variant='p4'>
+          {errorText}
+        </Typography>
+      )}
     </div>
   );
 };
