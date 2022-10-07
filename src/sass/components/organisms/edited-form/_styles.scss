@@ -64,6 +64,9 @@
         width: 100%;
       }
 
+      &--align-end {
+        align-items: flex-end;
+      }
       &--line-translation {
         height: getEditedFormSizes(option-line-translation-height);
         .EditedFormBase {

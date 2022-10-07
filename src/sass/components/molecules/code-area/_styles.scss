@@ -1,0 +1,67 @@
+@mixin generate-code-area-styles {
+  .textarea {
+    overflow: auto;
+    outline: none;
+    width: 98%;
+    height: getCodeAreaSizes(textarea-height);
+    -webkit-box-shadow: none;
+    -moz-box-shadow: none;
+    box-shadow: none;
+    font-size: getCodeAreaSizes(font-size);
+    resize: none;
+    border: none;
+    color: getCodeAreaColors(textarea-color);
+  }
+  .legend {
+    margin-left: getCodeAreaSizes(legend-margin-left);
+  }
+  .email-variables {
+    display: flex;
+    align-items: center;
+  }
+
+  .container-without-headline {
+    margin-top: 34px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .fieldset {
+    // width: getCodeAreaSizes(fieldset-width);
+    height: getCodeAreaSizes(fieldset-height);
+    padding-left: 0;
+    padding-right: 0;
+    border: 0.5px solid #8ea6c1;
+    border-radius: 4px;
+    background: white;
+    ::-webkit-scrollbar-track {
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar {
+      width: 3px;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e8edf3;
+      border-radius: 10px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e8edf3;
+    }
+  }
+  .title {
+    background-color: white;
+    padding-left: getCodeAreaSizes(title-padding-left);
+    padding-right: getCodeAreaSizes(title-padding-right);
+    width: fit-content;
+    position: absolute;
+    top: getCodeAreaSizes(title-top);
+    left: getCodeAreaSizes(title-bottom);
+  }
+  .container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
