@@ -9,9 +9,17 @@ import EditFormFields from './EditFormFields';
 
 export type FormSelectProps = SelectProps<any[], boolean, any>;
 export interface EditFormProps {
+  applyButtonDisabled?: boolean;
   applyButtonTooltipText?: string;
   closeButtonTooltipText?: string;
   title?: ReactNode;
+  fields?: FormFieldProp[];
+  col?: 6 | 12;
+  fullWidth?: boolean;
+  showActions?: boolean;
+  removeCard?: boolean;
+  justifyContent?: 'flex-end';
+
   onToggle?: () => void;
   onSubmit?: (onToggle: () => void) => void;
   renderInputs?: (
@@ -20,12 +28,6 @@ export interface EditFormProps {
     fieldType: FormFieldTypes,
     props: any
   ) => JSX.Element;
-  fields?: FormFieldProp[];
-  col?: 6 | 12;
-  fullWidth?: boolean;
-  showActions?: boolean;
-  removeCard?: boolean;
-  justifyContent?: 'flex-end';
 }
 
 const EditForm: FC<EditFormProps> = ({
@@ -41,7 +43,8 @@ const EditForm: FC<EditFormProps> = ({
   fullWidth,
   showActions = true,
   removeCard,
-  justifyContent
+  justifyContent,
+  applyButtonDisabled
 }) => {
   const content = children || (
     <div
@@ -67,7 +70,15 @@ const EditForm: FC<EditFormProps> = ({
           <span>{title}</span>
           <div className={classNames(styles['EditFormBase--buttons'])}>
             <Tooltip showEvent='hover' text={applyButtonTooltipText}>
-              <IconButton icon={<ApplyIcon />} type='button' onClick={() => onSubmit(onToggle)} />
+              <IconButton
+                icon={<ApplyIcon />}
+                type='button'
+                onClick={() => onSubmit(onToggle)}
+                className={classNames({
+                  [styles['EditFormBase__button--disabled']]: applyButtonDisabled
+                })}
+                disabled={applyButtonDisabled}
+              />
             </Tooltip>
             <Tooltip showEvent='hover' text={closeButtonTooltipText}>
               <IconButton icon={<CloseIcon />} type='button' onClick={onToggle} />
