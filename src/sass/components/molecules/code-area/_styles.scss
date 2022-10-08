@@ -3,6 +3,7 @@
     overflow: auto;
     outline: none;
     width: 98%;
+    overflow-x: hidden;
     height: getCodeAreaSizes(textarea-height);
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
