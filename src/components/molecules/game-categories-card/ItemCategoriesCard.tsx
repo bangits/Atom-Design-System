@@ -3,9 +3,9 @@ import { typedMemo } from '@/helpers';
 import { Button, Checkbox, CheckboxProps, IconButton, TextInput } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, useState } from 'react';
-import styles from './GameCategoriesCard.module.scss';
+import styles from './ItemCategoriesCard.module.scss';
 
-export interface GameCategoriesCardProps {
+export interface ItemCategoriesCardProps {
   checkboxProps?: CheckboxProps;
   showActions?: boolean;
   index?: number;
@@ -27,7 +27,7 @@ export interface GameCategoriesCardProps {
   onPlayButtonClick?(): void;
 }
 
-const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
+const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   imgSrc,
   name,
   providerName,
@@ -44,31 +44,31 @@ const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
   );
 
   return (
-    <div className={styles.GameCategoriesCard}>
+    <div className={styles.ItemCategoriesCard}>
       {(checkboxProps || index) && (
         <div
-          className={classNames(styles['GameCategoriesCard__top-part'], {
-            [styles['GameCategoriesCard__top-part--with-checkbox']]: !!checkboxProps
+          className={classNames(styles['ItemCategoriesCard__top-part'], {
+            [styles['ItemCategoriesCard__top-part--with-checkbox']]: !!checkboxProps
           })}>
           {checkboxProps && <Checkbox {...checkboxProps} />}
 
-          {index ? <span className={styles['GameCategoriesCard__index']}>{index}</span> : null}
+          {index ? <span className={styles['ItemCategoriesCard__index']}>{index}</span> : null}
         </div>
       )}
 
       {showActions && (
-        <div className={styles['GameCategoriesCard__actions']}>
+        <div className={styles['ItemCategoriesCard__actions']}>
           <IconButton
             onClick={onPlayButtonClick}
-            className={styles['GameCategoriesCard__play']}
+            className={styles['ItemCategoriesCard__play']}
             icon={<Icons.PlayArrowIcon width='100%' />}
           />
 
-          <ul className={styles['GameCategoriesCard__bottom-part']}>
+          <ul className={styles['ItemCategoriesCard__bottom-part']}>
             <li>
               <IconButton
                 onClick={onViewButtonClick}
-                className={styles['GameCategoriesCard__action']}
+                className={styles['ItemCategoriesCard__action']}
                 icon={<Icons.ViewIcon width='100%' />}
               />
             </li>
@@ -78,7 +78,7 @@ const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
                   showPosition={positionChangeProps.showPosition}
                   renderOpenElement={({ open }) => (
                     <IconButton
-                      className={styles['GameCategoriesCard__action']}
+                      className={styles['ItemCategoriesCard__action']}
                       icon={<Icons.RecalculateIcon width='100%' />}
                       onClick={open}
                     />
@@ -106,19 +106,19 @@ const GameCategoriesCard: FC<GameCategoriesCardProps> = ({
             <li>
               <IconButton
                 onClick={onDeleteButtonClick}
-                className={styles['GameCategoriesCard__action']}
+                className={styles['ItemCategoriesCard__action']}
                 icon={<Icons.TrashIndicator width='100%' />}
               />
             </li>
           </ul>
         </div>
       )}
-      <img className={styles['GameCategoriesCard__img']} src={imgSrc} alt={name} />
-      <span className={styles['GameCategoriesCard__name']}>
-        {name} {providerName && <span className={styles['GameCategoriesCard__name--provider']}>{providerName}</span>}
+      <img className={styles['ItemCategoriesCard__img']} src={imgSrc} alt={name} />
+      <span className={styles['ItemCategoriesCard__name']}>
+        {name} {providerName && <span className={styles['ItemCategoriesCard__name--provider']}>{providerName}</span>}
       </span>
     </div>
   );
 };
 
-export default typedMemo(GameCategoriesCard);
+export default typedMemo(ItemCategoriesCard);

@@ -1,1 +1,2 @@
-export { default as GameCategoriesCard, GameCategoriesCardProps } from './GameCategoriesCard';
+export { default as ItemCategoriesCard, ItemCategoriesCardProps } from './ItemCategoriesCard';
+
