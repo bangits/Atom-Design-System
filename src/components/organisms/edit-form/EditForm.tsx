@@ -17,6 +17,7 @@ export interface EditFormProps {
   col?: 6 | 12;
   fullWidth?: boolean;
   showActions?: boolean;
+  hideClose?: boolean;
   removeCard?: boolean;
   justifyContent?: 'flex-end';
 
@@ -44,7 +45,8 @@ const EditForm: FC<EditFormProps> = ({
   showActions = true,
   removeCard,
   justifyContent,
-  applyButtonDisabled
+  applyButtonDisabled,
+  hideClose
 }) => {
   const content = children || (
     <div
@@ -80,9 +82,11 @@ const EditForm: FC<EditFormProps> = ({
                 disabled={applyButtonDisabled}
               />
             </Tooltip>
-            <Tooltip showEvent='hover' text={closeButtonTooltipText}>
-              <IconButton icon={<CloseIcon />} type='button' onClick={onToggle} />
-            </Tooltip>
+            {!hideClose && (
+              <Tooltip showEvent='hover' text={closeButtonTooltipText}>
+                <IconButton icon={<CloseIcon />} type='button' onClick={onToggle} />
+              </Tooltip>
+            )}
           </div>
         </div>
       )}
