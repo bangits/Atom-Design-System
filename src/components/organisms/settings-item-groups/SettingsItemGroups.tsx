@@ -3,18 +3,18 @@ import { Button, ButtonProps, Card } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, useEffect, useState } from 'react';
 import { SortEndHandler } from 'react-sortable-hoc';
-import styles from './SettingsFooter.module.scss';
-import SettingsFooterGroup, { SettingsFooterGroupProps } from './SettingsFooterGroup';
+import SettingsItemGroup, { SettingsItemGroupProps } from './SettingsItemGroup';
+import styles from './SettingsItemGroups.module.scss';
 
-export interface SettingsFooterProps {
+export interface SettingsItemGroupsProps {
   addButtonProps?: ButtonProps;
-  groups: Omit<SettingsFooterGroupProps, 'translations'>[];
-  translations: SettingsFooterGroupProps['translations'];
+  groups: Omit<SettingsItemGroupProps, 'translations'>[];
+  translations: SettingsItemGroupProps['translations'];
   onSortEnd?: SortEndHandler;
 }
 
-const SettingsFooter: FC<SettingsFooterProps> = ({
-  addButtonProps = {},
+const SettingsItemGroups: FC<SettingsItemGroupsProps> = ({
+  addButtonProps,
   groups: groupsProp,
   onSortEnd,
   translations
@@ -26,15 +26,17 @@ const SettingsFooter: FC<SettingsFooterProps> = ({
   }, [groupsProp]);
 
   return (
-    <div className={styles.SettingsFooter}>
-      <Button
-        variant='link'
-        startIcon={<Icons.PlusCircleLarge />}
-        {...addButtonProps}
-        className={classNames(addButtonProps.className, styles['SettingsFooter__Button'])}
-      />
+    <div className={styles.SettingsItemGroups}>
+      {addButtonProps && (
+        <Button
+          variant='link'
+          startIcon={<Icons.PlusCircleLarge />}
+          {...addButtonProps}
+          className={classNames(addButtonProps.className, styles['SettingsItemGroups__Button'])}
+        />
+      )}
 
-      <Card className={styles['SettingsFooter__Card']}>
+      <Card className={styles['SettingsItemGroups__Card']}>
         <SortableList
           onSortEnd={(sortInfo, event) => {
             const { oldIndex, newIndex } = sortInfo;
@@ -44,7 +46,7 @@ const SettingsFooter: FC<SettingsFooterProps> = ({
             onSortEnd(sortInfo, event);
           }}>
           {groups.map((g, index) => (
-            <SettingsFooterGroup index={index} translations={translations} {...g} />
+            <SettingsItemGroup index={index} translations={translations} {...g} />
           ))}
         </SortableList>
       </Card>
@@ -52,4 +54,4 @@ const SettingsFooter: FC<SettingsFooterProps> = ({
   );
 };
 
-export default SettingsFooter;
+export default SettingsItemGroups;

@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { GameCard, GameCardProps, Icons } from '@/atom-design-system';
-import { Button, Loader, Scroll } from '@my-ui/core';
-import { useState } from 'react';
+import { GameCard, GameCardProps, Icons, ScrollableView } from '@/atom-design-system';
+import { Button } from '@my-ui/core';
 import styles from './GameList.module.scss';
 
 export interface GameListProps {
@@ -39,23 +38,11 @@ const GameList = ({
   isDisabled,
   isProvider
 }: GameListProps) => {
-  const [currentPage, setCurrentPage] = useState<number>(1);
-
   return (
-    <Scroll
-      height='60rem'
-      autoHide
-      onScroll={(e) => {
-        if (isAllGamesLoaded || isLoadingGames) return;
-        const isScrolledToBottom =
-          (e.target as HTMLDivElement).offsetHeight + (e.target as HTMLDivElement).scrollTop >=
-          (e.target as HTMLDivElement).scrollHeight;
-
-        if (isScrolledToBottom) {
-          onChange(currentPage + 1);
-          setCurrentPage(currentPage + 1);
-        }
-      }}
+    <ScrollableView
+      onPageChange={onChange}
+      disableOnPageChange={isAllGamesLoaded || isLoadingGames}
+      showLoader={isLoadingGames}
       className={styles.GamesScroll}>
       <div style={{ display: 'flex', gap: 20 }}>
         {updateWebText && (
@@ -92,9 +79,7 @@ const GameList = ({
           </div>
         ))}
       </div>
-
-      <div className={styles.LoaderContainer}>{isLoadingGames && <Loader />}</div>
-    </Scroll>
+    </ScrollableView>
   );
 };
 

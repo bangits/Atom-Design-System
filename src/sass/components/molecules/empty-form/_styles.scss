@@ -16,5 +16,9 @@
         &__Content {
             font-size: calculateRem(14px);
         }
+        &--RemoveCard {
+            box-shadow: none !important;
+            margin-top: 0;
+        }
     }
 }

@@ -1,0 +1,8 @@
+@mixin generate-scrollable-view-styles {
+    .ScrollableView {
+        margin-top: calculate-rem(20px);
+    }
+    .LoaderContainer {
+        @include flex(center);
+    }
+}

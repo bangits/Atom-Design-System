@@ -2,6 +2,7 @@ $colors: (
   red-orange: #ff3434,
   alabaster: #fbfafd,
   white: #fff,
+  black: #000,
   white-lilac-2: #ebedf7,
   catskill-white: #e8edf3,
   black-color: #505d6e,
@@ -37,7 +38,7 @@ $colors: (
   whisper: #f0f0f7,
   lime-c: #00b21e,
   orange-c: #eb8c1e,
-  d-blue-x: #3C54B2
+  d-blue-x: #3c54b2
 );
 
 @function color($property-name) {

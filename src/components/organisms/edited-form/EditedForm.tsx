@@ -51,6 +51,7 @@ export interface EditedFormProps {
   showEditIcons?: boolean;
   startJustify?: boolean;
   removeCard?: boolean;
+  removeShadow?: boolean;
   disableEditButton?: boolean;
 }
 
@@ -70,7 +71,8 @@ const EditedForm: FC<EditedFormProps> = ({
   showEditIcons = true,
   removeCard,
   startJustify,
-  disableEditButton = false
+  disableEditButton = false,
+  removeShadow
 }) => {
   const containerRef = useRef<HTMLDivElement>();
 
@@ -134,7 +136,11 @@ const EditedForm: FC<EditedFormProps> = ({
           </div>
         )}
       </div>
-      <Card borderRadius={1.6} className={classNames(styles['EditedFormBase--card-content'])}>
+      <Card
+        borderRadius={1.6}
+        className={classNames(styles['EditedFormBase--card-content'], {
+          [styles['EditedFormBase--remove-shadow']]: removeShadow
+        })}>
         <div
           className={classNames(styles['EditedFormBase--content'], {
             [viewMoreClassNames.closed]: !isOpenedCollapse,

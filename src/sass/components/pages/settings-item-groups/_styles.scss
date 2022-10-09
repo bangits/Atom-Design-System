@@ -1,5 +1,5 @@
-@mixin generate-settings-footer-styles {
-    .SettingsFooter {
+@mixin generate-settings-item-groups-styles {
+    .SettingsItemGroups {
         width: 100%;
         &__Button {
             margin-left: auto;
@@ -10,7 +10,7 @@
             box-sizing: border-box;
         }
     }
-    .SettingsFooterGroup {
+    .SettingsItemGroup {
         $this: #{&};
         position: relative;
         border: calculateRem(1px) solid rgba(142, 166, 193, 0.3);
