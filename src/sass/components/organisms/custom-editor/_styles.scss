@@ -59,6 +59,7 @@
     .toolbar {
       border-top-left-radius: getEditorSizes(editor-border-radius);
       border-top-right-radius: getEditorSizes(editor-border-radius);
+      min-height: 34px;
       :global(.rdw-option-wrapper) {
         background-color: transparent;
         border: none;

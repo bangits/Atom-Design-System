@@ -4,22 +4,24 @@ import classNames from 'classnames';
 import React, { FC, ReactNode, useEffect } from 'react';
 import styles from './Options.module.scss';
 
+export type OptionData =
+  | {
+      name: string;
+      icon?: ReactNode;
+      download?: boolean;
+      link?: string;
+      onClick: () => void;
+    }[]
+  | string[]
+  | string;
+
 export interface OptionsProps {
   children?: ReactNode;
-  data:
-    | {
-        name: string;
-        icon?: ReactNode;
-        download?: boolean;
-        link?: string;
-        onClick: () => void;
-      }[]
-    | string[]
-    | string;
+  data: OptionData;
 
   outsideClickClassName?: string;
   emptyValue?: string;
-  click?: () => void;
+  click?: (data: OptionData) => void;
   opacity?: boolean;
   onOutsideClick?(): void;
 }
@@ -63,7 +65,7 @@ const Options: FC<OptionsProps> = ({
                   </a>
                 </div>
               ) : !d.name ? (
-                <div onClick={click} className={classNames(styles['OptionsBase--core'])}>
+                <div onClick={() => click(d)} className={classNames(styles['OptionsBase--core'])}>
                   <Divider variant='horizontal' />
                   <span className={styles['OptionsBase--name']}>{d}</span>
                 </div>

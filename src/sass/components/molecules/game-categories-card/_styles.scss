@@ -1,5 +1,5 @@
-@mixin generate-game-categories-card-styles {
-    .GameCategoriesCard {
+@mixin generate-item-categories-card-styles {
+    .ItemCategoriesCard {
         $this: #{&};
         position: relative;
         height: fit-content;

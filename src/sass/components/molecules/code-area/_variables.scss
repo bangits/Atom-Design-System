@@ -1,0 +1,23 @@
+$code-area-sizes: (
+  font-size: calculateRem(14px),
+  legend-margin-left: calculateRem(16px),
+  fieldset-width: calculateRem(460px),
+  fieldset-height: calculateRem(170px),
+  textarea-height: calculateRem(160px),
+  title-top: calculateRem(-12px),
+  title-bottom: calculateRem(12px),
+  title-padding-left: calculateRem(4px),
+  title-padding-right: calculateRem(4px)
+);
+
+$code-area-colors: (
+  textarea-color: #505d6e
+);
+
+@function getCodeAreaSizes($key) {
+  @return map-get($code-area-sizes, $key);
+}
+
+@function getCodeAreaColors($key) {
+  @return map-get($code-area-colors, $key);
+}

@@ -1,17 +1,17 @@
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
-import GameCategoriesCard from './GameCategoriesCard';
+import ItemCategoriesCard from './ItemCategoriesCard';
 
 export default {
-  component: GameCategoriesCard,
+  component: ItemCategoriesCard,
   decorators: [withKnobs],
-  title: 'components/molecules/GameCategoriesCard'
+  title: 'components/molecules/ItemCategoriesCard'
 };
 
 export const Default = () => {
   return (
     <div style={{ width: 100 }}>
-      <GameCategoriesCard
+      <ItemCategoriesCard
         index={1}
         checkboxProps={{
           onChange: action('onCheckboxChange')

@@ -1,4 +1,4 @@
-import { GameCategoriesCard } from '@/atom-design-system';
+import { ItemCategoriesCard } from '@/atom-design-system';
 import { action } from '@storybook/addon-actions';
 import { withKnobs } from '@storybook/addon-knobs';
 import CategoryGames from './CategoryGames';
@@ -16,7 +16,7 @@ export const Default = () => {
         onClick: () => action('onButtonClick'),
         children: 'Add Games'
       }}>
-      <GameCategoriesCard
+      <ItemCategoriesCard
         index={1}
         checkboxProps={{
           onChange: action('onCheckboxChange')
@@ -37,7 +37,7 @@ export const Default = () => {
         providerName='Pragmatic'
       />
 
-      <GameCategoriesCard
+      <ItemCategoriesCard
         index={1}
         checkboxProps={{
           onChange: action('onCheckboxChange')
@@ -58,7 +58,7 @@ export const Default = () => {
         providerName='Pragmatic'
       />
 
-      <GameCategoriesCard
+      <ItemCategoriesCard
         index={1}
         checkboxProps={{
           onChange: action('onCheckboxChange')
@@ -79,7 +79,7 @@ export const Default = () => {
         providerName='Pragmatic'
       />
 
-      <GameCategoriesCard
+      <ItemCategoriesCard
         index={1}
         checkboxProps={{
           onChange: action('onCheckboxChange')

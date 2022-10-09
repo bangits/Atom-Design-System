@@ -6,31 +6,32 @@ import styles from './Variables.module.scss';
 
 export interface VariablesProps {
   variables?: string[];
-  onChange?: (e) => void;
   editorState?: {
     getCurrentContent: () => void;
     getSelection: () => void;
     getCurrentInlineStyle: () => void;
   };
   emptyValue?: string;
+
+  onVariableClick?(variable: string): void;
+  onChange?(e): void;
 }
 
-const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onChange }) => {
+const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onVariableClick, onChange }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
-  const addVariable = () => {
-    const span = event.target as HTMLElement;
-    const value = span.textContent;
-    const contentState = Modifier.replaceText(
-      editorState.getCurrentContent(),
-      editorState.getSelection(),
-      `${value}`,
-      editorState.getCurrentInlineStyle()
-    );
-    onChange(EditorState.push(editorState, contentState, 'variables'));
-  };
+  const addVariable =
+    onVariableClick ||
+    ((variable: string) => {
+      const contentState = Modifier.replaceText(
+        editorState.getCurrentContent(),
+        editorState.getSelection(),
+        `${variable}`,
+        editorState.getCurrentInlineStyle()
+      );
+      onChange(EditorState.push(editorState, contentState, 'variables'));
+    });
 
-  // useEffect(() => {}, [isOpenMenu]);
   return (
     <div className={classNames(styles.container)}>
       <Button
