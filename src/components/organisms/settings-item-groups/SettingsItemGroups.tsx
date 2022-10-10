@@ -11,15 +11,33 @@ export interface SettingsItemGroupsProps {
   groups: Omit<SettingsItemGroupProps, 'translations'>[];
   translations: SettingsItemGroupProps['translations'];
   onSortEnd?: SortEndHandler;
+
+  showCard?: boolean;
 }
 
 const SettingsItemGroups: FC<SettingsItemGroupsProps> = ({
   addButtonProps,
   groups: groupsProp,
   onSortEnd,
-  translations
+  translations,
+  showCard = true
 }) => {
   const [groups, setGroups] = useState(groupsProp);
+
+  const content = (
+    <SortableList
+      onSortEnd={(sortInfo, event) => {
+        const { oldIndex, newIndex } = sortInfo;
+
+        setGroups((prevItems) => [...arrayMoveMutable(prevItems, oldIndex, newIndex)]);
+
+        onSortEnd(sortInfo, event);
+      }}>
+      {groups.map((g, index) => (
+        <SettingsItemGroup index={index} translations={translations} {...g} />
+      ))}
+    </SortableList>
+  );
 
   useEffect(() => {
     setGroups(groupsProp);
@@ -36,20 +54,7 @@ const SettingsItemGroups: FC<SettingsItemGroupsProps> = ({
         />
       )}
 
-      <Card className={styles['SettingsItemGroups__Card']}>
-        <SortableList
-          onSortEnd={(sortInfo, event) => {
-            const { oldIndex, newIndex } = sortInfo;
-
-            setGroups((prevItems) => [...arrayMoveMutable(prevItems, oldIndex, newIndex)]);
-
-            onSortEnd(sortInfo, event);
-          }}>
-          {groups.map((g, index) => (
-            <SettingsItemGroup index={index} translations={translations} {...g} />
-          ))}
-        </SortableList>
-      </Card>
+      {showCard ? <Card className={styles['SettingsItemGroups__Card']}>{content}</Card> : content}
     </div>
   );
 };

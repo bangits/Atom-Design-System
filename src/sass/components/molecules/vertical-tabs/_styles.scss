@@ -1,0 +1,26 @@
+@mixin generate-vertical-tabs-styles {
+    .VerticalTabs {
+        display: flex;
+        padding: calculateRem(20px) calculateRem(22px) calculateRem(20px) 0;
+        &__Button {
+            @include button-reset;
+            display: block;
+            margin-bottom: calculateRem(30px);
+            width: calculateRem(18px);
+            padding-left: calculateRem(14px);
+            padding-right: calculateRem(12px);
+            box-sizing: content-box;
+            &--Active {
+                border-left: calculateRem(2px) solid color(primary);
+            }
+        }
+        &__Sidebar {
+            border-right: calculateRem(0.5px) solid rgba(142, 166, 193, 0.4);
+            margin-right: calculateRem(14px);
+        }
+        &__Content {
+            padding-left: calculateRem(24px);
+            flex-grow: 1;
+        }
+    }
+}

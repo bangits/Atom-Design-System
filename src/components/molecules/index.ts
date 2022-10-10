@@ -45,4 +45,4 @@ export * from './tab';
 export * from './text-input';
 export * from './translation-form';
 export * from './variables';
-
+export * from './vertical-tabs';

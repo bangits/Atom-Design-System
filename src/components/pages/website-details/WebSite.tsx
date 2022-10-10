@@ -21,7 +21,7 @@ export interface WebSiteProps {
     generalInformation: string;
     header: string;
     footer: string;
-    socialMedia: string;
+    media: string;
     desktop: string;
     tablet: string;
     mobile: string;
@@ -42,7 +42,7 @@ export interface WebSiteProps {
 
   //Contents
   settingsContent: ReactNode;
-  socialMediaContent: ReactNode;
+  mediaContent: ReactNode;
   footerContentDesktop: ReactNode;
   footerContentTablet: ReactNode;
   footerContentMobile: ReactNode;
@@ -62,7 +62,7 @@ const WebSite: FC<WebSiteProps> = ({
   translations,
   additionalProps,
   settingsContent,
-  socialMediaContent,
+  mediaContent,
   footerContentDesktop,
   footerContentTablet,
   footerContentMobile,
@@ -168,9 +168,9 @@ const WebSite: FC<WebSiteProps> = ({
                 ]
               },
               {
-                title: translations.socialMedia,
+                title: translations.media,
                 value: 4,
-                content: socialMediaContent
+                content: mediaContent
               }
             ]}
             defaultSubTabValue={1}
