@@ -2,7 +2,7 @@ export * from './add-condition-card';
 export * from './banner-uploader';
 export * from './browsers-group';
 export * from './button-form';
-export * from './category-games';
+export * from './category-items';
 export * from './change-password';
 export * from './collapsable-table';
 export * from './count-view';

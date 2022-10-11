@@ -1,8 +1,8 @@
-@mixin generate-category-games-styles {
+@mixin generate-category-items-styles {
     .CheckboxWithLabel {
         margin-bottom: calculateRem(10px);
     }
-    .CategoryGames {
+    .CategoryItems {
         $this: #{&};
         width: 100%;
         height: 70%;

@@ -58,11 +58,13 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
 
       {showActions && (
         <div className={styles['ItemCategoriesCard__actions']}>
-          <IconButton
-            onClick={onPlayButtonClick}
-            className={styles['ItemCategoriesCard__play']}
-            icon={<Icons.PlayArrowIcon width='100%' />}
-          />
+          {onPlayButtonClick && (
+            <IconButton
+              onClick={onPlayButtonClick}
+              className={styles['ItemCategoriesCard__play']}
+              icon={<Icons.PlayArrowIcon width='100%' />}
+            />
+          )}
 
           <ul className={styles['ItemCategoriesCard__bottom-part']}>
             <li>
