@@ -1,62 +1,63 @@
 @mixin generate-gallery-images-styles {
-    .GalleryImages {
-        position: relative;
-        min-height: calculateRem(475px);
-        &__List {
-            padding-top: calculateRem(15px);
-            row-gap: calculateRem(16px);
-            column-gap: calculateRem(14px);
-            padding-bottom: calculateRem(40px);
-        }
-        &__Img {
-            position: relative;
-            img {
-                cursor: pointer;
-                border: calculateRem(1px) solid color(primary);
-                object-fit: scale-down;
-                transition: all 0.3s;
-            }
-            &--Active {
-                img {
-                    border: calculateRem(2px) solid color(primary);
-                    filter: drop-shadow(0 0 calculateRem(4px) color(black));
-                    transform: scale(1.05);
-                }
-            }
-        }
-        &__Buttons {
-            @include flex(flex-end);
-            position: absolute;
-            width: 100%;
-            bottom: 0;
-        }
-        &__Img img,
-        &__Add {
-            width: calculateRem(150px);
-            height: calculateRem(100px);
-            border-radius: calculateRem(14px);
-        }
-        &__Add {
-            @include flex(center, center);
-            border: calculateRem(1px) dashed color(primary);
-            border-radius: calculateRem(14px);
-            button {
-                display: block;
-                font-size: calculateRem(12px);
-            }
-            svg {
-                width: calculateRem(16px);
-                display: block;
-                margin: auto;
-                margin-bottom: calculateRem(4px);
-            }
-        }
-        &__Sort {
-            position: absolute;
-            color: color(primary);
-            width: calculateRem(10px);
-            left: calculateRem(8px);
-            top: calculateRem(8px);
-        }
+  .GalleryImages {
+    position: relative;
+    min-height: calculateRem(475px);
+    &__List {
+      padding-top: calculateRem(15px);
+      padding-left: calculateRem(10px);
+      row-gap: calculateRem(16px);
+      column-gap: calculateRem(14px);
+      padding-bottom: calculateRem(40px);
     }
+    &__Img {
+      position: relative;
+      img {
+        cursor: pointer;
+        border: calculateRem(1px) solid color(primary);
+        object-fit: scale-down;
+        transition: all 0.3s;
+      }
+      &--Active {
+        img {
+          border: calculateRem(2px) solid color(primary);
+          filter: drop-shadow(0 0 calculateRem(4px) color(black));
+          transform: scale(1.05);
+        }
+      }
+    }
+    &__Buttons {
+      @include flex(flex-end);
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+    }
+    &__Img img,
+    &__Add {
+      width: calculateRem(150px);
+      height: calculateRem(100px);
+      border-radius: calculateRem(14px);
+    }
+    &__Add {
+      @include flex(center, center);
+      border: calculateRem(1px) dashed color(primary);
+      border-radius: calculateRem(14px);
+      button {
+        display: block;
+        font-size: calculateRem(12px);
+      }
+      svg {
+        width: calculateRem(16px);
+        display: block;
+        margin: auto;
+        margin-bottom: calculateRem(4px);
+      }
+    }
+    &__Sort {
+      position: absolute;
+      color: color(primary);
+      width: calculateRem(10px);
+      left: calculateRem(8px);
+      top: calculateRem(8px);
+    }
+  }
 }
