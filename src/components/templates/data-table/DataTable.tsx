@@ -1,10 +1,10 @@
+import { Icons } from '@/atom-design-system';
 import { CollapsableTable, CollapsableTableProps, Filters, FiltersProps, Table, TableProps } from '@/components';
 import { ButtonWithIcon, Divider } from '@/components/atoms';
 import { ExchangeIcon, SettingsIcon } from '@/icons';
 import { noImage, noImageGame } from '@/img';
 import {
   IconButton,
-  Icons,
   Pagination,
   PaginationProps,
   Select,
@@ -57,7 +57,6 @@ export interface DataTableProps<T extends {}, K> {
     clearButtonLabel: string;
     dropdownLabel: string;
   };
-  filtersDropdownProps?: SelectProps<any, boolean, any>;
   isShowedFilter?: boolean;
   defaultSorted?: {
     id: string;
@@ -71,6 +70,11 @@ export interface DataTableProps<T extends {}, K> {
     pageSizeSelect: Omit<PaginationProps['pageSizeSelect'], 'onChange'>;
     getTotalCountInfo(pagination: Pagination): string;
   } & Pick<PaginationProps, 'jumpToPage'>;
+
+  tableBulkActions?: {
+    component: (columns: T[]) => ReactNode;
+    shouldShow(columns: T[]): boolean;
+  }[];
 
   rowCount: number;
   onRefreshButtonClick?: (event: MouseEvent<HTMLButtonElement, globalThis.MouseEvent>) => void;
@@ -94,13 +98,14 @@ export interface DataTableProps<T extends {}, K> {
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
 
   getCollapsableTableProps?(row: T): Omit<CollapsableTableProps, 'dialogViewProps'>;
+
+  renderFilter?(filterProps: Omit<FiltersProps<K>, 'filters' | 'initialValues'>): ReactNode;
 }
 
 function DataTable<T extends {}, K>({
   tableProps,
   filterProps,
   defaultSorted,
-  filtersDropdownProps,
   fetchData,
   isShowedFilter = true,
   defaultPaginationPage = 1,
@@ -119,7 +124,9 @@ function DataTable<T extends {}, K>({
   currencyProperty,
   exchangeCurrencyProperty,
   currencyTranslations,
-  exportButton
+  exportButton,
+  tableBulkActions: tableBulkActionsProps,
+  renderFilter
 }: DataTableProps<T, K>) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
 
@@ -345,13 +352,18 @@ function DataTable<T extends {}, K>({
 
   const tableBulkActions = useMemo(
     () =>
-      actions && selectedRows.length > 1
-        ? actions.map(
-            ({ component: Component, onClick, shouldShow, props }, rowIndex) =>
-              (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
-                <Component onClick={(e) => onClick(selectedRows, e, rowIndex)} {...props} />
-              )
-          )
+      (actions || tableBulkActionsProps) && selectedRows.length > 1
+        ? [
+            ...actions.map(
+              ({ component: Component, onClick, shouldShow, props }, rowIndex) =>
+                (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
+                  <Component onClick={(e) => onClick(selectedRows, e, rowIndex)} {...props} />
+                )
+            ),
+            ...(tableBulkActionsProps?.map(
+              ({ component, shouldShow }) => shouldShow(selectedRows) && component(selectedRows)
+            ) || [])
+          ]
         : null,
     [actions, selectedRows]
   );
@@ -369,6 +381,16 @@ function DataTable<T extends {}, K>({
     };
   }, [openedCollapseInfo, collapsableTableProps]);
 
+  const dataTableFilterProps = useMemo<Omit<FiltersProps<K>, 'filters' | 'initialValues'>>(
+    () => ({
+      onFiltersOpenedChange: setFiltersOpened,
+      className: classNames(styles.Filters, filterProps.className),
+      onSubmit: onFiltersChange,
+      onClear: () => onFiltersChange(filterProps.initialValues)
+    }),
+    []
+  );
+
   useEffect(() => {
     if (pagination === initialPagination) return;
 
@@ -377,16 +399,8 @@ function DataTable<T extends {}, K>({
 
   return (
     <div className={styles.DataTablePageWrapper}>
-      {isShowedFilter && (
-        <Filters
-          {...filterProps}
-          onFiltersOpenedChange={setFiltersOpened}
-          selectProps={filtersDropdownProps}
-          className={classNames(styles.Filters, filterProps.className)}
-          onSubmit={onFiltersChange}
-          onClear={() => onFiltersChange(filterProps.initialValues)}
-        />
-      )}
+      {isShowedFilter &&
+        (renderFilter ? renderFilter(dataTableFilterProps) : <Filters {...filterProps} {...dataTableFilterProps} />)}
 
       <div className={styles.TableConfigsWrapper}>
         <div className={styles.TableLeftSideWrapper}>
@@ -495,7 +509,7 @@ function DataTable<T extends {}, K>({
       <Table
         {...tableProps}
         tableContainerRef={tableContainerRef}
-        height={`calc(100vh - ${isFiltersOpened ? '50rem' : '30rem'})`}
+        height={`calc(100vh - ${isFiltersOpened ? '50rem' : '35rem'})`}
         fetch={onTableFetchData}
         className={classNames(styles.Table, tableProps.className, {
           [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
