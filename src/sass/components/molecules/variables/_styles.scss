@@ -1,0 +1,32 @@
+@mixin generate-variable-styles {
+  .container {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    padding-bottom: 10px;
+    .button.button {
+      color: #4b5767;
+    }
+    .button-active {
+      color: #6667ab !important;
+    }
+    .button.button:hover {
+      color: #6667ab;
+    }
+    .button {
+      width: fit-content;
+      height: fit-content;
+      svg {
+        width: 20px;
+        height: 18px;
+      }
+    }
+    .typography {
+      cursor: pointer;
+    }
+    .typography-container {
+      padding-top: 11px;
+      padding-bottom: 11px;
+    }
+  }
+}

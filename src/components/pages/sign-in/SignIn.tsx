@@ -3,8 +3,8 @@ import { TextInput, TextInputProps } from '@/components';
 import { PasswordInput } from '@/components/molecules';
 import { typedMemo } from '@/helpers';
 import { SignInImage } from '@/icons';
-import { Button, Typography } from '@my-ui/core';
-import React, { FC, useCallback, useMemo } from 'react';
+import { Button, ButtonProps, Typography } from '@my-ui/core';
+import { FC, useCallback, useMemo } from 'react';
 import styles from './SignIn.module.scss';
 
 export interface SignInProps {
@@ -17,7 +17,7 @@ export interface SignInProps {
   passwordInputLabel: string;
   usernameInputName?: string;
   passwordInputName?: string;
-  buttonProps?: string;
+  buttonProps?: ButtonProps;
 }
 
 const SignIn: FC<SignInProps> = ({
@@ -45,7 +45,6 @@ const SignIn: FC<SignInProps> = ({
         <PasswordInput id='password' containerClassName={styles.LoginBottom} {...inputProps} {...props} />,
     []
   );
-  
 
   const emailInput = useMemo(
     () =>

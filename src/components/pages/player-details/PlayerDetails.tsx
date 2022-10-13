@@ -1,4 +1,4 @@
-import { Icons } from '@/atom-design-system';
+import { Icons, IconDropdown } from '@/atom-design-system';
 import {
   FlexibleFormProps,
   ItemDetails,
@@ -63,6 +63,7 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
   userId: number;
   documents: ReactNode;
   wallet: ReactNode;
+  selectContent: ReactNode;
 }
 
 const PlayerDetails: FC<PlayerDetailsProps> = ({
@@ -82,7 +83,8 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   wallet,
   verifiedIcon,
   usedDeviceLabel,
-  noDataText
+  noDataText,
+  selectContent
 }) => {
   return (
     <div className={classNames(styles.PlayerDetailsBase)}>
@@ -100,6 +102,8 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
               </div>
             )}
             <NameAndId name={userName} id={userId} />
+            {selectContent && selectContent}
+
             {verifiedIcon && (
               <div className={styles['CardName--verified']}>
                 <Icons.PlayerVerifiedIcon />

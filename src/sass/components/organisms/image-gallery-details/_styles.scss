@@ -1,0 +1,33 @@
+@mixin generate-image-gallery-details-styles {
+    .ImageGalleryDetails {
+        min-height: inherit;
+        padding: calculateRem(40px) calculateRem(24px) 0 calculateRem(32px);
+        background-color: #fff;
+        box-sizing: border-box;
+        &__Title {
+            margin-bottom: calculateRem(6px);
+        }
+        $container-gap: calculateRem(24px);
+        &__Container {
+            display: flex;
+            flex-wrap: wrap;
+            column-gap: $container-gap;
+        }
+        &__Left,
+        &__Right {
+            padding: calculateRem(24px);
+            border: #{calculateRem(1px)} solid rgba(142, 166, 193, 0.2);
+            min-height: calculateRem(522px);
+            box-sizing: border-box;
+        }
+        &__Left {
+            width: 60%;
+        }
+        &__Right {
+            width: calc(40% - #{$container-gap} - #{calculateRem(4px)});
+            &--Centered {
+                @include flex(null, center);
+            }
+        }
+    }
+}

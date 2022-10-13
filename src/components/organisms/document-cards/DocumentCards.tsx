@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { DocumentCard } from '../document-card';
 import styles from './DocumentCards.module.scss';
-
+import React from 'react';
 export interface DocumentCardsProps {
   noDataText: string;
   documents: any;

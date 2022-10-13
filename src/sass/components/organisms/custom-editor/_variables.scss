@@ -1,0 +1,25 @@
+$editor-sizes: (
+  wrapper-border-width: 1px,
+  editor-min-height: calculateRem(224px),
+  editor-border-radius: calculateRem(4px),
+  editor-max-width: calculateRem(1322px),
+  editor-sm-max-height: calculateRem(90px),
+  editor-sm-font-size: calculateRem(16px),
+  wrapper-max-width: calculateRem(1354px),
+  editor-padding-left-right: calculateRem(20px),
+  typography-padding-left-right: calculateRem(3px),
+  typography-left: calculateRem(24px),
+  wrapper-margin-bottom: calculateRem(40px),
+  container-max-width: calculateRem(1354px)
+);
+$editor-colors: (
+  wrapper-border-color: color(nepal)
+);
+
+@function getEditorSizes($key) {
+  @return map-get($editor-sizes, $key);
+}
+
+@function getEditorColors($key) {
+  @return map-get($editor-colors, $key);
+}

@@ -1,0 +1,18 @@
+@mixin generate-details-page-styles {
+    .DetailsPage {
+        padding: 0 calculateRem(24px);
+        &__breadCrumb {
+            margin-bottom: calculateRem(16px);
+        }
+        &__content-wrapper {
+            @include flex(null, flex-start);
+        }
+        &__content {
+            margin-left: calculateRem(8px);
+            min-width: 80%;
+            min-height: calculateRem(656px);
+            box-sizing: border-box;
+            border-radius: calculateRem(16px);
+        }
+    }
+}

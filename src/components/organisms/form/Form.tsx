@@ -5,15 +5,15 @@ import React, { FC } from 'react';
 import styles from './Form.module.scss';
 import FormFields from './FormFields';
 import { FormFieldProp, FormFieldTypes } from './FormFieldTypes';
-import getFormField from './getFormField';
 
 export interface FormProps {
   onBackButtonClick?: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
+  renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;
+  bottomActions?: boolean;
   showBackButton?: boolean;
   title: string;
   firstButtonProps: ButtonProps;
   secondButtonProps: ButtonProps;
-  renderInputs: (InputComponent: React.ElementType, name: string, fieldType: FormFieldTypes, props: any) => JSX.Element;
   fields: FormFieldProp[];
 }
 
@@ -23,6 +23,7 @@ const Form: FC<FormProps> = ({
   secondButtonProps,
   fields,
   showBackButton = false,
+  bottomActions = false,
   renderInputs,
   onBackButtonClick
 }) => {
@@ -36,7 +37,10 @@ const Form: FC<FormProps> = ({
             </Typography>
             <FormFields fields={fields} renderInputs={renderInputs} />
           </div>
-          <div className={styles.ProviderButtonGroup}>
+          <div
+            className={classNames(styles.ProviderButtonGroup, {
+              [styles['ProviderButtonGroup--bottomActions']]: bottomActions
+            })}>
             {showBackButton && (
               <button type='button' className={styles.ProviderBackButton} onClick={onBackButtonClick}>
                 {/* <svg xmlns='http://www.w3.org/2000/svg' width='10.11' height='10.11' viewBox='0 0 11.207 11.414'>

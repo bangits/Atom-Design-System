@@ -1,18 +1,25 @@
+import { IconDropdown } from '@/atom-design-system';
+import { CopyButton } from '@/components/atoms/copy-button';
 import { typedMemo } from '@/helpers/typedMemo';
 import { PhotoCamIcon } from '@/icons';
 import { Card } from '@my-ui/core';
 import classNames from 'classnames';
+import { ReactNode } from 'react';
 import styles from './ProfileBlock.module.scss';
 
 export interface ProfileBlockProps {
-  onBackgroundImgClick: () => void;
+  onBackgroundImgClick?: () => void;
   onMainImgClick?: () => void;
   backgroundImgUrl: string;
   mainImgUrl?: string;
   itemName: string;
-  itemId: number | string;
+  itemId?: ReactNode;
   isLoadingImage?: boolean;
-  isShowEditIcons?: boolean;
+  viewMode?: boolean;
+  addCopyButton?: boolean;
+  itemLabel?: string;
+  assignTo?: boolean;
+  selectContent?: ReactNode;
 }
 
 const ProfileBlock = ({
@@ -23,7 +30,10 @@ const ProfileBlock = ({
   itemId,
   itemName,
   isLoadingImage,
-  isShowEditIcons = true
+  viewMode = false,
+  addCopyButton,
+  itemLabel,
+  selectContent
 }: ProfileBlockProps) => {
   return (
     <>
@@ -38,7 +48,7 @@ const ProfileBlock = ({
               <img className={classNames(styles['ProfileBlock__Img'], 'ProfileBlock__Img')} src={mainImgUrl} />
             )}
 
-            {!isLoadingImage && (
+            {!isLoadingImage && !viewMode && (
               <PhotoCamIcon
                 onClick={!mainImgUrl ? undefined : onMainImgClick}
                 width='2.1rem'
@@ -54,27 +64,40 @@ const ProfileBlock = ({
           onClick={backgroundImgUrl ? undefined : onBackgroundImgClick}>
           {backgroundImgUrl && (
             <img
-              className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg')}
+              className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg', {
+                [styles['ProfileBlock__Image']]:
+                  backgroundImgUrl === 'https://nid.com.ua/wp-content/themes/realestate-7/images/no-image.png' ||
+                  backgroundImgUrl === 'https://i.ibb.co/dMQPWnZ/no-image.png' ||
+                  backgroundImgUrl === 'https://i.ibb.co/c2yqT5q/image.png'
+              })}
               src={backgroundImgUrl}
             />
           )}
-          <div
-            className={classNames(styles['ProfileBlock__CoverPhotoIconCell'], 'ProfileBlock__CoverPhotoIconCell')}
-            onClick={!backgroundImgUrl ? undefined : onBackgroundImgClick}>
-            {!isLoadingImage && (
-              <PhotoCamIcon
-                width='1rem'
-                className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
-              />
-            )}
-          </div>
+          {!viewMode && (
+            <div
+              className={classNames(styles['ProfileBlock__CoverPhotoIconCell'], 'ProfileBlock__CoverPhotoIconCell')}
+              onClick={!backgroundImgUrl ? undefined : onBackgroundImgClick}>
+              {!isLoadingImage && (
+                <PhotoCamIcon
+                  width='1rem'
+                  className={classNames(styles['ProfileBlock__CoverPhotoIcon'], 'ProfileBlock__CoverPhotoIcon')}
+                />
+              )}
+            </div>
+          )}
         </div>
         <div
           className={classNames(styles['ProfileBlock__Info'], 'ProfileBlock__Info', {
             [styles['ProfileBlock__Info--without-logo']]: onMainImgClick === undefined
           })}>
-          <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>{itemName}</div>
-          <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>{itemId}</div>
+          <div className={classNames(styles['ProfileBlock__Title'], 'ProfileBlock__Title')}>
+            {itemName}
+
+            {selectContent && <IconDropdown>{selectContent}</IconDropdown>}
+          </div>
+          <div className={classNames(styles['ProfileBlock__SubTitle'], 'ProfileBlock__SubTitle')}>
+            {itemLabel} {itemId} {addCopyButton && <CopyButton copyText={itemId} />}
+          </div>
         </div>
       </Card>
     </>

@@ -15,11 +15,16 @@ export interface NameDescriptionProps {
       description: ReactNode;
     }[];
   }[];
+  addSpacings?: boolean;
 }
 
-const NameDescription: FC<NameDescriptionProps> = ({ data, title, children, noDataText }) => {
+const NameDescription: FC<NameDescriptionProps> = ({ data, title, children, noDataText, addSpacings }) => {
   return (
-    <Card borderRadius={1.6} className={classNames(styles.NameDescriptionBase)}>
+    <Card
+      borderRadius={1.6}
+      className={classNames(styles.NameDescriptionBase, {
+        [styles['NameDescriptionBase--with-spacings']]: addSpacings
+      })}>
       {title && <span className={styles['NameDescriptionBase--title']}>{title}</span>}
       {data.map((d, index) => (
         <React.Fragment key={index}>

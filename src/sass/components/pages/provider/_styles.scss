@@ -1,76 +1,73 @@
 @mixin generate-provider-styles {
-  .ProviderWrapper {
-    width: getProviderSizes(provider-wrapper);
-    margin: auto;
-    min-height: inherit;
-    @include flex(null, center);
-
-    .ProviderCard {
-      padding: getProviderSizes(provider-card-padding);
-      box-sizing: border-box;
-      min-height: getProviderSizes(provider-card-min-height);
-      @include flex(null, null, $direction: column);
-      background-color: getProviderColors(provider-background-color);
-
-      .ProviderContainer {
-        .ProviderTitle {
-          font-weight: getProviderSizes(provider-title-fontWeight);
-          text-align: getProviderSizes(provider-title-align);
-          padding-top: getProviderSizes(provider-title-padding-top);
+    .ProviderWrapper {
+        width: getProviderSizes(provider-wrapper);
+        margin: auto;
+        min-height: inherit;
+        @include flex(null, center);
+        .ProviderCard {
+            padding: getProviderSizes(provider-card-padding);
+            box-sizing: border-box;
+            min-height: getProviderSizes(provider-card-min-height);
+            @include flex(null, null, $direction: column);
+            background-color: getProviderColors(provider-background-color);
+            .ProviderContainer {
+                .ProviderTitle {
+                    font-weight: getProviderSizes(provider-title-fontWeight);
+                    text-align: getProviderSizes(provider-title-align);
+                    padding-top: getProviderSizes(provider-title-padding-top);
+                }
+            }
+            .ProviderButtonGroup {
+                @include flex(center, center);
+                margin-top: getProviderSizes(provider-button-group-margin-top);
+                position: relative;
+                svg {
+                    width: getProviderSizes(provider-button-group-svg-width) !important;
+                }
+                .ProviderCloseButton {
+                    margin-right: getProviderSizes(provider-button-closeMargin);
+                    border-color: getProviderColors(close-button-border-color);
+                    color: getProviderColors(close-button-color);
+                }
+                .ProviderBackButton {
+                    @include flex(center, center);
+                    border: getProviderSizes(provider-back-button-border) solid getProviderColors(provider-back-button-border-color);
+                    padding: getProviderSizes(provider-back-button-padding);
+                    position: absolute;
+                    border-radius: getProviderSizes(provider-back-button-border-radius);
+                    left: 0;
+                    cursor: pointer;
+                }
+                .ProviderButtons {
+                    @include flex(center, center);
+                }
+                &--bottomActions {
+                    margin-top: auto;
+                }
+            }
         }
-      }
-
-      .ProviderButtonGroup {
-        @include flex(center, center);
-        margin-top: getProviderSizes(provider-button-group-margin-top);
-        position: relative;
-        svg {
-          width: getProviderSizes(provider-button-group-svg-width) !important;
-        }
-        .ProviderCloseButton {
-          margin-right: getProviderSizes(provider-button-closeMargin);
-          border-color: getProviderColors(close-button-border-color);
-          color: getProviderColors(close-button-color);
-        }
-        .ProviderBackButton {
-          @include flex(center, center);
-          border: getProviderSizes(provider-back-button-border) solid
-            getProviderColors(provider-back-button-border-color);
-          padding: getProviderSizes(provider-back-button-padding);
-          position: absolute;
-          border-radius: getProviderSizes(provider-back-button-border-radius);
-          left: 0;
-          cursor: pointer;
-        }
-        .ProviderButtons {
-          @include flex(center, center);
-        }
-      }
     }
-  }
-
-  .ProviderContainerWrapper {
-    margin-top: getProviderSizes(provider-container-wrapper);
-
-    .ProviderFormGroup {
-      @include flex(null, null, $flex-wrap: wrap);
-      column-gap: getProviderSizes(provider-column-gap);
-      margin-bottom: getProviderSizes(provider-form-groupMarginTop);
-
-      .ProviderForm {
-        width: 100%;
-        min-height: getProviderSizes(provider-form-height);
-        margin-bottom: getProviderSizes(provider-field-margin-bottom);
-        flex-grow: getProviderSizes(provider-form-flex-grow);
-
-        &--col-4 {
-          max-width: getProviderSizes(provider-col-4-width);
+    .ProviderContainerWrapper {
+        margin-top: getProviderSizes(provider-container-wrapper);
+        &--removeMargin {
+            margin-top: 0;
         }
-
-        &--col-6 {
-          max-width: getProviderSizes(provider-col-6-width);
+        .ProviderFormGroup {
+            @include flex(null, null, $flex-wrap: wrap);
+            column-gap: getProviderSizes(provider-column-gap);
+            margin-bottom: getProviderSizes(provider-form-groupMarginTop);
+            .ProviderForm {
+                width: 100%;
+                min-height: getProviderSizes(provider-form-height);
+                margin-bottom: getProviderSizes(provider-field-margin-bottom);
+                flex-grow: getProviderSizes(provider-form-flex-grow);
+                &--col-4 {
+                    max-width: getProviderSizes(provider-col-4-width);
+                }
+                &--col-6 {
+                    max-width: getProviderSizes(provider-col-6-width);
+                }
+            }
         }
-      }
     }
-  }
 }

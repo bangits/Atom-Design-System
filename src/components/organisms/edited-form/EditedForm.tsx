@@ -1,9 +1,10 @@
 import { typedMemo } from '@/helpers';
 import { DustbinIcon, PenIcon } from '@/icons';
-import { Card, IconButton, Tag, Tooltip, useStyles } from '@my-ui/core';
+import { Card, IconButton, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
+import EditedFormOptions from './EditedFormOptions';
 
 export interface EditedFormProps {
   editButtonTooltipText?: string;
@@ -14,6 +15,8 @@ export interface EditedFormProps {
         value: ReactNode | string;
         variant: 'default';
         shouldLineTranslation?: boolean;
+        col?: 4 | 6 | 12;
+        overflow?: 'ellipsis' | 'none';
       }
     | {
         title: ReactNode | string;
@@ -29,6 +32,14 @@ export interface EditedFormProps {
         value: string[];
         variant: 'tag';
       }
+    | {
+        title: ReactNode | string;
+        value: ReactNode;
+        shouldLineTranslation?: boolean;
+        fullWidth?: boolean;
+        alignItem?: 'end';
+        variant: 'custom';
+      }
   )[];
   noDataText?: ReactNode;
   title?: ReactNode;
@@ -39,6 +50,10 @@ export interface EditedFormProps {
   showDeleteButton?: boolean;
   onDelete?: () => void;
   showEditIcons?: boolean;
+  startJustify?: boolean;
+  removeCard?: boolean;
+  removeShadow?: boolean;
+  disableEditButton?: boolean;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -54,10 +69,21 @@ const EditedForm: FC<EditedFormProps> = ({
   showDeleteButton,
   deleteButtonTooltipText,
   onDelete,
-  showEditIcons = true
+  showEditIcons = true,
+  removeCard,
+  startJustify,
+  disableEditButton = false,
+  removeShadow
 }) => {
+  const containerRef = useRef<HTMLDivElement>();
+
   const [isOpenedCollapse, setOpenedCollapse] = useState<boolean>(false);
-  const [height, setHeight] = useState<number>();
+  // eslint-disable-next-line prefer-const
+  let [height, setHeight] = useState<number>();
+
+  const containerHeight = containerRef.current?.scrollHeight;
+
+  if (height !== containerHeight) height = containerHeight;
 
   const viewMoreClassNames = useStyles(
     {
@@ -81,14 +107,13 @@ const EditedForm: FC<EditedFormProps> = ({
     setOpenedCollapse(!isOpenedCollapse);
   }, [isOpenedCollapse]);
 
-  const containerRef = useRef<HTMLDivElement>();
-
   useLayoutEffect(() => {
-    const height = containerRef.current.scrollHeight;
+    const height = containerRef.current?.scrollHeight;
 
-    // Using setTimeout for setting the height after first render
-    setHeight(height);
-  }, [containerRef]);
+    if (height !== undefined) setHeight(height);
+  }, [containerRef, children]);
+
+  if (removeCard) return <>{children}</>;
 
   return (
     <div
@@ -102,7 +127,7 @@ const EditedForm: FC<EditedFormProps> = ({
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             <Tooltip showEvent='hover' text={editButtonTooltipText}>
-              <IconButton icon={<PenIcon />} onClick={onToggle} />
+              <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
             </Tooltip>
             {showDeleteButton && (
               <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
@@ -112,61 +137,21 @@ const EditedForm: FC<EditedFormProps> = ({
           </div>
         )}
       </div>
-      <Card borderRadius={1.6} className={classNames(styles['EditedFormBase--card-content'])}>
+      <Card
+        borderRadius={1.6}
+        className={classNames(styles['EditedFormBase--card-content'], {
+          [styles['EditedFormBase--remove-shadow']]: removeShadow
+        })}>
         <div
           className={classNames(styles['EditedFormBase--content'], {
             [viewMoreClassNames.closed]: !isOpenedCollapse,
             [viewMoreClassNames.open]: isOpenedCollapse,
-            [styles[`EditedFormBase--content-children`]]: children
+            [styles['EditedFormBase--content-children']]: children,
+            [styles['EditedFormBase--content-start-justify']]: startJustify
           })}
           ref={containerRef}>
-          {children ? (
-            <div>{children}</div>
-          ) : (
-            <>
-              {options &&
-                options?.map((option, index) =>
-                  option.variant === 'default' ? (
-                    <div
-                      key={index}
-                      className={classNames(styles['EditedFormBase--option'], {
-                        [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation
-                      })}>
-                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                      <span className={classNames(styles['EditedFormBase--option-value'])}>
-                        {option.value || noDataText}
-                      </span>
-                    </div>
-                  ) : option.variant === 'label' ? (
-                    <div key={index} className={classNames(styles['EditedFormBase--option-label'])}>
-                      <span>{option.title}</span>
-                    </div>
-                  ) : option.variant === 'tag' ? (
-                    <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
-                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                      <div>
-                        {option.value.length === 0 ? (
-                          <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
-                        ) : (
-                          option.value?.map((o, index) => <Tag title={o} key={index} />)
-                        )}
-                      </div>
-                    </div>
-                  ) : option.variant === 'bold' ? (
-                    <div key={index} className={classNames(styles['EditedFormBase--option'])}>
-                      <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
-                      <span
-                        className={classNames(
-                          styles['EditedFormBase--option-value'],
-                          styles['EditedFormBase--option-value-bold']
-                        )}>
-                        {option.value || noDataText}
-                      </span>
-                    </div>
-                  ) : null
-                )}
-            </>
-          )}
+          {children || <EditedFormOptions options={options} noDataText={noDataText} />}
+
           {height > 248 && (
             <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'], 'HELLLO WORLD')}>
               <div

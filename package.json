@@ -1,6 +1,6 @@
 {
     "name": "@atom/design-system",
-    "version": "4.0.2",
+    "version": "4.1.41",
     "files": [
         "dist"
     ],
@@ -91,14 +91,23 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "@my-ui/core": "^0.8.3",
+        "@my-ui/core": "^0.9.18",
         "classnames": "^2.3.1",
-        "latest": "^0.2.0",
-        "react": "^17.0.2",
+        "draft-js": "^0.11.7",
+        "draftjs-to-html": "^0.9.1",
+        "react": "17.0.0",
         "react-cropper": "^2.1.8",
-        "react-dom": "^17.0.2",
+        "react-dnd": "15.1.2",
+        "react-dnd-html5-backend": "^16.0.1",
+        "react-dom": "17.0.0",
+        "react-draft-wysiwyg": "^1.15.0",
         "react-jss": "^10.8.2",
         "react-sortable-hoc": "^2.0.0",
-        "react-transition-group": "^4.4.2"
+        "react-transition-group": "^4.4.2",
+        "regenerator-transform": "^0.14.5"
+    },
+    "resolutions": {
+        "@types/react": "^17.0.27",
+        "@types/react-dom": "^17.0.8"
     }
 }

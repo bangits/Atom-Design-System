@@ -1,0 +1,74 @@
+@mixin generate-dnd-selection-styles {
+    .DnDSelection {
+        display: flex;
+        width: 100%;
+        max-width: calculateRem(770px);
+        margin: auto;
+        &__right-arrow {
+            @include flex(null, center);
+            margin-right: calculateRem(20px);
+            svg {
+                transform: scale(1.5);
+            }
+        }
+        &__title {
+            padding-left: calculateRem(15px);
+            margin-bottom: calculateRem(10px);
+            &,
+            &>*:first-child {
+                font-size: calculateRem(16px);
+                line-height: calculateRem(19px);
+            }
+            &>*:first-child {
+                font-weight: 400;
+                margin: 0;
+            }
+        }
+        &__buttons {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+        }
+        &__card {
+            position: relative;
+            padding: calculateRem(15px);
+            box-sizing: border-box;
+            &--with-top-content {
+                padding-top: calculateRem(93.5px);
+            }
+        }
+        &__card-container {
+            width: 50%;
+            min-height: calculateRem(400px);
+            &--draggable {
+                margin-right: calculateRem(20px);
+            }
+        }
+        &__draggable-container {
+            padding-top: calculateRem(10px);
+            padding-right: calculateRem(10px);
+        }
+        &__droppable-container {
+            padding-right: calculateRem(25px);
+        }
+        &__droppable-top-content {
+            position: absolute;
+            top: calculateRem(10px);
+            right: calculateRem(24px);
+        }
+        &__empty {
+            @include flex(center, center, $direction: column);
+            height: 100%;
+            margin-top: calculateRem(-30px);
+        }
+        &__emptyText {
+            font-size: calculateRem(14px);
+            text-align: center;
+            margin: 0;
+            margin-top: calculateRem(10px);
+        }
+        &__emptyIcon {
+            width: calculateRem(100px);
+        }
+    }
+}

@@ -1,0 +1,26 @@
+@mixin generate-add-condition-card-styles {
+    .AddConditionCard {
+        $this: #{&};
+        margin-top: calculateRem(40px);
+        padding: calculateRem(24px) calculateRem(32px);
+        box-sizing: border-box;
+        &__Border {
+            @include flex(center, center);
+            min-height: calculateRem(80px);
+            box-shadow: calculateRem(3px) calculateRem(3px) calculateRem(6px) rgba(0, 0, 0, 0.05);
+            border: calculateRem(1px) dashed #505d6e;
+            border-radius: calculateRem(8px);
+            &--disabled {
+                opacity: 0.4;
+                #{$this}__Button {
+                    cursor: default;
+                }
+            }
+        }
+        &__Button {
+            &#{&} {
+                text-decoration: none;
+            }
+        }
+    }
+}

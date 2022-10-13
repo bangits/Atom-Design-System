@@ -102,7 +102,7 @@ export const BannerUploader = ({
                 onClick: () => {
                   setMode(BannerUploaderMode.VIEW);
 
-                  if (!uploadedImage.includes('http')) setUploadedImage('');
+                  if (uploadedImage.includes('http:')) setUploadedImage('');
                 },
                 position: 'left' as const
               },

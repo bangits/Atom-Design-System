@@ -6,7 +6,6 @@
     background-color: getNameDescriptionColors(base-bg);
     padding: getNameDescriptionSizes(base-padding);
     box-sizing: border-box;
-
     &--title {
       position: relative;
       top: getNameDescriptionSizes(title-position-top);
@@ -19,16 +18,13 @@
       text-align: left;
       word-break: break-word;
     }
-
     &--core {
       @include flex(space-between, center);
       margin: getNameDescriptionSizes(core-margin);
-
       &:last-child {
         margin-bottom: getNameDescriptionSizes(core-last-child-margin-bottom);
       }
     }
-
     &--name {
       @include dots-after-text();
       height: getNameDescriptionSizes(title-height);
@@ -36,15 +32,14 @@
       color: getNameDescriptionColors(name-color);
       max-width: getNameDescriptionSizes(name-max-width);
     }
-
     &--description {
       @include dots-after-text();
       height: getNameDescriptionSizes(description-height);
       font-size: getNameDescriptionSizes(description-font-size);
       color: getNameDescriptionColors(description-color);
       max-width: getNameDescriptionSizes(description-max-width);
+      padding-left: calculateRem(4px);
     }
-
     &--sub-core {
       @include flex(space-between, center);
       margin: getNameDescriptionSizes(core-margin);
@@ -52,13 +47,11 @@
       font-size: getNameDescriptionSizes(description-font-size);
       color: getNameDescriptionColors(description-color);
     }
-
     &--sub-core__name {
       @include flex(null, center);
       height: getNameDescriptionSizes(title-height);
       font-size: getNameDescriptionSizes(title-font-size);
       color: getNameDescriptionColors(name-color);
-
       &:before {
         content: '';
         width: getNameDescriptionSizes(dot-width-height);
@@ -68,7 +61,6 @@
         margin: getNameDescriptionSizes(dot-margin);
       }
     }
-
     &--children {
       @include flex(space-between, center);
       border-top: getNameDescriptionSizes(children-border) solid getNameDescriptionColors(children-border-color);
@@ -78,8 +70,12 @@
       > span {
         height: getNameDescriptionSizes(title-height);
         font-size: getNameDescriptionSizes(title-font-size);
+        border: 2px solid red;
         color: getNameDescriptionColors(name-color);
       }
+    }
+    &--with-spacings {
+      margin-bottom: calculateRem(8px);
     }
   }
 }

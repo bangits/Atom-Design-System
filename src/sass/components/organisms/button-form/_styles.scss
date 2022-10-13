@@ -1,0 +1,27 @@
+@mixin generate-button-form-styles {
+    .ButtonForm {
+        position: relative;
+        &__content {
+            width: fit-content;
+            height: auto;
+            position: absolute;
+            z-index: 1;
+            bottom: 0;
+            transform: translateY(100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+            padding: calculateRem(14px);
+            box-sizing: border-box;
+            background-color: #fff;
+            &--open {
+                opacity: 1;
+            }
+            &--right {
+                right: 0;
+            }
+            &--left {
+                left: 0;
+            }
+        }
+    }
+}

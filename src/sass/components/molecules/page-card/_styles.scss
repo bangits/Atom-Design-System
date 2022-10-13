@@ -1,0 +1,14 @@
+@mixin generate-page-card-styles {
+    .PageCard {
+        background-color: color(white);
+        padding: calculateRem(16px);
+        box-sizing: border-box;
+    }
+    .PageCardWrapper {
+        margin-top: calculateRem(12px);
+        padding: 0 calculateRem(24px);
+        &__breadcrumb {
+            margin-bottom: calculateRem(12px);
+        }
+    }
+}

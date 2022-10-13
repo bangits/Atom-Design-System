@@ -1,5 +1,5 @@
 import { AddProviderNameIdProps, CheckboxGroupProps, RadioGroupProps, TextInputProps } from '@/components';
-import { DatepickerProps, DateTimePickerProps, SelectProps } from '@my-ui/core';
+import { CheckboxProps, DatepickerProps, DateTimePickerProps, SelectProps } from '@my-ui/core';
 import { ReactNode } from 'react';
 
 export type FormFieldTypes =
@@ -11,13 +11,15 @@ export type FormFieldTypes =
   | 'checkbox'
   | 'radio'
   | 'header'
-  | 'from-to-input';
+  | 'from-to-input'
+  | 'single-checkbox';
 export type FormFieldValueType = string | number | string[] | number[] | Date;
 
 export type FormFieldProp = {
   name: string;
   col?: number;
   additionalProps?: any;
+  justifyContent?: 'flex-end';
 } & (
   | {
       label?: string;
@@ -48,6 +50,12 @@ export type FormFieldProp = {
       type: 'checkbox';
       props?: CheckboxGroupProps;
       component?: (props: CheckboxGroupProps) => JSX.Element;
+    }
+  | {
+      type: 'single-checkbox';
+      props?: CheckboxProps;
+      label?: string;
+      component?: (props: CheckboxProps) => JSX.Element;
     }
   | {
       type: 'datepicker';

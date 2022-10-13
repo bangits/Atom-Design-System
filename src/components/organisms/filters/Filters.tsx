@@ -5,7 +5,7 @@ import { arrayMoveMutable } from '@/helpers';
 import { typedMemo } from '@/helpers/typedMemo';
 import { Button, Card, Select, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
+import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import styles from './Filters.module.scss';
@@ -221,22 +221,24 @@ function Filters<T>({
               className={styles.FiltersDropdown}
               color='primary'
             />
-            <Divider>
-              <Button
-                variant='link'
-                onClick={(event) => {
-                  setDisabledSaveButton(true);
+            {onSaveClick && saveLabel && (
+              <Divider>
+                <Button
+                  variant='link'
+                  onClick={(event) => {
+                    setDisabledSaveButton(true);
 
-                  if (onSaveClick) onSaveClick(filters, showedFilters, event);
-                }}
-                disabled={isDisabledSaveButton}
-                className={styles.SaveButton}
-                startIcon={<Icons.SaveIcon />}>
-                {saveLabel}
-              </Button>
-            </Divider>
+                    if (onSaveClick) onSaveClick(filters, showedFilters, event);
+                  }}
+                  disabled={isDisabledSaveButton}
+                  className={styles.SaveButton}
+                  startIcon={<Icons.SaveIcon />}>
+                  {saveLabel}
+                </Button>
+              </Divider>
+            )}
 
-            <InfoTooltip infoTooltipText={infoTooltipText} />
+            {infoTooltipText && <InfoTooltip infoTooltipText={infoTooltipText} />}
           </div>
 
           <div className={styles.ToggleContainer}>

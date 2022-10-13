@@ -1,0 +1,64 @@
+@mixin generate-condition-details-styles {
+  .ConditionCard {
+    @include generateBorderWithBoxShadow(getConditionCardColors(border-color), 0.1rem);
+    border-radius: getConditionCardSizes(border-radius);
+    height: getConditionCardSizes(container-height);
+    background-color: getConditionCardColors(bg);
+    border: solid calculateRem(1px);
+    border-color: #feffff;
+    height: calculateRem(448px);
+    display: flex;
+    margin: calculateRem(10px);
+
+    display: block;
+    text-align: center;
+
+    &--col-6 {
+      width: 50%;
+    }
+    &--col-12 {
+      width: 100%;
+    }
+    svg {
+      height: calculateRem(24px);
+      width: calculateRem(24px);
+    }
+
+    &--title {
+      color: getConditionCardColors(title-color);
+      margin: calculateRem(20px);
+      font-weight: 600;
+    }
+    &--sub-title {
+      color: getConditionCardColors(title-color);
+      margin: calculateRem(20px);
+    }
+
+    &--actions {
+      height: calculateRem(95px);
+      border-radius: calculateRem(16px);
+      border: solid calculateRem(1px);
+      border-color: #feffff;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.25);
+      margin: 5rem 4rem 0 4rem;
+      @include flex(null, center);
+
+      justify-content: space-around;
+
+      &-left-block {
+        color: #505d6e;
+        @include flex(null, center);
+        gap: calculateRem(8px);
+        margin-left: 10rem;
+        cursor: pointer;
+      }
+      &-right-block {
+        cursor: pointer;
+        color: #505d6e;
+        @include flex(null, center);
+        gap: calculateRem(8px);
+        margin-right: 10rem;
+      }
+    }
+  }
+}

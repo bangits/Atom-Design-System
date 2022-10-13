@@ -8,6 +8,10 @@ export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
 export {
   AcceptionDialog,
   AcceptionDialogProps,
+  Breadcrumb,
+  Button,
+  ButtonProps,
+  Collapse,
   Dialog,
   DialogActions,
   DialogBody,
@@ -21,9 +25,13 @@ export {
   DialogProvider,
   DialogTypes,
   DialogWithActions,
-  DialogWithActionsProps
+  DialogWithActionsProps,
+  Pagination,
+  Tooltip,
+  typedMemo
 } from '@my-ui/core';
 export * from './components';
+export * from './helpers/arrayMove';
 export * from './services';
 
 try {

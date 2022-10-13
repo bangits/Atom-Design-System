@@ -1,8 +1,8 @@
 import { TextInput, TextInputProps } from '@/components';
 import { PasswordInput } from '@/components/molecules';
 import { ChangePasswordIcon } from '@/icons';
-import { Button, Card, Typography } from '@my-ui/core';
-import React, { FC, useCallback, useMemo } from 'react';
+import { Button, ButtonProps, Card, Typography } from '@my-ui/core';
+import { FC, useCallback, useMemo } from 'react';
 import styles from './ChangePassword.module.scss';
 
 export interface ChangePasswordProps {
@@ -15,7 +15,7 @@ export interface ChangePasswordProps {
   confirmPasswordInputLabel?: string;
   newPasswordInputName?: string;
   confirmPasswordInputName?: string;
-  buttonProps?: string;
+  buttonProps?: ButtonProps;
   changePasswordErrorMessageName?: string;
   skipOnSubmit: () => void;
 }

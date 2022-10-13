@@ -9,7 +9,7 @@ import {
 import { DesktopIcon, MobileIcon, TabletIcon } from '@/icons';
 import { TagCountryProps, TagProps, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './GameDetails.module.scss';
 
 export interface GameCompatibilityProps {
@@ -30,7 +30,7 @@ export interface GameCompatibilityProps {
     portrait: string;
     landscape: string;
   };
-  devices: number[];
+  devices: (number | string)[];
   mobilePortrait: boolean;
   mobileLandscape: boolean;
   desktopPortrait: boolean;

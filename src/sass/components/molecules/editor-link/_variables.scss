@@ -1,0 +1,11 @@
+$editor-link-sizes: ();
+
+$editor-link-colors: ();
+
+@function getEditorLinkSizes($key) {
+  @return map-get($editor-link-sizes, $key);
+}
+
+@function getEditorLinkColors($key) {
+  @return map-get($editor-link-colors, $key);
+}

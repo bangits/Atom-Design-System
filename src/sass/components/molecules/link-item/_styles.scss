@@ -1,0 +1,29 @@
+@mixin generate-link-item-styles {
+    .LinkItem {
+        @include flex(null, center);
+        font-size: calculateRem(14px);
+        margin-bottom: calculateRem(12px);
+        &__index {
+            margin-right: calculateRem(6px);
+        }
+        &__content {
+            @include flex(null, center);
+            background: #f6f8fe;
+            border-radius: calculateRem(16px);
+            padding: 0 calculateRem(6px);
+            min-width: calculateRem(266px);
+            min-height: calculateRem(30px);
+            padding-top: calculateRem(5px);
+            padding-bottom: calculateRem(5px);
+            img {
+                max-width: calculateRem(18px);
+                margin-right: calculateRem(8px);
+                border-radius: 50%;
+            }
+            p {
+                margin: 0;
+                flex-grow: 1;
+            }
+        }
+    }
+}

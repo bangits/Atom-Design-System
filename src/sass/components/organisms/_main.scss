@@ -1,4 +1,6 @@
 @import './filter/main';
+@import './image-gallery-details/main';
+@import './image-galleries/main';
 @import './edited-form/main';
 @import './edit-form/main';
 @import './user-view/main';
@@ -7,6 +9,7 @@
 @import './status-view/main';
 @import './last-activity-view/main';
 @import './tags-view/main';
+@import './criteria-form/main';
 @import './item-details/main';
 @import './file-uploader/main';
 @import './banner-uploader/main';
@@ -36,4 +39,12 @@
 @import './document-status/main';
 @import './wallet-card/main';
 @import './player-wallets/main';
+@import './details-page/main';
 @import './game-list/main';
+@import './button-form/main';
+@import './settings-form/main';
+@import './category-items/main';
+@import './condition-card/main';
+@import './condition-details/main';
+@import './add-activity/main';
+@import './custom-editor/main';

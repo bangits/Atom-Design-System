@@ -23,4 +23,9 @@
       background-color: #f2f2f2;
     }
   }
+  .Large {
+    &::before {
+      height: calculateRem(31px);
+    }
+  }
 }

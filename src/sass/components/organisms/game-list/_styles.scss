@@ -1,27 +1,22 @@
 @mixin generate-game-list-styles {
-  .GamesScroll {
-    margin-top: getGamesListSizes(gap);
-
-    .UpdateButton {
-      &:hover {
-        background: inherit !important;
-      }
+    .GamesScroll {
+        .UpdateButton {
+            &:hover {
+                background: inherit !important;
+            }
+        }
     }
-  }
-  .GamesContainer {
-    @include flex;
-    flex-wrap: wrap;
-    margin-left: -(getGamesListSizes(gap));
-    margin-top: calculateRem(10px);
-  }
-  .GameCard {
-    position: relative;
-    width: calc(getGamesListSizes(card-width) - getGamesListSizes(gap));
-    max-height: getGamesListSizes(card-max-height);
-    margin-left: getGamesListSizes(gap);
-    margin-bottom: getGamesListSizes(card-bottom-gap);
-  }
-  .LoaderContainer {
-    @include flex(center);
-  }
+    .GamesContainer {
+        @include flex;
+        flex-wrap: wrap;
+        margin-left: -(getGamesListSizes(gap));
+        margin-top: calculateRem(10px);
+    }
+    .GameCard {
+        position: relative;
+        width: calc(getGamesListSizes(card-width) - getGamesListSizes(gap));
+        max-height: getGamesListSizes(card-max-height);
+        margin-left: getGamesListSizes(gap);
+        margin-bottom: getGamesListSizes(card-bottom-gap);
+    }
 }

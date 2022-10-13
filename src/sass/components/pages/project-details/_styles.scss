@@ -1,5 +1,4 @@
 @mixin generate-project-details-styles {
-
   .ProjectDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getProjectDetailsSizes(project-details-margin-top);

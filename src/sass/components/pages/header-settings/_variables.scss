@@ -1,0 +1,13 @@
+$header-details-sizes: (
+  header-details-margin-top: calculateRem(11px),
+  left-block-width: calculateRem(340px),
+  info-content-margin-bottom: calculateRem(8px),
+  header-left-block-margin: calculateRem(8px),
+  status-content-margin-bottom: calculateRem(8px),
+  status-content-height: calculateRem(37px),
+  header-details-bottom-fading-cell-width: 100%
+);
+
+@function getHeaderDetailsSizes($key) {
+  @return map-get($header-details-sizes, $key);
+}

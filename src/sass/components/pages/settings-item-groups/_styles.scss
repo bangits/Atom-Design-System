@@ -1,0 +1,40 @@
+@mixin generate-settings-item-groups-styles {
+    .SettingsItemGroups {
+        width: 100%;
+        &__Button {
+            margin-left: auto;
+        }
+        &__Card {
+            padding: calculateRem(10px);
+            padding-left: calculateRem(26px);
+            box-sizing: border-box;
+        }
+    }
+    .SettingsItemGroup {
+        $this: #{&};
+        position: relative;
+        border: calculateRem(1px) solid rgba(142, 166, 193, 0.3);
+        border-radius: calculateRem(16px);
+        padding: calculateRem(16px);
+        transition: border 0.3s;
+        margin-bottom: calculateRem(10px);
+        &:hover {
+            border-color: color(primary);
+            #{$this}__Actions {
+                display: block;
+            }
+        }
+        &__Actions {
+            position: absolute;
+            display: none;
+            right: calculateRem(5px);
+            top: calculateRem(5px);
+        }
+        &__Index {
+            position: absolute;
+            left: calculateRem(-15px);
+            top: 0;
+            font-size: calculateRem(14px);
+        }
+    }
+}

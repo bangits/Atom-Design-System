@@ -1,0 +1,62 @@
+@mixin generate-translation-group-styles {
+    .TranslationGroup {
+        &__actions {
+            @include flex(space-between);
+        }
+        &__left-elements,
+        &__right-elements {
+            display: flex;
+            gap: calculateRem(20px);
+        }
+        &__right-elements {
+            margin-top: calculateRem(6px);
+        }
+        &__rows {
+            display: flex;
+            padding-bottom: calculateRem(20px);
+        }
+        &__row {
+            $this: #{&};
+            max-width: calculateRem(350px);
+            min-width: calculateRem(350px);
+            border-right: calculateRem(1px) solid color(scampi);
+            min-height: calculateRem(50px);
+            position: relative;
+            z-index: 1;
+            &-icon {
+                display: inline-block;
+                width: calculateRem(15px);
+                margin-right: calculateRem(5px);
+            }
+            &-title {
+                display: flex;
+                font-size: calculateRem(15px);
+                font-weight: 500;
+                border-bottom: calculateRem(1px) solid color(scampi);
+                margin: 0;
+                padding: calculateRem(15px) 0;
+            }
+            &-title,
+            &-content {
+                padding-left: calculateRem(10px);
+            }
+            &-content {
+                margin-top: calculateRem(10px);
+                min-height: calculateRem(100px);
+                &--after-scroll {
+                    padding-right: calculateRem(20px);
+                    padding-top: calculateRem(10px);
+                }
+            }
+            &:first-child {
+                #{$this}-title,
+                #{$this}-content {
+                    padding-left: 0;
+                }
+            }
+            &:last-child {
+                border-right: none;
+            }
+        }
+    }
+}

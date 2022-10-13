@@ -1,0 +1,8 @@
+@mixin generate-image-galleries-styles {
+    .ImageGalleries {
+        display: flex;
+        flex-wrap: wrap;
+        gap: calculateRem(20px);
+        margin-top: calculateRem(24px);
+    }
+}

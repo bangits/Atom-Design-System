@@ -1,57 +1,60 @@
 // This mixins is used for generating box-shadow like border for preventing size changing
-
 @mixin generateBorderWithBoxShadow($color-variable, $size: 0.1rem) {
-  box-shadow: 0px 0px 0px $size $color-variable;
+    box-shadow: 0px 0px 0px $size $color-variable;
 }
 
 // This mixins used for generating flexbox
-
 @mixin flex($justify-content: null, $align-items: null, $direction: null, $flex-wrap: null) {
-  display: flex;
-  justify-content: $justify-content;
-  align-items: $align-items;
-  flex-direction: $direction;
-  flex-wrap: $flex-wrap;
+    display: flex;
+    justify-content: $justify-content;
+    align-items: $align-items;
+    flex-direction: $direction;
+    flex-wrap: $flex-wrap;
 }
 
 @mixin center() {
-  @include flex(center, center);
+    @include flex(center, center);
 }
 
 // Center with position: absolute;
-
 @mixin center-absolute {
-  position: absolute;
-  transform: translate(-50%, -50%);
-  left: 50%;
-  top: 50%;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    left: 50%;
+    top: 50%;
 }
 
 // Dots after text
-
 @mixin dots-after-text {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 @mixin p($position: rel, $top: 0, $left: 0) {
-  left: $left;
-  top: $top;
-
-  @if $position == rel {
-    position: relative;
-  } @else if $position == abs {
-    position: absolute;
-  } @else if $position == fix {
-    position: fixed;
-  }
+    left: $left;
+    top: $top;
+    @if $position==rel {
+        position: relative;
+    }
+    @else if $position==abs {
+        position: absolute;
+    }
+    @else if $position==fix {
+        position: fixed;
+    }
 }
 
 @mixin button-reset {
-  padding: 0;
-  margin: 0;
-  background: none;
-  border: none;
-  cursor: pointer;
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+@mixin list-reset {
+    padding: 0;
+    margin: 0;
+    list-style: none;
 }

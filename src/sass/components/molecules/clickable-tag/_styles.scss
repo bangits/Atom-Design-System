@@ -1,0 +1,15 @@
+@mixin generate-clickable-tag-styles {
+    .ClickableTag {
+        display: inline-block;
+        text-decoration: none;
+        &__tag {
+            transition: border 0.3s;
+            border: calculateRem(1px) solid transparent;
+            height: auto;
+            min-height: calculateRem(32px);
+            &:hover {
+                border: calculateRem(1px) solid color(primary);
+            }
+        }
+    }
+}
