@@ -112,3 +112,5 @@ export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as MediaIcon } from './media.react.svg';
+export { ReactComponent as GenerateLinkIcon } from './generate-link.react.svg';
+export { ReactComponent as DetailsLinkIcon } from './link-details.react.svg';
