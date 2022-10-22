@@ -75,6 +75,9 @@
                     }
                 }
             }
+            &--3 {
+                width: getEditedFormSizes(option-width--3);
+            }
             &--4 {
                 width: getEditedFormSizes(option-width--4);
             }
