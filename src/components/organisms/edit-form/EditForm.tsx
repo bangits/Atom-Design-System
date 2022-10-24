@@ -14,12 +14,12 @@ export interface EditFormProps {
   closeButtonTooltipText?: string;
   title?: ReactNode;
   fields?: FormFieldProp[];
-  col?: 6 | 12;
   fullWidth?: boolean;
   showActions?: boolean;
   hideClose?: boolean;
   removeCard?: boolean;
-  justifyContent?: 'flex-end';
+  justifyContent?: string;
+  col?: 6 | 12;
 
   onToggle?: () => void;
   onSubmit?: (onToggle: () => void) => void;

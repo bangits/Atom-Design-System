@@ -18,17 +18,24 @@ const FormFields = ({ fields, renderInputs, removeMargin = false }: FormFieldsPr
         [styles['ProviderContainerWrapper--removeMargin']]: removeMargin
       })}>
       <div className={styles.ProviderFormGroup}>
-        {fields?.map((field) => (
-          <div
-            key={field.name}
-            className={classNames(styles.ProviderForm, {
-              [styles[`ProviderForm--col-${field.col || 6}`]]: field.col || 6
-            })}>
-            {field.type === 'custom'
+        {fields?.map((field) => {
+          const fieldElement =
+            field.type === 'custom'
               ? field.component()
-              : renderInputs(getFormField(field), field.name, field.type, field.additionalProps)}
-          </div>
-        ))}
+              : renderInputs(getFormField(field), field.name, field.type, field.additionalProps);
+
+          return (
+            fieldElement && (
+              <div
+                key={field.name}
+                className={classNames(styles.ProviderForm, {
+                  [styles[`ProviderForm--col-${field.col || 6}`]]: field.col || 6
+                })}>
+                {fieldElement}
+              </div>
+            )
+          );
+        })}
       </div>
     </div>
   );
