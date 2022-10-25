@@ -1,0 +1,106 @@
+@mixin generate-tiers-table-styles {
+  .TiersTable {
+    table {
+      thead {
+        margin: 0;
+      }
+      thead > tr > th {
+        text-align: left;
+        width: 33%;
+      }
+      width: calculateRem(578px);
+      thead,
+      tbody tr {
+        display: table;
+        margin-left: calculateRem(16px);
+        td:last-child {
+          width: calculateRem(20px);
+          text-align: center;
+          svg {
+            opacity: 0;
+            fill: #505d6e;
+            cursor: pointer;
+            margin-right: 0.2rem;
+          }
+        }
+      }
+      border-collapse: collapse;
+      thead,
+      tfoot {
+        background: #fafafa;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+        border-radius: 0px 0px 8px 8px;
+        width: calculateRem(600px);
+        height: calculateRem(40px);
+        margin: 0;
+        th,
+        tr {
+          background: #fafafa;
+          font-size: 12px;
+          color: #6667ab;
+          padding-left: calculateRem(12px);
+        }
+      }
+    }
+
+    tbody {
+      display: block;
+      background: #fff;
+      overflow: auto;
+      max-height: calculateRem(426px);
+      overflow-x: hidden;
+
+      tr {
+        // width: 98%;
+        table-layout: fixed;
+      }
+      tr:hover {
+        background-color: #c7c7ff42;
+        width: calculateRem(580px);
+        margin-left: calculateRem(16px);
+
+        td:last-child {
+          background-color: #fff;
+          svg {
+            opacity: 1;
+          }
+        }
+      }
+      tr input {
+        border-color: rgba(199, 199, 255, 0.2588235294);
+      }
+    }
+    &--input {
+      :last-child {
+        background-color: red;
+      }
+      width: calculateRem(162px);
+      height: calculateRem(32px);
+      border: 0.5px solid #ececff;
+      color: #505d6d;
+      font-size: 14px;
+      margin: calculateRem(1px);
+      outline: none;
+      background: rgba(196, 196, 196, 0.05);
+      padding-left: calculateRem(16px);
+    }
+
+    &--right-block {
+      cursor: pointer;
+      color: #505d6e;
+      @include flex(center, center);
+      gap: calculateRem(10px);
+      div {
+        font-weight: 400;
+        color: #6667ab;
+      }
+    }
+  }
+}
+
+/* <ErrorMessage name={`friends.${index}.name`} component='div' className='field-error' /> */
+/* <div className='col'>
+              <button type='button' className='secondary' onClick={tier.remove(index)}>
+                X
+              </button>
+            </div> */
