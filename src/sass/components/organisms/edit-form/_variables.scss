@@ -13,7 +13,7 @@ $edit-form-in-sizes: (
   edit-form-field-width: 46%,
   edit-form-field-margin: calculateRem(12px),
   edit-form-buttons-margin: 0 calculateRem(3px) 0 0,
-  edit-form-header-padding: 0 0 0 calculateRem(16px),
+  edit-form-header-padding: 0 calculateRem(8px),
   field-header-font-size: calculateRem(12px),
   field-header-height: calculateRem(14px),
   field-header-margin: 0 0 calculateRem(3px) 0,

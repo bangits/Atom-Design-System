@@ -23,6 +23,7 @@
             width: getEditedFormSizes(control-width);
             height: auto;
             box-sizing: border-box;
+            min-height: getEditedFormSizes(control-min-height);
         }
         &--control-title {
             height: getEditedFormSizes(control-title-height);
