@@ -78,7 +78,7 @@
             min-height: calculateRem(69px);
         }
         &--2 {
-            width: calc(25% - #{getEditFormInSizes(edit-form-field-margin) / 2}) !important;
+            width: calc(25% - #{calculateRem(16px)}) !important;
             min-height: calculateRem(69px);
         }
         &--12 {

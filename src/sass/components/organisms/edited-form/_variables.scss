@@ -2,6 +2,7 @@ $edited-form-sizes: (
   edited-form-width: /* calculateRem(475px) */ 50%,
   control-padding: 0 calculateRem(8px),
   control-width: 100%,
+  control-min-height: calculateRem(42px),
   control-title-height: calculateRem(19px),
   control-title-width: calculateRem(300px),
   control-title-font-size: calculateRem(16px),
