@@ -1,0 +1,21 @@
+$table-field-sizes: (
+  table-field-width: calculateRem(162px),
+  table-field-height: calculateRem(32px),
+  table-field-padding-left: calculateRem(16px),
+  table-field-margin: calculateRem(1px),
+  table-field-font-size: calculateRem(14px),
+  table-field-opacity: 0.5
+);
+
+$table-field-colors: (
+  table-field-color: #505d6d,
+  filter-radio-label: color(black-color)
+);
+
+@function getTableFieldSizes($key) {
+  @return map-get($table-field-sizes, $key);
+}
+
+@function getTableFieldColors($key) {
+  @return map-get($table-field-colors, $key);
+}

@@ -8,7 +8,9 @@ import {
   TextInput,
   TextInputProps,
   CheckboxWithLabel,
-  CheckboxWithLabelProps
+  CheckboxWithLabelProps,
+  TableField,
+  TableFieldProps
 } from '@/components';
 import { DatePicker, DatepickerProps, DateTimePicker, DateTimePickerProps, Select, SelectProps } from '@my-ui/core';
 import { FormFieldProp } from './FormFieldTypes';
@@ -42,6 +44,9 @@ const getFormField = (field: FormFieldProp) => {
       fieldComponent = (props: TextInputProps) => (
         <TextInput autoComplete='off' {...field.props} {...props} label={field.label} fullWidth />
       );
+      break;
+    case 'field':
+      fieldComponent = (props: TableFieldProps) => <TableField {...field.props} {...props} />;
       break;
     case 'from-to-input':
       fieldComponent = (props: AddProviderNameIdProps) => <AddProviderNameId {...field.props} {...props} />;

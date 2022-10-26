@@ -1,0 +1,17 @@
+@mixin generate-molecules-table-field-styles {
+  .Field {
+    width: getTableFieldSizes(table-field-width);
+    height: getTableFieldSizes(table-field-height);
+    border: 0.5px solid #ececff;
+    color: getTableFieldColors(table-field-color);
+    font-size: getTableFieldSizes(table-field-font);
+    margin: getTableFieldSizes(table-field-margin);
+    outline: none;
+    background: rgba(196, 196, 196, 0.05);
+    padding-left: getTableFieldSizes(table-field-padding-left);
+
+    &--disabled {
+      opacity: getTableFieldSizes(table-field-opacity);
+    }
+  }
+}
