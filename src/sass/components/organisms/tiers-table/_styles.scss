@@ -1,5 +1,9 @@
 @mixin generate-tiers-table-styles {
-  .TiersTable {
+  .CreatableTable {
+    &--amount-percentage {
+      display: flex;
+      gap: calculateRem(10px);
+    }
     table {
       thead {
         margin: 0;
