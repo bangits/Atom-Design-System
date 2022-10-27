@@ -14,6 +14,7 @@ export interface CodeAreaProps {
   variables?: string[];
 
   defaultValue?: string;
+
   value?: string;
 
   onChange(value: string): void;
