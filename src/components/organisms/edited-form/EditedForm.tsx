@@ -129,7 +129,9 @@ const EditedForm: FC<EditedFormProps> = ({
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             <Tooltip showEvent='hover' text={editButtonTooltipText}>
-              <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
+              <div>
+                <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
+              </div>
             </Tooltip>
             {showDeleteButton && (
               <Tooltip showEvent='hover' text={deleteButtonTooltipText}>

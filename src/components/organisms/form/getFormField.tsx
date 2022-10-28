@@ -3,6 +3,8 @@ import {
   AddProviderNameIdProps,
   CheckboxGroup,
   CheckboxGroupProps,
+  CheckboxWithLabel,
+  CheckboxWithLabelProps,
   RadioGroup,
   RadioGroupProps,
   TextInput,
@@ -10,7 +12,8 @@ import {
   CheckboxWithLabel,
   CheckboxWithLabelProps,
   TableField,
-  TableFieldProps
+  TableFieldProps,
+  TextInputProps
 } from '@/components';
 import { DatePicker, DatepickerProps, DateTimePicker, DateTimePickerProps, Select, SelectProps } from '@my-ui/core';
 import { FormFieldProp } from './FormFieldTypes';
