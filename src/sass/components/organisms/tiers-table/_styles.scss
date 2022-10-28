@@ -1,5 +1,6 @@
 @mixin generate-tiers-table-styles {
   .CreatableTable {
+    //TODO
     &--amount-percentage {
       display: flex;
       gap: calculateRem(10px);
@@ -60,23 +61,7 @@
         // width: 98%;
         table-layout: fixed;
       }
-      tr:hover {
-        background-color: #c7c7ff42;
-        width: calculateRem(580px);
-        margin-left: calculateRem(16px);
-        td {
-          input {
-            // border: 2px solid red;
-            background: transparent !important;
-          }
-        }
-        td:last-child {
-          background-color: #fff;
-          svg {
-            opacity: 1;
-          }
-        }
-      }
+
       tr input {
         border-color: rgb(199 199 255 / 44%);
       }
@@ -86,18 +71,38 @@
       cursor: pointer;
       color: #505d6e;
       @include flex(center, center);
+      justify-content: flex-start;
+      margin-left: calculateRem(10px);
+      max-width: max-content;
       gap: calculateRem(10px);
       div {
         font-weight: 400;
         color: #6667ab;
       }
     }
+
+    &--writable {
+      input {
+        background: white;
+        border-color: whitesmoke !important;
+      }
+    }
+    &--edit:hover {
+      background-color: #c7c7ff42;
+      width: calculateRem(580px);
+      margin-left: calculateRem(16px);
+      td {
+        input {
+          // border: 2px solid red;
+          background: transparent !important;
+        }
+      }
+      td:last-child {
+        background-color: #fff;
+        svg {
+          opacity: 1;
+        }
+      }
+    }
   }
 }
-
-/* <ErrorMessage name={`friends.${index}.name`} component='div' className='field-error' /> */
-/* <div className='col'>
-              <button type='button' className='secondary' onClick={tier.remove(index)}>
-                X
-              </button>
-            </div> */

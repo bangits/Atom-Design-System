@@ -2,12 +2,12 @@ import { PlusCircleOutlinedIcon } from '@/icons';
 import { Checkbox, Scroll, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import React, { FC, useState, ReactNode, useEffect } from 'react';
-import { CreatableRow } from './CustomRow';
+import { CreatableRow } from './CreatableRow';
 import styles from './CreatableTable.module.scss';
 import { CreatableColumn } from './CreatableColumn';
-import { FormFieldProp, FormFieldTypes, FormFieldValueType } from '../form';
+import { FormFieldTypes } from '../form';
 
-export interface CreatableViewModel {
+export interface CreatableTableViewModel {
   index: number;
   from: string;
   to: string;
@@ -29,34 +29,42 @@ export interface CreatableTableProps {
     };
   }[];
   buttonName: string;
+  margin?: number;
+  editMode?: boolean;
 }
 
-const CreatableTable: FC<CreatableTableProps> = ({ buttonName, columns, children, addTier }) => {
+const CreatableTable: FC<CreatableTableProps> = ({ buttonName, columns, children, addTier, margin, editMode }) => {
   return (
-    <div className={classNames(styles.CreatableTable)}>
-      <table>
-        <thead>
-          <tr>
-            {columns.map((column, index) => {
-              return <CreatableColumn index={index} column={column} />;
-            })}
-          </tr>
-        </thead>
-
-        <tbody>{children}</tbody>
-        <tfoot>
-          <tr>
-            <th>
-              <div onClick={addTier} className={styles[`CreatableTable--right-block`]}>
-                <PlusCircleOutlinedIcon height='2rem' width='2rem' />
-                <Typography variant='p4'>{buttonName}</Typography>
-              </div>
-            </th>
-          </tr>
-        </tfoot>
-      </table>
-      {/* <button onClick={() => console.log({ ...state, amountOrPercent })}>Click</button> */}
-    </div>
+    <>
+      <div style={margin && { margin }} className={classNames(styles.CreatableTable)}>
+        <table>
+          <thead>
+            <tr>
+              {columns.map((column, index) => {
+                return <CreatableColumn index={index} column={column} />;
+              })}
+            </tr>
+          </thead>
+          <tbody>
+            <Scroll height='42.6rem' autoHide autoHeightMin='3.6rem'>
+              {children}
+            </Scroll>
+          </tbody>
+          {editMode && (
+            <tfoot>
+              <tr>
+                <th>
+                  <div onClick={addTier} className={styles[`CreatableTable--right-block`]}>
+                    <PlusCircleOutlinedIcon height='2rem' width='2rem' />
+                    <Typography variant='p4'>{buttonName}</Typography>
+                  </div>
+                </th>
+              </tr>
+            </tfoot>
+          )}
+        </table>
+      </div>
+    </>
   );
 };
 

@@ -13,5 +13,9 @@
     &--disabled {
       opacity: getTableFieldSizes(table-field-opacity);
     }
+    &--write-mode {
+      opacity: 1;
+      cursor: context-menu;
+    }
   }
 }

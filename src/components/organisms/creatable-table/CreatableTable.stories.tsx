@@ -1,7 +1,7 @@
-import { Checkbox, Scroll } from '@my-ui/core';
-import CreatableTable, { CreatableViewModel } from './CreatableTable';
-import { object, withKnobs } from '@storybook/addon-knobs';
-import { CreatableRow } from './CustomRow';
+import { Checkbox } from '@my-ui/core';
+import CreatableTable, { CreatableTableViewModel } from './CreatableTable';
+import { withKnobs } from '@storybook/addon-knobs';
+import { CreatableRow } from './CreatableRow';
 import { useState } from 'react';
 
 export default {
@@ -9,8 +9,6 @@ export default {
   component: CreatableTable,
   decorators: [withKnobs]
 };
-
-const { log } = console;
 
 const tiers = [
   {
@@ -126,10 +124,11 @@ export const Default = () => {
     }
   ];
 
-  const [state, setState] = useState<CreatableViewModel[]>([...tiers]);
+  const [state, setState] = useState<CreatableTableViewModel[]>([...tiers]);
 
   return (
     <CreatableTable
+      editMode={true}
       addTier={() => {
         setState([
           ...state,
@@ -195,11 +194,11 @@ export const Default = () => {
         }
       ]}
       buttonName='Add Tier'>
-      <Scroll height='42.6rem' autoHide autoHeightMin='3.6rem'>
-        {state.map((tier: CreatableViewModel, index: number) => {
-          return <CreatableRow removeTier={() => {}} fields={tier.fields} renderInputs={tier.renderInputs} />;
-        })}
-      </Scroll>
+      {state.map((row: CreatableTableViewModel, index: number) => {
+        return (
+          <CreatableRow variant='writable' removeTier={() => {}} fields={row.fields} renderInputs={row.renderInputs} />
+        );
+      })}
     </CreatableTable>
   );
 };
