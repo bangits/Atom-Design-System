@@ -19,10 +19,7 @@ export const CreatableRow: FC<CreatableRowProps> = ({ renderInputs, fields, remo
         [styles['CreatableTable--edit']]: variant === 'edit'
       })}>
       {fields?.map((field) => {
-        const fieldElement =
-          field.type === 'custom'
-            ? field.component()
-            : renderInputs(getFormField(field), field.name, field.type, field.additionalProps);
+        const fieldElement = renderInputs(getFormField(field), field.name, field.type, field.additionalProps);
 
         return fieldElement && <td key={field.name}>{fieldElement}</td>;
       })}
