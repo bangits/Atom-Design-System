@@ -1,4 +1,5 @@
 import { Icons, typedMemo } from '@/atom-design-system';
+import { TextWithTooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './ImageGallery.module.scss';
@@ -37,7 +38,9 @@ const ImageGallery: FC<ImageGalleryProps> = ({ imageSources, galleryName, maxIma
         </div>
       </div>
 
-      <span className={styles.ImageGallery__Name}>{galleryName}</span>
+      <TextWithTooltip displayText={galleryName} className={styles.ImageGallery__Name}>
+        {galleryName}
+      </TextWithTooltip>
     </div>
   );
 };
