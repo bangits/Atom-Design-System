@@ -114,3 +114,4 @@ export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as MediaIcon } from './media.react.svg';
 export { ReactComponent as GenerateLinkIcon } from './generate-link.react.svg';
 export { ReactComponent as DetailsLinkIcon } from './link-details.react.svg';
+export { ReactComponent as ExcludePopUpIcon } from './exclude-action.react.svg';

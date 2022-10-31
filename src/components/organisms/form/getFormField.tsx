@@ -7,12 +7,9 @@ import {
   CheckboxWithLabelProps,
   RadioGroup,
   RadioGroupProps,
-  TextInput,
-  TextInputProps,
-  CheckboxWithLabel,
-  CheckboxWithLabelProps,
   TableField,
   TableFieldProps,
+  TextInput,
   TextInputProps
 } from '@/components';
 import { DatePicker, DatepickerProps, DateTimePicker, DateTimePickerProps, Select, SelectProps } from '@my-ui/core';
