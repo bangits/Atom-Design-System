@@ -43,7 +43,7 @@
         th,
         tr {
           background: #fafafa;
-          font-size: 12px;
+          font-size: calculateRem(12px);
           color: #6667ab;
           padding-left: calculateRem(12px);
         }
