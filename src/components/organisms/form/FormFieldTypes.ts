@@ -1,10 +1,17 @@
-import { AddProviderNameIdProps, CheckboxGroupProps, RadioGroupProps, TextInputProps } from '@/components';
+import {
+  AddProviderNameIdProps,
+  CheckboxGroupProps,
+  RadioGroupProps,
+  TextInputProps,
+  TableFieldProps
+} from '@/components';
 import { CheckboxProps, DatepickerProps, DateTimePickerProps, SelectProps } from '@my-ui/core';
 import { ReactNode } from 'react';
 
 export type FormFieldTypes =
   | 'select'
   | 'input'
+  | 'field'
   | 'custom'
   | 'datepicker'
   | 'timepicker'
@@ -77,6 +84,12 @@ export type FormFieldProp = {
       type?: 'header';
       label?: ReactNode;
       component?: () => JSX.Element;
+    }
+  | {
+      label?: string;
+      type: 'field';
+      props?: TableFieldProps;
+      component?: (props: TableFieldProps) => JSX.Element;
     }
 );
 

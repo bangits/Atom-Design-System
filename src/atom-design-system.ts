@@ -28,7 +28,9 @@ export {
   DialogWithActionsProps,
   Pagination,
   Tooltip,
-  typedMemo
+  typedMemo,
+  Checkbox,
+  Loader
 } from '@my-ui/core';
 export * from './components';
 export * from './helpers/arrayMove';
