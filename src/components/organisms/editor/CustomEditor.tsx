@@ -12,9 +12,10 @@ import styles from './CustomEditor.module.scss';
 export interface CustomEditorProps {
   errorText?: string;
   size?: 'sm' | 'lg';
-  variables: string[];
+  variables?: string[];
+  isVariableShow?: boolean;
   title?: string;
-  variant?: 'default' | 'onlyVariable';
+  variant?: 'default' | 'onlyVariable' | 'all';
   htmlValue?: string;
   onChange?(htmlValue: string): void;
 }
@@ -27,6 +28,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
   size,
   htmlValue,
   errorText,
+  isVariableShow = true,
   ...props
 }) => {
   const initialEditorState = useMemo(() => {
@@ -57,30 +59,35 @@ const CustomEditor: FC<CustomEditorProps> = ({
       <Editor
         {...props}
         toolbar={{
-          options: variant === 'default' ? ['link', 'history'] : [],
+          options:
+            variant === 'default'
+              ? ['link', 'history']
+              : variant === 'all'
+              ? ['list', 'textAlign', 'inline', 'fontFamily', 'history']
+              : [],
 
-          // list: {
-          //   options: ['unordered', 'ordered']
-          // },
+          list: {
+            options: ['unordered', 'ordered']
+          },
           // link: {
           //   // component: () => <div
           //   // style={{ width: '50px', height: '50px', background: 'red' }}></div>
           // },
-          // textAlign: {
-          //   right: {
-          //     className: styles['text-right']
-          //   }
-          // },
-          // inline: {
-          //   inDropdown: openDropdown,
-          //   options: ['bold', 'italic', 'underline', 'strikethrough']
-          // },
-          // fontFamily: {
-          //   options: ['Roboto', 'Arial', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana']
-          // },
-          // embedded: {
-          //   popUpClassName: styles.popUpClassName
-          // },
+          textAlign: {
+            right: {
+              className: styles['text-right']
+            }
+          },
+          inline: {
+            inDropdown: openDropdown,
+            options: ['bold', 'italic', 'underline', 'strikethrough']
+          },
+          fontFamily: {
+            options: ['Roboto', 'Arial', 'Georgia', 'Impact', 'Tahoma', 'Times New Roman', 'Verdana']
+          },
+          embedded: {
+            popUpClassName: styles.popUpClassName
+          },
           history: {
             undo: {
               icon: 'https://storageaccountatom.blob.core.windows.net/staging-storage/866c5057-6c6a-40f9-b862-ef94edfe3fdf_undo.react.svg'
@@ -100,7 +107,9 @@ const CustomEditor: FC<CustomEditorProps> = ({
           [styles[`editor-${size}`]]: size
         })}
         onEditorStateChange={onEditorStateChange}
-        toolbarCustomButtons={[<Variables key='variables' variables={variables} emptyValue='there is no value' />]}
+        toolbarCustomButtons={
+          isVariableShow && [<Variables key='variables' variables={variables} emptyValue='there is no value' />]
+        }
       />
       {title && (
         <Typography variant='p4' color='primary' className={styles.typography}>
