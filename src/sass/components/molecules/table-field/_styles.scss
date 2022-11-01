@@ -3,6 +3,7 @@
     width: getTableFieldSizes(table-field-width);
     height: getTableFieldSizes(table-field-height);
     border: 0.5px solid #ececff;
+    font-size: calculateRem(14px);
     color: getTableFieldColors(table-field-color);
     font-size: getTableFieldSizes(table-field-font);
     margin: getTableFieldSizes(table-field-margin);
