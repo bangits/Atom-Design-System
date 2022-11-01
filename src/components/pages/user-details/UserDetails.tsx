@@ -126,12 +126,12 @@ const UserDetails: FC<UserDetailsProps> = ({
                 value: 2,
                 content: userWalletsContent
               },
-              {
+              commissionPlansContent && {
                 title: translations.commissionPlan,
                 value: 3,
                 content: commissionPlansContent
               },
-              {
+              linksContext && {
                 title: translations.link,
                 value: 4,
                 content: linksContext

@@ -24,9 +24,7 @@ export const CreatableRow: FC<CreatableRowProps> = ({ renderInputs, fields, remo
         return fieldElement && <td key={field.name}>{fieldElement}</td>;
       })}
 
-      <td>
-        <CloseWidePopUp height='1rem' width='1rem' onClick={removeTier} />
-      </td>
+      <td>{variant === 'edit' && <CloseWidePopUp height='1rem' width='1rem' onClick={removeTier} />}</td>
     </tr>
   );
 };
