@@ -63,7 +63,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
             variant === 'default'
               ? ['link', 'history']
               : variant === 'all'
-              ? ['list', 'textAlign', 'inline', 'fontFamily', 'history']
+              ? ['list', 'link', 'textAlign', 'inline', 'fontFamily', 'history']
               : [],
 
           list: {
