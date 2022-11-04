@@ -1,4 +1,4 @@
-import { Icons, IconDropdown } from '@/atom-design-system';
+import { Icons } from '@/atom-design-system';
 import {
   FlexibleFormProps,
   ItemDetails,
@@ -15,7 +15,7 @@ import { WalletViewProps } from '@/components/organisms/wallet-view/WalletView';
 import { typedMemo } from '@/helpers';
 import { UserMainIcon } from '@/icons';
 import { AvatarCard, Breadcrumb, BreadcrumbProps, Card, SubTabProps } from '@my-ui/core';
-import { TabProps } from '@my-ui/core/dist/components/tab/Tab';
+import { TabProps } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
 import styles from './PlayerDetails.module.scss';
