@@ -33,6 +33,7 @@ export interface UserDetailsProps {
     passwordContext: string;
     languagesContent: string;
     commissionPlan: string;
+    link: string;
   };
 
   generalInformationContext: ReactNode;
@@ -40,6 +41,7 @@ export interface UserDetailsProps {
   languagesContent: ReactNode;
   userWalletsContent: ReactNode;
   commissionPlansContent?: ReactNode;
+  linksContext?: ReactNode;
 }
 
 const UserDetails: FC<UserDetailsProps> = ({
@@ -57,7 +59,8 @@ const UserDetails: FC<UserDetailsProps> = ({
   generalInformationContext,
   userWalletsContent,
   languagesContent,
-  commissionPlansContent
+  commissionPlansContent,
+  linksContext
 }) => {
   return (
     <>
@@ -123,14 +126,19 @@ const UserDetails: FC<UserDetailsProps> = ({
                 value: 2,
                 content: userWalletsContent
               },
-              {
+              commissionPlansContent && {
                 title: translations.commissionPlan,
                 value: 3,
                 content: commissionPlansContent
               },
+              linksContext && {
+                title: translations.link,
+                value: 4,
+                content: linksContext
+              },
               {
                 title: translations.settings,
-                value: 4,
+                value: 5,
                 subTabs: [
                   {
                     title: translations.languagesContent,

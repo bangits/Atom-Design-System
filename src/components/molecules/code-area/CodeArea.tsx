@@ -5,21 +5,36 @@ import { FC, useCallback, useRef, useState } from 'react';
 import styles from './CodeArea.module.scss';
 
 export interface CodeAreaProps {
+  font?: 'text' | 'code';
+
   headline?: string;
 
   errorText?: string;
+
+  size?: 'sm' | 'md';
 
   title?: string;
 
   variables?: string[];
 
   defaultValue?: string;
+
   value?: string;
 
   onChange(value: string): void;
 }
 
-const CodeArea: FC<CodeAreaProps> = ({ title, errorText, headline, variables, onChange, value, defaultValue }) => {
+const CodeArea: FC<CodeAreaProps> = ({
+  title,
+  errorText,
+  font = 'code',
+  headline,
+  variables,
+  onChange,
+  value,
+  size,
+  defaultValue
+}) => {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const addVariable = useCallback(
@@ -60,13 +75,16 @@ const CodeArea: FC<CodeAreaProps> = ({ title, errorText, headline, variables, on
           <Variables onVariableClick={addVariable} variables={variables} emptyValue='there is no value' />
         )}
       </div>
-      <fieldset className={styles.fieldset}>
+      <fieldset
+        className={classNames(styles.fieldset, {
+          [styles[`filed--${size}`]]: size
+        })}>
         <legend className={styles.legend}>{title}</legend>
         <textarea
           ref={textareaRef}
           onChange={onCodeChange}
           value={value !== undefined ? value : codeState}
-          className={styles.textarea}
+          className={classNames(styles.textarea, { [styles['textarea-font--roboto']]: font === 'text' })}
         />
       </fieldset>
       {errorText && (

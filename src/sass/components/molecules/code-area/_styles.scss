@@ -13,6 +13,10 @@
     border: none;
     color: getCodeAreaColors(textarea-color);
   }
+
+  .textarea-font--roboto {
+    font-family: 'Roboto', sans-serif;
+  }
   .legend {
     margin-left: getCodeAreaSizes(legend-margin-left);
     font-size: calculateRem(14px);
@@ -21,11 +25,11 @@
   .email-variables {
     display: flex;
     align-items: center;
-    margin-bottom: 0.5rem;
+    margin-bottom: calculateRem(5px);
   }
 
   .container-without-headline {
-    margin-top: 34px;
+    margin-top: calculateRem(34px);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -37,17 +41,17 @@
     padding-left: 0;
     padding-right: 0;
     border: 0.5px solid #8ea6c1;
-    border-radius: 4px;
+    border-radius: calculateRem(4px);
     background: white;
     ::-webkit-scrollbar-track {
-      border-radius: 10px;
+      border-radius: calculateRem(10px);
     }
     ::-webkit-scrollbar {
-      width: 3px;
+      width: calculateRem(3px);
     }
     ::-webkit-scrollbar-thumb {
       background: #e8edf3;
-      border-radius: 10px;
+      border-radius: calculateRem(10px);
     }
     ::-webkit-scrollbar-thumb:hover {
       background: #e8edf3;
@@ -67,5 +71,13 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    margin-bottom: calculateRem(24px);
+  }
+
+  .filed--sm {
+    height: calculateRem(58px);
+    .textarea {
+      height: calculateRem(38px);
+    }
   }
 }

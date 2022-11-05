@@ -46,6 +46,7 @@
     }
     .AsideRightContent {
       width: 100%;
+      overflow: hidden;
       .CardContent {
         background-color: getUserDetailsColors(card-background-color);
       }

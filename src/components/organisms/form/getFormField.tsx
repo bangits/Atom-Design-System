@@ -7,6 +7,8 @@ import {
   CheckboxWithLabelProps,
   RadioGroup,
   RadioGroupProps,
+  TableField,
+  TableFieldProps,
   TextInput,
   TextInputProps
 } from '@/components';
@@ -42,6 +44,9 @@ const getFormField = (field: FormFieldProp) => {
       fieldComponent = (props: TextInputProps) => (
         <TextInput autoComplete='off' {...field.props} {...props} label={field.label} fullWidth />
       );
+      break;
+    case 'field':
+      fieldComponent = (props: TableFieldProps) => <TableField {...field.props} {...props} />;
       break;
     case 'from-to-input':
       fieldComponent = (props: AddProviderNameIdProps) => <AddProviderNameId {...field.props} {...props} />;
