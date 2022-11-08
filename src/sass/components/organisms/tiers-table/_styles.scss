@@ -75,6 +75,10 @@
       margin-left: calculateRem(10px);
       max-width: max-content;
       gap: calculateRem(10px);
+      &--disabled {
+        opacity: 0.5;
+        cursor: initial;
+      }
       div {
         font-weight: 400;
         color: #6667ab;

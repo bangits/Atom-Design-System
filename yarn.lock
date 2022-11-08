@@ -10,26 +10,6 @@
     "@jridgewell/gen-mapping" "^0.1.0"
     "@jridgewell/trace-mapping" "^0.3.9"
 
-"@atom/design-system@^4.1.59":
-  version "4.1.59"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/design-system/-/design-system-4.1.59.tgz#507a2ca10d0e842f0181202da224f79bbf91b087"
-  integrity sha1-UHosoQ0OhC8BgSAtoiT3m7+RsIc=
-  dependencies:
-    "@my-ui/core" "^0.9.23"
-    classnames "^2.3.1"
-    draft-js "^0.11.7"
-    draftjs-to-html "^0.9.1"
-    react "17.0.0"
-    react-cropper "^2.1.8"
-    react-dnd "15.1.2"
-    react-dnd-html5-backend "^16.0.1"
-    react-dom "17.0.0"
-    react-draft-wysiwyg "^1.15.0"
-    react-jss "^10.8.2"
-    react-sortable-hoc "^2.0.0"
-    react-transition-group "^4.4.2"
-    regenerator-transform "^0.14.5"
-
 "@babel/code-frame@7.12.11":
   version "7.12.11"
   resolved "https://registry.npmjs.org/@babel/code-frame/-/code-frame-7.12.11.tgz#f4ad435aa263db935b8f10f2c552d23fb716a63f"
@@ -1585,10 +1565,10 @@
     call-me-maybe "^1.0.1"
     glob-to-regexp "^0.3.0"
 
-"@my-ui/core@0.9.24":
-  version "0.9.24"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.9.24.tgz#411708209b3afb75a81b50ed86255403009dcabd"
-  integrity sha1-QRcIIJs6+3WoG1DthiVUAwCdyr0=
+"@my-ui/core@0.9.26":
+  version "0.9.26"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.9.26.tgz#689b5fca6e47c054f17ef26075b296e5745fe52c"
+  integrity sha1-aJtfym5HwFTxfvJgdbKW5XRf5Sw=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"

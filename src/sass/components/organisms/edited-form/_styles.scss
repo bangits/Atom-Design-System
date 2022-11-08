@@ -1,171 +1,172 @@
 @mixin generate-edited-form-styles {
-    .EditedFormBase {
-        $this: #{&};
-        &--remove-shadow {
-            box-shadow: none !important;
-            #{$this}--content {
-                padding: 0;
-            }
-        }
-        &--custom {
-            width: 100%;
-            height: auto;
-        }
-        &--12 {
-            width: 100%;
-        }
-        &--6 {
-            width: getEditedFormSizes(edited-form-width) !important;
-        }
-        &--control {
-            @include flex(space-between, center);
-            padding: getEditedFormSizes(control-padding);
-            width: getEditedFormSizes(control-width);
-            height: auto;
-            box-sizing: border-box;
-            min-height: getEditedFormSizes(control-min-height);
-        }
-        &--control-title {
-            height: getEditedFormSizes(control-title-height);
-            font-size: getEditedFormSizes(control-title-font-size);
-            font-weight: getEditedFormSizes(control-title-font-weight);
-            text-align: left;
-            color: getEditedFormColors(control-title-color);
-            word-break: break-all;
-            width: getEditedFormSizes(control-title-width);
-            @include dots-after-text();
-        }
-        // &--content-children {
-        //   height: 100% !important;
-        // }
-        &--content {
-            position: relative;
-            @include flex(space-between, null, $flex-wrap: wrap);
-            align-content: flex-start;
-            padding: getEditedFormSizes(content-padding);
-            width: getEditedFormSizes(content-width);
-            box-sizing: border-box;
-            transition: height getEditedFormSizes(content-transition);
-            overflow: hidden;
-            &-start-justify {
-                justify-content: flex-start;
-            }
-            form {
-                width: 100%;
-            }
-        }
-        &--card-content {
-            @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
-            background-color: getEditedFormColors(content-background-color);
-        }
-        &--option {
-            @include flex(null, flex-start, $direction: column);
-            // flex: getEditedFormSizes(option-flex);
-            width: getEditedFormSizes(option-width);
-            margin: getEditedFormSizes(option-margin);
-            min-height: getEditedFormSizes(option-height);
-            &--full-width {
-                width: 100%;
-            }
-            &--line-translation {
-                height: getEditedFormSizes(option-line-translation-height);
-                .EditedFormBase {
-                    &--option-value {
-                        white-space: break-spaces;
-                        overflow: inherit;
-                    }
-                }
-            }
-            &--3 {
-                width: getEditedFormSizes(option-width--3);
-            }
-            &--4 {
-                width: getEditedFormSizes(option-width--4);
-            }
-            &--12 {
-                width: getEditedFormSizes(option-width--12);
-            }
-            &--overflow--none {
-                height: initial;
-                .EditedFormBase--option-value {
-                    white-space: initial;
-                    word-break: initial;
-                    overflow: initial;
-                    height: initial;
-                    width: 100%;
-                }
-            }
-        }
-        &--control-button {
-            @include flex();
-        }
-        &--option-title {
-            height: getEditedFormSizes(option-title-height);
-            font-size: getEditedFormSizes(option-title-font-size);
-            text-align: left;
-            color: getEditedFormColors(option-title-color);
-            margin: getEditedFormSizes(option-title-margin);
-            word-break: break-all;
-            width: getEditedFormSizes(option-title-width);
-            @include dots-after-text();
-        }
-        &--option-value {
-            height: getEditedFormSizes(option-value-height);
-            font-size: getEditedFormSizes(option-value-font-size);
-            text-align: left;
-            color: getEditedFormColors(option-value-color);
-            word-break: break-all;
-            width: getEditedFormSizes(option-title-width);
-            @include dots-after-text();
-        }
-        &--option-value-bold {
-            font-weight: getEditedFormSizes(option-value-bold);
-        }
-        &--viewMore {
-            @include flex(center, center);
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            border-radius: getEditedFormSizes(edit-form-view-more-borderRadius);
-            width: 100%;
-            height: getEditedFormSizes(edit-form-view-more-height);
-            background-color: getEditedFormColors(edit-form-view-bg);
-            cursor: pointer;
-            >div {
-                @include flex(center, center);
-                color: getEditedFormColors(edit-form-view-colors);
-                width: getEditedFormSizes(edit-form-view-icon-width);
-                width: getEditedFormSizes(edit-form-view-icon-height);
-                transition: getEditedFormSizes(content-transition);
-            }
-            >span {
-                color: getEditedFormColors(edit-form-view-colors);
-                font-size: getEditedFormSizes(edit-form-view-font-size);
-                height: getEditedFormSizes(edit-form-view-label-height);
-            }
-        }
-        &--option-label {
-            flex: 100%;
-            margin: getEditedFormSizes(option-label-margin);
-            >span {
-                color: getEditedFormColors(option-label-color);
-                height: getEditedFormSizes(option-title-height);
-                font-size: getEditedFormSizes(option-title-font-size);
-                font-weight: getEditedFormSizes(option-label-font-weight);
-            }
-        }
-        &--option-tag {
-            margin: getEditedFormSizes(option-margin);
-            flex: 100%;
-            >div {
-                @include flex(null, center, $flex-wrap: wrap);
-                >div {
-                    margin: getEditedFormSizes(option-tag-margin);
-                    >span {
-                        color: getEditedFormColors(tag-color) !important;
-                    }
-                }
-            }
-        }
+  .EditedFormBase {
+    $this: #{&};
+    &--remove-shadow {
+      box-shadow: none !important;
+      #{$this}--content {
+        padding: 0;
+      }
     }
+    &--custom {
+      width: 100%;
+      height: auto;
+    }
+    &--12 {
+      width: 100%;
+    }
+    &--6 {
+      width: getEditedFormSizes(edited-form-width) !important;
+    }
+    &--control {
+      @include flex(space-between, center);
+      padding: getEditedFormSizes(control-padding);
+      width: getEditedFormSizes(control-width);
+      height: auto;
+      box-sizing: border-box;
+      min-height: getEditedFormSizes(control-min-height);
+    }
+    &--control-title {
+      height: getEditedFormSizes(control-title-height);
+      font-size: getEditedFormSizes(control-title-font-size);
+      font-weight: getEditedFormSizes(control-title-font-weight);
+      text-align: left;
+      color: getEditedFormColors(control-title-color);
+      word-break: break-all;
+      width: getEditedFormSizes(control-title-width);
+      @include dots-after-text();
+    }
+    // &--content-children {
+    //   height: 100% !important;
+    // }
+    &--content {
+      position: relative;
+      @include flex(space-between, null, $flex-wrap: wrap);
+      align-content: flex-start;
+      padding: getEditedFormSizes(content-padding);
+      width: getEditedFormSizes(content-width);
+      box-sizing: border-box;
+      transition: height getEditedFormSizes(content-transition);
+      overflow: hidden;
+      &-start-justify {
+        justify-content: flex-start;
+      }
+      form {
+        width: 100%;
+      }
+    }
+    &--card-content {
+      @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
+      background-color: getEditedFormColors(content-background-color);
+    }
+    &--option {
+      @include flex(null, flex-start, $direction: column);
+      // flex: getEditedFormSizes(option-flex);
+      width: getEditedFormSizes(option-width);
+      margin: getEditedFormSizes(option-margin);
+      min-height: getEditedFormSizes(option-height);
+      &--full-width {
+        width: 100%;
+      }
+      &--line-translation {
+        height: getEditedFormSizes(option-line-translation-height);
+        .EditedFormBase {
+          &--option-value {
+            white-space: break-spaces;
+            overflow: inherit;
+            width: 100%;
+          }
+        }
+      }
+      &--3 {
+        width: getEditedFormSizes(option-width--3);
+      }
+      &--4 {
+        width: getEditedFormSizes(option-width--4);
+      }
+      &--12 {
+        width: getEditedFormSizes(option-width--12);
+      }
+      &--overflow--none {
+        height: initial;
+        .EditedFormBase--option-value {
+          white-space: initial;
+          word-break: initial;
+          overflow: initial;
+          height: initial;
+          width: 100%;
+        }
+      }
+    }
+    &--control-button {
+      @include flex();
+    }
+    &--option-title {
+      height: getEditedFormSizes(option-title-height);
+      font-size: getEditedFormSizes(option-title-font-size);
+      text-align: left;
+      color: getEditedFormColors(option-title-color);
+      margin: getEditedFormSizes(option-title-margin);
+      word-break: break-all;
+      width: getEditedFormSizes(option-title-width);
+      @include dots-after-text();
+    }
+    &--option-value {
+      height: getEditedFormSizes(option-value-height);
+      font-size: getEditedFormSizes(option-value-font-size);
+      text-align: left;
+      color: getEditedFormColors(option-value-color);
+      word-break: break-all;
+      width: getEditedFormSizes(option-title-width);
+      @include dots-after-text();
+    }
+    &--option-value-bold {
+      font-weight: getEditedFormSizes(option-value-bold);
+    }
+    &--viewMore {
+      @include flex(center, center);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      border-radius: getEditedFormSizes(edit-form-view-more-borderRadius);
+      width: 100%;
+      height: getEditedFormSizes(edit-form-view-more-height);
+      background-color: getEditedFormColors(edit-form-view-bg);
+      cursor: pointer;
+      > div {
+        @include flex(center, center);
+        color: getEditedFormColors(edit-form-view-colors);
+        width: getEditedFormSizes(edit-form-view-icon-width);
+        width: getEditedFormSizes(edit-form-view-icon-height);
+        transition: getEditedFormSizes(content-transition);
+      }
+      > span {
+        color: getEditedFormColors(edit-form-view-colors);
+        font-size: getEditedFormSizes(edit-form-view-font-size);
+        height: getEditedFormSizes(edit-form-view-label-height);
+      }
+    }
+    &--option-label {
+      flex: 100%;
+      margin: getEditedFormSizes(option-label-margin);
+      > span {
+        color: getEditedFormColors(option-label-color);
+        height: getEditedFormSizes(option-title-height);
+        font-size: getEditedFormSizes(option-title-font-size);
+        font-weight: getEditedFormSizes(option-label-font-weight);
+      }
+    }
+    &--option-tag {
+      margin: getEditedFormSizes(option-margin);
+      flex: 100%;
+      > div {
+        @include flex(null, center, $flex-wrap: wrap);
+        > div {
+          margin: getEditedFormSizes(option-tag-margin);
+          > span {
+            color: getEditedFormColors(tag-color) !important;
+          }
+        }
+      }
+    }
+  }
 }
