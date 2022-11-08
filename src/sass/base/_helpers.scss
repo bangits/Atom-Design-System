@@ -30,6 +30,10 @@
   @include flex;
 }
 
+.gap-5 {
+  gap: calculateRem(5px);
+}
+
 .justify-content-end {
   justify-content: flex-end;
 }
