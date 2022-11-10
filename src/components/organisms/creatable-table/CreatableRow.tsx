@@ -7,11 +7,12 @@ import styles from './CreatableTable.module.scss';
 export interface CreatableRowProps {
   renderInputs: (InputComponent: React.ElementType, name: string, fieldType: ReactNode, props: any) => JSX.Element;
   fields: any;
+  lastTier?: boolean;
   removeTier: () => void;
   variant?: 'writable' | 'edit';
 }
 
-export const CreatableRow: FC<CreatableRowProps> = ({ renderInputs, fields, removeTier, variant }) => {
+export const CreatableRow: FC<CreatableRowProps> = ({ renderInputs, fields, removeTier, variant, lastTier = true }) => {
   return (
     <tr
       className={classNames(styles['CreatableTable--input'], {
@@ -24,7 +25,12 @@ export const CreatableRow: FC<CreatableRowProps> = ({ renderInputs, fields, remo
         return fieldElement && <td key={field.name}>{fieldElement}</td>;
       })}
 
-      <td>{variant === 'edit' && <CloseWidePopUp height='1rem' width='1rem' onClick={removeTier} />}</td>
+      {lastTier ? (
+        <td>{variant === 'edit' && <CloseWidePopUp height='1rem' width='1rem' onClick={removeTier} />}</td>
+      ) : (
+        //@TODO this moment i dont
+        <td></td>
+      )}
     </tr>
   );
 };

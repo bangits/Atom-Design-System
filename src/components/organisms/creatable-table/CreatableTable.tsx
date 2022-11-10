@@ -18,7 +18,7 @@ export interface CreatableTableViewModel {
 }
 
 export interface CreatableTableProps {
-  addTier: () => void;
+  addTier?: () => void;
   amountOrPercent: boolean;
   columns: {
     type: 'custom' | 'default';
@@ -31,9 +31,18 @@ export interface CreatableTableProps {
   buttonName: string;
   margin?: number;
   editMode?: boolean;
+  disabled?: boolean;
 }
 
-const CreatableTable: FC<CreatableTableProps> = ({ buttonName, columns, children, addTier, margin, editMode }) => {
+const CreatableTable: FC<CreatableTableProps> = ({
+  buttonName,
+  columns,
+  children,
+  addTier,
+  margin,
+  editMode,
+  disabled
+}) => {
   return (
     <>
       <div style={margin && { margin }} className={classNames(styles.CreatableTable)}>
@@ -54,7 +63,11 @@ const CreatableTable: FC<CreatableTableProps> = ({ buttonName, columns, children
             <tfoot>
               <tr>
                 <th>
-                  <div onClick={addTier} className={styles[`CreatableTable--right-block`]}>
+                  <div
+                    onClick={addTier}
+                    className={classNames(styles[`CreatableTable--right-block`], {
+                      [styles[`CreatableTable--right-block--disabled`]]: disabled
+                    })}>
                     <PlusCircleOutlinedIcon height='2rem' width='2rem' />
                     <Typography variant='p4'>{buttonName}</Typography>
                   </div>

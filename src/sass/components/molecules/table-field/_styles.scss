@@ -18,5 +18,8 @@
       opacity: 1;
       cursor: context-menu;
     }
+    &--danger {
+      border-color: red !important;
+    }
   }
 }
