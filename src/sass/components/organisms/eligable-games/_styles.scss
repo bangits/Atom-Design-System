@@ -1,0 +1,30 @@
+@mixin generate-eligable-games-styles {
+    .EligableGames {
+        &__Filters {
+            margin-bottom: calculateRem(10px);
+        }
+        &__BulkActions {
+            margin-bottom: calculateRem(8px);
+            button {
+                color: #505d6e;
+            }
+        }
+        &__SearchInput {
+            min-height: initial;
+        }
+        &__ProviderTag,
+        &__GameTypeTag {
+            cursor: pointer;
+            border: calculateRem(1px) solid transparent;
+            transition: border-color 0.3s;
+            &--Selected {
+                border-color: color(primary);
+            }
+        }
+        &__GameTypeTag {
+            &#{&} span {
+                font-size: calculateRem(16px);
+            }
+        }
+    }
+}

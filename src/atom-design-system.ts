@@ -11,6 +11,7 @@ export {
   Breadcrumb,
   Button,
   ButtonProps,
+  Checkbox,
   Collapse,
   Dialog,
   DialogActions,
@@ -26,11 +27,11 @@ export {
   DialogTypes,
   DialogWithActions,
   DialogWithActionsProps,
+  IconButton,
+  Loader,
   Pagination,
   Tooltip,
-  typedMemo,
-  Checkbox,
-  Loader
+  typedMemo
 } from '@my-ui/core';
 export * from './components';
 export * from './helpers/arrayMove';

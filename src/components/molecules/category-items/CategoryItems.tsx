@@ -1,10 +1,12 @@
 import { CheckboxWithLabel, CheckboxWithLabelProps, Icons } from '@/atom-design-system';
-import { Button, ButtonProps, Card, Loader, Scroll } from '@my-ui/core';
+import { Button, ButtonProps, Card, Loader, Scroll, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { Children, FC, PropsWithChildren, ReactNode, useMemo, useRef } from 'react';
 import styles from './CategoryItems.module.scss';
 
 export interface CategoryItemsProps {
+  title?: ReactNode;
+  cardTopPart?: ReactNode;
   buttonProps?: ButtonProps;
   checkboxWithLabelProps?: CheckboxWithLabelProps;
   isFilter?: boolean;
@@ -27,7 +29,9 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
   isLoadingItems,
   pagination,
   buttons,
-  isFilterOpened
+  isFilterOpened,
+  title,
+  cardTopPart
 }) => {
   const currentPageRef = useRef(1);
 
@@ -43,16 +47,28 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
           [styles['CategoryItems--results']]: !isFilter,
           [styles['CategoryItems--filter-opened']]: isFilterOpened
         })}>
-        {buttonProps && (
-          <Button
-            className={styles['CategoryItems__button']}
-            variant='link'
-            startIcon={<Icons.PlusCircleLarge />}
-            {...buttonProps}
-          />
+        {(buttonProps || title) && (
+          <div className={styles['CategoryItems__top-part']}>
+            {title && (
+              <Typography variant='p4' className={styles['CategoryItems__title']}>
+                {title}
+              </Typography>
+            )}
+
+            {buttonProps && (
+              <Button
+                className={styles['CategoryItems__button']}
+                variant='link'
+                startIcon={<Icons.PlusCircleLarge />}
+                {...buttonProps}
+              />
+            )}
+          </div>
         )}
 
         <Card className={styles['CategoryItems__card']}>
+          {cardTopPart}
+
           <Scroll
             autoHeight={false}
             height='100%'
