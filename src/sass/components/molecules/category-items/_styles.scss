@@ -42,6 +42,11 @@
             @include flex(center);
             width: 100%;
         }
+        &__button {
+            &--disabled {
+                background-color: initial !important;
+            }
+        }
         &--filter {
             #{$this}__card {
                 padding: 0;

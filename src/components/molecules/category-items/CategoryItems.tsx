@@ -1,5 +1,5 @@
 import { CheckboxWithLabel, CheckboxWithLabelProps, Icons } from '@/atom-design-system';
-import { Button, ButtonProps, Card, Loader, Scroll, ScrollProps, Typography } from '@my-ui/core';
+import { Button, ButtonProps, Card, Loader, Scroll, ScrollProps, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { Children, FC, PropsWithChildren, ReactNode, useMemo, useRef } from 'react';
 import styles from './CategoryItems.module.scss';
@@ -18,6 +18,7 @@ export interface CategoryItemsProps {
   itemsWidthAuto?: boolean;
   scrollProps?: ScrollProps;
   fixHeight?: boolean;
+  buttonTooltip?: string;
 
   onPageChange?(page: number): void;
 }
@@ -40,7 +41,8 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
     autoHeight: false,
     height: '100%'
   },
-  fixHeight = true
+  fixHeight = true,
+  buttonTooltip
 }) => {
   const currentPageRef = useRef(1);
 
@@ -66,12 +68,18 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
             )}
 
             {buttonProps && (
-              <Button
-                className={styles['CategoryItems__button']}
-                variant='link'
-                startIcon={<Icons.PlusCircleLarge />}
-                {...buttonProps}
-              />
+              <Tooltip disabled={!buttonTooltip} text={buttonTooltip}>
+                <div>
+                  <Button
+                    className={classNames(styles['CategoryItems__button'], {
+                      [styles['CategoryItems__button--disabled']]: buttonProps.disabled
+                    })}
+                    variant='link'
+                    startIcon={<Icons.PlusCircleLarge />}
+                    {...buttonProps}
+                  />
+                </div>
+              </Tooltip>
             )}
           </div>
         )}
