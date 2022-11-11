@@ -1,7 +1,7 @@
 const { configureSass, configureWatchOptions, configureAliases, configureAssets } = require('../webpack.shared');
 
 module.exports = {
-  stories: ['../src/**/*CreatableTable.stories.mdx', '../src/**/*CreatableTable.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*DividerList.stories.mdx', '../src/**/*DividerList.stories.@(js|jsx|ts|tsx)'],
   typescript: {
     check: false,
     reactDocgen: 'react-docgen-typescript',

@@ -104,27 +104,4 @@
             }
         }
     }
-    .PositionChange {
-        &__name,
-        &__total {
-            margin: 0;
-        }
-        &__name {
-            font-size: calculateRem(13px);
-            margin-bottom: calculateRem(3px);
-        }
-        &__total {
-            font-size: calculateRem(11px);
-        }
-        &__input {
-            min-height: auto;
-            input {
-                min-width: calculateRem(110px);
-            }
-        }
-        &__button {
-            margin-left: auto;
-            font-size: calculateRem(14px);
-        }
-    }
 }

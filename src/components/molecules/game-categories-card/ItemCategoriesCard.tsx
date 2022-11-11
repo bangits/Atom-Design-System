@@ -1,8 +1,8 @@
-import { ButtonForm, ButtonFormProps, Icons } from '@/atom-design-system';
+import { Icons, PopoverWithInput, PopoverWithInputProps } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
-import { Button, Checkbox, CheckboxProps, IconButton, TextInput } from '@my-ui/core';
+import { Checkbox, CheckboxProps, IconButton } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, useState } from 'react';
+import { FC } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
 
 export interface ItemCategoriesCardProps {
@@ -13,12 +13,7 @@ export interface ItemCategoriesCardProps {
   name: string;
   providerName: string;
 
-  positionChangeProps?: {
-    title: string;
-    totalCount: string;
-    buttonLabel: string;
-    initialPosition?: number;
-    showPosition?: ButtonFormProps['showPosition'];
+  positionChangeProps?: Omit<PopoverWithInputProps, 'onSave' | 'renderOpenElement'> & {
     onPositionChange?(position: number): void;
   };
 
@@ -39,10 +34,6 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   onViewButtonClick,
   showActions
 }) => {
-  const [positionInputValue, setPositionInputValue] = useState<number | string>(
-    positionChangeProps?.initialPosition || ''
-  );
-
   return (
     <div className={styles.ItemCategoriesCard}>
       {(checkboxProps || index) && (
@@ -74,37 +65,22 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 icon={<Icons.ViewIcon width='100%' />}
               />
             </li>
+
             {positionChangeProps && (
-              <li className={styles['PositionChange']}>
-                <ButtonForm
-                  showPosition={positionChangeProps.showPosition}
-                  renderOpenElement={({ open }) => (
-                    <IconButton
-                      className={styles['ItemCategoriesCard__action']}
-                      icon={<Icons.RecalculateIcon width='100%' />}
-                      onClick={open}
-                    />
-                  )}>
-                  <div>
-                    <p className={styles['PositionChange__name']}>{positionChangeProps.title}</p>
-                    <p className={styles['PositionChange__total']}>{positionChangeProps.totalCount}</p>
-                    <TextInput
-                      onChange={(e) => setPositionInputValue(e.target.value)}
-                      value={positionInputValue}
-                      type='number'
-                      maxLength={6}
-                      containerClassName={styles['PositionChange__input']}
-                    />
-                    <Button
-                      onClick={() => positionInputValue && positionChangeProps.onPositionChange(+positionInputValue)}
-                      className={styles['PositionChange__button']}
-                      variant='link'>
-                      {positionChangeProps.buttonLabel}
-                    </Button>
-                  </div>
-                </ButtonForm>
-              </li>
+              <PopoverWithInput
+                component='li'
+                {...positionChangeProps}
+                renderOpenElement={({ open }) => (
+                  <IconButton
+                    className={styles['ItemCategoriesCard__action']}
+                    icon={<Icons.RecalculateIcon width='100%' />}
+                    onClick={open}
+                  />
+                )}
+                onSave={positionChangeProps.onPositionChange}
+              />
             )}
+
             <li>
               <IconButton
                 onClick={onDeleteButtonClick}
