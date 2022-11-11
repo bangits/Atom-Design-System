@@ -69,7 +69,7 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
 
             {buttonProps && (
               <Tooltip disabled={!buttonTooltip} text={buttonTooltip}>
-                <span>
+                <div>
                   <Button
                     className={classNames(styles['CategoryItems__button'], {
                       [styles['CategoryItems__button--disabled']]: buttonProps.disabled
@@ -78,7 +78,7 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
                     startIcon={<Icons.PlusCircleLarge />}
                     {...buttonProps}
                   />
-                </span>
+                </div>
               </Tooltip>
             )}
           </div>

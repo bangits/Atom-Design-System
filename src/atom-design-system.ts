@@ -4,6 +4,7 @@ import * as DesignSystemIcons from './icons';
 import './sass/main.scss';
 
 export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
+console.log('🚀 ~ file: atom-design-system.ts ~ line 7 ~ Icons', Icons);
 
 export {
   AcceptionDialog,
