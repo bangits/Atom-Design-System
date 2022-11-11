@@ -34,6 +34,9 @@
         }
         &__item {
             width: 12.5%;
+            &--width-auto {
+                width: auto;
+            }
         }
         &__loader {
             @include flex(center);
@@ -49,7 +52,6 @@
             }
         }
         &--results {
-            height: calculateRem(500px);
             #{$this}__card {
                 display: flex;
                 flex-direction: column;
@@ -61,6 +63,9 @@
                 @include flex(center);
                 margin-top: auto;
                 padding-right: calculateRem(62px);
+            }
+            &#{$this}--fix-height {
+                height: calculateRem(500px);
             }
         }
         @media screen and (max-height: 650px) {

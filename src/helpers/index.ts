@@ -5,3 +5,4 @@ export * from './copyToClipboard';
 export * from './fullScreen';
 export * from './trim';
 export * from './typedMemo';
+export * from './useResizeObserver';

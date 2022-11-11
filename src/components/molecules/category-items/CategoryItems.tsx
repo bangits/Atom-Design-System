@@ -1,5 +1,5 @@
 import { CheckboxWithLabel, CheckboxWithLabelProps, Icons } from '@/atom-design-system';
-import { Button, ButtonProps, Card, Loader, Scroll, Typography } from '@my-ui/core';
+import { Button, ButtonProps, Card, Loader, Scroll, ScrollProps, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { Children, FC, PropsWithChildren, ReactNode, useMemo, useRef } from 'react';
 import styles from './CategoryItems.module.scss';
@@ -15,6 +15,9 @@ export interface CategoryItemsProps {
   pagination?: ReactNode;
   buttons?: ReactNode[];
   isFilterOpened?: boolean;
+  itemsWidthAuto?: boolean;
+  scrollProps?: ScrollProps;
+  fixHeight?: boolean;
 
   onPageChange?(page: number): void;
 }
@@ -31,7 +34,13 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
   buttons,
   isFilterOpened,
   title,
-  cardTopPart
+  cardTopPart,
+  itemsWidthAuto,
+  scrollProps = {
+    autoHeight: false,
+    height: '100%'
+  },
+  fixHeight = true
 }) => {
   const currentPageRef = useRef(1);
 
@@ -44,6 +53,7 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
       <div
         className={classNames(styles.CategoryItems, {
           [styles['CategoryItems--filter']]: isFilter,
+          [styles['CategoryItems--fix-height']]: fixHeight,
           [styles['CategoryItems--results']]: !isFilter,
           [styles['CategoryItems--filter-opened']]: isFilterOpened
         })}>
@@ -70,8 +80,7 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
           {cardTopPart}
 
           <Scroll
-            autoHeight={false}
-            height='100%'
+            {...scrollProps}
             onScroll={(e) => {
               if (isAllItemsLoaded || isLoadingItems) return;
 
@@ -87,7 +96,12 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
             }}>
             <div className={styles['CategoryItems__list']}>
               {childrenArray.map((c) => (
-                <div className={styles['CategoryItems__item']}>{c}</div>
+                <div
+                  className={classNames(styles['CategoryItems__item'], {
+                    [styles['CategoryItems__item--width-auto']]: itemsWidthAuto
+                  })}>
+                  {c}
+                </div>
               ))}
               {isLoadingItems && (
                 <div className={styles['CategoryItems__loader']}>

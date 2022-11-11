@@ -2,14 +2,10 @@ import {
   CategoryItems,
   CategoryItemsProps,
   DividerList,
-  ListViewMore,
   ListViewMoreProps,
-  SearchInput,
   SearchInputProps
 } from '@/atom-design-system';
-import { Scroll, Tag } from '@my-ui/core';
-import classNames from 'classnames';
-import { FC, ReactNode } from 'react';
+import { FC, ReactNode, useMemo } from 'react';
 import styles from './EligableGames.module.scss';
 
 export interface EligableGamesProps extends CategoryItemsProps {
@@ -39,44 +35,61 @@ const EligableGames: FC<EligableGamesProps> = ({
   bulkActions,
   ...categoryItemsProps
 }) => {
+  const cardTopPart = useMemo(
+    () => (
+      <>
+        {/* <Scroll className={styles.EligableGames__Filters} autoHide height='15rem' autoHeightMin='15rem'>
+          <ListViewMore lessLabel={lessLabel} getMoreLabel={getMoreLabel}>
+            {providers.map((p) => (
+              <Tag
+                title={p.name}
+                color='primary'
+                className={classNames(styles.EligableGames__ProviderTag, {
+                  [styles['EligableGames__ProviderTag--Selected']]: p.selected
+                })}
+              />
+            ))}
+          </ListViewMore>
+          <ListViewMore lessLabel={lessLabel} getMoreLabel={getMoreLabel}>
+            {categories.map((c) => (
+              <Tag
+                title={c.name}
+                className={classNames(styles.EligableGames__GameTypeTag, {
+                  [styles['EligableGames__GameTypeTag--Selected']]: c.selected
+                })}
+              />
+            ))}
+          </ListViewMore>
+          {searchInputProps && (
+            <SearchInput
+              {...searchInputProps}
+              containerClassName={classNames(styles.EligableGames__SearchInput, searchInputProps.containerClassName)}
+            />
+          )}
+        </Scroll> */}
+
+        {bulkActions && <DividerList className={styles.EligableGames__BulkActions}>{bulkActions}</DividerList>}
+      </>
+    ),
+    [lessLabel, getMoreLabel, providers, categories, searchInputProps, bulkActions]
+  );
+
+  const scrollProps = useMemo<CategoryItemsProps['scrollProps']>(
+    () => ({
+      autoHide: true,
+      autoHeightMin: '50rem',
+      height: '50rem'
+    }),
+    []
+  );
+
   return (
     <CategoryItems
+      fixHeight={false}
+      scrollProps={scrollProps}
+      itemsWidthAuto
       {...categoryItemsProps}
-      cardTopPart={
-        <>
-          <Scroll className={styles.EligableGames__Filters} autoHide height='15rem' autoHeightMin='15rem'>
-            <ListViewMore lessLabel={lessLabel} getMoreLabel={getMoreLabel}>
-              {providers.map((p) => (
-                <Tag
-                  title={p.name}
-                  color='primary'
-                  className={classNames(styles.EligableGames__ProviderTag, {
-                    [styles['EligableGames__ProviderTag--Selected']]: p.selected
-                  })}
-                />
-              ))}
-            </ListViewMore>
-            <ListViewMore lessLabel={lessLabel} getMoreLabel={getMoreLabel}>
-              {categories.map((c) => (
-                <Tag
-                  title={c.name}
-                  className={classNames(styles.EligableGames__GameTypeTag, {
-                    [styles['EligableGames__GameTypeTag--Selected']]: c.selected
-                  })}
-                />
-              ))}
-            </ListViewMore>
-            {searchInputProps && (
-              <SearchInput
-                {...searchInputProps}
-                containerClassName={classNames(styles.EligableGames__SearchInput, searchInputProps.containerClassName)}
-              />
-            )}
-          </Scroll>
-
-          {bulkActions && <DividerList className={styles.EligableGames__BulkActions}>{bulkActions}</DividerList>}
-        </>
-      }
+      cardTopPart={cardTopPart}
     />
   );
 };

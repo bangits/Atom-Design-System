@@ -6,6 +6,7 @@
         &__BulkActions {
             margin-bottom: calculateRem(8px);
             button {
+                @include button-reset;
                 color: #505d6e;
             }
         }
@@ -19,6 +20,9 @@
             transition: border-color 0.3s;
             &--Selected {
                 border-color: color(primary);
+                span {
+                    font-weight: 500;
+                }
             }
         }
         &__GameTypeTag {

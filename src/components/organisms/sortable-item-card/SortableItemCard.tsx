@@ -1,4 +1,5 @@
 import { Icons } from '@/atom-design-system';
+import { useResizeObserver } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, ReactNode, useCallback, useState } from 'react';
@@ -22,7 +23,11 @@ export interface SortableItemCardProps {
 }
 
 const SortableItemCard: FC<SortableItemCardProps> = ({ actions, subtitle, title, checkboxProps, imgSrc, index }) => {
+  const [sortableItemCardElement, setSortableItemCardElement] = useState<HTMLDivElement>(null);
+
   const [isCheckboxChecked, setCheckboxChecked] = useState(false);
+
+  const [scrollWidth, setScrollWidth] = useState(0);
 
   const onCheckboxChange = useCallback<CheckboxProps['onChange']>(
     (e) => {
@@ -33,12 +38,16 @@ const SortableItemCard: FC<SortableItemCardProps> = ({ actions, subtitle, title,
     [checkboxProps?.onChange]
   );
 
+  useResizeObserver(sortableItemCardElement, () => setScrollWidth(sortableItemCardElement.scrollWidth));
+
   return (
     <div
       className={classNames(styles.SortableItemCard, {
+        [styles['SortableItemCard--PopoverOpened']]: scrollWidth > sortableItemCardElement?.offsetWidth,
         [styles['SortableItemCard--Checked']]:
           checkboxProps.checked !== undefined ? checkboxProps.checked : isCheckboxChecked
-      })}>
+      })}
+      ref={setSortableItemCardElement}>
       <div className={styles.SortableItemCard__Main}>
         {checkboxProps && (
           <div className={styles.SortableItemCard__Checkbox}>

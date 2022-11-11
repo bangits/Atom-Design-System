@@ -1,18 +1,21 @@
 import { ButtonForm, ButtonFormProps } from '@/atom-design-system';
-import { Button, TextInput } from '@my-ui/core';
+import { Button, TextInput, TextInputProps } from '@my-ui/core';
 import { ComponentType } from '@my-ui/core/dist/types';
+import classNames from 'classnames';
 import { FC, useState } from 'react';
 import styles from './PopoverWithInput.module.scss';
 
 export interface PopoverWithInputProps {
   title: string;
-  totalCount: string;
+  totalCount?: string;
   buttonLabel: string;
   renderOpenElement: ButtonFormProps['renderOpenElement'];
 
   initialPosition?: number;
   showPosition?: ButtonFormProps['showPosition'];
   component?: ComponentType;
+
+  inputProps?: TextInputProps;
 
   onSave?(value: number): void;
 }
@@ -25,7 +28,8 @@ const PopoverWithInput: FC<PopoverWithInputProps> = ({
   onSave,
   showPosition,
   component: Component = 'div',
-  renderOpenElement
+  renderOpenElement,
+  inputProps = {}
 }) => {
   const [inputValue, setInputValue] = useState<number | string>(initialPosition || '');
 
@@ -34,13 +38,20 @@ const PopoverWithInput: FC<PopoverWithInputProps> = ({
       <ButtonForm showPosition={showPosition} renderOpenElement={renderOpenElement}>
         <div>
           <p className={styles['PopoverWithInput__name']}>{title}</p>
-          <p className={styles['PopoverWithInput__total']}>{totalCount}</p>
+
+          {totalCount && <p className={styles['PopoverWithInput__total']}>{totalCount}</p>}
+
           <TextInput
-            onChange={(e) => setInputValue(e.target.value)}
-            value={inputValue}
             type='number'
+            value={inputValue}
             maxLength={6}
-            containerClassName={styles['PopoverWithInput__input']}
+            onChange={(e) => {
+              setInputValue(e.target.value);
+
+              inputProps.onChange?.(e);
+            }}
+            {...inputProps}
+            containerClassName={classNames(styles['PopoverWithInput__input'], inputProps.className)}
           />
           <Button
             onClick={() => inputValue && onSave(+inputValue)}
