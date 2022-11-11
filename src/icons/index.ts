@@ -9,6 +9,7 @@ export { ReactComponent as ApplyIcon } from './apply.react.svg';
 export { ReactComponent as IconButtonLeft } from './arrow-left.react.svg';
 export { ReactComponent as ArrowRightIcon } from './arrowright.react.svg';
 export { ReactComponent as AssignToIcon } from './assign-to.react.svg';
+export { ReactComponent as AttentionIcon } from './attention-alert.react.svg';
 export { ReactComponent as BalanceIcon } from './balance.react.svg';
 export { ReactComponent as BannerAddIcon } from './banner.react.svg';
 export { ReactComponent as UnBlockPopupIcon } from './block.react.svg';
@@ -87,6 +88,7 @@ export { ReactComponent as QuestionIcon } from './question-icon.react.svg';
 export { ReactComponent as RejectIcon } from './reject.react.svg';
 export { ReactComponent as ReportsIcon } from './reports.react.svg';
 export { ReactComponent as RiskIcon } from './risk.react.svg';
+export { ReactComponent as RulePopUpIcon } from './rule-popup.react.svg';
 export { ReactComponent as RuleIcon } from './rule.react.svg';
 export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as Safari2Icon } from './safari2.react.svg';
@@ -118,3 +120,4 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
+
