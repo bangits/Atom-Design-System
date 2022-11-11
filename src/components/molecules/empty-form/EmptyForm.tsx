@@ -1,5 +1,5 @@
 import { Icons } from '@/atom-design-system';
-import { Button, ButtonProps, Card } from '@my-ui/core';
+import { Button, ButtonProps, Card, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, PropsWithChildren, ReactNode } from 'react';
 import styles from './EmptyForm.module.scss';
@@ -9,13 +9,15 @@ export interface EmptyFormProps {
   buttonProps?: ButtonProps;
 
   removeCard?: boolean;
+  buttonTooltip?: string;
 }
 
 const EmptyForm: FC<PropsWithChildren<EmptyFormProps>> = ({
   buttonProps,
   children,
   imgContent = <Icons.EmptyFormIcon />,
-  removeCard
+  removeCard,
+  buttonTooltip
 }) => {
   return (
     <Card
@@ -24,7 +26,11 @@ const EmptyForm: FC<PropsWithChildren<EmptyFormProps>> = ({
       })}>
       {buttonProps && (
         <div className={styles['EmptyForm__ButtonContainer']}>
-          <Button variant='link' startIcon={<Icons.PlusCircleLarge />} {...buttonProps} />
+          <Tooltip disabled={!buttonTooltip} text={buttonTooltip}>
+            <span>
+              <Button variant='link' startIcon={<Icons.PlusCircleLarge />} {...buttonProps} />
+            </span>
+          </Tooltip>
         </div>
       )}
 
