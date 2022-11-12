@@ -1,6 +1,3 @@
-import * as X from './activate-icon.react.svg';
-console.log('🚀 ~ file: index.ts ~ line 2 ~ X', X);
-
 export { ReactComponent as ActivatePopupIcon } from './activate-icon.react.svg';
 export { ReactComponent as ActivateIcon } from './activate.react.svg';
 export { ReactComponent as AddIcon } from './add-icon.react.svg';
@@ -123,3 +120,4 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
+export { ReactComponent as ProvideBonusIcon } from './hand-gift.react.svg';
