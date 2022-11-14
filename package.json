@@ -1,6 +1,6 @@
 {
     "name": "@atom/design-system",
-    "version": "4.2.0",
+    "version": "4.2.1",
     "files": [
         "dist"
     ],
@@ -91,7 +91,7 @@
         "webpack-merge": "^5.8.0"
     },
     "dependencies": {
-        "@my-ui/core": "0.9.26",
+        "@my-ui/core": "^0.9.38",
         "classnames": "^2.3.1",
         "draft-js": "^0.11.7",
         "draftjs-to-html": "^0.9.1",
