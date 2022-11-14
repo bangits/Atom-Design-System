@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react';
 import styles from './ClickableTag.module.scss';
 
 export interface ClickableTagProps extends TagProps {
-  component?: ({ className: string, children: ReactNode }) => ReactNode;
+  component?: (props: { className: string, children: ReactNode }) => ReactNode;
 }
 
 const ClickableTag: FC<ClickableTagProps> = ({ component: Component = 'a', ...props }) => {
