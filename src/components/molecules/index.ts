@@ -2,6 +2,7 @@ export * from './balance';
 export * from './bottom-shift';
 export * from './browsers-checkbox';
 export * from './category-items';
+export * from './checkable-input';
 export * from './checkbox-group';
 export * from './clickable-tag';
 export * from './code-area';
@@ -50,3 +51,4 @@ export * from './text-input';
 export * from './translation-form';
 export * from './variables';
 export * from './vertical-tabs';
+
