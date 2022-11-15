@@ -29,8 +29,7 @@ export {
   DialogWithActionsProps,
   IconButton,
   Loader,
-  Pagination,
-  Tooltip,
+  Pagination, Scroll, Tooltip,
   typedMemo
 } from '@my-ui/core';
 export * from './components';
