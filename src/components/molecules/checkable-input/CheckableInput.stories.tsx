@@ -12,14 +12,18 @@ export const Default = () => {
   return (
     <>
       <CheckableInput
-      defValue=''
-      label='Add UserName'
+        value=''
+        label='Add UserName'
         explanation='Add UserName'
         color='success'
         applyCheck={() => {}}
         tooltipTitle='Add Provider'
         invalidTooltipTitle='Please fill fields'
         onChange={action('onChange')}
+        values={[
+          { id: 1452, userName: 'Ruben' },
+          { id: 45, userName: 'Tetst' }
+        ]}
       />
     </>
   );

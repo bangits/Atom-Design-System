@@ -3,7 +3,7 @@ import { trim } from '@/helpers';
 import { ApplySuccess } from '@/icons';
 import { Scroll, Tag, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
-import React, { FC, useCallback, useMemo, useState } from 'react';
+import { FC, useCallback, useMemo, useState } from 'react';
 import styles from './AddProviderNameId.module.scss';
 
 export type AddProviderNameIdValueType = {
