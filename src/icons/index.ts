@@ -3,6 +3,7 @@ export { ReactComponent as ActivateIcon } from './activate.react.svg';
 export { ReactComponent as AddIcon } from './add-icon.react.svg';
 export { ReactComponent as AddCircleIcon } from './addCircle.react.svg';
 export { ReactComponent as AffilateIcon } from './affilate.react.svg';
+export { ReactComponent as AnalyzeIcon } from './analyze-icon.react.svg';
 export { ReactComponent as ApplyError } from './apply-error.react.svg';
 export { ReactComponent as ApplySuccess } from './apply-success.react.svg';
 export { ReactComponent as ApplyIcon } from './apply.react.svg';
@@ -50,6 +51,7 @@ export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
 export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as GamesIcon } from './games.react.svg';
 export { ReactComponent as GenerateLinkIcon } from './generate-link.react.svg';
+export { ReactComponent as ProvideBonusIcon } from './hand-gift.react.svg';
 export { ReactComponent as IdCardIcon } from './id-card.react.svg';
 export { ReactComponent as IEIcon } from './ie.react.svg';
 export { ReactComponent as ImageGalleryIcon } from './image-gallery.react.svg';
@@ -120,4 +122,4 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
-export { ReactComponent as ProvideBonusIcon } from './hand-gift.react.svg';
+
