@@ -1,8 +1,11 @@
 @include generate-molecules-text-input-styles;
 
 .CheckableInput {
-  // border:2px solid red !important;
+  > div {
+    width: 50%;
+  }
   display: flex;
+
   svg {
     cursor: pointer;
     margin-top: 1rem;
