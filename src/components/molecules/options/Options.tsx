@@ -18,6 +18,7 @@ export type OptionData =
 export interface OptionsProps {
   children?: ReactNode;
   data: OptionData;
+  fitContent?: boolean;
 
   outsideClickClassName?: string;
   emptyValue?: string;
@@ -29,6 +30,7 @@ export interface OptionsProps {
 const Options: FC<OptionsProps> = ({
   data,
   opacity = true,
+  fitContent = false,
   emptyValue,
   children,
   onOutsideClick,
@@ -44,7 +46,11 @@ const Options: FC<OptionsProps> = ({
   }, [onOutsideClick]);
 
   return (
-    <Card borderRadius={1.6} className={classNames(styles.OptionsBase)}>
+    <Card
+      borderRadius={1.6}
+      className={classNames(styles.OptionsBase, {
+        [styles['OptionsBase--fitContent']]: fitContent
+      })}>
       {Array.isArray(data) ? (
         data.map((d, index) => (
           <>
