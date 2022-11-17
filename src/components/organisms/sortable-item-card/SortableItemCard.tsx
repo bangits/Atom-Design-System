@@ -45,7 +45,7 @@ const SortableItemCard: FC<SortableItemCardProps> = ({ actions, subtitle, title,
       className={classNames(styles.SortableItemCard, {
         [styles['SortableItemCard--PopoverOpened']]: scrollWidth > sortableItemCardElement?.offsetWidth,
         [styles['SortableItemCard--Checked']]:
-          checkboxProps.checked !== undefined ? checkboxProps.checked : isCheckboxChecked
+          checkboxProps?.checked !== undefined ? checkboxProps?.checked : isCheckboxChecked
       })}
       ref={setSortableItemCardElement}>
       <div className={styles.SortableItemCard__Main}>
