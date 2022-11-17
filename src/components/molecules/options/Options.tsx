@@ -71,7 +71,11 @@ const Options: FC<OptionsProps> = ({
                   </a>
                 </div>
               ) : !d.name ? (
-                <div onClick={() => click(d)} className={classNames(styles['OptionsBase--core'])}>
+                <div
+                  onClick={() => click(d)}
+                  className={classNames(styles['OptionsBase--core'], {
+                    [styles['OptionsBase--core-single']]: data.length <= 1
+                  })}>
                   <Divider variant='horizontal' />
                   <span className={styles['OptionsBase--name']}>{d}</span>
                 </div>
