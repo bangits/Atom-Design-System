@@ -47,6 +47,7 @@ const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onV
         {isOpenMenu && (
           <Options
             opacity={false}
+            fitContent={true}
             outsideClickClassName={`.${styles.container}`}
             click={addVariable}
             onOutsideClick={() => setIsOpenMenu(false)}

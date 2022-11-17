@@ -113,4 +113,18 @@
       }
     }
   }
+
+  .OptionsBase--fitContent {
+    width: fit-content;
+    min-width: calculate-rem(110px);
+  }
+  .OptionsBase--core-single:hover {
+    border-radius: 16px !important;
+  }
+  .OptionsBase--core-single:last-child:hover {
+    border-radius: 16px !important;
+  }
+  .OptionsBase--core-single:first-child:hover {
+    border-radius: 16px !important;
+  }
 }
