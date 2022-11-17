@@ -51,6 +51,7 @@ export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
 export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as GamesIcon } from './games.react.svg';
 export { ReactComponent as GenerateLinkIcon } from './generate-link.react.svg';
+export { ReactComponent as GiftIcon } from './gift.react.svg';
 export { ReactComponent as ProvideBonusIcon } from './hand-gift.react.svg';
 export { ReactComponent as IdCardIcon } from './id-card.react.svg';
 export { ReactComponent as IEIcon } from './ie.react.svg';
