@@ -3,7 +3,7 @@ import { Label, TextInput } from '@/components';
 import { ApplySuccess } from '@/icons';
 import { Scroll, Tag, TextInputProps, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
-import { ReactNode, useCallback, useMemo, useState } from 'react';
+import { ReactNode, useMemo, useState } from 'react';
 import styles from './CheckableInput.module.scss';
 export { TextInputProps } from '@my-ui/core';
 
@@ -23,7 +23,7 @@ const CheckableInput = (
     invalidTooltipTitle?: string;
     value: TextInputProps['value'];
     onChange?(value: AddPlayerIdOrUserNameValueType[]): void;
-    onChange?(value: AddPlayerIdOrUserNameValueType[]): void;
+    onDeleteTag?(value: AddPlayerIdOrUserNameValueType['id']): void;
   }
 ) => {
   const [inputValue, setInputValue] = useState<TextInputProps['value']>('');
@@ -32,11 +32,6 @@ const CheckableInput = (
     () => (props.explanation ? ('danger' as const) : !props.explanation ? ('success' as const) : null),
     [props.explanation]
   );
-
-  const onDeleteTagHandler = useCallback((id) => {
-    // const updatedValues = [...values.filter((value) => value.id !== id)];
-    // props.onChange?.(updatedValues);
-  }, []);
 
   return (
     <>
@@ -86,7 +81,7 @@ const CheckableInput = (
               title={`${value.userName} - ${value.id}`}
               closeIcon
               color={'primary'}
-              onClose={() => onDeleteTagHandler(value.id)}
+              onClose={() => props.onDeleteTag(value.id)}
             />
           ))}
         </div>

@@ -1,8 +1,11 @@
 @include generate-molecules-text-input-styles;
 
 .CheckableInput {
-  // border:2px solid red !important;
+  > div {
+    width: 50%;
+  }
   display: flex;
+
   svg {
     cursor: pointer;
     margin-top: 1rem;
@@ -48,10 +51,9 @@
       box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
     }
   }
-
-  .TagsContainer {
-    @include flex($flex-wrap: wrap);
-    gap: getAddProviderNameIdSizes(tags-gap);
-    max-height: getAddProviderNameIdSizes(tags-max-height);
-  }
+}
+.TagsContainer {
+  @include flex($flex-wrap: wrap);
+  gap: getAddProviderNameIdSizes(tags-gap);
+  max-height: getAddProviderNameIdSizes(tags-max-height);
 }
