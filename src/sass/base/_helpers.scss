@@ -13,6 +13,10 @@
   height: auto !important;
 }
 
+.cursor-no-drop {
+  cursor: no-drop;
+}
+
 .min-height-content-wrapper {
   min-height: calc(100vh - getLayoutSizes(content-header-margin));
 }
