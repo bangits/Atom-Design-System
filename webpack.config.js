@@ -13,16 +13,18 @@ module.exports = (webpackConfigEnv, argv) => {
 
   const isDevelopment = webpackConfigEnv.development;
 
-  defaultConfig.module.rules = defaultConfig.module.rules.map((rule) => {
-    if (String(rule.test) === String(/\.(bmp|png|svg|jpg|jpeg|gif|webp)$/i)) {
-      return {
-        ...rule,
-        test: /\.(bmp|png|jpg|jpeg|gif|webp)$/i
-      };
-    }
+  defaultConfig.module.rules = defaultConfig.module.rules
+    .map((rule) => {
+      if (String(rule.test) === String(/\.(bmp|png|svg|jpg|jpeg|gif|webp)$/i)) {
+        return {
+          ...rule,
+          test: /\.(bmp|png|jpg|jpeg|gif|webp)$/i
+        };
+      }
 
-    return rule;
-  });
+      return rule;
+    })
+    .filter((rule) => String(rule.test) !== String(/\.svg$/i));
 
   return merge(
     defaultConfig,

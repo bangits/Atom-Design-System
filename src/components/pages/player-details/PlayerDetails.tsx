@@ -1,4 +1,4 @@
-import { Icons, IconDropdown } from '@/atom-design-system';
+import { Icons } from '@/atom-design-system';
 import {
   FlexibleFormProps,
   ItemDetails,

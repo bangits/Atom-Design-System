@@ -1,0 +1,112 @@
+@mixin generate-tiers-table-styles {
+  .CreatableTable {
+    //TODO
+    &--amount-percentage {
+      display: flex;
+      gap: calculateRem(10px);
+      margin-top: calculateRem(10px);
+    }
+    table {
+      thead {
+        margin: 0;
+      }
+      thead > tr > th {
+        text-align: left;
+        width: 33%;
+      }
+      width: calculateRem(578px);
+      box-shadow: 0px 4px 4px rgb(0 0 0 / 5%);
+      thead,
+      tbody tr {
+        display: table;
+        margin-left: calculateRem(16px);
+        td:last-child {
+          width: calculateRem(20px);
+          text-align: center;
+          svg {
+            opacity: 0;
+            fill: #505d6e;
+            cursor: pointer;
+            margin-right: 0.2rem;
+          }
+        }
+      }
+      border-collapse: collapse;
+      thead,
+      tfoot {
+        background: #fafafa;
+        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.03);
+        border-radius: 0px 0px 8px 8px;
+        width: calculateRem(600px);
+        height: calculateRem(40px);
+        margin: 0;
+        th,
+        tr {
+          background: #fafafa;
+          font-size: calculateRem(13px);
+          color: #6667ab;
+          padding-left: calculateRem(12px);
+        }
+      }
+    }
+
+    tbody {
+      display: block;
+      background: #fff;
+      overflow: auto;
+      max-height: calculateRem(426px);
+      overflow-x: hidden;
+
+      tr {
+        // width: 98%;
+        table-layout: fixed;
+      }
+
+      tr input {
+        border-color: rgb(199 199 255 / 44%);
+      }
+    }
+
+    &--right-block {
+      cursor: pointer;
+      color: #505d6e;
+      @include flex(center, center);
+      justify-content: flex-start;
+      margin-left: calculateRem(10px);
+      max-width: max-content;
+      gap: calculateRem(10px);
+      &--disabled {
+        opacity: 0.5;
+        cursor: initial;
+      }
+      div {
+        font-weight: 400;
+        color: #6667ab;
+      }
+    }
+
+    &--writable {
+      input {
+        background: white;
+        border-color: whitesmoke !important;
+      }
+    }
+    &--edit:hover {
+      background-color: #c7c7ff42;
+      width: calculateRem(580px);
+      margin-left: calculateRem(16px);
+      td {
+        input {
+          // border: 2px solid red;
+          background: transparent !important;
+        }
+      }
+      td:last-child {
+        background-color: #fff;
+        svg {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

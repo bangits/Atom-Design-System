@@ -11,6 +11,7 @@ export {
   Breadcrumb,
   Button,
   ButtonProps,
+  Checkbox,
   Collapse,
   Dialog,
   DialogActions,
@@ -26,8 +27,9 @@ export {
   DialogTypes,
   DialogWithActions,
   DialogWithActionsProps,
-  Pagination,
-  Tooltip,
+  IconButton,
+  Loader,
+  Pagination, Scroll, Tooltip,
   typedMemo
 } from '@my-ui/core';
 export * from './components';

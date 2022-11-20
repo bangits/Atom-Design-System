@@ -1,7 +1,7 @@
 import { InfoTooltip, LabelEndMark } from '@/atom-design-system';
 import { typedMemo } from '@/helpers/typedMemo';
 import { LargeArrowIcon } from '@/icons';
-import { Button, ButtonProps, Typography } from '@my-ui/core';
+import { Breadcrumb, BreadcrumbProps, Button, ButtonProps, Typography } from '@my-ui/core';
 import { FC, ReactNode } from 'react';
 import styles from './PageWrapper.module.scss';
 
@@ -15,6 +15,7 @@ export interface PageWrapperProps {
   id?: string | number;
   subText?: string;
   subTitle?: string;
+  breadCrumbLinks?: BreadcrumbProps['links'];
 }
 
 const PageWrapper: FC<PageWrapperProps> = ({
@@ -27,10 +28,16 @@ const PageWrapper: FC<PageWrapperProps> = ({
   infoIcon,
   id,
   subText,
-  subTitle
+  subTitle,
+  breadCrumbLinks
 }) => {
   return (
     <div className={styles.PageWrapper}>
+      {breadCrumbLinks && (
+        <div className={styles['DetailsPage__breadCrumb']}>
+          <Breadcrumb links={breadCrumbLinks} />
+        </div>
+      )}
       {(title || showButton) && (
         <div className={styles.PageWrapperHeader}>
           <Typography component='h2' variant='h3' className={styles.PageTitle}>

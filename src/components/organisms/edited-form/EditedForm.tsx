@@ -2,7 +2,7 @@ import { typedMemo } from '@/helpers';
 import { DustbinIcon, PenIcon } from '@/icons';
 import { Card, IconButton, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { CSSProperties, FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
 import EditedFormOptions from './EditedFormOptions';
 
@@ -15,7 +15,7 @@ export interface EditedFormProps {
         value: ReactNode | string;
         variant: 'default';
         shouldLineTranslation?: boolean;
-        col?: 4 | 6 | 12;
+        col?: 3 | 4 | 6 | 12;
         overflow?: 'ellipsis' | 'none';
       }
     | {
@@ -54,6 +54,7 @@ export interface EditedFormProps {
   removeCard?: boolean;
   removeShadow?: boolean;
   disableEditButton?: boolean;
+  height?: CSSProperties['height'];
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -73,7 +74,8 @@ const EditedForm: FC<EditedFormProps> = ({
   removeCard,
   startJustify,
   disableEditButton = false,
-  removeShadow
+  removeShadow,
+  height: heightProp = 248
 }) => {
   const containerRef = useRef<HTMLDivElement>();
 
@@ -93,14 +95,14 @@ const EditedForm: FC<EditedFormProps> = ({
         minHeight: 248
       },
       closed: {
-        height: 248
+        height: (data) => data.heightProp
       },
       iconTransform: {
         transform: 'rotate(180deg)',
         transition: '.5s'
       }
     },
-    { height }
+    { height, heightProp }
   );
 
   const handleViewClick = useCallback(() => {
@@ -122,12 +124,14 @@ const EditedForm: FC<EditedFormProps> = ({
         [styles[`EditedFormBase--${col}`]]: col
       })}
       style={{ opacity: height ? 1 : 0 }}>
-      <div className={classNames(styles['EditedFormBase--control'])}>
-        <span className={classNames(styles['EditedFormBase--control-title'])}>{title}</span>
+      <div className={styles['EditedFormBase--control']}>
+        <span className={styles['EditedFormBase--control-title']}>{title}</span>
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             <Tooltip showEvent='hover' text={editButtonTooltipText}>
-              <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
+              <div>
+                <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
+              </div>
             </Tooltip>
             {showDeleteButton && (
               <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
@@ -152,8 +156,8 @@ const EditedForm: FC<EditedFormProps> = ({
           ref={containerRef}>
           {children || <EditedFormOptions options={options} noDataText={noDataText} />}
 
-          {height > 248 && (
-            <div onClick={handleViewClick} className={classNames(styles['EditedFormBase--viewMore'], 'HELLLO WORLD')}>
+          {height > 248 && heightProp !== 'auto' && (
+            <div onClick={handleViewClick} className={styles['EditedFormBase--viewMore']}>
               <div
                 className={classNames({
                   [viewMoreClassNames.iconTransform]: isOpenedCollapse

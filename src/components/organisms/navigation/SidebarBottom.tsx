@@ -1,5 +1,5 @@
 import classNames from 'classnames';
-import React, { FC } from 'react';
+import { FC } from 'react';
 import styles from './Sidebar.module.scss';
 
 export interface SidebarBottomProps {
@@ -8,11 +8,7 @@ export interface SidebarBottomProps {
   isSidebarClosed: boolean;
 }
 
-const SidebarBottom: FC<SidebarBottomProps> = ({
-  title = 'Circus',
-  logoSrc = 'https://res.cloudinary.com/dheh8nj2p/image/upload/v1647362297/logo_3_nchilm.png',
-  isSidebarClosed
-}) => {
+const SidebarBottom: FC<SidebarBottomProps> = ({ title, logoSrc, isSidebarClosed }) => {
   return (
     <div
       className={classNames(styles.BottomContainer, {
