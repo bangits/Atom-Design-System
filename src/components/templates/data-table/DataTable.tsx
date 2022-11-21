@@ -222,13 +222,16 @@ function DataTable<T extends {}, K>({
 
   const onFiltersChange = useCallback(
     (changedFilters: K) => {
+      if (exchangeCurrencyProperty && filters)
+        changedFilters[exchangeCurrencyProperty] = filters[exchangeCurrencyProperty];
+
       setFilters(changedFilters);
 
       setPagination(initialPagination);
 
       onDataChange(changedFilters, undefined, initialPagination);
     },
-    [onDataChange, initialPagination]
+    [onDataChange, initialPagination, exchangeCurrencyProperty, filters]
   );
 
   const onTableFetchData = useCallback<TableProps<T>['fetch']>(
@@ -396,7 +399,7 @@ function DataTable<T extends {}, K>({
       onSubmit: onFiltersChange,
       onClear: () => onFiltersChange(filterProps.initialValues)
     }),
-    []
+    [onFiltersChange]
   );
 
   useEffect(() => {
