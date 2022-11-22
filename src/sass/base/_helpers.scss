@@ -1,7 +1,14 @@
 @import '../layout/variables';
 .mt-3 {
-  margin-top: 1rem;
+  margin-top: calculateRem(10px);
 }
+.mt-5 {
+  margin-top: calculateRem(20px);
+}
+.text-center {
+  text-align: center;
+}
+
 .bg-ineherit {
   background-color: inherit !important;
 }
