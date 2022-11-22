@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers';
-import { DustbinIcon, PenIcon } from '@/icons';
+import { DustbinIcon, InfoTooltipIcon, PenIcon } from '@/icons';
 import { Card, IconButton, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
 import { CSSProperties, FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
@@ -43,6 +43,7 @@ export interface EditedFormProps {
   )[];
   noDataText?: ReactNode;
   title?: ReactNode;
+  tooltipText?: string;
   viewMoreLabel?: string;
   viewLessLabel?: string;
   onToggle?: () => void;
@@ -59,6 +60,7 @@ export interface EditedFormProps {
 
 const EditedForm: FC<EditedFormProps> = ({
   title,
+  tooltipText,
   noDataText = 'N/A',
   options,
   viewMoreLabel = 'View More',
@@ -125,7 +127,14 @@ const EditedForm: FC<EditedFormProps> = ({
       })}
       style={{ opacity: height ? 1 : 0 }}>
       <div className={styles['EditedFormBase--control']}>
-        <span className={styles['EditedFormBase--control-title']}>{title}</span>
+        <span className={styles['EditedFormBase--control-title']}>
+          {title}
+          {tooltipText && (
+            <Tooltip text={tooltipText}>
+              <InfoTooltipIcon className={styles['EditedFormBase--control-tooltip']} width='1.5rem' height='1.5rem' />
+            </Tooltip>
+          )}
+        </span>
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             <Tooltip showEvent='hover' text={editButtonTooltipText}>
