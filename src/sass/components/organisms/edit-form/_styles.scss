@@ -1,92 +1,102 @@
 @mixin generate-edit-form-styles {
-    .EditFormBase--field--flex-end {
-        display: flex;
-        justify-content: flex-end;
+  .EditFormBase--field--flex-end {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .EditForm {
+    width: getEditFormInSizes(edit-form-width);
+  }
+  .EditForm--12 {
+    &,
+    .EditFormBase--field {
+      width: 100%;
     }
-    .EditForm {
-        width: getEditFormInSizes(edit-form-width);
-    }
-    .EditForm--12 {
-        &,
-        .EditFormBase--field {
-            width: 100%;
-        }
-        /* .EditFormBase--content {
+    /* .EditFormBase--content {
       column-gap: getEditFormInSizes(edit-form-base-content-column-gap);
       @include flex(flex-start, null);
     } */
+  }
+  .EditForm--6 {
+    width: getEditFormInSizes(edit-form-half-width);
+  }
+  .EditFormBase {
+    position: relative;
+    background-color: getEditFormInColors(edit-form-background);
+    padding: getEditFormInSizes(edit-form-padding);
+    box-sizing: border-box;
+    @include generateBorderWithBoxShadow(getEditFormInColors(border-color), 0.1rem);
+    &--label {
+      position: absolute;
+      top: calculateRem(7px);
+      font-size: calculateRem(13px);
+      color: #505d6e;
     }
-    .EditForm--6 {
-        width: getEditFormInSizes(edit-form-half-width);
+    &--header {
+      @include flex(space-between, center);
+      padding: getEditFormInSizes(edit-form-header-padding);
+      &-tooltip {
+        margin-left: calculateRem(5px);
+        margin-bottom: calculateRem(-3px);
+      }
+      > span {
+        display: inline-block;
+        width: getEditFormInSizes(edit-form-title-width);
+        height: getEditFormInSizes(edit-form-title-height);
+        font-size: getEditFormInSizes(edit-form-title-font-size);
+        font-weight: getEditFormInSizes(edit-header-span-font-weight);
+        word-break: break-all;
+        @include dots-after-text();
+        color: getEditFormInColors(edit-form-title-color);
+      }
     }
-    .EditFormBase {
-        position: relative;
-        background-color: getEditFormInColors(edit-form-background);
-        padding: getEditFormInSizes(edit-form-padding);
-        box-sizing: border-box;
-        @include generateBorderWithBoxShadow(getEditFormInColors(border-color), 0.1rem);
-        &--header {
-            @include flex(space-between, center);
-            padding: getEditFormInSizes(edit-form-header-padding);
-            >span {
-                display: inline-block;
-                width: getEditFormInSizes(edit-form-title-width);
-                height: getEditFormInSizes(edit-form-title-height);
-                font-size: getEditFormInSizes(edit-form-title-font-size);
-                font-weight: getEditFormInSizes(edit-header-span-font-weight);
-                word-break: break-all;
-                @include dots-after-text();
-                color: getEditFormInColors(edit-form-title-color);
-            }
-        }
-        &--buttons {
-            @include flex();
-            margin: getEditFormInSizes(edit-form-buttons-margin);
-        }
-        &__button {
-            &--disabled {
-                opacity: 0.2;
-            }
-        }
-        &--content {
-            @include flex($flex-wrap: wrap);
-            align-content: flex-start;
-            box-sizing: border-box;
-            width: getEditFormInSizes(edit-form-content-width);
-            min-height: getEditFormInSizes(min-height);
-            form {
-                width: 100%;
-            }
-        }
-        &--field {
-            width: getEditFormInSizes(edit-form-field-width);
-            margin-left: getEditFormInSizes(edit-form-field-margin);
-            &--full-width {
-                width: 100%;
-            }
-        }
-        &--field-header {
-            margin: getEditFormInSizes(field-header-margin);
-            height: getEditFormInSizes(field-header-height);
-            font-size: getEditFormInSizes(field-header-font-size);
-            font-weight: getEditFormInSizes(field-header-font-weight);
-            color: getEditFormInColors(field-header-color);
-            width: 100%;
-        }
-        &--3 {
-            width: calc(33% - #{getEditFormInSizes(edit-form-field-margin)}) !important;
-            min-height: calculateRem(69px);
-        }
-        &--2 {
-            width: calc(25% - #{calculateRem(16px)}) !important;
-            min-height: calculateRem(69px);
-        }
-        &--12 {
-            width: 100%;
-            // min-height: calculateRem(69px);
-        }
-        &--6 {
-            width: getEditFormInSizes(edit-form-field-width) !important;
-        }
+    &--buttons {
+      @include flex();
+      margin: getEditFormInSizes(edit-form-buttons-margin);
     }
+    &__button {
+      &--disabled {
+        opacity: 0.2;
+      }
+    }
+    &--content {
+      @include flex($flex-wrap: wrap);
+      align-content: flex-start;
+      box-sizing: border-box;
+      width: getEditFormInSizes(edit-form-content-width);
+      min-height: getEditFormInSizes(min-height);
+      form {
+        width: 100%;
+      }
+    }
+    &--field {
+      width: getEditFormInSizes(edit-form-field-width);
+      margin-left: getEditFormInSizes(edit-form-field-margin);
+      &--full-width {
+        width: 100%;
+      }
+    }
+    &--field-header {
+      margin: getEditFormInSizes(field-header-margin);
+      height: getEditFormInSizes(field-header-height);
+      font-size: getEditFormInSizes(field-header-font-size);
+      font-weight: getEditFormInSizes(field-header-font-weight);
+      color: getEditFormInColors(field-header-color);
+      width: 100%;
+    }
+    &--3 {
+      width: calc(33% - #{getEditFormInSizes(edit-form-field-margin)}) !important;
+      min-height: calculateRem(69px);
+    }
+    &--2 {
+      width: calc(25% - #{calculateRem(16px)}) !important;
+      min-height: calculateRem(69px);
+    }
+    &--12 {
+      width: 100%;
+      // min-height: calculateRem(69px);
+    }
+    &--6 {
+      width: getEditFormInSizes(edit-form-field-width) !important;
+    }
+  }
 }

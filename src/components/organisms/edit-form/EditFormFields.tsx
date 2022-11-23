@@ -40,6 +40,7 @@ const EditFormFields = ({
                 styles[`EditFormBase--field--${field.justifyContent}`]
               )}
               key={idx}>
+                <div className={styles[`EditFormBase--label`]}>{field.labelText}</div>
               {fieldElement}
             </div>
           )

@@ -69,6 +69,7 @@
             row-gap: calculateRem(8px);
             top: calculateRem(8px);
             right: calculateRem(8px);
+            z-index: 3;
         }
         &__Img,
         &__EmptyImg {
@@ -119,11 +120,6 @@
             }
             &:hover #{$this}__Actions {
                 opacity: 1;
-            }
-        }
-        &--PopoverOpened {
-            #{$this}__Actions {
-                z-index: 3;
             }
         }
     }

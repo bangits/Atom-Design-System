@@ -35,6 +35,10 @@
       width: getEditedFormSizes(control-title-width);
       @include dots-after-text();
     }
+    &--control-tooltip {
+      margin-left: calculateRem(5px);
+      margin-bottom: calculateRem(-3px);
+    }
     // &--content-children {
     //   height: 100% !important;
     // }
