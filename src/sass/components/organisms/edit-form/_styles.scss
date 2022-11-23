@@ -25,6 +25,12 @@
     padding: getEditFormInSizes(edit-form-padding);
     box-sizing: border-box;
     @include generateBorderWithBoxShadow(getEditFormInColors(border-color), 0.1rem);
+    &--label {
+      position: absolute;
+      top: calculateRem(7px);
+      font-size: calculateRem(13px);
+      color: #505d6e;
+    }
     &--header {
       @include flex(space-between, center);
       padding: getEditFormInSizes(edit-form-header-padding);

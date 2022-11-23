@@ -17,6 +17,7 @@ export interface EditedFormProps {
         shouldLineTranslation?: boolean;
         col?: 3 | 4 | 6 | 12;
         overflow?: 'ellipsis' | 'none';
+        labelText?: string;
       }
     | {
         title: ReactNode | string;
