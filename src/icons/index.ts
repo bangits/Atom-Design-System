@@ -108,6 +108,7 @@ export { ReactComponent as SynchronizeIcon } from './synchronize.react.svg';
 export { ReactComponent as TabletIcon } from './tablet.react.svg';
 export { ReactComponent as TaskSideBarIcon } from './task-management.react.svg';
 export { ReactComponent as TaskPopUpIcon } from './task-popup.react.svg';
+export { ReactComponent as TaskTypePopUpIcon } from './task-type-icon.react.svg';
 export { ReactComponent as TimeIcon } from './time.react.svg';
 export { ReactComponent as ToolsIcon } from './tools.react.svg';
 export { ReactComponent as TopBottomArrowsIcon } from './top-bottom-arrows.react.svg';
