@@ -1,0 +1,50 @@
+$document-card-sizes: (
+  card-width: calculateRem(477px),
+  card-width-sm: calculateRem(315px),
+  card-border-radius: 16px,
+  card-border-solid: calculateRem(1px),
+   card-padding: calculateRem(10px) calculateRem(15px) calculateRem(14px) calculateRem(15px),
+  title-content-margin-top: calculateRem(24px),
+  title-color: color('#48485D'),
+  title-font-weight: 300,
+  number-font-size: calculateRem(24px),
+  number-font-weight: 600,
+  divider: 1px,
+  divider-margin: calculateRem(24px),
+  game-wrapper-margin-top: calculateRem(16px),
+  games-content-margin-bottom: calculateRem(16px),
+  game-img-sizes: calculateRem(24px),
+  game-label-margin-left: calculateRem(16px),
+  game-margin: 0 calculateRem(110px) calculateRem(16px) 0,
+  dots-text-max-width: calculateRem(110px),
+  img-content-width: calculateRem(65px),
+  img-content-height: calculateRem(45px),
+  img-content-margin: 0 calculateRem(9px) calculateRem(7px) 0,
+  view-more-borderRadius: 0 0 calculateRem(16px) calculateRem(16px),
+  view-more-height: calculateRem(24px),
+  view-icon-width: calculateRem(24px),
+  view-icon-height: calculateRem(24px),
+  view-font-size: calculateRem(12px),
+  view-label-height: calculateRem(14px),
+  content-transition: 0.5s
+);
+
+$document-card-colors: (
+  background-card: color(white),
+  card-border-color: color(card-border-color),
+  number-color-purple: color(cornflower-blue),
+  number-color-lime: color(lime-c),
+  number-color-orange: color(orange-c),
+  divider-color: color(whisper),
+  game-label-color: color(quartz),
+  view-colors: color(black-color),
+  view-bg: color(white-lilac)
+);
+
+@function getProjectCardColors($key) {
+  @return map-get($document-card-colors, $key);
+}
+
+@function getProjectCardSizes($key) {
+  @return map-get($document-card-sizes, $key);
+}

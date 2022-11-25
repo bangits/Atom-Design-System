@@ -1,20 +1,27 @@
 @mixin generate-checkbox-with-label-styles {
-    .Checkbox {
-        display: inline-flex;
-        flex-direction: row-reverse;
-        align-items: center;
-        &--disabled {
-            opacity: 0.6;
-            label,
-            input,
-            svg {
-                cursor: initial;
-            }
-        }
+  .Checkbox {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    &--disabled {
+      opacity: 0.6;
+      label,
+      input,
+      svg {
+        cursor: initial;
+      }
+      svg {
+        fill: red !important;
+      }
     }
-    .CheckboxLabel {
-        font-size: calculateRem(14px);
-        margin-left: calculateRem(5px);
-        color: #48485d;
+    &-tooltip {
+      margin-left: calculateRem(5px);
+      margin-bottom: calculateRem(-3px);
     }
+  }
+  .CheckboxLabel {
+    font-size: calculateRem(14px);
+    margin-left: calculateRem(5px);
+    color: #48485d;
+  }
 }
