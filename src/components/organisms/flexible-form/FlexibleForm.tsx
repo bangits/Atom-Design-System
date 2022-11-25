@@ -8,6 +8,7 @@ export interface FlexibleFormProps {
   noDataText?: ReactNode;
   onSubmit?: (onToggle: () => void) => void;
   title: ReactNode;
+  tooltipText?: string;
   editModeChildren?: ReactNode;
   editedModeChildren?: ReactNode;
   col?: 6 | 12;
@@ -23,6 +24,7 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
   onSubmit,
   noDataText,
   title,
+  tooltipText,
   editModeChildren,
   editedModeChildren,
   col,
@@ -50,6 +52,7 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
           {...editFormProps}
           onToggle={onToggle}
           title={title}
+          tooltipText={tooltipText}
           onSubmit={onSubmit}
           children={editModeChildren}
           col={col}
@@ -59,6 +62,7 @@ const FlexibleForm: FC<FlexibleFormProps> = ({
           {...editedFormProps}
           onToggle={onToggle}
           title={title}
+          tooltipText={tooltipText}
           noDataText={noDataText}
           children={editedModeChildren}
           col={col}
