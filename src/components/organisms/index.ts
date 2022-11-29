@@ -36,6 +36,7 @@ export * from './navigation';
 export * from './password-generator';
 export * from './player-wallets';
 export * from './popover-with-input';
+export * from './prioritization';
 export * from './project-card';
 export * from './project-currencies';
 export * from './project-languages';
