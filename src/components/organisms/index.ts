@@ -7,6 +7,7 @@ export * from './collapsable-table';
 export * from './count-view';
 export * from './creatable-table';
 export * from './criteria-form';
+export * from './custom-item-card';
 export * from './details-main-info';
 export * from './details-page';
 export * from './dialog';
@@ -57,3 +58,4 @@ export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-card';
 export * from './wallet-view';
+

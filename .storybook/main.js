@@ -1,7 +1,7 @@
 const { configureSass, configureWatchOptions, configureAliases, configureAssets } = require('../webpack.shared');
 
 module.exports = {
-  stories: ['../src/**/*CustomCard.stories.mdx', '../src/**/*CustomCard.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   typescript: {
     check: false,
     reactDocgen: 'react-docgen-typescript',
