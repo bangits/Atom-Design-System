@@ -1,4 +1,4 @@
-import { typedMemo, Variables } from '@/atom-design-system';
+import { Icons, typedMemo, Variables } from '@/atom-design-system';
 import { Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { ContentState, convertToRaw, EditorState } from 'draft-js';
@@ -11,6 +11,7 @@ import styles from './CustomEditor.module.scss';
 
 export interface CustomEditorProps {
   errorText?: string;
+  isButtonShow?: boolean;
   size?: 'sm' | 'lg';
   variables?: string[];
   isVariableShow?: boolean;
@@ -29,6 +30,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
   htmlValue,
   errorText,
   isVariableShow = true,
+  isButtonShow,
   ...props
 }) => {
   const initialEditorState = useMemo(() => {
@@ -107,9 +109,17 @@ const CustomEditor: FC<CustomEditorProps> = ({
           [styles[`editor-${size}`]]: size
         })}
         onEditorStateChange={onEditorStateChange}
-        toolbarCustomButtons={
-          isVariableShow && [<Variables key='variables' variables={variables} emptyValue='there is no value' />]
-        }
+        toolbarCustomButtons={[
+          isVariableShow && (
+            <Variables
+              buttonProps={{ children: <Icons.VariableIcon /> }}
+              key='variables'
+              variables={variables}
+              emptyValue='there is no value'
+            />
+          ),
+          isButtonShow && <Variables buttonProps={{ variant: 'ghost', children: 'Button' }} />
+        ]}
       />
       {title && (
         <Typography variant='p4' color='primary' className={styles.typography}>
