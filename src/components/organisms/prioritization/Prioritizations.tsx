@@ -1,5 +1,5 @@
 import { CategoryItemsProps, ListViewMoreProps, SearchInputProps } from '@/atom-design-system';
-import { TextInput } from '@/components';
+import { EmptyForm, TextInput } from '@/components';
 import { Card, Loader, Scroll, Tab } from '@my-ui/core';
 import classNames from 'classnames';
 import { Children, FC, ReactNode, useMemo, useRef, useState } from 'react';
@@ -13,23 +13,20 @@ export interface PrioritizationsProps extends CategoryItemsProps {
   hasTasks: boolean;
   isTabLoading: boolean;
   searchLabel: string;
-  categories: {
-    name: string;
-    selected: boolean;
-  }[];
   searchInputMaxLength: number;
   buttons?: ReactNode[];
   isAllItemsLoaded?: boolean;
   isLoadingItems?: boolean;
   itemsWidthAuto?: boolean;
   pagination?: ReactNode;
+  emptyFormText?: string;
+  defaultTabValue?: number;
   onPageChange?(page: number): void;
-
-  onChange(taskType: number | string, search: string, page: number): void;
+  tabOnChange?(taskTypeId: number): void;
+  onChange(search: string): void;
 }
 
 const Prioritizations: FC<PrioritizationsProps> = ({
-  categories,
   children,
   lessLabel,
   searchInputProps,
@@ -46,13 +43,14 @@ const Prioritizations: FC<PrioritizationsProps> = ({
   buttons,
   itemsWidthAuto,
   pagination,
+  emptyFormText,
+  tabOnChange,
+  defaultTabValue,
   ...categoryItemsProps
 }) => {
-
   const latestSearchValue = useRef('');
   const [searchValue, setSearchValue] = useState('');
 
-  const [selectedTaskType, setSelectedTaskType] = useState<number | string>(null);
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   const childrenArray = useMemo(() => Children.toArray(children), [children]);
@@ -71,8 +69,18 @@ const Prioritizations: FC<PrioritizationsProps> = ({
   return (
     <>
       <Card className={styles['CategoryItems__card']}>
-        <Tab options={options || []} defaultValue={1} variant='bordered' onChange={(e) => {}} />
-        {hasTasks && !isTabLoading ? (
+        <div className='mb-2'>
+          <Scroll showHorizontalScroll onScroll={(e) => console.log('onScroll')}>
+            <Tab
+              options={options || []}
+              defaultValue={defaultTabValue}
+              variant='bordered'
+              onChange={(e) => tabOnChange(e)}
+            />
+          </Scroll>
+        </div>
+
+        {!isTabLoading ? (
           <TextInput
             label={searchLabel}
             endIcon={
@@ -88,7 +96,7 @@ const Prioritizations: FC<PrioritizationsProps> = ({
 
                   setCurrentPage(1);
 
-                  onChange(selectedTaskType, searchValue, 1);
+                  onChange(searchValue);
                 }}>
                 <path d='m503.6 463.2-96.7-96.4C438.1 327.1 455 278 455 227.5 455 101.8 353.1 0 227.5 0 101.8 0 0 101.8 0 227.5 0 353.1 101.8 455 227.5 455c50.5.1 99.6-16.9 139.3-48.1l96.4 96.7c11.1 11.1 29.1 11.2 40.2.2l.2-.2c11.1-11.1 11.2-29.1.2-40.2l-.2-.2zM56.9 227.5c0-94.2 76.4-170.6 170.6-170.6 94.2 0 170.6 76.4 170.6 170.6 0 94.2-76.4 170.6-170.6 170.6-94.3 0-170.6-76.4-170.6-170.6z' />
               </svg>
@@ -116,14 +124,18 @@ const Prioritizations: FC<PrioritizationsProps> = ({
             }
           }}>
           <div className={styles['CategoryItems__list']}>
-            {childrenArray.map((c) => (
-              <div
-                className={classNames(styles['CategoryItems__item'], {
-                  [styles['CategoryItems__item--width-auto']]: itemsWidthAuto
-                })}>
-                {c}
-              </div>
-            ))}
+            {childrenArray.length ? (
+              childrenArray.map((c) => (
+                <div
+                  className={classNames(styles['CategoryItems__item'], {
+                    [styles['CategoryItems__item--width-auto']]: itemsWidthAuto
+                  })}>
+                  {c}
+                </div>
+              ))
+            ) : (
+              <EmptyForm>{emptyFormText}</EmptyForm>
+            )}
             {isLoadingItems && (
               <div className={styles['CategoryItems__loader']}>
                 <Loader />
