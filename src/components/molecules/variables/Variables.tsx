@@ -1,4 +1,4 @@
-import { Button, ButtonProps, Options } from '@/atom-design-system';
+import { Button, Icons, Options } from '@/atom-design-system';
 import classNames from 'classnames';
 import { EditorState, Modifier } from 'draft-js';
 import { FC, useState } from 'react';
@@ -13,10 +13,8 @@ export interface VariablesProps {
   };
   emptyValue?: string;
 
-  buttonProps?: ButtonProps;
   onVariableClick?(variable: string): void;
   onChange?(e): void;
-  
 }
 
 const Variables: FC<VariablesProps> = ({
@@ -25,7 +23,6 @@ const Variables: FC<VariablesProps> = ({
   editorState,
   onVariableClick,
   onChange,
-  buttonProps
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
@@ -49,8 +46,9 @@ const Variables: FC<VariablesProps> = ({
         className={classNames(styles.button, {
           [styles['button-active']]: isOpenMenu
         })}
-        variant='link'
-        {...buttonProps}/>
+        variant='link'>
+        <Icons.VariableIcon />
+      </Button>
       <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '48px' }}>
         {isOpenMenu && (
           <Options
