@@ -97,6 +97,7 @@ export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as Safari2Icon } from './safari2.react.svg';
 export { ReactComponent as SegmentIcon } from './segment-icon.react.svg';
 export { ReactComponent as SelfieIcon } from './selfie.react.svg';
+export { ReactComponent as SendEmailIcon } from './send-email.react.svg';
 export { ReactComponent as SetAsDefault } from './set-as-default.react.svg';
 export { ReactComponent as SettingsIcon } from './setting.react.svg';
 export { ReactComponent as SignInImage } from './SignIn.react.svg';

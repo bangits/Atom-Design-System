@@ -17,6 +17,7 @@ export interface CustomEditorProps {
   title?: string;
   variant?: 'default' | 'onlyVariable' | 'all';
   htmlValue?: string;
+  attachImage?: boolean;
   onChange?(htmlValue: string): void;
 }
 
@@ -28,6 +29,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
   size,
   htmlValue,
   errorText,
+  attachImage = false,
   isVariableShow = true,
   ...props
 }) => {
@@ -53,7 +55,6 @@ const CustomEditor: FC<CustomEditorProps> = ({
     },
     [editorState]
   );
-  
 
   return (
     <div className={classNames(styles.container)}>
@@ -64,7 +65,18 @@ const CustomEditor: FC<CustomEditorProps> = ({
             variant === 'default'
               ? ['link', 'history']
               : variant === 'all'
-              ? ['list', 'colorPicker', 'emoji', 'link', 'textAlign', 'inline', 'fontFamily', 'fontSize', 'history']
+              ? [
+                  'list',
+                  'colorPicker',
+                  'emoji',
+                  'link',
+                  'textAlign',
+                  'inline',
+                  'fontFamily',
+                  'fontSize',
+                  'history',
+                  attachImage && 'embedded'
+                ]
               : [],
 
           list: {
@@ -109,13 +121,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
         })}
         onEditorStateChange={onEditorStateChange}
         toolbarCustomButtons={
-          isVariableShow && [
-            <Variables
-              key='variables'
-              variables={variables}
-              emptyValue='there is no value'
-            />
-          ]
+          isVariableShow && [<Variables key='variables' variables={variables} emptyValue='there is no value' />]
         }
       />
       {title && (
@@ -123,7 +129,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
           {title}
         </Typography>
       )}
-      
+
       <Typography variant='p5' color='danger'>
         {errorText}
       </Typography>
