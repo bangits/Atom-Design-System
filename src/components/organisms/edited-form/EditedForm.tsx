@@ -50,6 +50,7 @@ export interface EditedFormProps {
   onToggle?: () => void;
   col?: 6 | 12;
   showDeleteButton?: boolean;
+  showSendButton?: boolean;
   onDelete?: () => void;
   showEditIcons?: boolean;
   startJustify?: boolean;
@@ -57,6 +58,9 @@ export interface EditedFormProps {
   removeShadow?: boolean;
   disableEditButton?: boolean;
   height?: CSSProperties['height'];
+  sendEmail?: ReactNode;
+  topPart?: ReactNode | ReactNode[];
+  actions?: ReactNode | ReactNode[];
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -78,6 +82,8 @@ const EditedForm: FC<EditedFormProps> = ({
   startJustify,
   disableEditButton = false,
   removeShadow,
+  topPart,
+  actions,
   height: heightProp = 248
 }) => {
   const containerRef = useRef<HTMLDivElement>();
@@ -128,6 +134,7 @@ const EditedForm: FC<EditedFormProps> = ({
       })}
       style={{ opacity: height ? 1 : 0 }}>
       <div className={styles['EditedFormBase--control']}>
+        {topPart}
         <span className={styles['EditedFormBase--control-title']}>
           {title}
           {tooltipText && (
@@ -138,6 +145,7 @@ const EditedForm: FC<EditedFormProps> = ({
         </span>
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
+            {actions}
             <Tooltip showEvent='hover' text={editButtonTooltipText}>
               <div>
                 <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
