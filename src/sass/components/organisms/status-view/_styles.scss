@@ -33,7 +33,20 @@
           fill: currentColor;
         }
       }
+
+      &-text-label {
+        margin-right: calculateRem(3px);
+        @include flex(center, center);
+        background: #e0e1ee;
+        width: calculateRem(16px);
+        height: calculateRem(15px);
+        margin-top: calculateRem(1px);
+        border-radius: calculateRem(5px);
+        border: 0.5px solid #7d7dc1;
+        padding: calculateRem(1px);
+      }
     }
+
     &--with-spacings {
       margin-bottom: calculateRem(8px);
     }
