@@ -1,17 +1,32 @@
 import { Label } from '@/components';
-import { TextInput as MYUITextInput, TextInputProps } from '@my-ui/core';
+import { InfoTooltipIcon } from '@/icons';
+import { TextInput as MYUITextInput, TextInputProps, Tooltip } from '@my-ui/core';
 import { ReactNode } from 'react';
-export { TextInputProps } from '@my-ui/core';
 import styles from './TextInput.module.scss';
+export { TextInputProps } from '@my-ui/core';
 
-export const TextInput = (props: TextInputProps & { optionalText?: ReactNode }) => {
+export const TextInput = (props: TextInputProps & { optionalText?: ReactNode; tooltipText?: string }) => {
   return (
-    <MYUITextInput
-      className={props.textarea && styles.TextArea}
-      {...props}
-      label={
-        <Label isForInput text={props.label} optional={!!props.optionalText} optionalText={`(${props.optionalText})`} />
-      }
-    />
+    <div className={styles['Checkbox--container']}>
+      {props.tooltipText && (
+        <div className={styles['Checkbox-tooltip--container']}>
+          <Tooltip text={props.tooltipText}>
+            <InfoTooltipIcon className={styles['Checkbox-tooltip']} width='1.5rem' height='1.5rem' />
+          </Tooltip>
+        </div>
+      )}
+      <MYUITextInput
+        className={props.textarea && styles.TextArea}
+        {...props}
+        label={
+          <Label
+            isForInput
+            text={props.label}
+            optional={!!props.optionalText}
+            optionalText={`(${props.optionalText})`}
+          />
+        }
+      />
+    </div>
   );
 };
