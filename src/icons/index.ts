@@ -31,6 +31,7 @@ export { ReactComponent as DashboardIllustration } from './dashboard-illustartio
 export { ReactComponent as DashboardIcon } from './dashboard.react.svg';
 export { ReactComponent as InActivatePopupIcon } from './deactivate-icon.react.svg';
 export { ReactComponent as DeActivateIcon } from './deactivate.react.svg';
+export { ReactComponent as DepositPopUpIcon } from './deposit-icon.react.svg';
 export { ReactComponent as DesktopIcon } from './desktop.react.svg';
 export { ReactComponent as DndIcon } from './dnd.react.svg';
 export { ReactComponent as DownloadIcon } from './download.react.svg';
@@ -118,6 +119,8 @@ export { ReactComponent as DustbinIcon } from './trash-indicator.react.svg';
 export { ReactComponent as BlockPopupIcon } from './unblock.react.svg';
 export { ReactComponent as UndoIcon } from './undo.react.svg';
 export { ReactComponent as UnLockIcon } from './unlock.react.svg';
+export { ReactComponent as UpdatePopUpIcon } from './update-popup-icon.react.svg';
+export { ReactComponent as UpdateIcon } from './update.react.svg';
 export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
