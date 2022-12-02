@@ -17,6 +17,7 @@ export interface CustomEditorProps {
   title?: string;
   variant?: 'default' | 'onlyVariable' | 'all';
   htmlValue?: string;
+  attachImage?: boolean;
   onChange?(htmlValue: string): void;
 }
 
@@ -28,6 +29,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
   size,
   htmlValue,
   errorText,
+  attachImage = false,
   isVariableShow = true,
   ...props
 }) => {
@@ -63,7 +65,18 @@ const CustomEditor: FC<CustomEditorProps> = ({
             variant === 'default'
               ? ['link', 'history']
               : variant === 'all'
-              ? ['list', 'colorPicker', 'emoji', 'link', 'textAlign', 'inline', 'fontFamily', 'fontSize', 'history']
+              ? [
+                  'list',
+                  'colorPicker',
+                  'emoji',
+                  'link',
+                  'textAlign',
+                  'inline',
+                  'fontFamily',
+                  'fontSize',
+                  'history',
+                  attachImage && 'embedded'
+                ]
               : [],
 
           list: {
@@ -116,6 +129,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
           {title}
         </Typography>
       )}
+
       <Typography variant='p5' color='danger'>
         {errorText}
       </Typography>

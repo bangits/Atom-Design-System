@@ -39,7 +39,7 @@ const StatusView: FC<StatusViewProps> = ({ label, statusLabel, noDataText, varia
         {icon && (
           <div className={styles['StatusView--iconButton']}>
             <div style={{ display: 'flex' }}>
-              <div style={{ marginRight: '1rem' }}>{icon.label}</div>
+              <div className={styles['StatusView--iconButton-text-label']}>{icon.label}</div>
               <Tooltip showEvent='hover' text={icon.tooltipText}>
                 <span onClick={icon.onIconClick} style={{ cursor: 'pointer' }}>
                   {icon.value}

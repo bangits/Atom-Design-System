@@ -36,30 +36,37 @@ const PopoverWithInput: FC<PopoverWithInputProps> = ({
   return (
     <Component className={styles['PopoverWithInput']}>
       <ButtonForm showPosition={showPosition} renderOpenElement={renderOpenElement}>
-        <div>
-          <p className={styles['PopoverWithInput__name']}>{title}</p>
+        {({ close }) => (
+          <div>
+            <p className={styles['PopoverWithInput__name']}>{title}</p>
 
-          {totalCount && <p className={styles['PopoverWithInput__total']}>{totalCount}</p>}
+            {totalCount && <p className={styles['PopoverWithInput__total']}>{totalCount}</p>}
 
-          <TextInput
-            type='number'
-            value={inputValue}
-            maxLength={6}
-            onChange={(e) => {
-              setInputValue(e.target.value);
+            <TextInput
+              type='number'
+              value={inputValue}
+              maxLength={6}
+              onChange={(e) => {
+                setInputValue(e.target.value);
 
-              inputProps.onChange?.(e);
-            }}
-            {...inputProps}
-            containerClassName={classNames(styles['PopoverWithInput__input'], inputProps.className)}
-          />
-          <Button
-            onClick={() => inputValue && onSave(+inputValue)}
-            className={styles['PopoverWithInput__button']}
-            variant='link'>
-            {buttonLabel}
-          </Button>
-        </div>
+                inputProps.onChange?.(e);
+              }}
+              {...inputProps}
+              containerClassName={classNames(styles['PopoverWithInput__input'], inputProps.className)}
+            />
+            <Button
+              onClick={() => {
+                if (inputValue) {
+                  onSave(+inputValue);
+                  close();
+                }
+              }}
+              className={styles['PopoverWithInput__button']}
+              variant='link'>
+              {buttonLabel}
+            </Button>
+          </div>
+        )}
       </ButtonForm>
     </Component>
   );

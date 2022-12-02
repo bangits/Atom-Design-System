@@ -17,7 +17,13 @@ export interface VariablesProps {
   onChange?(e): void;
 }
 
-const Variables: FC<VariablesProps> = ({ variables, emptyValue, editorState, onVariableClick, onChange }) => {
+const Variables: FC<VariablesProps> = ({
+  variables,
+  emptyValue,
+  editorState,
+  onVariableClick,
+  onChange,
+}) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
   const addVariable =

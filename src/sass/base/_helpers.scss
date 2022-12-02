@@ -1,4 +1,7 @@
 @import '../layout/variables';
+.mb-2 {
+  margin-top: calculateRem(5px);
+}
 .mt-3 {
   margin-top: calculateRem(10px);
 }

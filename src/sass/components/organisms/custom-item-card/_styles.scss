@@ -1,0 +1,155 @@
+@mixin generate-custom-item-card-styles {
+  $bottom-part-padding: calculateRem(4px);
+  .CustomItemCard {
+    $this: #{&};
+    position: relative;
+    display: inline-block;
+    border-radius: calculateRem(4px);
+    &__Main,
+    & {
+      &::before {
+        content: '';
+        left: 0;
+        z-index: 1;
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: #000;
+        border-radius: inherit;
+      }
+    }
+    &__Main {
+      position: relative;
+      &:hover {
+        &::before {
+          opacity: 0.7;
+          border-top-left-radius: 10px;
+          border-top-right-radius: 10px;
+        }
+        #{$this}__Checkbox,
+        #{$this}__Actions {
+          opacity: 1;
+        }
+      }
+    }
+    &__Checkbox,
+    &__Actions {
+      z-index: 1;
+    }
+    &__Checkbox,
+    &__Actions,
+    &__Main::before,
+    &::before {
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      transition: opacity 0.3s;
+      border-top-left-radius: calculateRem(10px);
+      border-top-right-radius: calculateRem(10px);
+    }
+    &__Index {
+      position: absolute;
+      top: calculateRem(8px);
+      left: calculateRem(8px);
+      width: calculateRem(20px);
+      height: calculateRem(14px);
+      background-color: #e0e1ee;
+      @include flex(center, center);
+      border-radius: calculateRem(4px);
+      color: #2b3674;
+      z-index: 0;
+    }
+    &__Status {
+      position: absolute;
+      top: calculateRem(12px);
+      right: calculateRem(8px);
+      width: calculateRem(8px);
+      height: calculateRem(8px);
+      background-color: #e0e1ee;
+      @include flex(center, center);
+      border-radius: calculateRem(4px);
+      background: #00b21e;
+      z-index: 0;
+    }
+    &__Checkbox {
+      left: calculateRem(4px);
+      top: calculateRem(4px);
+      &#{&} {
+        input {
+          border-color: #fff;
+        }
+      }
+    }
+    &__Actions {
+      @include flex(null, center, $direction: column);
+      row-gap: calculateRem(8px);
+      top: calculateRem(8px);
+      right: calculateRem(8px);
+      z-index: 3;
+    }
+    &__Img {
+      width: calculateRem(170px);
+      height: calculateRem(65px);
+      background-color: #f7f7f7;
+      box-shadow: 0px 4px 6px rgba(0, 0, 0, 10%);
+      border-top-left-radius: calculateRem(10px);
+      border-top-right-radius: calculateRem(10px);
+    }
+    &__Img {
+      object-fit: cover;
+      border: calculateRem(1px) solid #c4c4c4;
+      border-bottom-color: white;
+      margin-bottom: calculateRem(3px);
+      padding-top: calculateRem(6px);
+    }
+    &__Bottom {
+      position: relative;
+      z-index: 2;
+      border: calculateRem(1px) solid #f4f4f5;
+      border-top-width: 0;
+      margin-top: calculateRem(-3px);
+      text-align: center;
+      padding: $bottom-part-padding;
+      box-sizing: border-box;
+      height: calculateRem(31px);
+      border-bottom-left-radius: calculateRem(10px);
+      border-bottom-right-radius: calculateRem(10px);
+      background: rgba(252, 252, 252, 0.5);
+      border: 0.5px solid #8ea6c1;
+    }
+    &__Title-Content {
+      font-weight: 500;
+      color: #48485d;
+    }
+    &__Title,
+    &__Subtitle {
+      max-width: calc(#{calculateRem(140px)} - #{$bottom-part-padding * 2});
+      @include dots-after-text;
+      padding: 0 calculateRem(13px) 0 calculateRem(13px);
+      &-Content {
+        display: inline;
+      }
+    }
+    button {
+      @include button-reset;
+      color: #fff;
+    }
+    &--Checked {
+      #{$this}__Checkbox {
+        opacity: 1;
+      }
+      #{$this}__Main::before {
+        display: none;
+      }
+      #{$this}__Bottom {
+        z-index: 0;
+      }
+      &::before {
+        opacity: 0.8;
+      }
+      &:hover #{$this}__Actions {
+        opacity: 1;
+      }
+    }
+  }
+}

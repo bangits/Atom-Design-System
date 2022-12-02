@@ -1,5 +1,5 @@
 import { Card, Scroll, SubTab, Tab } from '@my-ui/core';
-import React, { FC, ReactNode, useMemo, useState } from 'react';
+import { FC, ReactNode, useMemo, useState } from 'react';
 import styles from './ItemDetails.module.scss';
 
 export interface ItemDetailsProps {
@@ -9,6 +9,8 @@ export interface ItemDetailsProps {
     content?: ReactNode;
     defaultValue?: number;
     disableScroll?: boolean;
+    disabled?: boolean;
+    toolTipText?: string;
     subTabs?: {
       title: string;
       value: number;
