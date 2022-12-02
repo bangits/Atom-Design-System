@@ -143,3 +143,10 @@
 .size-medium {
   font-size: calculateRem(16px);
 }
+
+.dialog-header {
+  position: absolute;
+  right: calculateRem(10px);
+  top: calculateRem(8px);
+  font-size: calculateRem(12px);
+}

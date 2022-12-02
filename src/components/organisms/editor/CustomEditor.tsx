@@ -75,7 +75,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
                   'fontFamily',
                   'fontSize',
                   'history',
-                  attachImage && 'embedded'
+                  // attachImage && 'embedded'
                 ]
               : [],
 
