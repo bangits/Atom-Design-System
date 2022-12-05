@@ -48,6 +48,7 @@ export { ReactComponent as ExcludePopUpIcon } from './exclude-action.react.svg';
 export { ReactComponent as Exclude } from './exclude.react.svg';
 export { ReactComponent as ExportIcon } from './export.react.svg';
 export { ReactComponent as EyeIcon } from './eye.react.svg';
+export { ReactComponent as FinacicalReportSideBarIcon } from './financial-report.react.svg';
 export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
 export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as GamesIcon } from './games.react.svg';
