@@ -17,6 +17,7 @@ export const TextInput = (props: TextInputProps & { optionalText?: ReactNode; to
       )}
       <MYUITextInput
         className={props.textarea && styles.TextArea}
+        style={{ width: '100%' }}
         {...props}
         label={
           <Label

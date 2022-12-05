@@ -1,11 +1,13 @@
 @mixin generate-molecules-text-input-styles {
   .TextArea {
     height: 12rem !important;
+    width: 100% !important;
   }
   .Checkbox--container {
-    @include flex(null, flex-end, $direction: column);
+    @include flex($direction: column);
   }
   .Checkbox-tooltip--container {
-    margin-right: calculate-rem(12px);
+    margin-right: 1.2rem;
+    @include flex(null, flex-end, $direction: column);
   }
 }
