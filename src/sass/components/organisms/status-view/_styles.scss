@@ -45,6 +45,14 @@
         border: 0.5px solid #7d7dc1;
         padding: calculateRem(1px);
       }
+      &-text-label-no-bordered {
+        margin-right: calculateRem(3px);
+        @include flex(center, center);
+        width: calculateRem(16px);
+        height: calculateRem(15px);
+        margin-top: calculateRem(1px);
+        padding: calculateRem(1px);
+      }
     }
 
     &--with-spacings {

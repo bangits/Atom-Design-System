@@ -48,6 +48,7 @@ export { ReactComponent as ExcludePopUpIcon } from './exclude-action.react.svg';
 export { ReactComponent as Exclude } from './exclude.react.svg';
 export { ReactComponent as ExportIcon } from './export.react.svg';
 export { ReactComponent as EyeIcon } from './eye.react.svg';
+export { ReactComponent as FinacicalReportSideBarIcon } from './financial-report.react.svg';
 export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
 export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as GamesIcon } from './games.react.svg';
@@ -88,6 +89,7 @@ export { ReactComponent as PlusCircleOutlinedIcon } from './plus-circle-outlined
 export { ReactComponent as PlusIcon } from './plus.react.svg';
 export { ReactComponent as PositionChangeIcon } from './position-change.react.svg';
 export { ReactComponent as ProductsIcon } from './products.react.svg';
+export { ReactComponent as PromoCodeSideBarIcon } from './promocode.react.svg';
 export { ReactComponent as PromotionalIcon } from './promotional.react.svg';
 export { ReactComponent as QuestionIcon } from './question-icon.react.svg';
 export { ReactComponent as RejectIcon } from './reject.react.svg';
