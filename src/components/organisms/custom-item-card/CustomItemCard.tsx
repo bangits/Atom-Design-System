@@ -17,14 +17,6 @@ const CustomItemCardCard: FC<CustomItemCardCardProps> = ({ actions, subtitle, ti
         {actions && <div className={styles.CustomItemCard__Actions}>{actions}</div>}
 
         <div className={styles.CustomItemCard__Img}>
-          {title && (
-            <TextWithTooltip className={styles.CustomItemCard__Title} displayText={title}>
-              <Typography className={styles['CustomItemCard__Title-Content']} component='span' variant='p5'>
-                {title}
-              </Typography>
-            </TextWithTooltip>
-          )}
-
           {subtitle && (
             <TextWithTooltip className={styles.CustomItemCard__Subtitle} displayText={subtitle}>
               <Typography
@@ -32,6 +24,13 @@ const CustomItemCardCard: FC<CustomItemCardCardProps> = ({ actions, subtitle, ti
                 component='span'
                 variant='p5'
                 color='primary'>
+                {title}
+              </Typography>
+            </TextWithTooltip>
+          )}
+          {title && (
+            <TextWithTooltip className={styles.CustomItemCard__Title} displayText={title}>
+              <Typography className={styles['CustomItemCard__Title-Content']} component='span' variant='p5'>
                 {subtitle}
               </Typography>
             </TextWithTooltip>

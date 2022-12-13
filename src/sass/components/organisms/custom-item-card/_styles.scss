@@ -57,6 +57,7 @@
       @include flex(center, center);
       border-radius: calculateRem(4px);
       color: #2b3674;
+      border: calculateRem(0.5px) solid #6667ab;
       z-index: 0;
     }
     &__Status {
@@ -129,6 +130,10 @@
       &-Content {
         display: inline;
       }
+    }
+    &__Title {
+      color: #48485D;
+      
     }
     button {
       @include button-reset;
