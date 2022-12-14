@@ -28,12 +28,12 @@ export * from './games-list';
 export * from './hidable-select';
 export * from './image-galleries';
 export * from './image-gallery-details';
+export * from './input-with-generator';
 export * from './item-details';
 export * from './last-activity-view';
 export * from './licenses-add';
 export * from './licenses-card';
 export * from './navigation';
-export * from './password-generator';
 export * from './player-wallets';
 export * from './popover-with-input';
 export * from './prioritization';
@@ -59,4 +59,3 @@ export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-card';
 export * from './wallet-view';
-

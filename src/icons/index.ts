@@ -52,6 +52,7 @@ export { ReactComponent as FinacicalReportSideBarIcon } from './financial-report
 export { ReactComponent as FirefoxIcon } from './firefox.react.svg';
 export { ReactComponent as FullScreenIcon } from './full-screen.react.svg';
 export { ReactComponent as GamesIcon } from './games.react.svg';
+export { ReactComponent as GenerateCodePopUpIcon } from './generate-code-popup.react.svg';
 export { ReactComponent as GenerateLinkIcon } from './generate-link.react.svg';
 export { ReactComponent as GiftIcon } from './gift.react.svg';
 export { ReactComponent as ProvideBonusIcon } from './hand-gift.react.svg';
@@ -132,4 +133,3 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
-
