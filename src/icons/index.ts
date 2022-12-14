@@ -25,6 +25,7 @@ export { ReactComponent as ClickElementIcon } from './click-element.react.svg';
 export { ReactComponent as CloseWidePopUp } from './close-wide-pop-up.react.svg';
 export { ReactComponent as CloseIcon } from './close.react.svg';
 export { ReactComponent as CMSIcon } from './cms.react.svg';
+export { ReactComponent as CommissionPlanDetailsIcon } from './commission-plan-details.react.svg';
 export { ReactComponent as CopyIcon, ReactComponent as DuplicateIcon } from './copy.react.svg';
 export { ReactComponent as CRMIcon } from './crm.react.svg';
 export { ReactComponent as DashboardIllustration } from './dashboard-illustartion.react.svg';
