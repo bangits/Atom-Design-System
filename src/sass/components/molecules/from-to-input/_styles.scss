@@ -1,33 +1,30 @@
 @mixin generate-from-to-input-styles {
-  .FromToInputContainer {
-    width: getFromToInputSizes(from-to-input-container-width);
-    position: relative;
-    @include flex();
-  }
-  .FromInput,
-  .ToInput {
-    width: 100%;
-  }
-
-  .ToInput {
-    &::before {
-      content: '';
-      background-image: svg-url(
-        '<svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 5 8"><path d="M4.86,3.69,1.08.13A.51.51,0,0,0,.75,0,.51.51,0,0,0,.42.13L.14.39A.41.41,0,0,0,.13,1V1L3.32,4,.14,7a.41.41,0,0,0,0,.58l0,0,.27.26A.5.5,0,0,0,.74,8a.51.51,0,0,0,.33-.13L4.86,4.31a.41.41,0,0,0,0-.58Z" fill="#8ea6c1" /></svg>'
-      );
-      background-repeat: no-repeat;
-      background-size: 100%;
-      width: getFromToInputSizes(to-input-before-width);
-      height: getFromToInputSizes(to-input-before-height);
-      display: block;
-      position: absolute;
-      top: getFromToInputSizes(to-input-before-position-top);
-      left: getFromToInputSizes(to-input-before-position-left);
-      transform: translate(-50%, -50%);
+    .FromToInputContainer {
+        width: getFromToInputSizes(from-to-input-container-width);
+        position: relative;
+        @include flex();
     }
-  }
-
-  .FromInput {
-    margin-right: getFromToInputSizes(form-input-margin-right);
-  }
+    .FromInput,
+    .ToInput {
+        width: 100%;
+    }
+    .ToInput {
+        position: static;
+        &::before {
+            content: '';
+            background-image: svg-url('<svg xmlns="http://www.w3.org/2000/svg" width="8" height="12" viewBox="0 0 5 8"><path d="M4.86,3.69,1.08.13A.51.51,0,0,0,.75,0,.51.51,0,0,0,.42.13L.14.39A.41.41,0,0,0,.13,1V1L3.32,4,.14,7a.41.41,0,0,0,0,.58l0,0,.27.26A.5.5,0,0,0,.74,8a.51.51,0,0,0,.33-.13L4.86,4.31a.41.41,0,0,0,0-.58Z" fill="#8ea6c1" /></svg>');
+            background-repeat: no-repeat;
+            background-size: 100%;
+            width: getFromToInputSizes(to-input-before-width);
+            height: getFromToInputSizes(to-input-before-height);
+            display: block;
+            position: absolute;
+            top: getFromToInputSizes(to-input-before-position-top);
+            left: getFromToInputSizes(to-input-before-position-left);
+            transform: translate(-50%, -50%);
+        }
+    }
+    .FromInput {
+        margin-right: getFromToInputSizes(form-input-margin-right);
+    }
 }
