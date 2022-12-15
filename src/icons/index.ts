@@ -106,6 +106,7 @@ export { ReactComponent as SelfieIcon } from './selfie.react.svg';
 export { ReactComponent as SendEmailIcon } from './send-email.react.svg';
 export { ReactComponent as SetAsDefault } from './set-as-default.react.svg';
 export { ReactComponent as SettingsIcon } from './setting.react.svg';
+export { ReactComponent as ShopSideBarIcon } from './shop-sidebar-icon.react.svg';
 export { ReactComponent as SignInImage } from './SignIn.react.svg';
 export { ReactComponent as SliderAddIcon } from './slider-add.react.svg';
 export { ReactComponent as SliderIcon } from './slider.react.svg';
