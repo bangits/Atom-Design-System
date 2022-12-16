@@ -124,6 +124,7 @@ export { ReactComponent as UndoIcon } from './undo.react.svg';
 export { ReactComponent as UnLockIcon } from './unlock.react.svg';
 export { ReactComponent as UpdatePopUpIcon } from './update-popup-icon.react.svg';
 export { ReactComponent as UpdateIcon } from './update.react.svg';
+export { ReactComponent as UploadIcon } from './upload-icon.react.svg';
 export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
