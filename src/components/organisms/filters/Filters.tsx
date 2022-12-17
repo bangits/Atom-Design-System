@@ -26,8 +26,8 @@ function Filters<T>({
   onClear,
   onSaveClick,
   className,
-  defaultFilters,
   showedFilters: showedFiltersProp,
+  minFiltersCount = 1,
   onFiltersOpenedChange,
   infoTooltipText
 }: FiltersProps<T>) {
@@ -55,24 +55,6 @@ function Filters<T>({
     setFilterValues({ [filterName]: value });
   }, []);
 
-  const onFiltersConfigChange = useCallback(
-    (selectedFilters) => {
-      setDisabledSaveButton(false);
-
-      const updatedFilters = [
-        ...selectedFilters.map((filter) => filters.find((f) => f?.name === filter)).filter((f) => f)
-      ];
-
-      if (onFiltersViewChange) onFiltersViewChange(updatedFilters);
-
-      setShowedFilters(updatedFilters);
-      setShowedCheckboxFilters([
-        ...selectedFilters.map((filter) => checkboxFilters.find((f) => f?.name === filter)).filter((f) => f)
-      ]);
-    },
-    [filters, checkboxFilters, onFiltersViewChange]
-  );
-
   const filtersConfigOptions = useMemo(
     () =>
       [...filters, ...checkboxFilters].map((filter) => ({
@@ -82,9 +64,27 @@ function Filters<T>({
     [filters, checkboxFilters]
   );
 
-  const filtersConfigDefaultValue = useMemo(
-    () => defaultFilters || filtersConfigOptions.map((value) => value.value),
-    [filtersConfigOptions, defaultFilters]
+  const filtersConfigValue = useMemo(() => showedFilters.map((filter) => filter.name), [showedFilters]);
+
+  const onFiltersConfigChange = useCallback(
+    (selectedFilters) => {
+      setDisabledSaveButton(false);
+
+      const updatedFilters = [
+        ...selectedFilters.map((filter) => filters.find((f) => f?.name === filter)).filter((f) => f)
+      ];
+
+      // Check is updatedFilters empty and if it is select first default value option
+      const minUpdatedFilters = !updatedFilters.length ? filters.slice(0, minFiltersCount) : updatedFilters;
+
+      if (onFiltersViewChange) onFiltersViewChange(minUpdatedFilters);
+
+      setShowedFilters(minUpdatedFilters);
+      setShowedCheckboxFilters([
+        ...selectedFilters.map((filter) => checkboxFilters.find((f) => f?.name === filter)).filter((f) => f)
+      ]);
+    },
+    [filters, checkboxFilters, minFiltersCount, onFiltersViewChange]
   );
 
   const onClearClick = useCallback(() => {
@@ -215,11 +215,13 @@ function Filters<T>({
               dropdown
               isMulti={true}
               onChange={onFiltersConfigChange}
-              defaultValue={filtersConfigDefaultValue}
+              // defaultValue={filtersConfigDefaultValue}
+              value={filtersConfigValue}
               options={filtersConfigOptions}
               dropdownIcon={<Icons.FilterIcon className={styles.FiltersDropdownIcon} />}
               className={styles.FiltersDropdown}
               color='primary'
+              disableSelectedOptions={showedFilters.length <= minFiltersCount}
             />
             {onSaveClick && saveLabel && (
               <Divider>

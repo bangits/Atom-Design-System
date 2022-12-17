@@ -74,6 +74,7 @@ export type FilterProp<T> = {
 export interface FiltersProps<T> {
   selectProps?: SelectProps<any, boolean, any>;
   filters: FilterProp<T>[];
+  minFiltersCount?: number;
   onFiltersViewChange?: (updatedFilters: FilterProp<T>[]) => void;
   checkboxFilters?: CheckboxFilter[];
   clearLabel?: string;
@@ -92,6 +93,5 @@ export interface FiltersProps<T> {
   ) => void;
   onClear?: (state: T) => void;
   className?: string;
-  defaultFilters?: string[];
   showedFilters?: FilterProp<T>[];
 }
