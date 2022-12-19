@@ -64,7 +64,10 @@ function Filters<T>({
     [filters, checkboxFilters]
   );
 
-  const filtersConfigValue = useMemo(() => showedFilters.map((filter) => filter.name), [showedFilters]);
+  const filtersConfigValue = useMemo(
+    () => showedFilters.filter(Boolean).map((filter) => filter?.name),
+    [showedFilters]
+  );
 
   const onFiltersConfigChange = useCallback(
     (selectedFilters) => {
