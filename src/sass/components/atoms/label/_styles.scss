@@ -4,8 +4,10 @@
     margin-bottom: getLabelSizes(label-margin-bottom);
 
     &#{&}--for-input {
-      color: inherit;
-      line-height: inherit;
+      &#{&} {
+        color: inherit;
+        line-height: inherit;
+      }
     }
   }
 

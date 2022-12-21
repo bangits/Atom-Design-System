@@ -3,6 +3,8 @@
     border: 0.5px solid #8ea6c1;
     width: 100%;
     height: 100%;
+    margin-top: calculateRem(30px);
+    min-height: calculateRem(300px);
   }
   .container {
     @include flex();

@@ -11,7 +11,7 @@ export interface ThemeSelectorProps {
   themeTooltipText?: string;
 }
 
-const themes = ['dracula', 'material', 'mdn-like'];
+const themes = ['mdn-like', 'material', 'dracula'];
 
 const ThemeSelector: FC<ThemeSelectorProps> = ({ setTheme, themeTooltipText }) => {
   const selectTheme = ({ target: { value } }) => {

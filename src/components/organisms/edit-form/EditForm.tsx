@@ -75,7 +75,7 @@ const EditForm: FC<EditFormProps> = ({
           <span>
             {title}
             {tooltipText && (
-              <Tooltip text={tooltipText}>
+              <Tooltip showEvent='hover' text={tooltipText}>
                 <InfoTooltipIcon className={styles['EditFormBase--header-tooltip']} width='1.5rem' height='1.5rem' />
               </Tooltip>
             )}

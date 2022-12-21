@@ -1,5 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { useEffect, useState } from 'react';
+import { CodeExecutor } from '../code-executor';
 import CodeEditor from './CodeEditor';
 
 export default {
@@ -9,29 +10,21 @@ export default {
 };
 
 export const Default = () => {
-  const [html, setHtml] = useState('<h1>asfddfsdf</h1>');
-
-  const propsByMode = {
-    html: {
-      mode: 'xml',
-      value: html,
-      setValue: setHtml
-    }
-  };
+  const [state, setState] = useState('<h1>Hello</h1>');
   const [srcDoc, setSrcDoc] = useState('');
 
   const runCode = () => {
-    setSrcDoc(html);
+    setSrcDoc(state);
   };
 
   useEffect(() => {
     runCode();
-  }, [html]);
+  }, [state]);
 
   return (
     <>
       <CodeEditor
-        value={html}
+        value={state}
         showUploadButton={true}
         title='Code Editor'
         uploadIconTooltipText='Upload HTML file'
@@ -39,8 +32,10 @@ export const Default = () => {
         themeTooltipText='Choose theme'
         variables={['{@var1}', '{@var2}', '{@var3}']}
         uploadButtonProps={{ children: 'Upload File' }}
-        {...propsByMode['html']}
+        setValue={setState}
+        mode='xml'
       />
+      <CodeExecutor srcDoc={srcDoc} runCode={runCode} />
     </>
   );
 };

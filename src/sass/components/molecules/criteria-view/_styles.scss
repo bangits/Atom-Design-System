@@ -89,7 +89,8 @@
             top: 50%;
             transform: translateY(-50%);
             background: #dcdcff;
-            border-radius: calculateRem(24px);
+            font-size: calculateRem(12px);
+            border-radius: calculateRem(4px);
             color: rgba(80, 93, 110, 0.7);
             padding: calculateRem(2px) calculateRem(5px);
             left: calculateRem(32px);

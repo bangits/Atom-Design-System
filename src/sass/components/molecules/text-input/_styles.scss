@@ -11,3 +11,17 @@
     @include flex(null, flex-end, $direction: column);
   }
 }
+@mixin generate-text-input-styles {
+  .TextInputContainer {
+    position: relative;
+    &__Tooltip {
+      position: absolute;
+      top: calculateRem(-15px);
+      width: calculateRem(16px);
+      right: 0;
+    }
+  }
+  .TextArea {
+    height: calculateRem(120px) !important;
+  }
+}

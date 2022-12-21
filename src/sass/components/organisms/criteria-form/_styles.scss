@@ -1,8 +1,31 @@
 @mixin generate-criteria-form-styles {
+    .Condition {
+        font-size: calculateRem(12px);
+        min-width: calculateRem(39px);
+        height: calculateRem(22px);
+        padding: 0;
+        white-space: nowrap;
+        svg {
+            width: calculateRem(5px);
+            margin-left: calculateRem(3px);
+        }
+        &::after,
+        &::before {
+            content: '';
+            position: absolute;
+            width: calculateRem(8px);
+            border-bottom: calculateRem(1px) dashed #85859c;
+            left: 100%;
+        }
+        &::before {
+            display: none;
+        }
+    }
     .CriteriaForm {
+        $this: #{&};
         position: relative;
         margin-bottom: calculateRem(24px);
-        padding: calculateRem(20px) calculateRem(40px);
+        padding: calculateRem(20px) calculateRem(22px) calculateRem(40px) calculateRem(16px);
         box-sizing: border-box;
         box-shadow: 0 calculateRem(2px) calculateRem(6px) rgba(0, 0, 0, 0.25);
         &__Field {
@@ -10,28 +33,50 @@
             display: grid;
             grid-template-columns: 1fr calculateRem(200px) 1fr;
             column-gap: calculateRem(16px);
+            margin-bottom: calculateRem(10px);
             &-Condition {
                 position: absolute;
-                left: calculateRem(-76px);
-                top: 50%;
-                transform: translateY(-50%);
-                margin-top: -1.2rem;
+                bottom: calculateRem(-5px);
+                top: initial;
+                left: calculateRem(103px);
+                z-index: 1;
+                &::after,
+                &::before {
+                    left: 50%;
+                    bottom: -0.4rem;
+                    transform: rotate(90deg) translateY(50%);
+                }
+                &::before {
+                    display: block;
+                    bottom: initial;
+                    top: calculateRem(-6px);
+                }
             }
             &-Remove {
                 opacity: 0;
                 position: absolute;
-                right: calculateRem(-34px);
-                top: calculateRem(7px);
+                right: calculateRem(-21px);
+                top: calculateRem(12px);
                 transition: opacity 0.3s;
                 button {
-                    width: calculateRem(30px);
-                    height: calculateRem(30px);
+                    width: calculateRem(20px);
+                    height: calculateRem(20px);
+                    span {
+                        width: calculateRem(12px);
+                        height: calculateRem(12px);
+                    }
                 }
             }
             $this: #{&};
             &:hover {
                 #{$this}-Remove {
                     opacity: 1;
+                }
+            }
+            &:last-child {
+                margin-bottom: 0;
+                #{$this}-Condition {
+                    display: none;
                 }
             }
         }
@@ -46,32 +91,11 @@
         &__Condition {
             position: absolute;
             top: 50%;
-            transform: translateY(-50%);
-            left: calculateRem(-78px);
-        }
-        &--ShowedCondition {
-            padding-left: calculateRem(90px);
+            transform: translateX(-100%) translateY(-50%);
+            left: calculateRem(-8px);
         }
         &--ViewMode {
             padding: calculateRem(10px) calculateRem(16px);
-        }
-    }
-    .Condition {
-        font-size: calculateRem(12px);
-        min-width: calculateRem(52px);
-        height: calculateRem(22px);
-        padding: 0;
-        white-space: nowrap;
-        svg {
-            width: calculateRem(5px);
-            margin-left: calculateRem(3px);
-        }
-        &::after {
-            content: '';
-            position: absolute;
-            width: calculateRem(24px);
-            border-bottom: calculateRem(1px) dashed #85859c;
-            right: calculateRem(-26px);
         }
     }
 }
