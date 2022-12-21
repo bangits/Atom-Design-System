@@ -2,8 +2,10 @@
   .container {
     display: flex;
     align-items: center;
-    padding: 6px;
-    padding-bottom: 10px;
+    padding: calculateRem(6px);
+    padding-bottom: calculateRem(10px);
+    position: relative;
+    min-width: calculateRem(177px);
     .button.button {
       color: #4b5767;
     }
@@ -17,16 +19,19 @@
       width: fit-content;
       height: fit-content;
       svg {
-        width: 20px;
-        height: 18px;
+        width: calculateRem(20px);
+        height: calculateRem(18px);
       }
     }
     .typography {
       cursor: pointer;
     }
     .typography-container {
-      padding-top: 11px;
-      padding-bottom: 11px;
+      padding-top: calculateRem(11px);
+      padding-bottom: calculateRem(11px);
+    }
+    &-option {
+      right: 0;
     }
   }
 }
