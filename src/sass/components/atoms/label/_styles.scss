@@ -3,9 +3,11 @@
         color: getLabelColors(label-color);
         margin-bottom: getLabelSizes(label-margin-bottom);
         &#{&}--for-input {
-            color: inherit;
-            line-height: inherit;
-            font-size: inherit;
+            &#{&} {
+                color: inherit;
+                line-height: inherit;
+                font-size: inherit;
+            }
         }
     }
     .LabelOptional {
