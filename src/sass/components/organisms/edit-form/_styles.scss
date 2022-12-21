@@ -3,6 +3,10 @@
     display: flex;
     justify-content: flex-end;
   }
+  .EditFormBase--field--flex-end {
+    display: flex;
+    justify-content: center;
+  }
   .EditForm {
     width: getEditFormInSizes(edit-form-width);
   }

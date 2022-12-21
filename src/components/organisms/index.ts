@@ -3,6 +3,8 @@ export * from './banner-uploader';
 export * from './browsers-group';
 export * from './button-form';
 export * from './change-password';
+export * from './code-editor';
+export * from './code-executor';
 export * from './collapsable-table';
 export * from './count-view';
 export * from './creatable-table';
@@ -59,3 +61,4 @@ export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-card';
 export * from './wallet-view';
+

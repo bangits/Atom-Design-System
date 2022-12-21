@@ -1,0 +1,9 @@
+$executor-sizes: ();
+
+@function getExecutorSizes($key) {
+  @return map-get($executor-sizes, $key);
+}
+
+@function getExecutorColors($key) {
+  @return map-get($executor-colors, $key);
+}

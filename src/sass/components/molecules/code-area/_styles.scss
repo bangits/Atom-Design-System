@@ -20,6 +20,7 @@
   .legend {
     margin-left: getCodeAreaSizes(legend-margin-left);
     font-size: calculateRem(14px);
+    //TODO: check this color
     color: #48485d;
   }
   .email-variables {

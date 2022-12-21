@@ -4,6 +4,7 @@ import { TextInput as MYUITextInput, TextInputProps as MyUITextInputProps, Toolt
 import classNames from 'classnames';
 import { ReactNode } from 'react';
 import styles from './TextInput.module.scss';
+export { TextInputProps } from '@my-ui/core';
 
 export interface TextInputDesignSystemProps extends MyUITextInputProps {
   optionalText?: ReactNode;

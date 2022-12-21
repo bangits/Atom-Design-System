@@ -101,9 +101,11 @@ export { ReactComponent as RulePopUpIcon } from './rule-popup.react.svg';
 export { ReactComponent as RuleIcon } from './rule.react.svg';
 export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as Safari2Icon } from './safari2.react.svg';
+export { ReactComponent as ScheduleIcon } from './schedule.react.svg';
 export { ReactComponent as SegmentIcon } from './segment-icon.react.svg';
 export { ReactComponent as SelfieIcon } from './selfie.react.svg';
 export { ReactComponent as SendEmailIcon } from './send-email.react.svg';
+export { ReactComponent as TestEmailIcon } from './send-test-email.react.svg';
 export { ReactComponent as SetAsDefault } from './set-as-default.react.svg';
 export { ReactComponent as SettingsIcon } from './setting.react.svg';
 export { ReactComponent as ShopSideBarIcon } from './shop-sidebar-icon.react.svg';
@@ -127,6 +129,7 @@ export { ReactComponent as UndoIcon } from './undo.react.svg';
 export { ReactComponent as UnLockIcon } from './unlock.react.svg';
 export { ReactComponent as UpdatePopUpIcon } from './update-popup-icon.react.svg';
 export { ReactComponent as UpdateIcon } from './update.react.svg';
+export { ReactComponent as UploadIcon } from './upload-icon.react.svg';
 export { ReactComponent as UserMainIcon } from './user-main-info.react.svg';
 export { ReactComponent as UserIcon } from './user.react.svg';
 export { ReactComponent as UsersIcon } from './users.react.svg';
@@ -135,3 +138,4 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
+
