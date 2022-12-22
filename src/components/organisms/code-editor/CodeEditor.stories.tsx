@@ -32,10 +32,12 @@ export const Default = () => {
         themeTooltipText='Choose theme'
         variables={['{@var1}', '{@var2}', '{@var3}']}
         uploadButtonProps={{ children: 'Upload File' }}
+        runCode={runCode}
+        buttonProps={{ children: 'Run Code' }}
         setValue={setState}
         mode='xml'
       />
-      <CodeExecutor srcDoc={srcDoc} runCode={runCode} />
+      <CodeExecutor srcDoc={srcDoc} />
     </>
   );
 };

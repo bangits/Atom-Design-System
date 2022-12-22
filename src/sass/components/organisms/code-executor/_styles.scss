@@ -4,11 +4,11 @@
     width: 100%;
     height: 100%;
     margin-top: calculateRem(30px);
-    min-height: calculateRem(300px);
+    min-height: calculateRem(500px);
   }
   .container {
-    @include flex();
-    min-height: calculateRem(300px);
+    @include flex($direction: column);
+    min-height: calculateRem(500px);
   }
 
   :global {

@@ -1,8 +1,7 @@
-import { ButtonProps, IconButton, Icons, Tooltip, typedMemo, Variables } from '@/atom-design-system';
+import { Button, ButtonProps, IconButton, Icons, Tooltip, typedMemo, Variables } from '@/atom-design-system';
 import { FC, InputHTMLAttributes, useRef, useState } from 'react';
 import { Controlled } from 'react-codemirror2';
 import styles from './CodeEditor.module.scss';
-import ThemeSelector from './ThemeSelector';
 
 import 'codemirror/lib/codemirror.css';
 import 'codemirror/theme/dracula.css';
@@ -21,6 +20,7 @@ import 'codemirror/addon/edit/matchtags';
 export interface CodeEditorProps {
   mode?: string;
   value?: string;
+  buttonProps?: ButtonProps;
   title?: string;
   themeTooltipText?: string;
   variableIconTooltipText?: string;
@@ -30,6 +30,7 @@ export interface CodeEditorProps {
   showUploadButton?: boolean;
   uploadButtonProps?: ButtonProps;
   setValue?: any;
+  runCode?(): void;
   onChange?(htmlValue: string): void;
 }
 
@@ -46,6 +47,8 @@ const CodeEditor: FC<CodeEditorProps> = ({
   variableIconTooltipText,
   themeTooltipText,
   inputProps,
+  buttonProps,
+  runCode,
   ...props
 }) => {
   const editorCursorRef = useRef<{ line: number; ch: number }>(null);
@@ -109,20 +112,22 @@ const CodeEditor: FC<CodeEditorProps> = ({
       <fieldset className={styles.fieldset}>
         <legend className={styles.legend}>{title}</legend>
         <div className={styles.toolbar}>
-          {showUploadButton && (
-            <Tooltip text={uploadIconTooltipText} showEvent='hover'>
-              <IconButton onClick={() => fileInputRef.current.click()} icon={<Icons.UploadIcon />} />
+          <div className={styles['toolbar-left-part']}>
+            {showUploadButton && (
+              <Tooltip text={uploadIconTooltipText} showEvent='hover'>
+                <IconButton onClick={() => fileInputRef.current.click()} icon={<Icons.UploadIcon />} />
+              </Tooltip>
+            )}
+            <Tooltip text={variableIconTooltipText} showEvent='hover'>
+              <Variables
+                variables={variables}
+                onVariableClick={(variable) => {
+                  addVariable(variable);
+                }}
+              />
             </Tooltip>
-          )}
-          <Tooltip text={variableIconTooltipText} showEvent='hover'>
-            <Variables
-              variables={variables}
-              onVariableClick={(variable) => {
-                addVariable(variable);
-              }}
-            />
-          </Tooltip>
-          <ThemeSelector themeTooltipText={themeTooltipText} setTheme={setTheme} />
+          </div>
+          <Button onClick={runCode} type='button' className={styles['run-code-button']} {...buttonProps} />
         </div>
 
         <input
