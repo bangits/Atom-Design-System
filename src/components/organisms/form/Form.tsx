@@ -12,6 +12,7 @@ export interface FormProps {
   bottomActions?: boolean;
   showBackButton?: boolean;
   title: string;
+  description?: string;
   firstButtonProps: ButtonProps;
   secondButtonProps: ButtonProps;
   fields: FormFieldProp[];
@@ -24,6 +25,7 @@ const Form: FC<FormProps> = ({
   fields,
   showBackButton = false,
   bottomActions = false,
+  description,
   renderInputs,
   onBackButtonClick
 }) => {
@@ -34,6 +36,9 @@ const Form: FC<FormProps> = ({
           <div className={styles.ProviderContainer}>
             <Typography variant='h3' color='primary' className={styles.ProviderTitle}>
               {title}
+            </Typography>
+            <Typography variant='p3' className={styles.ProviderDescription}>
+              {description}
             </Typography>
             <FormFields fields={fields} renderInputs={renderInputs} />
           </div>

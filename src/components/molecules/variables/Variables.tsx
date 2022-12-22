@@ -5,6 +5,7 @@ import { FC, useState } from 'react';
 import styles from './Variables.module.scss';
 
 export interface VariablesProps {
+  optionRight?: boolean;
   variables?: string[];
   editorState?: {
     getCurrentContent: () => void;
@@ -19,10 +20,11 @@ export interface VariablesProps {
 
 const Variables: FC<VariablesProps> = ({
   variables,
+  optionRight = false,
   emptyValue,
   editorState,
   onVariableClick,
-  onChange,
+  onChange
 }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
 
@@ -49,7 +51,11 @@ const Variables: FC<VariablesProps> = ({
         variant='link'>
         <Icons.VariableIcon />
       </Button>
-      <div style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '48px' }}>
+      <div
+        style={{ transform: 'scale(1.2)', position: 'absolute', zIndex: 1000, top: '48px' }}
+        className={classNames(styles.option, {
+          [styles['container-option']]: optionRight
+        })}>
         {isOpenMenu && (
           <Options
             opacity={false}

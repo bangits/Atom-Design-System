@@ -18,6 +18,7 @@ export interface CustomEditorProps {
   variant?: 'default' | 'onlyVariable' | 'all';
   htmlValue?: string;
   attachImage?: boolean;
+  optionRight?: boolean;
   onChange?(htmlValue: string): void;
 }
 
@@ -31,6 +32,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
   errorText,
   attachImage = false,
   isVariableShow = true,
+  optionRight,
   ...props
 }) => {
   const initialEditorState = useMemo(() => {
@@ -74,7 +76,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
                   'inline',
                   'fontFamily',
                   'fontSize',
-                  'history',
+                  'history'
                   // attachImage && 'embedded'
                 ]
               : [],
@@ -121,7 +123,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
         })}
         onEditorStateChange={onEditorStateChange}
         toolbarCustomButtons={
-          isVariableShow && [<Variables key='variables' variables={variables} emptyValue='there is no value' />]
+          isVariableShow && [<Variables optionRight={optionRight} key='variables' variables={variables} emptyValue='there is no value' />]
         }
       />
       {title && (

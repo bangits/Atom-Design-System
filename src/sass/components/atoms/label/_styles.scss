@@ -1,16 +1,17 @@
 @mixin generate-label-styles {
-  .Label {
-    color: getLabelColors(label-color);
-    margin-bottom: getLabelSizes(label-margin-bottom);
-
-    &#{&}--for-input {
-      color: inherit;
-      line-height: inherit;
+    .Label {
+        color: getLabelColors(label-color);
+        margin-bottom: getLabelSizes(label-margin-bottom);
+        &#{&}--for-input {
+            &#{&} {
+                color: inherit;
+                line-height: inherit;
+                font-size: inherit;
+            }
+        }
     }
-  }
-
-  .LabelOptional {
-    margin-left: getLabelSizes(label-optional-margin-left);
-    opacity: getLabelSizes(label-optional-opacity);
-  }
+    .LabelOptional {
+        margin-left: getLabelSizes(label-optional-margin-left);
+        opacity: getLabelSizes(label-optional-opacity);
+    }
 }

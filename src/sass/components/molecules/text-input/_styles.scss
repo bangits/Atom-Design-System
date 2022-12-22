@@ -1,5 +1,27 @@
 @mixin generate-molecules-text-input-styles {
   .TextArea {
     height: 12rem !important;
+    width: 100% !important;
+  }
+  .Checkbox--container {
+    @include flex($direction: column);
+  }
+  .Checkbox-tooltip--container {
+    margin-right: 1.2rem;
+    @include flex(null, flex-end, $direction: column);
+  }
+}
+@mixin generate-text-input-styles {
+  .TextInputContainer {
+    position: relative;
+    &__Tooltip {
+      position: absolute;
+      top: calculateRem(-15px);
+      width: calculateRem(16px);
+      right: 0;
+    }
+  }
+  .TextArea {
+    height: calculateRem(120px) !important;
   }
 }
