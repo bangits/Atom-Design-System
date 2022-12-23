@@ -101,6 +101,7 @@ export { ReactComponent as RulePopUpIcon } from './rule-popup.react.svg';
 export { ReactComponent as RuleIcon } from './rule.react.svg';
 export { ReactComponent as SafariIcon } from './safari.react.svg';
 export { ReactComponent as Safari2Icon } from './safari2.react.svg';
+export { ReactComponent as CancelScheduleIcon } from './schedule-cancel.react.svg';
 export { ReactComponent as ScheduleIcon } from './schedule.react.svg';
 export { ReactComponent as SegmentIcon } from './segment-icon.react.svg';
 export { ReactComponent as SelfieIcon } from './selfie.react.svg';

@@ -62,6 +62,10 @@
   align-items: center;
 }
 
+.direction-column {
+  flex-direction: column;
+}
+
 .fullwidth-form.fullwidth-form {
   width: 100%;
 }
@@ -122,6 +126,10 @@
 
 .background-color-initial {
   background-color: initial !important;
+}
+
+.form-color {
+  color: #505d6e;
 }
 
 .uploader-min-height {
