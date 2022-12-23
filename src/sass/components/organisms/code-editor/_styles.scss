@@ -1,6 +1,7 @@
 @mixin generate-code-editor-styles {
   .controlled {
     font-size: calculateRem(20px);
+    max-width: calculateRem(1320px);
   }
   .legend {
     margin-left: calculateRem(16px);
@@ -9,7 +10,14 @@
     color: #48485d;
   }
   .toolbar {
-    @include flex();
+    @include flex(space-between);
+    &-left-part {
+      @include flex();
+    }
+  }
+  .run-code-button {
+    margin-right: calculateRem(10px);
+    width: calculateRem(115px) !important;
   }
   .fieldset {
     // width: getCodeAreaSizes(fieldset-width);
