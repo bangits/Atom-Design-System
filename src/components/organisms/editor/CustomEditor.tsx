@@ -123,7 +123,9 @@ const CustomEditor: FC<CustomEditorProps> = ({
         })}
         onEditorStateChange={onEditorStateChange}
         toolbarCustomButtons={
-          isVariableShow && [<Variables optionRight={optionRight} key='variables' variables={variables} emptyValue='there is no value' />]
+          isVariableShow && [
+            <Variables optionRight={optionRight} key='variables' variables={variables} emptyValue='there is no value' />
+          ]
         }
       />
       {title && (
