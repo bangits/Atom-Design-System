@@ -1,101 +1,110 @@
 @mixin generate-custom-editor-styles {
-  .container {
-    position: relative;
-    margin-bottom: 4rem;
-    max-width: getEditorSizes(container-max-width);
-    :global {
-      .rdw-right-aligned-block {
-        text-align: right !important;
-      }
-
-      .public-DraftStyleDefault-ltr {
-        text-align: inherit;
-      }
-    }
-    :global(.public-DraftStyleDefault-block) {
-      /* margin-top: calculateRem(5px);
+    .container {
+        position: relative;
+        margin-bottom: 4rem;
+        max-width: getEditorSizes(container-max-width);
+        &--disabled {
+            opacity: 0.6;
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 1;
+            }
+        }
+         :global {
+            .rdw-right-aligned-block {
+                text-align: right !important;
+            }
+            .public-DraftStyleDefault-ltr {
+                text-align: inherit;
+            }
+        }
+         :global(.public-DraftStyleDefault-block) {
+            /* margin-top: calculateRem(5px);
       margin-bottom: calculateRem(10px);
       height: calculateRem(25px); */
-      margin: 0 !important;
-    }
-    :global(.rdw-editor-toolbar) {
-      padding: 0;
-      padding-top: 4px;
-      padding-left: 6px;
-    }
-
-    .wrapper {
-      margin-bottom: getEditorSizes(wrapper-margin-bottom);
-      max-width: getEditorSizes(wrapper-max-width);
-      border-radius: getEditorSizes(editor-border-radius);
-      position: relative;
-      border-style: solid;
-      border-radius: getEditorSizes(editor-border-radius);
-      border-color: getEditorColors(wrapper-border-color);
-      border-width: getEditorSizes(wrapper-border-width);
-    }
-    .editor-lg {
-      min-height: getEditorSizes(editor-min-height);
-      font-size: getEditorSizes(editor-sm-font-size);
-    }
-    .editor-sm {
-      max-height: getEditorSizes(editor-sm-max-height);
-      font-size: getEditorSizes(editor-sm-font-size);
-    }
-    .editor {
-      padding-top: 6px;
-      padding-bottom: 10px;
-      padding-left: getEditorSizes(editor-padding-left-right);
-      max-width: getEditorSizes(editor-max-width);
-      padding-right: getEditorSizes(editor-padding-left-right);
-      border-bottom-left-radius: getEditorSizes(editor-border-radius);
-      border-bottom-right-radius: getEditorSizes(editor-border-radius);
-      background-color: white;
-      title {
-        background-color: transparent;
-        color: transparent;
-      }
-    }
-    .toolbar {
-      border-top-left-radius: getEditorSizes(editor-border-radius);
-      border-top-right-radius: getEditorSizes(editor-border-radius);
-      min-height: 34px;
-      :global(.rdw-option-wrapper) {
-        background-color: transparent;
-        border: none;
-        img {
-          filter: invert(32%) sepia(13%) saturate(851%) hue-rotate(175deg) brightness(91%) contrast(81%);
+            margin: 0 !important;
         }
-        &:hover {
-          background-color: #f0f0f7;
-          border: none;
-          box-shadow: none;
-          border-radius: getEditorSizes(editor-border-radius);
+         :global(.rdw-editor-toolbar) {
+            padding: 0;
+            padding-top: 4px;
+            padding-left: 6px;
         }
-      }
-
-      :global(.rdw-option-active) {
-        background-color: #f0f0f7;
-        border: none;
-        box-shadow: none;
-        border-radius: getEditorSizes(editor-border-radius);
-      }
+        .wrapper {
+            margin-bottom: getEditorSizes(wrapper-margin-bottom);
+            max-width: getEditorSizes(wrapper-max-width);
+            border-radius: getEditorSizes(editor-border-radius);
+            position: relative;
+            border-style: solid;
+            border-radius: getEditorSizes(editor-border-radius);
+            border-color: getEditorColors(wrapper-border-color);
+            border-width: getEditorSizes(wrapper-border-width);
+        }
+        .editor-lg {
+            min-height: getEditorSizes(editor-min-height);
+            font-size: getEditorSizes(editor-sm-font-size);
+        }
+        .editor-sm {
+            max-height: getEditorSizes(editor-sm-max-height);
+            font-size: getEditorSizes(editor-sm-font-size);
+        }
+        .editor {
+            padding-top: 6px;
+            padding-bottom: 10px;
+            padding-left: getEditorSizes(editor-padding-left-right);
+            max-width: getEditorSizes(editor-max-width);
+            padding-right: getEditorSizes(editor-padding-left-right);
+            border-bottom-left-radius: getEditorSizes(editor-border-radius);
+            border-bottom-right-radius: getEditorSizes(editor-border-radius);
+            background-color: white;
+            title {
+                background-color: transparent;
+                color: transparent;
+            }
+        }
+        .toolbar {
+            border-top-left-radius: getEditorSizes(editor-border-radius);
+            border-top-right-radius: getEditorSizes(editor-border-radius);
+            min-height: 34px;
+             :global(.rdw-option-wrapper) {
+                background-color: transparent;
+                border: none;
+                img {
+                    filter: invert(32%) sepia(13%) saturate(851%) hue-rotate(175deg) brightness(91%) contrast(81%);
+                }
+                &:hover {
+                    background-color: #f0f0f7;
+                    border: none;
+                    box-shadow: none;
+                    border-radius: getEditorSizes(editor-border-radius);
+                }
+            }
+             :global(.rdw-option-active) {
+                background-color: #f0f0f7;
+                border: none;
+                box-shadow: none;
+                border-radius: getEditorSizes(editor-border-radius);
+            }
+        }
+         :global(.rdw-editor-wrapper) {
+            margin-bottom: 0px;
+        }
+        .popUpClassName {
+            display: none;
+        }
+        .typography {
+            position: absolute;
+            background-color: white;
+            box-sizing: content-box;
+            width: fit-content;
+            left: getEditorSizes(typography-left);
+            top: -10px;
+            padding-left: getEditorSizes(typography-padding-left-right);
+            padding-right: getEditorSizes(typography-padding-left-right);
+        }
     }
-    :global(.rdw-editor-wrapper) {
-      margin-bottom: 0px;
-    }
-    .popUpClassName {
-      display: none;
-    }
-    .typography {
-      position: absolute;
-      background-color: white;
-      box-sizing: content-box;
-      width: fit-content;
-      left: getEditorSizes(typography-left);
-      top: -10px;
-      padding-left: getEditorSizes(typography-padding-left-right);
-      padding-right: getEditorSizes(typography-padding-left-right);
-    }
-  }
 }
