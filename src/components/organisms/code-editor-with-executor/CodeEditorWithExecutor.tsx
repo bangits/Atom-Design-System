@@ -26,7 +26,7 @@ const CodeEditorWithExecutor: FC<CodeEditorWithExecutorProps> = ({
   }, [htmlText]);
 
   return (
-    <div>
+    <div style={{ width: '97%' }}>
       <CodeEditor
         value={htmlText}
         showUploadButton

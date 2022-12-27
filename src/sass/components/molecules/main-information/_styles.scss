@@ -1,50 +1,50 @@
 @mixin generate-main-information-styles {
-    .MainInformation {
-        display: flex;
-        background-color: #fff;
-        box-shadow: 0px calculateRem(4px) calculateRem(4px) rgba(0, 0, 0, 0.05);
-        border-radius: calculateRem(16px);
-        padding: calculateRem(16px);
-        box-sizing: border-box;
-        &--with-spacings {
-            margin-bottom: calculateRem(8px);
-        }
-        &__icon {
-            @include flex(center);
-            width: calculateRem(40px);
-            height: calculateRem(40px);
-            background: rgb(199, 199, 255, 0.2);
-            border-radius: 50%;
-            color: #6667ab;
-            img {
-                object-fit: scale-down;
-            }
-            svg {
-                width: 40%;
-                min-width: 2.5rem;
-            }
-        }
-        &__informations {
-            margin-left: calculateRem(20px);
-            flex-grow: 1;
-        }
-        &__name {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: calculateRem(8px);
-            font-size: calculateRem(14px);
-            color: #6667ab;
-        }
-        &__id {
-            @include flex(null, center);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            // white-space: nowrap;
-            width: calculateRem(135px);
-            font-size: calculateRem(13px);
-            color: #8ea6c1;
-            position: relative;
-            word-break: break-all;
-        }
+  .MainInformation {
+    display: flex;
+    background-color: #fff;
+    box-shadow: 0px calculateRem(4px) calculateRem(4px) rgba(0, 0, 0, 0.05);
+    border-radius: calculateRem(16px);
+    padding: calculateRem(16px);
+    box-sizing: border-box;
+    &--with-spacings {
+      margin-bottom: calculateRem(8px);
     }
+    &__icon {
+      @include flex(center, center);
+      width: calculateRem(40px);
+      height: calculateRem(40px);
+      background: rgb(199, 199, 255, 0.2);
+      border-radius: 50%;
+      color: #6667ab;
+      img {
+        object-fit: scale-down;
+      }
+      svg {
+        width: 40%;
+        min-width: 2.5rem;
+      }
+    }
+    &__informations {
+      margin-left: calculateRem(20px);
+      flex-grow: 1;
+    }
+    &__name {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: calculateRem(8px);
+      font-size: calculateRem(14px);
+      color: #6667ab;
+    }
+    &__id {
+      @include flex(null, center);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      // white-space: nowrap;
+      width: calculateRem(135px);
+      font-size: calculateRem(13px);
+      color: #8ea6c1;
+      position: relative;
+      word-break: break-all;
+    }
+  }
 }

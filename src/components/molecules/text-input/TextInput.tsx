@@ -4,9 +4,8 @@ import { TextInput as MYUITextInput, TextInputProps as MyUITextInputProps, Toolt
 import classNames from 'classnames';
 import { ReactNode } from 'react';
 import styles from './TextInput.module.scss';
-export { TextInputProps } from '@my-ui/core';
 
-export interface TextInputDesignSystemProps extends MyUITextInputProps {
+export interface TextInputProps extends MyUITextInputProps {
   optionalText?: ReactNode;
 
   tooltipProps?: {
@@ -15,7 +14,7 @@ export interface TextInputDesignSystemProps extends MyUITextInputProps {
   };
 }
 
-export const TextInput = ({ tooltipProps, containerClassName, ...props }: TextInputDesignSystemProps) => {
+export const TextInput = ({ tooltipProps, containerClassName, ...props }: TextInputProps) => {
   const TooltipIcon = tooltipProps && Icons[tooltipProps.icon || 'InfoTooltipIcon'];
 
   return (

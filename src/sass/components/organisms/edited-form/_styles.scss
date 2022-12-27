@@ -90,11 +90,13 @@
       &--12 {
         width: getEditedFormSizes(option-width--12);
       }
+
       &--overflow--none {
         height: initial;
+
         .EditedFormBase--option-value {
           white-space: initial;
-          word-break: initial;
+          word-break: break-word;
           overflow: initial;
           height: initial;
           width: 100%;
