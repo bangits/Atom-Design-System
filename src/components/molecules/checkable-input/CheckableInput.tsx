@@ -5,7 +5,6 @@ import { Scroll, Tag, TextInputProps, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { ReactNode, useMemo, useState } from 'react';
 import styles from './CheckableInput.module.scss';
-export { TextInputProps } from '@my-ui/core';
 
 export type AddPlayerIdOrUserNameValueType = {
   id: number;
