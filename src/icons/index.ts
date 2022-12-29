@@ -12,6 +12,7 @@ export { ReactComponent as ApplyIcon } from './apply.react.svg';
 export { ReactComponent as IconButtonLeft } from './arrow-left.react.svg';
 export { ReactComponent as ArrowRightIcon } from './arrowright.react.svg';
 export { ReactComponent as AssignToIcon } from './assign-to.react.svg';
+export { ReactComponent as AttachRewardIcon } from './attach-reward.react.svg';
 export { ReactComponent as AttentionIcon } from './attention-alert.react.svg';
 export { ReactComponent as BalanceIcon } from './balance.react.svg';
 export { ReactComponent as BannerAddIcon } from './banner.react.svg';

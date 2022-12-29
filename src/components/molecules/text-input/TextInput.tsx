@@ -8,6 +8,7 @@ export { TextInputProps } from '@my-ui/core';
 
 export interface TextInputDesignSystemProps extends MyUITextInputProps {
   optionalText?: ReactNode;
+  showLengthQuantity?: boolean;
 
   tooltipProps?: {
     icon?: keyof typeof Icons;
@@ -15,31 +16,44 @@ export interface TextInputDesignSystemProps extends MyUITextInputProps {
   };
 }
 
-export const TextInput = ({ tooltipProps, containerClassName, ...props }: TextInputDesignSystemProps) => {
+export const TextInput = ({
+  tooltipProps,
+  showLengthQuantity,
+  containerClassName,
+  ...props
+}: TextInputDesignSystemProps) => {
   const TooltipIcon = tooltipProps && Icons[tooltipProps.icon || 'InfoTooltipIcon'];
 
   return (
-    <div className={classNames(styles.TextInputContainer, containerClassName)}>
-      {tooltipProps && (
-        <Tooltip showEvent='hover' text={tooltipProps.tooltipText} placement='top'>
-          <div className={styles.TextInputContainer__Tooltip}>
-            <TooltipIcon />
-          </div>
-        </Tooltip>
-      )}
+    <div>
+      <div className={classNames(styles.TextInputContainer, containerClassName)}>
+        {tooltipProps && (
+          <Tooltip showEvent='hover' text={tooltipProps.tooltipText} placement='top'>
+            <div className={styles.TextInputContainer__Tooltip}>
+              <TooltipIcon />
+            </div>
+          </Tooltip>
+        )}
 
-      <MYUITextInput
-        className={props.textarea && styles.TextArea}
-        {...props}
-        label={
-          <Label
-            isForInput
-            text={props.label}
-            optional={!!props.optionalText}
-            optionalText={`(${props.optionalText})`}
-          />
-        }
-      />
+        <MYUITextInput
+          className={props.textarea && styles.TextArea}
+          {...props}
+          label={
+            <Label
+              isForInput
+              text={props.label}
+              optional={!!props.optionalText}
+              optionalText={`(${props.optionalText})`}
+            />
+          }
+        />
+      </div>
+      {showLengthQuantity && (
+        <div className={styles.TextQuantityContainer}>
+          {props?.value?.toString().length}
+          {props?.maxLength && '/' + props?.maxLength}
+        </div>
+      )}
     </div>
   );
 };
