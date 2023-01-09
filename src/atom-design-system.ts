@@ -29,8 +29,11 @@ export {
   DialogWithActionsProps,
   IconButton,
   Loader,
-  Pagination, Scroll, Tooltip,
-  typedMemo
+  Pagination,
+  Scroll,
+  Tooltip,
+  typedMemo,
+  Typography
 } from '@my-ui/core';
 export * from './components';
 export * from './helpers/arrayMove';

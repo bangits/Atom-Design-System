@@ -1,0 +1,15 @@
+@mixin generate-flex-row-styles {
+    .FlexRow {
+        width: 100%;
+        display: flex;
+        &__Item {
+            flex-grow: 1;
+        }
+        &--Gap-1 {
+            gap: calculateRem(4px);
+        }
+        &--AddBgOnHover:hover {
+            background-color: rgba(199, 199, 255, 0.15);
+        }
+    }
+}

@@ -1,0 +1,49 @@
+@mixin generate-tiers-form-styles {
+    .TiersForm {
+        $this: #{&};
+        width: 100%;
+        box-shadow: 0px calculateRem(4px) calculateRem(4px) rgba(0, 0, 0, 0.05);
+        &,
+        &__Heading,
+        &__Footer {
+            border-radius: calculateRem(8px);
+        }
+        &__Heading,
+        &__Footer {
+            margin: 0;
+            list-style: none;
+            width: 100%;
+            display: flex;
+            padding: calculateRem(14px) calculateRem(26px);
+            box-sizing: border-box;
+            background-color: #fafafa;
+            border: calculateRem(1px) solid #efeff8;
+        }
+        &__Heading {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        &__Footer {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        &__Content {
+            padding: calculateRem(4px) calculateRem(26px);
+        }
+        &__HeadingItem,
+        &__FooterItem {
+            flex-grow: 1;
+            padding-left: calculateRem(16px);
+        }
+        &__HeadingItem {
+            font-weight: 500;
+        }
+        &--contentMinLength {
+            #{$this}__Content {
+                min-height: calculateRem(250px);
+                // This needs for child element to take min height 100%
+                height: 1px;
+            }
+        }
+    }
+}

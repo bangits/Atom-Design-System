@@ -1,0 +1,26 @@
+@mixin generate-tiers-row-styles {
+    .TiersRow {
+        $this: #{&};
+        position: relative;
+        &__Content {
+            &:has(#{$this}__Close) {
+                width: calc(100% - #{calculateRem(45px)});
+            }
+            &:hover {
+                background-color: rgba(199, 199, 255, 0.15);
+            }
+        }
+        &__Close {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &:hover {
+            #{$this}__Close {
+                display: block;
+            }
+        }
+    }
+}

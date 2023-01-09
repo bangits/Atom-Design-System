@@ -7,6 +7,9 @@
         &__ImgContent {
             width: calculateRem(50px);
             margin-bottom: calculateRem(5px);
+            &--lg {
+                width: calculateRem(125px);
+            }
         }
         &__ButtonContainer {
             position: absolute;
@@ -19,6 +22,9 @@
         &--RemoveCard {
             box-shadow: none !important;
             margin-top: 0;
+        }
+        &--FullHeight {
+            min-height: 100%;
         }
     }
 }

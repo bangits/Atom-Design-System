@@ -1,5 +1,5 @@
 import { Card, Scroll, SubTab, Tab } from '@my-ui/core';
-import { FC, ReactNode, useMemo, useState } from 'react';
+import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import styles from './ItemDetails.module.scss';
 
 export interface ItemDetailsProps {
@@ -40,12 +40,18 @@ const ItemDetails: FC<ItemDetailsProps> = ({
     [currentTabInfo, currentSubTab]
   );
 
+  useEffect(() => {
+    if (!currentTabInfo.defaultValue) return;
+
+    setCurrentSubTab(currentTabInfo.defaultValue);
+  }, [currentTabInfo]);
+
   return (
     <Card borderRadius={1.6} className={styles.ItemDetailsBase}>
       <Tab
         options={tabs}
         onChange={(value) => {
-          if (onTabChange) onTabChange(value, currentSubTab);
+          if (onTabChange) onTabChange(value, value);
 
           setCurrentTab(value);
         }}
@@ -55,7 +61,7 @@ const ItemDetails: FC<ItemDetailsProps> = ({
         {currentTabInfo?.subTabs && (
           <SubTab
             options={currentTabInfo.subTabs}
-            defaultValue={currentSubTab}
+            value={currentSubTab}
             onChange={(value) => {
               if (onTabChange) onTabChange(currentTab, value);
               setCurrentSubTab(value);
