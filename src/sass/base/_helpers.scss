@@ -50,6 +50,10 @@
     @include flex;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 .gap-5 {
     gap: calculateRem(5px);
 }

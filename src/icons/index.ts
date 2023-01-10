@@ -145,5 +145,5 @@ export { ReactComponent as VariableIcon } from './variable.react.svg';
 export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.svg';
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
+export { ReactComponent as ViewMoreArrowIcon } from './view-more-arrow.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
-
