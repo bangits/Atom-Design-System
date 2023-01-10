@@ -4,18 +4,20 @@ import { FC } from 'react';
 import styles from './TiersRow.module.scss';
 
 export interface TiersRowProps extends FlexRowProps {
-  showCloseButton?: boolean;
+  showCloseLayer?: boolean;
+
+  onCloseBtnClick?(): void;
 }
 
-const TiersRow: FC<TiersRowProps> = ({ children, showCloseButton, ...flexRowProps }) => {
+const TiersRow: FC<TiersRowProps> = ({ children, showCloseLayer, onCloseBtnClick, ...flexRowProps }) => {
   return (
     <div className={styles.TiersRow}>
       <div className={styles.TiersRow__Content}>
         <FlexRow {...flexRowProps}>{children}</FlexRow>
 
-        {showCloseButton && (
+        {showCloseLayer && (
           <div className={styles.TiersRow__Close}>
-            <IconButton icon={<Icons.CloseIcon />} />
+            {onCloseBtnClick && <IconButton icon={<Icons.CloseIcon />} onClick={onCloseBtnClick} />}
           </div>
         )}
       </div>

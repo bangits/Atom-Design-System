@@ -38,7 +38,13 @@
         &__HeadingItem {
             font-weight: 500;
         }
-        &--contentMinLength {
+        &--ShowCloseLayer {
+            #{$this}__Heading,
+            #{$this}__Footer {
+                width: calc(100% - #{calculateRem(45px)});
+            }
+        }
+        &--ContentMinLength {
             #{$this}__Content {
                 min-height: calculateRem(250px);
                 // This needs for child element to take min height 100%
