@@ -106,6 +106,8 @@ export { ReactComponent as SelfieIcon } from './selfie.react.svg';
 export { ReactComponent as SendEmailIcon } from './send-email.react.svg';
 export { ReactComponent as SetAsDefault } from './set-as-default.react.svg';
 export { ReactComponent as SettingsIcon } from './setting.react.svg';
+export { ReactComponent as ShopDetailsIcon } from './shop-icon.react.svg';
+export { ReactComponent as ShopPopUpIcon } from './shop-pop-up-icon.react.svg';
 export { ReactComponent as ShopSideBarIcon } from './shop-sidebar-icon.react.svg';
 export { ReactComponent as SignInImage } from './SignIn.react.svg';
 export { ReactComponent as SliderAddIcon } from './slider-add.react.svg';
@@ -135,3 +137,4 @@ export { ReactComponent as PlayerVerifiedIcon } from './verified-player.react.sv
 export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
+
