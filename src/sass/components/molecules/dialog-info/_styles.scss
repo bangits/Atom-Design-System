@@ -1,0 +1,30 @@
+@mixin generate-dialog-info-styles {
+    .DialogInfo {
+        @include flex(center, null);
+        min-height: inherit;
+        &__List {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            text-align: left;
+        }
+        &__Item {
+            margin-bottom: calculateRem(24px);
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
+        &__Scroll>div {
+            overflow-x: hidden !important;
+        }
+        &__Label {
+            margin-bottom: calculateRem(4px);
+        }
+        &__Value {
+            color: color(black-color);
+        }
+        &--Loading {
+            align-items: center;
+        }
+    }
+}

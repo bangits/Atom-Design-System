@@ -1,0 +1,10 @@
+$code-editor-sizes: ();
+$code-editor-colors: ();
+
+@function getCodeEditorSizes($key) {
+  @return map-get($code-editor-sizes, $key);
+}
+
+@function getCodeEditorColors($key) {
+  @return map-get($code-editor-colors, $key);
+}

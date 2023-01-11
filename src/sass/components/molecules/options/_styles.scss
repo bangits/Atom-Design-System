@@ -21,8 +21,8 @@
       word-break: break-word;
     }
     .OptionsBase--core:first-child {
-      border-top-left-radius: 8px;
-      border-top-right-radius: 8px;
+      border-top-left-radius: 16px;
+      border-top-right-radius: 16px;
       border-bottom-right-radius: 0px;
       border-bottom-left-radius: 0;
     }
@@ -36,8 +36,8 @@
     .OptionsBase--core:last-child:hover {
       border-top-left-radius: 0;
       border-top-right-radius: 0;
-      border-bottom-right-radius: 8px;
-      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 16px;
+      border-bottom-left-radius: 16px;
     }
 
     .OptionsBase--core-opacity:last-child:first-child {

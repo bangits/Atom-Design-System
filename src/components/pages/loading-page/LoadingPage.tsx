@@ -1,9 +1,10 @@
+import { Loader } from '../../atoms/loader';
 import styles from './LoadingPage.module.scss';
 
 const LoadingPage = () => {
   return (
     <div className={styles.LoadingPageWrapper}>
-      <div className={styles.LoadingPageLoader}>Loading...</div>
+      <Loader />
     </div>
   );
 };

@@ -11,6 +11,7 @@ export * from './countries-group';
 export * from './criteria-view';
 export * from './currency-group';
 export * from './datepickers';
+export * from './dialog-info';
 export * from './dialog-view';
 export * from './divider-list';
 export * from './dnd-item';
@@ -48,7 +49,8 @@ export * from './sortable-item';
 export * from './tab';
 export * from './table-field';
 export * from './text-input';
+export * from './tiers-form';
+export * from './tiers-row';
 export * from './translation-form';
 export * from './variables';
 export * from './vertical-tabs';
-

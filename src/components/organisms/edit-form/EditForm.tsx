@@ -21,7 +21,7 @@ export interface EditFormProps {
   removeCard?: boolean;
   justifyContent?: string;
   col?: 6 | 12;
-
+  applyButtonType?: 'button' | 'submit';
   onToggle?: () => void;
   onSubmit?: (onToggle: () => void) => void;
   renderInputs?: (
@@ -43,6 +43,7 @@ const EditForm: FC<EditFormProps> = ({
   closeButtonTooltipText,
   children,
   col,
+  applyButtonType = 'button',
   fullWidth,
   showActions = true,
   removeCard,
@@ -74,7 +75,7 @@ const EditForm: FC<EditFormProps> = ({
           <span>
             {title}
             {tooltipText && (
-              <Tooltip text={tooltipText}>
+              <Tooltip showEvent='hover' text={tooltipText}>
                 <InfoTooltipIcon className={styles['EditFormBase--header-tooltip']} width='1.5rem' height='1.5rem' />
               </Tooltip>
             )}
@@ -83,7 +84,7 @@ const EditForm: FC<EditFormProps> = ({
             <Tooltip showEvent='hover' text={applyButtonTooltipText}>
               <IconButton
                 icon={<ApplyIcon />}
-                type='button'
+                type={applyButtonType}
                 onClick={() => onSubmit(onToggle)}
                 className={classNames({
                   [styles['EditFormBase__button--disabled']]: applyButtonDisabled

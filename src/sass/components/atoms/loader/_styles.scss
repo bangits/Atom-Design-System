@@ -1,0 +1,61 @@
+@mixin generate-loader-styles {
+    .Loader,
+    .Loader:before,
+    .Loader:after {
+        background-color: getLoadingPageColors(loading-wrapper-background-color);
+        -webkit-animation: load1 getLoadingPageSizes(loading-page-loader-after-animation) infinite ease-in-out;
+        animation: load1 getLoadingPageSizes(loading-page-loader-after-animation) infinite ease-in-out;
+        width: getLoadingPageSizes(loading-page-loader-after-width);
+        height: getLoadingPageSizes(loading-page-loader-after-height);
+    }
+    .Loader {
+        position: relative;
+        top: getLoadingPageSizes(loading-page-loader-position-top);
+        color: getLoadingPageColors(loading-page-loader-color);
+        text-indent: getLoadingPageSizes(loading-page-loader-text-indent);
+        font-size: getLoadingPageSizes(loading-page-loader-font-size);
+        -webkit-transform: translateZ(0);
+        -ms-transform: translateZ(0);
+        transform: translateZ(0);
+        -webkit-animation-delay: getLoadingPageSizes(loading-page-loader-animation);
+        animation-delay: getLoadingPageSizes(loading-page-loader-animation);
+    }
+    .Loader:before,
+    .Loader:after {
+        position: absolute;
+        top: 0;
+        content: '';
+    }
+    .Loader:before {
+        left: getLoadingPageSizes(loading-page-loader-before-position-left);
+        -webkit-animation-delay: getLoadingPageSizes(loading-page-loader-before-animation);
+        animation-delay: getLoadingPageSizes(loading-page-loader-before-animation);
+    }
+    .Loader:after {
+        left: getLoadingPageSizes(loading-page-loader-after-position-left);
+    }
+    @-webkit-keyframes load1 {
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 0;
+            height: 4em;
+        }
+        40% {
+            box-shadow: 0 -2em;
+            height: 5em;
+        }
+    }
+    @keyframes load1 {
+        0%,
+        80%,
+        100% {
+            box-shadow: 0 0;
+            height: 4em;
+        }
+        40% {
+            box-shadow: 0 -2em;
+            height: 5em;
+        }
+    }
+}

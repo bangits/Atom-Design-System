@@ -1,0 +1,77 @@
+@mixin generate-code-editor-styles {
+  .controlled {
+    font-size: calculateRem(20px);
+    max-width: calculateRem(1320px);
+  }
+  .legend {
+    margin-left: calculateRem(16px);
+    font-size: calculateRem(14px);
+    //TODO: check this color
+    color: #48485d;
+  }
+  .toolbar {
+    @include flex(space-between);
+    &-left-part {
+      @include flex();
+    }
+  }
+  .run-code-button {
+    margin-right: calculateRem(10px);
+    width: calculateRem(115px) !important;
+  }
+  .fieldset {
+    // width: getCodeAreaSizes(fieldset-width);
+    // height: calculateRem(180px);
+    padding: 0;
+    // height: calculateRem(300px);
+    border: 0.5px solid #8ea6c1;
+    border-top-left-radius: calculateRem(4px);
+    border-top-right-radius: calculateRem(4px);
+    background: white;
+    ::-webkit-scrollbar-track {
+      border-radius: calculateRem(10px);
+    }
+    ::-webkit-scrollbar {
+      width: calculateRem(3px);
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #e8edf3;
+      border-radius: calculateRem(10px);
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #e8edf3;
+    }
+  }
+  .input {
+    display: none;
+  }
+  .selectContainer {
+    margin: 0.75rem 0;
+    margin-left: calculateRem(10px);
+    text-align: center;
+    @include flex(null, center);
+    gap: calculateRem(10px);
+
+    select {
+      border-radius: calculateRem(4px);
+    }
+  }
+  :global {
+    .CodeMirror-scroll {
+      // height: 100vh !important;
+    }
+    .CodeMirror-sizer {
+      max-height: calculateRem(300px) !important;
+      min-height: calculateRem(300px) !important;
+    }
+  }
+  .select {
+    border-radius: 4px;
+    border: 1px solid #4b5767;
+    background: transparent;
+    color: #4b5767;
+  }
+  .tooltipIcon {
+    width: calculateRem(16px);
+  }
+}

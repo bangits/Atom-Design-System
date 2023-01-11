@@ -50,15 +50,14 @@ export interface EditedFormProps {
   onToggle?: () => void;
   col?: 6 | 12;
   showDeleteButton?: boolean;
-  showSendButton?: boolean;
   onDelete?: () => void;
   showEditIcons?: boolean;
   startJustify?: boolean;
   removeCard?: boolean;
   removeShadow?: boolean;
   disableEditButton?: boolean;
+  showEditButton?: boolean;
   height?: CSSProperties['height'];
-  sendEmail?: ReactNode;
   topPart?: ReactNode | ReactNode[];
   actions?: ReactNode | ReactNode[];
 }
@@ -81,6 +80,7 @@ const EditedForm: FC<EditedFormProps> = ({
   removeCard,
   startJustify,
   disableEditButton = false,
+  showEditButton = true,
   removeShadow,
   topPart,
   actions,
@@ -146,11 +146,13 @@ const EditedForm: FC<EditedFormProps> = ({
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             {actions}
-            <Tooltip showEvent='hover' text={editButtonTooltipText}>
-              <div>
-                <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
-              </div>
-            </Tooltip>
+            {showEditButton && (
+              <Tooltip showEvent='hover' text={editButtonTooltipText}>
+                <div>
+                  <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
+                </div>
+              </Tooltip>
+            )}
             {showDeleteButton && (
               <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
                 <IconButton icon={<DustbinIcon />} onClick={onDelete} />

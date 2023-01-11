@@ -18,6 +18,8 @@ export interface CustomEditorProps {
   variant?: 'default' | 'onlyVariable' | 'all';
   htmlValue?: string;
   attachImage?: boolean;
+  optionRight?: boolean;
+  disabled?: boolean;
   onChange?(htmlValue: string): void;
 }
 
@@ -31,6 +33,8 @@ const CustomEditor: FC<CustomEditorProps> = ({
   errorText,
   attachImage = false,
   isVariableShow = true,
+  optionRight,
+  disabled,
   ...props
 }) => {
   const initialEditorState = useMemo(() => {
@@ -48,16 +52,21 @@ const CustomEditor: FC<CustomEditorProps> = ({
 
   const onEditorStateChange = useCallback(
     (editorState) => {
+      if (disabled) return;
+
       const htmlValue = draftToHtml(convertToRaw(editorState.getCurrentContent()));
 
       onChange(htmlValue);
       setEditorState(editorState);
     },
-    [editorState]
+    [editorState, disabled]
   );
 
   return (
-    <div className={classNames(styles.container)}>
+    <div
+      className={classNames(styles.container, {
+        [styles['container--disabled']]: disabled
+      })}>
       <Editor
         {...props}
         toolbar={{
@@ -74,7 +83,7 @@ const CustomEditor: FC<CustomEditorProps> = ({
                   'inline',
                   'fontFamily',
                   'fontSize',
-                  'history',
+                  'history'
                   // attachImage && 'embedded'
                 ]
               : [],
@@ -121,7 +130,9 @@ const CustomEditor: FC<CustomEditorProps> = ({
         })}
         onEditorStateChange={onEditorStateChange}
         toolbarCustomButtons={
-          isVariableShow && [<Variables key='variables' variables={variables} emptyValue='there is no value' />]
+          isVariableShow && [
+            <Variables optionRight={optionRight} key='variables' variables={variables} emptyValue='there is no value' />
+          ]
         }
       />
       {title && (

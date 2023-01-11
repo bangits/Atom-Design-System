@@ -27,6 +27,9 @@
                 display: inline-block;
                 width: calculateRem(15px);
                 margin-right: calculateRem(5px);
+                img {
+                    max-width: 100%;
+                }
             }
             &-title {
                 display: flex;
