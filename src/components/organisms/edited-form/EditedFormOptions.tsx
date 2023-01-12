@@ -1,4 +1,5 @@
-import { Tag, TextInput } from '@my-ui/core';
+import { InfoTooltipIcon } from '@/icons';
+import { Tag, TextInput, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
 import { EditedFormProps } from './EditedForm';
@@ -26,10 +27,21 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                       styles[`EditedFormBase--option--${option.col || 6}`],
                       {
                         [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation,
-                        [styles['EditedFormBase--option--overflow--none']]: option.overflow === 'none',
+                        [styles['EditedFormBase--option--overflow--none']]: option.overflow === 'none'
                       }
                     )}>
-                    <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                    <span className={classNames(styles['EditedFormBase--option-title'])}>
+                      {option.title}
+                      {option.tooltipText && (
+                        <Tooltip showEvent='hover' text={option.tooltipText}>
+                          <InfoTooltipIcon
+                            className={styles['EditedFormBase--option-tooltip']}
+                            width='1.5rem'
+                            height='1.5rem'
+                          />
+                        </Tooltip>
+                      )}
+                    </span>
                     <span className={classNames(styles['EditedFormBase--option-value'])}>
                       {option.value || noDataText}
                     </span>

@@ -18,6 +18,7 @@ export interface EditedFormProps {
         col?: 3 | 4 | 6 | 12;
         overflow?: 'ellipsis' | 'none';
         labelText?: string;
+        tooltipText?: string;
       }
     | {
         title: ReactNode | string;
