@@ -1,12 +1,14 @@
 import { Loader, Scroll } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, PropsWithChildren, useState } from 'react';
+import { CSSProperties, FC, PropsWithChildren, useState } from 'react';
 import styles from './ScrollableView.module.scss';
 
 export interface ScrollableViewProps {
   disableOnPageChange: boolean;
   showLoader?: boolean;
   className?: string;
+
+  height?: CSSProperties['height'];
 
   onPageChange(newPage: number): void;
 }
@@ -16,13 +18,14 @@ const ScrollableView: FC<PropsWithChildren<ScrollableViewProps>> = ({
   onPageChange,
   className,
   showLoader,
+  height,
   children
 }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
 
   return (
     <Scroll
-      height='60rem'
+      height={height || '60rem'}
       autoHide
       onScroll={(e) => {
         if (disableOnPageChange) return;
