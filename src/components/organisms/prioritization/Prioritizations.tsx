@@ -69,7 +69,7 @@ const Prioritizations: FC<PrioritizationsProps> = ({
   return (
     <>
       <Card className={styles['CategoryItems__card']}>
-        <div className='mb-2'>
+        <div className='mb-4'>
           <Scroll showHorizontalScroll onScroll={(e) => console.log('onScroll')}>
             <Tab
               options={options || []}
