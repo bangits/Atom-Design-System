@@ -50,6 +50,10 @@
     @include flex;
 }
 
+.d-inline-block {
+    display: inline-block;
+}
+
 .flex-wrap {
     flex-wrap: wrap;
 }
