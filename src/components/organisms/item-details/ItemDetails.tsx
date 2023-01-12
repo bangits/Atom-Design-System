@@ -60,7 +60,7 @@ const ItemDetails: FC<ItemDetailsProps> = ({
           setCurrentSubTab(currentTab.defaultValue || null);
           setCurrentTab(value);
         }}
-        defaultValue={tabValue !== undefined ? currentTab : undefined}
+        defaultValue={currentTab}
         value={tabValue}
       />
       <div className={styles['ItemDetailsBase--sub-tabs']}>
