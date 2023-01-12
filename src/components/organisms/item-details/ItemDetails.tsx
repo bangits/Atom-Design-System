@@ -1,5 +1,6 @@
+/* eslint-disable prefer-const */
 import { Card, Scroll, SubTab, Tab } from '@my-ui/core';
-import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
+import { FC, ReactNode, useMemo, useState } from 'react';
 import styles from './ItemDetails.module.scss';
 
 export interface ItemDetailsProps {
@@ -21,6 +22,8 @@ export interface ItemDetailsProps {
   }[];
   defaultTabValue?: number;
   defaultSubTabValue?: number;
+  tabValue?: number;
+  subTabValue?: number;
   onTabChange?: (tabValue: number, subTabValue: number | string) => void;
 }
 
@@ -28,11 +31,16 @@ const ItemDetails: FC<ItemDetailsProps> = ({
   tabs,
   defaultTabValue = null,
   defaultSubTabValue = null,
+  tabValue,
+  subTabValue,
   onTabChange
 }) => {
-  const [currentTab, setCurrentTab] = useState<number>(defaultTabValue);
+  let [currentTab, setCurrentTab] = useState<number>(defaultTabValue);
 
-  const [currentSubTab, setCurrentSubTab] = useState<number>(defaultSubTabValue);
+  let [currentSubTab, setCurrentSubTab] = useState<number>(defaultSubTabValue);
+
+  currentTab = tabValue ?? currentTab;
+  currentSubTab = subTabValue ?? currentSubTab;
 
   const currentTabInfo = useMemo(() => tabs.find((tab) => tab.value === currentTab), [tabs, currentTab]);
   const currentSubTabInfo = useMemo(
@@ -40,22 +48,20 @@ const ItemDetails: FC<ItemDetailsProps> = ({
     [currentTabInfo, currentSubTab]
   );
 
-  useEffect(() => {
-    if (!currentTabInfo.defaultValue) return;
-
-    setCurrentSubTab(currentTabInfo.defaultValue);
-  }, [currentTabInfo]);
-
   return (
     <Card borderRadius={1.6} className={styles.ItemDetailsBase}>
       <Tab
         options={tabs}
         onChange={(value) => {
-          if (onTabChange) onTabChange(value, value);
+          const currentTab = tabs.find((tab) => tab.value === value);
 
+          if (onTabChange) onTabChange(value, currentTab.defaultValue || null);
+
+          setCurrentSubTab(currentTab.defaultValue || null);
           setCurrentTab(value);
         }}
         defaultValue={currentTab}
+        value={tabValue}
       />
       <div className={styles['ItemDetailsBase--sub-tabs']}>
         {currentTabInfo?.subTabs && (
