@@ -31,6 +31,7 @@ export {
   Loader,
   Pagination,
   Scroll,
+  Tag,
   Tooltip,
   typedMemo,
   Typography
