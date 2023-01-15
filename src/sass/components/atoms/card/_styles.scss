@@ -1,4 +1,11 @@
 @mixin generate-card-styles {
+  .Card--wrapper {
+    @include flex();
+    padding-bottom: calculateRem(16px);
+    .Card__index {
+      margin-right: calculateRem(8px);
+    }
+  }
   .Card {
     $this: #{&};
     width: 100%;
