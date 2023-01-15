@@ -1,14 +1,34 @@
 @import '../layout/variables';
+.m-0 {
+    margin: 0 !important;
+}
+
 .mb-2 {
-    margin-top: calculateRem(5px);
+    margin-bottom: calculateRem(5px) !important;
+}
+
+.mb-3 {
+    margin-bottom: calculateRem(10px) !important;
+}
+
+.mb-4 {
+    margin-bottom: calculateRem(20px) !important;
 }
 
 .mt-3 {
-    margin-top: calculateRem(10px);
+    margin-top: calculateRem(10px) !important;
+}
+
+.mt-4 {
+    margin-top: calculateRem(20px) !important;
 }
 
 .mt-5 {
-    margin-top: calculateRem(20px);
+    margin-top: calculateRem(30px) !important;
+}
+
+.gap-1 {
+    gap: calculateRem(4px);
 }
 
 .text-center {
@@ -98,10 +118,6 @@
     align-content: flex-start;
 }
 
-.mb-2 {
-    margin-bottom: calculateRem(20px);
-}
-
 .edited-form-img {
     max-width: calculateRem(60px);
     height: 100%;
@@ -110,6 +126,18 @@
 
 .ml-auto {
     margin-left: auto;
+}
+
+.ml-1 {
+    margin-left: calculateRem(6px);
+}
+
+.black-color {
+    color: color(black-color);
+}
+
+.italic {
+    font-style: italic;
 }
 
 .button-form-min-width {

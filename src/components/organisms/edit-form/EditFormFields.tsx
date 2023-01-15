@@ -37,10 +37,13 @@ const EditFormFields = ({
                   : styles['EditFormBase--field'],
 
                 styles[`EditFormBase--${field.col || 6}`],
-                styles[`EditFormBase--field--${field.justifyContent}`]
+                styles[`EditFormBase--field--${field.justifyContent}`],
+                {
+                  [styles['EditFormBase--removeMargin']]: field.removeMargin
+                }
               )}
               key={idx}>
-                <div className={styles[`EditFormBase--label`]}>{field.labelText}</div>
+              <div className={styles[`EditFormBase--label`]}>{field.labelText}</div>
               {fieldElement}
             </div>
           )
