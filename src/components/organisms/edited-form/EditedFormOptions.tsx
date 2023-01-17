@@ -42,7 +42,11 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                         </Tooltip>
                       )}
                     </span>
-                    <span className={classNames(styles['EditedFormBase--option-value'])}>
+                    <span
+                      onClick={option.onRedirectClick}
+                      className={classNames(styles['EditedFormBase--option-value'], {
+                        [styles['EditedFormBase--option-hover']]: option.onRedirectClick
+                      })}>
                       {option.value || noDataText}
                     </span>
                   </div>
