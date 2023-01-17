@@ -1,0 +1,10 @@
+@mixin generate-chip-styles {
+    .Chip {
+        background: #f6f8fe;
+        border-radius: calculateRem(16px);
+        min-width: calculateRem(266px);
+        box-sizing: border-box;
+        padding: calculateRem(8px) calculateRem(12px);
+        font-size: calculateRem(14px);
+    }
+}

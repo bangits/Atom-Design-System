@@ -23,20 +23,24 @@ export interface EditedFormProps {
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         variant: 'label';
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         value: ReactNode | string;
         variant: 'bold';
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         value: string[];
         variant: 'tag';
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         value: ReactNode;
         shouldLineTranslation?: boolean;
         fullWidth?: boolean;
