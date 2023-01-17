@@ -102,6 +102,12 @@
                 }
             }
         }
+        &--option-hover:hover {
+            color: blue;
+            cursor: pointer;
+            width: 100%;
+            text-decoration: underline;
+        }
         &--control-button {
             @include flex();
             margin-left: auto;
