@@ -2,7 +2,6 @@
   .EditedFormBase {
     $this: #{&};
     position: relative;
-
     &--remove-shadow {
       box-shadow: none !important;
       #{$this}--content {
@@ -41,9 +40,10 @@
       margin-left: calculateRem(5px);
       margin-bottom: calculateRem(-3px);
     }
-    // &--content-children {
-    //   height: 100% !important;
-    // }
+    &--option-tooltip {
+      vertical-align: text-bottom;
+      margin-left: calculateRem(4px);
+    }
     &--content {
       position: relative;
       @include flex(space-between, null, $flex-wrap: wrap);
@@ -102,6 +102,12 @@
           width: 100%;
         }
       }
+    }
+    &--option-hover:hover {
+      color: blue;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: underline;
     }
     &--control-button {
       @include flex();
@@ -181,7 +187,6 @@
         }
       }
     }
-
     &--actions-inside {
       position: absolute;
       top: 0;

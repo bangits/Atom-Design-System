@@ -15,6 +15,21 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
     <>
       {options &&
         options?.map((option, index) => {
+          const title = (
+            <span className={classNames(styles['EditedFormBase--option-title'])}>
+              {option.title}
+              {option.tooltipText && (
+                <Tooltip showEvent='hover' text={option.tooltipText}>
+                  <InfoTooltipIcon
+                    className={styles['EditedFormBase--option-tooltip']}
+                    width='1.5rem'
+                    height='1.5rem'
+                  />
+                </Tooltip>
+              )}
+            </span>
+          );
+
           switch (option.variant) {
             case 'default':
               return (
@@ -30,18 +45,8 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                         [styles['EditedFormBase--option--overflow--none']]: option.overflow === 'none'
                       }
                     )}>
-                    <span className={classNames(styles['EditedFormBase--option-title'])}>
-                      {option.title}
-                      {option.tooltipText && (
-                        <Tooltip showEvent='hover' text={option.tooltipText}>
-                          <InfoTooltipIcon
-                            className={styles['EditedFormBase--option-tooltip']}
-                            width='1.5rem'
-                            height='1.5rem'
-                          />
-                        </Tooltip>
-                      )}
-                    </span>
+                    {title}
+
                     <span
                       onClick={option.onRedirectClick}
                       className={classNames(styles['EditedFormBase--option-value'], {
@@ -67,14 +72,14 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                     [styles['EditedFormBase--option--full-width']]: option.fullWidth,
                     [styles['EditedFormBase--option--align-end']]: option.alignItem === 'end'
                   })}>
-                  <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                  {title}
                   {option.value || <span className={styles['EditedFormBase--option-value']}>{noDataText}</span>}
                 </div>
               );
             case 'tag':
               return (
                 <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
-                  <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                  {title}
                   <div>
                     {option.value.length === 0 ? (
                       <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
@@ -87,7 +92,7 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
             case 'bold':
               return (
                 <div key={index} className={classNames(styles['EditedFormBase--option'])}>
-                  <span className={classNames(styles['EditedFormBase--option-title'])}>{option.title}</span>
+                  {title}
                   <span
                     className={classNames(
                       styles['EditedFormBase--option-value'],
