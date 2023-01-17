@@ -1,6 +1,8 @@
 @mixin generate-edited-form-styles {
   .EditedFormBase {
     $this: #{&};
+    position: relative;
+
     &--remove-shadow {
       box-shadow: none !important;
       #{$this}--content {
@@ -178,6 +180,12 @@
           }
         }
       }
+    }
+
+    &--actions-inside {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 }

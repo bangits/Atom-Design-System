@@ -58,6 +58,7 @@ export interface EditedFormProps {
   removeCard?: boolean;
   removeShadow?: boolean;
   disableEditButton?: boolean;
+  actionsInside?: boolean;
   showEditButton?: boolean;
   height?: CSSProperties['height'];
   topPart?: ReactNode | ReactNode[];
@@ -87,6 +88,7 @@ const EditedForm: FC<EditedFormProps> = ({
   removeShadow,
   topPart,
   actions,
+  actionsInside,
   height: heightProp = 248,
   inRedirectClick
 }) => {
@@ -137,7 +139,10 @@ const EditedForm: FC<EditedFormProps> = ({
         [styles[`EditedFormBase--${col}`]]: col
       })}
       style={{ opacity: height || heightProp === 'auto' ? 1 : 0 }}>
-      <div className={styles['EditedFormBase--control']}>
+      <div
+        className={classNames(styles['EditedFormBase--control'], {
+          [styles['EditedFormBase--actions-inside']]: actionsInside
+        })}>
         {topPart}
         {title && (
           <span className={styles['EditedFormBase--control-title']}>
