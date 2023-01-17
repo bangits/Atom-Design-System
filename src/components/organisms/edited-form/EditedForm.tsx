@@ -19,6 +19,7 @@ export interface EditedFormProps {
         overflow?: 'ellipsis' | 'none';
         labelText?: string;
         tooltipText?: string;
+        onRedirectClick?: () => void;
       }
     | {
         title: ReactNode | string;
@@ -61,6 +62,7 @@ export interface EditedFormProps {
   height?: CSSProperties['height'];
   topPart?: ReactNode | ReactNode[];
   actions?: ReactNode | ReactNode[];
+  inRedirectClick?: () => void;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -85,7 +87,8 @@ const EditedForm: FC<EditedFormProps> = ({
   removeShadow,
   topPart,
   actions,
-  height: heightProp = 248
+  height: heightProp = 248,
+  inRedirectClick
 }) => {
   const containerRef = useRef<HTMLDivElement>();
 
