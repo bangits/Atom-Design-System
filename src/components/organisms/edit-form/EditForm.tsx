@@ -13,6 +13,7 @@ export interface EditFormProps {
   applyButtonTooltipText?: string;
   closeButtonTooltipText?: string;
   title?: ReactNode;
+  topPart?: ReactNode;
   tooltipText?: string;
   fields?: FormFieldProp[];
   fullWidth?: boolean;
@@ -49,6 +50,7 @@ const EditForm: FC<EditFormProps> = ({
   removeCard,
   justifyContent,
   applyButtonDisabled,
+  topPart,
   hideClose
 }) => {
   const content = children || (
@@ -72,14 +74,19 @@ const EditForm: FC<EditFormProps> = ({
       })}>
       {showActions && (
         <div className={classNames(styles['EditFormBase--header'])}>
-          <span>
-            {title}
-            {tooltipText && (
-              <Tooltip showEvent='hover' text={tooltipText}>
-                <InfoTooltipIcon className={styles['EditFormBase--header-tooltip']} width='1.5rem' height='1.5rem' />
-              </Tooltip>
-            )}
-          </span>
+          {topPart}
+
+          {title && (
+            <span>
+              {title}
+              {tooltipText && (
+                <Tooltip showEvent='hover' text={tooltipText}>
+                  <InfoTooltipIcon className={styles['EditFormBase--header-tooltip']} width='1.5rem' height='1.5rem' />
+                </Tooltip>
+              )}
+            </span>
+          )}
+
           <div className={classNames(styles['EditFormBase--buttons'])}>
             <Tooltip showEvent='hover' text={applyButtonTooltipText}>
               <IconButton

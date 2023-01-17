@@ -136,17 +136,19 @@ const EditedForm: FC<EditedFormProps> = ({
         [styles[`EditedFormBase--${col}`]]: col,
         [styles[`EditedFormBase--${col}`]]: col
       })}
-      style={{ opacity: height ? 1 : 0 }}>
+      style={{ opacity: height || heightProp === 'auto' ? 1 : 0 }}>
       <div className={styles['EditedFormBase--control']}>
         {topPart}
-        <span className={styles['EditedFormBase--control-title']}>
-          {title}
-          {tooltipText && (
-            <Tooltip text={tooltipText}>
-              <InfoTooltipIcon className={styles['EditedFormBase--control-tooltip']} width='1.5rem' height='1.5rem' />
-            </Tooltip>
-          )}
-        </span>
+        {title && (
+          <span className={styles['EditedFormBase--control-title']}>
+            {title}
+            {tooltipText && (
+              <Tooltip text={tooltipText}>
+                <InfoTooltipIcon className={styles['EditedFormBase--control-tooltip']} width='1.5rem' height='1.5rem' />
+              </Tooltip>
+            )}
+          </span>
+        )}
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             {actions}

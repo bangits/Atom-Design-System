@@ -74,6 +74,7 @@ export { ReactComponent as LeaveIcon } from './leave_icon.react.svg';
 export { ReactComponent as DetailsLinkIcon } from './link-details.react.svg';
 export { ReactComponent as LockIcon } from './lock.react.svg';
 export { ReactComponent as LogOutIcon } from './log-out.react.svg';
+export { ReactComponent as LoyaltyIcon } from './loyalty-icon.react.svg';
 export { ReactComponent as MediaIcon } from './media.react.svg';
 export { ReactComponent as MessageIcon } from './message.react.svg';
 export { ReactComponent as MobileIcon } from './mobile.react.svg';
@@ -151,4 +152,5 @@ export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as ViewMoreArrowIcon } from './view-more-arrow.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
+
 

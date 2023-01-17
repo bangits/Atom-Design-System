@@ -1,6 +1,6 @@
 import { Card, Scroll } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, ReactNode } from 'react';
+import { CSSProperties, FC, ReactNode } from 'react';
 import styles from './VerticalTabs.module.scss';
 
 export interface VerticalTabsProps {
@@ -11,14 +11,16 @@ export interface VerticalTabsProps {
 
   value: string | number;
 
+  autoHeightMin?: CSSProperties['height'];
+
   onChange(value: string | number): void;
 }
 
-const VerticalTabs: FC<VerticalTabsProps> = ({ tabs, value, onChange, children }) => {
+const VerticalTabs: FC<VerticalTabsProps> = ({ tabs, value, autoHeightMin, onChange, children }) => {
   return (
     <Card className={styles.VerticalTabs}>
       <div className={styles.VerticalTabs__Sidebar}>
-        <Scroll autoHeight showHorizontalScroll={false}>
+        <Scroll autoHeight autoHeightMin={autoHeightMin} showHorizontalScroll={false}>
           {tabs.map((t) => (
             <button
               className={classNames(styles.VerticalTabs__Button, {
