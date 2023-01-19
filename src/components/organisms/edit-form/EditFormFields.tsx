@@ -43,7 +43,12 @@ const EditFormFields = ({
                 }
               )}
               key={idx}>
-              <div className={styles[`EditFormBase--label`]}>{field.labelText}</div>
+              <div
+                className={classNames(styles[`EditFormBase--label`], {
+                  [styles['EditFormBase--label__relative']]: field.labelPositionRelative
+                })}>
+                {field.labelText}
+              </div>
               {fieldElement}
             </div>
           )

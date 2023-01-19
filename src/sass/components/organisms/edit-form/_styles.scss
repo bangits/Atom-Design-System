@@ -35,6 +35,10 @@
       top: calculateRem(7px);
       font-size: calculateRem(13px);
       color: #505d6e;
+      &__relative {
+        position: relative;
+        top: 0;
+      }
     }
     &--header {
       @include flex(space-between, center);
