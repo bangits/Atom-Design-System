@@ -83,7 +83,7 @@ export { ReactComponent as MoneyIcon } from './money.react.svg';
 export { ReactComponent as NoDataIcon } from './no-data.react.svg';
 export { ReactComponent as OperaIcon } from './opera.react.svg';
 export { ReactComponent as OptionsIcon } from './options.react.svg';
-export { ReactComponent as OrderDetailsIcon } from './order-details-react.svg';
+export { ReactComponent as OrderDetailsIcon } from './order-details.react.svg';
 export { ReactComponent as PageIcon } from './page.react.svg';
 export { ReactComponent as PagesIcon } from './pages.react.svg';
 export { ReactComponent as PartnersIcon } from './partners.react.svg';
