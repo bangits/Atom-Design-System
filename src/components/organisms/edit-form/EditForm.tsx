@@ -22,6 +22,7 @@ export interface EditFormProps {
   removeCard?: boolean;
   justifyContent?: string;
   col?: 6 | 12;
+  actionsInside?: boolean;
   applyButtonType?: 'button' | 'submit';
   onToggle?: () => void;
   onSubmit?: (onToggle: () => void) => void;
@@ -51,7 +52,8 @@ const EditForm: FC<EditFormProps> = ({
   justifyContent,
   applyButtonDisabled,
   topPart,
-  hideClose
+  hideClose,
+  actionsInside
 }) => {
   const content = children || (
     <div
@@ -73,7 +75,10 @@ const EditForm: FC<EditFormProps> = ({
         [styles[`EditForm--${col}`]]: col
       })}>
       {showActions && (
-        <div className={classNames(styles['EditFormBase--header'])}>
+        <div
+          className={classNames(styles['EditFormBase--header'], {
+            [styles['EditFormBase--inside']]: actionsInside
+          })}>
           {topPart}
 
           {title && (

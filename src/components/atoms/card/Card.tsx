@@ -29,18 +29,18 @@ const Card: FC<CardProps> = ({ component: Component = 'div', actions, height = '
   }, [cardContentElRef]);
 
   return (
-    <div className={styles['Card--wrapper']}>
+    <Component
+      className={classNames(styles.Card, {
+        [styles['Card--WithActions']]: actions,
+        [styles['Card--CollapseOpened']]: openViewMoreCollapse,
+        [styles['Card--WithCollapse']]: showViewMoreBtnRef.current
+      })}>
       {index && (
-        <Typography variant='p4' className={styles['Card__index']}>
+        <Typography variant='p4' className={styles.Card__Index}>
           {index}
         </Typography>
       )}
-      <Component
-        className={classNames(styles.Card, {
-          [styles['Card--WithActions']]: actions,
-          [styles['Card--CollapseOpened']]: openViewMoreCollapse,
-          [styles['Card--WithCollapse']]: showViewMoreBtnRef.current
-        })}>
+      <div className={styles.Card__Wrapper}>
         <div
           className={styles.Card__Content}
           ref={cardContentElRef}
@@ -57,8 +57,8 @@ const Card: FC<CardProps> = ({ component: Component = 'div', actions, height = '
             <Icons.ViewMoreArrowIcon />
           </button>
         )}
-      </Component>
-    </div>
+      </div>
+    </Component>
   );
 };
 

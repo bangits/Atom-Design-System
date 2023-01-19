@@ -1,23 +1,27 @@
 @mixin generate-card-styles {
-  .Card--wrapper {
-    @include flex();
-    padding-bottom: calculateRem(16px);
-    .Card__index {
-      margin-right: calculateRem(8px);
-    }
-  }
   .Card {
     $this: #{&};
     width: 100%;
-    position: relative;
-    border: calculateRem(1px) solid rgba(142, 166, 193, 0.3);
-    border-radius: calculateRem(16px);
-    padding: calculateRem(16px);
-    box-sizing: border-box;
+    @include flex;
+
+    &__Index {
+      margin-right: calculateRem(8px);
+    }
+
+    &__Wrapper {
+      position: relative;
+      flex-grow: 1;
+      border: calculateRem(1px) solid rgba(142, 166, 193, 0.3);
+      border-radius: calculateRem(16px);
+      padding: calculateRem(16px);
+      box-sizing: border-box;
+    }
+
     &__Content {
       overflow: hidden;
       transition: height 0.3s;
     }
+
     &__Actions {
       @include flex($direction: column);
       opacity: 0;
@@ -28,6 +32,7 @@
 
       transition: opacity 0.3s;
     }
+
     &__Btn {
       all: unset;
       @include flex(center, center);
@@ -48,16 +53,19 @@
         width: calculateRem(24px);
       }
     }
+
     &:has(+ .Card) {
       margin-bottom: calculateRem(10px);
     }
+
     &:hover #{$this}__Actions {
       opacity: 1;
     }
-    &--WithActions:hover {
+
+    &--WithActions #{$this}__Wrapper:hover {
       border-color: color(primary);
     }
-    &--WithCollapse {
+    &--WithCollapse #{$this}__Wrapper {
       padding-bottom: calculateRem(30px);
     }
     &--CollapseOpened {

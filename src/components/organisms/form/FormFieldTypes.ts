@@ -28,6 +28,7 @@ export type FormFieldProp = {
   additionalProps?: any;
   justifyContent?: 'flex-end';
   labelText?: string;
+  labelPositionRelative?: boolean;
   removeMargin?: boolean;
 } & (
   | {
