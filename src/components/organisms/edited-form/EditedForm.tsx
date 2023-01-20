@@ -18,23 +18,29 @@ export interface EditedFormProps {
         col?: 3 | 4 | 6 | 12;
         overflow?: 'ellipsis' | 'none';
         labelText?: string;
+        tooltipText?: string;
+        onRedirectClick?: () => void;
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         variant: 'label';
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         value: ReactNode | string;
         variant: 'bold';
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         value: string[];
         variant: 'tag';
       }
     | {
         title: ReactNode | string;
+        tooltipText?: string;
         value: ReactNode;
         shouldLineTranslation?: boolean;
         fullWidth?: boolean;
@@ -50,17 +56,18 @@ export interface EditedFormProps {
   onToggle?: () => void;
   col?: 6 | 12;
   showDeleteButton?: boolean;
-  showSendButton?: boolean;
   onDelete?: () => void;
   showEditIcons?: boolean;
   startJustify?: boolean;
   removeCard?: boolean;
   removeShadow?: boolean;
   disableEditButton?: boolean;
+  actionsInside?: boolean;
+  showEditButton?: boolean;
   height?: CSSProperties['height'];
-  sendEmail?: ReactNode;
   topPart?: ReactNode | ReactNode[];
   actions?: ReactNode | ReactNode[];
+  inRedirectClick?: () => void;
 }
 
 const EditedForm: FC<EditedFormProps> = ({
@@ -81,10 +88,13 @@ const EditedForm: FC<EditedFormProps> = ({
   removeCard,
   startJustify,
   disableEditButton = false,
+  showEditButton = true,
   removeShadow,
   topPart,
   actions,
-  height: heightProp = 248
+  actionsInside,
+  height: heightProp = 248,
+  inRedirectClick
 }) => {
   const containerRef = useRef<HTMLDivElement>();
 
@@ -132,25 +142,32 @@ const EditedForm: FC<EditedFormProps> = ({
         [styles[`EditedFormBase--${col}`]]: col,
         [styles[`EditedFormBase--${col}`]]: col
       })}
-      style={{ opacity: height ? 1 : 0 }}>
-      <div className={styles['EditedFormBase--control']}>
+      style={{ opacity: height || heightProp === 'auto' ? 1 : 0 }}>
+      <div
+        className={classNames(styles['EditedFormBase--control'], {
+          [styles['EditedFormBase--actions-inside']]: actionsInside
+        })}>
         {topPart}
-        <span className={styles['EditedFormBase--control-title']}>
-          {title}
-          {tooltipText && (
-            <Tooltip text={tooltipText}>
-              <InfoTooltipIcon className={styles['EditedFormBase--control-tooltip']} width='1.5rem' height='1.5rem' />
-            </Tooltip>
-          )}
-        </span>
+        {title && (
+          <span className={styles['EditedFormBase--control-title']}>
+            {title}
+            {tooltipText && (
+              <Tooltip text={tooltipText}>
+                <InfoTooltipIcon className={styles['EditedFormBase--control-tooltip']} width='1.5rem' height='1.5rem' />
+              </Tooltip>
+            )}
+          </span>
+        )}
         {showEditIcons && (
           <div className={classNames(styles['EditedFormBase--control-button'])}>
             {actions}
-            <Tooltip showEvent='hover' text={editButtonTooltipText}>
-              <div>
-                <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
-              </div>
-            </Tooltip>
+            {showEditButton && (
+              <Tooltip showEvent='hover' text={editButtonTooltipText}>
+                <div>
+                  <IconButton disabled={disableEditButton} icon={<PenIcon />} onClick={onToggle} />
+                </div>
+              </Tooltip>
+            )}
             {showDeleteButton && (
               <Tooltip showEvent='hover' text={deleteButtonTooltipText}>
                 <IconButton icon={<DustbinIcon />} onClick={onDelete} />

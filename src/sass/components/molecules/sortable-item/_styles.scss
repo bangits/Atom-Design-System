@@ -4,10 +4,9 @@
         position: relative;
         display: inline-flex;
         width: fit-content;
-        margin-left: calculateRem(-24px);
+        gap: calculateRem(16px);
         &__item {
             min-width: calculateRem(280px);
-            margin-left: calculateRem(24px);
         }
         &__sort,
         &__remove {
@@ -16,7 +15,7 @@
             cursor: grab;
             padding: 0;
             position: absolute;
-            right: calculateRem(-45px);
+            right: calculateRem(-16px);
             top: calculateRem(15px);
             width: calculateRem(10px);
         }
@@ -31,6 +30,9 @@
             cursor: pointer;
             right: calculateRem(-20px);
             width: calculateRem(13px);
+        }
+        &__start-content {
+            padding-top: calculateRem(12px);
         }
         &:hover {
             #{$this}__sort {

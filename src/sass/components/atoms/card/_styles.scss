@@ -1,0 +1,77 @@
+@mixin generate-card-styles {
+  .Card {
+    $this: #{&};
+    width: 100%;
+    @include flex;
+
+    &__Index {
+      margin-right: calculateRem(8px);
+    }
+
+    &__Wrapper {
+      position: relative;
+      flex-grow: 1;
+      border: calculateRem(1px) solid rgba(142, 166, 193, 0.3);
+      border-radius: calculateRem(16px);
+      padding: calculateRem(16px);
+      box-sizing: border-box;
+    }
+
+    &__Content {
+      overflow: hidden;
+      transition: height 0.3s;
+    }
+
+    &__Actions {
+      @include flex($direction: column);
+      opacity: 0;
+      gap: calculateRem(16px);
+      position: absolute;
+      top: calculateRem(20px);
+      right: calculateRem(20px);
+
+      transition: opacity 0.3s;
+    }
+
+    &__Btn {
+      all: unset;
+      @include flex(center, center);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      border-radius: inherit;
+      border-top-left-radius: 0;
+      border-top-right-radius: 0;
+      padding: calculateRem(5px) 0;
+      font-size: calculateRem(14px);
+      cursor: pointer;
+      background: color(white-lilac);
+      color: color(quartz);
+      svg {
+        transition: transform 0.3s;
+        width: calculateRem(24px);
+      }
+    }
+
+    &:has(+ .Card) {
+      margin-bottom: calculateRem(10px);
+    }
+
+    &:hover #{$this}__Actions {
+      opacity: 1;
+    }
+
+    &--WithActions #{$this}__Wrapper:hover {
+      border-color: color(primary);
+    }
+    &--WithCollapse #{$this}__Wrapper {
+      padding-bottom: calculateRem(30px);
+    }
+    &--CollapseOpened {
+      #{$this}__Btn svg {
+        transform: rotate(180deg);
+      }
+    }
+  }
+}

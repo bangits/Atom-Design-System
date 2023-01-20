@@ -9,6 +9,7 @@
   }
   .EditForm {
     width: getEditFormInSizes(edit-form-width);
+    position: relative;
   }
   .EditForm--12 {
     &,
@@ -34,6 +35,10 @@
       top: calculateRem(7px);
       font-size: calculateRem(13px);
       color: #505d6e;
+      &__relative {
+        position: relative;
+        top: 0;
+      }
     }
     &--header {
       @include flex(space-between, center);
@@ -56,6 +61,7 @@
     &--buttons {
       @include flex();
       margin: getEditFormInSizes(edit-form-buttons-margin);
+      margin-left: auto;
     }
     &__button {
       &--disabled {
@@ -101,6 +107,14 @@
     }
     &--6 {
       width: getEditFormInSizes(edit-form-field-width) !important;
+    }
+    &--removeMargin {
+      margin: 0;
+    }
+    &--inside {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 }

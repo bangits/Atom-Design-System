@@ -13,6 +13,7 @@ export interface EditFormProps {
   applyButtonTooltipText?: string;
   closeButtonTooltipText?: string;
   title?: ReactNode;
+  topPart?: ReactNode;
   tooltipText?: string;
   fields?: FormFieldProp[];
   fullWidth?: boolean;
@@ -21,6 +22,7 @@ export interface EditFormProps {
   removeCard?: boolean;
   justifyContent?: string;
   col?: 6 | 12;
+  actionsInside?: boolean;
   applyButtonType?: 'button' | 'submit';
   onToggle?: () => void;
   onSubmit?: (onToggle: () => void) => void;
@@ -49,7 +51,9 @@ const EditForm: FC<EditFormProps> = ({
   removeCard,
   justifyContent,
   applyButtonDisabled,
-  hideClose
+  topPart,
+  hideClose,
+  actionsInside
 }) => {
   const content = children || (
     <div
@@ -71,15 +75,23 @@ const EditForm: FC<EditFormProps> = ({
         [styles[`EditForm--${col}`]]: col
       })}>
       {showActions && (
-        <div className={classNames(styles['EditFormBase--header'])}>
-          <span>
-            {title}
-            {tooltipText && (
-              <Tooltip showEvent='hover' text={tooltipText}>
-                <InfoTooltipIcon className={styles['EditFormBase--header-tooltip']} width='1.5rem' height='1.5rem' />
-              </Tooltip>
-            )}
-          </span>
+        <div
+          className={classNames(styles['EditFormBase--header'], {
+            [styles['EditFormBase--inside']]: actionsInside
+          })}>
+          {topPart}
+
+          {title && (
+            <span>
+              {title}
+              {tooltipText && (
+                <Tooltip showEvent='hover' text={tooltipText}>
+                  <InfoTooltipIcon className={styles['EditFormBase--header-tooltip']} width='1.5rem' height='1.5rem' />
+                </Tooltip>
+              )}
+            </span>
+          )}
+
           <div className={classNames(styles['EditFormBase--buttons'])}>
             <Tooltip showEvent='hover' text={applyButtonTooltipText}>
               <IconButton

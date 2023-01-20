@@ -1,8 +1,12 @@
 @mixin generate-from-to-input-styles {
     .FromToInputContainer {
+        @include flex(space-between);
         width: getFromToInputSizes(from-to-input-container-width);
         position: relative;
-        @include flex();
+        grid-gap: calculateRem(16px);
+        &>div {
+            flex: 1;
+        }
     }
     .FromInput,
     .ToInput {

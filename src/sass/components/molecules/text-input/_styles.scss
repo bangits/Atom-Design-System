@@ -24,4 +24,9 @@
   .TextArea {
     height: calculateRem(120px) !important;
   }
+  .TextQuantityContainer {
+    @include flex(flex-end);
+    color: #9c9cc8;
+    font-size: calculateRem(12px);
+  }
 }

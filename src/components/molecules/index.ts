@@ -49,6 +49,8 @@ export * from './sortable-item';
 export * from './tab';
 export * from './table-field';
 export * from './text-input';
+export * from './tiers-form';
+export * from './tiers-row';
 export * from './translation-form';
 export * from './variables';
 export * from './vertical-tabs';

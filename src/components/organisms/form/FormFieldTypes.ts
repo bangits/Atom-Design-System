@@ -1,7 +1,9 @@
 import {
   AddProviderNameIdProps,
   CheckboxGroupProps,
-  RadioGroupProps, TableFieldProps, TextInputProps
+  RadioGroupProps,
+  TableFieldProps,
+  TextInputProps
 } from '@/components';
 import { CheckboxProps, DatepickerProps, DateTimePickerProps, SelectProps } from '@my-ui/core';
 import { ReactNode } from 'react';
@@ -26,6 +28,8 @@ export type FormFieldProp = {
   additionalProps?: any;
   justifyContent?: 'flex-end';
   labelText?: string;
+  labelPositionRelative?: boolean;
+  removeMargin?: boolean;
 } & (
   | {
       label?: string;

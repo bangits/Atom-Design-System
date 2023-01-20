@@ -1,6 +1,7 @@
 @mixin generate-edited-form-styles {
   .EditedFormBase {
     $this: #{&};
+    position: relative;
     &--remove-shadow {
       box-shadow: none !important;
       #{$this}--content {
@@ -39,9 +40,10 @@
       margin-left: calculateRem(5px);
       margin-bottom: calculateRem(-3px);
     }
-    // &--content-children {
-    //   height: 100% !important;
-    // }
+    &--option-tooltip {
+      vertical-align: text-bottom;
+      margin-left: calculateRem(4px);
+    }
     &--content {
       position: relative;
       @include flex(space-between, null, $flex-wrap: wrap);
@@ -90,10 +92,8 @@
       &--12 {
         width: getEditedFormSizes(option-width--12);
       }
-
       &--overflow--none {
         height: initial;
-
         .EditedFormBase--option-value {
           white-space: initial;
           word-break: break-word;
@@ -103,8 +103,15 @@
         }
       }
     }
+    &--option-hover:hover {
+      color: blue;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: underline;
+    }
     &--control-button {
       @include flex();
+      margin-left: auto;
     }
     &--option-title {
       height: getEditedFormSizes(option-title-height);
@@ -124,6 +131,12 @@
       word-break: break-all;
       width: getEditedFormSizes(option-title-width);
       @include dots-after-text();
+    }
+    &--option-hover:hover {
+      color: blue;
+      cursor: pointer;
+      width: 100%;
+      text-decoration: underline;
     }
     &--option-value-bold {
       font-weight: getEditedFormSizes(option-value-bold);
@@ -173,6 +186,11 @@
           }
         }
       }
+    }
+    &--actions-inside {
+      position: absolute;
+      top: 0;
+      right: 0;
     }
   }
 }
