@@ -81,7 +81,9 @@
 .gap-5 {
   gap: calculateRem(5px);
 }
-
+.gap-2 {
+  gap: calculateRem(20px);
+}
 .justify-content-end {
   justify-content: flex-end;
 }
@@ -208,4 +210,12 @@
 }
 .no-margin {
   margin: 0;
+}
+
+.m-2 {
+  margin: calculateRem(5px);
+}
+
+.m-3 {
+  margin: calculateRem(10px);
 }
