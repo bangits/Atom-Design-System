@@ -211,3 +211,11 @@
 .no-margin {
   margin: 0;
 }
+
+.m-2 {
+  margin: calculateRem(5px);
+}
+
+.m-3 {
+  margin: calculateRem(10px);
+}
