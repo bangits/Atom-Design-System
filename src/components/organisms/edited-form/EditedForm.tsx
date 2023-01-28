@@ -44,6 +44,7 @@ export interface EditedFormProps {
         value: ReactNode;
         shouldLineTranslation?: boolean;
         fullWidth?: boolean;
+        col?: number;
         alignItem?: 'end';
         variant: 'custom';
       }

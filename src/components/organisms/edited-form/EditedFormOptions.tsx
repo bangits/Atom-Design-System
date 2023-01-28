@@ -70,7 +70,8 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                   className={classNames(styles['EditedFormBase--option'], styles['EditedFormBase--custom'], {
                     [styles['EditedFormBase--option--line-translation']]: option.shouldLineTranslation,
                     [styles['EditedFormBase--option--full-width']]: option.fullWidth,
-                    [styles['EditedFormBase--option--align-end']]: option.alignItem === 'end'
+                    [styles['EditedFormBase--option--align-end']]: option.alignItem === 'end',
+                    [styles[`EditedFormBase--option--${option.col || 6}`]]: option.col
                   })}>
                   {title}
                   {option.value || <span className={styles['EditedFormBase--option-value']}>{noDataText}</span>}
