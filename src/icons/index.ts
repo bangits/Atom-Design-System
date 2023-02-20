@@ -92,6 +92,7 @@ export { ReactComponent as PaymentSideBarIcon } from './payment-sidebar-icon.rea
 export { ReactComponent as PaymentsIcon } from './payments.react.svg';
 export { ReactComponent as PenIcon } from './pen.react.svg';
 export { ReactComponent as EditIcon } from './pencil.react.svg';
+export { ReactComponent as PermissionDetailsIcon } from './permission-details.react.svg';
 export { ReactComponent as PhotoCamIcon } from './photo-cam-icon.react.svg';
 export { ReactComponent as PlayArrowIcon } from './play-arrow-icon.react.svg';
 export { ReactComponent as PlayersSearch } from './player-search.react.svg';
@@ -106,6 +107,7 @@ export { ReactComponent as QuestionIcon } from './question-icon.react.svg';
 export { ReactComponent as RejectIcon } from './reject.react.svg';
 export { ReactComponent as ReportsIcon } from './reports.react.svg';
 export { ReactComponent as RiskIcon } from './risk.react.svg';
+export { ReactComponent as RoleDetailsIcon } from './role-details.react.svg';
 export { ReactComponent as RulePopUpIcon } from './rule-popup.react.svg';
 export { ReactComponent as RuleIcon } from './rule.react.svg';
 export { ReactComponent as SafariIcon } from './safari.react.svg';
@@ -153,5 +155,4 @@ export { ReactComponent as VerifiedIcon } from './verified.react.svg';
 export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.react.svg';
 export { ReactComponent as ViewMoreArrowIcon } from './view-more-arrow.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
-
 
