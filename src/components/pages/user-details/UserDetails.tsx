@@ -2,7 +2,7 @@ import { ItemDetails, NameDescription, StatusView, StatusViewProps } from '@/com
 import { NameAndId } from '@/components/molecules/name-and-id';
 import { UserMainIcon } from '@/icons';
 import { AvatarCard, Breadcrumb, BreadcrumbProps, Card } from '@my-ui/core';
-import React, { FC, ReactNode } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './UserDetails.module.scss';
 
 export interface UserDetailsProps {
@@ -34,6 +34,9 @@ export interface UserDetailsProps {
     languagesContent: string;
     commissionPlan: string;
     link: string;
+    roleAndPermission: string;
+    permissions: string;
+    roles: string;
   };
 
   generalInformationContext: ReactNode;
@@ -42,6 +45,8 @@ export interface UserDetailsProps {
   userWalletsContent: ReactNode;
   commissionPlansContent?: ReactNode;
   linksContext?: ReactNode;
+  permissionsContent?: ReactNode;
+  rolesContent?: ReactNode;
 }
 
 const UserDetails: FC<UserDetailsProps> = ({
@@ -60,7 +65,9 @@ const UserDetails: FC<UserDetailsProps> = ({
   userWalletsContent,
   languagesContent,
   commissionPlansContent,
-  linksContext
+  linksContext,
+  rolesContent,
+  permissionsContent
 }) => {
   return (
     <>
@@ -121,24 +128,40 @@ const UserDetails: FC<UserDetailsProps> = ({
                 value: 1,
                 content: generalInformationContext
               },
+              rolesContent && permissionsContent && {
+                title: translations.roleAndPermission,
+                value: 2,
+                subTabs: [
+                  {
+                    title: translations.roles,
+                    value: 1,
+                    content: rolesContent
+                  },
+                  {
+                    title: translations.permissions,
+                    value: 2,
+                    content: permissionsContent
+                  }
+                ]
+              },
               {
                 title: translations.wallet,
-                value: 2,
+                value: 3,
                 content: userWalletsContent
               },
               commissionPlansContent && {
                 title: translations.commissionPlan,
-                value: 3,
+                value: 4,
                 content: commissionPlansContent
               },
               linksContext && {
                 title: translations.link,
-                value: 4,
+                value: 5,
                 content: linksContext
               },
               {
                 title: translations.settings,
-                value: 5,
+                value: 6,
                 subTabs: [
                   {
                     title: translations.languagesContent,
@@ -151,7 +174,8 @@ const UserDetails: FC<UserDetailsProps> = ({
                   //   content: passwordContext
                   // },
                 ]
-              }
+              },
+             
               // {
               //   title: 'Projects',
               //   value: 3,

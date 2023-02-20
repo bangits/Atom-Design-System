@@ -80,6 +80,9 @@ export const Default = () => {
         }
       ]}
       translations={{
+        permissions: 'permissions',
+        roleAndPermission: 'roleAndPermission',
+        roles: 'roles',
         link: 'Links',
         commissionPlan: 'Commission Plan',
         settings: 'Settings',
