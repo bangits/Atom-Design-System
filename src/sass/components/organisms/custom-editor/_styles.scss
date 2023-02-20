@@ -53,6 +53,7 @@
       font-size: getEditorSizes(editor-sm-font-size);
     }
     .editor {
+      font-size: calculateRem(14px);
       min-height: calculateRem(150px);
       padding-top: 6px;
       padding-bottom: 10px;
