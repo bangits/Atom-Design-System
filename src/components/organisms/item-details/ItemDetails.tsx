@@ -35,6 +35,8 @@ const ItemDetails: FC<ItemDetailsProps> = ({
   subTabValue,
   onTabChange
 }) => {
+  tabs = tabs.filter(Boolean);
+
   let [currentTab, setCurrentTab] = useState<number>(defaultTabValue);
 
   let [currentSubTab, setCurrentSubTab] = useState<number>(defaultSubTabValue);
