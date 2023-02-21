@@ -46,12 +46,17 @@
       }
     }
     &__Criteria {
+      display: flex;
       min-height: calculateRem(32px);
       margin-bottom: calculateRem(27px);
-      @include flex(null, center);
       &:last-child {
         margin-bottom: 0;
       }
+    }
+    &__PropName,
+    &__CheckName,
+    &__Values {
+      transform: translateY(#{calculateRem(10px)});
     }
     &__PropName {
       font-weight: 500;
@@ -63,6 +68,7 @@
       height: calculateRem(12px);
       margin: 0 calculateRem(12px);
       color: #7b8492;
+      transform: translateY(#{calculateRem(14px)});
     }
     &__CheckName {
       font-size: calculateRem(14px);
