@@ -59,7 +59,7 @@ const ItemDetails: FC<ItemDetailsProps> = ({
 
           if (onTabChange) onTabChange(value, currentTab.defaultValue || null);
 
-          setCurrentSubTab(currentTab.defaultValue || null);
+          setCurrentSubTab(currentTab?.subTabs ? currentTab?.subTabs[0]?.value : null);
           setCurrentTab(value);
         }}
         defaultValue={currentTab}
