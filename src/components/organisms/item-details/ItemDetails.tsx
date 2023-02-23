@@ -35,6 +35,8 @@ const ItemDetails: FC<ItemDetailsProps> = ({
   subTabValue,
   onTabChange
 }) => {
+  tabs = tabs.filter(Boolean);
+
   let [currentTab, setCurrentTab] = useState<number>(defaultTabValue);
 
   let [currentSubTab, setCurrentSubTab] = useState<number>(defaultSubTabValue);
@@ -42,9 +44,9 @@ const ItemDetails: FC<ItemDetailsProps> = ({
   currentTab = tabValue ?? currentTab;
   currentSubTab = subTabValue ?? currentSubTab;
 
-  const currentTabInfo = useMemo(() => tabs.find((tab) => tab.value === currentTab), [tabs, currentTab]);
+  const currentTabInfo = useMemo(() => tabs.find((tab) => tab?.value === currentTab), [tabs, currentTab]);
   const currentSubTabInfo = useMemo(
-    () => currentTabInfo?.subTabs?.find((sub) => sub.value === currentSubTab),
+    () => currentTabInfo?.subTabs?.find((sub) => sub?.value === currentSubTab),
     [currentTabInfo, currentSubTab]
   );
 
@@ -53,11 +55,11 @@ const ItemDetails: FC<ItemDetailsProps> = ({
       <Tab
         options={tabs}
         onChange={(value) => {
-          const currentTab = tabs.find((tab) => tab.value === value);
+          const currentTab = tabs.find((tab) => tab?.value === value);
 
           if (onTabChange) onTabChange(value, currentTab.defaultValue || null);
 
-          setCurrentSubTab(currentTab.defaultValue || null);
+          setCurrentSubTab(currentTab?.subTabs ? currentTab?.subTabs[0]?.value : null);
           setCurrentTab(value);
         }}
         defaultValue={currentTab}

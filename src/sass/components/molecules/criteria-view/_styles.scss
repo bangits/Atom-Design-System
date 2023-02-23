@@ -1,105 +1,112 @@
 @mixin generate-criteria-view-styles {
-    .CriteriaView {
-        $this: #{&};
-        &__Criterias {
-            &--Has-Condition {
-                $padding-left-size: 57px;
-                $border-size: 24px;
-                position: relative;
-                padding-left: calculateRem($padding-left-size);
-                &::before {
-                    content: '';
-                    position: absolute;
-                    left: calculateRem($padding-left-size - $border-size);
-                    border-right: calculateRem(1px) dashed #85859c;
-                    height: calc(100% - #{calculateRem(1px)});
-                }
-                #{$this}__Criteria {
-                    position: relative;
-                    &:first-child:before {
-                        content: '';
-                        position: absolute;
-                        left: calculateRem(-$border-size);
-                        width: calculateRem(1px);
-                        background: #fff;
-                        height: 50%;
-                        top: calculateRem(-1px);
-                    }
-                    &:last-child:before {
-                        content: '';
-                        position: absolute;
-                        left: calculateRem(-$border-size);
-                        width: calculateRem(1px);
-                        background: #fff;
-                        height: 50%;
-                        bottom: calculateRem(-1px);
-                    }
-                    &:first-child::after,
-                    &:last-child::after {
-                        content: '';
-                        position: absolute;
-                        left: calculateRem(-$border-size);
-                        border-bottom: calculateRem(1px) dashed #85859c;
-                        width: calculateRem($border-size);
-                    }
-                }
-            }
+  .CriteriaView {
+    $this: #{&};
+    &__Criterias {
+      &--Has-Condition {
+        $padding-left-size: 57px;
+        $border-size: 24px;
+        position: relative;
+        padding-left: calculateRem($padding-left-size);
+        &::before {
+          content: '';
+          position: absolute;
+          left: calculateRem($padding-left-size - $border-size);
+          border-right: calculateRem(1px) dashed #85859c;
+          height: calc(100% - #{calculateRem(1px)});
         }
-        &__Criteria {
-            min-height: calculateRem(32px);
-            margin-bottom: calculateRem(27px);
-            @include flex(null, center);
-            &:last-child {
-                margin-bottom: 0;
-            }
-        }
-        &__PropName {
-            font-weight: 500;
-            font-size: calculateRem(14px);
-            color: color(black-color);
-        }
-        &__Separator {
-            width: calculateRem(5px);
-            height: calculateRem(12px);
-            margin: 0 calculateRem(12px);
-            color: #7b8492;
-        }
-        &__CheckName {
-            font-size: calculateRem(14px);
-            color: color(black-color);
-            opacity: 0.7;
-        }
-        &__Values {
-            @include flex($flex-wrap: wrap);
-            font-size: calculateRem(14px);
-            gap: calculateRem(8px);
-        }
-        &__Buttons {
-            @include flex;
+        #{$this}__Criteria {
+          position: relative;
+          &:first-child:before {
+            content: '';
             position: absolute;
-            top: calculateRem(4px);
-            right: calculateRem(3px);
-        }
-        &__Edit {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        &__Condition {
+            left: calculateRem(-$border-size);
+            width: calculateRem(1px);
+            background: #fff;
+            height: 50%;
+            top: calculateRem(-1px);
+          }
+          &:last-child:before {
+            content: '';
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: #dcdcff;
-            font-size: calculateRem(12px);
-            border-radius: calculateRem(4px);
-            color: rgba(80, 93, 110, 0.7);
-            padding: calculateRem(2px) calculateRem(5px);
-            left: calculateRem(32px);
-            min-width: calculateRem(35px);
-            box-sizing: border-box;
-            text-align: center;
+            left: calculateRem(-$border-size);
+            width: calculateRem(1px);
+            background: #fff;
+            height: 50%;
+            bottom: calculateRem(-1px);
+          }
+          &:first-child::after,
+          &:last-child::after {
+            content: '';
+            position: absolute;
+            left: calculateRem(-$border-size);
+            border-bottom: calculateRem(1px) dashed #85859c;
+            width: calculateRem($border-size);
+          }
         }
-        &:hover &__Edit {
-            opacity: 1;
-        }
+      }
     }
+    &__Criteria {
+      display: flex;
+      min-height: calculateRem(32px);
+      margin-bottom: calculateRem(27px);
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    &__PropName,
+    &__CheckName,
+    &__Values {
+      transform: translateY(#{calculateRem(10px)});
+    }
+    &__PropName {
+      font-weight: 500;
+      font-size: calculateRem(14px);
+      color: color(black-color);
+    }
+    &__Separator {
+      width: calculateRem(5px);
+      height: calculateRem(12px);
+      margin: 0 calculateRem(12px);
+      color: #7b8492;
+      transform: translateY(#{calculateRem(14px)});
+    }
+    &__CheckName {
+      font-size: calculateRem(14px);
+      color: color(black-color);
+      opacity: 0.7;
+    }
+    &__Values {
+      @include flex($flex-wrap: wrap);
+      font-size: calculateRem(14px);
+      gap: calculateRem(8px);
+      max-width: calculateRem(500px);
+    }
+    &__Buttons {
+      @include flex;
+      position: absolute;
+      top: calculateRem(4px);
+      right: calculateRem(3px);
+    }
+    &__Edit {
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    &__Condition {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: #dcdcff;
+      font-size: calculateRem(12px);
+      border-radius: calculateRem(4px);
+      color: rgba(80, 93, 110, 0.7);
+      padding: calculateRem(2px) calculateRem(5px);
+      left: calculateRem(32px);
+      min-width: calculateRem(35px);
+      box-sizing: border-box;
+      text-align: center;
+    }
+    &:hover &__Edit {
+      opacity: 1;
+    }
+  }
 }

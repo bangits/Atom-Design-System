@@ -12,6 +12,7 @@ export default {
 export const Default = () => {
   return (
     <UserDetails
+      lastUpdatedBy='lastUpdatedBy'
       passwordContext={'Password Policy'}
       languagesContent={'Languages'}
       userWalletsContent={
@@ -96,6 +97,7 @@ export const Default = () => {
         wallet: 'Wallet',
         projects: 'Projects',
         createdBy: 'CreatedBy',
+        lastUpdatedBy: 'LastUpdatedBy',
         creationDate: 'CreationDate'
       }}
       userName='Inesa Khachatryan'

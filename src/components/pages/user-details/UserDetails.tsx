@@ -17,6 +17,7 @@ export interface UserDetailsProps {
   userId: string;
   userImgUrl: string;
   createdBy: string;
+  lastUpdatedBy: string;
   creationDate: string;
 
   translations: {
@@ -37,6 +38,7 @@ export interface UserDetailsProps {
     roleAndPermission: string;
     permissions: string;
     roles: string;
+    lastUpdatedBy: string;
   };
 
   generalInformationContext: ReactNode;
@@ -61,6 +63,7 @@ const UserDetails: FC<UserDetailsProps> = ({
   userImgUrl,
   translations,
   createdBy,
+  lastUpdatedBy,
   generalInformationContext,
   userWalletsContent,
   languagesContent,
@@ -114,6 +117,10 @@ const UserDetails: FC<UserDetailsProps> = ({
                   {
                     name: translations.createdBy,
                     description: createdBy
+                  },
+                  {
+                    name: translations.lastUpdatedBy,
+                    description: lastUpdatedBy
                   }
                 ]}
               />
@@ -128,22 +135,23 @@ const UserDetails: FC<UserDetailsProps> = ({
                 value: 1,
                 content: generalInformationContext
               },
-              rolesContent && permissionsContent && {
-                title: translations.roleAndPermission,
-                value: 2,
-                subTabs: [
-                  {
-                    title: translations.roles,
-                    value: 1,
-                    content: rolesContent
-                  },
-                  {
-                    title: translations.permissions,
-                    value: 2,
-                    content: permissionsContent
-                  }
-                ]
-              },
+              rolesContent &&
+                permissionsContent && {
+                  title: translations.roleAndPermission,
+                  value: 2,
+                  subTabs: [
+                    {
+                      title: translations.roles,
+                      value: 1,
+                      content: rolesContent
+                    },
+                    {
+                      title: translations.permissions,
+                      value: 2,
+                      content: permissionsContent
+                    }
+                  ]
+                },
               {
                 title: translations.wallet,
                 value: 3,
@@ -174,8 +182,8 @@ const UserDetails: FC<UserDetailsProps> = ({
                   //   content: passwordContext
                   // },
                 ]
-              },
-             
+              }
+
               // {
               //   title: 'Projects',
               //   value: 3,
