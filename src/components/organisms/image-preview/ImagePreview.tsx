@@ -15,6 +15,7 @@ export interface ImagePreviewProps extends BaseFileUploaderProps {
     download: string;
     cancel: string;
   };
+  opened: boolean;
   children: (openUploader: () => void) => ReactNode;
 }
 
@@ -23,9 +24,10 @@ export const ImagePreview = ({
   onDownloadClick,
   translations,
   children,
-  idInfo
+  idInfo,
+  opened
 }: ImagePreviewProps) => {
-  const [isOpenedImagePreview, setUploaderImagePreview] = useState(false);
+  const [isOpenedImagePreview, setUploaderImagePreview] = useState(opened);
 
   const actions = useMemo(
     () => [
@@ -42,7 +44,7 @@ export const ImagePreview = ({
         label: translations.cancel
       }
     ],
-    [uploadedFile, onDownloadClick, translations]
+    [uploadedFile, onDownloadClick, translations, isOpenedImagePreview]
   );
 
   return (
