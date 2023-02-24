@@ -70,7 +70,7 @@ export const ImagePreview = ({
         unmountOnExit>
         <>
           <div className={styles.ImagePreview}>
-            <img height={600} src={uploadedFile} />
+            <img src={uploadedFile} />
           </div>
           <div
             className={classNames(styles.Overlay)}
