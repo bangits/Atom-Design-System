@@ -23,7 +23,7 @@
       color: #fff;
     }
     .Infos {
-      padding-left: calculateRem(60px);
+      padding-left: calculateRem(6060px);
       font-size: calculateRem(16px);
     }
     .Actions {
@@ -46,6 +46,7 @@
     }
     img {
       margin-top: calculateRem(110px);
+      height: calculateRem(600px);
     }
   }
 
