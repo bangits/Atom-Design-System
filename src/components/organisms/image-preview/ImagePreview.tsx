@@ -3,9 +3,10 @@ import { DownloadPopUpIcon } from '@/icons';
 import { BaseFileUploaderProps, IconButton, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import 'cropperjs/dist/cropper.css';
-import { ReactNode, useMemo, useState } from 'react';
+import { useMemo } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ImagePreview.module.scss';
+import ReactPortal from './Portal';
 
 export interface ImagePreviewProps extends BaseFileUploaderProps {
   uploadedFile?: string;
@@ -16,19 +17,17 @@ export interface ImagePreviewProps extends BaseFileUploaderProps {
     cancel: string;
   };
   opened: boolean;
-  children: (openUploader: () => void) => ReactNode;
+  onClose: () => void;
 }
 
 export const ImagePreview = ({
   uploadedFile,
   onDownloadClick,
   translations,
-  children,
   idInfo,
-  opened
+  opened,
+  onClose
 }: ImagePreviewProps) => {
-  const [isOpenedImagePreview, setUploaderImagePreview] = useState(opened);
-
   const actions = useMemo(
     () => [
       {
@@ -38,18 +37,16 @@ export const ImagePreview = ({
       },
       {
         icon: <Icons.CloseIcon className={styles.CloseButton} />,
-        onClick: () => {
-          setUploaderImagePreview(false);
-        },
+        onClick: onClose,
         label: translations.cancel
       }
     ],
-    [uploadedFile, onDownloadClick, translations, isOpenedImagePreview]
+    [uploadedFile, onDownloadClick, translations, onClose]
   );
 
   return (
-    <>
-      {isOpenedImagePreview && (
+    <ReactPortal wrapperId={opened ? 'Portal' : ''}>
+      {opened && (
         <div className={styles.HeaderSection}>
           <Typography className={styles.Infos}>{idInfo}</Typography>
           <div className={styles.Actions}>
@@ -63,26 +60,14 @@ export const ImagePreview = ({
           </div>
         </div>
       )}
-      <CSSTransition
-        in={isOpenedImagePreview}
-        timeout={200}
-        classNames={{ exit: styles['Dialog--exit'] }}
-        unmountOnExit>
+      <CSSTransition in={opened} timeout={200} classNames={{ exit: styles['Dialog--exit'] }} unmountOnExit>
         <>
           <div className={styles.ImagePreview}>
             <img src={uploadedFile} />
           </div>
-          <div
-            className={classNames(styles.Overlay)}
-            tabIndex={0}
-            role='button'
-            onClick={() => {
-              setUploaderImagePreview(false);
-            }}
-          />
+          <div className={classNames(styles.Overlay)} tabIndex={0} role='button' onClick={onClose} />
         </>
       </CSSTransition>
-      {children(() => setUploaderImagePreview(true))}
-    </>
+    </ReactPortal>
   );
 };
