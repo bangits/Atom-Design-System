@@ -1,0 +1,60 @@
+@mixin generate-image-preview-styles {
+  .CloseButton path:last-child {
+    fill: currentColor;
+  }
+  .CloseButton path:first-child {
+    fill: currentColor;
+  }
+
+  .HeaderSection {
+    position: absolute;
+    width: 100%;
+    height: calculateRem(80px);
+    background: #1f1f1f;
+    z-index: 100000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    // padding: 0 20px 0 20px;
+    top: 0;
+    left: 0;
+    svg {
+      color: #fff;
+    }
+    .Infos {
+      padding-left: calculateRem(60px);
+      font-size: calculateRem(16px);
+    }
+    .Actions {
+      padding-right: calculateRem(60px);
+      display: flex;
+    }
+  }
+
+  .ImagePreview {
+    @include flex(null, center);
+    position: absolute;
+    z-index: 1001;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    img {
+      margin-top: calculateRem(110px);
+      height: calculateRem(600px);
+    }
+  }
+
+  .Overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: rgba(2, 2, 2, 0.8);
+    opacity: 1;
+    cursor: pointer;
+  }
+}

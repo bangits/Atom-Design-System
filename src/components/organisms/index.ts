@@ -31,6 +31,7 @@ export * from './games-list';
 export * from './hidable-select';
 export * from './image-galleries';
 export * from './image-gallery-details';
+export * from './image-preview';
 export * from './input-with-generator';
 export * from './item-details';
 export * from './last-activity-view';

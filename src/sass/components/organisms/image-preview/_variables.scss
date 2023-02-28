@@ -1,0 +1,27 @@
+$banner-uploader-sizes: (
+  img-max-height: calculateRem(210px),
+  banner-uploader-min-height: calculateRem(300px)
+);
+
+
+$banner-uploader-colors: (
+  banner-description-color:color(white)
+);
+
+@function getBannerUploaderColors($key) {
+  @return map-get($banner-uploader-colors, $key);
+}
+
+@function getBannerUploaderSizes($key) {
+  @return map-get($banner-uploader-sizes, $key);
+}
+
+// $dialog-colors: (
+//   dialog-overlay-bg: color(dark),
+//   dialog-label-color: color(astronaut),
+//   dialog-dark-label-color: color(white),
+//   dialog-close-color: color(white),
+//   dialog-dark-background-color: color(shark),
+//   button-color: color(selago),
+//   dialog-divider-color: color(outer-space)
+// );

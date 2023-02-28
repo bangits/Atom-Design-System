@@ -54,7 +54,6 @@
     }
     .editor {
       font-size: calculateRem(14px);
-      min-height: calculateRem(150px);
       padding-top: 6px;
       padding-bottom: 10px;
       padding-left: getEditorSizes(editor-padding-left-right);

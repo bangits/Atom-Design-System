@@ -1,7 +1,7 @@
 import { Icons } from '@/atom-design-system';
 import { CollapsableTable, CollapsableTableProps, Filters, FiltersProps, Table, TableProps } from '@/components';
 import { ButtonWithIcon, Divider } from '@/components/atoms';
-import { ExchangeIcon, SettingsIcon } from '@/icons';
+import { DocumentIcon, ExchangeIcon, SettingsIcon } from '@/icons';
 import { noImage, noImageGame } from '@/img';
 import {
   IconButton,
@@ -297,6 +297,13 @@ function DataTable<T extends {}, K>({
         ? {
             renderColumn: (_, value) => {
               return <img src={value || noImageGame} />;
+            },
+            className: styles.ImageColumn
+          }
+        : column.variant === 'clickable-icon'
+        ? {
+            renderColumn: (props) => {
+              return <DocumentIcon {...props} width='2rem' height='2rem' />;
             },
             className: styles.ImageColumn
           }

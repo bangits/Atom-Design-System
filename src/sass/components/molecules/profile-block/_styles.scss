@@ -44,6 +44,9 @@
         }
       }
     }
+    &__Images {
+      position: relative;
+    }
     &__CoverImg {
       display: block;
       width: 100%;
@@ -60,8 +63,8 @@
     &__ImgCell {
       text-decoration: none;
       position: absolute;
-      top: getProfileBlockSizes(img-cell-position-top);
-      left: getProfileBlockSizes(img-cell-position-left);
+      bottom: 0;
+      right: 0;
       width: getProfileBlockSizes(img-cell-sizes);
       height: getProfileBlockSizes(img-cell-sizes);
       background-color: getProfileBlockColors(img-cell-background-color);
