@@ -101,7 +101,9 @@ export interface DataTableProps<T extends {}, K> {
   filterProps: Omit<FiltersProps<K>, 'onSubmit' | 'onClear'>;
   fetchData(fetchDataParameters: FetchDataParameters<T, K & { pagination: Pagination }>): void;
 
-  getCollapsableTableProps?(row: T): Omit<CollapsableTableProps, 'dialogViewProps'>;
+  getCollapsableTableProps?(
+    row: T
+  ): Omit<CollapsableTableProps, 'dialogViewProps'> | Promise<Omit<CollapsableTableProps, 'dialogViewProps'>>;
 
   renderFilter?(filterProps: Omit<FiltersProps<K>, 'filters' | 'initialValues'>): ReactNode;
 }
@@ -154,13 +156,8 @@ function DataTable<T extends {}, K>({
     rowIndex: number;
   }>(null);
 
-  const collapsableTableProps = useMemo<Omit<CollapsableTableProps, 'dialogViewProps'>>(
-    () =>
-      openedCollapseInfo &&
-      getCollapsableTableProps &&
-      getCollapsableTableProps(tableProps.data[openedCollapseInfo.rowIndex]),
-    [openedCollapseInfo, tableProps.data]
-  );
+  const [collapsableTableProps, setCollapsableTableProps] =
+    useState<Omit<CollapsableTableProps, 'dialogViewProps'>>(null);
 
   const dropdownOptions = useMemo<SelectProps<any, boolean, any>['options']>(
     () =>
@@ -268,7 +265,10 @@ function DataTable<T extends {}, K>({
     });
   }, []);
 
-  const onCollapsableTableClose = useCallback(() => setOpenedCollapseInfo(null), []);
+  const onCollapsableTableClose = useCallback(() => {
+    setOpenedCollapseInfo(null);
+    setCollapsableTableProps(null);
+  }, []);
 
   const tableColumns = useMemo(() => {
     return (configColumns || []).map((column) => ({
@@ -328,19 +328,31 @@ function DataTable<T extends {}, K>({
         ...(tableProps.actions || []),
         ...(tableCollapseActions || []).map(
           (collapse): TableAction<T> => ({
-            onClick: (row, e, rowIndex) => {
-              const table = e.target.closest(`.${styles.DataTablePageWrapper}`) as HTMLElement;
-              const tableRow = e.target.closest('tr') as HTMLElement;
+            onClick: async (row, e, rowIndex) => {
+              try {
+                if (getCollapsableTableProps) {
+                  const collapsableTableProps = await getCollapsableTableProps(tableProps.data[rowIndex]);
 
-              const clickedRow = Array.isArray(row) ? row[0] : row;
+                  setCollapsableTableProps(collapsableTableProps);
+                }
 
-              setOpenedCollapseInfo({
-                id: collapse.id,
-                yPosition: tableRow.getBoundingClientRect().y + tableRow.offsetHeight,
-                xPosition: table.getBoundingClientRect().x,
-                row: clickedRow,
-                rowIndex
-              });
+                const table = e.target.closest(`.${styles.DataTablePageWrapper}`) as HTMLElement;
+                const tableRow = e.target.closest('tr') as HTMLElement;
+
+                const clickedRow = Array.isArray(row) ? row[0] : row;
+
+                const updatedOpenedCollapseInfo = {
+                  id: collapse.id,
+                  yPosition: tableRow.getBoundingClientRect().y + tableRow.offsetHeight,
+                  xPosition: table.getBoundingClientRect().x,
+                  row: clickedRow,
+                  rowIndex
+                };
+
+                setOpenedCollapseInfo(updatedOpenedCollapseInfo);
+              } catch {
+                // TODO: Handle error case
+              }
             },
             ...collapse,
             shouldShowBulkAction: () => false
