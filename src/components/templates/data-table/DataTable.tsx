@@ -461,26 +461,28 @@ function DataTable<T extends {}, K>({
           />
 
           <Divider>
-            <Tooltip text='Refresh'>
-              <ButtonWithIcon
-                icon='RotateIcon'
-                disabled={isDisabledRefreshButton}
-                onClick={(event) => {
-                  if (actionsButtonDisabledTime) {
-                    setDisabledRefreshButton(true);
+            {onRefreshButtonClick && (
+              <Tooltip text='Refresh'>
+                <ButtonWithIcon
+                  icon='RotateIcon'
+                  disabled={isDisabledRefreshButton}
+                  onClick={(event) => {
+                    if (actionsButtonDisabledTime) {
+                      setDisabledRefreshButton(true);
 
-                    setTimeout(() => setDisabledRefreshButton(false), actionsButtonDisabledTime * 1000);
-                  }
+                      setTimeout(() => setDisabledRefreshButton(false), actionsButtonDisabledTime * 1000);
+                    }
 
-                  if (onRefreshButtonClick) onRefreshButtonClick(event);
-                }}
-                className={styles.RefreshButton}
-                iconProps={{
-                  width: '1.8rem',
-                  height: '1.8rem'
-                }}
-              />
-            </Tooltip>
+                    if (onRefreshButtonClick) onRefreshButtonClick(event);
+                  }}
+                  className={styles.RefreshButton}
+                  iconProps={{
+                    width: '1.8rem',
+                    height: '1.8rem'
+                  }}
+                />
+              </Tooltip>
+            )}
           </Divider>
 
           {isSynchronizeShown && (
