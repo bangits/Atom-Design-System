@@ -1,0 +1,297 @@
+.GamesContainer__Loader {
+  display: flex;
+  justify-content: center;
+  padding: 1rem 0 0 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #fbfafd;
+}
+
+.m-0 {
+  margin: 0 !important;
+}
+
+.mb-2 {
+  margin-bottom: 0.5rem !important;
+}
+
+.mb-3 {
+  margin-bottom: 1rem !important;
+}
+
+.mb-4 {
+  margin-bottom: 2rem !important;
+}
+
+.mt-3 {
+  margin-top: 1rem !important;
+}
+
+.mt-4 {
+  margin-top: 2rem !important;
+}
+
+.mt-5 {
+  margin-top: 3rem !important;
+}
+
+.gap-1 {
+  gap: 0.4rem;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.bg-ineherit {
+  background-color: inherit !important;
+}
+
+.min-height-inherit {
+  min-height: inherit;
+}
+
+.height-auto {
+  height: auto !important;
+}
+
+.cursor-no-drop {
+  cursor: no-drop;
+}
+
+.min-height-content-wrapper {
+  min-height: calc(100vh - 5.6rem);
+}
+
+.popup-add {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 24rem;
+  text-align: left;
+  margin-top: -1rem;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-inline-block {
+  display: inline-block;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.gap-5 {
+  gap: 0.5rem;
+}
+
+.gap-2 {
+  gap: 2rem;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.align-items-center {
+  align-items: center;
+}
+
+.direction-column {
+  flex-direction: column;
+}
+
+.fullwidth-form.fullwidth-form {
+  width: 100%;
+}
+
+.input-sortable-item {
+  transform: translateY(1rem);
+}
+
+.input-top-label {
+  transform: translateY(1.1rem);
+}
+
+.details-form-wrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  width: fit-content;
+  width: -moz-fit-content;
+  grid-gap: 1.6rem;
+  align-content: flex-start;
+}
+
+.edited-form-img {
+  max-width: 6rem;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.ml-auto {
+  margin-left: auto;
+}
+
+.ml-1 {
+  margin-left: 0.6rem;
+}
+
+.black-color {
+  color: #505d6e;
+}
+
+.italic {
+  font-style: italic;
+}
+
+.button-form-min-width {
+  min-width: 30rem !important;
+}
+
+.outlined-text-input {
+  min-height: auto;
+}
+.outlined-text-input label {
+  padding-top: 0;
+}
+.outlined-text-input label span {
+  display: none;
+}
+.outlined-text-input input {
+  height: auto !important;
+  border: none !important;
+  border-bottom: 1px solid !important;
+  border-radius: 0;
+  padding-left: 0;
+  min-height: auto;
+  font-size: 1.6rem;
+  padding-bottom: 0.5rem;
+}
+
+.background-color-initial {
+  background-color: initial !important;
+}
+
+.form-color {
+  color: #505d6e;
+}
+
+.uploader-min-height {
+  min-height: 8rem;
+}
+
+.dialog-note {
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+.file-uploader-margin {
+  margin-bottom: 2.4rem;
+}
+
+.edit-switch-center {
+  padding-top: 1.4rem;
+}
+
+.size-medium {
+  font-size: 1.6rem;
+}
+
+.dialog-header {
+  position: absolute;
+  right: 1rem;
+  top: 0.8rem;
+  font-size: 1.2rem;
+}
+
+.page-tabs-wrapper {
+  max-width: 30rem;
+}
+
+.position-relative {
+  position: relative !important;
+}
+
+.no-margin {
+  margin: 0;
+}
+
+.m-2 {
+  margin: 0.5rem;
+}
+
+.m-3 {
+  margin: 1rem;
+}
+
+.content-wrapper {
+  display: flex;
+}
+.content-wrapper__content {
+  flex-grow: 1;
+  height: 100%;
+  min-height: initial;
+}
+.content-wrapper__header {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}
+.content-wrapper__content {
+  transform: translateY(5.6rem);
+  flex-grow: 1;
+  width: 0;
+  min-height: calc(100vh - 7rem);
+}
+
+.login-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.content-wrapper {
+  display: flex;
+}
+.content-wrapper__content {
+  flex-grow: 1;
+  height: 100%;
+  min-height: initial;
+}
+.content-wrapper__header {
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
+}
+.content-wrapper__content {
+  transform: translateY(5.6rem);
+  flex-grow: 1;
+  width: 0;
+  min-height: calc(100vh - 7rem);
+}
+
+.login-page {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}/*# sourceMappingURL=main.css.map */

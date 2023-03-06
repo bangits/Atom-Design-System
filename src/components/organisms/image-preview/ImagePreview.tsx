@@ -1,5 +1,5 @@
 import { Icons } from '@/atom-design-system';
-import { DownloadPopUpIcon } from '@/icons';
+import { DownloadIcon } from '@/icons';
 import { BaseFileUploaderProps, IconButton, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import 'cropperjs/dist/cropper.css';
@@ -31,7 +31,7 @@ export const ImagePreview = ({
   const actions = useMemo(
     () => [
       {
-        icon: <DownloadPopUpIcon className={styles.CloseButton} />,
+        icon: <DownloadIcon className={styles.CloseButton} />,
         onClick: onDownloadClick,
         label: translations.download
       },
