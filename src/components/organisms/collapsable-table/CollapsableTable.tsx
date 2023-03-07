@@ -30,7 +30,6 @@ const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) 
     if (props.tableProps) memoizedProps.current = props;
   }, [props]);
 
-  // TODO:
   const tableColumns = useMemo(() => {
     return (tableProps?.columns || []).map((column) => ({
       ...column,
@@ -49,16 +48,18 @@ const CollapsableTable = ({ dialogViewProps, ...props }: CollapsableTableProps) 
   return (
     <DialogView {...dialogViewProps}>
       <div className={styles.CollapsableTableWrapper}>
-        <ButtonWithIcon
-          icon='RotateIcon'
-          onClick={onRefreshButtonClick}
-          iconProps={{
-            width: '1.8rem',
-            height: '1.8rem'
-          }}
-          className={styles.RefreshButton}>
-          {refreshButtonLabel}
-        </ButtonWithIcon>
+        {onRefreshButtonClick && (
+          <ButtonWithIcon
+            icon='RotateIcon'
+            onClick={onRefreshButtonClick}
+            iconProps={{
+              width: '1.8rem',
+              height: '1.8rem'
+            }}
+            className={styles.RefreshButton}>
+            {refreshButtonLabel}
+          </ButtonWithIcon>
+        )}
 
         <Table {...tableProps} hideBoxShadow columns={tableColumns} />
       </div>

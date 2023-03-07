@@ -330,14 +330,10 @@ function DataTable<T extends {}, K>({
           (collapse): TableAction<T> => ({
             onClick: async (row, e, rowIndex) => {
               try {
-                if (getCollapsableTableProps) {
-                  const collapsableTableProps = await getCollapsableTableProps(tableProps.data[rowIndex]);
+                const { target } = e;
 
-                  setCollapsableTableProps(collapsableTableProps);
-                }
-
-                const table = e.target.closest(`.${styles.DataTablePageWrapper}`) as HTMLElement;
-                const tableRow = e.target.closest('tr') as HTMLElement;
+                const table = target.closest(`.${styles.DataTablePageWrapper}`) as HTMLElement;
+                const tableRow = target.closest('tr') as HTMLElement;
 
                 const clickedRow = Array.isArray(row) ? row[0] : row;
 
@@ -348,6 +344,12 @@ function DataTable<T extends {}, K>({
                   row: clickedRow,
                   rowIndex
                 };
+
+                if (getCollapsableTableProps) {
+                  const collapsableTableProps = await getCollapsableTableProps(tableProps.data[rowIndex]);
+
+                  setCollapsableTableProps(collapsableTableProps);
+                }
 
                 setOpenedCollapseInfo(updatedOpenedCollapseInfo);
               } catch {
