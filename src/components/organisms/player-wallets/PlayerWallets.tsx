@@ -1,9 +1,9 @@
 import { Icons } from '@/atom-design-system';
-import { TextInput } from '@/components';
+import {  TextInput } from '@/components';
 import { Button, IconButton, Pagination, PaginationProps, Tooltip } from '@my-ui/core';
 import { ReactNode, useState } from 'react';
 import { Table } from '..';
-import { WalletCard } from '../wallet-card';
+import { WalletCard, WalletCardProps } from '../wallet-card';
 import styles from './PlayerWallets.module.scss';
 
 export interface PlayerWallet {
@@ -40,19 +40,7 @@ export interface PlayerWalletsProps {
     amount: string;
     balanceAfter: string;
   };
-  cardProps: {
-    col: number;
-    noDataText: string;
-    walletType: string;
-    balance: {
-      label: string;
-      value: string;
-    };
-    account: {
-      label: string;
-      id: string;
-    };
-  };
+  cardProps: WalletCardProps[];
   title: string;
   onPaginationChange: (updatedPage: number) => void;
   page: number;
@@ -109,7 +97,7 @@ const PlayerWallets = ({
     <>
       <div className={styles.PlayerDetailsTableContent}>
         <div>
-          <WalletCard {...cardProps} />
+          <WalletCard cards={cardProps} />
         </div>
         <div className={styles.WalletActionsContainer}>
           {/* {shouldShowAddWalletButton && (
@@ -187,7 +175,7 @@ const PlayerWallets = ({
                   <IconButton icon={<Icons.CheckButtonIcon />} {...props} />
                 </Tooltip>
               ),
-              onClick: () => {},
+              onClick: () => { },
               shouldShow: () => null,
               props: {}
             }
