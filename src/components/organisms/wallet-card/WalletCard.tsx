@@ -21,7 +21,7 @@ export interface WalletCardProps extends StatusProps {
 const WalletCard = ({ cards }: { cards: WalletCardProps[] }) => {
 
   return (
-    <div className='d-flex gap-10'>
+    <div className='d-flex gap-2'>
       {cards && cards.map((card) => {
         return <div
           className={classNames(styles.WalletCardWrapper, {
