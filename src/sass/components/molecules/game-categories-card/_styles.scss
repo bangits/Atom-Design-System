@@ -20,7 +20,7 @@
       box-sizing: border-box;
       z-index: 0;
       input {
-        border-color: #fff !important;
+        background-color: #fff;
       }
       &--with-checkbox {
         z-index: 2;
@@ -84,19 +84,29 @@
       width: 100%;
       aspect-ratio: 4 /3;
       object-fit: cover;
-      min-height: calculateRem(100px);
     }
-    &__name {
-      display: block;
-      background-color: #fff;
-      min-height: calculateRem(25px);
-      color: #2b3674;
-      padding-left: calculateRem(4px);
-      font-size: calculateRem(14px);
-      padding-bottom: calculateRem(6px);
-      &--provider {
-        display: block;
-        color: color(primary);
+    &__img,
+    &__empty-img {
+      min-height: calculateRem(98px);
+    }
+    &__empty-img {
+      @include flex(center, center);
+      svg {
+        width: calculateRem(100px);
+      }
+    }
+    &__title-content {
+      font-weight: 500;
+      color: #48485d;
+    }
+    &__title,
+    &__subtitle {
+      max-width: 100%;
+      padding: 0 calculateRem(5px);
+      text-align: center;
+      @include dots-after-text;
+      &-content {
+        display: inline;
       }
     }
     &:hover {

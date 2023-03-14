@@ -1,4 +1,4 @@
-import { CheckboxWithLabel, CheckboxWithLabelProps, Icons } from '@/atom-design-system';
+import { EmptyForm, Icons } from '@/atom-design-system';
 import { Button, ButtonProps, Card, Loader, Scroll, ScrollProps, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { Children, FC, PropsWithChildren, ReactNode, useMemo, useRef } from 'react';
@@ -8,7 +8,6 @@ export interface CategoryItemsProps {
   title?: ReactNode;
   cardTopPart?: ReactNode;
   buttonProps?: ButtonProps;
-  checkboxWithLabelProps?: CheckboxWithLabelProps;
   isFilter?: boolean;
   isAllItemsLoaded?: boolean;
   isLoadingItems?: boolean;
@@ -18,6 +17,7 @@ export interface CategoryItemsProps {
   itemsWidthAuto?: boolean;
   scrollProps?: ScrollProps;
   fixHeight?: boolean;
+  emptyMsg?: ReactNode;
   buttonTooltip?: string;
 
   onPageChange?(page: number): void;
@@ -27,7 +27,6 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
   children,
   isFilter,
   buttonProps,
-  checkboxWithLabelProps,
   onPageChange,
   isAllItemsLoaded,
   isLoadingItems,
@@ -42,53 +41,56 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
     height: '100%'
   },
   fixHeight = true,
-  buttonTooltip
+  buttonTooltip,
+  emptyMsg
 }) => {
   const currentPageRef = useRef(1);
 
   const childrenArray = useMemo(() => Children.toArray(children), [children]);
 
   return (
-    <>
-      {checkboxWithLabelProps && <CheckboxWithLabel className={styles.CheckboxWithLabel} {...checkboxWithLabelProps} />}
+    <div
+      className={classNames(styles.CategoryItems, {
+        [styles['CategoryItems--filter']]: isFilter,
+        [styles['CategoryItems--fix-height']]: fixHeight,
+        [styles['CategoryItems--results']]: !isFilter,
+        [styles['CategoryItems--filter-opened']]: isFilterOpened
+      })}>
+      {(buttonProps || title) && (
+        <div
+          className={classNames(styles['CategoryItems__top-part'], {
+            [styles['CategoryItems__top-part--only-button']]: !title
+          })}>
+          {title && (
+            <Typography variant='p4' className={styles['CategoryItems__title']}>
+              {title}
+            </Typography>
+          )}
 
-      <div
-        className={classNames(styles.CategoryItems, {
-          [styles['CategoryItems--filter']]: isFilter,
-          [styles['CategoryItems--fix-height']]: fixHeight,
-          [styles['CategoryItems--results']]: !isFilter,
-          [styles['CategoryItems--filter-opened']]: isFilterOpened
-        })}>
-        {(buttonProps || title) && (
-          <div className={styles['CategoryItems__top-part']}>
-            {title && (
-              <Typography variant='p4' className={styles['CategoryItems__title']}>
-                {title}
-              </Typography>
-            )}
+          {buttonProps && (
+            <Tooltip disabled={!buttonTooltip} text={buttonTooltip}>
+              <div>
+                <Button
+                  className={classNames(styles['CategoryItems__button'], {
+                    [styles['CategoryItems__button--disabled']]: buttonProps.disabled
+                  })}
+                  variant='link'
+                  startIcon={<Icons.PlusCircleLarge />}
+                  {...buttonProps}
+                />
+              </div>
+            </Tooltip>
+          )}
+        </div>
+      )}
 
-            {buttonProps && (
-              <Tooltip disabled={!buttonTooltip} text={buttonTooltip}>
-                <div>
-                  <Button
-                    className={classNames(styles['CategoryItems__button'], {
-                      [styles['CategoryItems__button--disabled']]: buttonProps.disabled
-                    })}
-                    variant='link'
-                    startIcon={<Icons.PlusCircleLarge />}
-                    {...buttonProps}
-                  />
-                </div>
-              </Tooltip>
-            )}
-          </div>
-        )}
+      <Card className={styles['CategoryItems__card']}>
+        {cardTopPart}
 
-        <Card className={styles['CategoryItems__card']}>
-          {cardTopPart}
-
+        {!emptyMsg || isLoadingItems ? (
           <Scroll
             {...scrollProps}
+            showHorizontalScroll={false}
             onScroll={(e) => {
               if (isAllItemsLoaded || isLoadingItems) return;
 
@@ -118,13 +120,17 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
               )}
             </div>
           </Scroll>
+        ) : (
+          <EmptyForm imgContentSize='lg' removeCard>
+            {emptyMsg}
+          </EmptyForm>
+        )}
 
-          {buttons?.length && <div className={styles['CategoryItems__buttons']}>{buttons}</div>}
+        {buttons?.length && <div className={styles['CategoryItems__buttons']}>{buttons}</div>}
 
-          {pagination && <div className={styles['CategoryItems__pagination']}>{pagination}</div>}
-        </Card>
-      </div>
-    </>
+        {pagination && <div className={styles['CategoryItems__pagination']}>{pagination}</div>}
+      </Card>
+    </div>
   );
 };
 

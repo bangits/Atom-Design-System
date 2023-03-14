@@ -1,6 +1,6 @@
 import { Icons, PopoverWithInput, PopoverWithInputProps } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
-import { Checkbox, CheckboxProps, IconButton } from '@my-ui/core';
+import { Checkbox, CheckboxProps, IconButton, TextWithTooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
@@ -91,9 +91,35 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
           </ul>
         </div>
       )}
-      <img className={styles['ItemCategoriesCard__img']} src={imgSrc} alt={name} />
+
+      {imgSrc ? (
+        <img className={styles['ItemCategoriesCard__img']} src={imgSrc} alt={name} />
+      ) : (
+        <span className={styles['ItemCategoriesCard__empty-img']}>
+          <Icons.EmptyCardImagePokerToken />
+        </span>
+      )}
+
       <span className={styles['ItemCategoriesCard__name']}>
-        {name} {providerName && <span className={styles['ItemCategoriesCard__name--provider']}>{providerName}</span>}
+        {name && (
+          <TextWithTooltip className={styles.ItemCategoriesCard__title} displayText={name}>
+            <Typography className={styles['ItemCategoriesCard__title-content']} component='h3' variant='p4'>
+              {name}
+            </Typography>
+          </TextWithTooltip>
+        )}
+
+        {providerName && (
+          <TextWithTooltip className={styles.ItemCategoriesCard__subtitle} displayText={providerName}>
+            <Typography
+              className={styles['ItemCategoriesCard__subtitle-content']}
+              component='span'
+              variant='p5'
+              color='primary'>
+              {providerName}
+            </Typography>
+          </TextWithTooltip>
+        )}
       </span>
     </div>
   );

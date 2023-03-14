@@ -70,6 +70,10 @@
   @include flex;
 }
 
+.flex-grow-1 {
+  flex-grow: 1;
+}
+
 .d-inline-block {
   display: inline-block;
 }
@@ -81,9 +85,11 @@
 .gap-5 {
   gap: calculateRem(5px);
 }
+
 .gap-2 {
   gap: calculateRem(20px);
 }
+
 .justify-content-end {
   justify-content: flex-end;
 }
@@ -205,9 +211,11 @@
 .page-tabs-wrapper {
   max-width: calculateRem(300px);
 }
+
 .position-relative {
   position: relative !important;
 }
+
 .no-margin {
   margin: 0;
 }
@@ -219,4 +227,3 @@
 .m-3 {
   margin: calculateRem(10px);
 }
-
