@@ -44,6 +44,7 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
     games: string;
     finances: string;
     usedDeviceLabel: string;
+    bonuses: string;
     noDataText: string;
   };
   tabs?: {
@@ -64,6 +65,8 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
   documents: ReactNode;
   wallet: ReactNode;
   selectContent: ReactNode;
+  bonusesContent: ReactNode;
+
 }
 
 const PlayerDetails: FC<PlayerDetailsProps> = ({
@@ -84,7 +87,8 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   verifiedIcon,
   usedDeviceLabel,
   noDataText,
-  selectContent
+  selectContent,
+  bonusesContent
 }) => {
   return (
     <div className={classNames(styles.PlayerDetailsBase)}>
@@ -150,6 +154,11 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                   title: translations.wallet,
                   value: 3,
                   content: wallet
+                },
+                {
+                  title: translations.bonuses,
+                  value: 4,
+                  content: bonusesContent
                 }
               ]}
               defaultTabValue={1}

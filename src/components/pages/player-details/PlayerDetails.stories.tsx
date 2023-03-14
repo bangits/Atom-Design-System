@@ -11,6 +11,7 @@ export default {
 export const Default = () => {
   return (
     <PlayerDetails
+      bonusesContent={''}
       verifiedIcon={true}
       title=''
       userInfo={object('userInfo', {
@@ -70,7 +71,8 @@ export const Default = () => {
         wallet: '',
         projects: '',
         passwordContext: '',
-        languagesContent: ''
+        languagesContent: '',
+        bonuses: ''
       }}
       userImgUrl={''}
       userName={''}

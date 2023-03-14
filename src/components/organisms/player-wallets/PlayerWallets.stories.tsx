@@ -76,7 +76,7 @@ export const Default = () => {
           onChange={() => changeOpenedCurrenciesSelect(false)}
         />
       )}
-      cardProps={{
+      cardProps={[{
         col: 4,
         noDataText: 'N/A',
         walletType: 'Casino',
@@ -88,7 +88,7 @@ export const Default = () => {
           label: 'Account ID',
           id: '654989985'
         }
-      }}
+      }]}
       onPaginationChange={() => console.log('onPaginationChange')}
       page={0}
       paginationProps={{
