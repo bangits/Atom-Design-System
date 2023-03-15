@@ -40,6 +40,7 @@ export { ReactComponent as DashboardIllustration } from './dashboard-illustartio
 export { ReactComponent as DashboardIcon } from './dashboard.react.svg';
 export { ReactComponent as InActivatePopupIcon } from './deactivate-icon.react.svg';
 export { ReactComponent as DeActivateIcon } from './deactivate.react.svg';
+export { ReactComponent as DeleteAllIcon } from './delete-all.react.svg';
 export { ReactComponent as DepositPopUpIcon } from './deposit-icon.react.svg';
 export { ReactComponent as DesktopIcon } from './desktop.react.svg';
 export { ReactComponent as DndIcon } from './dnd.react.svg';

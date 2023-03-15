@@ -158,7 +158,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
             onPlayBtnClick={onPlayButtonClick}
             playDemoText={translations?.playDemoText}
             showDemoPlayBtn={!!onDemoPlayButtonClick}
-            showPlayBtn
+            showPlayBtn={!!onPlayButtonClick}
           />
         </div>
 
