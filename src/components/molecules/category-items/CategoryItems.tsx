@@ -90,6 +90,7 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
         {!emptyMsg || isLoadingItems ? (
           <Scroll
             {...scrollProps}
+            className={styles['CategoryItems__scroll']}
             showHorizontalScroll={false}
             onScroll={(e) => {
               if (isAllItemsLoaded || isLoadingItems) return;
