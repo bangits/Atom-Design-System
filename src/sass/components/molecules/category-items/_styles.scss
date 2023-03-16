@@ -14,7 +14,7 @@
       }
     }
     &__scroll {
-      min-height: calculateRem(290px);
+      min-height: calculateRem(240px);
     }
     &__title {
       color: color(black-color);
@@ -73,9 +73,6 @@
         @include flex(center);
         margin-top: auto;
         padding-right: calculateRem(62px);
-      }
-      &#{$this}--fix-height {
-        height: calculateRem(500px);
       }
     }
   }

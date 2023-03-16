@@ -13,6 +13,8 @@
       margin-bottom: calculateRem(3px);
     }
     &__info {
+      margin-top: calculateRem(8px);
+      margin-bottom: calculateRem(4px);
       font-size: calculateRem(13px);
     }
     &__input {
