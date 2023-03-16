@@ -9,11 +9,11 @@
       position: absolute;
     }
     &__name {
-      font-size: calculateRem(13px);
+      font-size: calculateRem(16px);
       margin-bottom: calculateRem(3px);
     }
     &__info {
-      font-size: calculateRem(11px);
+      font-size: calculateRem(13px);
     }
     &__input {
       min-height: auto;

@@ -26,6 +26,9 @@
       top: calculateRem(4px);
       left: calculateRem(4px);
       z-index: 1;
+      input {
+        background-color: #fff;
+      }
     }
     &__more-content {
       &--with-selected-form {
