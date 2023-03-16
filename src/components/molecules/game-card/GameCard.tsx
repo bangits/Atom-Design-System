@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Icons } from '@/atom-design-system';
 import { PlayArrowIcon, ViewCardImageIcon } from '@/icons';
-import { CardImg, typedMemo } from '@my-ui/core';
+import { CardImg, Checkbox, typedMemo } from '@my-ui/core';
 import classNames from 'classnames';
 import styles from './GameCard.module.scss';
 
@@ -22,6 +22,8 @@ export interface GameCardProps {
   mobileScreenModeIsLandscape?: boolean;
   tabletScreenModeIsPortrait?: boolean;
   tabletScreenModeIsLandscape?: boolean;
+  onCheckboxToggle?(): void;
+
   backGroundImage?: {
     isDefault: boolean;
     path: string;
@@ -32,6 +34,10 @@ export interface GameCardProps {
   };
   status?: string;
   providerName?: string;
+  showCheckbox?: boolean;
+  checkboxChecked?: boolean;
+
+
 }
 
 const GameCard = ({
@@ -47,11 +53,23 @@ const GameCard = ({
   isActivate = true,
   isPlayIconShow = true,
   isProvider = false,
-  providerName
+  providerName,
+  checkboxChecked,
+  showCheckbox = true,
+  onCheckboxToggle,
+
 }: GameCardProps) => {
   return (
     <span className={classNames(isProvider ? styles['HoverBox-Main-Provider'] : styles['HoverBox-Main'])}>
       {!isActivate && <div className={classNames(styles['HoverBox-Indicator'])}></div>}
+      {showCheckbox && (
+              <Checkbox checked={checkboxChecked}
+                onChange={onCheckboxToggle}
+                style={{zIndex:10000000000}}
+                className={classNames(
+                  styles['HoverBox-CheckBox']
+                )} />
+            )}
       <CardImg
         title={
           <>
@@ -63,6 +81,7 @@ const GameCard = ({
         className={classNames(styles['CardContainer'], {
           [styles['CardContainer--with-provider']]: providerName
         })}
+
         hoverComponent={
           <span className={classNames(styles['HoverBox'], 'HoverBox')}>
             {isPlayIconShow && (
@@ -78,6 +97,7 @@ const GameCard = ({
                 </span>
               </button>
             )}
+
             {isShowActivateOrDeactivateButton && (
               <>
                 <button
@@ -98,6 +118,7 @@ const GameCard = ({
                 </button>
               </>
             )}
+           
             <button
               type='button'
               role='button'
