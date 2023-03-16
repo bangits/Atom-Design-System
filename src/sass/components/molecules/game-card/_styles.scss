@@ -1,112 +1,137 @@
 @mixin generate-game-card-styles {
-  .CardContainer {
-    .ProviderName {
-      display: block;
-    }
-    :global {
-      .CardImg {
-        height: calculateRem(80px);
-      }
-    }
-    &--with-provider {
-      :global {
-        .CardTextContainer {
-          height: calculateRem(56px);
+    .CardContainer {
+        .ProviderName {
+            display: block;
         }
-        .CardText {
-          width: 100%;
+
+        :global {
+            .CardImg {
+                height: calculateRem(80px);
+            }
         }
-      }
-    }
-  }
-  .HoverBox {
-    opacity: 0;
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    transition: all getProviderDetailsSizes(hover-box-button-animation) linear;
-    button {
-      cursor: pointer;
-      background-color: transparent;
-      margin: 0;
-    }
-    &:hover {
-      opacity: getProviderDetailsSizes(hover-box-button-opacity);
-      :global {
-        .HoverBox-Link {
-          opacity: getProviderDetailsSizes(hover-box-button-opacity);
-          bottom: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
+
+        &--with-provider {
+            :global {
+                .CardTextContainer {
+                    height: calculateRem(56px);
+                }
+
+                .CardText {
+                    width: 100%;
+                }
+            }
         }
-        .HoverBox-PlayBtn {
-          opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
-          margin-top: getProviderDetailsSizes(hoverbox-playbtn-view-icon-margin-top);
-        }
-      }
-      .HoverBox-ViewIcon {
-        top: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
-        opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
-      }
     }
-  }
-  .HoverBox-Indicator {
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: #20df20;
-    border-radius: 50%;
-    z-index: 100;
-    top: 5px;
-    left: 5px;
-  }
-  .HoverBox-OpacityLayer {
-    display: block;
-    z-index: getProviderDetailsSizes(hoverbox-opacity-layer-z-index);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: getProviderDetailsColors(hoverbox-opacity-layer-background-color);
-  }
-  .HoverBox-ViewIcon {
-    background-color: transparent;
-    opacity: 0;
-    display: block;
-    padding: 0;
-    margin: 0;
-    font-size: 0;
-    z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
-    position: absolute;
-    top: 0;
-    right: getProviderDetailsSizes(hover-box-view-icon-position-right);
-    width: getProviderDetailsSizes(hoverbox-view-icon-width);
-    transition: all getProviderDetailsSizes(hoverbox-view-icon-transition) linear;
-    border: 0;
-    transition: all linear getProviderDetailsSizes(hover-box-button-animation);
-    svg {
-      width: getProviderDetailsSizes(hoverbox-view-icon-width);
-      fill: getProviderDetailsColors(hoverbox-view-icon-color);
-    }
-  }
-  .HoverBox-Main-Provider {
-    img {
-      object-fit: contain !important;
-      background: black;
-    }
-    &:hover {
-      .HoverBox-Indicator {
+
+    .HoverBox {
         opacity: 0;
-      }
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: all getProviderDetailsSizes(hover-box-button-animation) linear;
+
+        button {
+            cursor: pointer;
+            background-color: transparent;
+            margin: 0;
+        }
+
+        &:hover {
+            opacity: getProviderDetailsSizes(hover-box-button-opacity);
+
+            :global {
+                .HoverBox-Link {
+                    opacity: getProviderDetailsSizes(hover-box-button-opacity);
+                    bottom: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
+                }
+
+                .HoverBox-PlayBtn {
+                    opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
+                    margin-top: getProviderDetailsSizes(hoverbox-playbtn-view-icon-margin-top);
+                }
+            }
+
+            .HoverBox-ViewIcon {
+                top: getProviderDetailsSizes(hoverbox-linktext-bottom-sizes);
+                opacity: getProviderDetailsSizes(hover-box-play-button-opacity);
+            }
+        }
     }
-  }
-  .HoverBox-Main {
-    &:hover {
-      .HoverBox-Indicator {
+
+    .HoverBox-Indicator {
+        position: absolute;
+        width: 8px;
+        height: 8px;
+        background: #20df20;
+        border-radius: 50%;
+        z-index: 100;
+        top: 5px;
+        left: 5px;
+    }
+
+    .HoverBox-OpacityLayer {
+        display: block;
+        z-index: getProviderDetailsSizes(hoverbox-opacity-layer-z-index);
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: getProviderDetailsColors(hoverbox-opacity-layer-background-color);
+    }
+
+    .HoverBox-ViewIcon {
+        background-color: transparent;
         opacity: 0;
-      }
+        display: block;
+        padding: 0;
+        margin: 0;
+        font-size: 0;
+        z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
+        position: absolute;
+        top: 0;
+        right: getProviderDetailsSizes(hover-box-view-icon-position-right);
+        width: getProviderDetailsSizes(hoverbox-view-icon-width);
+        transition: all getProviderDetailsSizes(hoverbox-view-icon-transition) linear;
+        border: 0;
+        transition: all linear getProviderDetailsSizes(hover-box-button-animation);
+
+        svg {
+            width: getProviderDetailsSizes(hoverbox-view-icon-width);
+            fill: getProviderDetailsColors(hoverbox-view-icon-color);
+        }
     }
-  }
+
+    .HoverBox-CheckBox {
+        background-color: transparent;
+        z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
+        position: absolute;
+        top: calculateRem(16px);
+        left: calculateRem(16px);
+        transition: all linear getProviderDetailsSizes(hover-box-button-animation);
+    }
+
+    .HoverBox-Main-Provider {
+        img {
+            object-fit: contain !important;
+            background: black;
+        }
+
+        &:hover {
+            .HoverBox-Indicator {
+                opacity: 0;
+            }
+        }
+    }
+
+    .HoverBox-Main {
+        &:hover {
+            .HoverBox-Indicator {
+                opacity: 0;
+            }
+        }
+    }
 }
