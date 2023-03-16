@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Icons } from '@/atom-design-system';
-import { PlayArrowIcon, ViewCardImageIcon } from '@/icons';
 import { CardImg, Checkbox, typedMemo } from '@my-ui/core';
+import { GameLaunchBtns } from '@/atom-design-system';
+import { ViewCardImageIcon } from '@/icons';
 import classNames from 'classnames';
 import styles from './GameCard.module.scss';
 
@@ -63,13 +64,13 @@ const GameCard = ({
     <span className={classNames(isProvider ? styles['HoverBox-Main-Provider'] : styles['HoverBox-Main'])}>
       {!isActivate && <div className={classNames(styles['HoverBox-Indicator'])}></div>}
       {showCheckbox && (
-              <Checkbox checked={checkboxChecked}
-                onChange={onCheckboxToggle}
-                style={{zIndex:10000000000}}
-                className={classNames(
-                  styles['HoverBox-CheckBox']
-                )} />
-            )}
+        <Checkbox checked={checkboxChecked}
+          onChange={onCheckboxToggle}
+          style={{ zIndex: 10000000000 }}
+          className={classNames(
+            styles['HoverBox-CheckBox']
+          )} />
+      )}
       <CardImg
         title={
           <>
@@ -84,19 +85,13 @@ const GameCard = ({
 
         hoverComponent={
           <span className={classNames(styles['HoverBox'], 'HoverBox')}>
-            {isPlayIconShow && (
-              <button
-                type='button'
-                role='button'
-                className={classNames(styles['HoverBox-PlayBtn'], 'HoverBox-PlayBtn')}
-                onClick={() => onGameClick?.(id, false)}>
-                <span className={classNames(styles['HoverBox-PlayBtnInner'], 'HoverBox-PlayBtnInner')}>
-                  <span className={classNames(styles['HoverBox-PlayBtnIcon'], 'HoverBox-PlayBtnIcon')}>
-                    <PlayArrowIcon width={'100%'} />
-                  </span>
-                </span>
-              </button>
-            )}
+            <GameLaunchBtns
+              onDemoPlayBtnClick={() => onGameClick?.(id, true)}
+              onPlayBtnClick={() => onGameClick?.(id, false)}
+              playDemoText={playDemo}
+              showDemoPlayBtn={!!playDemo}
+              showPlayBtn={isPlayIconShow}
+            />
 
             {isShowActivateOrDeactivateButton && (
               <>
@@ -118,7 +113,7 @@ const GameCard = ({
                 </button>
               </>
             )}
-           
+
             <button
               type='button'
               role='button'
@@ -126,16 +121,6 @@ const GameCard = ({
               onClick={() => onGameDetailsClick?.(id)}>
               <ViewCardImageIcon width={'100%'} />
             </button>
-            {playDemo && (
-              <span className={classNames(styles['HoverBox-Link'], 'HoverBox-Link')}>
-                <button
-                  role='button'
-                  onClick={() => onGameClick?.(id, true)}
-                  className={classNames(styles['HoverBox-Link__Text'], 'HoverBox-Link__Text')}>
-                  {playDemo}
-                </button>
-              </span>
-            )}
             <span className={classNames(styles['HoverBox-OpacityLayer'], 'HoverBox-OpacityLayer')}></span>
           </span>
         }

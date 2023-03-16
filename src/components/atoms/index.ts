@@ -6,6 +6,7 @@ export * from './chip';
 export * from './divider';
 export * from './export-button';
 export * from './flex-row';
+export * from './game-launch-btns';
 export * from './icon-dropdown';
 export * from './info-toolitp';
 export * from './label';

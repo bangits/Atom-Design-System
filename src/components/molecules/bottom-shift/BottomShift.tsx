@@ -1,4 +1,4 @@
-import { Card, IconButton, Icons } from '@my-ui/core';
+import { Card, IconButton, Icons, Portal } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 import { CSSTransition } from 'react-transition-group';
@@ -17,15 +17,7 @@ const BottomShift: FC<PropsWithChildren<BottomShiftProps>> = ({ children, opened
         const isOpened = status !== 'exited' && status !== 'exiting';
 
         return (
-          <>
-            <div
-              role='button'
-              className={classNames(styles['BottomShift__blur'], {
-                [styles['BottomShift__blur--open']]: isOpened
-              })}
-              onClick={onClose}
-            />
-
+          <Portal>
             <Card
               className={classNames(styles.BottomShift, {
                 [styles['BottomShift--open']]: isOpened
@@ -40,7 +32,7 @@ const BottomShift: FC<PropsWithChildren<BottomShiftProps>> = ({ children, opened
                 })}
               />
             </Card>
-          </>
+          </Portal>
         );
       }}
     </CSSTransition>
