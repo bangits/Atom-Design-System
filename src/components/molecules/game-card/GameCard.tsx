@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Icons } from '@/atom-design-system';
-import { CardImg, Checkbox, typedMemo } from '@my-ui/core';
+import { CardImg, Checkbox, CheckboxProps, typedMemo } from '@my-ui/core';
 import { GameLaunchBtns } from '@/atom-design-system';
 import { ViewCardImageIcon } from '@/icons';
 import classNames from 'classnames';
@@ -23,7 +23,6 @@ export interface GameCardProps {
   mobileScreenModeIsLandscape?: boolean;
   tabletScreenModeIsPortrait?: boolean;
   tabletScreenModeIsLandscape?: boolean;
-  onCheckboxToggle?(): void;
 
   backGroundImage?: {
     isDefault: boolean;
@@ -35,9 +34,7 @@ export interface GameCardProps {
   };
   status?: string;
   providerName?: string;
-  showCheckbox?: boolean;
-  checkboxChecked?: boolean;
-
+  checkboxProps?: CheckboxProps;
 
 }
 
@@ -55,18 +52,16 @@ const GameCard = ({
   isPlayIconShow = true,
   isProvider = false,
   providerName,
-  checkboxChecked,
-  showCheckbox = true,
-  onCheckboxToggle,
+  checkboxProps,
 
 }: GameCardProps) => {
+  
   return (
     <span className={classNames(isProvider ? styles['HoverBox-Main-Provider'] : styles['HoverBox-Main'])}>
       {!isActivate && <div className={classNames(styles['HoverBox-Indicator'])}></div>}
-      {showCheckbox && (
-        <Checkbox checked={checkboxChecked}
-          onChange={onCheckboxToggle}
-          style={{ zIndex: 10000000000 }}
+      {!isProvider  && checkboxProps && (
+        <Checkbox {...checkboxProps}
+          style={{ zIndex: 1 }}
           className={classNames(
             styles['HoverBox-CheckBox']
           )} />

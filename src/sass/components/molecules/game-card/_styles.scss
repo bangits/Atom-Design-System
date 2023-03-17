@@ -63,13 +63,13 @@
 
     .HoverBox-Indicator {
         position: absolute;
-        width: 8px;
-        height: 8px;
+        width: calculateRem(8px);
+        height: calculateRem(8px);
         background: #20df20;
         border-radius: 50%;
         z-index: 100;
-        top: 5px;
-        left: 5px;
+        bottom: calculateRem(-7px);
+        right: calculateRem(4px);
     }
 
     .HoverBox-OpacityLayer {
@@ -106,11 +106,12 @@
     }
 
     .HoverBox-CheckBox {
-        background-color: transparent;
+        background-color: white;
         z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
         position: absolute;
-        top: calculateRem(16px);
-        left: calculateRem(16px);
+        border-radius: calculateRem(4px);
+        top: calculateRem(8px);
+        left: calculateRem(8px);
         transition: all linear getProviderDetailsSizes(hover-box-button-animation);
     }
 
