@@ -1,4 +1,5 @@
 @import '../layout/variables';
+
 .m-0 {
   margin: 0 !important;
 }
@@ -13,6 +14,10 @@
 
 .mb-4 {
   margin-bottom: calculateRem(20px) !important;
+}
+
+.mt-2 {
+  margin-top: calculateRem(5px) !important;
 }
 
 .mt-3 {
@@ -154,12 +159,15 @@
 
 .outlined-text-input {
   min-height: auto;
+
   label {
     padding-top: 0;
+
     span {
       display: none;
     }
   }
+
   input {
     height: auto !important;
     border: none !important;
@@ -198,7 +206,7 @@
 }
 
 .size-medium {
-  font-size: calculateRem(16px);
+  font-size: calculateRem(16px) !important;
 }
 
 .dialog-header {
@@ -226,4 +234,8 @@
 
 .m-3 {
   margin: calculateRem(10px);
+}
+
+.italic {
+  font-style: italic;
 }
