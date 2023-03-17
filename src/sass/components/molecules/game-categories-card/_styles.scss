@@ -1,5 +1,6 @@
 @mixin generate-item-categories-card-styles {
   .ItemCategoriesCard {
+    $main-info-pr: calculateRem(22px);
     $this: #{&};
     position: relative;
     height: fit-content;
@@ -90,6 +91,9 @@
       font-weight: 500;
       color: #48485d;
     }
+    &__name {
+      position: relative;
+    }
     &__title,
     &__subtitle {
       max-width: 100%;
@@ -126,10 +130,22 @@
           color: color(primary);
         }
         &--danger {
-          color: #d30000;
+          color: color(red-orange);
           &:hover {
             color: #d30000c9;
           }
+        }
+      }
+    }
+    &--show-checkbox-hover {
+      #{$this}__checkbox {
+        opacity: 0;
+        transition: opacity 300ms;
+      }
+      #{$this}__main:hover,
+      #{$this}__main:has(input:checked) {
+        #{$this}__checkbox {
+          opacity: 1;
         }
       }
     }
@@ -170,6 +186,31 @@
             }
           }
         }
+      }
+    }
+    &--status-active {
+      #{$this}__indicator {
+        background: color(lime-c);
+      }
+    }
+    &--status-inactive {
+      #{$this}__indicator {
+        background: #8f8f8f;
+      }
+    }
+    &--with-status {
+      #{$this}__indicator {
+        width: calculateRem(8px);
+        height: calculateRem(8px);
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        right: calculateRem(4px);
+        top: calculateRem(8px);
+      }
+      #{$this}__title,
+      #{$this}__subtitle {
+        max-width: calc(100% - $main-info-pr);
       }
     }
   }

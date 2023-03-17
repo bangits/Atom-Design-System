@@ -7,13 +7,14 @@ import {
   Icons
 } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
-import { Checkbox, CheckboxProps, TextWithTooltip, Typography } from '@my-ui/core';
+import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, useCallback, useState } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
 
 export interface ItemCategoriesCardProps {
   checkboxProps?: CheckboxProps;
+  showCheckboxOnHover?: boolean;
   showActions?: boolean;
   index?: number;
   imgSrc: string;
@@ -33,6 +34,8 @@ export interface ItemCategoriesCardProps {
     setPosition: string;
     delete: string;
   };
+  status?: 'active' | 'inactive';
+  statusLabel?: string;
 
   onViewButtonClick?(): void;
   onDeleteButtonClick?(): void;
@@ -54,7 +57,10 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   onViewButtonClick,
   actionsShowPosition,
   showActions,
-  translations
+  translations,
+  showCheckboxOnHover,
+  status,
+  statusLabel
 }) => {
   const [selectedForm, setSelectedForm] = useState<number | null>(null);
   const [showSelectedFrom, setShowSelectedForm] = useState(false);
@@ -82,7 +88,10 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   return (
     <div
       className={classNames(styles.ItemCategoriesCard, {
-        [styles['ItemCategoriesCard--with-actions']]: showActions
+        [styles['ItemCategoriesCard--with-actions']]: showActions,
+        [styles['ItemCategoriesCard--with-status']]: !!status,
+        [styles[`ItemCategoriesCard--status-${status}`]]: status,
+        [styles['ItemCategoriesCard--show-checkbox-hover']]: showCheckboxOnHover
       })}>
       <div className={styles['ItemCategoriesCard__main']}>
         {checkboxProps && (
@@ -171,7 +180,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
         )}
       </div>
 
-      <span className={styles['ItemCategoriesCard__name']}>
+      <div className={styles['ItemCategoriesCard__name']}>
         {name && (
           <TextWithTooltip className={styles.ItemCategoriesCard__title} displayText={name}>
             <Typography className={styles['ItemCategoriesCard__title-content']} component='h3' variant='p4'>
@@ -191,7 +200,11 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
             </Typography>
           </TextWithTooltip>
         )}
-      </span>
+
+        <Tooltip text={statusLabel}>
+          <span className={styles['ItemCategoriesCard__indicator']} />
+        </Tooltip>
+      </div>
     </div>
   );
 };
