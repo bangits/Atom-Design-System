@@ -53,13 +53,11 @@ const GameCard = ({
   isProvider = false,
   providerName,
   checkboxProps,
-
 }: GameCardProps) => {
-  
   return (
     <span className={classNames(isProvider ? styles['HoverBox-Main-Provider'] : styles['HoverBox-Main'])}>
       {!isActivate && <div className={classNames(styles['HoverBox-Indicator'])}></div>}
-      {!isProvider  && checkboxProps && (
+      {!isProvider && checkboxProps && (
         <Checkbox {...checkboxProps}
           style={{ zIndex: 1 }}
           className={classNames(
