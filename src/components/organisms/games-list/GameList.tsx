@@ -24,7 +24,7 @@ export interface GameListProps {
   onGameClick?(gameId: string | number, isDemo: boolean): void;
   updateWebContentButtonClick: () => void;
   updateContentButtonClick: () => void;
-  bulkActionsClick?: ({ selectedGamesLength }) => void;
+  bulkActionsClick?: ({ selectedGamesLength, firstGameStatus }) => void;
 }
 
 const GameList = ({
@@ -85,7 +85,7 @@ const GameList = ({
 
   const selectedGamesLength = Object.keys(selectedGameIdsHashMap).length
 
-  const firstGameStatus = selectedGameIds && selectedGameIds[0] && gamesHashMap[selectedGameIds[0]].status
+  const firstGameStatus = selectedGameIds && selectedGameIds[0] && gamesHashMap[selectedGameIds[0]]?.status
 
   const isEveryGameWithSameStatus = useMemo(() => firstGameStatus && selectedGameIds.every(gameId => gamesHashMap[gameId].status === firstGameStatus), [selectedGameIds, gamesHashMap, firstGameStatus])
 
@@ -128,11 +128,11 @@ const GameList = ({
             >
               Clear Selection
             </Button>
-            <Divider showDivider />
-            {isEveryGameWithSameStatus && <Tooltip text='Activate' showEvent='hover'>
+            {isEveryGameWithSameStatus && <Divider showDivider />}
+            {isEveryGameWithSameStatus && <Tooltip text={firstGameStatus === 'Inactive' ? 'Activate' : 'Inactivate'} showEvent='hover'>
               <ButtonWithIcon
-                icon={firstGameStatus === 'Inactive' ? 'BlockButtonIcon' : 'ActivatePopupIcon'}
-                onClick={() => bulkActionsClick({ selectedGamesLength })}
+                icon={firstGameStatus === 'Inactive' ? 'ActivatePopupIcon' : 'BlockButtonIcon'}
+                onClick={() => bulkActionsClick({ selectedGamesLength, firstGameStatus })}
                 iconProps={{
                   width: '1.8rem',
                   height: '1.8rem'
