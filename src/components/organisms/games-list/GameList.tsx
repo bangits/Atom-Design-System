@@ -29,7 +29,8 @@ export interface GameListProps {
     selected: string;
     games: string;
     inactivate: string;
-    activate: string
+    activate: string;
+    clearSelection: string
 
   }
 }
@@ -55,6 +56,7 @@ const GameList = ({
   setSelectedItemIds,
   bulkTrasnlationTexts
 }: GameListProps) => {
+  
   const selectedGameIdsHashMap = useMemo(
     () => selectedGameIds ?
       Object.values(selectedGameIds).reduce(
@@ -134,7 +136,7 @@ const GameList = ({
               onClick={() => setSelectedItemIds([])}
               variant='link'
             >
-              Clear Selection
+              {bulkTrasnlationTexts.clearSelection}
             </Button>
             {isEveryGameWithSameStatus && <Divider showDivider />}
             {isEveryGameWithSameStatus && <Tooltip text={firstGameStatus === 'Inactive' ? bulkTrasnlationTexts.activate : bulkTrasnlationTexts.inactivate} showEvent='hover'>
