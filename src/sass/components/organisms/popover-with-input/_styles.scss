@@ -1,12 +1,15 @@
 @mixin generate-popover-with-input-styles {
   .FormWithInput {
     $this: #{&};
+    color: color(black-color);
     &__name,
     &__total {
       margin: 0;
     }
     &__back {
       position: absolute;
+      color: inherit;
+      transform: translateY(#{calculateRem(3px)});
     }
     &__name {
       font-size: calculateRem(16px);
