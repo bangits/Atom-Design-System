@@ -2,7 +2,7 @@
 import { ButtonWithIcon, Divider, GameCard, GameCardProps, Icons, InfoTooltip, ScrollableView } from '@/atom-design-system';
 import { Button, Tooltip, Typography } from '@my-ui/core';
 import styles from './GameList.module.scss';
-import { ChangeEventHandler, useCallback, useEffect, useMemo, useState } from 'react';
+import { ChangeEventHandler, Dispatch, MutableRefObject, SetStateAction, useCallback, useEffect, useMemo, useState } from 'react';
 import { ToolsIcon } from '@/icons';
 
 export interface GameListProps {
@@ -11,19 +11,28 @@ export interface GameListProps {
   isAllGamesLoaded: boolean;
   isLoadingGames: boolean;
   isProvider?: boolean;
+  isShowActivateOrDeactivateButton?: boolean;
+  updateWebText?: string;
+  updateText?: string;
+  isDisabled?: boolean;
+  selectedGameIds?: (string | number)[]
+
+  setSelectedItemIds: Dispatch<SetStateAction<(string | number)[]>>
   onChange(page: number): void;
   onGameDetailsClick(id: number): void;
   onActivateOrDeactivateClick?({ id, name, status }): void;
   onGameClick?(gameId: string | number, isDemo: boolean): void;
-  isShowActivateOrDeactivateButton?: boolean;
-  updateWebText?: string;
-  updateText?: string;
   updateWebContentButtonClick: () => void;
   updateContentButtonClick: () => void;
-  bulkActionsClick?: ({ selectedGamesLength }) => void;
-  selectedGamesClick?: ({ gameIds }) => void;
-  isDisabled?: boolean;
+  bulkActionsClick?: ({ selectedGamesLength, firstGameStatus }) => void;
+  bulkTrasnlationTexts: {
+    selected: string;
+    games: string;
+    inactivate: string;
+    activate: string;
+    clearSelection: string
 
+  }
 }
 
 const GameList = ({
@@ -43,40 +52,53 @@ const GameList = ({
   isDisabled,
   isProvider,
   bulkActionsClick,
-  selectedGamesClick
+  selectedGameIds,
+  setSelectedItemIds,
+  bulkTrasnlationTexts
 }: GameListProps) => {
-
-  const [selectedItemIds, setSelectedItemIds] = useState([]);
-
-  const selectedItemIdsHashMap = useMemo(
-    () =>
-      Object.values(selectedItemIds).reduce(
+  
+  const selectedGameIdsHashMap = useMemo(
+    () => selectedGameIds ?
+      Object.values(selectedGameIds).reduce(
         (acc, id) => ({
           ...acc,
           [id]: true
         }),
         {}
-      ),
-    [selectedItemIds]
+      ) : {},
+    [selectedGameIds]
   );
+
+  const gamesHashMap = useMemo(
+    () =>
+      Object.values(games).reduce(
+        (acc, game) => ({
+          ...acc,
+          [game.id]: game,
+        }),
+        {} as Record<string, GameCardProps>
+      ),
+    [games]
+  );
+
   const createItemSelectHandler = useCallback<(id: number | string) => ChangeEventHandler<HTMLInputElement>>(
     (itemId) => () => {
-      if (!selectedItemIdsHashMap[itemId]) {
+      if (!selectedGameIdsHashMap[itemId]) {
         setSelectedItemIds((prevSelectedItemIds) => [...prevSelectedItemIds, itemId]);
-        selectedGamesClick({ gameIds: selectedItemIds })
         return;
       }
 
       setSelectedItemIds((prevSelectedItemIds) => prevSelectedItemIds.filter((id) => id !== itemId));
     },
-    [selectedItemIdsHashMap]
+    [selectedGameIdsHashMap, selectedGameIds]
   );
 
-  const selectedGamesLength = Object.keys(selectedItemIdsHashMap).length
+  const selectedGamesLength = Object.keys(selectedGameIdsHashMap).length
 
-  // console.log(selectedGamesLength);
+  const firstGameStatus = selectedGameIds && selectedGameIds[0] && gamesHashMap[selectedGameIds[0]]?.status
 
-  useEffect(() => { setSelectedItemIds([]) }, [])
+  const isEveryGameWithSameStatus = useMemo(() => firstGameStatus && selectedGameIds.every(gameId => gamesHashMap[gameId].status === firstGameStatus), [selectedGameIds, gamesHashMap, firstGameStatus])
+
   return (
     <ScrollableView
       onPageChange={onChange}
@@ -100,11 +122,12 @@ const GameList = ({
             {updateText}
           </Button>
         )}
+
         {selectedGamesLength > 1 && (
           <>
             <Divider showDivider />
             <Typography className='size-medium form-color mt-2'>
-              Selected: <span className='italic'>{selectedGamesLength} games</span>
+              {bulkTrasnlationTexts.selected}: <span className='italic'>{selectedGamesLength} {bulkTrasnlationTexts.games}</span>
             </Typography>
             <Divider showDivider />
             <Button
@@ -113,19 +136,19 @@ const GameList = ({
               onClick={() => setSelectedItemIds([])}
               variant='link'
             >
-              Clear Selection
+              {bulkTrasnlationTexts.clearSelection}
             </Button>
-            <Divider showDivider />
-            <Tooltip text='Activate' showEvent='hover'>
+            {isEveryGameWithSameStatus && <Divider showDivider />}
+            {isEveryGameWithSameStatus && <Tooltip text={firstGameStatus === 'Inactive' ? bulkTrasnlationTexts.activate : bulkTrasnlationTexts.inactivate} showEvent='hover'>
               <ButtonWithIcon
-                icon='BlockButtonIcon'
-                onClick={() => bulkActionsClick({ selectedGamesLength })}
+                icon={firstGameStatus === 'Inactive' ? 'ActivatePopupIcon' : 'BlockButtonIcon'}
+                onClick={() => bulkActionsClick({ selectedGamesLength, firstGameStatus })}
                 iconProps={{
                   width: '1.8rem',
                   height: '1.8rem'
                 }}
-                className={styles.RefreshButton} />
-            </Tooltip>
+              />
+            </Tooltip>}
           </>
         )}
       </div>
@@ -135,7 +158,7 @@ const GameList = ({
             <GameCard
               checkboxProps={{
                 onChange: createItemSelectHandler(game.id),
-                checked: !!selectedItemIdsHashMap[game.id]
+                checked: !!selectedGameIdsHashMap[game.id]
               }}
               isProvider={isProvider}
               isShowActivateOrDeactivateButton={isShowActivateOrDeactivateButton}
