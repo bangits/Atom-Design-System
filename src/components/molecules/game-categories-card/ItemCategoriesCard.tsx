@@ -24,7 +24,7 @@ export interface ItemCategoriesCardProps {
   index?: number;
   imgSrc: string;
   name: string;
-  providerName: string;
+  subTitle: string;
 
   formWithInputActions?: FormWithInputAction[];
   actionsShowPosition?: ButtonFormProps['showPosition'];
@@ -50,7 +50,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   onViewButtonClick,
   imgSrc,
   name,
-  providerName,
+  subTitle,
   checkboxProps,
   index,
   formWithInputActions,
@@ -180,14 +180,14 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
           </TextWithTooltip>
         )}
 
-        {providerName && (
-          <TextWithTooltip className={styles.ItemCategoriesCard__subtitle} displayText={providerName}>
+        {subTitle && (
+          <TextWithTooltip className={styles.ItemCategoriesCard__subtitle} displayText={subTitle}>
             <Typography
               className={styles['ItemCategoriesCard__subtitle-content']}
               component='span'
               variant='p5'
               color='primary'>
-              {providerName}
+              {subTitle}
             </Typography>
           </TextWithTooltip>
         )}
