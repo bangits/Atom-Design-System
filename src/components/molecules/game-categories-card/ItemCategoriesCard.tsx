@@ -9,8 +9,13 @@ import {
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, useCallback, useState } from 'react';
+import { FC, ReactNode, useCallback, useState } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
+
+export type FormWithInputAction = FormWithInputProps & {
+  actionLabel: string;
+  actionIcon?: ReactNode;
+};
 
 export interface ItemCategoriesCardProps {
   checkboxProps?: CheckboxProps;
@@ -21,17 +26,12 @@ export interface ItemCategoriesCardProps {
   name: string;
   providerName: string;
 
-  replaceWithChangeProps?: FormWithInputProps;
-  positionChangeProps?: FormWithInputProps & {
-    onPositionChange?(position: number): void;
-  };
+  formWithInputActions?: FormWithInputAction[];
   actionsShowPosition?: ButtonFormProps['showPosition'];
 
   translations?: {
     playDemoText?: string;
     view: string;
-    replaceWith: string;
-    setPosition: string;
     delete: string;
   };
   status?: 'active' | 'inactive';
@@ -44,17 +44,16 @@ export interface ItemCategoriesCardProps {
 }
 
 const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
+  onDeleteButtonClick,
+  onPlayButtonClick,
+  onDemoPlayButtonClick,
+  onViewButtonClick,
   imgSrc,
   name,
   providerName,
   checkboxProps,
   index,
-  onDeleteButtonClick,
-  onPlayButtonClick,
-  onDemoPlayButtonClick,
-  positionChangeProps,
-  replaceWithChangeProps,
-  onViewButtonClick,
+  formWithInputActions,
   actionsShowPosition,
   showActions,
   translations,
@@ -62,7 +61,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   status,
   statusLabel
 }) => {
-  const [selectedForm, setSelectedForm] = useState<number | null>(null);
+  const [selectedFormProps, setSelectedFormProps] = useState<FormWithInputAction | null>(null);
   const [showSelectedFrom, setShowSelectedForm] = useState(false);
 
   const closeSelectedForm = useCallback(() => setShowSelectedForm(false), []);
@@ -72,18 +71,6 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
 
     closeSelectedForm();
   }, []);
-
-  const SelectedFormContent = {
-    1: () => <FormWithInput {...replaceWithChangeProps} onBackBtnClick={onBackBtnClick} close={closeSelectedForm} />,
-    2: () => (
-      <FormWithInput
-        {...positionChangeProps}
-        onBackBtnClick={onBackBtnClick}
-        onSave={positionChangeProps.onPositionChange}
-        close={closeSelectedForm}
-      />
-    )
-  }[selectedForm];
 
   return (
     <div
@@ -117,7 +104,19 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 [styles['ItemCategoriesCard__more-content--with-selected-form']]: showSelectedFrom
               })}>
               <div className={styles['ItemCategoriesCard__more-form']}>
-                {SelectedFormContent && <SelectedFormContent />}
+                {selectedFormProps && (
+                  <FormWithInput
+                    {...selectedFormProps}
+                    onBackBtnClick={(e) => {
+                      onBackBtnClick(e);
+                      selectedFormProps.onBackBtnClick?.(e);
+                    }}
+                    close={() => {
+                      closeSelectedForm();
+                      selectedFormProps.close?.();
+                    }}
+                  />
+                )}
               </div>
 
               <div className={styles['ItemCategoriesCard__more-actions']}>
@@ -125,27 +124,19 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                   <Icons.ViewIcon width='1.6rem' /> {translations?.view}
                 </button>
 
-                <button
-                  onClick={() => {
-                    setSelectedForm(1);
+                {formWithInputActions?.map((action, index) => (
+                  <button
+                    key={index}
+                    onClick={() => {
+                      setSelectedFormProps(action);
 
-                    setShowSelectedForm(true);
-                  }}
-                  className={styles['ItemCategoriesCard__action']}
-                  type='button'>
-                  <Icons.ReplaceIcon width='1.6rem' /> {translations?.replaceWith}
-                </button>
-
-                <button
-                  onClick={() => {
-                    setSelectedForm(2);
-
-                    setShowSelectedForm(true);
-                  }}
-                  className={styles['ItemCategoriesCard__action']}
-                  type='button'>
-                  <Icons.SetPositionIcon width='1.6rem' /> {translations?.setPosition}
-                </button>
+                      setShowSelectedForm(true);
+                    }}
+                    className={styles['ItemCategoriesCard__action']}
+                    type='button'>
+                    {action.actionIcon} {action.actionLabel}
+                  </button>
+                ))}
 
                 <button
                   className={classNames(
