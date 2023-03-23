@@ -98,7 +98,6 @@
     &__subtitle {
       max-width: 100%;
       padding: 0 calculateRem(2px);
-      text-align: center;
       @include dots-after-text;
       &-content {
         display: inline;
