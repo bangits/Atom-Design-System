@@ -27,6 +27,30 @@
     }
 
     .MainContent {
+      width: 100%;
+
+      .FirstRow {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .Action {
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+      }
+
+      .ActionButton {
+        color: var(--theme-default-primary);
+        margin-right: 0.5em;
+      }
+
+      .ActionLabel {
+        text-decoration: underline;
+      }
+
       .ContentType {
         font-size: calculateRem(16px);
       }

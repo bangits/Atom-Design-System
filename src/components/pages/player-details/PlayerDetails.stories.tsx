@@ -88,7 +88,8 @@ export const Default = () => {
       playerDetails={''}
       playerKPI={''}
       documents={'Documents'}
-      wallet={''}
+      realWallet={''}
+      promotionalWallet={''}
       selectContent={''}
     />
   );
