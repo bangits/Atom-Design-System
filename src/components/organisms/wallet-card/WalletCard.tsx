@@ -1,4 +1,5 @@
-import { StatusProps, Typography } from '@my-ui/core';
+import React from 'react';
+import { StatusProps, Typography, Icons } from '@my-ui/core';
 import classNames from 'classnames';
 import styles from './WalletCard.module.scss';
 
@@ -14,6 +15,11 @@ export interface WalletCardProps extends StatusProps {
     label: string;
     id: string | number;
   };
+  action?: {
+    icon?: React.FC<React.SVGProps<SVGSVGElement>>;
+    label?: string;
+    onAction?: (card: WalletCardProps) => void;
+  };
 }
 
 const WalletCard = ({ cards }: { cards: WalletCardProps[] }) => {
@@ -28,9 +34,24 @@ const WalletCard = ({ cards }: { cards: WalletCardProps[] }) => {
               })}>
               <div className={styles.CardHeader}>
                 <div className={styles.MainContent}>
-                  <Typography className={styles.ContentType} variant='p4'>
-                    {card.walletType || card.noDataText}
-                  </Typography>
+                  <div className={styles.FirstRow}>
+                    <Typography className={styles.ContentType} variant='p4'>
+                      {card.walletType || card.noDataText}
+                    </Typography>
+                    {card.action && (
+                      <div onClick={() => card.action?.onAction(card)} className={styles.Action}>
+                        {card.action.icon && (
+                          <card.action.icon className={styles.ActionButton} width='1.4em' height='1.4em' />
+                        )}
+                        {card.action.label && (
+                          <Typography className={styles.ActionLabel} color='primary' variant='p4'>
+                            {card.action.label}
+                          </Typography>
+                        )}
+                      </div>
+                    )}
+                  </div>
+
                   <Typography className={styles.Label} variant='p4'>
                     {card.balance.label}: <span>{card.balance.value || 0}</span>
                   </Typography>

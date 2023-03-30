@@ -1,3 +1,5 @@
+export { ReactComponent as NoteIcon } from './note-icon.react.svg';
+export { ReactComponent as AddNoteIcon } from './add-note-icon.react.svg';
 export { ReactComponent as ActivatePopupIcon } from './activate-icon.react.svg';
 export { ReactComponent as ActivateIcon } from './activate.react.svg';
 export { ReactComponent as AddCampaignIcon } from './add-campaign.react.svg';

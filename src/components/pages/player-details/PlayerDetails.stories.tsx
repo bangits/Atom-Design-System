@@ -72,6 +72,8 @@ export const Default = () => {
         projects: '',
         passwordContext: '',
         languagesContent: '',
+        real: '',
+        promotional: '',
         bonuses: ''
       }}
       userImgUrl={''}
@@ -88,7 +90,8 @@ export const Default = () => {
       playerDetails={''}
       playerKPI={''}
       documents={'Documents'}
-      wallet={''}
+      realWallet={''}
+      promotionalWallet={''}
       selectContent={''}
     />
   );
