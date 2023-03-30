@@ -17,8 +17,8 @@ export interface WalletCardProps extends StatusProps {
   };
   action?: {
     icon?: React.FC<React.SVGProps<SVGSVGElement>>;
-    label: string;
-    onAction: (card: WalletCardProps) => void;
+    label?: string;
+    onAction?: (card: WalletCardProps) => void;
   };
 }
 
@@ -39,15 +39,15 @@ const WalletCard = ({ cards }: { cards: WalletCardProps[] }) => {
                       {card.walletType || card.noDataText}
                     </Typography>
                     {card.action && (
-                      <div onClick={() => card.action.onAction(card)} className={styles.Action}>
-                        {card.action.icon ? (
+                      <div onClick={() => card.action?.onAction(card)} className={styles.Action}>
+                        {card.action.icon && (
                           <card.action.icon className={styles.ActionButton} width='1.4em' height='1.4em' />
-                        ) : (
-                          <Icons.SettingIcon className={styles.ActionButton} width='1.4em' height='1.4em' />
                         )}
-                        <Typography className={styles.ActionLabel} color='primary' variant='p4'>
-                          {card.action.label}
-                        </Typography>
+                        {card.action.label && (
+                          <Typography className={styles.ActionLabel} color='primary' variant='p4'>
+                            {card.action.label}
+                          </Typography>
+                        )}
                       </div>
                     )}
                   </div>

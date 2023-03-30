@@ -46,6 +46,8 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
     usedDeviceLabel: string;
     bonuses: string;
     noDataText: string;
+    real: string;
+    promotional: string;
   };
   tabs?: {
     tab?: TabProps & {
@@ -151,12 +153,12 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                   value: 3,
                   subTabs: [
                     {
-                      title: 'Real',
+                      title: translations.real,
                       value: 1,
                       content: realWallet
                     },
                     {
-                      title: 'Promotional',
+                      title: translations.promotional,
                       value: 2,
                       content: promotionalWallet
                     }

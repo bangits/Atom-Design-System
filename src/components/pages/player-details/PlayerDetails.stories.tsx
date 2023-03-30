@@ -72,6 +72,8 @@ export const Default = () => {
         projects: '',
         passwordContext: '',
         languagesContent: '',
+        real: '',
+        promotional: '',
         bonuses: ''
       }}
       userImgUrl={''}
