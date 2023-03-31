@@ -13,6 +13,7 @@ export interface ButtonFormRenderArguments {
 
 export interface ButtonFormProps {
   showPosition?: 'left' | 'right';
+  className?: string;
   children: ReactNode | ((buttonFormRenderArguments: ButtonFormRenderArguments) => ReactNode);
   getContainerProps?(
     buttonFormRenderArguments: ButtonFormRenderArguments
@@ -20,7 +21,13 @@ export interface ButtonFormProps {
   renderOpenElement(buttonFormRenderArguments: ButtonFormRenderArguments): ReactNode;
 }
 
-const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getContainerProps, showPosition }) => {
+const ButtonForm: FC<ButtonFormProps> = ({
+  renderOpenElement,
+  children,
+  getContainerProps,
+  className,
+  showPosition
+}) => {
   const buttonFormContainerRef = useRef<HTMLDivElement>(null);
 
   const [isOpenedForm, setOpenedForm] = useState(false);
@@ -45,7 +52,7 @@ const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getConta
   return (
     <div
       {...(getContainerProps?.(buttonFormRenderArguments) || {})}
-      className={styles.ButtonForm}
+      className={classNames(styles.ButtonForm, className)}
       ref={buttonFormContainerRef}>
       {renderOpenElement(buttonFormRenderArguments)}
 

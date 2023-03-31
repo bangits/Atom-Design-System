@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import WalletCard from './WalletCard';
+import { Icons } from '@my-ui/core';
 
 export default {
   title: 'components/organisms/WalletCard',
@@ -12,14 +13,26 @@ const Template: ComponentStory<typeof WalletCard> = (args) => <WalletCard {...ar
 export const Default = Template.bind({});
 
 Default.args = {
-  noDataText: 'N/A',
-  walletType: 'Casino',
-  balance: {
-    label: 'USD',
-    value: '154 560.0'
-  },
-  account: {
-    id: '54561341555',
-    label: 'Account ID'
-  }
+  cards: [
+    {
+      col: 4,
+      noDataText: 'aaa',
+      walletType: 'aaaa',
+      balance: {
+        label: 'aaaa',
+        value: 'aaaa'
+      },
+      account: {
+        label: 'aaa',
+        id: 'aaa'
+      },
+      action: {
+        icon: Icons.SettingIcon,
+        label: 'Correct 2',
+        onAction: (card) => {
+          console.log(card);
+        }
+      }
+    }
+  ]
 };

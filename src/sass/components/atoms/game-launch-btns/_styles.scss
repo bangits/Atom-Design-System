@@ -1,0 +1,92 @@
+@mixin generate-game-launch-btns-styles {
+  .HoverBox-PlayBtn {
+    border: solid transparent 0;
+    background-color: transparent;
+    cursor: pointer;
+    display: block;
+    width: getProviderDetailsSizes(hoverbox-playbtn-sizes);
+    height: getProviderDetailsSizes(hoverbox-playbtn-sizes);
+    border: solid getProviderDetailsColors(hoverbox-play-btn-border-color)
+      getProviderDetailsSizes(hover-box-play-button-border);
+    @include center-absolute();
+    padding: getProviderDetailsSizes(hover-box-play-button-padding);
+    z-index: getProviderDetailsSizes(hoverbox-playbtn-z-index);
+    border-radius: getProviderDetailsSizes(hoverbox-playbtn-border-radius);
+    margin-top: getProviderDetailsSizes(hoverbox-playbtn-margin-top);
+    opacity: 0;
+    transition: all getProviderDetailsSizes(hoverbox-playbtn-transition) linear;
+    &:hover {
+      .HoverBox-PlayBtnInner {
+        background-color: getProviderDetailsColors(hover-box-play-btn-inner-background);
+        opacity: getProviderDetailsSizes(hover-box-play-btn-inner-opacity);
+      }
+    }
+  }
+  .HoverBox-PlayBtnInner {
+    width: 100%;
+    height: 100%;
+    background-color: getProviderDetailsColors(hoverbox-playbtn-background-color);
+    z-index: getProviderDetailsSizes(hoverbox-playbtn-inner-z-index);
+    border-radius: getProviderDetailsSizes(hoverbox-playbtn-border-radius);
+    transition: background getProviderDetailsSizes(hover-box-button-animation) linear;
+    @include flex(center, center);
+  }
+  .HoverBox-PlayBtnIcon {
+    display: block;
+    height: getProviderDetailsSizes(hover-box-play-btn-icon-height);
+    width: getProviderDetailsSizes(hoverbox-play-btn-icon-width);
+    @include flex(center, center);
+    transform: translate(getProviderDetailsSizes(hoverbox-play-btn-icon-transform), 0);
+    svg {
+      fill: getProviderDetailsColors(play-icon-fill);
+    }
+  }
+  .HoverBox-Link {
+    cursor: pointer;
+    border: solid transparent 0 !important;
+    background-color: transparent !important;
+    width: 100%;
+    opacity: 0;
+    display: block;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    padding-left: 0;
+    padding-right: 0;
+    right: getProviderDetailsSizes(hoverbox-link-text-position-right);
+    transform: translate(getProviderDetailsSizes(hoverbox-link-text-position-right), 0);
+    z-index: getProviderDetailsSizes(hoverbox-view-icon-z-index);
+    transition: all linear getProviderDetailsSizes(hoverbox-playbtn-transition);
+    button {
+      cursor: pointer;
+      background-color: transparent;
+      margin: 0;
+    }
+    &__Text {
+      position: relative;
+      top: 0;
+      left: 0;
+      color: getProviderDetailsColors(hoverbox-view-icon-color);
+      font-size: getProviderDetailsSizes(hoverbox-link-text-font-size);
+      opacity: getProviderDetailsSizes(hover-box-link--text-opacity);
+      transition: all getProviderDetailsSizes(hover-box-button-animation) linear;
+      padding-left: 0;
+      padding-right: 0;
+      border: 0;
+      font-weight: getProviderDetailsSizes(hover-box-link--text-font-weight);
+      &:hover {
+        opacity: getProviderDetailsSizes(hover-box-link--text-hover-opacity);
+      }
+      &:after {
+        content: '';
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: getProviderDetailsSizes(hover-box-link--text-after-height);
+        background-color: getProviderDetailsColors(hover-box-link-text-after-backgroud-color);
+      }
+    }
+  }
+}
