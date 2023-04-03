@@ -5,6 +5,7 @@
       width: fit-content;
       overflow: hidden;
       height: auto;
+      min-height: calculateRem(160px);
       position: absolute;
       z-index: 2;
       bottom: 0;
