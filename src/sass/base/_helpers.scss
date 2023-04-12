@@ -111,8 +111,12 @@
   flex-direction: column;
 }
 
-.m-w-100 {
+.max-w-100 {
   max-width: 100%;
+}
+
+.min-w-100 {
+  min-width: 100%;
 }
 
 .fullwidth-form.fullwidth-form {
@@ -242,4 +246,8 @@
 
 .italic {
   font-style: italic;
+}
+
+.m-t-minus-2 {
+  margin-top: -2em;
 }
