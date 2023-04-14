@@ -8,7 +8,7 @@ $data-table-sizes: (
   //
   table-config-wrapper-margin-bottom: calculateRem(8px),
   empty-table-min-height: calculateRem(450px),
-  data-table-single-item-min-height: calculateRem(190px),
+  data-table-single-item-min-height: calculateRem(338px),
   data-table-image-hover-column-width: calculateRem(40px),
   data-table-image-hover-column-height: calculateRem(40px),
   data-table-image-hover-column-left: calculateRem(107px),
@@ -23,7 +23,6 @@ $data-table-sizes: (
 $data-table-colors: (
   image-box-shadow-color: color(box-shadow-image)
 );
-
 @function getDataTableSizes($key) {
   @return map-get($data-table-sizes, $key);
 }

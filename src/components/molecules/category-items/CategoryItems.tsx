@@ -50,6 +50,7 @@ const CategoryItems: FC<PropsWithChildren<CategoryItemsProps>> = ({
 
   return (
     <div
+      data-scroll-container
       className={classNames(styles.CategoryItems, {
         [styles['CategoryItems--filter']]: isFilter,
         [styles['CategoryItems--fix-height']]: fixHeight,

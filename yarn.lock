@@ -1587,6 +1587,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 "@my-ui/core@^0.9.74":
   version "0.9.74"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.9.74.tgz#70469ee09ae3b9b1189ae709cb8a0e4b1deb3966"
@@ -1603,6 +1604,12 @@
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.9.92.tgz#0f1ac578be0abf203aa9e5cfebce3317b6c96290"
   integrity sha1-DxrFeL4KvyA6qeXP684zF7bJYpA=
 >>>>>>> 275a4857bacbb2daa18f6217d1ab87de28e50386
+=======
+"@my-ui/core@^0.9.94":
+  version "0.9.94"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.9.94.tgz#d5ce3d1da66a15c5051d1e59958fadb0b88a705a"
+  integrity sha1-1c49HaZqFcUFHR5ZlY+tsLiKcFo=
+>>>>>>> 21b923a219b1fdbee605c792c67c4eb6707d443f
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"
