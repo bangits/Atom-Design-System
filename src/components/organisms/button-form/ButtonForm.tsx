@@ -26,8 +26,10 @@ const ButtonForm: FC<ButtonFormProps> = ({
   children,
   getContainerProps,
   className,
-  showPosition
+  showPosition: showPositionProp
 }) => {
+  const [showPosition, setShowPosition] = useState(showPositionProp);
+
   const buttonFormContainerRef = useRef<HTMLDivElement>(null);
 
   const [isOpenedForm, setOpenedForm] = useState(false);
@@ -69,7 +71,21 @@ const ButtonForm: FC<ButtonFormProps> = ({
           className={classNames(styles['ButtonForm__content'], {
             [styles[`ButtonForm__content--${showPosition}`]]: showPosition
           })}>
-          {typeof children === 'function' ? children(buttonFormRenderArguments) : children}
+          <div
+            ref={(element) => {
+              if (!element) return;
+
+              const scrollContainer = element.closest('[data-scroll-container]');
+
+              if (!scrollContainer) return;
+
+              const { right: scrollContainerRight } = scrollContainer.getBoundingClientRect();
+              const { right: elementRight, width: elementWidth } = element.getBoundingClientRect();
+
+              setShowPosition(elementRight + elementWidth > scrollContainerRight ? 'right' : 'left');
+            }}>
+            {typeof children === 'function' ? children(buttonFormRenderArguments) : children}
+          </div>
         </Card>
       </CSSTransition>
     </div>
