@@ -82,7 +82,7 @@ const ButtonForm: FC<ButtonFormProps> = ({
               const { right: scrollContainerRight } = scrollContainer.getBoundingClientRect();
               const { right: elementRight, width: elementWidth } = element.getBoundingClientRect();
 
-              setShowPosition(elementRight + elementWidth > scrollContainerRight ? 'right' : 'left');
+              if (elementRight + elementWidth > scrollContainerRight) setShowPosition('right');
             }}>
             {typeof children === 'function' ? children(buttonFormRenderArguments) : children}
           </div>
