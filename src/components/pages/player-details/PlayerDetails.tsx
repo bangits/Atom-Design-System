@@ -46,6 +46,8 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
     usedDeviceLabel: string;
     bonuses: string;
     noDataText: string;
+    real: string;
+    promotional: string;
   };
   tabs?: {
     tab?: TabProps & {
@@ -63,7 +65,8 @@ export interface PlayerDetailsProps extends UserViewProps, WalletViewProps, Last
   userName: string;
   userId: number;
   documents: ReactNode;
-  wallet: ReactNode;
+  realWallet: ReactNode;
+  promotionalWallet: ReactNode;
   selectContent: ReactNode;
   bonusesContent: ReactNode;
 }
@@ -82,7 +85,8 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
   usedDevices,
   translations,
   documents,
-  wallet,
+  realWallet,
+  promotionalWallet,
   verifiedIcon,
   usedDeviceLabel,
   noDataText,
@@ -137,11 +141,6 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                       value: 1,
                       content: playerDetails
                     }
-                    // {
-                    //   title: translations.playerKPI,
-                    //   value: 2,
-                    //   content: playerKPI
-                    // }
                   ]
                 },
                 {
@@ -152,7 +151,18 @@ const PlayerDetails: FC<PlayerDetailsProps> = ({
                 {
                   title: translations.wallet,
                   value: 3,
-                  content: wallet
+                  subTabs: [
+                    {
+                      title: translations.real,
+                      value: 1,
+                      content: realWallet
+                    },
+                    {
+                      title: translations.promotional,
+                      value: 2,
+                      content: promotionalWallet
+                    }
+                  ]
                 },
                 {
                   title: translations.bonuses,
