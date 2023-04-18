@@ -12,3 +12,4 @@ export * from './info-toolitp';
 export * from './label';
 export * from './small-button';
 export * from './speed-indicator';
+export * from './popover';
