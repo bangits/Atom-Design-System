@@ -1,6 +1,7 @@
 /* eslint-disable prefer-const */
+import { addQueryString, useQueryString } from '@/helpers';
 import { Card, Scroll, SubTab, Tab } from '@my-ui/core';
-import { FC, ReactNode, useMemo, useState } from 'react';
+import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import styles from './ItemDetails.module.scss';
 
 export interface ItemDetailsProps {
@@ -35,6 +36,8 @@ const ItemDetails: FC<ItemDetailsProps> = ({
   subTabValue,
   onTabChange
 }) => {
+  const { tab: tabQSValue, subTab: subTabQSValue } = useQueryString<{ tab: string; subTab: string }>();
+
   tabs = tabs.filter(Boolean);
 
   let [currentTab, setCurrentTab] = useState<number>(defaultTabValue);
@@ -50,6 +53,17 @@ const ItemDetails: FC<ItemDetailsProps> = ({
     [currentTabInfo, currentSubTab]
   );
 
+  useEffect(() => {
+    const tab = tabs.find((tab) => tab?.value === +tabQSValue);
+    const subTab = subTabQSValue && tab?.subTabs?.find((sub) => sub?.value === +subTabQSValue);
+
+    if (tab) setCurrentTab(+tabQSValue || null);
+
+    if (subTab) setCurrentSubTab(+subTabQSValue || null);
+
+    if (tab) onTabChange?.(+tabQSValue || null, +subTabQSValue || undefined);
+  }, [tabQSValue, subTabQSValue]);
+
   return (
     <Card borderRadius={1.6} className={styles.ItemDetailsBase}>
       <Tab
@@ -59,11 +73,14 @@ const ItemDetails: FC<ItemDetailsProps> = ({
 
           if (onTabChange) onTabChange(value, currentTab.defaultValue || null);
 
-          setCurrentSubTab(currentTab?.subTabs ? currentTab?.subTabs[0]?.value : null);
+          const subTabValue = currentTab?.subTabs ? currentTab?.subTabs[0]?.value : null;
+
           setCurrentTab(value);
+          setCurrentSubTab(subTabValue);
+
+          addQueryString(`?tab=${value}${subTabValue ? `&subTab=${subTabValue}` : ''}`);
         }}
-        defaultValue={currentTab}
-        value={tabValue}
+        value={currentTab}
       />
       <div className={styles['ItemDetailsBase--sub-tabs']}>
         {currentTabInfo?.subTabs && (
@@ -73,6 +90,8 @@ const ItemDetails: FC<ItemDetailsProps> = ({
             onChange={(value) => {
               if (onTabChange) onTabChange(currentTab, value);
               setCurrentSubTab(value);
+
+              addQueryString(`?tab=${currentTab}${value ? `&subTab=${value}` : ''}`);
             }}
           />
         )}
