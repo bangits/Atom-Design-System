@@ -1,7 +1,8 @@
 /* eslint-disable prefer-const */
-import { addQueryString, useQueryString } from '@/helpers';
-import { Card, Scroll, SubTab, Tab } from '@my-ui/core';
-import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
+import { Tab, TabProps } from '@/atom-design-system';
+import { addQueryString } from '@/helpers';
+import { Card, Scroll, SubTab } from '@my-ui/core';
+import { FC, ReactNode, useCallback, useMemo, useState } from 'react';
 import styles from './ItemDetails.module.scss';
 
 export interface ItemDetailsProps {
@@ -36,8 +37,6 @@ const ItemDetails: FC<ItemDetailsProps> = ({
   subTabValue,
   onTabChange
 }) => {
-  const { tab: tabQSValue, subTab: subTabQSValue } = useQueryString<{ tab: string; subTab: string }>();
-
   tabs = tabs.filter(Boolean);
 
   let [currentTab, setCurrentTab] = useState<number>(defaultTabValue);
@@ -47,27 +46,39 @@ const ItemDetails: FC<ItemDetailsProps> = ({
   currentTab = tabValue ?? currentTab;
   currentSubTab = subTabValue ?? currentSubTab;
 
-  const currentTabInfo = useMemo(() => tabs.find((tab) => tab?.value === currentTab), [tabs, currentTab]);
+  const getTab = useCallback((tabValue: TabProps['value']) => tabs.find((tab) => tab?.value === tabValue), [tabs]);
+  const checkSubTab = useCallback(
+    (tabValue: TabProps['value'], subTabValue: TabProps['value']) => {
+      const tab = getTab(tabValue);
+
+      if (!tab) return false;
+
+      return !!tab?.subTabs?.find((sub) => sub?.value === subTabValue);
+    },
+    [getTab]
+  );
+  const getTabInitialSub = useCallback(
+    (tabValue: TabProps['value']) => {
+      const currentTab = getTab(tabValue);
+
+      return currentTab?.subTabs ? currentTab?.subTabs[0]?.value : null;
+    },
+    [getTab]
+  );
+
+  const currentTabInfo = useMemo(() => getTab(currentTab), [getTab, currentTab]);
   const currentSubTabInfo = useMemo(
     () => currentTabInfo?.subTabs?.find((sub) => sub?.value === currentSubTab),
     [currentTabInfo, currentSubTab]
   );
 
-  useEffect(() => {
-    const tab = tabs.find((tab) => tab?.value === +tabQSValue);
-    const subTab = subTabQSValue && tab?.subTabs?.find((sub) => sub?.value === +subTabQSValue);
-
-    if (tab) setCurrentTab(+tabQSValue || null);
-
-    if (subTab) setCurrentSubTab(+subTabQSValue || null);
-
-    if (tab) onTabChange?.(+tabQSValue || null, +subTabQSValue || undefined);
-  }, [tabQSValue, subTabQSValue]);
-
   return (
     <Card borderRadius={1.6} className={styles.ItemDetailsBase}>
       <Tab
         options={tabs}
+        setCurrentSubTab={setCurrentSubTab}
+        checkSubTab={checkSubTab}
+        getTabInitialSub={getTabInitialSub}
         onChange={(value) => {
           const currentTab = tabs.find((tab) => tab?.value === value);
 
@@ -77,8 +88,6 @@ const ItemDetails: FC<ItemDetailsProps> = ({
 
           setCurrentTab(value);
           setCurrentSubTab(subTabValue);
-
-          addQueryString(`?tab=${value}${subTabValue ? `&subTab=${subTabValue}` : ''}`);
         }}
         value={currentTab}
       />
