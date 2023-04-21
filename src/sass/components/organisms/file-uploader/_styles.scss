@@ -10,6 +10,14 @@
             pointer-events: none;
         }
     }
+    .FileUploaderErrorMessage {
+        &--sameLineError {
+            display: flex
+        }
+        &--marginLeft {
+            margin-left: calculateRem(6px)
+        }
+    }
     .FileUploaderLabelContainer {
         @include flex(space-between, center);
         margin-top: getFileUploaderSizes(container-margin-top);
