@@ -1,2 +1,2 @@
 export { default as Popover } from './Popover';
-export { PopoverProps, AlignemntHorizontal, AlignmentVertical } from '@my-ui/core';
+export { PopoverProps, AlignmentHorizontal, AlignmentVertical } from '@my-ui/core';
