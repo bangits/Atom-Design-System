@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ['develop', file-upload]
+    branches: ['staging']
   pull_request:
-    branches: ['develop', file-upload]
+    branches: ['staging']
 
   workflow_dispatch:
 
