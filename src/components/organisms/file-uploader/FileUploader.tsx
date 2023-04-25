@@ -53,7 +53,8 @@ export const FileUploader: FC<FileUploaderProps> = ({
 
       <div
         className={classNames(styles.FileUploaderErrorMessage, {
-          [styles['FileUploaderErrorMessage--sameLineError']]: variant === FileUploaderVariants.link
+          [styles['FileUploaderErrorMessage--sameLineError']]: variant === FileUploaderVariants.link,
+          [styles['FileUploaderErrorMessage--fullWidth']]: fullWidth
         })}>
         <MyUIFileUploader {...fileUploaderProps} renderEl={(props) => renderEl(variant, props)} />
 
