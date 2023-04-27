@@ -135,23 +135,22 @@ const UserDetails: FC<UserDetailsProps> = ({
                 value: 1,
                 content: generalInformationContext
               },
-              rolesContent &&
-                permissionsContent && {
-                  title: translations.roleAndPermission,
-                  value: 2,
-                  subTabs: [
-                    {
-                      title: translations.roles,
-                      value: 1,
-                      content: rolesContent
-                    },
-                    {
-                      title: translations.permissions,
-                      value: 2,
-                      content: permissionsContent
-                    }
-                  ]
-                },
+              {
+                title: translations.roleAndPermission,
+                value: 2,
+                subTabs: [
+                  {
+                    title: translations.roles,
+                    value: 1,
+                    content: rolesContent
+                  },
+                  {
+                    title: translations.permissions,
+                    value: 2,
+                    content: permissionsContent
+                  }
+                ]
+              },
               {
                 title: translations.wallet,
                 value: 3,

@@ -1,19 +1,20 @@
 import { EditedFormOptions, Icons } from '@/atom-design-system';
 import { IconButton } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import { SortableElement } from 'react-sortable-hoc';
 import styles from './SettingsItemGroups.module.scss';
 
 export interface SettingsItemGroupProps {
   indexValue: number;
   groupTitle: string;
-  elements: string[];
+  elements: ReactNode[];
   noDataText?: string;
   translations: {
     groupTitle: string;
     elements: string;
   };
+  customElements?: boolean;
   hideSortIcon?: boolean;
   onEdit?(): void;
   onRemove?(): void;
@@ -27,7 +28,8 @@ const SettingsItemGroup: FC<SettingsItemGroupProps> = ({
   noDataText,
   onEdit,
   onRemove,
-  hideSortIcon
+  hideSortIcon,
+  customElements
 }) => {
   return (
     <div className={styles.SettingsItemGroup}>
@@ -39,11 +41,19 @@ const SettingsItemGroup: FC<SettingsItemGroupProps> = ({
             value: groupTitle,
             variant: 'default'
           },
-          {
-            title: translations.elements,
-            value: elements,
-            variant: 'tag'
-          }
+          ...[
+            customElements
+              ? {
+                  title: translations.elements,
+                  value: elements,
+                  variant: 'custom' as const,
+                }
+              : {
+                  title: translations.elements,
+                  value: elements.map((el) => el.toString()),
+                  variant: 'tag' as const
+                }
+          ]
         ]}
         noDataText={noDataText || 'N/A'}
       />
