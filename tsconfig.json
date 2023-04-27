@@ -1,9 +1,9 @@
 {
   "compilerOptions": {
+    "isolatedModules": true,
     "moduleResolution": "Node",
-    "declaration": true,
+    "declaration": false,
     "module": "system",
-    "declarationDir": "dist",
     "rootDir": "src",
     "outDir": "dist",
     "jsx": "react-jsx",

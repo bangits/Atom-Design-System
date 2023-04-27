@@ -1,1 +1,2 @@
-export { default as ImageGallery, ImageGalleryProps } from './ImageGallery';
+export { default as ImageGallery } from './ImageGallery';
+export type { ImageGalleryProps } from './ImageGallery';

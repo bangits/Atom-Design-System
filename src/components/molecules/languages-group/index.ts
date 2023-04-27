@@ -1,1 +1,2 @@
-export { default as LanguagesGroup, LanguagesGroupProps } from './LanguagesGroup';
+export { default as LanguagesGroup } from './LanguagesGroup';
+export type { LanguagesGroupProps } from './LanguagesGroup';

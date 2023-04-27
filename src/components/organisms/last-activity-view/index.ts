@@ -1,1 +1,2 @@
-export { default as LastActivityView, LastActivityViewProps } from './LastActivityView';
+export { default as LastActivityView } from './LastActivityView';
+export type { LastActivityViewProps } from './LastActivityView';

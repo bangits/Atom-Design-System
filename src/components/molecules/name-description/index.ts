@@ -1,1 +1,2 @@
-export { default as NameDescription, NameDescriptionProps } from './NameDescription';
+export { default as NameDescription } from './NameDescription';
+export type { NameDescriptionProps } from './NameDescription';

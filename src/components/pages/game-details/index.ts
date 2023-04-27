@@ -1,2 +1,4 @@
-export { default as GameCompatibility, GameCompatibilityProps } from './GameCompatibility';
-export { default as GameDetails, GameDetailsProps } from './GameDetails';
+export { default as GameCompatibility } from './GameCompatibility';
+export type { GameCompatibilityProps } from './GameCompatibility';
+export { default as GameDetails } from './GameDetails';
+export type { GameDetailsProps } from './GameDetails';

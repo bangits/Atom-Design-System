@@ -1,1 +1,2 @@
-export { default as Countries, CountriesProps } from './Countries';
+export { default as Countries } from './Countries';
+export type { CountriesProps } from './Countries';

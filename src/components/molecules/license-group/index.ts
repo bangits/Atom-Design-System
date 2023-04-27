@@ -1,1 +1,2 @@
-export { default as LicenseGroup, LicenseGroupProps } from './LicenseGroup';
+export { default as LicenseGroup } from './LicenseGroup';
+export type { LicenseGroupProps } from './LicenseGroup';

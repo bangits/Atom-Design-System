@@ -1,2 +1,2 @@
-export { default as ItemCategoriesCard, ItemCategoriesCardProps } from './ItemCategoriesCard';
-
+export { default as ItemCategoriesCard } from './ItemCategoriesCard';
+export type { ItemCategoriesCardProps } from './ItemCategoriesCard';

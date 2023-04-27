@@ -1,2 +1,2 @@
-export { default as ScrollableView, ScrollableViewProps } from './ScrollableView';
-
+export { default as ScrollableView } from './ScrollableView';
+export type { ScrollableViewProps } from './ScrollableView';

@@ -1,1 +1,2 @@
-export { default as SettingsItemGroups, SettingsItemGroupsProps } from './SettingsItemGroups';
+export { default as SettingsItemGroups } from './SettingsItemGroups';
+export type { SettingsItemGroupsProps } from './SettingsItemGroups';
