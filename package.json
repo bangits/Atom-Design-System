@@ -8,7 +8,7 @@
   "types": "./dist/atom-design-system.d.ts",
   "scripts": {
     "start:vite": "vite --host --open",
-    "build:vite": "tsc && vite build && dts-bundle-generator --config ./dts-bundle-generator.config.ts",
+    "build:vite": "tsc && vite build",
     "watch:vite": "tsc && vite build --watch",
     "start": "webpack serve --env production --mode production",
     "start-with-storybook": "yarn start && yarn storybook",
