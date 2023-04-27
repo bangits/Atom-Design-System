@@ -3,7 +3,7 @@
     "isolatedModules": true,
     "moduleResolution": "Node",
     "declaration": false,
-    "module": "system",
+    "module": "ESNext",
     "rootDir": "src",
     "outDir": "dist",
     "jsx": "react-jsx",
@@ -12,11 +12,10 @@
     "target": "ESNext",
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
-    "types": [],
+    "types": ["node"],
     "paths": {
-      // This paths synchronized with webpack shared config
       "@/*": ["*"]
     }
   },
-  "exclude": ["./node_modules"]
+  "exclude": ["./node_modules", "**/*.stories.tsx"]
 }

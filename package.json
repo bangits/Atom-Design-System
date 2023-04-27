@@ -4,16 +4,12 @@
   "files": [
     "dist"
   ],
+  "type": "module",
   "main": "",
   "types": "./dist/atom-design-system.d.ts",
   "scripts": {
-    "start:vite": "vite --host --open",
-    "build:vite": "tsc && vite build",
-    "watch:vite": "tsc && vite build --watch",
-    "start": "webpack serve --env production --mode production",
-    "start-with-storybook": "yarn start && yarn storybook",
-    "start:standalone": "webpack serve --env standalone",
-    "build": "webpack --mode=production --env production",
+    "start": "tsc && vite build --watch",
+    "build": "tsc && vite build",
     "lint": "eslint src --ext js,ts,tsx",
     "format": "yarn pretty-quick",
     "check-format": "prettier --check .",
@@ -47,6 +43,7 @@
     "@storybook/preset-scss": "^1.0.3",
     "@storybook/react": "^6.5.13",
     "@svgr/webpack": "^5.5.0",
+    "@types/node": "^18.16.1",
     "@types/react": "^17.0.27",
     "@types/react-dom": "^17.0.8",
     "@types/systemjs": "^6.1.0",

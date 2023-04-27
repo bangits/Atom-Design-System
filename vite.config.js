@@ -33,20 +33,17 @@ export default defineConfig({
   },
   plugins: [react(), svgr()],
   build: {
+    cssCodeSplit: true,
     sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, "src/atom-design-system.ts"),
-      name: "mylib",
-      formats: "system",
-      fileName: 'atom-design-system.js',
+      formats: ["system"],
+      fileName: 'atom-design-system',
     },
     rollupOptions: {
       external: ["react", "react-dom"],
       output: {
-        globals: {
-          react: "React",
-          "react-dom": "ReactDOM",
-        },
+        intro: `const process = {env: ${JSON.stringify(process.env)}}`,
       },
     },
   },
