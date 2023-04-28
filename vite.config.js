@@ -33,13 +33,16 @@ export default defineConfig({
     }
   },
   plugins: [react(), svgr()],
+  preview: {
+    port: 6005
+  },
   build: {
     cssCodeSplit: true,
     sourcemap: true,
     lib: {
       entry: path.resolve(__dirname, "src/atom-design-system.ts"),
       formats: ["system"],
-      fileName: 'atom-design-system',
+      fileName: () => 'atom-design-system.js',
     },
     rollupOptions: {
       external: ["react", "react-dom"],
