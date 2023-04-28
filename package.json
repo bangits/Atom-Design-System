@@ -4,11 +4,10 @@
   "files": [
     "dist"
   ],
-  "type": "module",
   "main": "",
   "types": "./dist/atom-design-system.d.ts",
   "scripts": {
-    "start": "tsc && vite build --watch",
+    "start": "concurrently \"tsc && vite build --watch\" \"yarn vite preview\"",
     "build": "tsc && vite build",
     "lint": "eslint src --ext js,ts,tsx",
     "format": "yarn pretty-quick",
@@ -23,7 +22,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.6",
-    "@babel/eslint-parser": "^7.14.7",
+    "@babel/eslint-parser": "^7.21.3",
     "@babel/plugin-transform-runtime": "^7.14.5",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
@@ -37,6 +36,7 @@
     "@storybook/addon-links": "^6.5.13",
     "@storybook/addon-storysource": "^6.5.13",
     "@storybook/addon-viewport": "^6.5.13",
+    "@storybook/builder-vite": "^7.0.7",
     "@storybook/builder-webpack5": "^6.5.13",
     "@storybook/cli": "^6.5.13",
     "@storybook/manager-webpack5": "^6.5.13",
@@ -56,6 +56,7 @@
     "babel-loader": "^8.2.2",
     "babel-runtime": "^6.26.0",
     "clean-webpack-plugin": "^4.0.0",
+    "concurrently": "^8.0.1",
     "copy-webpack-plugin": "^9.0.1",
     "css-loader": "^6.2.0",
     "dts-bundle-generator": "^8.0.1",
