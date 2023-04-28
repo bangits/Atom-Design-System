@@ -8,6 +8,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
+        //🚀🚀🚀🚀🚀 THIS ADDITIONAL SCSS IS BOUND WITH RESOURCES.SCSS 🚀🚀🚀🚀🚀
         additionalData: [
         "@import './src/sass/abstracts/variables';",
         "@import './src/sass/abstracts/mixins';",
