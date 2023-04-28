@@ -1,1 +1,2 @@
-export { default as DnDItem, DnDItemProps } from './DnDItem';
+export { default as DnDItem } from './DnDItem';
+export type { DnDItemProps } from './DnDItem';

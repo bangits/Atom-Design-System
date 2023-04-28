@@ -1,1 +1,2 @@
-export { default as PageCard, PageCardProps } from './PageCard';
+export { default as PageCard } from './PageCard';
+export type { PageCardProps } from './PageCard';

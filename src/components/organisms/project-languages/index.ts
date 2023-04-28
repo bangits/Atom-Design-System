@@ -1,2 +1,2 @@
-export { default as ProjectLanguages, ProjectLanguagesProps } from './ProjectLanguages';
-
+export { default as ProjectLanguages } from './ProjectLanguages';
+export type { ProjectLanguagesProps } from './ProjectLanguages';

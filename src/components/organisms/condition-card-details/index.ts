@@ -1,1 +1,2 @@
-export { default as ConditionDetails, ConditionDetailsProps } from './ConditionDetails';
+export { default as ConditionDetails } from './ConditionDetails';
+export type { ConditionDetailsProps } from './ConditionDetails';

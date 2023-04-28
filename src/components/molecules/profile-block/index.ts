@@ -1,1 +1,2 @@
-export { default as ProfileBlock, ProfileBlockProps } from './ProfileBlock';
+export { default as ProfileBlock } from './ProfileBlock';
+export type { ProfileBlockProps } from './ProfileBlock';

@@ -1,1 +1,2 @@
-export { default as CountView, CountViewProps } from './CountView';
+export { default as CountView } from './CountView';
+export type { CountViewProps } from './CountView';

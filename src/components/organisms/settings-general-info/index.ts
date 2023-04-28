@@ -1,1 +1,2 @@
-export { default as WebSiteGeneralInfo, WebSiteGeneralInfoProps } from './WebSiteGeneralInfo';
+export { default as WebSiteGeneralInfo } from './WebSiteGeneralInfo';
+export type { WebSiteGeneralInfoProps } from './WebSiteGeneralInfo';

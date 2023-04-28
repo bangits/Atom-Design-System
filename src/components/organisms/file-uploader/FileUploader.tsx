@@ -75,11 +75,5 @@ export const FileUploader: FC<FileUploaderProps> = ({
   );
 };
 
-export {
-  FileUploaderErrors,
-  LinkFileUploader,
-  InputFileUploader,
-  BaseFileUploaderProps,
-  RenderElProps,
-  FileUploaderProps as MyUIFileUploaderProps
-} from '@my-ui/core';
+export { FileUploaderErrors, LinkFileUploader, InputFileUploader } from '@my-ui/core';
+export type { BaseFileUploaderProps, RenderElProps, FileUploaderProps as MyUIFileUploaderProps } from '@my-ui/core';

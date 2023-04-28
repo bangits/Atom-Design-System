@@ -1,1 +1,2 @@
-export { default as UserLanguages, UserLanguagesProps } from './UserLanguages';
+export { default as UserLanguages } from './UserLanguages';
+export type { UserLanguagesProps } from './UserLanguages';

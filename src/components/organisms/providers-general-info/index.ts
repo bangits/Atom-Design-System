@@ -1,1 +1,2 @@
-export { default as ProvidersGeneralInfo, ProvidersGeneralInfoProps } from './ProvidersGeneralInfo';
+export { default as ProvidersGeneralInfo } from './ProvidersGeneralInfo';
+export type { ProvidersGeneralInfoProps } from './ProvidersGeneralInfo';

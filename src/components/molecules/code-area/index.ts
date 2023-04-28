@@ -1,2 +1,2 @@
-export { CodeAreaProps, default as CodeArea } from './CodeArea';
-
+export { default as CodeArea } from './CodeArea';
+export type { CodeAreaProps } from './CodeArea';

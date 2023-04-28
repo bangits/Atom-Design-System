@@ -1,2 +1,2 @@
-export { default as ProjectCard, ProjectCardProps } from './ProjectCard';
-
+export { default as ProjectCard } from './ProjectCard';
+export type { ProjectCardProps } from './ProjectCard';

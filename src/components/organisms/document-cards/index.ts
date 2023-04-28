@@ -1,1 +1,2 @@
-export { default as DocumentCards, DocumentCardsProps } from './DocumentCards';
+export { default as DocumentCards } from './DocumentCards';
+export type { DocumentCardsProps } from './DocumentCards';

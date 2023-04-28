@@ -1,1 +1,2 @@
-export { default as InputWithGenerator, InputWithGeneratorProps } from './InputWithGenerator';
+export { default as InputWithGenerator } from './InputWithGenerator';
+export type { InputWithGeneratorProps } from './InputWithGenerator';
