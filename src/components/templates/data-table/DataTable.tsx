@@ -373,6 +373,7 @@ function DataTable<T extends {}, K>({
           },
           onClick: (row, e, rowIndex) => action.onClick(row, e, rowIndex),
           shouldShow: action.shouldShow,
+          shouldShowBulkAction: action.shouldShowBulkAction,
           props: {
             icon: <IconComponent />
           }
@@ -386,12 +387,17 @@ function DataTable<T extends {}, K>({
     () =>
       (actions || tableBulkActionsProps) && selectedRows.length > 1
         ? [
-            ...actions.map(
-              ({ component: Component, onClick, shouldShow, props }, rowIndex) =>
-                (!shouldShow || selectedRows.every((column) => shouldShow(column))) && (
+            ...actions.map(({ component: Component, onClick, shouldShow, shouldShowBulkAction, props }, rowIndex) => {
+              const showBulkAction = shouldShowBulkAction
+                ? shouldShowBulkAction(selectedRows)
+                : selectedRows.every((column) => shouldShow(column));
+
+              return (
+                (!shouldShow || showBulkAction) && (
                   <Component onClick={(e) => onClick(selectedRows, e, rowIndex)} {...props} />
                 )
-            ),
+              );
+            }),
             ...(tableBulkActionsProps?.map(
               ({ component, shouldShow }) => shouldShow(selectedRows) && component(selectedRows)
             ) || [])
@@ -581,7 +587,7 @@ function DataTable<T extends {}, K>({
         actions={actions}
         columns={tableColumns}
         onColumnsChange={(columns) => {
-          const columnsHashMap = columns.reduce<Record<string, typeof columns[0] & { index: number }>>(
+          const columnsHashMap = columns.reduce<Record<string, (typeof columns)[0] & { index: number }>>(
             (acc, column, index) => ({ ...acc, [column.accessor]: { ...column, index: index + 1 } }),
             {}
           );
