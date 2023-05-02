@@ -1,1 +1,2 @@
-export { default as VerticalTabs, VerticalTabsProps } from './VerticalTabs';
+export { default as VerticalTabs } from './VerticalTabs';
+export type { VerticalTabsProps } from './VerticalTabs';

@@ -1,1 +1,2 @@
-export { default as TiersForm, TiersFormProps } from './TiersForm';
+export { default as TiersForm } from './TiersForm';
+export type { TiersFormProps } from './TiersForm';

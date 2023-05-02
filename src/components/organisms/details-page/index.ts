@@ -1,1 +1,2 @@
-export { default as DetailsPage, DetailsPageProps } from './DetailsPage';
+export { default as DetailsPage } from './DetailsPage';
+export type { DetailsPageProps } from './DetailsPage';

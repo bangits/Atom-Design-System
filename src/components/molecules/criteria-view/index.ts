@@ -1,1 +1,2 @@
-export { CriteriaViewProps, default as CriteriaView } from './CriteriaView';
+export { default as CriteriaView } from './CriteriaView';
+export type { CriteriaViewProps } from './CriteriaView';

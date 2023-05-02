@@ -1,7 +1,7 @@
 import { typedMemo } from '@/helpers';
 import { BalanceIcon } from '@/icons';
 import { Typography } from '@my-ui/core';
-import React, { FC, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import styles from './Balance.module.scss';
 
 export interface BalanceProps {

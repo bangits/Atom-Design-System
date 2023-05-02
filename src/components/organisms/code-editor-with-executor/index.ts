@@ -1,2 +1,2 @@
-export { CodeEditorWithExecutorProps, default as CodeEditorWithExecutor } from './CodeEditorWithExecutor';
-
+export { default as CodeEditorWithExecutor } from './CodeEditorWithExecutor';
+export type { CodeEditorWithExecutorProps } from './CodeEditorWithExecutor';

@@ -1,1 +1,2 @@
-export { default as NameAndId, NameAndIdProps } from './NameAndId';
+export { default as NameAndId } from './NameAndId';
+export type { NameAndIdProps } from './NameAndId';

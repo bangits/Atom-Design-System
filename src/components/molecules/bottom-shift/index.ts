@@ -1,1 +1,2 @@
-export { BottomShiftProps, default as BottomShift } from './BottomShift';
+export { default as BottomShift } from './BottomShift';
+export type { BottomShiftProps } from './BottomShift';

@@ -1,1 +1,2 @@
-export { default as ElementsGroup, ElementsGroupProps } from './ElementsGroup';
+export { default as ElementsGroup } from './ElementsGroup';
+export type { ElementsGroupProps } from './ElementsGroup';

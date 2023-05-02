@@ -1,1 +1,2 @@
-export { default as SliderBanners, SliderBannersProps } from './SliderBanners';
+export { default as SliderBanners } from './SliderBanners';
+export type { SliderBannersProps } from './SliderBanners';
