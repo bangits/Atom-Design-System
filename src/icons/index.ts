@@ -168,5 +168,3 @@ export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as DeletePopupIcon } from './delete-popup-icon.react.svg';
 export { ReactComponent as AddNotePopupIcon } from './add-note-popup-icon.react.svg';
 export { ReactComponent as SwitchOnOff } from './switch-on-off.svg';
-export { ReactComponent as PopupSwitchOn } from './popup-switch-on.svg';
-export { ReactComponent as PopupSwitchOff } from './popup-switch-off.svg';
