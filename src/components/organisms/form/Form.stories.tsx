@@ -1,6 +1,7 @@
 import { action } from '@storybook/addon-actions';
-import { boolean, object, withKnobs } from '@storybook/addon-knobs';
+import { boolean, withKnobs } from '@storybook/addon-knobs';
 import Form from './Form';
+import React from 'react';
 
 export default {
   component: Form,
@@ -23,7 +24,7 @@ export const Default = () => {
       renderInputs={(Component, name) => {
         return <Component />;
       }}
-      fields={object('fields', [
+      fields={[
         {
           type: 'input',
           name: 'firstName',
@@ -230,7 +231,7 @@ export const Default = () => {
           label: 'First Name',
           col: 12
         }
-      ])}
+      ]}
     />
   );
 };
