@@ -7,6 +7,7 @@ import styles from './PageWrapper.module.scss';
 
 export interface PageWrapperProps {
   title?: string;
+  customTitle?: ({ pageTitle }: { pageTitle: string }) => ReactNode;
   showButton?: boolean;
   buttonProps?: ButtonProps;
   buttonElement?: ReactNode;
@@ -21,6 +22,7 @@ export interface PageWrapperProps {
 const PageWrapper: FC<PageWrapperProps> = ({
   children,
   title,
+  customTitle,
   showButton,
   buttonElement,
   buttonProps = {},
@@ -38,19 +40,23 @@ const PageWrapper: FC<PageWrapperProps> = ({
           <Breadcrumb links={breadCrumbLinks} />
         </div>
       )}
-      {(title || showButton) && (
+      {(title || showButton || customTitle) && (
         <div className={styles.PageWrapperHeader}>
-          <Typography component='h2' variant='h3' className={styles.PageTitle}>
-            {title}
-            {infoIcon && <InfoTooltip isQuestion={infoIcon} infoTooltipText={infoTooltipText} />}
-            {subText && <LabelEndMark label={subText} text={id?.toString()} />}
-            {subTitle && (
-              <span className={styles['PageTitle--span']}>
-                <LargeArrowIcon height='0.8rem' width='2.4rem' />
-                <span className={styles['PageTitle--span--span']}>{subTitle}</span>
-              </span>
-            )}
-          </Typography>
+          {customTitle ? (
+            customTitle({ pageTitle: styles.PageTitle })
+          ) : (
+            <Typography component='h2' variant='h3' className={styles.PageTitle}>
+              {title}
+              {infoIcon && <InfoTooltip isQuestion={infoIcon} infoTooltipText={infoTooltipText} />}
+              {subText && <LabelEndMark label={subText} text={id?.toString()} />}
+              {subTitle && (
+                <span className={styles['PageTitle--span']}>
+                  <LargeArrowIcon height='0.8rem' width='2.4rem' />
+                  <span className={styles['PageTitle--span--span']}>{subTitle}</span>
+                </span>
+              )}
+            </Typography>
+          )}
 
           {showButton && (buttonElement || <Button {...buttonProps} type='button' />)}
         </div>
