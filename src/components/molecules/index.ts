@@ -25,6 +25,7 @@ export * from './game-card';
 export * from './game-categories-card';
 export * from './image-gallery';
 export * from './input-with-dropdown';
+export * from './input-with-switch';
 export * from './label-endmark';
 export * from './label-group';
 export * from './label-tag';
