@@ -390,7 +390,7 @@ function DataTable<T extends {}, K>({
             ...actions.map(({ component: Component, onClick, shouldShow, shouldShowBulkAction, props }, rowIndex) => {
               const showBulkAction = shouldShowBulkAction
                 ? shouldShowBulkAction(selectedRows)
-                : selectedRows.every((column) => shouldShow(column));
+                : selectedRows.every((column) => shouldShow?.(column));
 
               return (
                 (!shouldShow || showBulkAction) && (
