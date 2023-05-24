@@ -38,6 +38,7 @@
           &:last-child::after {
             content: '';
             position: absolute;
+            top: calculateRem(15px);
             left: calculateRem(-$border-size);
             border-bottom: calculateRem(1px) dashed #85859c;
             width: calculateRem($border-size);
