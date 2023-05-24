@@ -50,6 +50,7 @@
       display: flex;
       min-height: calculateRem(32px);
       margin-bottom: calculateRem(27px);
+      padding-bottom: calculateRem(12px);
       &:last-child {
         margin-bottom: 0;
       }
