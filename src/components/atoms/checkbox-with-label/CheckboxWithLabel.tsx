@@ -7,12 +7,14 @@ import styles from './CheckboxWithLabel.module.scss';
 
 export interface CheckboxWithLabelProps extends CheckboxProps {
   label?: string;
+  startLabel?: string;
   variant?: 'checkbox' | 'switch';
   tooltipText?: string;
 }
 
 const CheckboxWithLabel: FC<CheckboxWithLabelProps> = ({
   label,
+  startLabel,
   className,
   variant = 'checkbox',
   tooltipText,
@@ -38,9 +40,10 @@ const CheckboxWithLabel: FC<CheckboxWithLabelProps> = ({
         )}
       </span>
       <span className={styles.CheckboxLabel}>{label}</span>
-      <span className={styles.CheckboxContainer}>
+      <div className={styles.CheckboxContainer}>
         <Checkbox {...checkboxProps} variant={variant} />
-      </span>
+      </div>
+      <span className={styles.CheckboxLabel}>{startLabel}</span>
     </label>
   );
 };
