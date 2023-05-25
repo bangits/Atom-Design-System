@@ -1,6 +1,6 @@
 import { Countries, CurrencyGroup, LabelGroup, LicenseGroup } from '@/components';
 import { CopyField, TagCountryProps, TagProps, TooltipProps, Typography } from '@my-ui/core';
-import React, { FC } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './ProvidersGeneralInfo.module.scss';
 
 export interface ProvidersGeneralInfoProps {
@@ -43,6 +43,11 @@ export interface ProvidersGeneralInfoProps {
     tooltip?: Omit<TooltipProps, 'children'>;
     onClick: () => void;
   };
+
+  labelGroups?: {
+    title: string;
+    content: ReactNode;
+  }[];
 }
 
 const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
@@ -54,10 +59,19 @@ const ProvidersGeneralInfo: FC<ProvidersGeneralInfoProps> = ({
   realURL,
   demoURL,
   noDataText,
+  labelGroups = [],
   isCmsUser = false
 }) => {
   return (
     <div className={styles['ProviderGeneralInfo--items']}>
+      {labelGroups.map((group) => (
+        <LabelGroup title={group.title}>
+          <Typography variant='p4' className={styles['ProviderGeneralInfo--notCompleted']}>
+            {group.content}
+          </Typography>
+        </LabelGroup>
+      ))}
+
       <LabelGroup title={totalMarket.title} totalLabel={totalMarket.countries.length > 0 ? totalMarket.total : ''}>
         {totalMarket.countries.length > 0 ? (
           <Countries tagCountries={totalMarket.countries} />
