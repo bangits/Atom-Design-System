@@ -15,6 +15,9 @@ import styles from './ItemCategoriesCard.module.scss';
 export type FormWithInputAction = FormWithInputProps & {
   actionLabel: string;
   actionIcon?: ReactNode;
+  removeForm?: boolean;
+
+  onActionClick?(): void;
 };
 
 export interface ItemCategoriesCardProps {
@@ -128,6 +131,10 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                   <button
                     key={index}
                     onClick={() => {
+                      action.onActionClick?.();
+
+                      if (action.removeForm) return;
+
                       setSelectedFormProps(action);
 
                       setShowSelectedForm(true);
