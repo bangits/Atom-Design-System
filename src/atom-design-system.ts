@@ -22,11 +22,13 @@ export {
   IconButton,
   Loader,
   Pagination,
+  RadioButton,
   Scroll,
   Tag,
   Tooltip,
+  Typography,
   typedMemo,
-  Typography
+  type RadioButtonProps
 } from '@my-ui/core';
 export type {
   AcceptionDialogProps,

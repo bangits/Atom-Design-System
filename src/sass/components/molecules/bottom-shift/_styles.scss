@@ -1,18 +1,24 @@
 @mixin generate-bottom-shift-styles {
   .BottomShift {
-    @include flex($direction: column);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    z-index: 9999;
-    background: #fff;
-    transition: height 0.3s, padding 0.3s;
-    box-sizing: border-box;
-    height: 0;
-    padding: 0 calculateRem(22px);
-    overflow: hidden;
-    border-radius: 0;
+    &#{&} {
+      @include flex($direction: column);
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      z-index: 9999;
+      background: #fff;
+      transition: height 0.3s, padding 0.3s;
+      box-sizing: border-box;
+      height: 0;
+      padding: 0 calculateRem(22px);
+      overflow: hidden;
+      border-radius: 0;
+      &--open {
+        height: 100%;
+        padding-top: calculateRem(52px);
+      }
+    }
     &__close {
       position: fixed;
       top: calculateRem(10px);
@@ -21,10 +27,6 @@
       &--open {
         display: flex;
       }
-    }
-    &--open {
-      height: 100%;
-      padding-top: calculateRem(52px);
     }
   }
 }
