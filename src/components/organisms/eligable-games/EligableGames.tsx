@@ -63,7 +63,7 @@ const EligableGames: FC<EligableGamesProps> = ({
         {bulkActions && <DividerList className={styles.EligableGames__BulkActions}>{bulkActions}</DividerList>}
       </>
     ),
-    [lessLabel, getMoreLabel, providers, categories, searchInputProps, bulkActions]
+    [lessLabel, providers, categories, searchInputProps, bulkActions]
   );
 
   const scrollProps = useMemo<CategoryItemsProps['scrollProps']>(
