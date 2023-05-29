@@ -12,6 +12,9 @@
       margin-bottom: calculateRem(16px);
       transition: max-height 0.5s;
     }
+    &__Btn {
+      white-space: nowrap;
+    }
     &--ViewMoreClicked {
       #{$this}__List {
         max-height: 70vh;

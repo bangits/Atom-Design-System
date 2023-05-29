@@ -55,7 +55,10 @@ const ListViewMore: FC = ({ children }) => {
       </div>
 
       {showMoreBtn && (
-        <Button variant='link' onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
+        <Button
+          className={styles.ListViewMore__Btn}
+          variant='link'
+          onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
           {!isViewMoreButtonClicked ? `${getViewMoreLabel(remaindChildsCount)}` : viewLessLabel}
         </Button>
       )}
