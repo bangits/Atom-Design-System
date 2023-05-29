@@ -1,10 +1,9 @@
-import { ListViewMoreProps } from '@/components';
 import { FC, createContext } from 'react';
 
 export interface IMainContext {
   viewLessLabel: string;
 
-  getViewMoreLabel: ListViewMoreProps['getMoreLabel'];
+  getViewMoreLabel(count: number): string;
 }
 
 export const MainContext = createContext<IMainContext>(null);
