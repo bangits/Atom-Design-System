@@ -1,3 +1,4 @@
+import { ListViewMore } from '@/atom-design-system';
 import { InfoTooltipIcon } from '@/icons';
 import { Tag, TextInput, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
@@ -82,11 +83,13 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                 <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
                   {title}
                   <div>
-                    {option.value.length === 0 ? (
-                      <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
-                    ) : (
-                      option.value?.map?.((o, index) => <Tag title={o} key={index} />)
-                    )}
+                    <ListViewMore>
+                      {option.value.length === 0 ? (
+                        <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
+                      ) : (
+                        option.value?.map?.((o, index) => <Tag title={o} key={index} />)
+                      )}
+                    </ListViewMore>
                   </div>
                 </div>
               );

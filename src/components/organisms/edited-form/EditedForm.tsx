@@ -111,11 +111,12 @@ const EditedForm: FC<EditedFormProps> = ({
     {
       open: {
         paddingBottom: '24px',
-        height: (data) => data.height + 24,
+        // height: (data) => data.height + 24,
+        maxHeight: '100vh',
         minHeight: 248
       },
       closed: {
-        height: (data) => data.heightProp
+        maxHeight: (data) => data.heightProp
       },
       iconTransform: {
         transform: 'rotate(180deg)',

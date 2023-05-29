@@ -51,7 +51,7 @@
       padding: getEditedFormSizes(content-padding);
       width: getEditedFormSizes(content-width);
       box-sizing: border-box;
-      transition: height getEditedFormSizes(content-transition);
+      transition: max-height getEditedFormSizes(content-transition);
       overflow: hidden;
       &-start-justify {
         justify-content: flex-start;

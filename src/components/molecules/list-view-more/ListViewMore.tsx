@@ -1,15 +1,12 @@
+import { MainContext } from '@/contexts';
 import { Button } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useContext, useEffect, useRef, useState } from 'react';
 import styles from './ListViewMore.module.scss';
 
-export interface ListViewMoreProps {
-  lessLabel: string;
+const ListViewMore: FC = ({ children }) => {
+  const { getViewMoreLabel, viewLessLabel } = useContext(MainContext);
 
-  getMoreLabel(remaindChildsCount: number): string;
-}
-
-const ListViewMore: FC<ListViewMoreProps> = ({ children, lessLabel, getMoreLabel }) => {
   const listRef = useRef<HTMLInputElement>(null);
 
   const [showMoreBtn, setShowMoreBtn] = useState(false);
@@ -59,7 +56,7 @@ const ListViewMore: FC<ListViewMoreProps> = ({ children, lessLabel, getMoreLabel
 
       {showMoreBtn && (
         <Button variant='link' onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
-          {!isViewMoreButtonClicked ? `${getMoreLabel(remaindChildsCount)}` : lessLabel}
+          {!isViewMoreButtonClicked ? `${getViewMoreLabel(remaindChildsCount)}` : viewLessLabel}
         </Button>
       )}
     </div>
