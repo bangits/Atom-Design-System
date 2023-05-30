@@ -41,6 +41,12 @@ export interface EditedFormProps {
     | {
         title: ReactNode | string;
         tooltipText?: string;
+        value: { label: string; imageSrc: string }[];
+        variant: 'tag-with-image';
+      }
+    | {
+        title: ReactNode | string;
+        tooltipText?: string;
         value: ReactNode;
         shouldLineTranslation?: boolean;
         fullWidth?: boolean;
