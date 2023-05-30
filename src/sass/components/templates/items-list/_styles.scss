@@ -1,0 +1,8 @@
+@mixin generate-items-list-styles {
+  .ItemsList {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(#{calculateRem(110px)}, 1fr));
+    gap: calculateRem(16px);
+    padding-right: calculateRem(20px);
+  }
+}
