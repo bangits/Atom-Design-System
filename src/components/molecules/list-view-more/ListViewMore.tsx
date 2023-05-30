@@ -10,6 +10,7 @@ const ListViewMore: FC = ({ children }) => {
   const listRef = useRef<HTMLInputElement>(null);
 
   const [showMoreBtn, setShowMoreBtn] = useState(false);
+  const [scrollHeight, setScrollHeight] = useState<number | null>(null);
 
   const [isViewMoreButtonClicked, setIsViewMoreButtonClicked] = useState(false);
   const [remaindChildsCount, setRemaindChildsCount] = useState(0);
@@ -42,20 +43,27 @@ const ListViewMore: FC = ({ children }) => {
 
     setRemaindChildsCount(childrenList.length - visibleChildsCount);
 
-    if (listRef.current.clientHeight !== listRef.current.scrollHeight) setShowMoreBtn(true);
-  }, []);
+    if (listRef.current.clientHeight !== listRef.current.scrollHeight) {
+      setShowMoreBtn(true);
+      setScrollHeight(listRef.current.scrollHeight);
+    }
+  }, [children]);
 
   return (
     <div
       className={classNames(styles.ListViewMore, {
         [styles['ListViewMore--ViewMoreClicked']]: isViewMoreButtonClicked
       })}>
-      <div className={styles.ListViewMore__List} ref={listRef}>
+      <div
+        style={{ maxHeight: isViewMoreButtonClicked && scrollHeight }}
+        className={styles.ListViewMore__List}
+        ref={listRef}>
         {children}
       </div>
 
       {showMoreBtn && (
         <Button
+          type='button'
           className={styles.ListViewMore__Btn}
           variant='link'
           onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
