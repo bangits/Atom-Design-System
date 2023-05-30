@@ -1,6 +1,6 @@
 import { typedMemo } from '@/helpers';
 import { DustbinIcon, InfoTooltipIcon, PenIcon } from '@/icons';
-import { Card, IconButton, Tooltip, useStyles, TagWithImageBaseProps } from '@my-ui/core';
+import { Card, IconButton, TagWithImageBaseProps, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
 import { CSSProperties, FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
@@ -118,7 +118,7 @@ const EditedForm: FC<EditedFormProps> = ({
       open: {
         paddingBottom: '24px',
         // height: (data) => data.height + 24,
-        maxHeight: '100vh',
+        maxHeight: (data) => data.containerHeight,
         minHeight: 248
       },
       closed: {
@@ -130,7 +130,7 @@ const EditedForm: FC<EditedFormProps> = ({
         transition: '.5s'
       }
     },
-    { height, heightProp }
+    { height, containerHeight, heightProp }
   );
 
   const handleViewClick = useCallback(() => {
