@@ -1,13 +1,13 @@
 @mixin generate-info-tooltip-styles {
   .InfoIcon {
     width: getInfoTooltipSizes(info-icon-width);
-
     color: rgba(getInfoTooltipColors(info-icon-color), 0.8);
-
     transition: color 0.3s;
-
     &:hover {
       color: getInfoTooltipColors(info-icon-color);
+    }
+    svg {
+      display: block;
     }
   }
 }
