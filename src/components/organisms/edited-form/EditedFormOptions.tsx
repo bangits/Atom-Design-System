@@ -102,7 +102,7 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                       {option.value.length === 0 ? (
                         <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
                       ) : (
-                        option.value?.map?.((o) => <TagWithImage imgSrc={o.imageSrc} tagName={o.label} />)
+                        option.value?.map?.((tagOptions) => <TagWithImage {...tagOptions} />)
                       )}
                     </ListViewMore>
                   </div>
