@@ -43,7 +43,7 @@ const ListViewMore: FC = ({ children }) => {
     setRemaindChildsCount(childrenList.length - visibleChildsCount);
 
     if (listRef.current.clientHeight !== listRef.current.scrollHeight) setShowMoreBtn(true);
-  }, []);
+  }, [children]);
 
   return (
     <div
@@ -56,6 +56,7 @@ const ListViewMore: FC = ({ children }) => {
 
       {showMoreBtn && (
         <Button
+          type='button'
           className={styles.ListViewMore__Btn}
           variant='link'
           onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
