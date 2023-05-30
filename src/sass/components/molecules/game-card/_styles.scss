@@ -10,12 +10,14 @@
       }
     }
     &--with-provider {
-      :global {
-        .CardTextContainer {
-          height: calculateRem(56px);
-        }
-        .CardText {
-          width: 100%;
+      &#{&} {
+        :global {
+          .CardTextContainer {
+            height: calculateRem(56px);
+          }
+          .CardText {
+            width: 100%;
+          }
         }
       }
     }
