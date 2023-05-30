@@ -1,6 +1,6 @@
 import { typedMemo } from '@/helpers';
 import { DustbinIcon, InfoTooltipIcon, PenIcon } from '@/icons';
-import { Card, IconButton, Tooltip, useStyles } from '@my-ui/core';
+import { Card, IconButton, Tooltip, useStyles, TagWithImageBaseProps } from '@my-ui/core';
 import classNames from 'classnames';
 import { CSSProperties, FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
@@ -37,6 +37,12 @@ export interface EditedFormProps {
         tooltipText?: string;
         value: string[];
         variant: 'tag';
+      }
+    | {
+        title: ReactNode | string;
+        tooltipText?: string;
+        value: TagWithImageBaseProps[];
+        variant: 'tag-with-image';
       }
     | {
         title: ReactNode | string;
