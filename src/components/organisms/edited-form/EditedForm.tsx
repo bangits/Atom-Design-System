@@ -117,7 +117,8 @@ const EditedForm: FC<EditedFormProps> = ({
     {
       open: {
         paddingBottom: '24px',
-        maxHeight: (data) => data.containerHeight + 24,
+        // maxHeight: (data) => data.containerHeight + 24,
+        maxHeight: 'initial',
         minHeight: 248
       },
       closed: {
