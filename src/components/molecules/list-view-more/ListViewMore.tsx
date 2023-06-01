@@ -16,10 +16,10 @@ const ListViewMore: FC = ({ children }) => {
   const [remaindChildsCount, setRemaindChildsCount] = useState(0);
 
   useEffect(() => {
-    const listElementWidth = listRef.current.clientWidth;
-
     // Getting css gap style and convert to number
     const listGap = +getComputedStyle(listRef.current).gap.split('px')[0];
+
+    const listElementWidth = Math.ceil(listRef.current.clientWidth + listGap);
 
     let elementsTotalWidth = 0;
 
@@ -31,7 +31,7 @@ const ListViewMore: FC = ({ children }) => {
     for (let i = 0; i < childrenList.length; i++) {
       const child = childrenList[i];
 
-      elementsTotalWidth += child.clientWidth + listGap;
+      elementsTotalWidth += Math.floor(child.clientWidth + listGap);
 
       if (elementsTotalWidth > listElementWidth) {
         // i counting from 0, for that don't need to subtract 1
@@ -43,10 +43,9 @@ const ListViewMore: FC = ({ children }) => {
 
     setRemaindChildsCount(childrenList.length - visibleChildsCount);
 
-    if (listRef.current.clientHeight !== listRef.current.scrollHeight) {
-      setShowMoreBtn(true);
-      setScrollHeight(listRef.current.scrollHeight);
-    }
+    setShowMoreBtn(listRef.current.clientHeight !== listRef.current.scrollHeight);
+
+    if (listRef.current.clientHeight !== listRef.current.scrollHeight) setScrollHeight(listRef.current.scrollHeight);
   }, [children]);
 
   return (
