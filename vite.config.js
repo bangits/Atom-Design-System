@@ -1,10 +1,10 @@
-import path from "path";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
+import react from '@vitejs/plugin-react';
+import path from 'path';
+import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
 
 export default defineConfig({
-  base: "./",
+  base: './',
   css: {
     preprocessorOptions: {
       scss: {
@@ -14,7 +14,7 @@ export default defineConfig({
   },
   resolve: {
     alias: {
-        '@': path.resolve(__dirname, './src'),
+      '@': path.resolve(__dirname, './src')
     }
   },
   plugins: [react(), svgr()],
@@ -25,15 +25,15 @@ export default defineConfig({
     cssCodeSplit: true,
     sourcemap: true,
     lib: {
-      entry: path.resolve(__dirname, "src/atom-design-system.ts"),
-      formats: ["system"],
-      fileName: () => 'atom-design-system.js',
+      entry: path.resolve(__dirname, 'src/atom-design-system.ts'),
+      formats: ['system'],
+      fileName: () => 'atom-design-system.js'
     },
     rollupOptions: {
-      external: ["react", "react-dom"],
+      external: ['react', 'react-dom'],
       output: {
-        intro: `const process = {env: ${JSON.stringify(process.env)}}`,
-      },
-    },
-  },
+        intro: `const process = {env: ${JSON.stringify(process.env)}}`
+      }
+    }
+  }
 });
