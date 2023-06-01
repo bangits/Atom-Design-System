@@ -12,7 +12,7 @@ import classNames from 'classnames';
 import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
 
-export type FormWithInputAction = FormWithInputProps & {
+export type FormWithInputAction = Partial<FormWithInputProps> & {
   actionLabel: string;
   actionIcon?: ReactNode;
   removeForm?: boolean;
@@ -28,15 +28,15 @@ export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttribute
   index?: number;
   imgSrc: string;
   name: string;
-  subTitle: string;
+  subTitle?: string;
 
   formWithInputActions?: FormWithInputAction[];
   actionsShowPosition?: ButtonFormProps['showPosition'];
 
   translations?: {
-    playDemoText?: string;
     view: string;
-    delete: string;
+    playDemoText?: string;
+    delete?: string;
   };
   status?: 'active' | 'inactive';
   statusLabel?: string;
@@ -119,6 +119,8 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
               <div className={styles['ItemCategoriesCard__more-form']}>
                 {selectedFormProps && (
                   <FormWithInput
+                    buttonLabel=''
+                    title=''
                     {...selectedFormProps}
                     onBackBtnClick={(e) => {
                       onBackBtnClick(e);
