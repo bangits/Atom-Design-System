@@ -18,9 +18,9 @@ export const SidebarAddittionalField = ({ label, noDataText, addSpacings, field,
       className={classNames(styles.StatusView, {
         [styles['StatusView--with-spacings']]: addSpacings
       })}>
-      <span>{label || noDataText}</span>
+      <span>{label}</span>
       <div className={styles['StatusView--container']}></div>
-      <div className={styles[`StatusView--${fieldVariant}`]}>{field}</div>
+      <div className={styles[`StatusView--${fieldVariant}`]}>{field || noDataText}</div>
     </Card>
   );
 };
