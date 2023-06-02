@@ -19,7 +19,7 @@ const ListViewMore: FC = ({ children }) => {
     // Getting css gap style and convert to number
     const listGap = +getComputedStyle(listRef.current).gap.split('px')[0];
 
-    const listElementWidth = Math.ceil(listRef.current.clientWidth + listGap);
+    const listElementWidth = listRef.current.clientWidth;
 
     let elementsTotalWidth = 0;
 
@@ -32,10 +32,12 @@ const ListViewMore: FC = ({ children }) => {
       const child = childrenList[i];
 
       elementsTotalWidth += Math.floor(child.clientWidth + listGap);
-
-      if (elementsTotalWidth > listElementWidth) {
+      if (
+        elementsTotalWidth > listElementWidth ||
+        elementsTotalWidth + (childrenList[i + 1]?.clientWidth || 0) > listElementWidth
+      ) {
         // i counting from 0, for that don't need to subtract 1
-        visibleChildsCount = i;
+        visibleChildsCount = i + 1;
 
         break;
       }
@@ -46,7 +48,7 @@ const ListViewMore: FC = ({ children }) => {
     setShowMoreBtn(listRef.current.clientHeight !== listRef.current.scrollHeight);
 
     if (listRef.current.clientHeight !== listRef.current.scrollHeight) setScrollHeight(listRef.current.scrollHeight);
-  }, [children]);
+  }, [children, listRef.current?.clientWidth]);
 
   return (
     <div
