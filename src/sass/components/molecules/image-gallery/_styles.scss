@@ -42,8 +42,9 @@
       padding-top: calculateRem(9px);
     }
     &__Layer {
-      @include flex(flex-end, flex-start);
+      @include flex(flex-start, flex-end, $direction: column);
       position: absolute;
+      gap: 10px;
       width: 100%;
       height: 100%;
       background-color: rgba(0, 0, 0, 0.7);
