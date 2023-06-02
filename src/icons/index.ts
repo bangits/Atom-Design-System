@@ -171,3 +171,6 @@ export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.reac
 export { ReactComponent as ViewMoreArrowIcon } from './view-more-arrow.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as CategoryDetailIcon } from './category-detail.react.svg';
+export { ReactComponent as PaymentLogoEmpty } from './payment-logo-empty.react.svg';
+export { ReactComponent as ProviderLogoEmpty } from './provider-logo-empty.react.svg';
+export { ReactComponent as TrashIcon } from './trash-icon.react.svg';
