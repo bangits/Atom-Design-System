@@ -46,6 +46,12 @@
     &__Images {
       position: relative;
     }
+    &__EmptyBackgroundIllustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: inherit;
+    }
     &__CoverImg {
       display: block;
       width: 100%;

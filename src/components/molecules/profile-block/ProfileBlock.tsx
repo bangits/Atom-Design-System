@@ -11,6 +11,7 @@ export interface ProfileBlockProps {
   onBackgroundImgClick?: () => void;
   onMainImgClick?: () => void;
   backgroundImgUrl: string;
+  emptyBackgroundIllustration?: ReactNode;
   mainImgUrl?: string;
   itemName: string;
   itemId?: ReactNode;
@@ -26,6 +27,7 @@ const ProfileBlock = ({
   onBackgroundImgClick,
   onMainImgClick,
   backgroundImgUrl,
+  emptyBackgroundIllustration,
   mainImgUrl,
   itemId,
   itemName,
@@ -63,7 +65,7 @@ const ProfileBlock = ({
               [styles['ProfileBlock__Cover--uploaded']]: !!backgroundImgUrl
             })}
             onClick={backgroundImgUrl ? undefined : onBackgroundImgClick}>
-            {backgroundImgUrl && (
+            {backgroundImgUrl ? (
               <img
                 className={classNames(styles['ProfileBlock__CoverImg'], 'ProfileBlock__CoverImg', {
                   [styles['ProfileBlock__Image']]:
@@ -73,6 +75,8 @@ const ProfileBlock = ({
                 })}
                 src={backgroundImgUrl}
               />
+            ) : (
+              <div className={styles['ProfileBlock__EmptyBackgroundIllustration']}>{emptyBackgroundIllustration}</div>
             )}
             {!viewMode && (
               <div
