@@ -173,4 +173,8 @@ export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as CategoryDetailIcon } from './category-detail.react.svg';
 export { ReactComponent as PaymentLogoEmpty } from './payment-logo-empty.react.svg';
 export { ReactComponent as ProviderLogoEmpty } from './provider-logo-empty.react.svg';
+<<<<<<< HEAD
+export { ReactComponent as TrashIcon } from './trash-icon.react.svg';
+=======
 export { ReactComponent as TrashIcon } from './trash-icon.svg';
+>>>>>>> 55cb8e828ce2aadf86692a014e46d8e1ecfedb47
