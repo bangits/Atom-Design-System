@@ -2,7 +2,7 @@ import { typedMemo } from '@/helpers';
 import { DustbinIcon, InfoTooltipIcon, PenIcon } from '@/icons';
 import { Card, IconButton, TagWithImageBaseProps, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
-import { CSSProperties, FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { CSSProperties, FC, ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
 import EditedFormOptions from './EditedFormOptions';
 
@@ -117,8 +117,7 @@ const EditedForm: FC<EditedFormProps> = ({
     {
       open: {
         paddingBottom: '24px',
-        // maxHeight: (data) => data.containerHeight + 24,
-        maxHeight: 'initial',
+        maxHeight: (data) => data.containerHeight + 24,
         minHeight: 248
       },
       closed: {
@@ -142,6 +141,12 @@ const EditedForm: FC<EditedFormProps> = ({
 
     if (height !== undefined) setHeight(height);
   }, [containerRef, children]);
+
+  useEffect(() => {
+    const intervalId = setInterval(() => setHeight(containerRef.current.scrollHeight), 300);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   if (removeCard) return <>{children}</>;
 
@@ -200,7 +205,7 @@ const EditedForm: FC<EditedFormProps> = ({
           ref={containerRef}>
           {children || <EditedFormOptions options={options} noDataText={noDataText} />}
 
-          {height > 248 && heightProp !== 'auto' && (
+          {height > 253 && heightProp !== 'auto' && (
             <div onClick={handleViewClick} className={styles['EditedFormBase--viewMore']}>
               <div
                 className={classNames({
