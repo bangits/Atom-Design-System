@@ -143,6 +143,8 @@ const EditedForm: FC<EditedFormProps> = ({
   }, [containerRef, children]);
 
   useEffect(() => {
+    if (!containerRef.current) return;
+
     const intervalId = setInterval(() => setHeight(containerRef.current.scrollHeight), 300);
 
     return () => clearInterval(intervalId);
