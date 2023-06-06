@@ -8,7 +8,7 @@ export interface ImageGalleryProps<T> {
   galleryName: string;
   imageSources: string[];
   maxImagesCount?: number;
-  item?:T;
+  item?: T;
   onDeleteButtonClick?(item: T): void;
 
   onViewButtonClick(): void;
@@ -20,7 +20,7 @@ const ImageGallery = <T,>({
   maxImagesCount = 8,
   onViewButtonClick,
   onDeleteButtonClick,
-  item,
+  item
 }: ImageGalleryProps<T>) => {
   const maxImageSources = imageSources.slice(0, maxImagesCount);
 
@@ -46,7 +46,7 @@ const ImageGallery = <T,>({
           </button>
           {onDeleteButtonClick && (
             <button type='button' className={styles.ImageGallery__View} onClick={() => onDeleteButtonClick(item)}>
-              <Icons.TrashIcon />
+              <Icons.TrashIcon style={{ width: 10 }} />
             </button>
           )}
         </div>
