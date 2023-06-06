@@ -3,8 +3,8 @@
     $this: #{&};
     position: relative;
     &--remove-shadow {
-      box-shadow: none !important;
       #{$this}--content {
+        box-shadow: none !important;
         padding: 0;
       }
     }
@@ -50,6 +50,8 @@
       align-content: flex-start;
       padding: getEditedFormSizes(content-padding);
       width: getEditedFormSizes(content-width);
+      @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
+      border-radius: inherit;
       box-sizing: border-box;
       transition: max-height getEditedFormSizes(content-transition);
       overflow: hidden;
@@ -61,7 +63,7 @@
       }
     }
     &--card-content {
-      @include generateBorderWithBoxShadow(getEditedFormColors(border-color), 0.1rem);
+      box-shadow: none !important;
       background-color: getEditedFormColors(content-background-color);
     }
     &--option {

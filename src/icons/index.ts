@@ -103,6 +103,7 @@ export { ReactComponent as PagesIcon } from './pages.react.svg';
 export { ReactComponent as PartnersIcon } from './partners.react.svg';
 export { ReactComponent as PassportIcon } from './passport.react.svg';
 export { ReactComponent as PaymentLogoEmpty } from './payment-logo-empty.react.svg';
+export { ReactComponent as PaymentManagementSidebarIcon } from './payment-management-sidebar.react.svg';
 export { ReactComponent as PaymentSideBarIcon } from './payment-sidebar-icon.react.svg';
 export { ReactComponent as PaymentsIcon } from './payments.react.svg';
 export { ReactComponent as PenIcon } from './pen.react.svg';
