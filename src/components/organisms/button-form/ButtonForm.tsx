@@ -1,6 +1,16 @@
 import { Card, useOutsideClickEvent } from '@my-ui/core';
 import classNames from 'classnames';
-import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  CSSProperties,
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ButtonForm.module.scss';
 
@@ -15,6 +25,8 @@ export interface ButtonFormProps {
   showPosition?: 'left' | 'right';
   className?: string;
   children: ReactNode | ((buttonFormRenderArguments: ButtonFormRenderArguments) => ReactNode);
+  style?: CSSProperties;
+
   getContainerProps?(
     buttonFormRenderArguments: ButtonFormRenderArguments
   ): DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
@@ -26,6 +38,7 @@ const ButtonForm: FC<ButtonFormProps> = ({
   children,
   getContainerProps,
   className,
+  style,
   showPosition: showPositionProp
 }) => {
   const [showPosition, setShowPosition] = useState(showPositionProp);
@@ -68,6 +81,7 @@ const ButtonForm: FC<ButtonFormProps> = ({
         }}
         unmountOnExit>
         <Card
+          style={style}
           className={classNames(styles['ButtonForm__content'], {
             [styles[`ButtonForm__content--${showPosition}`]]: showPosition
           })}>

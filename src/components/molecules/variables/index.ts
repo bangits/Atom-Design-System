@@ -1,2 +1,2 @@
-export { default as Variables, VariablesProps } from './Variables';
-
+export { default as Variables } from './Variables';
+export type { VariablesProps } from './Variables';

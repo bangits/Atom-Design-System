@@ -1,1 +1,2 @@
-export { CriteriaFormProps, default as CriteriaForm } from './CriteriaForm';
+export { default as CriteriaForm } from './CriteriaForm';
+export type { CriteriaFormProps } from './CriteriaForm';

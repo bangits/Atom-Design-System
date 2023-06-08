@@ -9,30 +9,34 @@ import {
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, ReactNode, useCallback, useState } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
 
-export type FormWithInputAction = FormWithInputProps & {
+export type FormWithInputAction = Partial<FormWithInputProps> & {
   actionLabel: string;
   actionIcon?: ReactNode;
+  removeForm?: boolean;
+
+  onActionClick?(): void;
 };
 
-export interface ItemCategoriesCardProps {
+export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   checkboxProps?: CheckboxProps;
+  cardTopComponent?: ReactNode;
   showCheckboxOnHover?: boolean;
   showActions?: boolean;
   index?: number;
   imgSrc: string;
   name: string;
-  subTitle: string;
+  subTitle?: string;
 
   formWithInputActions?: FormWithInputAction[];
   actionsShowPosition?: ButtonFormProps['showPosition'];
 
   translations?: {
-    playDemoText?: string;
     view: string;
-    delete: string;
+    playDemoText?: string;
+    delete?: string;
   };
   status?: 'active' | 'inactive';
   statusLabel?: string;
@@ -52,6 +56,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   name,
   subTitle,
   checkboxProps,
+  cardTopComponent,
   index,
   formWithInputActions,
   actionsShowPosition,
@@ -59,7 +64,8 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   translations,
   showCheckboxOnHover,
   status,
-  statusLabel
+  statusLabel,
+  ...props
 }) => {
   const [selectedFormProps, setSelectedFormProps] = useState<FormWithInputAction | null>(null);
   const [showSelectedFrom, setShowSelectedForm] = useState(false);
@@ -74,17 +80,24 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
 
   return (
     <div
-      className={classNames(styles.ItemCategoriesCard, {
-        [styles['ItemCategoriesCard--with-actions']]: showActions,
-        [styles['ItemCategoriesCard--with-status']]: !!status,
-        [styles[`ItemCategoriesCard--status-${status}`]]: status,
-        [styles['ItemCategoriesCard--show-checkbox-hover']]: showCheckboxOnHover
-      })}>
+      {...props}
+      className={classNames(
+        styles.ItemCategoriesCard,
+        {
+          [styles['ItemCategoriesCard--with-actions']]: showActions,
+          [styles['ItemCategoriesCard--with-status']]: !!status,
+          [styles[`ItemCategoriesCard--status-${status}`]]: status,
+          [styles['ItemCategoriesCard--show-checkbox-hover']]: showCheckboxOnHover
+        },
+        props.className
+      )}>
       <div className={styles['ItemCategoriesCard__main']}>
-        {checkboxProps && (
+        {cardTopComponent && <div className={styles['ItemCategoriesCard__top']}>{cardTopComponent}</div>}
+
+        {checkboxProps && !cardTopComponent && (
           <Checkbox
             {...checkboxProps}
-            className={classNames(styles['ItemCategoriesCard__checkbox'], checkboxProps?.className)}
+            className={classNames(styles['ItemCategoriesCard__top'], checkboxProps?.className)}
           />
         )}
 
@@ -106,6 +119,8 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
               <div className={styles['ItemCategoriesCard__more-form']}>
                 {selectedFormProps && (
                   <FormWithInput
+                    buttonLabel=''
+                    title=''
                     {...selectedFormProps}
                     onBackBtnClick={(e) => {
                       onBackBtnClick(e);
@@ -128,6 +143,10 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                   <button
                     key={index}
                     onClick={() => {
+                      action.onActionClick?.();
+
+                      if (action.removeForm) return;
+
                       setSelectedFormProps(action);
 
                       setShowSelectedForm(true);
@@ -138,15 +157,17 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                   </button>
                 ))}
 
-                <button
-                  className={classNames(
-                    styles['ItemCategoriesCard__action'],
-                    styles['ItemCategoriesCard__action--danger']
-                  )}
-                  type='button'
-                  onClick={onDeleteButtonClick}>
-                  <Icons.TrashIndicator width='1.2rem' /> {translations?.delete}
-                </button>
+                {onDeleteButtonClick && (
+                  <button
+                    className={classNames(
+                      styles['ItemCategoriesCard__action'],
+                      styles['ItemCategoriesCard__action--danger']
+                    )}
+                    type='button'
+                    onClick={onDeleteButtonClick}>
+                    <Icons.TrashIndicator width='1.2rem' /> {translations?.delete}
+                  </button>
+                )}
               </div>
             </div>
           </ButtonForm>

@@ -1,6 +1,6 @@
 import { TagCountry, TagCountryProps } from '@my-ui/core';
-import React, { FC } from 'react';
-import styles from './Countries.module.scss';
+import { FC } from 'react';
+import { ListViewMore } from '../list-view-more';
 
 export interface CountriesProps {
   tagCountries?: TagCountryProps[];
@@ -9,11 +9,11 @@ export interface CountriesProps {
 
 const Countries: FC<CountriesProps> = ({ tagCountries, isCmsUser = false }) => {
   return (
-    <div className={styles.CountriesWrapper}>
+    <ListViewMore>
       {tagCountries?.map((tagCountry, idx) => (
         <TagCountry key={idx} imgSrc={tagCountry.imgSrc} tagName={tagCountry.tagName} />
       ))}
-    </div>
+    </ListViewMore>
   );
 };
 

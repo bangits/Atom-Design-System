@@ -1,2 +1,2 @@
-export { CompatibilityCheckboxesGroupProps, default as CompatibilityCheckboxesGroup } from './CompatibilityCheckboxesGroup';
-
+export { default as CompatibilityCheckboxesGroup } from './CompatibilityCheckboxesGroup';
+export type { CompatibilityCheckboxesGroupProps } from './CompatibilityCheckboxesGroup';

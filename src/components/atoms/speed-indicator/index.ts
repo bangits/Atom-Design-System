@@ -1,1 +1,2 @@
-export { default as SpeedIndicator, SpeedIndicatorProps } from './SpeedIndicator';
+export { default as SpeedIndicator } from './SpeedIndicator';
+export type { SpeedIndicatorProps } from './SpeedIndicator';

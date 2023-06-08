@@ -1,20 +1,19 @@
 @mixin generate-list-view-more-styles {
-    .ListViewMore {
-        $this: #{&};
-        @include flex(space-between, flex-start);
-        &__List {
-            @include flex($flex-wrap: wrap);
-            gap: calculateRem(8px);
-            max-width: calc(100% - #{calculateRem(80px)});
-            max-height: calculateRem(38px);
-            overflow: hidden;
-            margin-bottom: calculateRem(16px);
-            transition: max-height 0.5s;
-        }
-        &--ViewMoreClicked {
-            #{$this}__List {
-                max-height: 70vh;
-            }
-        }
+  .ListViewMore {
+    $this: #{&};
+    @include flex(space-between, flex-start);
+    width: 100%;
+    &__List {
+      @include flex($flex-wrap: wrap);
+      gap: calculateRem(8px);
+      max-width: calc(100% - #{calculateRem(80px)});
+      max-height: calculateRem(38px);
+      overflow: hidden;
+      margin-bottom: calculateRem(16px);
+      transition: max-height 0.5s;
     }
+    &__Btn {
+      white-space: nowrap;
+    }
+  }
 }

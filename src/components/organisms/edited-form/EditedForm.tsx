@@ -1,8 +1,8 @@
 import { typedMemo } from '@/helpers';
 import { DustbinIcon, InfoTooltipIcon, PenIcon } from '@/icons';
-import { Card, IconButton, Tooltip, useStyles } from '@my-ui/core';
+import { Card, IconButton, TagWithImageBaseProps, Tooltip, useStyles } from '@my-ui/core';
 import classNames from 'classnames';
-import { CSSProperties, FC, ReactNode, useCallback, useLayoutEffect, useRef, useState } from 'react';
+import { CSSProperties, FC, ReactNode, useCallback, useEffect, useLayoutEffect, useRef, useState } from 'react';
 import styles from './EditedForm.module.scss';
 import EditedFormOptions from './EditedFormOptions';
 
@@ -37,6 +37,12 @@ export interface EditedFormProps {
         tooltipText?: string;
         value: string[];
         variant: 'tag';
+      }
+    | {
+        title: ReactNode | string;
+        tooltipText?: string;
+        value: TagWithImageBaseProps[];
+        variant: 'tag-with-image';
       }
     | {
         title: ReactNode | string;
@@ -111,18 +117,19 @@ const EditedForm: FC<EditedFormProps> = ({
     {
       open: {
         paddingBottom: '24px',
-        height: (data) => data.height + 24,
-        minHeight: 248
+        maxHeight: (data) => data.containerHeight + 24,
+        minHeight: (data) => data.heightProp !== 'auto' && 248
       },
       closed: {
-        height: (data) => data.heightProp
+        maxHeight: (data) => data.heightProp,
+        minHeight: 248
       },
       iconTransform: {
         transform: 'rotate(180deg)',
         transition: '.5s'
       }
     },
-    { height, heightProp }
+    { height, containerHeight, heightProp }
   );
 
   const handleViewClick = useCallback(() => {
@@ -134,6 +141,14 @@ const EditedForm: FC<EditedFormProps> = ({
 
     if (height !== undefined) setHeight(height);
   }, [containerRef, children]);
+
+  useEffect(() => {
+    if (!containerRef.current) return;
+
+    const intervalId = setInterval(() => setHeight(containerRef.current.scrollHeight), 300);
+
+    return () => clearInterval(intervalId);
+  }, []);
 
   if (removeCard) return <>{children}</>;
 
@@ -192,7 +207,7 @@ const EditedForm: FC<EditedFormProps> = ({
           ref={containerRef}>
           {children || <EditedFormOptions options={options} noDataText={noDataText} />}
 
-          {height > 248 && heightProp !== 'auto' && (
+          {height > 253 && heightProp !== 'auto' && (
             <div onClick={handleViewClick} className={styles['EditedFormBase--viewMore']}>
               <div
                 className={classNames({

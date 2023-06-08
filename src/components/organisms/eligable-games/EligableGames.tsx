@@ -1,16 +1,9 @@
-import {
-  CategoryItems,
-  CategoryItemsProps,
-  DividerList,
-  ListViewMoreProps,
-  SearchInputProps
-} from '@/atom-design-system';
+import { CategoryItems, CategoryItemsProps, DividerList, SearchInputProps } from '@/atom-design-system';
 import { FC, ReactNode, useMemo } from 'react';
 import styles from './EligableGames.module.scss';
 
 export interface EligableGamesProps extends CategoryItemsProps {
   lessLabel: string;
-  getMoreLabel: ListViewMoreProps['getMoreLabel'];
   searchInputProps?: SearchInputProps;
 
   providers: {
@@ -31,7 +24,6 @@ const EligableGames: FC<EligableGamesProps> = ({
   providers,
   lessLabel,
   searchInputProps,
-  getMoreLabel,
   bulkActions,
   ...categoryItemsProps
 }) => {
@@ -71,7 +63,7 @@ const EligableGames: FC<EligableGamesProps> = ({
         {bulkActions && <DividerList className={styles.EligableGames__BulkActions}>{bulkActions}</DividerList>}
       </>
     ),
-    [lessLabel, getMoreLabel, providers, categories, searchInputProps, bulkActions]
+    [lessLabel, providers, categories, searchInputProps, bulkActions]
   );
 
   const scrollProps = useMemo<CategoryItemsProps['scrollProps']>(

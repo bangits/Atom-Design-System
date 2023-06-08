@@ -1,2 +1,2 @@
-export { default as PlayerWallets, PlayerWallet, PlayerWalletsProps } from './PlayerWallets';
-
+export { default as PlayerWallets } from './PlayerWallets';
+export type { PlayerWallet, PlayerWalletsProps } from './PlayerWallets';

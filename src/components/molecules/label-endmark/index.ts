@@ -1,1 +1,2 @@
-export { default as LabelEndMark, LabelEndMarkProps } from './LabelEndMark';
+export { default as LabelEndMark } from './LabelEndMark';
+export type { LabelEndMarkProps } from './LabelEndMark';

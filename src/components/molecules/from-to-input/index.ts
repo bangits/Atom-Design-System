@@ -1,1 +1,2 @@
-export { default as FromToInput, FromToInputProps, FromToValues } from './FromToInput';
+export { default as FromToInput } from './FromToInput';
+export type { FromToInputProps, FromToValues } from './FromToInput';

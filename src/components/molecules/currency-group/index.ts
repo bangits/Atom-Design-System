@@ -1,1 +1,2 @@
-export { default as CurrencyGroup, CurrencyGroupProps } from './CurrencyGroup';
+export { default as CurrencyGroup } from './CurrencyGroup';
+export type { CurrencyGroupProps } from './CurrencyGroup';

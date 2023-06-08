@@ -1,1 +1,2 @@
-export { default as HeaderContent, HeaderContentProps } from './HeaderContent';
+export { default as HeaderContent } from './HeaderContent';
+export type { HeaderContentProps } from './HeaderContent';

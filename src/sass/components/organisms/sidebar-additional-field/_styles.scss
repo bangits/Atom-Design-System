@@ -1,0 +1,44 @@
+@mixin generate-sidebar-additional-field-styles {
+    div.StatusView {
+        @include flex(space-between, center);
+        // width: getStatusViewSizes(status-width);
+        width: 100%;
+        padding: getStatusViewSizes(status-padding);
+        box-sizing: border-box;
+        background-color: getStatusViewColors(status-view-background-color);
+
+        >span {
+            &:first-child {
+                padding: getStatusViewSizes(status-label-padding);
+                height: getStatusViewSizes(status-label-height);
+                font-size: getStatusViewSizes(status-label-font-size);
+                text-align: left;
+                color: getStatusViewColors(status-label-color);
+                word-break: break-all;
+                width: getStatusViewSizes(wallet-balance-width);
+                @include dots-after-text();
+            }
+        }
+
+        &--container {
+            @include flex(null, center);
+        }
+
+        &--text {
+            color:#505D6E
+        }
+
+        &--chip {
+            color: #9B9CC8;
+            padding: calculateRem(4px);
+            min-width: calculateRem(67px);
+            text-align: center;
+            background-color: #F6F8FE;
+            border-radius: calculateRem(16px);
+        }
+
+        &--with-spacings {
+            margin-bottom: calculateRem(8px);
+        }
+    }
+}

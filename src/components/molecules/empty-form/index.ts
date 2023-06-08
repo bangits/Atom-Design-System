@@ -1,1 +1,2 @@
-export { default as EmptyForm, EmptyFormProps } from './EmptyForm';
+export { default as EmptyForm } from './EmptyForm';
+export type { EmptyFormProps } from './EmptyForm';

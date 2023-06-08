@@ -1,2 +1,2 @@
-export { default as ProjectDetails, ProjectDetailsProps } from './ProjectDetails';
-
+export { default as ProjectDetails } from './ProjectDetails';
+export type { ProjectDetailsProps } from './ProjectDetails';

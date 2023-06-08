@@ -1,2 +1,3 @@
-export { default as ProviderDetails, ProviderDetailsProps } from './ProviderDetails';
+export { default as ProviderDetails } from './ProviderDetails';
+export type { ProviderDetailsProps } from './ProviderDetails';
 export * from './ProviderGames';

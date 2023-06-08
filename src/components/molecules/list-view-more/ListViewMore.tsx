@@ -1,27 +1,25 @@
+import { MainContext } from '@/contexts';
 import { Button } from '@my-ui/core';
 import classNames from 'classnames';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useContext, useEffect, useRef, useState } from 'react';
 import styles from './ListViewMore.module.scss';
 
-export interface ListViewMoreProps {
-  lessLabel: string;
+const ListViewMore: FC = ({ children }) => {
+  const { getViewMoreLabel, viewLessLabel } = useContext(MainContext);
 
-  getMoreLabel(remaindChildsCount: number): string;
-}
-
-const ListViewMore: FC<ListViewMoreProps> = ({ children, lessLabel, getMoreLabel }) => {
   const listRef = useRef<HTMLInputElement>(null);
 
   const [showMoreBtn, setShowMoreBtn] = useState(false);
+  const [scrollHeight, setScrollHeight] = useState<number | null>(null);
 
   const [isViewMoreButtonClicked, setIsViewMoreButtonClicked] = useState(false);
   const [remaindChildsCount, setRemaindChildsCount] = useState(0);
 
   useEffect(() => {
-    const listElementWidth = listRef.current.clientWidth;
-
     // Getting css gap style and convert to number
     const listGap = +getComputedStyle(listRef.current).gap.split('px')[0];
+
+    const listElementWidth = listRef.current.clientWidth;
 
     let elementsTotalWidth = 0;
 
@@ -33,11 +31,13 @@ const ListViewMore: FC<ListViewMoreProps> = ({ children, lessLabel, getMoreLabel
     for (let i = 0; i < childrenList.length; i++) {
       const child = childrenList[i];
 
-      elementsTotalWidth += child.clientWidth + listGap;
-
-      if (elementsTotalWidth > listElementWidth) {
+      elementsTotalWidth += Math.floor(child.clientWidth + listGap);
+      if (
+        elementsTotalWidth > listElementWidth ||
+        elementsTotalWidth + (childrenList[i + 1]?.clientWidth || 0) > listElementWidth
+      ) {
         // i counting from 0, for that don't need to subtract 1
-        visibleChildsCount = i;
+        visibleChildsCount = i + 1;
 
         break;
       }
@@ -45,21 +45,30 @@ const ListViewMore: FC<ListViewMoreProps> = ({ children, lessLabel, getMoreLabel
 
     setRemaindChildsCount(childrenList.length - visibleChildsCount);
 
-    if (listRef.current.clientHeight !== listRef.current.scrollHeight) setShowMoreBtn(true);
-  }, []);
+    setShowMoreBtn(listRef.current.clientHeight !== listRef.current.scrollHeight);
+
+    if (listRef.current.clientHeight !== listRef.current.scrollHeight) setScrollHeight(listRef.current.scrollHeight);
+  }, [children, listRef.current?.clientWidth]);
 
   return (
     <div
       className={classNames(styles.ListViewMore, {
         [styles['ListViewMore--ViewMoreClicked']]: isViewMoreButtonClicked
       })}>
-      <div className={styles.ListViewMore__List} ref={listRef}>
+      <div
+        style={{ maxHeight: isViewMoreButtonClicked && scrollHeight }}
+        className={styles.ListViewMore__List}
+        ref={listRef}>
         {children}
       </div>
 
       {showMoreBtn && (
-        <Button variant='link' onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
-          {!isViewMoreButtonClicked ? `${getMoreLabel(remaindChildsCount)}` : lessLabel}
+        <Button
+          type='button'
+          className={styles.ListViewMore__Btn}
+          variant='link'
+          onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
+          {!isViewMoreButtonClicked ? `${getViewMoreLabel(remaindChildsCount)}` : viewLessLabel}
         </Button>
       )}
     </div>

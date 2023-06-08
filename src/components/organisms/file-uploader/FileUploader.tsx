@@ -18,7 +18,7 @@ export interface FileUploaderProps extends Omit<MyUIFileUploaderProps, 'renderEl
   labelProps?: LabelProps;
   tooltipProps?: {
     icon?: keyof typeof Icons;
-    tooltipText: string | ReactNode;
+    tooltipText: ReactNode;
   };
 }
 
@@ -75,11 +75,5 @@ export const FileUploader: FC<FileUploaderProps> = ({
   );
 };
 
-export {
-  FileUploaderErrors,
-  LinkFileUploader,
-  InputFileUploader,
-  BaseFileUploaderProps,
-  RenderElProps,
-  FileUploaderProps as MyUIFileUploaderProps
-} from '@my-ui/core';
+export { FileUploaderErrors, InputFileUploader, LinkFileUploader } from '@my-ui/core';
+export type { BaseFileUploaderProps, FileUploaderProps as MyUIFileUploaderProps, RenderElProps } from '@my-ui/core';

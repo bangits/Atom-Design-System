@@ -3,35 +3,32 @@
     color: getRadioGroupColors(filter-radio-name);
     font-size: getRadioGroupSizes(filter-radio-name-font-size);
   }
-
   .FilterRadioContainer {
     @include flex();
+    gap: getRadioGroupSizes(filter-radio-gap);
     margin: getRadioGroupSizes(filter-radio-container-margin);
-
     .FilterRadioGroup {
       @include flex(null, center);
       margin-bottom: getRadioGroupSizes(filter-radio-group-margin-bottom);
     }
-
     .FilterRadio {
       @include flex(null, center);
       width: getRadioGroupSizes(filter-radio-sizes);
       height: getRadioGroupSizes(filter-radio-sizes);
     }
-
     .FilterRadioLabel {
-      margin-right: getRadioGroupSizes(filter-radio-label-margin-right);
       color: getRadioGroupColors(filter-radio-label);
       font-size: getRadioGroupSizes(filter-radio-label-font-size);
-
       cursor: pointer;
     }
-
     &--disabled {
       .FilterRadioLabel {
         cursor: default;
         opacity: 0.5;
       }
+    }
+    &--vertical {
+      flex-direction: column;
     }
   }
 }

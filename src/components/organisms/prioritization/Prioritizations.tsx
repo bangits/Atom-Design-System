@@ -1,4 +1,4 @@
-import { CategoryItemsProps, ListViewMoreProps, SearchInputProps } from '@/atom-design-system';
+import { CategoryItemsProps, SearchInputProps } from '@/atom-design-system';
 import { EmptyForm, TextInput } from '@/components';
 import { Card, Loader, Scroll, Tab } from '@my-ui/core';
 import classNames from 'classnames';
@@ -7,7 +7,6 @@ import styles from './Prioritizations.module.scss';
 
 export interface PrioritizationsProps extends CategoryItemsProps {
   lessLabel: string;
-  getMoreLabel: ListViewMoreProps['getMoreLabel'];
   searchInputProps?: SearchInputProps;
   options: { value: number; title: string }[];
   hasTasks: boolean;
@@ -30,7 +29,6 @@ const Prioritizations: FC<PrioritizationsProps> = ({
   children,
   lessLabel,
   searchInputProps,
-  getMoreLabel,
   options,
   hasTasks,
   isTabLoading,

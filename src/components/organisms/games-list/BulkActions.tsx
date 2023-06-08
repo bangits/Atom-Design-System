@@ -11,7 +11,6 @@
 
 // const BulkActions: FC<BulkActionsProps> = ({ selectedItemIdsHashMap, isDisabled }) => {
 
-  
 //   const selectedGamesLength = Object.keys(selectedItemIdsHashMap).length
 //   console.log(selectedGamesLength);
 
@@ -46,3 +45,4 @@
 // };
 
 // export default BulkActions;
+export {};

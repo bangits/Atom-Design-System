@@ -1,2 +1,2 @@
-export { default as LicensesCard, LicensesCardProps } from './LicensesCard';
-
+export { default as LicensesCard } from './LicensesCard';
+export type { LicensesCardProps } from './LicensesCard';

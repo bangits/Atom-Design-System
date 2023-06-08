@@ -28,7 +28,7 @@ const configureSass = (isDevelopment = true) => [
       {
         loader: 'sass-resources-loader',
         options: {
-          resources: path.resolve(__dirname, './src/sass/resources.scss')
+          resources: path.resolve(__dirname, '../src/sass/resources.scss')
         }
       }
     ]
@@ -75,7 +75,7 @@ const configureWatchOptions = () => ({
 
 // Aliases used for simplification imports
 const configureAliases = () => ({
-  '@': path.resolve(__dirname, './src')
+  '@': path.resolve(__dirname, '../src')
 });
 
 const configureNodeModulesSvgs = () => [

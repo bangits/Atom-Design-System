@@ -1,1 +1,2 @@
-export { default as DialogView, DialogViewProps } from './DialogView';
+export { default as DialogView } from './DialogView';
+export type { DialogViewProps } from './DialogView';

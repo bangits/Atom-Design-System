@@ -1,1 +1,2 @@
-export { default as ProjectCurrencies, ProjectCurrenciesProps } from './ProjectCurrencies';
+export { default as ProjectCurrencies } from './ProjectCurrencies';
+export type { ProjectCurrenciesProps } from './ProjectCurrencies';
