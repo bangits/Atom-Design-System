@@ -6,7 +6,7 @@
     }
     :global {
       .CardImg {
-        height: calculateRem(80px);
+        height: calculateRem(80px) !important;
       }
     }
     &--with-provider {
