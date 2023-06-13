@@ -18,6 +18,16 @@
   .Filters {
     margin-bottom: getDataTableSizes(filters-margin-bottom);
   }
+  .ImageColumnEmpty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: calculateRem(4px);
+    background: color(alabaster);
+    width: calculateRem(40px);
+    height: calculateRem(40px);
+    border-radius: getDataTableSizes(image-column);
+  }
   .ImageColumn {
     img {
       border-radius: getDataTableSizes(image-column);
