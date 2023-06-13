@@ -86,6 +86,7 @@ export interface DataTableProps<T extends {}, K> {
   tableProps: Omit<TableProps<T>, 'columns' | 'actions'> & {
     columns?: (TableProps<T>['columns'][number] & {
       variant?: 'status' | 'image' | 'hovered-image' | 'circle-image';
+      emptyIllustration?: ReactNode;
       getVariant?: (value: string | number) => StatusProps['variant'];
       getVariantName?: (value: string | number) => string;
     })[];
@@ -289,14 +290,30 @@ function DataTable<T extends {}, K>({
         : column.variant === 'hovered-image'
         ? {
             renderColumn: (_, value) => {
-              return <img src={value || noImageGame} />;
+              return !value ? (
+                column.emptyIllustration ? (
+                  <div className={styles.ImageColumnEmpty}>{column.emptyIllustration}</div>
+                ) : (
+                  <img src={noImageGame} />
+                )
+              ) : (
+                <img src={value} />
+              );
             },
             className: classNames(styles.ImageHoverColumn, 'ImageHoverColumn')
           }
         : column.variant === 'image'
         ? {
             renderColumn: (_, value) => {
-              return <img src={value || noImageGame} />;
+              return !value ? (
+                column.emptyIllustration ? (
+                  <div className={styles.ImageColumnEmpty}>{column.emptyIllustration}</div>
+                ) : (
+                  <img src={noImageGame} />
+                )
+              ) : (
+                <img src={value} />
+              );
             },
             className: styles.ImageColumn
           }

@@ -27,6 +27,7 @@ export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttribute
   showActions?: boolean;
   index?: number;
   imgSrc: string;
+  emptyImageIllustration?: React.FC<React.SVGProps<SVGSVGElement>>;
   name: string;
   subTitle?: string;
 
@@ -53,6 +54,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   onDemoPlayButtonClick,
   onViewButtonClick,
   imgSrc,
+  emptyImageIllustration: EmptyImageIllustration = Icons.EmptyCardImagePokerToken,
   name,
   subTitle,
   checkboxProps,
@@ -187,7 +189,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
           <img className={styles['ItemCategoriesCard__img']} src={imgSrc} alt={name} />
         ) : (
           <span className={styles['ItemCategoriesCard__empty-img']}>
-            <Icons.EmptyCardImagePokerToken />
+            <EmptyImageIllustration />
           </span>
         )}
       </div>
