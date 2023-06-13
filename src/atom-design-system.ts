@@ -25,6 +25,7 @@ export {
   RadioButton,
   Scroll,
   Tag,
+  TagWithImage,
   Tooltip,
   Typography,
   typedMemo,
@@ -38,6 +39,7 @@ export type {
   DialogFooterProps,
   DialogHeaderProps,
   DialogProps,
+  TagWithImageBaseProps,
   DialogWithActionsProps
 } from '@my-ui/core';
 export * from './components';

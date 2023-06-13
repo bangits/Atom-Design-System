@@ -74,7 +74,7 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                     [styles['EditedFormBase--option--align-end']]: option.alignItem === 'end',
                     [styles[`EditedFormBase--option--${option.col || 6}`]]: option.col
                   })}>
-                  {title}
+                  {(option.title || option.tooltipText) ? title : null}
                   {option.value || <span className={styles['EditedFormBase--option-value']}>{noDataText}</span>}
                 </div>
               );
