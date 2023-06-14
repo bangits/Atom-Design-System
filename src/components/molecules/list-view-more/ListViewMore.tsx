@@ -45,7 +45,7 @@ const ListViewMore: FC = ({ children }) => {
 
     setRemaindChildsCount(childrenList.length - visibleChildsCount);
 
-    setShowMoreBtn(listRef.current.clientHeight !== listRef.current.scrollHeight);
+    if (!showMoreBtn) setShowMoreBtn(listRef.current.clientHeight !== listRef.current.scrollHeight);
 
     if (listRef.current.clientHeight !== listRef.current.scrollHeight) setScrollHeight(listRef.current.scrollHeight);
   }, [children, listRef.current?.clientWidth]);
