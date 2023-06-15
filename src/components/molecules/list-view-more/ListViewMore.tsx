@@ -62,7 +62,7 @@ const ListViewMore: FC = ({ children }) => {
         {children}
       </div>
 
-      {showMoreBtn && (
+      {showMoreBtn && remaindChildsCount > 0 && (
         <Button
           type='button'
           className={styles.ListViewMore__Btn}
