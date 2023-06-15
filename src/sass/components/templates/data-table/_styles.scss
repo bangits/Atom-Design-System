@@ -88,7 +88,7 @@
       transition: getDataTableSizes(data-table-image-animation);
       transition: transform getDataTableSizes(data-table-image-animation);
       transition-delay: getDataTableSizes(data-table-image-animation-delay);
-      object-fit: cover;
+      object-fit: contain;
       transform-origin: top left;
       &:hover {
         transform: scale(getDataTableSizes(data-table-image-scale));
