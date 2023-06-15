@@ -8,7 +8,7 @@ export interface ItemsListProps {
 
 const ItemsList: FC<ItemsListProps> = ({ children, scrollableViewProps }) => {
   return (
-    <ScrollableView height='50vh' {...scrollableViewProps}>
+    <ScrollableView height='min(50vh, 50rem)' {...scrollableViewProps}>
       <div data-scroll-container className={styles.ItemsList}>
         {children}
       </div>
