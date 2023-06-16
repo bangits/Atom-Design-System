@@ -16,9 +16,16 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
     <>
       {options &&
         options?.map((option, index) => {
+          const showCount = () => {
+            if (option.variant === 'tag' || option.variant === 'tag-with-image') {
+              return option.showCount && option.value?.length ? `(${option.value.length})` : '';
+            }
+            return '';
+          };
+
           const title = (
             <span className={classNames(styles['EditedFormBase--option-title'])}>
-              {option.title}
+              {option.title} {showCount()}
               {option.tooltipText && (
                 <Tooltip showEvent='hover' text={option.tooltipText}>
                   <InfoTooltipIcon
@@ -74,7 +81,7 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                     [styles['EditedFormBase--option--align-end']]: option.alignItem === 'end',
                     [styles[`EditedFormBase--option--${option.col || 6}`]]: option.col
                   })}>
-                  {(option.title || option.tooltipText) ? title : null}
+                  {option.title || option.tooltipText ? title : null}
                   {option.value || <span className={styles['EditedFormBase--option-value']}>{noDataText}</span>}
                 </div>
               );
