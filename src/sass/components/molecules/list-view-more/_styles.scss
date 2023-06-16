@@ -3,14 +3,20 @@
     $this: #{&};
     @include flex(space-between, flex-start);
     width: 100%;
+    margin-bottom: calculateRem(16px);
     &__List {
       @include flex($flex-wrap: wrap);
       gap: calculateRem(8px);
       max-width: calc(100% - #{calculateRem(80px)});
       max-height: calculateRem(38px);
       overflow: hidden;
-      margin-bottom: calculateRem(16px);
       transition: max-height 0.5s;
+    }
+    &__Btns {
+      align-self: flex-end;
+      &:empty {
+        display: none;
+      }
     }
     &__Btn {
       white-space: nowrap;
