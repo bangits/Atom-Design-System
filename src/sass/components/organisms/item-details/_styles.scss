@@ -1,7 +1,6 @@
 @mixin generate-item-details-styles {
   .ItemDetailsBase {
     &#{&} {
-      width: calc(100vw - #{calculateRem(380px)});
       min-height: getItemDetailsSizes(base-min-height);
       background-color: getItemDetailsColors(base-bg);
       padding: getItemDetailsSizes(base-padding);
