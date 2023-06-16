@@ -28,7 +28,7 @@ const VerticalTabs: FC<VerticalTabsProps> = ({
   hideTabs
 }) => {
   return (
-    <>
+    <div className={styles.VeticalTabsContainer}>
       {title && (
         <span className={styles.VerticalTabs__title}>
           {title}
@@ -59,7 +59,7 @@ const VerticalTabs: FC<VerticalTabsProps> = ({
 
         <div className={styles.VerticalTabs__Content}>{children}</div>
       </Card>
-    </>
+    </div>
   );
 };
 
