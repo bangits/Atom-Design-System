@@ -34,12 +34,14 @@ export interface EditedFormProps {
       }
     | {
         title: ReactNode | string;
+        showCount?: boolean;
         tooltipText?: string;
         value: string[];
         variant: 'tag';
       }
     | {
         title: ReactNode | string;
+        showCount?: boolean;
         tooltipText?: string;
         value: TagWithImageBaseProps[];
         variant: 'tag-with-image';
