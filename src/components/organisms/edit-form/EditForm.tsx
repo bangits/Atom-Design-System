@@ -74,7 +74,8 @@ const EditForm: FC<EditFormProps> = ({
   return (
     <div
       className={classNames(styles.EditForm, {
-        [styles[`EditForm--${col}`]]: col
+        [styles[`EditForm--${col}`]]: col,
+        [styles['EditForm--remove-card']]: removeCard
       })}>
       {showActions && (
         <div

@@ -10,6 +10,11 @@
   .EditForm {
     width: getEditFormInSizes(edit-form-width);
     position: relative;
+    &--remove-card {
+      .EditFormBase--content {
+        min-height: 248px;
+      }
+    }
   }
   .EditForm--12 {
     &,
@@ -29,6 +34,7 @@
     background-color: getEditFormInColors(edit-form-background);
     padding: getEditFormInSizes(edit-form-padding);
     box-sizing: border-box;
+    min-height: 248px;
     @include generateBorderWithBoxShadow(getEditFormInColors(border-color), 0.1rem);
     &--label {
       position: absolute;
@@ -41,6 +47,7 @@
       }
     }
     &--header {
+      min-height: calculateRem(42px);
       @include flex(space-between, center);
       padding: getEditFormInSizes(edit-form-header-padding);
       &-tooltip {
@@ -73,7 +80,6 @@
       align-content: flex-start;
       box-sizing: border-box;
       width: getEditFormInSizes(edit-form-content-width);
-      min-height: getEditFormInSizes(min-height);
       form {
         width: 100%;
       }
