@@ -8,10 +8,14 @@
       @include flex(null, flex-start);
     }
     &__content {
+      flex-grow: 1;
       margin-left: calculateRem(8px);
       min-height: calculateRem(656px);
       box-sizing: border-box;
       border-radius: calculateRem(16px);
+    }
+    &__sidebar {
+      max-width: calculateRem(230px);
     }
   }
 }
