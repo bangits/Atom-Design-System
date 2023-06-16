@@ -21,7 +21,9 @@
       font-size: calculateRem(13px);
     }
     &__input {
-      min-height: auto;
+      &#{&} {
+        min-height: auto;
+      }
       input {
         min-width: calculateRem(110px);
       }
