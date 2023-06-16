@@ -1,8 +1,16 @@
 @mixin generate-vertical-tabs-styles {
+
+    .VeticalTabsContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
     .VerticalTabs {
         display: flex;
         padding: calculateRem(20px) calculateRem(22px) calculateRem(20px) 0;
         min-height: calculateRem(185px);
+        box-sizing: border-box;
 
         &__title {
             display: flex;
@@ -40,6 +48,8 @@
         &__Sidebar {
             border-right: calculateRem(0.5px) solid rgba(142, 166, 193, 0.4);
             margin-right: calculateRem(14px);
+            min-width: calculateRem(59px);
+            max-width: calculateRem(59px);
         }
         &__Content {
             padding-left: calculateRem(24px);
