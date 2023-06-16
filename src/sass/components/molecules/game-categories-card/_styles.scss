@@ -11,9 +11,6 @@
     &__img {
       border-radius: calculateRem(2px);
     }
-    &__img {
-      object-fit: scale-down;
-    }
     &__index {
       position: absolute;
       top: calculateRem(4px);
@@ -78,7 +75,7 @@
       display: block;
       width: 100%;
       aspect-ratio: 4 /3;
-      object-fit: cover;
+      object-fit: scale-down;
     }
     &__img,
     &__empty-img {
