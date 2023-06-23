@@ -29,27 +29,28 @@ const FromToTimePicker: FC<FromToTimepickerProps> = ({
   const dateFromPlusOneMinute = useMemo(() => {
     const selectedDateFromCloned = new Date(selectedDateFrom);
 
-    selectedDateFromCloned.setMinutes(selectedDateFromCloned.getMinutes() + 1);
+    if (toPickerProps.hideTimeSelection) selectedDateFromCloned.setHours(selectedDateFromCloned.getHours() + 24);
+    else selectedDateFromCloned.setMinutes(selectedDateFromCloned.getMinutes() + 1);
 
     return selectedDateFromCloned;
-  }, [selectedDateFrom]);
+  }, [toPickerProps.hideTimeSelection, selectedDateFrom]);
 
   return (
     <div className={styles.FromToTimePickerContainer}>
       <DateTimePicker
         {...(fromPickerProps || {})}
-        maxDate={selectedDateTo}
         onChange={(value) => {
           setSelectedDateFrom(value);
 
-          onChange([value, selected !== undefined ? selected && selected[1] : selectedDateTo]);
+          onChange([value, null]);
         }}
         className={styles.FromPicker}
         selected={selected !== undefined ? selected && selected[0] : selectedDateFrom}
       />
       <DateTimePicker
+        disabled={!selectedDateFrom}
         {...(toPickerProps || {})}
-        minDate={dateFromPlusOneMinute}
+        minDate={toPickerProps?.minDate || dateFromPlusOneMinute}
         onChange={(value) => {
           setSelectedDateTo(value);
 
