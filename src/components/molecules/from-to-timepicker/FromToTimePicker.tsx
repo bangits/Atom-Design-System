@@ -48,7 +48,6 @@ const FromToTimePicker: FC<FromToTimepickerProps> = ({
         selected={selected !== undefined ? selected && selected[0] : selectedDateFrom}
       />
       <DateTimePicker
-        disabled={!selectedDateFrom}
         {...(toPickerProps || {})}
         minDate={toPickerProps?.minDate || dateFromPlusOneMinute}
         onChange={(value) => {
