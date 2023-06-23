@@ -177,6 +177,3 @@ export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.reac
 export { ReactComponent as ViewMoreArrowIcon } from './view-more-arrow.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as CloseIllustration } from './close-illustrations.react.svg';
-export { ReactComponent as LabelVariant1 } from './label-variant-1.react.svg';
-export { ReactComponent as LabelVariant2 } from './label-variant-2.react.svg';
-export { ReactComponent as LabelVariant3 } from './label-variant-3.react.svg';
