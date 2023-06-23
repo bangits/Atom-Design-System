@@ -414,6 +414,30 @@
     regenerator-transform "^0.14.5"
     vite-plugin-svgr "^2.4.0"
 
+"@atom/design-system@^4.9.5":
+  version "4.9.5"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/design-system/-/design-system-4.9.5.tgz#074ea6c4505099a8d8c5e1c6bf87fecc8ddf8c7c"
+  integrity sha1-B06mxFBQmajYxeHGv4f+zI3fjHw=
+  dependencies:
+    "@atom/common" "^2.4.6"
+    "@my-ui/core" "^0.11.23"
+    classnames "^2.3.1"
+    codemirror "^5.65.10"
+    draft-js "^0.11.7"
+    draftjs-to-html "^0.9.1"
+    react "17.0.0"
+    react-codemirror2 "^7.2.1"
+    react-cropper "^2.1.8"
+    react-dnd "15.1.2"
+    react-dnd-html5-backend "^16.0.1"
+    react-dom "17.0.0"
+    react-draft-wysiwyg "^1.15.0"
+    react-jss "^10.8.2"
+    react-sortable-hoc "^2.0.0"
+    react-transition-group "^4.4.5"
+    regenerator-transform "^0.14.5"
+    vite-plugin-svgr "^2.4.0"
+
 "@atom/game-management@^0.1.0":
   version "0.1.6"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@atom/game-management/-/game-management-0.1.6.tgz#f3e3eb07d089e97d428fc9170dd54f27a35fb609"
@@ -2765,7 +2789,7 @@
     react-transition-group "^4.4.2"
     throttle-debounce "^3.0.1"
 
-"@my-ui/core@^0.11.24":
+"@my-ui/core@^0.11.23", "@my-ui/core@^0.11.24":
   version "0.11.24"
   resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.11.24.tgz#ae3bb2b2d496a88bd42448be746e4b06896b63a5"
   integrity sha1-rjuystSWqIvUJEi+dG5LBolrY6U=
