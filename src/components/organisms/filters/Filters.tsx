@@ -260,7 +260,7 @@ function Filters<T>({
                   onClick={() => {
                     onSubmit(filterValues);
 
-                    setIsOpenedFilterCollapse();
+                    setIsOpenedFilterCollapse(false);
                   }}
                   className={styles.ApplyButton}>
                   {applyLabel}
