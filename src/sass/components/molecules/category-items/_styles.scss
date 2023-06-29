@@ -13,9 +13,6 @@
         justify-content: flex-end;
       }
     }
-    &__scroll {
-      min-height: calculateRem(240px);
-    }
     &__title {
       color: color(black-color);
       font-weight: 500;
