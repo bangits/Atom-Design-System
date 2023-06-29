@@ -23,6 +23,8 @@ export {
   Loader,
   Pagination,
   RadioButton,
+  Drawer,
+  ColorPicker,
   Scroll,
   Tag,
   TagWithImage,
@@ -40,7 +42,7 @@ export type {
   DialogHeaderProps,
   DialogProps,
   TagWithImageBaseProps,
-  DialogWithActionsProps
+  DialogWithActionsProps,
 } from '@my-ui/core';
 export * from './components';
 export * from './contexts';
