@@ -1,4 +1,4 @@
-import { Card, useOutsideClickEvent } from '@my-ui/core';
+import { Card, useOutsideClickEvent, useOutsideClickWithRef } from '@my-ui/core';
 import classNames from 'classnames';
 import {
   CSSProperties,
@@ -58,13 +58,7 @@ const ButtonForm: FC<ButtonFormProps> = ({
     [setOpenedForm]
   );
 
-  const { subscribe, unsubscribe } = useOutsideClickEvent(`.${styles.ButtonForm}`);
-
-  useEffect(() => {
-    subscribe(() => setOpenedForm(false));
-
-    return () => unsubscribe();
-  }, [subscribe, unsubscribe]);
+  useOutsideClickWithRef(buttonFormContainerRef, () => setOpenedForm(false));
 
   return (
     <div
