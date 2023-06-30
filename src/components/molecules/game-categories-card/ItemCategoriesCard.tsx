@@ -7,8 +7,7 @@ import {
   Icons,
   LabelManager,
   LabelManagerProps,
-  LabelManagerTag,
-  LabelTag
+  LabelManagerTag
 } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
@@ -129,7 +128,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 <Icons.DotsIcon />
               </button>
             )}>
-            {(showDeleteLabel || showAddLabel) && (
+            {(showDeleteLabel || showAddLabel) && labelActionsState.visible && (
               <div
                 className={classNames(styles['ItemCategoriesCard__label-content'], {
                   [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible
