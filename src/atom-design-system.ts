@@ -42,7 +42,7 @@ export type {
   DialogHeaderProps,
   DialogProps,
   TagWithImageBaseProps,
-  DialogWithActionsProps,
+  DialogWithActionsProps
 } from '@my-ui/core';
 export * from './components';
 export * from './contexts';

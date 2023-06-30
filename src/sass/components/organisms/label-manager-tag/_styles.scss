@@ -1,5 +1,15 @@
 @mixin generate-label-manager-tag-styles {
+
     .Container {
+        display: flex;
+        align-items: baseline;
+    }
+
+    .Checkbox {
+        margin-right: calculateRem(6px);
+    }
+
+    .LabelContainer {
         display: flex;
         width: 100%;
         box-sizing: border-box;
@@ -10,6 +20,7 @@
         border-radius: calculateRem(20px);
         margin-bottom: calculateRem(8px);
         transition: width 0.3s ease;
+        cursor: pointer;
 
         &--bordered {
             border: 1px solid color(scampi);
@@ -24,6 +35,14 @@
 
             &:hover {
                 width: 100%;
+            }
+        }
+
+        &--has-checkbox {
+            width: 85%;
+
+            &:hover {
+                width: 85%;
             }
         }
     }

@@ -30,7 +30,7 @@ export default defineConfig({
       fileName: () => 'atom-design-system.js'
     },
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', '@atom/common'],
       output: {
         intro: `const process = {env: ${JSON.stringify(process.env)}}`
       }

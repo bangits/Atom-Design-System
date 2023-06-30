@@ -85,7 +85,7 @@
     "webpack-merge": "^5.8.0"
   },
   "dependencies": {
-    "@atom/common": "^2.4.6",
+    "@atom/common": "^2.8.9",
     "@my-ui/core": "^0.11.36",
     "classnames": "^2.3.1",
     "codemirror": "^5.65.10",
