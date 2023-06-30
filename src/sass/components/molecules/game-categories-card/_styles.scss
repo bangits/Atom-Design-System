@@ -31,6 +31,23 @@
         background-color: #fff;
       }
     }
+
+
+    &__label-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(110%);
+      width: fit-content;
+      height: fit-content;
+      background-color: white;
+      transition: transform 0.3s ease ;
+
+      &--open {
+        transform: translate(0);
+      }
+    }
+
     &__more-content {
       &--with-selected-form {
         #{$this}__more-form {

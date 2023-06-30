@@ -65,3 +65,4 @@ export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-card';
 export * from './wallet-view';
+export * from './label-manager';

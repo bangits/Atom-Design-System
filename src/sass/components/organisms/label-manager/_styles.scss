@@ -1,0 +1,82 @@
+@mixin generate-label-manager-styles {
+    .Container {
+        display: flex;
+        flex-direction: column;
+        padding: calculateRem(10px);
+        width: calculateRem(165px); 
+        height: calculateRem(180px);
+        box-sizing: border-box;
+        cursor: pointer;
+    }
+
+    .Header {
+        display: flex;
+        color: color(black-color);
+        font-size: calculateRem(13px);
+    }
+
+    .BackIcon {
+        cursor: pointer;
+        margin-right: calculateRem(10px);
+    }
+
+    .Search {
+        margin-top: calculateRem(5px);
+        width: 100%;
+    }
+
+    .SearchInput {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: color(black-color);
+
+        &::placeholder {
+            color: color(nepal);
+        }
+
+        &::-ms-input-placeholder {
+            color: color(nepal);
+        }
+    }
+
+    .SearchInputWrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .SearchIcon {
+        color: color(nepal);
+    }
+
+    .Divider {
+        width: 100%;
+        margin-top: calculateRem(5px);
+        height: calculateRem(1px);
+        background: color(nepal);
+    }
+
+    .LabelstList {
+        margin: calculateRem(5px) 0 auto 0;
+    }
+
+    .Footer {
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .Apply {
+        color: color(scampi);
+        text-decoration: underline;
+        cursor: pointer;
+
+        &:hover {
+            opacity: 0.5;
+        }
+    }
+
+    .NoLabels {
+        margin: auto;
+        font-size: culateRem(13px);
+    }
+}

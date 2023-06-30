@@ -1,0 +1,58 @@
+@mixin generate-label-manager-tag-styles {
+    .Container {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        padding: calculateRem(6px) calculateRem(20px);
+        background-color: color(whisper);
+        border: 1px solid transparent;
+        transition: background-color 0.3s ease;
+        border-radius: calculateRem(20px);
+        margin-bottom: calculateRem(8px);
+        transition: width 0.3s ease;
+
+        &--bordered {
+            border: 1px solid color(scampi);
+        }
+
+        &:hover {
+            background-color: #DBDBE2;
+        }
+
+        &--is-minified {
+            width: calculateRem(58px);
+
+            &:hover {
+                width: 100%;
+            }
+        }
+    }
+
+    .LabelText {
+        width: 100%;
+        color: color(black-color);
+        font-size: calculateRem(13px);
+        border-radius: calculateRem(20px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .LabelIcon {
+        color: color(scampi);
+        transition: color 0.3s ease-in;
+        margin-right: calculateRem(8px);
+        min-width: calculateRem(15px);
+        width: calculateRem(15px);
+
+        &--active {
+            color: color(lime-c);
+        }
+    }
+
+    .SuffixIcon {
+        left: calculateRem(8px);
+        position: relative;
+        color: color(black-color);
+    }
+}

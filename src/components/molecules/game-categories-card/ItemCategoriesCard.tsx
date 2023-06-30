@@ -4,7 +4,9 @@ import {
   FormWithInput,
   FormWithInputProps,
   GameLaunchBtns,
-  Icons
+  Icons,
+  LabelManager,
+  LabelManagerProps
 } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
@@ -16,11 +18,13 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
   actionLabel: string;
   actionIcon?: ReactNode;
   removeForm?: boolean;
-
   onActionClick?(): void;
 };
 
 export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  showAddLabel?: boolean;
+  showDeleteLabel?: boolean;
+  labelManagerProps: LabelManagerProps;
   checkboxProps?: CheckboxProps;
   cardTopComponent?: ReactNode;
   showCheckboxOnHover?: boolean;
@@ -30,18 +34,18 @@ export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttribute
   emptyImageIllustration?: React.FC<React.SVGProps<SVGSVGElement>>;
   name: string;
   subTitle?: string;
-
   formWithInputActions?: FormWithInputAction[];
   actionsShowPosition?: ButtonFormProps['showPosition'];
-
   translations?: {
     view: string;
     playDemoText?: string;
     delete?: string;
+    deleteLabel?: string;
+    addLabel?: string;
+    applyLabel?: string;
   };
   status?: 'active' | 'inactive';
   statusLabel?: string;
-
   onViewButtonClick?(): void;
   onDeleteButtonClick?(): void;
   onPlayButtonClick?(): void;
@@ -67,10 +71,17 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   showCheckboxOnHover,
   status,
   statusLabel,
+  labelManagerProps,
+  showAddLabel,
+  showDeleteLabel,
   ...props
 }) => {
   const [selectedFormProps, setSelectedFormProps] = useState<FormWithInputAction | null>(null);
   const [showSelectedFrom, setShowSelectedForm] = useState(false);
+  const [labelActionsState, setLabelActionsState] = useState({
+    visible: false,
+    actionType: null
+  });
 
   const closeSelectedForm = useCallback(() => setShowSelectedForm(false), []);
 
@@ -114,6 +125,22 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 <Icons.DotsIcon />
               </button>
             )}>
+            {(showDeleteLabel || showAddLabel) && (
+              <div
+                className={classNames(styles['ItemCategoriesCard__label-content'], {
+                  [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible
+                })}>
+                <LabelManager
+                  {...labelManagerProps}
+                  actionType={labelActionsState.actionType}
+                  onBack={() => {
+                    setLabelActionsState({ visible: false, actionType: null });
+                    labelManagerProps?.onBack();
+                  }}
+                />
+              </div>
+            )}
+
             <div
               className={classNames(styles['ItemCategoriesCard__more-content'], {
                 [styles['ItemCategoriesCard__more-content--with-selected-form']]: showSelectedFrom
@@ -158,6 +185,29 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                     {action.actionIcon} {action.actionLabel}
                   </button>
                 ))}
+
+                {labelManagerProps && (
+                  <>
+                    {showAddLabel && (
+                      <button
+                        className={classNames(styles['ItemCategoriesCard__action'])}
+                        type='button'
+                        onClick={() => setLabelActionsState({ visible: true, actionType: 'add' })}>
+                        <Icons.Label width='1.5rem' /> {translations.addLabel}
+                        <Icons.ArrowNext width='0.7rem' style={{ marginLeft: 'auto' }} />
+                      </button>
+                    )}
+                    {showDeleteLabel && (
+                      <button
+                        className={classNames(styles['ItemCategoriesCard__action'])}
+                        type='button'
+                        onClick={() => setLabelActionsState({ visible: true, actionType: 'delete' })}>
+                        <Icons.DeleteLabel width='1.5rem' /> {translations.deleteLabel}
+                        <Icons.ArrowNext width='0.7rem' style={{ marginLeft: 'auto' }} />
+                      </button>
+                    )}
+                  </>
+                )}
 
                 {onDeleteButtonClick && (
                   <button
