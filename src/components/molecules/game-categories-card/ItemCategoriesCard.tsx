@@ -6,7 +6,9 @@ import {
   GameLaunchBtns,
   Icons,
   LabelManager,
-  LabelManagerProps
+  LabelManagerProps,
+  LabelManagerTag,
+  LabelTag
 } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
@@ -24,6 +26,7 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
 export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   showAddLabel?: boolean;
   showDeleteLabel?: boolean;
+  labels?: LabelManagerProps['labelsList'];
   labelManagerProps: LabelManagerProps;
   checkboxProps?: CheckboxProps;
   cardTopComponent?: ReactNode;
@@ -73,6 +76,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   statusLabel,
   labelManagerProps,
   showAddLabel,
+  labels,
   showDeleteLabel,
   ...props
 }) => {
@@ -106,16 +110,13 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
       )}>
       <div className={styles['ItemCategoriesCard__main']}>
         {cardTopComponent && <div className={styles['ItemCategoriesCard__top']}>{cardTopComponent}</div>}
-
         {checkboxProps && !cardTopComponent && (
           <Checkbox
             {...checkboxProps}
             className={classNames(styles['ItemCategoriesCard__top'], checkboxProps?.className)}
           />
         )}
-
         {index ? <span className={styles['ItemCategoriesCard__index']}>{index}</span> : null}
-
         {showActions && (
           <ButtonForm
             showPosition={actionsShowPosition}
@@ -238,7 +239,6 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
             showPlayBtn={!!onPlayButtonClick}
           />
         </div>
-
         {imgSrc ? (
           <img className={styles['ItemCategoriesCard__img']} src={imgSrc} alt={name} />
         ) : (
@@ -246,6 +246,11 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
             <EmptyImageIllustration />
           </span>
         )}
+        <div className={styles.LabelsList}>
+          {labels.map((label) => (
+            <LabelManagerTag key={label.id} isActive isMinified labelText={label.labelText} />
+          ))}
+        </div>
       </div>
 
       <div className={styles['ItemCategoriesCard__name']}>

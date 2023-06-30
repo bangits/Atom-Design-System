@@ -1,5 +1,13 @@
 @mixin generate-item-categories-card-styles {
 
+  .LabelsList {
+    position: absolute;
+    bottom: 0;
+    left: calculateRem(5px);
+    width: 93%;
+    z-index: 2;
+  }
+
   .ActionsCardBase {
     opacity: 1 !important;
 
@@ -178,7 +186,7 @@
         display: none;
       }
       #{$this}__main {
-        &::before {
+        &::after {
           content: '';
           background-color: #000;
           opacity: 0;
@@ -192,12 +200,12 @@
           z-index: 1;
         }
         &:hover {
-          &::before {
+          &::after {
             opacity: 0.8;
           }
           #{$this}__more {
             display: block;
-            z-index: 2;
+            z-index: 3;
           }
           :global {
             .HoverBox-PlayBtn {

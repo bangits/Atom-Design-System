@@ -13,7 +13,7 @@ export interface LabelManagerTagProps {
   isSelected?: boolean;
   suffixIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
   onSufficIconClick?: () => void;
-  onClick: () => void;
+  onClick?: () => void;
 }
 
 export const LabelManagerTag = ({
@@ -54,7 +54,12 @@ export const LabelManagerTag = ({
           [styles['LabelContainer--is-minified']]: isMinified,
           [styles['LabelContainer--has-checkbox']]: hasCheckBox
         })}>
-        <Icons.Label className={classNames(styles.LabelIcon, { [styles['LabelIcon--active']]: isActive })} />
+        <Icons.Label
+          className={classNames(styles.LabelIcon, {
+            [styles['LabelIcon--active']]: isActive,
+            [styles['LabelIcon--is-minified']]: isMinified
+          })}
+        />
 
         <Tooltip text={isLabeltextOverflowed && labelText}>
           <span ref={labelTextRef} className={styles.LabelText}>
