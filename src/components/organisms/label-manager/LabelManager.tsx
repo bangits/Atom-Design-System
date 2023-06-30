@@ -19,6 +19,7 @@ export interface LabelManagerProps {
     addLabel: string;
     apply: string;
   };
+  isLoading: boolean;
   isMultiSelect?: boolean;
   isSearchLocal?: boolean;
   actionType: 'add' | 'delete';
@@ -41,7 +42,8 @@ export const LabelManager = ({
   onLabelClick,
   onApply,
   isMultiSelect,
-  labelsList
+  labelsList,
+  isLoading
 }: LabelManagerProps) => {
   const [searchFieldValue, setSearchFieldValue] = useState('');
   const [localSearchList, setLocalSearchList] = useState(labelsList.concat([]));
@@ -97,6 +99,10 @@ export const LabelManager = ({
     [isSearchLocal, localSearchList, labelsList]
   );
 
+  const handlePageChange = (page: number) => {
+    console.log(page);
+  };
+
   return (
     <div className={styles.Container}>
       <div className={styles.Header}>
@@ -129,8 +135,8 @@ export const LabelManager = ({
             <>
               <ScrollableView
                 className={styles.LabelstList}
-                height={120}
-                onPageChange={() => {}}
+                height={150}
+                onPageChange={handlePageChange}
                 disableOnPageChange={false}>
                 {labels?.map((label) => (
                   <LabelManagerTag
@@ -150,6 +156,7 @@ export const LabelManager = ({
           )}
 
           <div className={styles.Footer}>
+            <div className={styles.Loading}>{isLoading && <Icons.Spinner width='1.5rem' />}</div>
             <div onClick={() => onApply(selectedItemIds)} className={styles.Apply}>
               {translations?.apply}
             </div>

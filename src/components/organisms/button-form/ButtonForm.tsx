@@ -24,6 +24,7 @@ export interface ButtonFormRenderArguments {
 export interface ButtonFormProps {
   showPosition?: 'left' | 'right';
   className?: string;
+  cardClassName?: string;
   children: ReactNode | ((buttonFormRenderArguments: ButtonFormRenderArguments) => ReactNode);
   style?: CSSProperties;
 
@@ -38,6 +39,7 @@ const ButtonForm: FC<ButtonFormProps> = ({
   children,
   getContainerProps,
   className,
+  cardClassName,
   style,
   showPosition: showPositionProp
 }) => {
@@ -82,7 +84,7 @@ const ButtonForm: FC<ButtonFormProps> = ({
         unmountOnExit>
         <Card
           style={style}
-          className={classNames(styles['ButtonForm__content'], {
+          className={classNames(styles['ButtonForm__content'], cardClassName, {
             [styles[`ButtonForm__content--${showPosition}`]]: showPosition
           })}>
           <div

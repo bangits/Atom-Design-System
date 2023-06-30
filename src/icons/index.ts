@@ -180,3 +180,4 @@ export { ReactComponent as CloseIllustration } from './close-illustrations.react
 export { ReactComponent as DeleteLabel } from './delete-label.react.svg';
 export { ReactComponent as Label } from './label.react.svg';
 export { ReactComponent as Search } from './search.react.svg';
+export { ReactComponent as Spinner } from './spinner.react.svg';

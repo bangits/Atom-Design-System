@@ -1,4 +1,13 @@
 @mixin generate-item-categories-card-styles {
+
+  .ActionsCardBase {
+    opacity: 1 !important;
+
+    &--label-manager-open {
+      min-height: calculateRem(234px) !important;
+    }
+  }
+
   .ItemCategoriesCard {
     $main-info-pr: calculateRem(22px);
     $this: #{&};
@@ -41,7 +50,6 @@
       width: fit-content;
       height: fit-content;
       background-color: white;
-      transition: transform 0.3s ease ;
 
       &--open {
         transform: translate(0);

@@ -120,6 +120,9 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
           <ButtonForm
             showPosition={actionsShowPosition}
             className={styles['ItemCategoriesCard__more']}
+            cardClassName={classNames(styles.ActionsCardBase, {
+              [styles['ActionsCardBase--label-manager-open']]: labelActionsState.visible
+            })}
             renderOpenElement={({ open }) => (
               <button type='button' onClick={open}>
                 <Icons.DotsIcon />
@@ -133,6 +136,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 <LabelManager
                   {...labelManagerProps}
                   actionType={labelActionsState.actionType}
+                  isMultiSelect={labelManagerProps.isMultiSelect && labelActionsState.actionType === 'delete'}
                   onBack={() => {
                     setLabelActionsState({ visible: false, actionType: null });
                     labelManagerProps?.onBack();
