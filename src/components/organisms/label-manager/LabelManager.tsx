@@ -62,7 +62,7 @@ export const LabelManager = ({
                   value={searchFieldValue}
                   onChange={(e) => setSearchFieldValue(e.target.value)}
                 />
-                <Icons.TrashIcon className={styles.SearchIcon} width='1rem' />
+                <Icons.Search className={styles.SearchIcon} width='1.5rem' />
               </div>
               <div className={styles.Divider}></div>
             </div>

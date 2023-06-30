@@ -179,3 +179,4 @@ export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as CloseIllustration } from './close-illustrations.react.svg';
 export { ReactComponent as DeleteLabel } from './delete-label.react.svg';
 export { ReactComponent as Label } from './label.react.svg';
+export { ReactComponent as Search } from './search.react.svg';
