@@ -113,6 +113,7 @@
     &__img,
     &__empty-img {
       min-height: calculateRem(98px);
+      max-height: calculateRem(98px);
     }
     &__empty-img {
       @include flex(center, center);
