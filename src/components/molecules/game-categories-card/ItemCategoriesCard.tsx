@@ -11,7 +11,7 @@ import {
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useCallback, useMemo, useState } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
 
 export type FormWithInputAction = Partial<FormWithInputProps> & {
@@ -24,7 +24,7 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
 export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   showAddLabel?: boolean;
   showDeleteLabel?: boolean;
-  labelManagerProps?: LabelManagerProps;
+  labelManagerProps?: Partial<LabelManagerProps>;
   labelManagerContainer?: React.FC<any>;
   checkboxProps?: CheckboxProps;
   cardTopComponent?: ReactNode;
@@ -85,6 +85,28 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
     actionType: null
   });
 
+  const customizedLabelManagerProps = useMemo(
+    () => ({
+      ...labelManagerProps,
+      actionType: labelActionsState.actionType,
+      onApply: (id, isSuccess) => {
+        if (isSuccess) {
+          setLabelActionsState({
+            visible: false,
+            actionType: null
+          });
+        }
+        labelManagerProps?.onApply(id, isSuccess);
+      },
+      onBack: () =>
+        setLabelActionsState({
+          visible: false,
+          actionType: null
+        })
+    }),
+    [labelManagerProps, labelActionsState]
+  );
+
   const closeSelectedForm = useCallback(() => setShowSelectedForm(false), []);
 
   const onBackBtnClick = useCallback<FormWithInputProps['onBackBtnClick']>((e) => {
@@ -132,10 +154,9 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 className={classNames(styles['ItemCategoriesCard__label-content'], {
                   [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible
                 })}>
-                {<LabelManagerContainer {...labelManagerProps} actinType={labelActionsState.actionType} />}
+                {<LabelManagerContainer labelManagerProps={customizedLabelManagerProps} />}
               </div>
             )}
-
             <div
               className={classNames(styles['ItemCategoriesCard__more-content'], {
                 [styles['ItemCategoriesCard__more-content--with-selected-form']]: showSelectedFrom
