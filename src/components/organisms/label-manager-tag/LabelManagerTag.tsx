@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect, useCallback } from 'react';
+import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
 import { Checkbox, Icons, Tooltip } from '@/atom-design-system';
 import styles from './LabelManagerTag.module.scss';
 import classNames from 'classnames';

@@ -245,11 +245,13 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
             <EmptyImageIllustration />
           </span>
         )}
-        <div className={styles.LabelsList}>
-          {labels.map((label) => (
-            <LabelManagerTag key={label.id} isActive isMinified labelText={label.labelText} />
-          ))}
-        </div>
+        {labels && (
+          <div className={styles.LabelsList}>
+            {labels.map((label) => (
+              <LabelManagerTag key={label.id} isActive isMinified labelText={label.labelText} />
+            ))}
+          </div>
+        )}
       </div>
 
       <div className={styles['ItemCategoriesCard__name']}>
