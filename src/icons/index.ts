@@ -177,14 +177,11 @@ export { ReactComponent as ViewCardImageIcon } from './view-card-image-icon.reac
 export { ReactComponent as ViewMoreArrowIcon } from './view-more-arrow.react.svg';
 export { ReactComponent as WarningIcon } from './warning.react.svg';
 export { ReactComponent as CloseIllustration } from './close-illustrations.react.svg';
-<<<<<<< HEAD
 export { ReactComponent as DeleteLabel } from './delete-label.react.svg';
 export { ReactComponent as Label } from './label.react.svg';
 export { ReactComponent as Search } from './search.react.svg';
 export { ReactComponent as Spinner } from './spinner.react.svg';
-=======
 export { ReactComponent as Oval } from './oval.svg';
 export { ReactComponent as Pentagonal } from './pentagonal.svg';
 export { ReactComponent as ShapeFigure } from './shape-figure.svg';
 export { ReactComponent as SetColorIcon } from './set-color-icon.svg';
->>>>>>> b1ccb6e74535a77da34ec45cca64abc598a2e0fc
