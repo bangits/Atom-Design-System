@@ -180,3 +180,4 @@ export { ReactComponent as CloseIllustration } from './close-illustrations.react
 export { ReactComponent as Oval } from './oval.svg';
 export { ReactComponent as Pentagonal } from './pentagonal.svg';
 export { ReactComponent as ShapeFigure } from './shape-figure.svg';
+export { ReactComponent as SetColorIcon } from './set-color-icon.svg';
