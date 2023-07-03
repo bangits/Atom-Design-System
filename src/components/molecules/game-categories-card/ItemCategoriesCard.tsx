@@ -5,7 +5,6 @@ import {
   FormWithInputProps,
   GameLaunchBtns,
   Icons,
-  LabelManager,
   LabelManagerProps,
   LabelManagerTag
 } from '@/atom-design-system';
@@ -25,8 +24,8 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
 export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   showAddLabel?: boolean;
   showDeleteLabel?: boolean;
-  labels?: LabelManagerProps['labelsList'];
-  labelManagerProps: LabelManagerProps;
+  labelManagerProps?: LabelManagerProps;
+  labelManagerContainer?: React.FC<any>;
   checkboxProps?: CheckboxProps;
   cardTopComponent?: ReactNode;
   showCheckboxOnHover?: boolean;
@@ -74,8 +73,8 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   status,
   statusLabel,
   labelManagerProps,
+  labelManagerContainer: LabelManagerContainer,
   showAddLabel,
-  labels,
   showDeleteLabel,
   ...props
 }) => {
@@ -133,15 +132,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 className={classNames(styles['ItemCategoriesCard__label-content'], {
                   [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible
                 })}>
-                <LabelManager
-                  {...labelManagerProps}
-                  actionType={labelActionsState.actionType}
-                  isMultiSelect={labelManagerProps.isMultiSelect && labelActionsState.actionType === 'delete'}
-                  onBack={() => {
-                    setLabelActionsState({ visible: false, actionType: null });
-                    labelManagerProps?.onBack();
-                  }}
-                />
+                {<LabelManagerContainer {...labelManagerProps} actinType={labelActionsState.actionType} />}
               </div>
             )}
 
@@ -245,9 +236,9 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
             <EmptyImageIllustration />
           </span>
         )}
-        {labels && (
+        {labelManagerProps?.labelsToDelete && (
           <div className={styles.LabelsList}>
-            {labels.map((label) => (
+            {labelManagerProps?.labelsToDelete.map((label) => (
               <LabelManagerTag key={label.id} isActive isMinified labelText={label.labelText} />
             ))}
           </div>

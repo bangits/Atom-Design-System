@@ -72,7 +72,8 @@
         text-decoration: underline;
         cursor: pointer;
 
-        &:hover {
+
+        &--disabled {
             opacity: 0.5;
         }
     }

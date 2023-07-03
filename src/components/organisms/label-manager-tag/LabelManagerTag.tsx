@@ -1,5 +1,5 @@
-import { useRef, useState, useEffect, useCallback, useMemo } from 'react';
-import { Checkbox, Icons, Tooltip } from '@/atom-design-system';
+import { useRef, useState, useEffect, useCallback } from 'react';
+import { Icons, Tooltip } from '@/atom-design-system';
 import styles from './LabelManagerTag.module.scss';
 import classNames from 'classnames';
 
@@ -9,7 +9,6 @@ export interface LabelManagerTagProps {
   isBordered?: boolean;
   isMinified?: boolean;
   hasSuffixIcon?: boolean;
-  hasCheckBox?: boolean;
   isSelected?: boolean;
   suffixIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
   onSufficIconClick?: () => void;
@@ -22,7 +21,6 @@ export const LabelManagerTag = ({
   onClick,
   isActive,
   isMinified,
-  hasCheckBox,
   isSelected,
   hasSuffixIcon,
   suffixIcon: SuffixIcon = Icons.CloseIcon,
@@ -46,13 +44,11 @@ export const LabelManagerTag = ({
 
   return (
     <div className={styles.Container}>
-      {hasCheckBox && <Checkbox onChange={onClick} checked={isSelected} className={styles.Checkbox} />}
       <div
         onClick={onClick}
         className={classNames(styles.LabelContainer, {
           [styles['LabelContainer--bordered']]: isBordered || isSelected,
-          [styles['LabelContainer--is-minified']]: isMinified,
-          [styles['LabelContainer--has-checkbox']]: hasCheckBox
+          [styles['LabelContainer--is-minified']]: isMinified
         })}>
         <Icons.Label
           className={classNames(styles.LabelIcon, {

@@ -1,14 +1,15 @@
 import { useCallback, useState, useMemo } from 'react';
-import { PrimaryKey, useItemsList } from '@atom/common';
+import { PrimaryKey } from '@atom/common';
 import { Icons, ScrollableView } from '@/atom-design-system';
 import styles from './LabelManager.module.scss';
 import { LabelManagerTag } from '../label-manager-tag';
+import classNames from 'classnames';
 
 export interface LabelManagerItem {
   isMinified?: boolean;
   id: PrimaryKey;
   labelText?: string;
-  isActive?: boolean;
+  statusId?: boolean;
   isBordered?: boolean;
   hasSuffixIcon?: boolean;
 }
@@ -19,85 +20,80 @@ export interface LabelManagerProps {
     addLabel: string;
     apply: string;
   };
-  isLoading: boolean;
-  isMultiSelect?: boolean;
-  isSearchLocal?: boolean;
+  typeId: number;
+  entityIds: PrimaryKey[];
   actionType: 'add' | 'delete';
   backAction?: boolean;
   searchAction?: boolean;
   onLabelClick: (id: PrimaryKey, isSelected) => void;
   onBack?: () => void;
   onSearch?: (value: string) => void;
-  onApply?: (ids: PrimaryKey[]) => void;
-  labelsList: LabelManagerItem[];
+  onApply?: (id: PrimaryKey) => void;
+  labelsToDelete: LabelManagerItem[];
+  attachAction: any;
+  deleteAction: any;
+  getAction: any;
 }
 
 export const LabelManager = ({
   backAction,
   onBack,
-  isSearchLocal,
   actionType,
+  typeId,
+  entityIds,
   searchAction,
   translations,
-  onLabelClick,
+  getAction,
+  deleteAction,
+  attachAction,
   onApply,
-  isMultiSelect,
-  labelsList,
-  isLoading
+  labelsToDelete
 }: LabelManagerProps) => {
+  const [refetch, { data, isLoading: isGetLabelsLoading }] = getAction();
+  const [deleteLabels] = deleteAction();
+  const [attachToEntity] = attachAction();
+
   const [searchFieldValue, setSearchFieldValue] = useState('');
-  const [localSearchList, setLocalSearchList] = useState(labelsList.concat([]));
-
-  const { selectedItemIds, setSelectedItemIds, createToggleItem, checkItemIsSelected } = useItemsList();
-
-  const handleLabelClick = useCallback(
-    (id: PrimaryKey) => {
-      isMultiSelect ? handleMultiSelect(id) : handleSingleSelect(id);
-    },
-    [isMultiSelect, createToggleItem]
-  );
-
-  const handleMultiSelect = useCallback(
-    (id: PrimaryKey) => {
-      const changedSelectedIds = checkItemIsSelected(id)
-        ? selectedItemIds.filter((item) => item !== id)
-        : [...selectedItemIds, id];
-
-      setSelectedItemIds(changedSelectedIds);
-      onLabelClick?.(id, !checkItemIsSelected(id));
-    },
-    [checkItemIsSelected, selectedItemIds, onLabelClick]
-  );
-
-  const handleSingleSelect = useCallback(
-    (id: PrimaryKey) => {
-      const changedSelectedIds = checkItemIsSelected(id) ? [] : [id];
-
-      setSelectedItemIds(changedSelectedIds);
-      onLabelClick?.(id, !checkItemIsSelected(id));
-    },
-    [checkItemIsSelected, onLabelClick]
-  );
+  const [localSearchList, setLocalSearchList] = useState(labelsToDelete.concat([]));
+  const [selectedId, setSelectedId] = useState<PrimaryKey>();
 
   const handleSearch = useCallback(
     (e) => {
       setSearchFieldValue(e.target.value);
-
-      if (isSearchLocal) {
+      if (labelsToDelete) {
         const searchResults = !e.target.value
-          ? labelsList.concat([])
+          ? labelsToDelete.concat([])
           : localSearchList.filter((item) => item.labelText.includes(e.target.value));
-
         setLocalSearchList(searchResults);
+      } else {
+        refetch();
       }
     },
-    [isSearchLocal]
+    [labelsToDelete]
   );
 
-  const labels = useMemo(
-    () => (isSearchLocal ? localSearchList : labelsList),
-    [isSearchLocal, localSearchList, labelsList]
-  );
+  const labels = useMemo(() => (actionType === 'add' ? data?.results : localSearchList), [localSearchList, data]);
+
+  const handleApply = useCallback(() => {
+    actionType === 'add' ? handleAttach() : handleDelete();
+  }, []);
+
+  const handleAttach = useCallback(() => {
+    attachToEntity({
+      ids: entityIds,
+      labelId: selectedId
+    });
+    onApply(selectedId);
+  }, [entityIds, entityIds]);
+
+  const handleDelete = useCallback(() => {
+    deleteLabels({
+      ids: entityIds,
+      labelId: selectedId,
+      typeId
+    });
+    onApply(selectedId);
+  }, [typeId, selectedId, entityIds]);
 
   const handlePageChange = (page: number) => {
     console.log(page);
@@ -140,15 +136,13 @@ export const LabelManager = ({
                 disableOnPageChange={false}>
                 {labels?.map((label) => (
                   <LabelManagerTag
-                    onClick={() => handleLabelClick(label.id)}
+                    onClick={() => setSelectedId(label.id)}
                     key={label.id}
-                    isSelected={checkItemIsSelected(label.id)}
-                    isActive={label.isActive}
+                    isActive={label.statusId}
                     labelText={label.labelText}
                     isBordered={label.isBordered}
                     isMinified={label.isMinified}
                     hasSuffixIcon={label.hasSuffixIcon}
-                    hasCheckBox={isMultiSelect}
                   />
                 ))}
               </ScrollableView>
@@ -156,8 +150,12 @@ export const LabelManager = ({
           )}
 
           <div className={styles.Footer}>
-            <div className={styles.Loading}>{isLoading && <Icons.Spinner width='1.5rem' />}</div>
-            <div onClick={() => onApply(selectedItemIds)} className={styles.Apply}>
+            <div className={styles.Loading}>{isGetLabelsLoading && <Icons.Spinner width='1.5rem' />}</div>
+            <div
+              onClick={() => selectedId && handleApply()}
+              className={classNames(styles.Apply, {
+                [styles['Apply--disabled']]: selectedId
+              })}>
               {translations?.apply}
             </div>
           </div>
