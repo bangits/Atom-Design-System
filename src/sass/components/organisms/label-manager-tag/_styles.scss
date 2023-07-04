@@ -18,6 +18,13 @@
         margin-bottom: calculateRem(8px);
         cursor: pointer;
 
+
+        &--is-bordered-on-hover {
+            &:hover {
+                border: 1px solid color(scampi);
+            }
+        }
+
         &--bordered {
             border: 1px solid color(scampi);
         }

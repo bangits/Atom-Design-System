@@ -1,9 +1,10 @@
-import { useCallback, useState, useEffect } from 'react';
+import { useCallback, useState, useEffect, useRef } from 'react';
 import { PrimaryKey, useActionsMessagesHandler } from '@atom/common';
 import { Icons, ScrollableView } from '@/atom-design-system';
 import styles from './LabelManager.module.scss';
 import { LabelManagerTag } from '../label-manager-tag';
 import classNames from 'classnames';
+import { useOutsideClickWithRef } from '@my-ui/core';
 
 export interface LabelManagerItem {
   isMinified?: boolean;
@@ -27,6 +28,7 @@ export interface LabelManagerProps {
   searchAction?: boolean;
   onLabelClick: (id: PrimaryKey, isSelected) => void;
   onBack?: () => void;
+  onOutsideClick?: () => void;
   onSearch?: (value: string) => void;
   onApply?: (id: PrimaryKey, isSuccess: boolean) => void;
   onSufficIconClick?: (id: PrimaryKey) => void;
@@ -45,11 +47,13 @@ export const LabelManager = ({
   searchAction,
   translations,
   getAction,
+  onOutsideClick,
   deleteAction,
   attachAction,
   onApply,
   labelsToDelete
 }: LabelManagerProps) => {
+  const ref = useRef<HTMLDivElement | null>(null);
   const handler = useActionsMessagesHandler();
 
   const [getLabels, { isFetching: isGetLabelsLoading }] = getAction;
@@ -135,8 +139,10 @@ export const LabelManager = ({
     computeLabelsList();
   }, []);
 
+  useOutsideClickWithRef(ref, () => onOutsideClick?.());
+
   return (
-    <div className={styles.Container}>
+    <div className={styles.Container} ref={ref}>
       <div className={styles.Header}>
         {backAction && <Icons.ArrowPrev onClick={() => onBack?.()} className={styles.BackIcon} width='0.7rem' />}
         <span>{actionType === 'delete' ? translations?.deleteLabel : translations?.addLabel}</span>

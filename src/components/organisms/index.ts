@@ -67,3 +67,4 @@ export * from './wallet-card';
 export * from './wallet-view';
 export * from './label-manager';
 export * from './label-manager-tag';
+export * from './sidebar-label-field';

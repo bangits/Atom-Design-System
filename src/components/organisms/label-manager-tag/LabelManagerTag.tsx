@@ -7,6 +7,7 @@ export interface LabelManagerTagProps {
   labelText: string;
   isActive?: boolean;
   isBordered?: boolean;
+  isBorderedOnHover?: boolean;
   isMinified?: boolean;
   hasSuffixIcon?: boolean;
   isSelected?: boolean;
@@ -19,6 +20,7 @@ export const LabelManagerTag = ({
   labelText,
   isBordered,
   onClick,
+  isBorderedOnHover,
   isActive,
   isMinified,
   isSelected,
@@ -48,7 +50,8 @@ export const LabelManagerTag = ({
         onClick={onClick}
         className={classNames(styles.LabelContainer, {
           [styles['LabelContainer--bordered']]: isBordered || isSelected,
-          [styles['LabelContainer--is-minified']]: isMinified
+          [styles['LabelContainer--is-minified']]: isMinified,
+          [styles['LabelContainer--is-bordered-on-hover']]: isBorderedOnHover
         })}>
         <Icons.Label
           className={classNames(styles.LabelIcon, {

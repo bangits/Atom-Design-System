@@ -1,0 +1,51 @@
+@mixin generate-sidebar-label-field-styles{
+    .Card {
+        position: relative;
+        box-sizing: border-box;
+        background-color: #fff;
+        padding: calculateRem(10px);
+        margin-bottom: calculateRem(8.4px);
+    }
+
+    .FielNameWrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .FieldName {
+        color: color(scampi);
+        font-size: calculateRem(12px);
+    }
+
+    .LabelWrapper {
+        margin-top: calculateRem(10px);
+        width: fit-content;
+        max-width: 100%;
+    }
+
+    .Icon {
+        width: calculateRem(15px);
+        cursor: pointer;
+
+        &--disabled {
+            opacity: 0.5;
+        }
+    }
+
+    .NoDataTextWrapper {
+        display: flex;
+        align-items: flex-end;
+    }
+
+    .NoDataText {
+        margin-right: calculateRem(10px);
+    }
+
+    .LabelManagerContainer {
+        position: absolute;
+        top: calculateRem(35px);
+        right: calculateRem(-135px);
+        box-shadow: 17px 17px 19px -14px rgba(0, 0, 0, 0.75);
+        z-index: 1000;
+    }
+}

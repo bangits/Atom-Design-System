@@ -1,5 +1,6 @@
 @mixin generate-label-manager-styles {
     .Container {
+        background-color: #fff;
         display: flex;
         flex-direction: column;
         padding: calculateRem(10px);
