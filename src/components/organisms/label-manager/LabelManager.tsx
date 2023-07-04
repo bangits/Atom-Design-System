@@ -1,4 +1,4 @@
-import { useCallback, useState, useMemo, useEffect } from 'react';
+import { useCallback, useState, useEffect } from 'react';
 import { PrimaryKey, useActionsMessagesHandler } from '@atom/common';
 import { Icons, ScrollableView } from '@/atom-design-system';
 import styles from './LabelManager.module.scss';
@@ -8,8 +8,8 @@ import classNames from 'classnames';
 export interface LabelManagerItem {
   isMinified?: boolean;
   id: PrimaryKey;
-  labelText?: string;
-  statusId?: boolean;
+  name?: string;
+  isActive?: boolean;
   isBordered?: boolean;
   hasSuffixIcon?: boolean;
 }
@@ -52,41 +52,17 @@ export const LabelManager = ({
 }: LabelManagerProps) => {
   const handler = useActionsMessagesHandler();
 
-  const [getLabels, { data, isFetching: isGetLabelsLoading }] = getAction;
+  const [getLabels, { isFetching: isGetLabelsLoading }] = getAction;
   const [deleteLabels] = deleteAction;
   const [attachToEntity] = attachAction;
 
   const [searchFieldValue, setSearchFieldValue] = useState('');
-  const [localSearchList, setLocalSearchList] = useState(labelsToDelete?.concat([]) || []);
+  const [disableOnPageChange, setDisableOnPageChange] = useState(false);
+  const [labels, setLabels] = useState([]);
   const [selectedId, setSelectedId] = useState<PrimaryKey>();
   const [page, setPage] = useState(1);
 
-  const handleSearch = useCallback(
-    (e) => {
-      setSearchFieldValue(e.target.value);
-      if (labelsToDelete) {
-        const searchResults = !e.target.value
-          ? labelsToDelete.concat([])
-          : localSearchList.filter((item) => item.labelText.includes(e.target.value));
-        setLocalSearchList(searchResults);
-      } else {
-        getLabels();
-      }
-    },
-    [labelsToDelete, localSearchList]
-  );
-
-  const labels = useMemo(
-    () =>
-      actionType === 'add'
-        ? data?.results?.map((label) => ({
-            id: label.id,
-            labelText: label.name,
-            statusId: label.statusId === 2 ? false : true
-          }))
-        : localSearchList,
-    [actionType, localSearchList, data]
-  );
+  const handleSearch = useCallback((e) => {}, [labelsToDelete]);
 
   const handleApply = useCallback(() => {
     actionType === 'add' ? handleAttach() : handleDelete();
@@ -129,26 +105,34 @@ export const LabelManager = ({
 
   const handleSuffixIconClick = useCallback((id: PrimaryKey) => {}, [selectedId]);
 
-  const handlePageChange = useCallback((page: number) => {
-    console.log(page + 1);
-    setPage(page + 1);
-    fetchLabels();
-  }, []);
+  const handlePageChange = useCallback(
+    (page: number) => {
+      setPage(page + 1);
+      computeLabelsList();
+    },
+    [page]
+  );
 
-  const fetchLabels = useCallback(() => {
-    getLabels({
-      ids: entityIds,
-      typeId,
-      forExclude: false,
-      pagination: {
-        page: page,
-        pageSize: 5
-      }
-    });
-  }, [entityIds, typeId]);
+  const computeLabelsList = useCallback(async () => {
+    if (actionType === 'add') {
+      const { data } = await getLabels({
+        ids: entityIds,
+        typeId,
+        forExclude: false,
+        pagination: {
+          page: page,
+          pageSize: 5
+        }
+      });
+      !data.results.length && setDisableOnPageChange(true);
+      setLabels((prevState) => [...prevState, ...data.results]);
+    } else {
+      setLabels(labelsToDelete);
+    }
+  }, [entityIds, typeId, page, labelsToDelete, actionType]);
 
   useEffect(() => {
-    fetchLabels();
+    computeLabelsList();
   }, []);
 
   return (
@@ -165,6 +149,7 @@ export const LabelManager = ({
             <div className={styles.Search}>
               <div className={styles.SearchInputWrapper}>
                 <input
+                  maxLength={20}
                   type='text'
                   placeholder='Search'
                   className={styles.SearchInput}
@@ -185,13 +170,13 @@ export const LabelManager = ({
                 className={styles.LabelstList}
                 height={150}
                 onPageChange={handlePageChange}
-                disableOnPageChange={false}>
-                {labels?.map((label) => (
+                disableOnPageChange={disableOnPageChange}>
+                {labels?.map((label: LabelManagerItem) => (
                   <LabelManagerTag
                     key={label.id}
                     isSelected={selectedId === label.id}
-                    isActive={label.statusId}
-                    labelText={label.labelText}
+                    isActive={label.isActive}
+                    labelText={label.name}
                     isBordered={label.isBordered}
                     isMinified={label.isMinified}
                     hasSuffixIcon={label.hasSuffixIcon}
