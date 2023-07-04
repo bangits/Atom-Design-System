@@ -32,8 +32,8 @@ export const SidebarLabelField = ({
   const handler = useActionsMessagesHandler();
 
   const handleAdd = useCallback(() => {
-    setIsLabelManagerVisible(true);
-  }, []);
+    !labelsList?.length && !isLabelManagerVisible && setIsLabelManagerVisible(true);
+  }, [labelsList]);
 
   const handleRemove = useCallback(
     (id: PrimaryKey) =>

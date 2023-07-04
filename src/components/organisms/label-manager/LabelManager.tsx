@@ -119,15 +119,18 @@ export const LabelManager = ({
 
   const computeLabelsList = useCallback(async () => {
     if (actionType === 'add') {
-      const { data } = await getLabels({
-        ids: entityIds,
-        typeId,
-        forExclude: false,
-        pagination: {
-          page: page,
-          pageSize: 5
-        }
-      });
+      const { data } = await getLabels(
+        {
+          ids: entityIds,
+          typeId,
+          forExclude: false,
+          pagination: {
+            page: page,
+            pageSize: 20
+          }
+        },
+        false
+      );
       !data.results.length && setDisableOnPageChange(true);
       setLabels((prevState) => [...prevState, ...data.results]);
     } else {
