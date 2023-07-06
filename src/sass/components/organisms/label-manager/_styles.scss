@@ -60,6 +60,10 @@
         margin: calculateRem(10px) 0 auto 0;
     }
 
+    .LabelListItem {
+        margin-bottom: calculateRem(8px);
+    }
+
     .Footer {
         display: flex;
         align-items: center;
@@ -82,7 +86,7 @@
 
     .NoLabels {
         margin: auto;
-        font-size: culateRem(13px);
+        font-size: calculateRem(13px);
     }
 
     .Loading {

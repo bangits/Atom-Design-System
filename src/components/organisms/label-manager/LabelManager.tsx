@@ -1,10 +1,11 @@
-import { useCallback, useState, useEffect, useRef } from 'react';
-import { PrimaryKey, useActionsMessagesHandler } from '@atom/common';
+import { useCallback, useState, useEffect, useRef, useMemo } from 'react';
 import { Icons, ScrollableView } from '@/atom-design-system';
+import { PrimaryKey, useActionsMessagesHandler, useTranslation } from '@atom/common';
+import { useOutsideClickWithRef } from '@my-ui/core';
+import classNames from 'classnames';
 import styles from './LabelManager.module.scss';
 import { LabelManagerTag } from '../label-manager-tag';
-import classNames from 'classnames';
-import { useOutsideClickWithRef } from '@my-ui/core';
+import { useDebounce } from '@/helpers';
 
 export interface LabelManagerItem {
   isMinified?: boolean;
@@ -25,7 +26,6 @@ export interface LabelManagerProps {
   entityIds: PrimaryKey[];
   actionType: 'add' | 'delete';
   backAction?: boolean;
-  searchAction?: boolean;
   onLabelClick: (id: PrimaryKey, isSelected) => void;
   onBack?: () => void;
   onOutsideClick?: () => void;
@@ -38,13 +38,14 @@ export interface LabelManagerProps {
   getAction: any;
 }
 
+const pageSize = 5;
+
 export const LabelManager = ({
   backAction,
   onBack,
   actionType,
   typeId,
   entityIds,
-  searchAction,
   translations,
   getAction,
   onOutsideClick,
@@ -53,24 +54,81 @@ export const LabelManager = ({
   onApply,
   labelsToDelete
 }: LabelManagerProps) => {
+  const t = useTranslation();
   const ref = useRef<HTMLDivElement | null>(null);
-  const handler = useActionsMessagesHandler();
+  const bulkActionMessageshandler = useActionsMessagesHandler();
 
   const [getLabels, { isFetching: isGetLabelsLoading }] = getAction;
-  const [deleteLabels] = deleteAction;
-  const [attachToEntity] = attachAction;
+  const [deleteLabels, { isLoading: isLabelDeleteLoading }] = deleteAction;
+  const [attachToEntity, { isLoading: isLabelAttachLoading }] = attachAction;
 
-  const [searchFieldValue, setSearchFieldValue] = useState('');
+  const [searchFieldValue, setSearchFieldValue] = useState(null);
+  const [debouncedSearchValue] = useDebounce(searchFieldValue, 300);
   const [disableOnPageChange, setDisableOnPageChange] = useState(false);
   const [labels, setLabels] = useState([]);
   const [selectedId, setSelectedId] = useState<PrimaryKey>();
   const [page, setPage] = useState(1);
 
-  const handleSearch = useCallback((e) => {}, [labelsToDelete]);
+  const isLoading = useMemo(
+    () => isGetLabelsLoading || isLabelAttachLoading || isLabelDeleteLoading,
+    [isGetLabelsLoading, isLabelAttachLoading, isLabelDeleteLoading]
+  );
+
+  const isSearchResultEmpty = useMemo(() => searchFieldValue !== null && !labels.length, [searchFieldValue, labels]);
+
+  const isActionAdd = useMemo(() => actionType === 'add', [actionType]);
+
+  const showSearchBar = useMemo(
+    () => labels.length > 1 || (labels.length < 2 && (searchFieldValue !== null || !!debouncedSearchValue)),
+    [labels, searchFieldValue, debouncedSearchValue]
+  );
+
+  const areAvailableLabelsMissing = useMemo(
+    () => isActionAdd && !debouncedSearchValue && page === 1 && !labels.length,
+    [page, debouncedSearchValue, isActionAdd, labels]
+  );
+
+  const handleLocalSearch = useCallback(() => {
+    if (!isActionAdd) {
+      setSelectedId(null);
+      !searchFieldValue
+        ? setLabels(labelsToDelete)
+        : setLabels(labelsToDelete.filter((label) => label.name.toLocaleLowerCase().includes(searchFieldValue)));
+    }
+  }, [labelsToDelete, searchFieldValue, isActionAdd]);
+
+  const handleGlobalSearch: any = useCallback(async () => {
+    if (isActionAdd) {
+      const { data } = await getLabels(
+        {
+          ids: entityIds,
+          typeId,
+          labelName: debouncedSearchValue,
+          forExclude: false,
+          pagination: {
+            page: 1,
+            pageSize: pageSize
+          }
+        },
+        false
+      );
+      setLabels(data.results);
+      disableOnPageChange && setDisableOnPageChange(false);
+      selectedId && setSelectedId(null);
+    }
+  }, [entityIds, typeId, debouncedSearchValue, selectedId, isActionAdd]);
+
+  const handleSearchFieldChange = useCallback(
+    (e) => {
+      const value = e.target.value;
+      setSearchFieldValue(value);
+    },
+    [labelsToDelete]
+  );
 
   const handleApply = useCallback(() => {
-    actionType === 'add' ? handleAttach() : handleDelete();
-  }, [actionType, selectedId]);
+    isActionAdd ? handleAttach() : handleDelete();
+  }, [actionType, selectedId, isActionAdd]);
 
   const handleAttach = useCallback(() => {
     attachToEntity({
@@ -82,7 +140,7 @@ export const LabelManager = ({
     })
       .unwrap()
       .then((actionsResults) => {
-        handler({ actionsResults });
+        bulkActionMessageshandler({ actionsResults });
         onApply?.(selectedId, !!actionsResults.successCount);
       });
   }, [entityIds, entityIds, selectedId]);
@@ -95,66 +153,66 @@ export const LabelManager = ({
     })
       .unwrap()
       .then((actionsResults) => {
-        handler({ actionsResults });
+        bulkActionMessageshandler({ actionsResults });
         onApply?.(selectedId, !!actionsResults.successCount);
       });
   }, [typeId, selectedId, entityIds]);
 
   const handleLabelClick = useCallback(
-    (id: PrimaryKey) => {
-      id === selectedId ? setSelectedId(null) : setSelectedId(id);
-    },
+    (id: PrimaryKey) => (id === selectedId ? setSelectedId(null) : setSelectedId(id)),
     [selectedId]
   );
 
-  const handleSuffixIconClick = useCallback((id: PrimaryKey) => {}, [selectedId]);
-
-  const handlePageChange = useCallback(
-    (page: number) => {
-      setPage(page + 1);
-      computeLabelsList();
-    },
-    [page]
-  );
-
-  const computeLabelsList = useCallback(async () => {
-    if (actionType === 'add') {
+  const loadMoreLabels = useCallback(
+    async (pageNumber: number) => {
       const { data } = await getLabels(
         {
           ids: entityIds,
           typeId,
+          labelName: debouncedSearchValue,
           forExclude: false,
           pagination: {
-            page: page,
-            pageSize: 20
+            page: pageNumber,
+            pageSize: pageSize
           }
         },
         false
       );
-      !data.results.length && setDisableOnPageChange(true);
-      setLabels((prevState) => [...prevState, ...data.results]);
-    } else {
-      setLabels(labelsToDelete);
-    }
-  }, [entityIds, typeId, page, labelsToDelete, actionType]);
+      !data.results?.length && setDisableOnPageChange(true);
+      data.results?.length && setLabels((prevValue) => [...prevValue, ...data.results]);
+    },
+    [entityIds, typeId, debouncedSearchValue]
+  );
 
-  useEffect(() => {
-    computeLabelsList();
-  }, []);
+  const handlePageChange = useCallback(
+    (newPage) => {
+      console.log(newPage);
+
+      if (isActionAdd) {
+        setPage(page + 1);
+        loadMoreLabels(page + 1);
+      }
+    },
+    [page, isActionAdd]
+  );
 
   useOutsideClickWithRef(ref, () => onOutsideClick?.());
+
+  useEffect(() => handleLocalSearch(), [searchFieldValue]);
+
+  useEffect(() => handleGlobalSearch(), [debouncedSearchValue]);
 
   return (
     <div className={styles.Container} ref={ref}>
       <div className={styles.Header}>
         {backAction && <Icons.ArrowPrev onClick={() => onBack?.()} className={styles.BackIcon} width='0.7rem' />}
-        <span>{actionType === 'delete' ? translations?.deleteLabel : translations?.addLabel}</span>
+        <span>{!isActionAdd ? translations?.deleteLabel : translations?.addLabel}</span>
       </div>
-      {!labels?.length && !searchFieldValue.length ? (
-        <span className={styles.NoLabels}>No labels are available</span>
+      {areAvailableLabelsMissing ? (
+        <span className={styles.NoLabels}>{t.get('noAvailableLabels')}</span>
       ) : (
         <>
-          {searchAction && (
+          {showSearchBar && (
             <div className={styles.Search}>
               <div className={styles.SearchInputWrapper}>
                 <input
@@ -162,8 +220,8 @@ export const LabelManager = ({
                   type='text'
                   placeholder='Search'
                   className={styles.SearchInput}
-                  value={searchFieldValue}
-                  onChange={handleSearch}
+                  value={searchFieldValue || ''}
+                  onChange={handleSearchFieldChange}
                 />
                 <Icons.Search className={styles.SearchIcon} width='1.5rem' />
               </div>
@@ -171,34 +229,35 @@ export const LabelManager = ({
             </div>
           )}
 
-          {searchFieldValue.length && !labels.length ? (
-            <span className={styles.NoLabels}>No labels were found.</span>
+          {isSearchResultEmpty ? (
+            <span className={styles.NoLabels}>{t.get('noLabelsFound')}</span>
           ) : (
             <>
               <ScrollableView
                 className={styles.LabelstList}
                 height={150}
                 onPageChange={handlePageChange}
-                disableOnPageChange={disableOnPageChange}>
+                disableOnPageChange={isGetLabelsLoading || disableOnPageChange}>
                 {labels?.map((label: LabelManagerItem) => (
-                  <LabelManagerTag
-                    key={label.id}
-                    isSelected={selectedId === label.id}
-                    isActive={label.isActive}
-                    labelText={label.name}
-                    isBordered={label.isBordered}
-                    isMinified={label.isMinified}
-                    hasSuffixIcon={label.hasSuffixIcon}
-                    onSufficIconClick={() => handleSuffixIconClick(label.id)}
-                    onClick={() => handleLabelClick(label.id)}
-                  />
+                  <div className={styles.LabelListItem}>
+                    <LabelManagerTag
+                      key={label.id}
+                      isSelected={selectedId === label.id}
+                      isActive={label.isActive}
+                      labelText={label.name}
+                      isBordered={label.isBordered}
+                      isMinified={label.isMinified}
+                      hasSuffixIcon={label.hasSuffixIcon}
+                      onClick={() => handleLabelClick(label.id)}
+                    />
+                  </div>
                 ))}
               </ScrollableView>
             </>
           )}
 
           <div className={styles.Footer}>
-            <div className={styles.Loading}>{isGetLabelsLoading && <Icons.Spinner width='1.5rem' />}</div>
+            <div className={styles.Loading}>{isLoading && <Icons.Spinner width='1.5rem' />}</div>
             <div
               onClick={() => selectedId && handleApply()}
               className={classNames(styles.Apply, {

@@ -22,8 +22,8 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
 };
 
 export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  showAddLabel?: boolean;
-  showDeleteLabel?: boolean;
+  maxLabelCount?: number;
+  attachedLabelsCount?: number;
   labelManagerProps?: Partial<LabelManagerProps>;
   labelManagerContainer?: React.FC<any>;
   checkboxProps?: CheckboxProps;
@@ -74,8 +74,8 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   statusLabel,
   labelManagerProps,
   labelManagerContainer: LabelManagerContainer,
-  showAddLabel,
-  showDeleteLabel,
+  maxLabelCount,
+  attachedLabelsCount = 0,
   ...props
 }) => {
   const [selectedFormProps, setSelectedFormProps] = useState<FormWithInputAction | null>(null);
@@ -84,6 +84,9 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
     visible: false,
     actionType: null
   });
+
+  const showAddLabel = useMemo(() => attachedLabelsCount < maxLabelCount, [attachedLabelsCount, maxLabelCount]);
+  const showDeleteLabel = useMemo(() => !!attachedLabelsCount, [attachedLabelsCount, maxLabelCount]);
 
   const customizedLabelManagerProps = useMemo(
     () => ({
@@ -149,7 +152,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 <Icons.DotsIcon />
               </button>
             )}>
-            {(showDeleteLabel || showAddLabel) && labelActionsState.visible && (
+            {labelActionsState.visible && (
               <div
                 className={classNames(styles['ItemCategoriesCard__label-content'], {
                   [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible

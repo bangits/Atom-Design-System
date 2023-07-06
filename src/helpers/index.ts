@@ -8,3 +8,4 @@ export * from './trim';
 export * from './typedMemo';
 export * from './useQueryString';
 export * from './useResizeObserver';
+export * from './useDebounce';
