@@ -128,6 +128,7 @@ export { ReactComponent as ProviderLogoEmpty } from './provider-logo-empty.react
 export { ReactComponent as QuestionIcon } from './question-icon.react.svg';
 export { ReactComponent as RejectIcon } from './reject.react.svg';
 export { ReactComponent as ReplaceIcon } from './replace.react.svg';
+export { ReactComponent as ReportSearchIcon } from './reports-search-icon.svg';
 export { ReactComponent as ReportsIcon } from './reports.react.svg';
 export { ReactComponent as RiskIcon } from './risk.react.svg';
 export { ReactComponent as RoleDetailsIcon } from './role-details.react.svg';
