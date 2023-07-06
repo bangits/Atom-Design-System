@@ -26,7 +26,7 @@ export interface LabelManagerProps {
   entityIds: PrimaryKey[];
   actionType: 'add' | 'delete';
   backAction?: boolean;
-  onLabelClick: (id: PrimaryKey, isSelected) => void;
+  onLabelClick?: (id: PrimaryKey, isSelected: boolean) => void;
   onBack?: () => void;
   onOutsideClick?: () => void;
   onSearch?: (value: string) => void;
@@ -51,6 +51,7 @@ export const LabelManager = ({
   onOutsideClick,
   deleteAction,
   attachAction,
+  onLabelClick,
   onApply,
   labelsToDelete
 }: LabelManagerProps) => {
@@ -159,7 +160,10 @@ export const LabelManager = ({
   }, [typeId, selectedId, entityIds]);
 
   const handleLabelClick = useCallback(
-    (id: PrimaryKey) => (id === selectedId ? setSelectedId(null) : setSelectedId(id)),
+    (id: PrimaryKey) => {
+      id === selectedId ? setSelectedId(null) : setSelectedId(id);
+      onLabelClick?.(id, id === selectedId);
+    },
     [selectedId]
   );
 
