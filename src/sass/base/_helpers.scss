@@ -94,6 +94,20 @@
   margin-top: calculateRem(-10px);
 }
 
+.add-label {
+  @include flex(center, $direction: column);
+  min-height: calculateRem(240px);
+  text-align: left;
+  margin-top: calculateRem(-10px);
+}
+
+.edit-label {
+  @include flex(center, $direction: column);
+  min-height: calculateRem(240px);
+  text-align: left;
+  margin-top: calculateRem(-10px);
+}
+
 .cursor-pointer {
   cursor: pointer;
 }
