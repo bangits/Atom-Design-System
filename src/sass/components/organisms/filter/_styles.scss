@@ -10,7 +10,7 @@
     .FiltersContainer {
       box-sizing: border-box;
       width: 100%;
-      padding: 0 getFilterSizes(filter-base-container-margin);
+      padding: calculateRem(28px) calculateRem(16px);
       padding-top: getFilterSizes(filter-base-container-padding-top);
 
       display: grid;
@@ -104,6 +104,7 @@
         height: 0;
         opacity: 0;
         padding-top: 0;
+        padding-bottom: 0;
         position: relative;
         z-index: -1;
 
