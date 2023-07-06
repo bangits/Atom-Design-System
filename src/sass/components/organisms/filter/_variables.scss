@@ -7,7 +7,7 @@ $filter-sizes: (
   filter-container-from-to-width: calculateRem(480px),
   filter-container-margin: 0 calculateRem(16px) calculateRem(2px) 0,
   filter-base-closed-height: calculateRem(70px),
-  filter-container-from-to-padding: calculateRem(16px),
+  filter-container-from-to-padding: calculateRem(6px) calculateRem(16px),
   filter-label-font-weight: 500,
   filter-label-font-size: calculateRem(8px),
   filter-label-letter-spacing: calculateRem(1.4px),

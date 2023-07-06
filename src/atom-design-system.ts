@@ -30,6 +30,8 @@ export {
   TagWithImage,
   Tooltip,
   Typography,
+  InputWithColorPicker,
+  convertColorToHex,
   typedMemo,
   type RadioButtonProps
 } from '@my-ui/core';
