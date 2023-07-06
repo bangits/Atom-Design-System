@@ -1,12 +1,22 @@
 import { Icons } from '@/atom-design-system';
-import { CollapsableTable, CollapsableTableProps, Filters, FiltersProps, Table, TableProps } from '@/components';
+import {
+  CollapsableTable,
+  CollapsableTableProps,
+  DividerList,
+  Filters,
+  FiltersProps,
+  Table,
+  TableProps
+} from '@/components';
 import { ButtonWithIcon, Divider } from '@/components/atoms';
+import { useKeyPress } from '@/helpers';
 import { DocumentIcon, ExchangeIcon, SettingsIcon } from '@/icons';
 import { noImage, noImageGame } from '@/img';
 import {
   IconButton,
   Pagination,
   PaginationProps,
+  Portal,
   Select,
   SelectProps,
   SelectValueType,
@@ -142,6 +152,8 @@ function DataTable<T extends {}, K>({
 
   const [sortedBy, setSortedBy] = useState<FetchDataParameters<T, K>['sortedBy']>(defaultSorted || null);
   const [filters, setFilters] = useState<K | null>(null);
+
+  const [isFullScreen, setIsFullScreen] = useState(false);
 
   const [selectedExchangeCurrency, setSelectedExchangeCurrency] = useState(defaultCurrency);
 
@@ -446,6 +458,72 @@ function DataTable<T extends {}, K>({
     [onFiltersChange]
   );
 
+  const tableHeightRemainder = isFiltersOpened ? '33.3rem' : '25.5rem';
+
+  const btnIconProps = useMemo(
+    () => ({
+      width: '1.8rem',
+      height: '1.8rem'
+    }),
+    []
+  );
+
+  const tableElement = (
+    <div
+      className={classNames(styles.TableWrapper, {
+        [styles[`TableWrapper--FullScreen`]]: isFullScreen
+      })}>
+      {isFullScreen && (
+        <ButtonWithIcon
+          className={styles.FullScreenClose}
+          icon='FullScreenCloseIcon'
+          onClick={() => setIsFullScreen(false)}
+          iconProps={btnIconProps}
+        />
+      )}
+
+      <Table
+        {...tableProps}
+        tableContainerRef={tableContainerRef}
+        height={`calc(100vh - ${isFullScreen ? '3rem' : tableHeightRemainder})`}
+        fetch={onTableFetchData}
+        className={classNames(styles.Table, tableProps.className, {
+          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
+          [styles.TableHaveData]: !!tableProps.data?.length
+        })}
+        onSelectedColumnsChange={(columns) => {
+          setSelectedRows(columns.map((c) => c.original));
+          if (tableProps.onSelectedColumnsChange) tableProps.onSelectedColumnsChange(columns);
+        }}
+        actions={actions}
+        columns={tableColumns}
+        onColumnsChange={(columns) => {
+          const columnsHashMap = columns.reduce<Record<string, (typeof columns)[0] & { index: number }>>(
+            (acc, column, index) => ({ ...acc, [column.accessor]: { ...column, index: index + 1 } }),
+            {}
+          );
+
+          let latestColumnOrder = columns.length + 1;
+
+          if (onTableConfigChange)
+            onTableConfigChange(
+              dropdownOptions.map((column) => {
+                const hashMapColumn = columnsHashMap[column.value];
+
+                return {
+                  ...column,
+                  index: hashMapColumn?.index || latestColumnOrder++
+                };
+              }),
+              dropdownValues
+            );
+        }}
+      />
+    </div>
+  );
+
+  useKeyPress('Escape', () => setIsFullScreen(false));
+
   useEffect(() => {
     if (pagination === initialPagination) return;
 
@@ -459,33 +537,33 @@ function DataTable<T extends {}, K>({
 
       <div className={styles.TableConfigsWrapper}>
         <div className={styles.TableLeftSideWrapper}>
-          <Select
-            isMulti
-            dropdown
-            dropdownIcon={
-              <Tooltip text='Columns'>
-                <SettingsIcon width='1.8rem' height='1.8rem' />
-              </Tooltip>
-            }
-            clearButton
-            clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
-            selectAll
-            selectAllLabel={columnDropdownTranslations?.selectAllLabel || 'All'}
-            color='primary'
-            options={dropdownOptions}
-            disableSelectedOptions={dropdownValues.length < 4}
-            onChange={(values) => {
-              const updatedValues = values.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : values;
+          <DividerList>
+            <Select
+              isMulti
+              dropdown
+              dropdownIcon={
+                <Tooltip text='Columns'>
+                  <SettingsIcon width='1.8rem' height='1.8rem' />
+                </Tooltip>
+              }
+              clearButton
+              clearButtonLabel={columnDropdownTranslations?.clearButtonLabel || 'Clear'}
+              selectAll
+              selectAllLabel={columnDropdownTranslations?.selectAllLabel || 'All'}
+              color='primary'
+              options={dropdownOptions}
+              disableSelectedOptions={dropdownValues.length < 4}
+              onChange={(values) => {
+                const updatedValues = values.length === 0 ? columnsConfigDefaultValue.slice(0, 3) : values;
 
-              setDropdownValues(updatedValues);
+                setDropdownValues(updatedValues);
 
-              if (onTableConfigChange) onTableConfigChange(dropdownOptions, updatedValues);
-            }}
-            value={dropdownValues}
-            className={styles.TableConfigSelect}
-          />
+                if (onTableConfigChange) onTableConfigChange(dropdownOptions, updatedValues);
+              }}
+              value={dropdownValues}
+              className={styles.TableConfigSelect}
+            />
 
-          <Divider>
             {onRefreshButtonClick && (
               <Tooltip text='Refresh'>
                 <ButtonWithIcon
@@ -501,14 +579,15 @@ function DataTable<T extends {}, K>({
                     if (onRefreshButtonClick) onRefreshButtonClick(event);
                   }}
                   className={styles.RefreshButton}
-                  iconProps={{
-                    width: '1.8rem',
-                    height: '1.8rem'
-                  }}
+                  iconProps={btnIconProps}
                 />
               </Tooltip>
             )}
-          </Divider>
+
+            <Tooltip text='Full Screen'>
+              <ButtonWithIcon icon='FullScreenIcon' onClick={() => setIsFullScreen(true)} iconProps={btnIconProps} />
+            </Tooltip>
+          </DividerList>
 
           {isSynchronizeShown && (
             <Divider>
@@ -588,43 +667,7 @@ function DataTable<T extends {}, K>({
         />
       </div>
 
-      <Table
-        {...tableProps}
-        tableContainerRef={tableContainerRef}
-        height={`calc(100vh - ${isFiltersOpened ? '35.8rem' : '25.5rem'})`}
-        fetch={onTableFetchData}
-        className={classNames(styles.Table, tableProps.className, {
-          [styles.TableHaveHoveredImage]: isTableHaveHoveredImage,
-          [styles.TableHaveData]: !!tableProps.data?.length
-        })}
-        onSelectedColumnsChange={(columns) => {
-          setSelectedRows(columns.map((c) => c.original));
-          if (tableProps.onSelectedColumnsChange) tableProps.onSelectedColumnsChange(columns);
-        }}
-        actions={actions}
-        columns={tableColumns}
-        onColumnsChange={(columns) => {
-          const columnsHashMap = columns.reduce<Record<string, (typeof columns)[0] & { index: number }>>(
-            (acc, column, index) => ({ ...acc, [column.accessor]: { ...column, index: index + 1 } }),
-            {}
-          );
-
-          let latestColumnOrder = columns.length + 1;
-
-          if (onTableConfigChange)
-            onTableConfigChange(
-              dropdownOptions.map((column) => {
-                const hashMapColumn = columnsHashMap[column.value];
-
-                return {
-                  ...column,
-                  index: hashMapColumn?.index || latestColumnOrder++
-                };
-              }),
-              dropdownValues
-            );
-        }}
-      />
+      {isFullScreen ? <Portal>{tableElement}</Portal> : tableElement}
 
       <CollapsableTable {...collapseTableProps} />
     </div>

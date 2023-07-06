@@ -1,12 +1,11 @@
 $button-with-icon-sizes: (
   button-font-size: calculateRem(14px),
-  button-icon-margin: calculateRem(12px),
   button-icon-size: calculateRem(24px),
-  button-letter-spacing:calculateRem(1.4px),
-  button-font-weight:500,
-  button-line-height:calculateRem(16px),
-  button-disabled:0.4,
-  hover-transition: 0.3s,
+  button-letter-spacing: calculateRem(1.4px),
+  button-font-weight: 500,
+  button-line-height: calculateRem(16px),
+  button-disabled: 0.4,
+  hover-transition: 0.3s
 );
 
 $button-with-icon-colors: (

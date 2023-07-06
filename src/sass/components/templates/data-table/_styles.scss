@@ -1,4 +1,23 @@
 @mixin generate-data-table-styles {
+  .TableWrapper {
+    &--FullScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 9999;
+      background: #fff;
+      height: 100%;
+      & > div {
+        margin-top: calculateRem(30px);
+      }
+    }
+  }
+  .FullScreenClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
   .TableConfigSelect {
     max-width: getDataTableSizes(table-config-select-width);
     &--exchange {
