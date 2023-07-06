@@ -3,7 +3,8 @@
         position: relative;
         box-sizing: border-box;
         background-color: #fff;
-        padding: calculateRem(10px);
+        padding: calculateRem(6.3px);
+        padding-right: calculateRem(10px);
         margin-bottom: calculateRem(8.4px);
     }
 
@@ -16,10 +17,7 @@
         color: color(scampi);
         font-size: calculateRem(12px);
         padding: 0 0 0 calculateRem(10px);
-
-        &--margin-top {
-            margin-top: calculateRem(7px);
-        }
+        margin-top: calculateRem(5px);
     }
 
     .LabelWrapper {
@@ -33,15 +31,11 @@
     }
 
     .Icon {
-        width: calculateRem(15px);
-        cursor: pointer;
+        width: calculateRem(24px) !important;
+        height: calculateRem(24px) !important;
 
         &--disabled {
             opacity: 0.5;
-        }
-
-        &--margin-top {
-            margin-top: calculateRem(7px);
         }
     }
 

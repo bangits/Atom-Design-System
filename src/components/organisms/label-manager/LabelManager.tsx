@@ -84,8 +84,8 @@ export const LabelManager = ({
   );
 
   const areAvailableLabelsMissing = useMemo(
-    () => isActionAdd && !debouncedSearchValue && page === 1 && !labels.length,
-    [page, debouncedSearchValue, isActionAdd, labels]
+    () => isActionAdd && !debouncedSearchValue && !searchFieldValue && page === 1 && !labels.length && !isLoading,
+    [page, debouncedSearchValue, searchFieldValue, isActionAdd, labels]
   );
 
   const handleLocalSearch = useCallback(() => {

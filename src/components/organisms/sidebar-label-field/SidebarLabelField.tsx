@@ -1,5 +1,5 @@
 import { ReactNode, useCallback, useMemo, useState } from 'react';
-import { Card, Tooltip } from '@my-ui/core';
+import { Card, IconButton, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import styles from './SidebarLabelField.module.scss';
 import { LabelManagerItem } from '../label-manager';
@@ -83,12 +83,7 @@ export const SidebarLabelField = ({
   return (
     <Card borderRadius={1.6} className={styles.Card}>
       <div className={styles.Wrapper}>
-        <span
-          className={classNames(styles.FieldName, {
-            [styles['FieldName--margin-top']]: !!labelsList?.length
-          })}>
-          Labels
-        </span>
+        <span className={styles.FieldName}>Labels</span>
         <div className={styles.LabelsListWrapper}>
           {!labelsList?.length ? (
             <span className={styles.NoDataText}>{noDataText}</span>
@@ -112,16 +107,18 @@ export const SidebarLabelField = ({
           )}
         </div>
         <Tooltip
+          showEvent='hover'
           text={
             !canAttachMoreLabels &&
             t.get('labelsMaxCountTooltip').replace(TRANSLATION_CHANGED_VALUE, String(maxPossibleAttachedLabelsCount))
           }>
-          <Icons.AddIcon
-            onClick={handleAdd}
+          <IconButton
             className={classNames(styles.Icon, {
-              [styles['Icon--disabled']]: !canAttachMoreLabels,
-              [styles['Icon--margin-top']]: !!labelsList?.length
+              [styles['Icon--disabled']]: !canAttachMoreLabels
             })}
+            icon={<Icons.AddIconFilled />}
+            onClick={handleAdd}
+            variant={'dark'}
           />
         </Tooltip>
       </div>
