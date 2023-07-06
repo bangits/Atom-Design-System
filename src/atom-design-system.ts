@@ -32,6 +32,7 @@ export {
   Typography,
   InputWithColorPicker,
   convertColorToHex,
+  knownColors,
   typedMemo,
   type RadioButtonProps
 } from '@my-ui/core';
@@ -50,7 +51,6 @@ export * from './components';
 export * from './contexts';
 export * from './helpers/arrayMove';
 export * from './services';
-export * from './constants/knownColors';
 
 try {
   if (process.env.STORYBOOK !== 'true') throw new Error('');
