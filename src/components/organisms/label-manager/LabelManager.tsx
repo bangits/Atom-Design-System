@@ -70,6 +70,16 @@ export const LabelManager = ({
   const [selectedId, setSelectedId] = useState<PrimaryKey>();
   const [page, setPage] = useState(1);
 
+  const labelsToDeleteWithoutCopies = useMemo(() => {
+    const labelsHashMap = {};
+
+    labelsToDelete.forEach((label) => {
+      !labelsHashMap[label.id] && (labelsHashMap[label.id] = label);
+    });
+
+    return Object.values(labelsHashMap);
+  }, [labelsToDelete]);
+
   const isLoading = useMemo(
     () => isGetLabelsLoading || isLabelAttachLoading || isLabelDeleteLoading,
     [isGetLabelsLoading, isLabelAttachLoading, isLabelDeleteLoading]
@@ -93,10 +103,12 @@ export const LabelManager = ({
     if (!isActionAdd) {
       setSelectedId(null);
       !searchFieldValue
-        ? setLabels(labelsToDelete)
-        : setLabels(labelsToDelete.filter((label) => label.name.toLocaleLowerCase().includes(searchFieldValue)));
+        ? setLabels(labelsToDeleteWithoutCopies)
+        : setLabels(
+            labelsToDeleteWithoutCopies.filter((label) => label.name.toLocaleLowerCase().includes(searchFieldValue))
+          );
     }
-  }, [labelsToDelete, searchFieldValue, isActionAdd]);
+  }, [labelsToDeleteWithoutCopies, searchFieldValue, isActionAdd]);
 
   const handleGlobalSearch: any = useCallback(async () => {
     if (isActionAdd) {
@@ -124,7 +136,7 @@ export const LabelManager = ({
       const value = e.target.value;
       setSearchFieldValue(value);
     },
-    [labelsToDelete]
+    [labelsToDeleteWithoutCopies]
   );
 
   const handleApply = useCallback(() => {
