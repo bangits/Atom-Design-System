@@ -41,7 +41,7 @@ export interface GameDetailsProps {
   };
   isShowEditIcons?: boolean;
   rgsInfo?: boolean;
-  sidebarLabelsView?: React.FC<any>;
+  sidebarLabelsView?: Element;
 }
 const GameDetails: FC<GameDetailsProps> = ({
   breadCrumbs,
