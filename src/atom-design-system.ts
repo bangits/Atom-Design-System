@@ -32,6 +32,7 @@ export {
   Typography,
   InputWithColorPicker,
   convertColorToHex,
+  knownColors,
   typedMemo,
   type RadioButtonProps
 } from '@my-ui/core';
