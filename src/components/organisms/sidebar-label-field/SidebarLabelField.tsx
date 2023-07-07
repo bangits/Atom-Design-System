@@ -31,17 +31,12 @@ export const SidebarLabelField = ({
 }: SidebarLabelFieldProps) => {
   const t = useTranslation();
   const [deleteLabels] = deleteAction;
-  const [isLabelManagerVisible, setIsLabelManagerVisible] = useState(false);
   const handler = useActionsMessagesHandler();
 
   const canAttachMoreLabels = useMemo(
     () => (labelsList ? labelsList?.length < maxPossibleAttachedLabelsCount : true),
     [labelsList, maxPossibleAttachedLabelsCount]
   );
-
-  const handleAdd = useCallback(() => {
-    canAttachMoreLabels && !isLabelManagerVisible && setIsLabelManagerVisible(true);
-  }, [labelsList, canAttachMoreLabels]);
 
   const handleRemove = useCallback(
     (id: PrimaryKey) =>
@@ -62,7 +57,6 @@ export const SidebarLabelField = ({
     (_, isSuccess) => {
       if (isSuccess) {
         refetch?.();
-        setIsLabelManagerVisible(false);
       }
     },
     [refetch]
@@ -74,10 +68,16 @@ export const SidebarLabelField = ({
       searchAction: true,
       entityIds: [entityId],
       typeId,
-      onApply,
-      onOutsideClick: () => setIsLabelManagerVisible(false)
+      onApply
     }),
     [entityId, typeId]
+  );
+
+  const tooltipText = useMemo(
+    () =>
+      !canAttachMoreLabels &&
+      t.get('labelsMaxCountTooltip').replace(TRANSLATION_CHANGED_VALUE, String(maxPossibleAttachedLabelsCount)),
+    [canAttachMoreLabels, maxPossibleAttachedLabelsCount, t]
   );
 
   return (
@@ -106,28 +106,25 @@ export const SidebarLabelField = ({
             </>
           )}
         </div>
-        <Tooltip
-          showEvent='hover'
-          text={
-            !canAttachMoreLabels &&
-            t.get('labelsMaxCountTooltip').replace(TRANSLATION_CHANGED_VALUE, String(maxPossibleAttachedLabelsCount))
-          }>
-          <IconButton
-            className={classNames(styles.Icon, {
-              [styles['Icon--disabled']]: !canAttachMoreLabels
-            })}
-            icon={<Icons.AddIconFilled />}
-            onClick={handleAdd}
-            variant={'dark'}
+        <div>
+          <LabelManagerContainer
+            //@ts-ignore
+            renderStateControlElement={(_, setIsVisible) => (
+              <Tooltip showEvent='hover' text={tooltipText}>
+                <IconButton
+                  className={classNames(styles.Icon, {
+                    [styles['Icon--disabled']]: !canAttachMoreLabels
+                  })}
+                  icon={<Icons.AddIconFilled />}
+                  variant={'dark'}
+                  onClick={() => canAttachMoreLabels && setIsVisible(true)}
+                />
+              </Tooltip>
+            )}
+            labelManagerProps={labelManagerProps}
           />
-        </Tooltip>
-      </div>
-
-      {isLabelManagerVisible && (
-        <div className={styles.LabelManagerContainer}>
-          <LabelManagerContainer labelManagerProps={labelManagerProps} />
         </div>
-      )}
+      </div>
     </Card>
   );
 };

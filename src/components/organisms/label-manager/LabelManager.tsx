@@ -73,7 +73,7 @@ export const LabelManager = ({
   const labelsToDeleteWithoutCopies = useMemo(() => {
     const labelsHashMap = {};
 
-    labelsToDelete.forEach((label) => {
+    labelsToDelete?.forEach((label) => {
       !labelsHashMap[label.id] && (labelsHashMap[label.id] = label);
     });
 

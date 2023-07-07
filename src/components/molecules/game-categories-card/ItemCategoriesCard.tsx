@@ -157,7 +157,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 className={classNames(styles['ItemCategoriesCard__label-content'], {
                   [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible
                 })}>
-                {<LabelManagerContainer labelManagerProps={customizedLabelManagerProps} />}
+                {<LabelManagerContainer defaultOpenState labelManagerProps={customizedLabelManagerProps} />}
               </div>
             )}
             <div
