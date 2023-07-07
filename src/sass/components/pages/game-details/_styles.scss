@@ -199,5 +199,9 @@
     & > div {
       width: auto !important;
     }
+
+    & >:first-child {
+      margin-bottom: calculateRem(8px)
+    }
   }
 }
