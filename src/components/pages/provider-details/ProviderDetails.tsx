@@ -46,7 +46,7 @@ export interface ProviderDetailsProps {
   generalInformationContext: ReactNode;
   gamesTabContent: ReactNode;
   isCmsUser: boolean;
-  sidebarLabelsView?: Element;
+  sidebarLabelsView?: ReactNode;
   onBackgroundImgClick: () => void;
 }
 
