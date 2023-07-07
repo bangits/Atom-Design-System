@@ -77,7 +77,7 @@ export const LabelManager = ({
       !labelsHashMap[label.id] && (labelsHashMap[label.id] = label);
     });
 
-    return Object.values(labelsHashMap);
+    return Object.values(labelsHashMap) as LabelManagerItem[];
   }, [labelsToDelete]);
 
   const isLoading = useMemo(
