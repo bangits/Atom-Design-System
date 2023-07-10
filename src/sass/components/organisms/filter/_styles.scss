@@ -5,6 +5,9 @@
     width: 100%;
     box-sizing: border-box;
     transition: height getFilterSizes(filter-animation-height);
+    &#{&} {
+      height: auto;
+    }
     .FiltersContainer {
       box-sizing: border-box;
       width: 100%;
