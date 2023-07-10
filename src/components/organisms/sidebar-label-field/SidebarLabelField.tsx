@@ -108,7 +108,6 @@ export const SidebarLabelField = ({
         </div>
         <div>
           <LabelManagerContainer
-            //@ts-ignore
             renderStateControlElement={(_, setIsVisible) => (
               <Tooltip showEvent='hover' text={tooltipText}>
                 <IconButton
