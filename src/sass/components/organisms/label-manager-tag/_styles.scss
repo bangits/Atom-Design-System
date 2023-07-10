@@ -1,5 +1,26 @@
 @mixin generate-label-manager-tag-styles {
 
+
+    .Lite-LabelIconWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: calculateRem(20px);
+        background-color: #E0E1EE;
+        padding: 0.6rem;
+    }
+
+    .Lite-LabelIcon {
+        color: color(black-color);
+        transition: color 0.3s ease-in;
+        min-width: calculateRem(10px);
+        width: calculateRem(10px);
+
+        &--active {
+            color: color(lime-c);
+        }
+    }
+
     .Container {
         display: flex;
         align-items: baseline;
@@ -38,6 +59,10 @@
             width: calculateRem(26px);
             max-width: 100%;
 
+            
+        }
+
+        &--is-minified-expand-on-hover {
             &:hover {
                 width: fit-content;
             }
@@ -54,7 +79,7 @@
     }
 
     .LabelIcon {
-        color: color(scampi);
+        color: color(black-color);
         transition: color 0.3s ease-in;
         margin-right: calculateRem(8px);
         min-width: calculateRem(15px);
