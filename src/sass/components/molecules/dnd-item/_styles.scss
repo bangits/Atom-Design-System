@@ -43,6 +43,9 @@
             color: color(white);
             border-radius: 50%;
         }
+        &__label-wrapper {
+            margin-right: calculateRem(12px);
+        }
         &__remove {
             opacity: 0;
             padding: 0;

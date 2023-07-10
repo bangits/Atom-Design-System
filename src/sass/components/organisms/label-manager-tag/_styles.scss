@@ -13,8 +13,9 @@
     .Lite-LabelIcon {
         color: color(black-color);
         transition: color 0.3s ease-in;
-        min-width: calculateRem(10px);
-        width: calculateRem(10px);
+        min-width: calculateRem(12px);
+        width: calculateRem(12px);
+        cursor: pointer;
 
         &--active {
             color: color(lime-c);
@@ -59,10 +60,6 @@
             width: calculateRem(26px);
             max-width: 100%;
 
-            
-        }
-
-        &--is-minified-expand-on-hover {
             &:hover {
                 width: fit-content;
             }

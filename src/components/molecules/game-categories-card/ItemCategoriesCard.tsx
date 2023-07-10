@@ -105,6 +105,11 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
         setLabelActionsState({
           visible: false,
           actionType: null
+        }),
+      onOutsideClick: () =>
+        setLabelActionsState({
+          visible: false,
+          actionType: null
         })
     }),
     [labelManagerProps, labelActionsState]
