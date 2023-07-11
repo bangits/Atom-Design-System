@@ -268,7 +268,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
         {labelManagerProps?.labelsToDelete && (
           <div className={styles.LabelsList}>
             {labelManagerProps?.labelsToDelete.map((label) => (
-              <LabelManagerTag key={label.id} isActive isMinified labelText={label.name} />
+              <LabelManagerTag key={label.id} isActive={label.isActive} isMinified labelText={label.name} />
             ))}
           </div>
         )}

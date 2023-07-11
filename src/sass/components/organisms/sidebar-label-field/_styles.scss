@@ -44,8 +44,8 @@
         flex-direction: column;
         align-items: center;
         margin: auto;
-        max-width: 70%;
-        min-width: 70%
+        max-width: calculateRem(160px);
+        min-width: calculateRem(160px)
     }
 
     .NoDataText {
