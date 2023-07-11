@@ -189,3 +189,5 @@ export { ReactComponent as Search } from './search.react.svg';
 export { ReactComponent as Spinner } from './spinner.react.svg';
 export { ReactComponent as AddLabelPopupIcon } from './add-label-popup-icon.svg';
 export { ReactComponent as AddIconFilled } from './add-icon-filled.react.svg';
+export { ReactComponent as Visibility } from './visibility.react.svg';
+export { ReactComponent as VisibilityOff } from './visibility-off.react.svg';
