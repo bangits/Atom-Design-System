@@ -1,0 +1,70 @@
+@mixin generate-password-change-after-login-styles {
+   .Background {
+    width: 100vw;
+    height: 100vh;
+    background: #C2C2DD;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   }
+
+
+   .CardWrapper {
+      width: calculateRem(524px);
+      height: calculateRem(474px);
+   }
+
+   .Card {
+      box-sizing: border-box;
+      padding: calculateRem(40px);
+      background-color: #fff;
+   }
+
+   .Form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+   }
+
+   .Icon {
+      width: calculateRem(80px);
+      height: calculateRem(80px);
+
+      path {
+         fill: color(scampi) !important;
+      }
+
+      circle {
+         fill: color(scampi) !important;
+      }
+   }
+
+   .Title {
+      margin-top: calculateRem(24px);
+   }
+
+   .SubTitle {
+      margin-top: calculateRem(3px);
+   }
+
+   .PasswordField {
+      margin-top: calculateRem(40px);
+      width: calculateRem(280px);
+   }
+
+   .ConfirmPasswordField {
+      width: calculateRem(280px);
+   }
+
+   .Actions {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: calculateRem(10px);
+      width: calculateRem(280px);
+
+      &--skipable {
+         justify-content: space-between;
+      }
+   }
+}

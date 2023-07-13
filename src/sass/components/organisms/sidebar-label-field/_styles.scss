@@ -6,11 +6,13 @@
         padding: calculateRem(6.3px);
         padding-right: calculateRem(10px);
         margin-bottom: calculateRem(8.4px);
+        max-width: calculateRem(254px);
     }
 
     .Wrapper {
         display: flex;
         align-items: flex-start;
+        justify-content: space-between;
     }
 
     .FieldName {
@@ -43,9 +45,8 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: auto;
-        max-width: calculateRem(160px);
-        min-width: calculateRem(160px)
+        margin: auto 0;
+        max-width: 67%;
     }
 
     .NoDataText {
