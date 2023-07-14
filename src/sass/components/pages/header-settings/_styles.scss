@@ -8,10 +8,8 @@
 
   .TagsWrapper {
     display: flex;
-  }
-
-  .Tag {
-    margin-right: calculateRem(7px);
+    flex-wrap: wrap;
+    gap: calculateRem(10px) calculateRem(7px)
   }
 
   .HeaderDetailsBase--container {
