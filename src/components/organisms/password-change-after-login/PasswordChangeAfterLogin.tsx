@@ -41,11 +41,11 @@ export const PasswordChangeAfterLogin = ({
                 [styles['Actions--skipable']]: canSkip
               })}>
               {canSkip && (
-                <Button type='button' onClick={() => onSkip?.()} variant='ghost'>
+                <Button className={styles.ActionButton} type='button' onClick={() => onSkip?.()} variant='ghost'>
                   {t.get('skip')}
                 </Button>
               )}
-              <Button disabled={isLoading} type='submit'>
+              <Button className={styles.ActionButton} disabled={isLoading} type='submit'>
                 {t.get('change')}
               </Button>
             </div>
