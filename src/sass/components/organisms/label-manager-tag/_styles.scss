@@ -25,6 +25,7 @@
     .Container {
         display: flex;
         align-items: baseline;
+        max-width: inherit;
     }
 
 
@@ -58,7 +59,7 @@
             margin-bottom: calculateRem(4px);
             padding: calculateRem(3px) calculateRem(7px);
             width: calculateRem(26px);
-            max-width: 100%;
+            max-width: inherit;
 
             &:hover {
                 width: fit-content;
