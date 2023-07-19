@@ -6,8 +6,8 @@ export default {
     extend: {
       tokens: {
         colors: {
-          primary: { value: 'violet' },
-          secondary: { value: 'blue' }
+          'scampi': { value: '#6667AB' },
+          'black-color': { value: '#48485D' }
         }
       }
     }
