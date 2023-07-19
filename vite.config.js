@@ -18,14 +18,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  plugins: [react(), svgr(), viteStaticCopy({
-      targets: [
-        {
-          src: './configs',
-          dest: 'configs'
-        }
-      ]
-    })],
+  plugins: [react(), svgr()],
   preview: {
     port: 6005
   },
