@@ -6,8 +6,8 @@ export const pandaCssConfig = {
     extend: {
       tokens: {
         colors: {
-          primary: { value: '#6667AB' },
-          secondary: { value: '#48485D' }
+          primary: { value: 'red' },
+          secondary: { value: 'blue' }
         }
       }
     }
