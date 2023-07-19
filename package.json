@@ -2,9 +2,10 @@
     "name": "@atom/design-system",
     "version": "5.6.4",
     "files": [
-        "dist"
+        "dist",
+        "configs"
     ],
-    "main": "",
+    "main": "./configs/index.js",
     "types": "./dist/atom-design-system.d.ts",
     "scripts": {
         "start": "concurrently \"tsc && vite build --watch\" \"yarn vite preview\"",
