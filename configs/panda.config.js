@@ -6,7 +6,7 @@ export default {
     extend: {
       tokens: {
         colors: {
-          primary: { value: 'red' },
+          primary: { value: 'violet' },
           secondary: { value: 'blue' }
         }
       }
