@@ -2,7 +2,6 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig } from 'vite';
 import svgr from 'vite-plugin-svgr';
-import { viteStaticCopy } from 'vite-plugin-static-copy'
 
 export default defineConfig({
   base: './',
@@ -18,14 +17,7 @@ export default defineConfig({
       '@': path.resolve(__dirname, './src')
     }
   },
-  plugins: [react(), svgr(), viteStaticCopy({
-      targets: [
-        {
-          src: './configs',
-          dest: 'configs'
-        }
-      ]
-    })],
+  plugins: [react(), svgr()],
   preview: {
     port: 6005
   },

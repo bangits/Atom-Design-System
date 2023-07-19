@@ -1,4 +1,4 @@
-export default {
+export const pandaCssConfig = {
   preflight: false,
   include: ['./src/view/**/*.{ts,tsx}'],
   exclude: [],
@@ -13,4 +13,4 @@ export default {
     }
   },
   outdir: './src/view/styles'
-}
+};
