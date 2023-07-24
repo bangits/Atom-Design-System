@@ -77,6 +77,7 @@
         -webkit-transition-delay: 0.7s;
         transition-delay: 0.7s;
         z-index: 0;
+
         &:hover {
           z-index: 1;
         }
@@ -98,21 +99,34 @@
     }
   }
   .ImageHoverColumn {
-    img {
-      width: getDataTableSizes(data-table-image-hover-column-width) !important;
-      height: getDataTableSizes(data-table-image-hover-column-height) !important;
-      top: 0;
-      left: getDataTableSizes(data-table-image-hover-column-left);
-      border-radius: getDataTableSizes(data-table-image-border-radius);
-      transition: getDataTableSizes(data-table-image-animation);
-      transition: transform getDataTableSizes(data-table-image-animation);
-      transition-delay: getDataTableSizes(data-table-image-animation-delay);
-      object-fit: contain;
-      transform-origin: top left;
-      &:hover {
-        transform: scale(getDataTableSizes(data-table-image-scale));
-        box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
+      .ImageWithoutSrc {
+        background: #fff;
+        transform-origin: top left;
+        transition: getDataTableSizes(data-table-image-animation);
+        transition: transform getDataTableSizes(data-table-image-animation);
+        transition-delay: getDataTableSizes(data-table-image-animation-delay);
+
+        &:hover {
+          transform: scale(getDataTableSizes(data-table-image-scale));
+          box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
+        }
       }
+
+      img {
+        width: getDataTableSizes(data-table-image-hover-column-width) !important;
+        height: getDataTableSizes(data-table-image-hover-column-height) !important;
+        top: 0;
+        left: getDataTableSizes(data-table-image-hover-column-left);
+        border-radius: getDataTableSizes(data-table-image-border-radius);
+        transition: getDataTableSizes(data-table-image-animation);
+        transition: transform getDataTableSizes(data-table-image-animation);
+        transition-delay: getDataTableSizes(data-table-image-animation-delay);
+        object-fit: contain;
+        transform-origin: top left;
+        &:hover {
+          transform: scale(getDataTableSizes(data-table-image-scale));
+          box-shadow: getDataTableSizes(data-table-image-box-shadow) getDataTableColors(image-box-shadow-color);
+        }
     }
   }
   .ImageHoverColumnCircle {
@@ -138,7 +152,7 @@
   .ImageColumnCircle,
   .ImageHoverColumnCircle {
     & > div {
-      overflow: unset;
+      overflow: unset !important;
     }
   }
   .TableActionsWrapper {
