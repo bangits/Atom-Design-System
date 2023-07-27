@@ -44,8 +44,8 @@ export const LabelManager = ({
   entityIds,
   translations,
   getAction: [getLabels, { isFetching: isGetLabelsLoading }],
-  attachAction: [deleteLabels, { isLoading: isLabelDeleteLoading }],
-  deleteAction: [attachToEntity, { isLoading: isLabelAttachLoading }],
+  attachAction: [attachToEntity, { isLoading: isLabelDeleteLoading }],
+  deleteAction: [deleteLabels, { isLoading: isLabelAttachLoading }],
   onOutsideClick,
   onLabelClick,
   onApply,
@@ -68,7 +68,7 @@ export const LabelManager = ({
       return !prev[label.id] ? { ...prev, [label.id]: label } : prev;
     }, {});
 
-    return Object.values(labelsHashMap) as LabelManagerItem[];
+    return labelsHashMap ? (Object.values(labelsHashMap) as LabelManagerItem[]) : [];
   }, [labelsToDelete]);
 
   const isLoading = useMemo(
@@ -91,15 +91,17 @@ export const LabelManager = ({
   );
 
   const handleLocalSearch = useCallback(() => {
+    if (isActionAdd) return;
     setSelectedId(null);
     setLabels(
       !searchFieldValue
         ? labelsToDeleteWithoutCopies
         : labelsToDeleteWithoutCopies.filter((label) => label.name.toLocaleLowerCase().includes(searchFieldValue))
     );
-  }, [labelsToDeleteWithoutCopies, searchFieldValue]);
+  }, [labelsToDeleteWithoutCopies, searchFieldValue, isActionAdd]);
 
   const handleGlobalSearch = useCallback(async (): Promise<void> => {
+    if (isActionAdd) return;
     const { data } = await getLabels(
       {
         ids: entityIds,
@@ -116,7 +118,7 @@ export const LabelManager = ({
     setLabels(data.results);
     disableOnPageChange && setDisableOnPageChange(false);
     selectedId && setSelectedId(null);
-  }, [entityIds, typeId, debouncedSearchValue, selectedId]);
+  }, [entityIds, typeId, debouncedSearchValue, selectedId, isActionAdd]);
 
   const handleSearchFieldChange = useCallback(({ target: { value } }) => {
     setSearchFieldValue(value);
@@ -192,11 +194,11 @@ export const LabelManager = ({
   useOutsideClickWithRef(ref, () => onOutsideClick?.());
 
   useEffect(() => {
-    !isActionAdd && handleLocalSearch();
-  }, [isActionAdd, searchFieldValue]);
+    handleLocalSearch();
+  }, [searchFieldValue]);
 
   useEffect(() => {
-    isActionAdd && handleGlobalSearch();
+    handleGlobalSearch();
   }, [debouncedSearchValue]);
 
   return (

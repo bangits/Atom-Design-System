@@ -15,7 +15,7 @@ export interface SidebarLabelFieldProps {
   labelManagerContainer: React.FC<any>;
   entityId: PrimaryKey;
   typeId: number;
-  noDataText?: string | ReactNode;
+  noDataText?: ReactNode;
   addSpacings?: boolean;
 }
 
@@ -23,14 +23,13 @@ export const SidebarLabelField = ({
   noDataText,
   refetch,
   labelsList,
-  deleteAction,
+  deleteAction: [deleteLabels],
   typeId,
   maxPossibleAttachedLabelsCount = 1,
   entityId,
   labelManagerContainer: LabelManagerContainer
 }: SidebarLabelFieldProps) => {
   const t = useTranslation();
-  const [deleteLabels] = deleteAction;
   const handler = useActionsMessagesHandler();
 
   const canAttachMoreLabels = useMemo(
