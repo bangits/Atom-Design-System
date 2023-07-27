@@ -1,4 +1,4 @@
-import { useCallback, useState, useEffect, useRef, useMemo, ChangeEvent } from 'react';
+import { useCallback, useState, useEffect, useRef, useMemo } from 'react';
 import { Icons, ScrollableView } from '@/atom-design-system';
 import { PrimaryKey, useActionsMessagesHandler, useTranslation } from '@atom/common';
 import { useOutsideClickWithRef } from '@my-ui/core';
@@ -14,6 +14,7 @@ export type LabelManagerItem = Pick<
   id: PrimaryKey;
   name?: string;
 };
+
 export interface LabelManagerProps {
   translations: {
     deleteLabel: string;
@@ -57,9 +58,10 @@ export const LabelManager = ({
   const bulkActionMessageshandler = useActionsMessagesHandler();
 
   const [searchFieldValue, setSearchFieldValue] = useState<string | null>(null);
-  const [debouncedSearchValue] = useDebounce(searchFieldValue, 300);
+  const [debouncedSearchValue] = useDebounce<string>(searchFieldValue, 300);
   const [disableOnPageChange, setDisableOnPageChange] = useState(false);
   const [labels, setLabels] = useState<LabelManagerItem[]>([]);
+
   const [selectedId, setSelectedId] = useState<PrimaryKey>();
   const [page, setPage] = useState(1);
 
@@ -240,13 +242,10 @@ export const LabelManager = ({
                 {labels?.map((label: LabelManagerItem) => (
                   <div className={styles.LabelListItem}>
                     <LabelManagerTag
+                      {...label}
                       key={label.id}
                       isSelected={selectedId === label.id}
-                      isActive={label.isActive}
                       labelText={label.name}
-                      isBordered={label.isBordered}
-                      isMinified={label.isMinified}
-                      hasSuffixIcon={label.hasSuffixIcon}
                       onClick={() => handleLabelClick(label.id)}
                     />
                   </div>
