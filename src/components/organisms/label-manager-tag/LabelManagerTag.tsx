@@ -12,7 +12,7 @@ export interface LabelManagerTagProps {
   hasSuffixIcon?: boolean;
   isSelected?: boolean;
   suffixIcon?: React.FC<React.SVGProps<SVGSVGElement>>;
-  onSufficIconClick?: () => void;
+  onSuffixIconClick?: () => void;
   onClick?: () => void;
 }
 
@@ -26,7 +26,7 @@ export const LabelManagerTag = ({
   isSelected,
   hasSuffixIcon,
   suffixIcon: SuffixIcon = Icons.CloseIcon,
-  onSufficIconClick
+  onSuffixIconClick
 }: LabelManagerTagProps) => {
   const labelTextRef = useRef<HTMLSpanElement>();
   const [isLabeltextOverflowed, setIsLabeltextOverflowed] = useState(false);
@@ -39,7 +39,7 @@ export const LabelManagerTag = ({
 
   const handleSuffixClick = useCallback((e) => {
     e.stopPropagation();
-    onSufficIconClick?.();
+    onSuffixIconClick?.();
   }, []);
 
   useEffect(() => checkISLabelTextOverflowed(), []);

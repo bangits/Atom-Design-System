@@ -94,11 +94,11 @@ export const SidebarLabelField = ({
                   <div className={styles.LabelWrapper}>
                     <LabelManagerTag
                       isBorderedOnHover
-                      onSufficIconClick={() => handleRemove(label.id)}
+                      hasSuffixIcon
+                      onSuffixIconClick={() => handleRemove(label.id)}
                       labelText={label.name}
                       key={label.id}
                       isActive={label.isActive}
-                      hasSuffixIcon
                     />
                   </div>
                 </>

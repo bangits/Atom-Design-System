@@ -1,27 +1,26 @@
-import { useCallback, useState, useEffect, useRef, useMemo } from 'react';
+import { useCallback, useState, useEffect, useRef, useMemo, ChangeEvent } from 'react';
 import { Icons, ScrollableView } from '@/atom-design-system';
 import { PrimaryKey, useActionsMessagesHandler, useTranslation } from '@atom/common';
 import { useOutsideClickWithRef } from '@my-ui/core';
 import classNames from 'classnames';
 import styles from './LabelManager.module.scss';
-import { LabelManagerTag } from '../label-manager-tag';
+import { LabelManagerTag, LabelManagerTagProps } from '../label-manager-tag';
 import { useDebounce } from '@/helpers';
 
-export interface LabelManagerItem {
-  isMinified?: boolean;
+export type LabelManagerItem = Pick<
+  LabelManagerTagProps,
+  'isMinified' | 'isActive' | 'isBordered' | 'hasSuffixIcon'
+> & {
   id: PrimaryKey;
   name?: string;
-  isActive?: boolean;
-  isBordered?: boolean;
-  hasSuffixIcon?: boolean;
-}
-
+};
 export interface LabelManagerProps {
   translations: {
     deleteLabel: string;
     addLabel: string;
     apply: string;
   };
+  pageSize?: number;
   typeId: number;
   entityIds: PrimaryKey[];
   actionType: 'add' | 'delete';
@@ -31,14 +30,11 @@ export interface LabelManagerProps {
   onOutsideClick?: () => void;
   onSearch?: (value: string) => void;
   onApply?: (id: PrimaryKey, isSuccess: boolean) => void;
-  onSufficIconClick?: (id: PrimaryKey) => void;
   labelsToDelete: LabelManagerItem[];
   attachAction: any;
   deleteAction: any;
   getAction: any;
 }
-
-const pageSize = 5;
 
 export const LabelManager = ({
   backAction,
@@ -47,35 +43,30 @@ export const LabelManager = ({
   typeId,
   entityIds,
   translations,
-  getAction,
+  getAction: [getLabels, { isFetching: isGetLabelsLoading }],
+  attachAction: [deleteLabels, { isLoading: isLabelDeleteLoading }],
+  deleteAction: [attachToEntity, { isLoading: isLabelAttachLoading }],
   onOutsideClick,
-  deleteAction,
-  attachAction,
   onLabelClick,
   onApply,
-  labelsToDelete
+  labelsToDelete,
+  pageSize = 5
 }: LabelManagerProps) => {
   const t = useTranslation();
   const ref = useRef<HTMLDivElement | null>(null);
   const bulkActionMessageshandler = useActionsMessagesHandler();
 
-  const [getLabels, { isFetching: isGetLabelsLoading }] = getAction;
-  const [deleteLabels, { isLoading: isLabelDeleteLoading }] = deleteAction;
-  const [attachToEntity, { isLoading: isLabelAttachLoading }] = attachAction;
-
-  const [searchFieldValue, setSearchFieldValue] = useState(null);
+  const [searchFieldValue, setSearchFieldValue] = useState<string | null>(null);
   const [debouncedSearchValue] = useDebounce(searchFieldValue, 300);
   const [disableOnPageChange, setDisableOnPageChange] = useState(false);
-  const [labels, setLabels] = useState([]);
+  const [labels, setLabels] = useState<LabelManagerItem[]>([]);
   const [selectedId, setSelectedId] = useState<PrimaryKey>();
   const [page, setPage] = useState(1);
 
   const labelsToDeleteWithoutCopies = useMemo(() => {
-    const labelsHashMap = {};
-
-    labelsToDelete?.forEach((label) => {
-      !labelsHashMap[label.id] && (labelsHashMap[label.id] = label);
-    });
+    const labelsHashMap = labelsToDelete?.reduce((prev, label) => {
+      return !prev[label.id] ? { ...prev, [label.id]: label } : prev;
+    }, {});
 
     return Object.values(labelsHashMap) as LabelManagerItem[];
   }, [labelsToDelete]);
@@ -100,47 +91,39 @@ export const LabelManager = ({
   );
 
   const handleLocalSearch = useCallback(() => {
-    if (!isActionAdd) {
-      setSelectedId(null);
+    setSelectedId(null);
+    setLabels(
       !searchFieldValue
-        ? setLabels(labelsToDeleteWithoutCopies)
-        : setLabels(
-            labelsToDeleteWithoutCopies.filter((label) => label.name.toLocaleLowerCase().includes(searchFieldValue))
-          );
-    }
-  }, [labelsToDeleteWithoutCopies, searchFieldValue, isActionAdd]);
+        ? labelsToDeleteWithoutCopies
+        : labelsToDeleteWithoutCopies.filter((label) => label.name.toLocaleLowerCase().includes(searchFieldValue))
+    );
+  }, [labelsToDeleteWithoutCopies, searchFieldValue]);
 
-  const handleGlobalSearch: any = useCallback(async () => {
-    if (isActionAdd) {
-      const { data } = await getLabels(
-        {
-          ids: entityIds,
-          typeId,
-          labelName: debouncedSearchValue,
-          forExclude: false,
-          pagination: {
-            page: 1,
-            pageSize: pageSize
-          }
-        },
-        false
-      );
-      setLabels(data.results);
-      disableOnPageChange && setDisableOnPageChange(false);
-      selectedId && setSelectedId(null);
-    }
-  }, [entityIds, typeId, debouncedSearchValue, selectedId, isActionAdd]);
+  const handleGlobalSearch = useCallback(async (): Promise<void> => {
+    const { data } = await getLabels(
+      {
+        ids: entityIds,
+        typeId,
+        labelName: debouncedSearchValue,
+        forExclude: false,
+        pagination: {
+          page: 1,
+          pageSize
+        }
+      },
+      false
+    );
+    setLabels(data.results);
+    disableOnPageChange && setDisableOnPageChange(false);
+    selectedId && setSelectedId(null);
+  }, [entityIds, typeId, debouncedSearchValue, selectedId]);
 
-  const handleSearchFieldChange = useCallback(
-    (e) => {
-      const value = e.target.value;
-      setSearchFieldValue(value);
-    },
-    [labelsToDeleteWithoutCopies]
-  );
+  const handleSearchFieldChange = useCallback(({ target: { value } }) => {
+    setSearchFieldValue(value);
+  }, []);
 
   const handleApply = useCallback(() => {
-    isActionAdd ? handleAttach() : handleDelete();
+    selectedId && (isActionAdd ? handleAttach() : handleDelete());
   }, [actionType, selectedId, isActionAdd]);
 
   const handleAttach = useCallback(() => {
@@ -189,34 +172,32 @@ export const LabelManager = ({
           forExclude: false,
           pagination: {
             page: pageNumber,
-            pageSize: pageSize
+            pageSize
           }
         },
         false
       );
-      !data.results?.length && setDisableOnPageChange(true);
-      data.results?.length && setLabels((prevValue) => [...prevValue, ...data.results]);
+      data.results?.length ? setLabels((prevValue) => [...prevValue, ...data.results]) : setDisableOnPageChange(true);
     },
     [entityIds, typeId, debouncedSearchValue]
   );
 
-  const handlePageChange = useCallback(
-    (newPage) => {
-      console.log(newPage);
-
-      if (isActionAdd) {
-        setPage(page + 1);
-        loadMoreLabels(page + 1);
-      }
-    },
-    [page, isActionAdd]
-  );
+  const handlePageChange = useCallback(() => {
+    if (isActionAdd) {
+      setPage(page + 1);
+      loadMoreLabels(page + 1);
+    }
+  }, [page, isActionAdd]);
 
   useOutsideClickWithRef(ref, () => onOutsideClick?.());
 
-  useEffect(() => handleLocalSearch(), [searchFieldValue]);
+  useEffect(() => {
+    !isActionAdd && handleLocalSearch();
+  }, [isActionAdd, searchFieldValue]);
 
-  useEffect(() => handleGlobalSearch(), [debouncedSearchValue]);
+  useEffect(() => {
+    isActionAdd && handleGlobalSearch();
+  }, [debouncedSearchValue]);
 
   return (
     <div className={styles.Container} ref={ref}>
@@ -234,7 +215,7 @@ export const LabelManager = ({
                 <input
                   maxLength={20}
                   type='text'
-                  placeholder='Search'
+                  placeholder={t.get('search')}
                   className={styles.SearchInput}
                   value={searchFieldValue || ''}
                   onChange={handleSearchFieldChange}

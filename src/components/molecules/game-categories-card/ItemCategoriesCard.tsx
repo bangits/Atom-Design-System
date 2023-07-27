@@ -13,6 +13,7 @@ import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@
 import classNames from 'classnames';
 import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useCallback, useMemo, useState } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
+import { PrimaryKey } from '@atom/common';
 
 export type FormWithInputAction = Partial<FormWithInputProps> & {
   actionLabel: string;
@@ -21,11 +22,11 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
   onActionClick?(): void;
 };
 
-export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface ItemCategoriesCardProps<T> extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   maxLabelCount?: number;
   attachedLabelsCount?: number;
   labelManagerProps?: Partial<LabelManagerProps>;
-  labelManagerContainer?: React.FC<any>;
+  labelManagerContainer?: React.FC<{ labelManagerProps: T; defaultOpenState: boolean }>;
   checkboxProps?: CheckboxProps;
   cardTopComponent?: ReactNode;
   showCheckboxOnHover?: boolean;
@@ -53,7 +54,7 @@ export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttribute
   onDemoPlayButtonClick?(): void;
 }
 
-const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
+const ItemCategoriesCard = <T,>({
   onDeleteButtonClick,
   onPlayButtonClick,
   onDemoPlayButtonClick,
@@ -77,7 +78,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   maxLabelCount,
   attachedLabelsCount = 0,
   ...props
-}) => {
+}: ItemCategoriesCardProps<T>) => {
   const [selectedFormProps, setSelectedFormProps] = useState<FormWithInputAction | null>(null);
   const [showSelectedFrom, setShowSelectedForm] = useState(false);
   const [labelActionsState, setLabelActionsState] = useState({
@@ -92,7 +93,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
     () => ({
       ...labelManagerProps,
       actionType: labelActionsState.actionType,
-      onApply: (id, isSuccess) => {
+      onApply: (id: PrimaryKey, isSuccess: boolean) => {
         if (isSuccess) {
           setLabelActionsState({
             visible: false,
@@ -162,7 +163,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                 className={classNames(styles['ItemCategoriesCard__label-content'], {
                   [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible
                 })}>
-                {<LabelManagerContainer defaultOpenState labelManagerProps={customizedLabelManagerProps} />}
+                {<LabelManagerContainer defaultOpenState labelManagerProps={customizedLabelManagerProps as T} />}
               </div>
             )}
             <div
@@ -218,7 +219,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                         type='button'
                         onClick={() => setLabelActionsState({ visible: true, actionType: 'add' })}>
                         <Icons.Label width='1.5rem' /> {translations.addLabel}
-                        <Icons.ArrowNext width='0.7rem' style={{ marginLeft: 'auto' }} />
+                        <Icons.ArrowNext width='0.7rem' className={styles.ArrowIcon} />
                       </button>
                     )}
                     {showDeleteLabel && (
@@ -227,7 +228,7 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                         type='button'
                         onClick={() => setLabelActionsState({ visible: true, actionType: 'delete' })}>
                         <Icons.DeleteLabel width='1.5rem' /> {translations.deleteLabel}
-                        <Icons.ArrowNext width='0.7rem' style={{ marginLeft: 'auto' }} />
+                        <Icons.ArrowNext width='0.7rem' className={styles.ArrowIcon} />
                       </button>
                     )}
                   </>

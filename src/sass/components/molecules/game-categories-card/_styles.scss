@@ -146,6 +146,11 @@
       height: 100%;
     }
     &__action {
+
+      .ArrowIcon {
+        margin-left: auto;
+      }
+
       &#{&} {
         @include flex(null, center);
         min-width: calculateRem(140px);
