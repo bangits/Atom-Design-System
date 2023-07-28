@@ -1,5 +1,5 @@
 import { LabelGroup } from '@/components';
-import { FC, ReactNode, useCallback } from 'react';
+import { FC, ReactNode } from 'react';
 import styles from './HeaderContent.module.scss';
 import { Tag, Tooltip } from '@my-ui/core';
 import { Icons } from '@/atom-design-system';
@@ -7,7 +7,7 @@ import { PrimaryKey } from '@atom/common';
 
 export interface HeaderContentProps {
   title: string;
-  labelComponent: FC<{ isActive: boolean; tooltipText: string }>;
+  labelComponent?: FC<{ isActive: boolean; tooltipText: string }>;
   links: {
     url: string;
     name: string;
