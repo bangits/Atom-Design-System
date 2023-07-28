@@ -4,9 +4,7 @@ import {
   FormWithInput,
   FormWithInputProps,
   GameLaunchBtns,
-  Icons,
-  LabelManagerProps,
-  LabelManagerTag
+  Icons
 } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
@@ -25,7 +23,15 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
 export interface ItemCategoriesCardProps<T> extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   maxLabelCount?: number;
   attachedLabelsCount?: number;
-  labelManagerProps?: Partial<LabelManagerProps>;
+  labelComponent?: FC<{
+    isActive: boolean;
+    labelText: string;
+    isMinified: boolean;
+  }>;
+  labelManagerProps?: {
+    onApply(id: PrimaryKey, isSuccess: boolean);
+    labelsToDelete: any[];
+  };
   labelManagerContainer?: React.FC<{ labelManagerProps: T; defaultOpenState: boolean }>;
   checkboxProps?: CheckboxProps;
   cardTopComponent?: ReactNode;
@@ -73,6 +79,7 @@ const ItemCategoriesCard = <T,>({
   showCheckboxOnHover,
   status,
   statusLabel,
+  labelComponent: LabelComponent,
   labelManagerProps,
   labelManagerContainer: LabelManagerContainer,
   maxLabelCount,
@@ -269,7 +276,7 @@ const ItemCategoriesCard = <T,>({
         {labelManagerProps?.labelsToDelete && (
           <div className={styles.LabelsList}>
             {labelManagerProps?.labelsToDelete.map((label) => (
-              <LabelManagerTag key={label.id} isActive={label.isActive} isMinified labelText={label.name} />
+              <LabelComponent key={label.id} isActive={label.isActive} isMinified labelText={label.name} />
             ))}
           </div>
         )}

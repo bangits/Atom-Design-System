@@ -1,5 +1,5 @@
-import { LabelGroup, LabelManagerTagLite } from '@/components';
-import { FC, useCallback } from 'react';
+import { LabelGroup } from '@/components';
+import { FC, ReactNode, useCallback } from 'react';
 import styles from './HeaderContent.module.scss';
 import { Tag, Tooltip } from '@my-ui/core';
 import { Icons } from '@/atom-design-system';
@@ -7,7 +7,7 @@ import { PrimaryKey } from '@atom/common';
 
 export interface HeaderContentProps {
   title: string;
-
+  labelComponent: FC<{ isActive: boolean; tooltipText: string }>;
   links: {
     url: string;
     name: string;
@@ -20,7 +20,7 @@ export interface HeaderContentProps {
   }[];
 }
 
-const generateTag = (link, index) => {
+const generateTag = (link, index, labelManagerTagLite: ReactNode) => {
   const label = link.label;
 
   return (
@@ -40,7 +40,7 @@ const generateTag = (link, index) => {
                       </Tooltip>
                     ]
                   : []),
-                ...(label ? [<LabelManagerTagLite isActive={label.isActive} tooltipText={label.name} />] : [])
+                ...(label ? [labelManagerTagLite] : [])
               ]
             }
           : {})}
@@ -49,11 +49,15 @@ const generateTag = (link, index) => {
   );
 };
 
-const HeaderContent: FC<HeaderContentProps> = ({ links, title }) => {
+const HeaderContent: FC<HeaderContentProps> = ({ links, title, labelComponent: LabelComponent }) => {
   return (
     <div className={styles.HeaderContent}>
       <LabelGroup title={title} totalLabel={links.length.toString()}>
-        <div className={styles.TagsWrapper}>{links.map((l, i) => generateTag(l, i))}</div>
+        <div className={styles.TagsWrapper}>
+          {links.map((l, i) =>
+            generateTag(l, i, <LabelComponent isActive={l?.label.isActive} tooltipText={l?.label.name} />)
+          )}
+        </div>
       </LabelGroup>
     </div>
   );

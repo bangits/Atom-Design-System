@@ -1,10 +1,10 @@
-import { Icons, LabelManagerTagLite } from '@/atom-design-system';
+import { FC, forwardRef, PropsWithChildren, useEffect, useRef, useState } from 'react';
+import classNames from 'classnames';
+import { Icons } from '@/atom-design-system';
+import { PrimaryKey } from '@atom/common';
 import { typedMemo } from '@/helpers';
 import { Checkbox, TextWithTooltip, Tooltip } from '@my-ui/core';
-import classNames from 'classnames';
-import { forwardRef, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import styles from './DnDItem.module.scss';
-import { PrimaryKey } from '@atom/common';
 
 export interface DnDItemProps {
   selectedAndDragged?: boolean;
@@ -24,6 +24,7 @@ export interface DnDItemProps {
     name: string;
     isActive: boolean;
   };
+  labelComponent?: FC<{ tooltipText: string; isActive: boolean }>;
   onRemoveButtonClick?(): void;
   onCheckboxToggle?(): void;
   onDragChange?(isDragged: boolean): void;
@@ -50,7 +51,8 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
       selectedAndDragged,
       sortTooltipText,
       onDropChange,
-      label
+      label,
+      labelComponent: LabelComponent
     },
     ref
   ) => {
@@ -119,11 +121,10 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
                 {children}
               </TextWithTooltip>
             </div>
-
             {isDragged && badgeQuantity > 1 && <span className={styles['DnDItem__badge']}>{badgeQuantity}</span>}
             {!!label && (
               <div className={styles['DnDItem__label-wrapper']}>
-                <LabelManagerTagLite isActive={label.isActive} tooltipText={label.name} />
+                <LabelComponent isActive={label.isActive} tooltipText={label.name} />
               </div>
             )}
             {showCheckbox && (
@@ -136,7 +137,6 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
                 </Tooltip>
               </div>
             )}
-
             {showRemoveButton && (
               <button type='button' className={styles['DnDItem__remove']} onClick={onRemoveButtonClick}>
                 <Icons.CloseIcon />
