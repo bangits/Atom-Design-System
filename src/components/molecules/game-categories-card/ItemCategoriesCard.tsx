@@ -28,7 +28,7 @@ export interface ItemCategoriesCardProps<T> extends DetailedHTMLProps<HTMLAttrib
     labelText: string;
     isMinified: boolean;
   }>;
-  labelManagerProps?: {
+  labelManagerProps?: T & {
     onApply(id: PrimaryKey, isSuccess: boolean);
     labelsToDelete: any[];
   };
