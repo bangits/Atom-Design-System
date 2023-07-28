@@ -7,7 +7,10 @@ export default {
       tokens: {
         colors: {
           'scampi': { value: '#6667AB' },
-          'black-color': { value: '#48485D' }
+          'black-color': { value: '#48485D' },
+          'nepal': {value: '#8ea6c1'},
+          'whisper': {value: '#f0f0f7'},
+          'lime-c': {value: '#00b21e'}
         }
       }
     }
