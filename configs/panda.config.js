@@ -12,5 +12,5 @@ export default {
       }
     }
   },
-  outdir: './src/view/styles'
+  outdir: 'styled-system'
 }
