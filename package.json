@@ -1,6 +1,6 @@
 {
   "name": "@atom/design-system",
-  "version": "5.6.10",
+  "version": "5.6.11",
   "files": [
     "dist",
     "configs"
