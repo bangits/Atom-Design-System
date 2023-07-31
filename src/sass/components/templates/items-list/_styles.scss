@@ -4,7 +4,6 @@
     grid-template-columns: repeat(auto-fill, minmax(#{calculateRem(140px)}, 1fr));
     gap: calculateRem(16px);
     padding-right: calculateRem(20px);
-    padding-bottom: calculateRem(120px);
-    min-height: 45vh;
+    padding-bottom: calculateRem(160px);
   }
 }
