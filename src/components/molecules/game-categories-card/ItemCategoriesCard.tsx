@@ -20,7 +20,8 @@ export type FormWithInputAction = Partial<FormWithInputProps> & {
   onActionClick?(): void;
 };
 
-export interface ItemCategoriesCardProps<T> extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface ItemCategoriesCardProps<T = undefined>
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   maxLabelCount?: number;
   attachedLabelsCount?: number;
   labelComponent?: FC<{
@@ -29,8 +30,8 @@ export interface ItemCategoriesCardProps<T> extends DetailedHTMLProps<HTMLAttrib
     isMinified: boolean;
   }>;
   labelManagerProps?: T & {
-    onApply(id: PrimaryKey, isSuccess: boolean);
-    labelsToDelete: any[];
+    onApply?: (id: PrimaryKey, isSuccess: boolean) => void;
+    labelsToDelete?: { id: PrimaryKey; isActive: boolean; name: string }[];
   };
   labelManagerContainer?: React.FC<{ labelManagerProps: T; defaultOpenState: boolean }>;
   checkboxProps?: CheckboxProps;
