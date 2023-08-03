@@ -1,5 +1,6 @@
+import { ListViewMore } from '@/atom-design-system';
 import { InfoTooltipIcon } from '@/icons';
-import { Tag, TextInput, Tooltip } from '@my-ui/core';
+import { Tag, TextInput, Tooltip, TagWithImage } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
 import { EditedFormProps } from './EditedForm';
@@ -15,9 +16,16 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
     <>
       {options &&
         options?.map((option, index) => {
+          const showCount = () => {
+            if (option.variant === 'tag' || option.variant === 'tag-with-image') {
+              return option.showCount && option.value?.length ? `(${option.value.length})` : '';
+            }
+            return '';
+          };
+
           const title = (
             <span className={classNames(styles['EditedFormBase--option-title'])}>
-              {option.title}
+              {option.title} {showCount()}
               {option.tooltipText && (
                 <Tooltip showEvent='hover' text={option.tooltipText}>
                   <InfoTooltipIcon
@@ -73,7 +81,7 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                     [styles['EditedFormBase--option--align-end']]: option.alignItem === 'end',
                     [styles[`EditedFormBase--option--${option.col || 6}`]]: option.col
                   })}>
-                  {title}
+                  {option.title || option.tooltipText ? title : null}
                   {option.value || <span className={styles['EditedFormBase--option-value']}>{noDataText}</span>}
                 </div>
               );
@@ -82,11 +90,28 @@ const EditedFormOptions: FC<EditedFormOptionsProps> = ({ options, noDataText }) 
                 <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
                   {title}
                   <div>
-                    {option.value.length === 0 ? (
-                      <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
-                    ) : (
-                      option.value?.map?.((o, index) => <Tag title={o} key={index} />)
-                    )}
+                    <ListViewMore>
+                      {option.value.length === 0 ? (
+                        <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
+                      ) : (
+                        option.value?.map?.((o, index) => <Tag title={o} key={index} />)
+                      )}
+                    </ListViewMore>
+                  </div>
+                </div>
+              );
+            case 'tag-with-image':
+              return (
+                <div key={index} className={classNames(styles['EditedFormBase--option-tag'])}>
+                  {title}
+                  <div>
+                    <ListViewMore>
+                      {option.value.length === 0 ? (
+                        <span className={classNames(styles['EditedFormBase--option-value'])}>{noDataText}</span>
+                      ) : (
+                        option.value?.map?.((tagOptions) => <TagWithImage {...tagOptions} />)
+                      )}
+                    </ListViewMore>
                   </div>
                 </div>
               );

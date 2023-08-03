@@ -4,20 +4,19 @@
     box-shadow: getFilterSizes(filter-base-box-shadow) getFilterColors(filter-base-box-shadow);
     width: 100%;
     box-sizing: border-box;
-
     transition: height getFilterSizes(filter-animation-height);
-
+    &#{&} {
+      height: auto;
+    }
     .FiltersContainer {
       box-sizing: border-box;
       width: 100%;
-      padding: 0 getFilterSizes(filter-base-container-margin);
+      padding: calculateRem(6px) calculateRem(16px);
       padding-top: getFilterSizes(filter-base-container-padding-top);
-
       display: grid;
       grid-template-columns: 1fr;
       grid-template-columns: repeat(auto-fill, minmax(getFilterSizes(filter-container-width), 1fr));
       grid-gap: getFilterSizes(filter-base-container-margin);
-
       :global {
         .item-enter {
           opacity: 0;
@@ -34,38 +33,30 @@
           transition: opacity 600ms ease-in;
         }
       }
-
       .FilterContainer {
         max-height: getFilterSizes(filter-element-max-height);
-
         label > div {
           svg {
             width: 1.4rem;
           }
         }
-
         &.FilterContainerFromTo {
           @include flex();
-
           position: relative;
           grid-column: span 2;
         }
-
         &:empty {
           display: none;
         }
       }
     }
-
     .FiltersDropdown {
       max-width: 8rem;
-
       & > div > div {
         span:first-child {
           @include flex(flex-end, center);
           border-radius: none;
           font-size: 0;
-
           svg {
             transform: translate(0, 0);
             width: 2.5rem;
@@ -74,51 +65,42 @@
             fill: currentColor;
             border-radius: none;
             box-sizing: border-box;
-
             background-color: getFilterColors(filters-icon-bg);
           }
         }
       }
     }
-
     .FiltersDropdownIcon {
       background-color: rgba(getBaseColors(primary), 0.1);
       border-radius: getFilterSizes(filter-icon-border-radius);
     }
-
     .ArrowIconContainer {
       transform: rotate(180deg);
     }
-
     .FiltersContainer,
     .Checkbox {
       transition: height getFilterSizes(filter-animation-height),
         padding-top getFilterSizes(filter-animation-padding-top);
     }
-
     &--closed {
       // height: getFilterSizes(filter-base-closed-height);
-
       .FiltersContainer,
       .Checkbox {
         height: 0;
         opacity: 0;
         padding-top: 0;
+        padding-bottom: 0;
         position: relative;
         z-index: -1;
-
         overflow: hidden;
       }
-
       .ArrowIconContainer {
         transform: rotate(0);
       }
     }
-
     .ControlContainer {
       @include flex(space-between, center);
       padding: getFilterSizes(filter-container-from-to-padding);
-
       .FilterLabel {
         font-weight: getFilterSizes(filter-label-font-weight);
         color: getFilterColors(filter-label-color);
@@ -130,7 +112,6 @@
         .ButtonToogle {
           width: getFilterSizes(button-toogle-width);
         }
-
         .ClearLabelActive {
           color: getFilterColors(clear-label-active-color);
           margin-right: getFilterSizes(clear-label-active-margin-right);
@@ -153,41 +134,32 @@
           margin: getFilterSizes(arrow-icon-container-margin);
           transition: transform getFilterSizes(arrow-icon-container-animation);
           cursor: pointer;
-
           svg {
             width: getFilterSizes(arrow-icon-container-width);
             height: getFilterSizes(arrow-icon-container-height);
           }
         }
       }
-
       .ApplyButton {
         margin: 0 getFilterSizes(control-buttons-margin);
       }
-
       .SaveButton {
         font-size: getFilterSizes(save-button-size);
         text-decoration: none;
-
         & > div {
           width: getFilterSizes(save-button-icon-width);
         }
-
         margin-right: getFilterSizes(control-buttons-margin);
-
         background: none !important;
       }
-
       .LeftControlsContainer {
         @include flex(null, center);
       }
     }
   }
-
   .Checkbox {
     @include flex(null, null, $flex-wrap: wrap);
     margin: getFilterSizes(checkbox-margin);
-
     &:empty {
       display: none;
     }

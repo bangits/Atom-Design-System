@@ -7,36 +7,48 @@ export const Icons = { ...MyUIIcons, ...DesignSystemIcons };
 
 export {
   AcceptionDialog,
-  AcceptionDialogProps,
   Breadcrumb,
   Button,
-  ButtonProps,
   Checkbox,
   Collapse,
   Dialog,
   DialogActions,
   DialogBody,
-  DialogBodyProps,
-  DialogConfig,
   DialogFooter,
-  DialogFooterProps,
   DialogHeader,
-  DialogHeaderProps,
-  DialogProps,
   DialogProvider,
   DialogTypes,
   DialogWithActions,
-  DialogWithActionsProps,
   IconButton,
   Loader,
   Pagination,
+  RadioButton,
+  Drawer,
+  ColorPicker,
   Scroll,
   Tag,
+  TagWithImage,
   Tooltip,
+  Typography,
+  InputWithColorPicker,
+  convertColorToHex,
+  knownColors,
   typedMemo,
-  Typography
+  type RadioButtonProps
+} from '@my-ui/core';
+export type {
+  AcceptionDialogProps,
+  ButtonProps,
+  DialogBodyProps,
+  DialogConfig,
+  DialogFooterProps,
+  DialogHeaderProps,
+  DialogProps,
+  TagWithImageBaseProps,
+  DialogWithActionsProps
 } from '@my-ui/core';
 export * from './components';
+export * from './contexts';
 export * from './helpers/arrayMove';
 export * from './services';
 

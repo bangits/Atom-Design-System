@@ -8,11 +8,11 @@ import styles from './GalleryImages.module.scss';
 export interface GalleryImageProps {
   imgSrc: string;
   active: boolean;
-
+  onDeleteClick: () => void;
   onClick(): void;
 }
 
-const SortableComponent = SortableElement<GalleryImageProps>(({ imgSrc, active, onClick }: GalleryImageProps) => (
+const SortableComponent = SortableElement<GalleryImageProps>(({ imgSrc, active, onClick, onDeleteClick }: GalleryImageProps) => (
   <div
     className={classNames(styles.GalleryImages__Img, {
       [styles['GalleryImages__Img--Active']]: active
@@ -23,12 +23,17 @@ const SortableComponent = SortableElement<GalleryImageProps>(({ imgSrc, active, 
     <span className={classNames(styles.GalleryImages__Sort, 'DnD-SortIcon')}>
       <Icons.SortIcon />
     </span>
+    <span >
+      <Icons.TrashIndicator onClick={onDeleteClick} className={classNames(styles.GalleryImages__Trash)} />
+    </span>
   </div>
 ));
 
 export interface GalleryImage {
   id: string | number;
   src: string;
+  onDeleteClick?: () => void;
+
 }
 
 export interface GalleryImagesProps {
@@ -79,6 +84,7 @@ const GalleryImages: FC<GalleryImagesProps> = ({
 
           {imagesList.map((image, index) => (
             <SortableComponent
+              onDeleteClick={image.onDeleteClick}
               key={image.id}
               active={activeImgId === image.id}
               index={index}

@@ -1,25 +1,43 @@
 @mixin generate-popover-with-input-styles {
-    .PopoverWithInput {
-        &__name,
-        &__total {
-            margin: 0;
-        }
-        &__name {
-            font-size: calculateRem(13px);
-            margin-bottom: calculateRem(3px);
-        }
-        &__total {
-            font-size: calculateRem(11px);
-        }
-        &__input {
-            min-height: auto;
-            input {
-                min-width: calculateRem(110px);
-            }
-        }
-        &__button {
-            margin-left: auto;
-            font-size: calculateRem(14px);
-        }
+  .FormWithInput {
+    $this: #{&};
+    color: color(black-color);
+    &__name,
+    &__total {
+      margin: 0;
     }
+    &__back {
+      position: absolute;
+      color: inherit;
+      transform: translateY(#{calculateRem(3px)});
+    }
+    &__name {
+      font-size: calculateRem(16px);
+      margin-bottom: calculateRem(3px);
+    }
+    &__info {
+      margin-top: calculateRem(8px);
+      margin-bottom: calculateRem(4px);
+      font-size: calculateRem(13px);
+    }
+    &__input {
+      &#{&} {
+        min-height: auto;
+      }
+      input {
+        min-width: calculateRem(110px);
+      }
+    }
+    &__button {
+      &#{&} {
+        margin-left: auto;
+        font-size: calculateRem(14px);
+      }
+    }
+    &--with-back {
+      #{$this}__name {
+        transform: translateX(15px);
+      }
+    }
+  }
 }

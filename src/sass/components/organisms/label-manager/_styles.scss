@@ -1,0 +1,101 @@
+@mixin generate-label-manager-styles {
+    .Container {
+        background-color: #fff;
+        display: flex;
+        flex-direction: column;
+        padding: calculateRem(10px);
+        width: calculateRem(165px); 
+        height: calculateRem(239px);
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    .Header {
+        display: flex;
+        color: color(black-color);
+        font-size: calculateRem(13px);
+    }
+
+    .BackIcon {
+        cursor: pointer;
+        margin-right: calculateRem(10px);
+    }
+
+    .Search {
+        margin-top: calculateRem(10px);
+        width: 100%;
+    }
+
+    .SearchInput {
+        width: 100%;
+        border: none;
+        outline: none;
+        color: color(black-color);
+
+        &::placeholder {
+            color: color(nepal);
+        }
+
+        &::-ms-input-placeholder {
+            color: color(nepal);
+        }
+    }
+
+    .SearchInputWrapper {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .SearchIcon {
+        color: color(nepal);
+    }
+
+    .Divider {
+        width: 100%;
+        margin-top: calculateRem(8px);
+        height: calculateRem(1px);
+        background: color(nepal);
+        transform: scaleX(1.2);
+    }
+
+    .LabelstList {
+        margin: calculateRem(10px) 0 auto 0;
+        width: 105% !important;
+    }
+
+    .LabelListItem {
+        margin-bottom: calculateRem(8px);
+        width: 93%;
+    }
+
+    .Footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        top: calculateRem(5px);
+        min-height: calculateRem(18px);
+    }
+
+    .Apply {
+        font-size: calculateRem(12px);
+        color: color(scampi);
+        text-decoration: underline;
+        cursor: pointer;
+
+
+        &--disabled {
+            opacity: 0.5;
+        }
+    }
+
+    .NoLabels {
+        margin: auto;
+        font-size: calculateRem(13px);
+    }
+
+    .Loading {
+        margin-left: 50%;
+        color: color(scampi);
+    }
+}

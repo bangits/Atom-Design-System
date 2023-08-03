@@ -4,10 +4,11 @@ import styles from './FlexRow.module.scss';
 
 export interface FlexRowProps {
   gap?: number;
+  inline?: boolean;
   className?: string;
 }
 
-const FlexRow: FC<FlexRowProps> = ({ gap = 1, children, className }) => {
+const FlexRow: FC<FlexRowProps> = ({ gap = 1, children, inline, className }) => {
   const childrenArray = useMemo(() => Children.toArray(children), [children]);
 
   return (
@@ -15,7 +16,8 @@ const FlexRow: FC<FlexRowProps> = ({ gap = 1, children, className }) => {
       className={classNames(
         styles.FlexRow,
         {
-          [styles[`FlexRow--Gap-${gap}`]]: gap
+          [styles[`FlexRow--Gap-${gap}`]]: gap,
+          [styles['FlexRow--Inline']]: inline
         },
         className
       )}>

@@ -1,1 +1,2 @@
-export { default as GameList, GameListProps } from './GameList';
+export { default as GameList } from './GameList';
+export type { GameListProps } from './GameList';

@@ -1,1 +1,2 @@
-export { default as ItemDetails, ItemDetailsProps } from './ItemDetails';
+export { default as ItemDetails } from './ItemDetails';
+export type { ItemDetailsProps } from './ItemDetails';

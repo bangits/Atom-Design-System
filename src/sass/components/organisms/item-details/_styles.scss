@@ -1,21 +1,18 @@
 @mixin generate-item-details-styles {
   .ItemDetailsBase {
-    min-width: getItemDetailsSizes(base-min-width);
-    min-height: getItemDetailsSizes(base-min-height);
-    background-color: getItemDetailsColors(base-bg);
-    padding: getItemDetailsSizes(base-padding);
-    box-sizing: border-box;
-
+    &#{&} {
+      min-height: getItemDetailsSizes(base-min-height);
+      background-color: getItemDetailsColors(base-bg);
+      padding: getItemDetailsSizes(base-padding);
+      box-sizing: border-box;
+    }
     &--sub-tabs {
       margin: getItemDetailsSizes(subs-margin);
     }
-
     &--forms {
       @include flex(space-between, null, $flex-wrap: wrap);
-
       box-sizing: border-box;
       padding: getItemDetailsSizes(forms-padding);
-      
       form {
         width: calc(50% - getPartnerDetailsSizes(form-gap));
         margin-bottom: getPartnerDetailsSizes(form-gap);

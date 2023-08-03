@@ -8,8 +8,8 @@ import classNames from 'classnames';
 import { useCallback, useEffect, useMemo, useReducer, useState } from 'react';
 import { SortableContainer, SortableElement } from 'react-sortable-hoc';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import styles from './Filters.module.scss';
 import { FilterProp, FiltersProps } from './FilterTypes';
+import styles from './Filters.module.scss';
 
 function Filters<T>({
   filters,
@@ -256,7 +256,13 @@ function Filters<T>({
                 <Button variant='ghost' onClick={onClearClick}>
                   {clearLabel}
                 </Button>
-                <Button onClick={() => onSubmit(filterValues)} className={styles.ApplyButton}>
+                <Button
+                  onClick={() => {
+                    onSubmit(filterValues);
+
+                    toggleFiltersCollapse();
+                  }}
+                  className={styles.ApplyButton}>
                   {applyLabel}
                 </Button>
               </>

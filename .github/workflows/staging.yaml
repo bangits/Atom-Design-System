@@ -2,9 +2,9 @@ name: CI
 
 on:
   push:
-    branches: ['develop']
+    branches: ['staging', 'feat-add-label-add-remove-manager', 'shared-configs-implementation']
   pull_request:
-    branches: ['develop']
+    branches: ['staging', 'feat-add-label-add-remove-manager', 'shared-configs-implementation']
 
   workflow_dispatch:
 

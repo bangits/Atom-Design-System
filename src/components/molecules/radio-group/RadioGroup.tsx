@@ -1,5 +1,5 @@
 import { typedMemo } from '@/helpers/typedMemo';
-import { RadioButton, RadioGroup as MyUIRadioGroup, RadioGroupProps as MyUIRadioGroupProps } from '@my-ui/core';
+import { RadioGroup as MyUIRadioGroup, RadioGroupProps as MyUIRadioGroupProps, RadioButton } from '@my-ui/core';
 import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './RadioGroup.module.scss';
@@ -13,9 +13,10 @@ export interface RadioGroupProps extends MyUIRadioGroupProps {
   label?: string;
   radios?: RadioType[];
   disabled?: boolean;
+  variant?: 'vertical' | 'horizontal';
 }
 
-const RadioGroup: FC<RadioGroupProps> = ({ disabled, radios, label, ...radioGroupProps }) => {
+const RadioGroup: FC<RadioGroupProps> = ({ disabled, radios, label, variant, ...radioGroupProps }) => {
   return (
     <>
       <div>
@@ -23,7 +24,8 @@ const RadioGroup: FC<RadioGroupProps> = ({ disabled, radios, label, ...radioGrou
         <MyUIRadioGroup {...radioGroupProps}>
           <div
             className={classNames(styles.FilterRadioContainer, {
-              [styles['FilterRadioContainer--disabled']]: disabled
+              [styles['FilterRadioContainer--disabled']]: disabled,
+              [styles[`FilterRadioContainer--${variant}`]]: variant
             })}>
             {radios.map((radio) => (
               <div className={styles.FilterRadioGroup} key={radio.value}>

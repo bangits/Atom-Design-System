@@ -1,5 +1,23 @@
 @mixin generate-item-categories-card-styles {
+
+  .LabelsList {
+    position: absolute;
+    bottom: 0;
+    left: calculateRem(5px);
+    z-index: 4;
+    max-width: calculateRem(140px);
+  }
+
+  .ActionsCardBase {
+    opacity: 1 !important;
+
+    &--label-manager-open {
+      min-height: calculateRem(239px) !important;
+    }
+  }
+
   .ItemCategoriesCard {
+    $main-info-pr: calculateRem(22px);
     $this: #{&};
     position: relative;
     height: fit-content;
@@ -10,23 +28,10 @@
     &__img {
       border-radius: calculateRem(2px);
     }
-    &__top-part {
-      position: absolute;
-      @include flex(space-between, center);
-      top: 0;
-      width: 100%;
-      padding: calculateRem(4px);
-      padding-bottom: calculateRem(4px);
-      box-sizing: border-box;
-      z-index: 0;
-      input {
-        border-color: #fff !important;
-      }
-      &--with-checkbox {
-        z-index: 2;
-      }
-    }
     &__index {
+      position: absolute;
+      top: calculateRem(4px);
+      right: calculateRem(4px);
       @include flex(center, center);
       margin-left: auto;
       min-width: calculateRem(20px);
@@ -34,75 +39,213 @@
       background: #e0e1ee;
       border-radius: calculateRem(4px);
     }
-    &__actions {
+    &__top {
+      position: absolute;
+      top: calculateRem(4px);
+      left: calculateRem(4px);
+      z-index: 2;
+      input {
+        background-color: #fff;
+      }
+    }
+
+
+    &__label-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(110%);
+      width: fit-content;
+      height: fit-content;
+      background-color: white;
+
+      &--open {
+        transform: translate(0);
+      }
+    }
+
+    &__more-content {
+      &--with-selected-form {
+        #{$this}__more-form {
+          transform: none;
+        }
+      }
+    }
+    &__more-actions,
+    &__more-form {
+      transition: 300ms;
+    }
+    &__more-form {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.7);
-      display: flex;
-      flex-direction: column;
-      opacity: 0;
-      z-index: -1;
-      transition: opacity 0.3s;
+      padding: calculateRem(14px);
+      box-sizing: border-box;
+      transform: translateX(150%);
+      background-color: #fff;
     }
-    &__play {
-      margin: auto;
-      transition: background-color 0.3s;
-      margin-top: calculateRem(25px);
-      path {
-        fill: color(primary);
+    &__more {
+      &#{&} {
+        position: absolute;
+        top: calculateRem(4px);
+        right: calculateRem(4px);
+        > button {
+          background: #fff;
+          width: calculateRem(18px);
+          height: calculateRem(18px);
+          border-radius: 50%;
+          @include flex(center, center);
+          padding: 0 calculateRem(2px);
+        }
+        > svg {
+          width: 100%;
+        }
       }
-      &::before {
-        content: '';
-      }
-    }
-    &__play,
-    &__action {
-      background-color: #cfcfcf !important;
-      &:hover {
-        background-color: #f5f4f4 !important;
-      }
-      &:active {
-        background-color: #fff !important;
-      }
-    }
-    &__bottom-part {
-      @include list-reset;
-      @include flex(center, center);
-      margin-top: auto;
-      gap: calculateRem(5px);
-      margin-bottom: calculateRem(10px);
-    }
-    &__action {
-      width: calculateRem(24px);
-      height: calculateRem(24px);
-      transition: background-color 0.3s;
     }
     &__img {
+      display: block;
       width: 100%;
       aspect-ratio: 4 /3;
-      object-fit: cover;
-      min-height: calculateRem(100px);
+      object-fit: scale-down;
     }
-    &__name {
-      display: block;
-      background-color: #fff;
-      min-height: calculateRem(25px);
-      color: #2b3674;
-      padding-left: calculateRem(4px);
-      font-size: calculateRem(14px);
-      padding-bottom: calculateRem(6px);
-      &--provider {
-        display: block;
-        color: color(primary);
+    &__img,
+    &__empty-img {
+      min-height: calculateRem(98px);
+      max-height: calculateRem(98px);
+    }
+    &__empty-img {
+      @include flex(center, center);
+      svg {
+        width: calculateRem(100px);
       }
     }
-    &:hover {
-      #{$this}__actions {
-        opacity: 1;
-        z-index: 1;
+    &__title-content {
+      font-weight: 500;
+      color: #48485d;
+    }
+    &__name {
+      position: relative;
+    }
+    &__title,
+    &__subtitle {
+      max-width: 100%;
+      padding: 0 calculateRem(2px);
+      @include dots-after-text;
+      &-content {
+        display: inline;
+      }
+    }
+    &__main {
+      position: relative;
+    }
+    &__launch-btns {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+    }
+    &__action {
+      &#{&} {
+        @include flex(null, center);
+        min-width: calculateRem(140px);
+        text-align: left;
+        gap: calculateRem(8px);
+        padding: calculateRem(8px) 0;
+        color: #505d6e;
+        &:not(:last-child) {
+          border-bottom: calculateRem(1px) solid rgba(43, 54, 116, 0.05);
+        }
+        &:first-child {
+          padding-top: 0;
+        }
+        &:hover {
+          color: color(primary);
+        }
+        &--danger {
+          color: color(red-orange);
+          &:hover {
+            color: #d30000c9;
+          }
+        }
+      }
+    }
+    &--show-checkbox-hover {
+      #{$this}__checkbox {
+        opacity: 0;
+        transition: opacity 300ms;
+      }
+      #{$this}__main:hover,
+      #{$this}__main:has(input:checked) {
+        #{$this}__checkbox {
+          opacity: 1;
+        }
+      }
+    }
+    &--with-actions {
+      #{$this}__more {
+        display: none;
+      }
+      #{$this}__main {
+        &::after {
+          content: '';
+          background-color: #000;
+          opacity: 0;
+          border-radius: inherit;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          transition: opacity 300ms;
+          z-index: 1;
+        }
+        &:hover {
+          &::after {
+            opacity: 0.8;
+          }
+          #{$this}__more {
+            display: block;
+            z-index: 5;
+          }
+          :global {
+            .HoverBox-PlayBtn {
+              opacity: 1;
+              margin-top: calculateRem(-10px);
+              z-index: 3;
+            }
+            .HoverBox-Link {
+              opacity: 1;
+              bottom: calculateRem(20px);
+              z-index: 3;
+            }
+          }
+        }
+      }
+    }
+    &--status-active {
+      #{$this}__indicator {
+        background: color(lime-c);
+      }
+    }
+    &--status-inactive {
+      #{$this}__indicator {
+        background: #8f8f8f;
+      }
+    }
+    &--with-status {
+      #{$this}__indicator {
+        width: calculateRem(8px);
+        height: calculateRem(8px);
+        display: inline-block;
+        position: absolute;
+        border-radius: 50%;
+        right: calculateRem(4px);
+        top: calculateRem(8px);
+      }
+      #{$this}__title,
+      #{$this}__subtitle {
+        max-width: calc(100% - $main-info-pr);
       }
     }
   }

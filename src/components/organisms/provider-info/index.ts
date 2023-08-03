@@ -1,1 +1,2 @@
-export { default as PartnerProviderInfo, PartnerProviderInfoProps } from './PartnerProviderInfo';
+export { default as PartnerProviderInfo } from './PartnerProviderInfo';
+export type { PartnerProviderInfoProps } from './PartnerProviderInfo';

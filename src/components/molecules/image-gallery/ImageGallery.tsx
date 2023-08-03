@@ -4,15 +4,24 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import styles from './ImageGallery.module.scss';
 
-export interface ImageGalleryProps {
+export interface ImageGalleryProps<T> {
   galleryName: string;
   imageSources: string[];
   maxImagesCount?: number;
+  item?: T;
+  onDeleteButtonClick?(item: T): void;
 
   onViewButtonClick(): void;
 }
 
-const ImageGallery: FC<ImageGalleryProps> = ({ imageSources, galleryName, maxImagesCount = 8, onViewButtonClick }) => {
+const ImageGallery = <T,>({
+  imageSources,
+  galleryName,
+  maxImagesCount = 8,
+  onViewButtonClick,
+  onDeleteButtonClick,
+  item
+}: ImageGalleryProps<T>) => {
   const maxImageSources = imageSources.slice(0, maxImagesCount);
 
   return (
@@ -35,6 +44,11 @@ const ImageGallery: FC<ImageGalleryProps> = ({ imageSources, galleryName, maxIma
           <button type='button' className={styles.ImageGallery__View} onClick={onViewButtonClick}>
             <Icons.ViewIcon />
           </button>
+          {onDeleteButtonClick && (
+            <button type='button' className={styles.ImageGallery__View} onClick={() => onDeleteButtonClick(item)}>
+              <Icons.TrashIcon style={{ width: 10 }} />
+            </button>
+          )}
         </div>
       </div>
 

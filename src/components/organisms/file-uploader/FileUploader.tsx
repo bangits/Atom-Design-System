@@ -9,15 +9,16 @@ import {
 import classNames from 'classnames';
 import { FC, ReactNode } from 'react';
 import styles from './FileUploader.module.scss';
+import { FileUploaderVariants } from './enums';
+import { renderEl } from './vaiantMapings';
 
-export { FileUploaderErrors } from '@my-ui/core';
-
-export interface FileUploaderProps extends MyUIFileUploaderProps {
+export interface FileUploaderProps extends Omit<MyUIFileUploaderProps, 'renderEl'> {
+  variant?: FileUploaderVariants;
   errorMessage?: string;
   labelProps?: LabelProps;
   tooltipProps?: {
     icon?: keyof typeof Icons;
-    tooltipText: string | ReactNode;
+    tooltipText: ReactNode;
   };
 }
 
@@ -25,6 +26,7 @@ export const FileUploader: FC<FileUploaderProps> = ({
   errorMessage,
   labelProps,
   tooltipProps,
+  variant = FileUploaderVariants.input,
   ...fileUploaderProps
 }) => {
   const { fullWidth, disabled } = fileUploaderProps;
@@ -49,19 +51,29 @@ export const FileUploader: FC<FileUploaderProps> = ({
         )}
       </div>
 
-      <MyUIFileUploader {...fileUploaderProps} />
+      <div
+        className={classNames(styles.FileUploaderErrorMessage, {
+          [styles['FileUploaderErrorMessage--sameLineError']]: variant === FileUploaderVariants.link,
+          [styles['FileUploaderErrorMessage--fullWidth']]: fullWidth
+        })}>
+        <MyUIFileUploader {...fileUploaderProps} renderEl={(props) => renderEl(variant, props)} />
 
-      {errorMessage && (
-        <Typography
-          className={classNames(styles.FileUploaderErrorMessage, {
-            [styles['FileUploaderErrorMessage--fullWidth']]: fullWidth,
-            [styles['FileUploaderErrorMessage--disabled']]: disabled
-          })}
-          color='danger'
-          variant='p5'>
-          {errorMessage}
-        </Typography>
-      )}
+        {errorMessage && (
+          <Typography
+            className={classNames(styles.FileUploaderErrorMessage, {
+              [styles['FileUploaderErrorMessage--fullWidth']]: fullWidth,
+              [styles['FileUploaderErrorMessage--disabled']]: disabled,
+              [styles['FileUploaderErrorMessage--marginLeft']]: variant === FileUploaderVariants.link
+            })}
+            color='danger'
+            variant='p5'>
+            {errorMessage}
+          </Typography>
+        )}
+      </div>
     </>
   );
 };
+
+export { FileUploaderErrors, InputFileUploader, LinkFileUploader } from '@my-ui/core';
+export type { BaseFileUploaderProps, FileUploaderProps as MyUIFileUploaderProps, RenderElProps } from '@my-ui/core';

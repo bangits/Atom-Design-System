@@ -1,15 +1,28 @@
 @mixin generate-flex-row-styles {
-    .FlexRow {
-        width: 100%;
-        display: flex;
-        &__Item {
-            flex-grow: 1;
-        }
-        &--Gap-1 {
-            gap: calculateRem(4px);
-        }
-        &--AddBgOnHover:hover {
-            background-color: rgba(199, 199, 255, 0.15);
-        }
+  .FlexRow {
+    width: 100%;
+    display: flex;
+    &__Item {
+      flex-grow: 1;
     }
+    &--Gap-1 {
+      gap: calculateRem(4px);
+    }
+    &--Gap-2 {
+      gap: calculateRem(6px);
+    }
+    &--Gap-3 {
+      gap: calculateRem(8px);
+    }
+    &--Gap-4 {
+      gap: calculateRem(10px);
+    }
+    &--Inline {
+      width: auto;
+      display: inline-flex;
+    }
+    &--AddBgOnHover:hover {
+      background-color: rgba(199, 199, 255, 0.15);
+    }
+  }
 }

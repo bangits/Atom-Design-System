@@ -1,9 +1,10 @@
-import { Icons } from '@/atom-design-system';
+import { Icons, LabelManagerTagLite } from '@/atom-design-system';
 import { typedMemo } from '@/helpers';
 import { Checkbox, TextWithTooltip, Tooltip } from '@my-ui/core';
 import classNames from 'classnames';
 import { forwardRef, PropsWithChildren, useEffect, useRef, useState } from 'react';
 import styles from './DnDItem.module.scss';
+import { PrimaryKey } from '@atom/common';
 
 export interface DnDItemProps {
   selectedAndDragged?: boolean;
@@ -18,7 +19,11 @@ export interface DnDItemProps {
   dragged?: boolean;
   imgSrc?: string;
   sortTooltipText?: string;
-
+  label?: {
+    id: PrimaryKey;
+    name: string;
+    isActive: boolean;
+  };
   onRemoveButtonClick?(): void;
   onCheckboxToggle?(): void;
   onDragChange?(isDragged: boolean): void;
@@ -44,7 +49,8 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
       onDragChange,
       selectedAndDragged,
       sortTooltipText,
-      onDropChange
+      onDropChange,
+      label
     },
     ref
   ) => {
@@ -115,6 +121,11 @@ const DnDItem = forwardRef<HTMLDivElement, PropsWithChildren<DnDItemProps>>(
             </div>
 
             {isDragged && badgeQuantity > 1 && <span className={styles['DnDItem__badge']}>{badgeQuantity}</span>}
+            {!!label && (
+              <div className={styles['DnDItem__label-wrapper']}>
+                <LabelManagerTagLite isActive={label.isActive} tooltipText={label.name} />
+              </div>
+            )}
             {showCheckbox && (
               <Checkbox checked={checkboxChecked} onChange={onCheckboxToggle} className={styles['DnDItem__checkbox']} />
             )}

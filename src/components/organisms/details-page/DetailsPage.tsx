@@ -17,7 +17,7 @@ const DetailsPage: FC<PropsWithChildren<DetailsPageProps>> = ({ breadCrumbLinks,
       )}
 
       <div className={styles['DetailsPage__content-wrapper']}>
-        {sidebarContent && <div>{sidebarContent}</div>}
+        {sidebarContent && <div className={styles['DetailsPage__sidebar']}>{sidebarContent}</div>}
 
         <div className={styles['DetailsPage__content']}>{children}</div>
       </div>

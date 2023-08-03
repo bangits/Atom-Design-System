@@ -1,8 +1,35 @@
 @mixin generate-vertical-tabs-styles {
+
+    .VeticalTabsContainer {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
     .VerticalTabs {
         display: flex;
         padding: calculateRem(20px) calculateRem(22px) calculateRem(20px) 0;
         min-height: calculateRem(185px);
+        box-sizing: border-box;
+
+        &__title {
+            display: flex;
+            height: getVerticalTabsSizes(title-height);
+            font-size: getVerticalTabsSizes(title-font-size);
+            font-weight: getVerticalTabsSizes(title-font-weight);
+            text-align: left;
+            color: getVerticalTabsColors(title-color);
+            word-break: break-all;
+            width: getVerticalTabsSizes(title-width);
+            margin-bottom: getVerticalTabsSizes(title-margin-bottom);
+            @include dots-after-text();
+        }
+        
+        &__tooltip {
+            margin-left: calculateRem(5px);
+            margin-bottom: calculateRem(-3px);
+        }
+
         &__Button {
             @include button-reset;
             display: block;
@@ -21,6 +48,8 @@
         &__Sidebar {
             border-right: calculateRem(0.5px) solid rgba(142, 166, 193, 0.4);
             margin-right: calculateRem(14px);
+            min-width: calculateRem(59px);
+            max-width: calculateRem(59px);
         }
         &__Content {
             padding-left: calculateRem(24px);

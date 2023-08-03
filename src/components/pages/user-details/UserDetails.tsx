@@ -70,7 +70,8 @@ const UserDetails: FC<UserDetailsProps> = ({
   commissionPlansContent,
   linksContext,
   rolesContent,
-  permissionsContent
+  permissionsContent,
+  passwordContext
 }) => {
   return (
     <>
@@ -135,23 +136,22 @@ const UserDetails: FC<UserDetailsProps> = ({
                 value: 1,
                 content: generalInformationContext
               },
-              rolesContent &&
-                permissionsContent && {
-                  title: translations.roleAndPermission,
-                  value: 2,
-                  subTabs: [
-                    {
-                      title: translations.roles,
-                      value: 1,
-                      content: rolesContent
-                    },
-                    {
-                      title: translations.permissions,
-                      value: 2,
-                      content: permissionsContent
-                    }
-                  ]
-                },
+              {
+                title: translations.roleAndPermission,
+                value: 2,
+                subTabs: [
+                  {
+                    title: translations.roles,
+                    value: 1,
+                    content: rolesContent
+                  },
+                  {
+                    title: translations.permissions,
+                    value: 2,
+                    content: permissionsContent
+                  }
+                ]
+              },
               {
                 title: translations.wallet,
                 value: 3,
@@ -175,12 +175,12 @@ const UserDetails: FC<UserDetailsProps> = ({
                     title: translations.languagesContent,
                     value: 1,
                     content: languagesContent
+                  },
+                  {
+                    title: translations.passwordContext,
+                    value: 3,
+                    content: passwordContext
                   }
-                  // {
-                  //   title: translations.passwordContext,
-                  //   value: 3,
-                  //   content: passwordContext
-                  // },
                 ]
               }
 

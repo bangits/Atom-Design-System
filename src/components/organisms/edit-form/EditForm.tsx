@@ -18,6 +18,7 @@ export interface EditFormProps {
   fields?: FormFieldProp[];
   fullWidth?: boolean;
   showActions?: boolean;
+  hideSubmit?: boolean;
   hideClose?: boolean;
   removeCard?: boolean;
   justifyContent?: string;
@@ -52,6 +53,7 @@ const EditForm: FC<EditFormProps> = ({
   justifyContent,
   applyButtonDisabled,
   topPart,
+  hideSubmit,
   hideClose,
   actionsInside
 }) => {
@@ -72,7 +74,8 @@ const EditForm: FC<EditFormProps> = ({
   return (
     <div
       className={classNames(styles.EditForm, {
-        [styles[`EditForm--${col}`]]: col
+        [styles[`EditForm--${col}`]]: col,
+        [styles['EditForm--remove-card']]: removeCard
       })}>
       {showActions && (
         <div
@@ -93,17 +96,19 @@ const EditForm: FC<EditFormProps> = ({
           )}
 
           <div className={classNames(styles['EditFormBase--buttons'])}>
-            <Tooltip showEvent='hover' text={applyButtonTooltipText}>
-              <IconButton
-                icon={<ApplyIcon />}
-                type={applyButtonType}
-                onClick={() => onSubmit(onToggle)}
-                className={classNames({
-                  [styles['EditFormBase__button--disabled']]: applyButtonDisabled
-                })}
-                disabled={applyButtonDisabled}
-              />
-            </Tooltip>
+            {!hideSubmit && (
+              <Tooltip showEvent='hover' text={applyButtonTooltipText}>
+                <IconButton
+                  icon={<ApplyIcon />}
+                  type={applyButtonType}
+                  onClick={() => onSubmit(onToggle)}
+                  className={classNames({
+                    [styles['EditFormBase__button--disabled']]: applyButtonDisabled
+                  })}
+                  disabled={applyButtonDisabled}
+                />
+              </Tooltip>
+            )}
             {!hideClose && (
               <Tooltip showEvent='hover' text={closeButtonTooltipText}>
                 <IconButton icon={<CloseIcon />} type='button' onClick={onToggle} />

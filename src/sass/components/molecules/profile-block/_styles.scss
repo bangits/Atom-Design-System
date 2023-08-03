@@ -1,16 +1,15 @@
 @mixin generate-profile-block-styles {
   .ProfileBlock {
-    // position: relative;
-    top: 0;
-    left: 0;
-    display: block;
-    width: getProfileBlockSizes(profile-block-width);
-    height: initial;
-    width: 100%;
-    margin: 0 auto;
-    border-radius: getProfileBlockSizes(profile-block-border-radius);
-    background-color: getProfileBlockColors(profile-block-background-color);
-    margin-bottom: getProfileBlockSizes(profile-block-margin-bottom);
+    &#{&} {
+      top: 0;
+      left: 0;
+      display: block;
+      height: auto;
+      margin: 0 auto;
+      border-radius: getProfileBlockSizes(profile-block-border-radius);
+      background-color: getProfileBlockColors(profile-block-background-color);
+      margin-bottom: getProfileBlockSizes(profile-block-margin-bottom);
+    }
     &__CoverPhotoIconCell {
       display: block;
       width: getProfileBlockSizes(cover-photo-icon-cell-sizes);
@@ -46,6 +45,12 @@
     }
     &__Images {
       position: relative;
+    }
+    &__EmptyBackgroundIllustration {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: inherit;
     }
     &__CoverImg {
       display: block;

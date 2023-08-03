@@ -1,6 +1,16 @@
-import { Card, useOutsideClickEvent } from '@my-ui/core';
+import { Card, useOutsideClickEvent, useOutsideClickWithRef } from '@my-ui/core';
 import classNames from 'classnames';
-import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useEffect, useMemo, useRef, useState } from 'react';
+import {
+  CSSProperties,
+  DetailedHTMLProps,
+  FC,
+  HTMLAttributes,
+  ReactNode,
+  useEffect,
+  useMemo,
+  useRef,
+  useState
+} from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ButtonForm.module.scss';
 
@@ -13,14 +23,28 @@ export interface ButtonFormRenderArguments {
 
 export interface ButtonFormProps {
   showPosition?: 'left' | 'right';
+  className?: string;
+  cardClassName?: string;
   children: ReactNode | ((buttonFormRenderArguments: ButtonFormRenderArguments) => ReactNode);
+  style?: CSSProperties;
+
   getContainerProps?(
     buttonFormRenderArguments: ButtonFormRenderArguments
   ): DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
   renderOpenElement(buttonFormRenderArguments: ButtonFormRenderArguments): ReactNode;
 }
 
-const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getContainerProps, showPosition }) => {
+const ButtonForm: FC<ButtonFormProps> = ({
+  renderOpenElement,
+  children,
+  getContainerProps,
+  className,
+  cardClassName,
+  style,
+  showPosition: showPositionProp
+}) => {
+  const [showPosition, setShowPosition] = useState(showPositionProp);
+
   const buttonFormContainerRef = useRef<HTMLDivElement>(null);
 
   const [isOpenedForm, setOpenedForm] = useState(false);
@@ -34,18 +58,12 @@ const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getConta
     [setOpenedForm]
   );
 
-  const { subscribe, unsubscribe } = useOutsideClickEvent(`.${styles.ButtonForm}`);
-
-  useEffect(() => {
-    subscribe(() => setOpenedForm(false));
-
-    return () => unsubscribe();
-  }, [subscribe, unsubscribe]);
+  useOutsideClickWithRef(buttonFormContainerRef, () => setOpenedForm(false));
 
   return (
     <div
       {...(getContainerProps?.(buttonFormRenderArguments) || {})}
-      className={styles.ButtonForm}
+      className={classNames(styles.ButtonForm, className)}
       ref={buttonFormContainerRef}>
       {renderOpenElement(buttonFormRenderArguments)}
 
@@ -59,10 +77,25 @@ const ButtonForm: FC<ButtonFormProps> = ({ renderOpenElement, children, getConta
         }}
         unmountOnExit>
         <Card
-          className={classNames(styles['ButtonForm__content'], {
+          style={style}
+          className={classNames(styles['ButtonForm__content'], cardClassName, {
             [styles[`ButtonForm__content--${showPosition}`]]: showPosition
           })}>
-          {typeof children === 'function' ? children(buttonFormRenderArguments) : children}
+          <div
+            ref={(element) => {
+              if (!element) return;
+
+              const scrollContainer = element.closest('[data-scroll-container]');
+
+              if (!scrollContainer) return;
+
+              const { right: scrollContainerRight } = scrollContainer.getBoundingClientRect();
+              const { right: elementRight, width: elementWidth } = element.getBoundingClientRect();
+
+              if (elementRight + elementWidth > scrollContainerRight) setShowPosition('right');
+            }}>
+            {typeof children === 'function' ? children(buttonFormRenderArguments) : children}
+          </div>
         </Card>
       </CSSTransition>
     </div>

@@ -1,0 +1,20 @@
+$vertical-tabs-sizes: (
+    title-height: calculateRem(19px),
+    title-font-size: calculateRem(16px),
+    title-font-weight: 500,
+    title-margin-bottom: calculateRem(8px)
+);
+
+$vertical-tabs-colors: (
+    title-color: color(black-color),
+    title-width: calculateRem(300px)
+);
+
+@function getVerticalTabsColors($key) {
+    @return map-get($vertical-tabs-colors, $key);
+}
+
+
+@function getVerticalTabsSizes($key) {
+    @return map-get($vertical-tabs-sizes, $key);
+}

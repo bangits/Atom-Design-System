@@ -3,7 +3,7 @@ $radio-group-sizes: (
   filter-radio-container-margin: calculateRem(8px) 0 calculateRem(8px) 0,
   filter-radio-group-margin-bottom: calculateRem(2px),
   filter-radio-sizes: calculateRem(24px),
-  filter-radio-label-margin-right: calculateRem(16px),
+  filter-radio-gap: calculateRem(8px) calculateRem(16px),
   filter-radio-label-font-size: calculateRem(14px)
 );
 

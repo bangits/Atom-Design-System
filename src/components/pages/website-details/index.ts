@@ -1,1 +1,2 @@
-export { default as WebSite, WebSiteProps } from './WebSite';
+export { default as WebSite } from './WebSite';
+export type { WebSiteProps } from './WebSite';

@@ -34,6 +34,7 @@ export * from './image-gallery-details';
 export * from './image-preview';
 export * from './input-with-generator';
 export * from './item-details';
+export * from './items-list-top';
 export * from './last-activity-view';
 export * from './licenses-add';
 export * from './licenses-card';
@@ -51,6 +52,7 @@ export * from './session-expiring';
 export * from './settings-general-info';
 export * from './settings-header';
 export * from './settings-item-groups';
+export * from './sidebar-addittional-field';
 export * from './sortable-item-card';
 export * from './sortable-list';
 export * from './status-view';
@@ -63,5 +65,7 @@ export * from './user-view';
 export * from './user-wallets';
 export * from './wallet-card';
 export * from './wallet-view';
-
-
+export * from './label-manager';
+export * from './label-manager-tag';
+export * from './sidebar-label-field';
+export * from './password-change-after-login';

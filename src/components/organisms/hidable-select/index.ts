@@ -1,2 +1,2 @@
-export { default as HidableSelect, HidableSelectProps } from './HidableSelect';
-
+export { default as HidableSelect } from './HidableSelect';
+export type { HidableSelectProps } from './HidableSelect';

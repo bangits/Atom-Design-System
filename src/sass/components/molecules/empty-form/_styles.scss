@@ -1,34 +1,53 @@
 @mixin generate-empty-form-styles {
-    .EmptyForm {
-        position: relative;
-        @include flex(center, center, $direction: column);
-        min-height: calculateRem(140px);
-        margin-top: calculateRem(42px);
-        &__ImgContent {
-            width: calculateRem(50px);
-            margin-bottom: calculateRem(5px);
-            &--lg {
-                width: calculateRem(125px);
-            }
-        }
-        &__ButtonContainer {
-            position: absolute;
-            top: calculateRem(16px);
-            right: calculateRem(16px);
-        }
-        &__Content {
-            text-align: center;
-            font-size: calculateRem(14px);
-            &>* {
-                margin: 0;
-            }
-        }
-        &--RemoveCard {
-            box-shadow: none !important;
-            margin-top: 0;
-        }
-        &--FullHeight {
-            min-height: 100%;
-        }
+  .EmptyForm {
+    $this: #{&};
+    width: 100%;
+    height: 100%;
+    margin-top: calculateRem(20px);
+    &__TopPart {
+      margin-bottom: calculateRem(8px);
     }
+    &__Card {
+      position: relative;
+      @include flex(center, center, $direction: column);
+      min-height: calculateRem(140px);
+      padding: calculateRem(30px) 0;
+      box-sizing: border-box;
+    }
+    &__ImgContent {
+      width: calculateRem(50px);
+      margin-bottom: calculateRem(5px);
+      &--lg {
+        width: calculateRem(125px);
+      }
+    }
+    &__ButtonContainer {
+      position: absolute;
+      top: calculateRem(16px);
+      right: calculateRem(16px);
+    }
+    &__Content {
+      text-align: center;
+      font-size: calculateRem(14px);
+      & > * {
+        margin: 0;
+      }
+    }
+    &--RemoveCard {
+      margin-top: 0;
+      #{$this}__Card {
+        box-shadow: none !important;
+      }
+    }
+    &--WithTopPart {
+      #{$this}__ButtonContainer {
+        top: calculateRem(-38px);
+      }
+    }
+    &--FullHeight {
+      #{$this}__Card {
+        min-height: 100%;
+      }
+    }
+  }
 }

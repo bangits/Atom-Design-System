@@ -1,67 +1,81 @@
+import { MainContext } from '@/contexts';
 import { Button } from '@my-ui/core';
-import classNames from 'classnames';
-import { FC, useEffect, useRef, useState } from 'react';
+import { FC, useContext, useMemo, useRef, useState } from 'react';
 import styles from './ListViewMore.module.scss';
 
 export interface ListViewMoreProps {
-  lessLabel: string;
-
-  getMoreLabel(remaindChildsCount: number): string;
+  rowHeight?: number;
+  scrollRowCount?: number;
+  gap?: number;
 }
 
-const ListViewMore: FC<ListViewMoreProps> = ({ children, lessLabel, getMoreLabel }) => {
+const ListViewMore: FC<ListViewMoreProps> = ({ children, rowHeight = 3.2, scrollRowCount = 2, gap = 0.8 }) => {
+  const { getViewMoreLabel, viewLessLabel } = useContext(MainContext);
+
   const listRef = useRef<HTMLInputElement>(null);
 
-  const [showMoreBtn, setShowMoreBtn] = useState(false);
+  const [currentRow, setCurrentRow] = useState(1);
 
-  const [isViewMoreButtonClicked, setIsViewMoreButtonClicked] = useState(false);
-  const [remaindChildsCount, setRemaindChildsCount] = useState(0);
+  const nextRowElementsCount = useMemo(() => {
+    if (!listRef.current) return;
 
-  useEffect(() => {
-    const listElementWidth = listRef.current.clientWidth;
+    const remSize = +getComputedStyle(document.querySelector('html')).fontSize.split('px')[0];
 
-    // Getting css gap style and convert to number
-    const listGap = +getComputedStyle(listRef.current).gap.split('px')[0];
+    const listGap = gap * remSize;
 
-    let elementsTotalWidth = 0;
+    const listGaps = listGap * (currentRow - 1);
 
-    let visibleChildsCount = 0;
+    const singleRowHeight = remSize * rowHeight;
 
-    const childrenList = listRef.current.children;
+    const maxHeightWithoutGaps = remSize * currentRow * rowHeight;
 
-    // Using for, because we need break
-    for (let i = 0; i < childrenList.length; i++) {
-      const child = childrenList[i];
+    const maxHeight = maxHeightWithoutGaps + listGaps;
 
-      elementsTotalWidth += child.clientWidth + listGap;
+    const nextMaxHeight = Math.round(maxHeight + singleRowHeight * scrollRowCount + listGap * scrollRowCount);
 
-      if (elementsTotalWidth > listElementWidth) {
-        // i counting from 0, for that don't need to subtract 1
-        visibleChildsCount = i;
+    const lastRowY = Math.round(listRef.current.getBoundingClientRect().y + maxHeight);
 
-        break;
-      }
+    const nextRowY = Math.round(lastRowY + (nextMaxHeight - maxHeight - singleRowHeight));
+
+    let nextRowCount = 0;
+
+    for (const child of listRef.current.children) {
+      const childY = Math.round(child.getBoundingClientRect().y);
+
+      if (childY > nextRowY) break;
+
+      if (childY >= lastRowY) nextRowCount++;
     }
 
-    setRemaindChildsCount(childrenList.length - visibleChildsCount);
-
-    if (listRef.current.clientHeight !== listRef.current.scrollHeight) setShowMoreBtn(true);
-  }, []);
+    return nextRowCount;
+  }, [children, currentRow, scrollRowCount, gap, rowHeight, listRef.current]);
 
   return (
-    <div
-      className={classNames(styles.ListViewMore, {
-        [styles['ListViewMore--ViewMoreClicked']]: isViewMoreButtonClicked
-      })}>
-      <div className={styles.ListViewMore__List} ref={listRef}>
+    <div className={styles.ListViewMore}>
+      <div
+        style={{ maxHeight: `${currentRow * rowHeight + (currentRow - 1) * gap}rem`, gap: `${gap}rem` }}
+        className={styles.ListViewMore__List}
+        ref={listRef}>
         {children}
       </div>
 
-      {showMoreBtn && (
-        <Button variant='link' onClick={() => setIsViewMoreButtonClicked(!isViewMoreButtonClicked)}>
-          {!isViewMoreButtonClicked ? `${getMoreLabel(remaindChildsCount)}` : lessLabel}
-        </Button>
-      )}
+      <div className={styles.ListViewMore__Btns}>
+        {nextRowElementsCount > 0 && (
+          <Button
+            type='button'
+            className={styles.ListViewMore__Btn}
+            variant='link'
+            onClick={() => setCurrentRow((prev) => prev + scrollRowCount)}>
+            {getViewMoreLabel(nextRowElementsCount)}
+          </Button>
+        )}
+
+        {currentRow > 1 && (
+          <Button type='button' className={styles.ListViewMore__Btn} variant='link' onClick={() => setCurrentRow(1)}>
+            {viewLessLabel}
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

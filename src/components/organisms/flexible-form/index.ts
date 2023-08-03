@@ -1,1 +1,2 @@
-export { default as FlexibleForm, FlexibleFormProps } from './FlexibleForm';
+export { default as FlexibleForm } from './FlexibleForm';
+export type { FlexibleFormProps } from './FlexibleForm';
