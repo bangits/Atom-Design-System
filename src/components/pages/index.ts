@@ -6,7 +6,5 @@ export * from './player-details';
 export * from './project-details';
 export * from './provider-details';
 export * from './sign-in';
-export * from './slider-details';
 export * from './translation-group';
 export * from './user-details';
-export * from './website-details';
