@@ -5,6 +5,13 @@
   .HeaderContent {
     width: 100%;
   }
+
+  .TagsWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: calculateRem(10px) calculateRem(7px)
+  }
+
   .HeaderDetailsBase--container {
     @include flex(null, flex-start);
     margin-top: getHeaderDetailsSizes(header-details-margin-top);

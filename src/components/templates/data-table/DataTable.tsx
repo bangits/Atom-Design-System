@@ -302,6 +302,9 @@ function DataTable<T extends {}, K>({
         : column.variant === 'hovered-image'
         ? {
             renderColumn: (_, value) => {
+              if (column.renderColumn) {
+                return <div className={styles.ImageWithoutSrc}>{column.renderColumn(_, value)}</div>;
+              }
               return !value ? (
                 column.emptyIllustration ? (
                   <div className={styles.ImageColumnEmpty}>{column.emptyIllustration}</div>
