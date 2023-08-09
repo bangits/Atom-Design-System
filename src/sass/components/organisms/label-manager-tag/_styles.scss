@@ -1,0 +1,101 @@
+@mixin generate-label-manager-tag-styles {
+
+
+    .Lite-LabelIconWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: calculateRem(20px);
+        background-color: #E0E1EE;
+        padding: 0.6rem;
+    }
+
+    .Lite-LabelIcon {
+        color: color(black-color);
+        transition: color 0.3s ease-in;
+        min-width: calculateRem(12px);
+        width: calculateRem(12px);
+        cursor: pointer;
+
+        &--active {
+            color: color(lime-c);
+        }
+    }
+
+    .Container {
+        display: flex;
+        align-items: baseline;
+        max-width: inherit;
+    }
+
+
+    .LabelContainer {
+        display: flex;
+        width: 100%;
+        box-sizing: border-box;
+        padding: calculateRem(6px) calculateRem(20px);
+        background-color: color(whisper);
+        border: 1px solid transparent;
+        transition: background-color 0.3s ease;
+        border-radius: calculateRem(20px);
+        cursor: pointer;
+
+
+        &--is-bordered-on-hover {
+            &:hover {
+                border: 1px solid color(scampi);
+            }
+        }
+
+        &--bordered {
+            border: 1px solid color(scampi);
+        }
+
+        &:hover {
+            background-color: #DBDBE2;
+        }
+
+        &--is-minified {
+            margin-bottom: calculateRem(4px);
+            padding: calculateRem(3px) calculateRem(7px);
+            width: calculateRem(26px);
+            max-width: inherit;
+
+            &:hover {
+                width: fit-content;
+            }
+        }
+    }
+
+    .LabelText {
+        width: 100%;
+        color: color(black-color);
+        font-size: calculateRem(13px);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .LabelIcon {
+        color: color(black-color);
+        transition: color 0.3s ease-in;
+        margin-right: calculateRem(8px);
+        min-width: calculateRem(15px);
+        width: calculateRem(15px);
+
+        &--active {
+            color: color(lime-c);
+        }
+
+        &--is-minified {
+            min-width: calculateRem(10px);
+            width: calculateRem(10px);
+        }
+    }
+
+    .SuffixIcon {
+        left: calculateRem(8px);
+        position: relative;
+        color: color(black-color);
+    }
+}

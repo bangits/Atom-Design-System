@@ -70,7 +70,8 @@ const UserDetails: FC<UserDetailsProps> = ({
   commissionPlansContent,
   linksContext,
   rolesContent,
-  permissionsContent
+  permissionsContent,
+  passwordContext
 }) => {
   return (
     <>
@@ -174,12 +175,12 @@ const UserDetails: FC<UserDetailsProps> = ({
                     title: translations.languagesContent,
                     value: 1,
                     content: languagesContent
+                  },
+                  {
+                    title: translations.passwordContext,
+                    value: 3,
+                    content: passwordContext
                   }
-                  // {
-                  //   title: translations.passwordContext,
-                  //   value: 3,
-                  //   content: passwordContext
-                  // },
                 ]
               }
 

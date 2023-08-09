@@ -1,4 +1,21 @@
 @mixin generate-item-categories-card-styles {
+
+  .LabelsList {
+    position: absolute;
+    bottom: 0;
+    left: calculateRem(5px);
+    z-index: 4;
+    max-width: calculateRem(140px);
+  }
+
+  .ActionsCardBase {
+    opacity: 1 !important;
+
+    &--label-manager-open {
+      min-height: calculateRem(247px) !important;
+    }
+  }
+
   .ItemCategoriesCard {
     $main-info-pr: calculateRem(22px);
     $this: #{&};
@@ -26,11 +43,27 @@
       position: absolute;
       top: calculateRem(4px);
       left: calculateRem(4px);
-      z-index: 1;
+      z-index: 2;
       input {
         background-color: #fff;
       }
     }
+
+
+    &__label-content {
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(110%);
+      width: fit-content;
+      height: fit-content;
+      background-color: white;
+
+      &--open {
+        transform: translate(0);
+      }
+    }
+
     &__more-content {
       &--with-selected-form {
         #{$this}__more-form {
@@ -80,6 +113,7 @@
     &__img,
     &__empty-img {
       min-height: calculateRem(98px);
+      max-height: calculateRem(98px);
     }
     &__empty-img {
       @include flex(center, center);
@@ -112,6 +146,11 @@
       height: 100%;
     }
     &__action {
+
+      .ArrowIcon {
+        margin-left: auto;
+      }
+
       &#{&} {
         @include flex(null, center);
         min-width: calculateRem(140px);
@@ -153,7 +192,7 @@
         display: none;
       }
       #{$this}__main {
-        &::before {
+        &::after {
           content: '';
           background-color: #000;
           opacity: 0;
@@ -167,21 +206,23 @@
           z-index: 1;
         }
         &:hover {
-          &::before {
+          &::after {
             opacity: 0.8;
           }
           #{$this}__more {
             display: block;
-            z-index: 2;
+            z-index: 5;
           }
           :global {
             .HoverBox-PlayBtn {
               opacity: 1;
               margin-top: calculateRem(-10px);
+              z-index: 3;
             }
             .HoverBox-Link {
               opacity: 1;
               bottom: calculateRem(20px);
+              z-index: 3;
             }
           }
         }

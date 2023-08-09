@@ -9,18 +9,31 @@ import {
 import { typedMemo } from '@/helpers';
 import { Checkbox, CheckboxProps, TextWithTooltip, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
-import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useCallback, useState } from 'react';
+import { DetailedHTMLProps, FC, HTMLAttributes, ReactNode, useCallback, useMemo, useState } from 'react';
 import styles from './ItemCategoriesCard.module.scss';
+import { PrimaryKey } from '@atom/common';
 
 export type FormWithInputAction = Partial<FormWithInputProps> & {
   actionLabel: string;
   actionIcon?: ReactNode;
   removeForm?: boolean;
-
   onActionClick?(): void;
 };
 
-export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface ItemCategoriesCardProps<T = undefined>
+  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  maxLabelCount?: number;
+  attachedLabelsCount?: number;
+  labelComponent?: FC<{
+    isActive: boolean;
+    labelText: string;
+    isMinified: boolean;
+  }>;
+  labelManagerProps?: T & {
+    onApply?: (id: PrimaryKey, isSuccess: boolean) => void;
+    labelsToDelete?: { id: PrimaryKey; isActive: boolean; name: string }[];
+  };
+  labelManagerContainer?: React.FC<{ labelManagerProps: T; defaultOpenState: boolean }>;
   checkboxProps?: CheckboxProps;
   cardTopComponent?: ReactNode;
   showCheckboxOnHover?: boolean;
@@ -30,25 +43,25 @@ export interface ItemCategoriesCardProps extends DetailedHTMLProps<HTMLAttribute
   emptyImageIllustration?: React.FC<React.SVGProps<SVGSVGElement>>;
   name: string;
   subTitle?: string;
-
   formWithInputActions?: FormWithInputAction[];
   actionsShowPosition?: ButtonFormProps['showPosition'];
-
   translations?: {
     view: string;
     playDemoText?: string;
     delete?: string;
+    deleteLabel?: string;
+    addLabel?: string;
+    applyLabel?: string;
   };
   status?: 'active' | 'inactive';
   statusLabel?: string;
-
   onViewButtonClick?(): void;
   onDeleteButtonClick?(): void;
   onPlayButtonClick?(): void;
   onDemoPlayButtonClick?(): void;
 }
 
-const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
+const ItemCategoriesCard = <T,>({
   onDeleteButtonClick,
   onPlayButtonClick,
   onDemoPlayButtonClick,
@@ -67,10 +80,49 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
   showCheckboxOnHover,
   status,
   statusLabel,
+  labelComponent: LabelComponent,
+  labelManagerProps,
+  labelManagerContainer: LabelManagerContainer,
+  maxLabelCount,
+  attachedLabelsCount = 0,
   ...props
-}) => {
+}: ItemCategoriesCardProps<T>) => {
   const [selectedFormProps, setSelectedFormProps] = useState<FormWithInputAction | null>(null);
   const [showSelectedFrom, setShowSelectedForm] = useState(false);
+  const [labelActionsState, setLabelActionsState] = useState({
+    visible: false,
+    actionType: null
+  });
+
+  const showAddLabel = useMemo(() => attachedLabelsCount < maxLabelCount, [attachedLabelsCount, maxLabelCount]);
+  const showDeleteLabel = useMemo(() => !!attachedLabelsCount, [attachedLabelsCount, maxLabelCount]);
+
+  const customizedLabelManagerProps = useMemo(
+    () => ({
+      ...labelManagerProps,
+      actionType: labelActionsState.actionType,
+      onApply: (id: PrimaryKey, isSuccess: boolean) => {
+        if (isSuccess) {
+          setLabelActionsState({
+            visible: false,
+            actionType: null
+          });
+        }
+        labelManagerProps?.onApply(id, isSuccess);
+      },
+      onBack: () =>
+        setLabelActionsState({
+          visible: false,
+          actionType: null
+        }),
+      onOutsideClick: () =>
+        setLabelActionsState({
+          visible: false,
+          actionType: null
+        })
+    }),
+    [labelManagerProps, labelActionsState]
+  );
 
   const closeSelectedForm = useCallback(() => setShowSelectedForm(false), []);
 
@@ -95,25 +147,33 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
       )}>
       <div className={styles['ItemCategoriesCard__main']}>
         {cardTopComponent && <div className={styles['ItemCategoriesCard__top']}>{cardTopComponent}</div>}
-
         {checkboxProps && !cardTopComponent && (
           <Checkbox
             {...checkboxProps}
             className={classNames(styles['ItemCategoriesCard__top'], checkboxProps?.className)}
           />
         )}
-
         {index ? <span className={styles['ItemCategoriesCard__index']}>{index}</span> : null}
-
         {showActions && (
           <ButtonForm
             showPosition={actionsShowPosition}
             className={styles['ItemCategoriesCard__more']}
+            cardClassName={classNames(styles.ActionsCardBase, {
+              [styles['ActionsCardBase--label-manager-open']]: labelActionsState.visible
+            })}
             renderOpenElement={({ open }) => (
               <button type='button' onClick={open}>
                 <Icons.DotsIcon />
               </button>
             )}>
+            {labelActionsState.visible && (
+              <div
+                className={classNames(styles['ItemCategoriesCard__label-content'], {
+                  [styles['ItemCategoriesCard__label-content--open']]: labelActionsState.visible
+                })}>
+                {<LabelManagerContainer defaultOpenState labelManagerProps={customizedLabelManagerProps as T} />}
+              </div>
+            )}
             <div
               className={classNames(styles['ItemCategoriesCard__more-content'], {
                 [styles['ItemCategoriesCard__more-content--with-selected-form']]: showSelectedFrom
@@ -159,6 +219,29 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
                   </button>
                 ))}
 
+                {labelManagerProps && (
+                  <>
+                    {showAddLabel && (
+                      <button
+                        className={classNames(styles['ItemCategoriesCard__action'])}
+                        type='button'
+                        onClick={() => setLabelActionsState({ visible: true, actionType: 'add' })}>
+                        <Icons.Label width='1.5rem' /> {translations.addLabel}
+                        <Icons.ArrowNext width='0.7rem' className={styles.ArrowIcon} />
+                      </button>
+                    )}
+                    {showDeleteLabel && (
+                      <button
+                        className={classNames(styles['ItemCategoriesCard__action'])}
+                        type='button'
+                        onClick={() => setLabelActionsState({ visible: true, actionType: 'delete' })}>
+                        <Icons.DeleteLabel width='1.5rem' /> {translations.deleteLabel}
+                        <Icons.ArrowNext width='0.7rem' className={styles.ArrowIcon} />
+                      </button>
+                    )}
+                  </>
+                )}
+
                 {onDeleteButtonClick && (
                   <button
                     className={classNames(
@@ -184,13 +267,19 @@ const ItemCategoriesCard: FC<ItemCategoriesCardProps> = ({
             showPlayBtn={!!onPlayButtonClick}
           />
         </div>
-
         {imgSrc ? (
           <img className={styles['ItemCategoriesCard__img']} src={imgSrc} alt={name} />
         ) : (
           <span className={styles['ItemCategoriesCard__empty-img']}>
             <EmptyImageIllustration />
           </span>
+        )}
+        {labelManagerProps?.labelsToDelete && (
+          <div className={styles.LabelsList}>
+            {labelManagerProps?.labelsToDelete.map((label) => (
+              <LabelComponent key={label.id} isActive={label.isActive} isMinified labelText={label.name} />
+            ))}
+          </div>
         )}
       </div>
 

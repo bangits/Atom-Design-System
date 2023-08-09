@@ -46,7 +46,7 @@ export interface ProviderDetailsProps {
   generalInformationContext: ReactNode;
   gamesTabContent: ReactNode;
   isCmsUser: boolean;
-
+  sidebarLabelsView?: ReactNode;
   onBackgroundImgClick: () => void;
 }
 
@@ -69,7 +69,8 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
   backgroundImgUrl,
   lastUpdatedBy,
   lastUpdatedDate,
-  isCmsUser = false
+  isCmsUser = false,
+  sidebarLabelsView
 }) => {
   return (
     <div className={styles.ProviderDetailsBase}>
@@ -134,6 +135,7 @@ const ProviderDetails: FC<ProviderDetailsProps> = ({
           {isCmsUser && (
             <div className={styles.StatusContent}>
               <StatusView {...statusInfo} label={translations.status} noDataText={noDataText} />
+              {sidebarLabelsView}
             </div>
           )}
           {!isCmsUser && (
