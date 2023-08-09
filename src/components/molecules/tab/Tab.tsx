@@ -11,7 +11,7 @@ export interface TabProps extends MYUITabProps {
 export const Tab = ({ setCurrentSubTab, onChange, getTabInitialSub, checkSubTab, ...tabProps }: TabProps) => {
   const { options } = tabProps;
 
-  const { tab: tabQSValue, subTab: subTabQSValue } = useQueryString<{ tab: string; subTab: string }>();
+  const { tab: tabQSValue, subTab: subTabQSValue, ...restQueries } = useQueryString<{ tab: string; subTab: string }>();
 
   useEffect(() => {
     const tab = options.find((tab) => tab?.value === +tabQSValue);
@@ -30,7 +30,12 @@ export const Tab = ({ setCurrentSubTab, onChange, getTabInitialSub, checkSubTab,
 
         const subTabValue = getTabInitialSub?.(value);
 
-        addQueryString(`?tab=${value}${subTabValue ? `&subTab=${subTabValue}` : ''}`);
+        const prevStr = Object.entries(restQueries).reduce(
+          (acc, [key, value], index) => (index ? `${acc}&${key}=${value}` : `${acc}${key}=${value}`),
+          ''
+        );
+
+        addQueryString(`?${prevStr && `${prevStr}&`}tab=${value}${subTabValue ? `&subTab=${subTabValue}` : ''}`);
       }}
     />
   );

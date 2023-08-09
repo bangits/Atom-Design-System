@@ -9,3 +9,4 @@ export * from './typedMemo';
 export * from './useKeyPress';
 export * from './useQueryString';
 export * from './useResizeObserver';
+export * from './useDebounce';

@@ -34,11 +34,12 @@
     &__list {
       display: grid;
       align-content: flex-start;
-      grid-template-columns: repeat(auto-fill, minmax(#{calculateRem(110px)}, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(#{calculateRem(140px)}, 1fr));
       $padding-bottom: calculateRem(50px);
       height: calc(100% - $padding-bottom);
-      gap: calculateRem(12px);
+      gap: calculateRem(16px);
       padding-bottom: $padding-bottom;
+      padding-right: calculateRem(20px);
     }
     &__item {
       &--width-auto {

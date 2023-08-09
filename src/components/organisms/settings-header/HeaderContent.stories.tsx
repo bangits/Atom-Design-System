@@ -1,5 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import HeaderContent from './HeaderContent';
+import React from 'react';
 
 export default {
   title: 'components/organisms/Header Content',
