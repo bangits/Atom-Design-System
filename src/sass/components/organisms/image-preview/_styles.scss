@@ -41,8 +41,8 @@
     transform: translate(-50%, -50%);
 
     img {
+      max-height: calc(100vh - #{calculateRem(300px)});
       margin-top: calculateRem(110px);
-      height: calculateRem(600px);
     }
   }
 

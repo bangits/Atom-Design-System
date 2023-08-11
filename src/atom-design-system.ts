@@ -34,6 +34,7 @@ export {
   convertColorToHex,
   knownColors,
   typedMemo,
+  useOutsideClickWithRef,
   type RadioButtonProps
 } from '@my-ui/core';
 export type {
@@ -45,11 +46,12 @@ export type {
   DialogHeaderProps,
   DialogProps,
   TagWithImageBaseProps,
-  DialogWithActionsProps,
+  DialogWithActionsProps
 } from '@my-ui/core';
 export * from './components';
 export * from './contexts';
 export * from './helpers/arrayMove';
+export * from './helpers/useDebounce';
 export * from './services';
 
 try {

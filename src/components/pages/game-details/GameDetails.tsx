@@ -41,6 +41,7 @@ export interface GameDetailsProps {
   };
   isShowEditIcons?: boolean;
   rgsInfo?: boolean;
+  sidebarLabelsView?: ReactNode;
 }
 const GameDetails: FC<GameDetailsProps> = ({
   breadCrumbs,
@@ -60,8 +61,8 @@ const GameDetails: FC<GameDetailsProps> = ({
   onMainImgClick,
   onBackgroundImgClick,
   isLoadingImage,
-  isShowEditIcons = true,
-  rgsInfo = true
+  rgsInfo = true,
+  sidebarLabelsView
 }) => {
   return (
     <div className={classNames(styles.GameDetailsBase)}>
@@ -82,6 +83,7 @@ const GameDetails: FC<GameDetailsProps> = ({
 
           <div className={styles['GameDetails__Sidebar-Widget']}>
             <StatusView {...statusInfo} label={translations.status} />
+            {sidebarLabelsView}
           </div>
 
           {rgsInfo && (

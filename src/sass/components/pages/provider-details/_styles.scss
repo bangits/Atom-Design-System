@@ -20,7 +20,10 @@
   }
   .StatusContent {
     margin-bottom: getProviderDetailsSizes(status-content-margin-bottom);
-    height: getProviderDetailsSizes(status-content-height);
+
+    & >:first-child {
+      margin-bottom: calculateRem(8px);
+    }
   }
   .ButtonContent {
     @include flex(flex-end, center);
