@@ -2,6 +2,7 @@
   .CloseButton path:last-child {
     fill: currentColor;
   }
+
   .CloseButton path:first-child {
     fill: currentColor;
   }
@@ -19,13 +20,16 @@
     // padding: 0 20px 0 20px;
     top: 0;
     left: 0;
+
     svg {
       color: #fff;
     }
+
     .Infos {
       padding-left: calculateRem(60px);
       font-size: calculateRem(16px);
     }
+
     .Actions {
       padding-right: calculateRem(60px);
       display: flex;
