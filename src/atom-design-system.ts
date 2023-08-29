@@ -35,6 +35,7 @@ export {
   knownColors,
   typedMemo,
   useOutsideClickWithRef,
+  AvatarCard,
   type RadioButtonProps
 } from '@my-ui/core';
 export type {

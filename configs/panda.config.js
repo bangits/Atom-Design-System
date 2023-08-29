@@ -6,6 +6,7 @@ export default {
     extend: {
       tokens: {
         colors: {
+          'alabaster': {value: '#fbfafd'},
           'scampi': { value: '#6667AB' },
           'black-color': { value: '#48485D' },
           'nepal': {value: '#8ea6c1'},
