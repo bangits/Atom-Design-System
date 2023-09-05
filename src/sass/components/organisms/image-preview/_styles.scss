@@ -1,4 +1,26 @@
 @mixin generate-image-preview-styles {
+  .PrevButton {
+    position: absolute;
+    top: 50%;
+    left: calculateRem(50px);
+    z-index: 1111;
+
+    svg {
+      fill: white;
+    }
+  }
+  
+  .NextButton {
+    position: absolute;
+    top: 50%;
+    right: calculateRem(50px);
+    z-index: 1111;
+
+    svg {
+      fill: white;
+    }
+  }
+
   .CloseButton path:last-child {
     fill: currentColor;
   }
