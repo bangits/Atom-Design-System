@@ -13,6 +13,7 @@
       min-height: calculateRem(656px);
       box-sizing: border-box;
       border-radius: calculateRem(16px);
+      max-width: calc(100% - calculateRem(230px));
     }
     &__sidebar {
       max-width: calculateRem(230px);
