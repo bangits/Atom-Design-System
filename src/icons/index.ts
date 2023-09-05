@@ -191,3 +191,5 @@ export { ReactComponent as AddLabelPopupIcon } from './add-label-popup-icon.svg'
 export { ReactComponent as AddIconFilled } from './add-icon-filled.react.svg';
 export { ReactComponent as Visibility } from './visibility.react.svg';
 export { ReactComponent as VisibilityOff } from './visibility-off.react.svg';
+export { ReactComponent as NoteCheckModal } from './note-check-modal.react.svg';
+export { ReactComponent as NoteCheck } from './note-check.svg.react.svg';
