@@ -36,8 +36,6 @@ const FromToTimePicker: FC<FromToTimepickerProps> = ({
       <DateTimePicker
         {...(fromPickerProps || {})}
         onChange={(value) => {
-          console.log('🚀 ~ file: FromToTimePicker.tsx:69 ~ value:', value);
-
           setSelectedDateFrom(value);
 
           onChange([value, null]);
