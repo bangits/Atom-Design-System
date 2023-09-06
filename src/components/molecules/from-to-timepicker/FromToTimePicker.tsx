@@ -1,6 +1,6 @@
 import { typedMemo } from '@/helpers';
 import { DateTimePicker, DateTimePickerProps } from '@my-ui/core';
-import { FC, useMemo, useState } from 'react';
+import { FC, useState } from 'react';
 import styles from './FromToTimePicker.module.scss';
 
 export interface FromToTimepickerProps {
@@ -26,20 +26,18 @@ const FromToTimePicker: FC<FromToTimepickerProps> = ({
   const [selectedDateFrom, setSelectedDateFrom] = useState<Date>(fromPickerDefaultValue || null);
   const [selectedDateTo, setSelectedDateTo] = useState<Date>(toPickerDefaultValue || null);
 
-  const dateFromPlusOneMinute = useMemo(() => {
-    const selectedDateFromCloned = new Date(selectedDateFrom);
+  const dateFromPlusOneMinute = new Date(selectedDateFrom);
 
-    if (toPickerProps.hideTimeSelection) selectedDateFromCloned.setHours(selectedDateFromCloned.getHours() + 24);
-    else selectedDateFromCloned.setMinutes(selectedDateFromCloned.getMinutes() + 1);
-
-    return selectedDateFromCloned;
-  }, [toPickerProps.hideTimeSelection, selectedDateFrom]);
+  if (toPickerProps.hideTimeSelection) dateFromPlusOneMinute.setHours(dateFromPlusOneMinute.getHours() + 24);
+  else dateFromPlusOneMinute.setMinutes(dateFromPlusOneMinute.getMinutes() + 1);
 
   return (
     <div className={styles.FromToTimePickerContainer}>
       <DateTimePicker
         {...(fromPickerProps || {})}
         onChange={(value) => {
+          console.log('🚀 ~ file: FromToTimePicker.tsx:69 ~ value:', value);
+
           setSelectedDateFrom(value);
 
           onChange([value, null]);
