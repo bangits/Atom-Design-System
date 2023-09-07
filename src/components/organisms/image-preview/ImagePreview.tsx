@@ -3,7 +3,7 @@ import { DownloadIcon } from '@/icons';
 import { BaseFileUploaderProps, IconButton, Tooltip, Typography } from '@my-ui/core';
 import classNames from 'classnames';
 import 'cropperjs/dist/cropper.css';
-import { useCallback, useMemo, useState } from 'react';
+import { ReactNode, useCallback, useMemo, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ImagePreview.module.scss';
 import ReactPortal from './Portal';
@@ -11,7 +11,8 @@ import { PrimaryKey, useTranslation } from '@atom/common';
 
 export interface ImagePreviewProps extends BaseFileUploaderProps {
   uploadedFiles?: { url: string; id: PrimaryKey }[];
-  onDownloadClick: (props: { url: string; id: PrimaryKey }) => void;
+  headerContent?: ({ styles, index, id }: { styles: string; index: number; id: PrimaryKey }) => ReactNode;
+  onDownloadClick: (props: { url: string; id: PrimaryKey; index: number }) => void;
   translations: {
     download: string;
     cancel: string;
@@ -20,7 +21,14 @@ export interface ImagePreviewProps extends BaseFileUploaderProps {
   onClose: () => void;
 }
 
-export const ImagePreview = ({ uploadedFiles, onDownloadClick, translations, opened, onClose }: ImagePreviewProps) => {
+export const ImagePreview = ({
+  uploadedFiles,
+  onDownloadClick,
+  translations,
+  opened,
+  headerContent,
+  onClose
+}: ImagePreviewProps) => {
   const [imagePosition, setImagePosition] = useState(0);
 
   const t = useTranslation();
@@ -29,7 +37,7 @@ export const ImagePreview = ({ uploadedFiles, onDownloadClick, translations, ope
     () => [
       {
         icon: <DownloadIcon className={styles.CloseButton} />,
-        onClick: () => onDownloadClick(uploadedFiles[imagePosition]),
+        onClick: () => onDownloadClick({ ...uploadedFiles[imagePosition], index: imagePosition + 1 }),
         label: translations.download
       },
       {
@@ -49,7 +57,11 @@ export const ImagePreview = ({ uploadedFiles, onDownloadClick, translations, ope
       <ReactPortal wrapperId={opened ? 'Portal' : ''}>
         {opened && (
           <div className={styles.HeaderSection}>
-            <Typography className={styles.Infos}>{uploadedFiles[imagePosition].id}</Typography>
+            {headerContent({
+              styles: styles.Infos,
+              id: uploadedFiles[imagePosition].id,
+              index: imagePosition + 1
+            })}
             <div className={styles.Actions}>
               {actions.map((action, index) => (
                 <div key={index}>
