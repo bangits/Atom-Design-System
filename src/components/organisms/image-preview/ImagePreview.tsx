@@ -7,7 +7,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import styles from './ImagePreview.module.scss';
 import ReactPortal from './Portal';
-import { PrimaryKey } from '@atom/common';
+import { PrimaryKey, useTranslation } from '@atom/common';
 
 export interface ImagePreviewProps extends BaseFileUploaderProps {
   uploadedFiles?: { url: string; id: PrimaryKey }[];
@@ -22,6 +22,8 @@ export interface ImagePreviewProps extends BaseFileUploaderProps {
 
 export const ImagePreview = ({ uploadedFiles, onDownloadClick, translations, opened, onClose }: ImagePreviewProps) => {
   const [imagePosition, setImagePosition] = useState(0);
+
+  const t = useTranslation();
 
   const actions = useMemo(
     () => [
@@ -63,7 +65,9 @@ export const ImagePreview = ({ uploadedFiles, onDownloadClick, translations, ope
           <>
             {!!uploadedFiles.length && !!imagePosition && (
               <div className={styles.PrevButton}>
-                <IconButton onClick={handlePrev} icon={<Icons.ArrowPrev />} />
+                <Tooltip text={t.get('prev')}>
+                  <IconButton onClick={handlePrev} icon={<Icons.ArrowPrev />} />
+                </Tooltip>
               </div>
             )}
             <div className={styles.ImagePreview}>
@@ -71,7 +75,9 @@ export const ImagePreview = ({ uploadedFiles, onDownloadClick, translations, ope
             </div>
             {!!uploadedFiles.length && uploadedFiles.length - 1 !== imagePosition && (
               <div className={styles.NextButton}>
-                <IconButton onClick={handleNext} icon={<Icons.ArrowNext />} />
+                <Tooltip text={t.get('next')}>
+                  <IconButton onClick={handleNext} icon={<Icons.ArrowNext />} />
+                </Tooltip>
               </div>
             )}
             <div className={classNames(styles.Overlay)} tabIndex={0} role='button' onClick={onClose} />
