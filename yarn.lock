@@ -3371,10 +3371,10 @@
     react-transition-group "^4.4.2"
     throttle-debounce "^3.0.1"
 
-"@my-ui/core@^0.11.94":
-  version "0.11.94"
-  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.11.94.tgz#2e31c2e8ae2fd1ce4f00e4b9ec3f5ef7d8d88c87"
-  integrity sha1-LjHC6K4v0c5PAOS57D9e99jYjIc=
+"@my-ui/core@^0.11.95":
+  version "0.11.95"
+  resolved "https://pkgs.dev.azure.com/bangitsllc/Common/_packaging/Bangits.Atom.Common/npm/registry/@my-ui/core/-/core-0.11.95.tgz#bb48c8e36854ac29e347b17b710a49d67e31d6db"
+  integrity sha1-u0jI42hUrCnjR7F7cQpJ1n4x1ts=
   dependencies:
     "@my-ui/react-datepicker" "^1.5.0"
     "@my-ui/react-select" "1.1.6"

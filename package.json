@@ -1,6 +1,6 @@
 {
   "name": "@atom/design-system",
-  "version": "5.6.31",
+  "version": "5.6.32",
   "files": [
     "dist",
     "configs"
@@ -87,7 +87,7 @@
   },
   "dependencies": {
     "@atom/common": "^3.1.9",
-    "@my-ui/core": "^0.11.94",
+    "@my-ui/core": "^0.11.95",
     "classnames": "^2.3.1",
     "codemirror": "^5.65.10",
     "draft-js": "^0.11.7",
