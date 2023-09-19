@@ -53,41 +53,39 @@ const Options: FC<OptionsProps> = ({
       })}>
       {Array.isArray(data) ? (
         data.map((d, index) => (
-          <>
-            <React.Fragment key={index}>
-              {d.download ? (
-                <div
-                  onClick={d.onClick}
-                  className={classNames(styles['OptionsBase--core'], {
-                    [styles['OptionsBase--core-opacity']]: opacity
-                  })}>
-                  <a
-                    style={{ color: '#505d6e', textDecoration: 'none', width: '100%' }}
-                    download='foo.png'
-                    href={d.download ? d.link : ''}>
-                    <Divider variant='horizontal' />
-                    {d.icon && <span className={styles['OptionsBase--description']}>{d.icon}</span>}
-                    <span className={styles['OptionsBase--name']}>{d.name}</span>
-                  </a>
-                </div>
-              ) : !d.name ? (
-                <div
-                  onClick={() => click(d)}
-                  className={classNames(styles['OptionsBase--core'], {
-                    [styles['OptionsBase--core-single']]: data?.length <= 1
-                  })}>
+          <React.Fragment key={index}>
+            {d.download ? (
+              <div
+                onClick={d.onClick}
+                className={classNames(styles['OptionsBase--core'], {
+                  [styles['OptionsBase--core-opacity']]: opacity
+                })}>
+                <a
+                  style={{ color: '#505d6e', textDecoration: 'none', width: '100%' }}
+                  download='foo.png'
+                  href={d.download ? d.link : ''}>
                   <Divider variant='horizontal' />
-                  <span className={styles['OptionsBase--name']}>{d}</span>
-                </div>
-              ) : (
-                <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
-                  <Divider variant='horizontal' />
-                  <span className={styles['OptionsBase--description']}>{d.icon}</span>
+                  {d.icon && <span className={styles['OptionsBase--description']}>{d.icon}</span>}
                   <span className={styles['OptionsBase--name']}>{d.name}</span>
-                </div>
-              )}
-            </React.Fragment>
-          </>
+                </a>
+              </div>
+            ) : !d.name ? (
+              <div
+                onClick={() => click(d)}
+                className={classNames(styles['OptionsBase--core'], {
+                  [styles['OptionsBase--core-single']]: data?.length <= 1
+                })}>
+                <Divider variant='horizontal' />
+                <span className={styles['OptionsBase--name']}>{d}</span>
+              </div>
+            ) : (
+              <div onClick={d.onClick} className={classNames(styles['OptionsBase--core'])}>
+                <Divider variant='horizontal' />
+                <span className={styles['OptionsBase--description']}>{d.icon}</span>
+                <span className={styles['OptionsBase--name']}>{d.name}</span>
+              </div>
+            )}
+          </React.Fragment>
         ))
       ) : (
         <div className={classNames(styles['OptionsBase--core'])}>

@@ -36,9 +36,11 @@ export {
   typedMemo,
   useOutsideClickWithRef,
   AvatarCard,
-  type RadioButtonProps
+  InputIpPicker
 } from '@my-ui/core';
 export type {
+  InputIpPickerProps,
+  RadioButtonProps,
   AcceptionDialogProps,
   ButtonProps,
   DialogBodyProps,
