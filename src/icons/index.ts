@@ -194,3 +194,4 @@ export { ReactComponent as VisibilityOff } from './visibility-off.react.svg';
 export { ReactComponent as NoteCheckModal } from './note-check-modal.react.svg';
 export { ReactComponent as NoteCheck } from './note-check.svg.react.svg';
 export { ReactComponent as WidgetPopup } from './widget-popup.react.svg';
+export { ReactComponent as Widget } from './widget.react.svg';
